@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest'
 import topology from '../data/lowlands.topo.json'
 import { credits } from '../photos/credits'
 import { photoIds } from '../photos/ids'
+import { ROMAN_MAX, ROMAN_MIN, romanEvents, romanLines, romanSites } from '../data/roman'
 import { places } from './places'
 import { Unit } from './schema'
 
@@ -61,6 +62,7 @@ describe.each(files)('%s', (file) => {
         (e) =>
           e.type === 'pin' ||
           e.type === 'region' ||
+          (e.type === 'truemyth' && e.visual) ||
           (e.type === 'choice' && (e.visual || e.options.some((o) => o.art || o.photo))),
       )
       // The plan's target is 70% across a unit; single lessons may dip to 50%.
@@ -78,5 +80,27 @@ describe('photos', () => {
       expect(c.source, id).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/)
       expect(c.licenceUrl, id).toMatch(/^https:\/\/creativecommons\.org\//)
     }
+  })
+})
+
+describe('roman time map', () => {
+  // Generous box around the map, so a swapped lon/lat or a typo shows up.
+  const inBox = ([lon, lat]: [number, number]) => lon > 1 && lon < 9 && lat > 49 && lat < 54
+
+  it('has lines with real coordinates', () => {
+    for (const [id, line] of Object.entries(romanLines)) {
+      expect(line.coords.length, id).toBeGreaterThanOrEqual(2)
+      for (const c of line.coords) expect(inBox(c), `${id} ${c}`).toBe(true)
+      if (line.to !== undefined) expect(line.to, id).toBeGreaterThan(line.from)
+    }
+    for (const site of romanSites) expect(inBox(site.at), site.modern).toBe(true)
+  })
+
+  it('tells its story in order across the whole slider', () => {
+    const starts = romanEvents.map((e) => e.from)
+    expect(starts[0]).toBe(ROMAN_MIN)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    expect(starts[starts.length - 1]).toBeLessThanOrEqual(ROMAN_MAX)
   })
 })

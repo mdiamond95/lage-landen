@@ -13,6 +13,12 @@ const paths: Record<string, React.ReactNode> = {
   river: <path d="M4 4c6 3-2 7 4 10s2 6 8 6M12 4c5 3-1 6 4 9" fill="none" />,
   wave: <path d="M2 14c3-3 5-3 7 0s5 3 7 0 4-3 6 0M2 19c3-3 5-3 7 0s5 3 7 0 4-3 6 0M12 3v7" fill="none" />,
   shield: <path d="M12 3 4 6v6c0 5 4 8 8 9 4-1 8-4 8-9V6z" fill="none" />,
+  helmet: <path d="M5 15a7 7 0 0 1 14 0v2h-4v4M5 15v2h4v4M12 8V3M9 3h6M9 12h6" fill="none" strokeLinejoin="round" />,
+  tower: <path d="M7 21V9h10v12M5 9h14M7 9V5h2v2h2V5h2v2h2V5h2v4M10 21v-4a2 2 0 0 1 4 0v4" fill="none" strokeLinejoin="round" />,
+  road: <path d="M8 3 4 21M16 3l4 18M12 4v3M12 11v3M12 18v3" fill="none" />,
+  cross: <path d="M12 3v18M7 8h10" fill="none" />,
+  ship: <path d="M3 15h18l-3 5H6zM12 15V3l6 9h-6M8 8l4-5" fill="none" strokeLinejoin="round" />,
+  crown: <path d="M4 18 3 7l5 4 4-6 4 6 5-4-1 11zM4 21h16" fill="none" strokeLinejoin="round" />,
 }
 
 export function Icon({ name }: { name: string }) {

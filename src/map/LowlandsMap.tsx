@@ -1,13 +1,16 @@
 import { useRef } from 'react'
 import type { ReactNode } from 'react'
-import { MAP_H, MAP_W, countries, lakes, path, projection, provinces, rivers } from './geo'
+import { MAP_H, MAP_W, countries, lakes, linePath, path, projection, provinces, rivers } from './geo'
 import { places } from '../content/places'
+import { romanLines, type LineId } from '../data/roman'
 
 export type MapPin = { place?: string; lonLat?: [number, number]; tone: 'answer' | 'guess' | 'info'; label?: string }
 
 type Props = {
   highlight?: string[]
   rivers?: string[]
+  // Historical frontiers and roads, drawn above the rivers.
+  lines?: LineId[]
   pins?: MapPin[]
   // In pin mode the whole map is a tap target; in region mode each shape is.
   mode?: 'view' | 'pin' | 'region'
@@ -25,6 +28,7 @@ const FOCUS = new Set(['NLD', 'BEL'])
 export function LowlandsMap({
   highlight = [],
   rivers: riverHighlight = [],
+  lines = [],
   pins = [],
   mode = 'view',
   layer = 'provinces',
@@ -133,6 +137,9 @@ export function LowlandsMap({
           />
         )
       })}
+      {lines.map((id) => (
+        <path key={id} d={linePath(romanLines[id].coords)} className={`hist-line hist-${romanLines[id].kind}`} />
+      ))}
       {pins.map((pin, i) => {
         const place = pin.place ? places[pin.place] : undefined
         const lonLat = pin.lonLat ?? (place ? ([place.lon, place.lat] as [number, number]) : undefined)

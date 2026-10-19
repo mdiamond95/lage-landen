@@ -1,0 +1,616 @@
+id: unit-02
+number: 2
+title: Celts, Romans and Franks
+era: 57 BCE to 900
+summary: Caesar's conquest, the Rhine frontier, Roman towns and roads, then the Franks, the Frisians and Charlemagne.
+lessons:
+  - id: u2-l1
+    title: Caesar and the Belgae
+    icon: helmet
+    sources:
+      - title: Encyclopaedia Britannica, Batavi
+        url: https://www.britannica.com/topic/Batavi
+      - title: Livius.org, Atuatuca (Tongeren)
+        url: https://www.livius.org/articles/place/atuatuca-tongeren/
+      - title: Into Nijmegen, the Roman cities Oppidum Batavorum and Ulpia Noviomagus
+        url: https://en.intonijmegen.com/discover/history/historical-timeline/the-roman-cities
+      - title: Tacitus, Germania, chapter 29 (on the Batavians)
+        url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0083:chapter=29
+    exercises:
+      - type: story
+        title: The bravest of the Gauls
+        body: >-
+          In 57 BCE Julius Caesar marched north into the land of the Belgae, a group of tribes living between
+          the Seine and the Rhine. He wrote that "of all these, the Belgae are the bravest". Within a few years
+          Rome ruled everything up to the Rhine. Beyond the river lived the Batavians and, along the northern
+          coast, the Frisians.
+        visual: { kind: map, highlight: [BEL], rivers: [Rhine, Waal, Nederrijn, Maas, Schelde], pins: [tongeren, nijmegen] }
+      - type: region
+        prompt: One modern country is named after the Belgae. Tap it.
+        layer: countries
+        answer: [BEL]
+        explain: >-
+          The Romans called the region Gallia Belgica. When Belgium broke away from the Netherlands in 1830, it
+          revived the old Latin name.
+      - type: truemyth
+        statement: Caesar called the Belgae the bravest people in all of Gaul.
+        answer: true
+        explain: >-
+          His book on the Gallic War opens with it. He thought they were tough because traders rarely brought
+          them luxuries and because they were always fighting the Germans across the Rhine.
+      - type: choice
+        prompt: This statue on the market square of Tongeren honours a leader who wiped out a Roman legion in 54 BCE. Who is he?
+        visual: { kind: photo, photo: ambiorix-statue }
+        answer: 0
+        options:
+          - label: Ambiorix
+            why: >-
+              Right. Ambiorix led the Eburones, who ambushed a legion and five more cohorts in the winter of 54 BCE.
+              The statue went up in 1866, when the young Belgium was looking for national heroes.
+          - label: Vercingetorix
+            why: Vercingetorix led the great Gallic revolt of 52 BCE, much further south, in today's central France.
+          - label: Julius Civilis
+            why: Julius Civilis led the Batavian revolt more than a century later, in 69 CE.
+          - label: Clovis
+            why: Clovis was a Frankish king who lived 500 years later, around 500 CE.
+      - type: pin
+        prompt: Pin Tongeren, in the land of the Eburones, which grew into the oldest town in Belgium.
+        place: tongeren
+        okKm: 30
+        explain: The Romans called it Atuatuca Tungrorum. It lies in Belgian Limburg, about 20 km west of Maastricht.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Caesar defeats the Belgae, year: -57, when: 57 BCE }
+          - { label: Ambiorix destroys a Roman legion, year: -54, when: 54 BCE }
+          - { label: A Roman army camp is built at Nijmegen, year: -19, when: about 19 BCE }
+          - { label: The Rhine becomes the empire's frontier, year: 47, when: 47 CE }
+          - { label: The Batavians revolt, year: 69, when: 69 CE }
+        explain: Rome conquered the south first, then spent decades trying to push beyond the Rhine before settling on the river as its border.
+      - type: region
+        prompt: The Batavians lived on the "island" between the Rhine and the Waal, still called the Betuwe. Shade the province it lies in.
+        layer: provinces
+        answer: [NL-GE]
+        explain: The Betuwe is in Gelderland and takes its name from the Batavians. Their main town grew into Nijmegen, on the Waal.
+      - type: truemyth
+        statement: The Batavians paid Rome in soldiers instead of taxes.
+        answer: true
+        explain: >-
+          Tacitus wrote that they paid no tribute and were kept "for war, like weapons". Batavian horsemen,
+          famous for swimming rivers with their horses, even served as the emperor's bodyguard in Rome.
+      - type: region
+        prompt: The Frisians lived beyond the Rhine, on mounds along the northern coast. Shade the Dutch province that still carries their name.
+        layer: provinces
+        answer: [NL-FR]
+        explain: >-
+          Friesland. The Frisians also lived in what is now Groningen and North Holland. In 28 CE they rose up
+          against a Roman tax paid in ox hides.
+      - type: match
+        prompt: Match each people to what they are known for.
+        pairs:
+          - [Belgae, Gave their name to Belgium]
+          - [Eburones, Led by Ambiorix]
+          - [Batavians, Lived in the Betuwe]
+          - [Frisians, Paid a tax in ox hides]
+      - type: pin
+        prompt: Pin Nijmegen, which grew from a Roman army camp on the Waal.
+        place: nijmegen
+        explain: >-
+          The Romans called it Noviomagus, "new market". Nijmegen celebrated 2,000 years as a city in 2005 and
+          calls itself the oldest city in the Netherlands.
+
+  - id: u2-l2
+    title: The Rhine frontier
+    icon: tower
+    sources:
+      - title: UNESCO, Frontiers of the Roman Empire, the Lower German Limes
+        url: https://whc.unesco.org/en/list/1631
+      - title: Rijksmuseum van Oudheden, gilded silver helmet (Deurne)
+        url: https://www.rmo.nl/en/collection/highlights-collection/gilded-silver-helmet/
+      - title: Livius.org, the Batavian revolt
+        url: https://www.livius.org/articles/concept/batavian-revolt/
+      - title: Livius.org, Fossa Corbulonis
+        url: https://www.livius.org/articles/place/fossa-corbulonis/
+    exercises:
+      - type: story
+        title: A frontier along a river
+        body: >-
+          In 47 CE Emperor Claudius ordered his army back behind the Rhine. For more than 350 years the river was
+          the edge of the Roman Empire, guarded by forts and watchtowers from the North Sea at Katwijk upstream past
+          Utrecht and Nijmegen into Germany. Drag the years, or press play, to watch the frontier and the roads appear.
+        visual: { kind: time-map, map: roman }
+      - type: choice
+        prompt: Which Roman line is drawn on this map?
+        visual: { kind: map, highlight: [], rivers: [], lines: [limes] }
+        answer: 0
+        options:
+          - label: The Rhine frontier (limes)
+            why: Right. The limes followed the Rhine from the North Sea past Utrecht and into Germany.
+          - label: The Via Belgica
+            why: The Via Belgica was a road further south, running east to west through Tongeren and Maastricht.
+          - label: Hadrian's Wall
+            why: Hadrian's Wall crosses northern Britain, across the North Sea.
+          - label: Corbulo's canal
+            why: Corbulo's canal was a short cut from Leiden past Voorburg to the mouth of the Maas, not a long border.
+      - type: pin
+        prompt: The Romans built a fort called Traiectum, "the crossing", on the Rhine. Today a big Dutch city stands there. Pin it.
+        place: utrecht
+        explain: Utrecht grew up around the fort. Its remains lie under the Domplein, the square beside the cathedral tower.
+      - type: truemyth
+        statement: The Romans ruled all of today's Netherlands.
+        visual: { kind: map, highlight: [NLD], rivers: [], lines: [limes] }
+        answer: false
+        explain: >-
+          Everything north of the frontier, including Friesland, Groningen and most of Holland, stayed outside the
+          empire. The border ran right through Utrecht.
+      - type: choice
+        prompt: Rembrandt painted this in 1661 to 1662 for Amsterdam's new town hall. Whose rebellion against Rome does it show?
+        visual: { kind: photo, photo: claudius-civilis }
+        answer: 1
+        options:
+          - label: Ambiorix and the Eburones
+            why: Ambiorix fought Caesar in 54 BCE, long before this.
+          - label: Julius Civilis and the Batavians
+            why: >-
+              Right. The one-eyed Civilis swears his allies to revolt in 69 CE. The town hall sent the huge painting
+              back, and only this cut-down piece survives, now in Stockholm.
+          - label: William of Orange
+            why: William of Orange led the Dutch Revolt against Spain from 1568, not against Rome.
+          - label: Boudica
+            why: Boudica led a revolt in Britain in 60 to 61 CE.
+      - type: match
+        prompt: Match each person to their part in the story.
+        pairs:
+          - [Claudius, Made the Rhine the frontier]
+          - [Corbulo, Dug a canal from the Rhine to the Maas]
+          - [Julius Civilis, Led the Batavian revolt]
+          - [Rembrandt, Painted Civilis's oath]
+      - type: choice
+        prompt: Peat cutters found this gilded silver helmet near Deurne, in North Brabant, in 1910. Who wore a helmet like this?
+        visual: { kind: photo, photo: deurne-helmet }
+        answer: 0
+        options:
+          - label: A Roman cavalry officer
+            why: >-
+              Right. It dates from about 320 CE and is inscribed with the name of a cavalry unit, Stablesia VI.
+              Coins found with it date from 315 to 319.
+          - label: A Frankish king
+            why: Frankish kings came later, and this helmet is Roman work with a Latin inscription.
+          - label: A medieval knight
+            why: Knights came about 800 years later, and wore plain iron.
+          - label: A Viking raider
+            why: Vikings only reached the Low Countries around 500 years later, in the 830s.
+      - type: pin
+        prompt: The frontier met the North Sea where the Rhine then flowed out, near Katwijk. Pin Katwijk.
+        place: katwijk
+        okKm: 25
+        explain: >-
+          The Oude Rijn still reaches the sea at Katwijk. Storms in the 1500s uncovered the ruins of a Roman fort
+          on the beach there, called the Brittenburg.
+      - type: region
+        prompt: The Lower German Limes became a World Heritage Site in 2021. The Netherlands shares it with one other country. Tap that country.
+        layer: countries
+        answer: [DEU]
+        explain: Germany. The site follows the Rhine for about 400 km, from the hills south of Bonn to the Dutch coast.
+      - type: truemyth
+        statement: After their revolt failed, the Batavians never fought for Rome again.
+        answer: false
+        explain: >-
+          Peace was made in 70 CE and the Batavians went back to supplying soldiers. Writing tablets from
+          Vindolanda, by Hadrian's Wall in Britain, mention a Batavian unit stationed there.
+
+  - id: u2-l3
+    title: Roads, towns and gods
+    icon: road
+    sources:
+      - title: Rijksmuseum van Oudheden, altars dedicated to Nehalennia
+        url: https://www.rmo.nl/en/collection/highlights-collection/nehalennia-altar/
+      - title: Livius.org, Forum Hadriani (Voorburg)
+        url: https://livius.org/articles/place/forum-hadriani-voorburg
+      - title: Vici.org, Thermae Coriovallum (Heerlen)
+        url: https://vici.org/vici/105/
+      - title: Livius.org, Atuatuca (Tongeren)
+        url: https://www.livius.org/articles/place/atuatuca-tongeren/
+    exercises:
+      - type: story
+        title: Roads and towns
+        body: >-
+          Behind the frontier, roads tied the region together. The Via Belgica ran from the Channel coast through
+          Bavay, Tongeren, Maastricht and Heerlen to Cologne, capital of the province of Lower Germany. Along the
+          roads grew towns with baths, temples and stone walls, and villas farmed the fertile land around them.
+        visual: { kind: map, highlight: [], rivers: [], lines: [limes, via-belgica, maas-road, bavay-cassel, trier-cologne, reims-trier], pins: [tongeren, heerlen, cologne] }
+      - type: pin
+        prompt: Pin Cologne, the capital of the Roman province of Lower Germany, which covered much of the Low Countries.
+        place: cologne
+        okKm: 30
+        explain: Cologne, Roman Colonia, lies on the Rhine in Germany, about 70 km east of Heerlen. The Via Belgica ended there.
+      - type: choice
+        prompt: These ruins in Heerlen are the best-preserved Roman building in the Netherlands. What were they?
+        visual: { kind: photo, photo: heerlen-thermen }
+        answer: 2
+        options:
+          - label: A temple
+            why: Temples had a small inner room for the god's statue, not rows of heated floors.
+          - label: A fort
+            why: Forts were square, walled camps. Heerlen was a town on the Via Belgica.
+          - label: A public bath house
+            why: >-
+              Right. Coriovallum's baths had hot, warm and cold rooms, heated by hot air under the floors.
+              A museum, the Thermenmuseum, now stands over them.
+          - label: A theatre
+            why: Theatres were half circles of seats. This was a bath house.
+      - type: choice
+        prompt: In Tongeren you can still walk beside this. What is it?
+        visual: { kind: photo, photo: tongeren-wall }
+        answer: 0
+        options:
+          - label: Part of the Roman town wall
+            why: Right. Tongeren built a stone wall in the 2nd century, and parts of it still stand.
+          - label: A medieval castle
+            why: Tongeren had medieval walls too, but these stones are about 1,000 years older.
+          - label: A Roman road
+            why: Roads ran flat along the ground. This is a wall.
+          - label: A dike
+            why: Dikes are banks of earth. Tongeren sits on dry, hilly land.
+      - type: match
+        prompt: Match each Roman name to the town it became.
+        pairs:
+          - [Traiectum, Utrecht]
+          - [Noviomagus, Nijmegen]
+          - [Atuatuca, Tongeren]
+          - [Coriovallum, Heerlen]
+          - [Forum Hadriani, Voorburg]
+      - type: pin
+        prompt: Forum Hadriani, the northernmost Roman town on the European mainland, lies under a suburb of The Hague. Pin Voorburg.
+        place: voorburg
+        okKm: 20
+        explain: >-
+          Its remains lie under the Arentsburgh park in Voorburg. The town stood on Corbulo's canal, which joined the
+          Rhine to the Maas.
+      - type: truemyth
+        statement: The Dutch word "straat" (street) comes from Latin.
+        answer: true
+        explain: >-
+          It comes from strata, a paved road. Muur (wall), kelder (cellar), tegel (tile) and keizer (emperor,
+          from Caesar) also came into the language from Latin.
+      - type: choice
+        prompt: In 1970 a fisherman netted the first of more than a hundred altars like this in the Eastern Scheldt. Which goddess do they honour?
+        visual: { kind: photo, photo: nehalennia-altar }
+        answer: 0
+        options:
+          - label: Nehalennia
+            why: >-
+              Right. Her name is carved in the first line, DEAE NEHALENNIAE, "to the goddess Nehalennia". She was a
+              local goddess of seafarers, shown with a dog and a basket of apples. This altar's last line says Placidus
+              traded with Britain.
+          - label: Minerva
+            why: Minerva, the Roman goddess of wisdom, is shown with a helmet and spear, not a dog and apples.
+          - label: Freya
+            why: Freya is a Norse goddess. The Vikings only came centuries later.
+          - label: Venus
+            why: Venus is the Roman goddess of love. These altars name a local goddess.
+      - type: region
+        prompt: Nehalennia's altars were found at Domburg in 1647 and off Colijnsplaat in 1970. Shade the province.
+        layer: provinces
+        answer: [NL-ZE]
+        explain: >-
+          Zeeland. A storm uncovered the first altars on the beach at Domburg in 1647. Her temples stood where
+          the Scheldt met the sea, a good harbour for ships to Britain.
+      - type: choice
+        prompt: An Antwerp printer published this in 1598. It copies the Peutinger Map, a medieval copy of a Roman road map stretched into one long strip. What was a map like this for?
+        visual: { kind: photo, photo: peutinger-map }
+        answer: 1
+        options:
+          - label: Steering ships across the North Sea
+            why: Sea charts came much later. This map follows roads on land.
+          - label: Planning journeys from town to town
+            why: >-
+              Right. It lists the stops along each road with the distances between them, in Roman miles or,
+              in Gaul, in leagues. Shapes and sizes of the land are squashed to fit the strip.
+          - label: Showing exact borders between provinces
+            why: The map hardly shows borders. It was made for travellers on the roads.
+          - label: Measuring farmland for taxes
+            why: Land surveys used other plans. This map follows the roads.
+
+  - id: u2-l4
+    title: The Franks
+    icon: cross
+    sources:
+      - title: Encyclopaedia Britannica, Clovis I
+        url: https://www.britannica.com/biography/Clovis-I
+      - title: Bill Thayer, A note on Childeric's bees
+        url: https://penelope.uchicago.edu/hydrionoframes/bees.html
+      - title: Livius.org, Servatius of Tongeren
+        url: https://www.livius.org/articles/person/servatius-of-tongeren
+      - title: National Gallery of Art, Master of Saint Giles, The Baptism of Clovis
+        url: https://www.nga.gov/artworks/41597-baptism-clovis
+    exercises:
+      - type: story
+        title: Enter the Franks
+        body: >-
+          From about 260, raiders from across the Rhine called the Franks attacked Roman Gaul. In 358 the future
+          emperor Julian beat the Salian Franks but let them stay in Toxandria, the sandy land between the Maas and
+          the Scheldt. After the Roman army left, Frankish kings took over. The first great Frankish dynasty, the
+          Merovingians, began in Tournai.
+        visual: { kind: map, highlight: [NL-NB, BE-VAN, BE-VLI], rivers: [Maas, Schelde], pins: [tournai] }
+      - type: region
+        prompt: Julian let the Salian Franks keep Toxandria in return for soldiers. Shade the Dutch province at its heart.
+        layer: provinces
+        answer: [NL-NB]
+        explain: North Brabant. Toxandria also took in the Kempen, in Belgium's Antwerp and Limburg provinces.
+      - type: pin
+        prompt: The Frankish king Childeric was buried around 481 in a Roman town on the Scheldt. Pin Tournai.
+        place: tournai
+        okKm: 30
+        explain: Tournai, Roman Turnacum, lies in Hainaut near the French border. A builder found Childeric's grave there in 1653.
+      - type: choice
+        prompt: Childeric's grave was full of gold. Which of its gold pieces, shown here, did Napoleon later borrow as an emblem of his empire?
+        visual: { kind: photo, photo: childeric-bees }
+        answer: 0
+        options:
+          - label: Bees
+            why: >-
+              Right. Napoleon wanted a symbol older than the royal lilies of France and chose Childeric's golden
+              bees, which may really be cicadas.
+          - label: Eagles
+            why: Napoleon also used eagles, copied from Rome, but none were found in Childeric's grave.
+          - label: Lilies
+            why: The fleur-de-lis was the badge of the French kings Napoleon replaced.
+          - label: Lions
+            why: The lion is the badge of Flanders, Holland and the Netherlands, not of Childeric's grave.
+      - type: truemyth
+        statement: Most of Childeric's treasure can still be seen in a museum today.
+        answer: false
+        explain: >-
+          Thieves broke into the royal library in Paris in 1831 and melted most of it down. Only a few pieces,
+          including two bees, were later found hidden in the Seine.
+      - type: choice
+        prompt: Childeric's son Clovis united the Franks and became a Christian. This painting from about 1500 shows his baptism. Where was it?
+        visual: { kind: photo, photo: clovis-baptism }
+        answer: 0
+        options:
+          - label: Reims
+            why: Right. Bishop Remigius baptised him in Reims, where most later French kings were crowned, the last in 1825.
+          - label: Tournai
+            why: Tournai was his father's town and his first base, but the baptism took place further south.
+          - label: Rome
+            why: The baptism took place in Gaul, not in Rome.
+          - label: Aachen
+            why: Aachen became important under Charlemagne, about 300 years later.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Franks start raiding Roman Gaul, year: 260, when: about 260 }
+          - { label: Julian lets the Salian Franks stay in Toxandria, year: 358, when: '358' }
+          - { label: Saint Servatius dies in Maastricht, year: 384, when: 384 (traditional date) }
+          - { label: Childeric is buried in Tournai, year: 481, when: about 481 }
+          - { label: Clovis is baptised, year: 500, when: between about 496 and 508 }
+        explain: The Franks went from raiders to Roman allies to rulers in about 250 years.
+      - type: pin
+        prompt: Saint Servatius, bishop of Tongeren, moved to a town on the Maas and was buried there. Pin it.
+        place: maastricht
+        explain: >-
+          Maastricht. Servatius is said to have died there in 384. His grave lies under the Basilica of Saint
+          Servatius, which grew from a chapel built over it.
+      - type: match
+        prompt: Match each person to what they did.
+        pairs:
+          - [Julian, Let the Salian Franks stay in Toxandria]
+          - [Childeric, Was buried at Tournai]
+          - [Clovis, United the Franks]
+          - [Servatius, Bishop of Tongeren]
+      - type: truemyth
+        statement: The French name Louis comes from Clovis.
+        answer: true
+        explain: >-
+          Clovis is a Latin spelling of the Frankish Chlodovech, which became Ludwig in German, Lodewijk in
+          Dutch and Louis in French. France later had 18 kings called Louis.
+
+  - id: u2-l5
+    title: Saints and Frisian traders
+    icon: ship
+    sources:
+      - title: Canon van Nederland, Willibrord
+        url: https://www.canonvannederland.nl/en/willibrord
+      - title: Encyclopaedia Britannica, Saint Willibrord
+        url: https://www.britannica.com/biography/Saint-Willibrord
+      - title: Encyclopaedia Britannica, Saint Boniface
+        url: https://www.britannica.com/biography/Saint-Boniface
+      - title: UNESCO, the hopping procession of Echternach
+        url: https://ich.unesco.org/en/RL/hopping-procession-of-echternach-00393
+      - title: Rijksmuseum van Oudheden, the Dorestad brooch
+        url: https://www.rmo.nl/en/collection/highlights-collection/dorestad-brooch/
+    exercises:
+      - type: story
+        title: Traders of the North Sea
+        body: >-
+          North of the old frontier, the Frisians ruled the coast. Their ships carried cloth, wine and pottery
+          between England, the Rhineland and Scandinavia, and their market town Dorestad, on the Rhine, was one of
+          the busiest in northern Europe. Frankish kings wanted that trade, and monks from England came to make the
+          Frisians Christian.
+        visual: { kind: map, highlight: [NL-FR, NL-GR, NL-NH], rivers: [Rhine, Nederrijn, Lek], pins: [wijk-bij-duurstede, utrecht, dokkum] }
+      - type: pin
+        prompt: Dorestad, the great trading town of the 700s, lay where the Rhine and the Lek split. Pin it.
+        place: wijk-bij-duurstede
+        okKm: 30
+        explain: >-
+          Today it's Wijk bij Duurstede, southeast of Utrecht. Diggers found long wooden jetties, coins struck
+          in the town and goods from all over Europe.
+      - type: choice
+        prompt: This gold brooch, set with garnets and blue glass, was found at Dorestad in 1969. What does it tell us about the town?
+        visual: { kind: photo, photo: dorestad-brooch }
+        answer: 0
+        options:
+          - label: It was rich and well connected
+            why: >-
+              Right. It was found at the bottom of a well, and was probably made around 800 in a workshop far to
+              the south, perhaps in Burgundy. Dorestad's wealth came from trade along the Rhine and across the North Sea.
+          - label: It was a Viking town
+            why: The brooch is Carolingian work from around 800. Vikings came to Dorestad as raiders, from 834.
+          - label: It was a Roman fort
+            why: Dorestad grew up long after the Romans left. The brooch dates from around 800.
+      - type: region
+        prompt: In 695 the English monk Willibrord became archbishop of the Frisians, with his seat in an old Roman fort. Shade that province.
+        layer: provinces
+        answer: [NL-UT]
+        explain: >-
+          Utrecht. Willibrord built churches inside the walls of the old fort of Traiectum, where the Dom church
+          stands now. He is the patron saint of the Netherlands.
+      - type: pin
+        prompt: In 754 the missionary Boniface was killed by a band of Frisians near a town in northern Friesland. Pin Dokkum.
+        place: dokkum
+        okKm: 30
+        explain: >-
+          Dokkum lies northeast of Leeuwarden. A book Boniface is said to have held up to protect himself, slashed
+          by a sword, is kept in Fulda in Germany.
+      - type: choice
+        prompt: Boniface came from England, like Willibrord. This page from a book made at Fulda, where he is buried, shows him twice. What is he doing in the top picture?
+        visual: { kind: photo, photo: boniface-fulda }
+        answer: 1
+        options:
+          - label: Being crowned king
+            why: Boniface was a bishop, never a king.
+          - label: Baptising a new Christian
+            why: >-
+              Right. At the top he baptises a convert. Below, he is killed, holding up a book against the sword.
+          - label: Building a church
+            why: He founded churches and monasteries, but that's not what the picture shows.
+      - type: truemyth
+        statement: Willibrord is buried in Utrecht.
+        answer: false
+        explain: >-
+          He died in 739 at Echternach, the abbey he founded in Luxembourg, and is buried there. Every Whit Tuesday
+          a hopping procession through the town honours him.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Willibrord lands in Frisia, year: 690, when: '690' }
+          - { label: Willibrord becomes archbishop, based in Utrecht, year: 695, when: '695' }
+          - { label: Willibrord dies at Echternach, year: 739, when: '739' }
+          - { label: Boniface is killed near Dokkum, year: 754, when: '754' }
+          - { label: Vikings raid Dorestad, year: 834, when: '834' }
+        explain: Christianity reached the Frisians slowly, over most of the 700s, and was still fragile when the Vikings came.
+      - type: match
+        prompt: Match each name to its place in the story.
+        pairs:
+          - [Willibrord, First bishop of Utrecht]
+          - [Boniface, Killed near Dokkum]
+          - [Dorestad, Frisian trading town on the Rhine]
+          - [Echternach, Abbey where Willibrord is buried]
+      - type: truemyth
+        statement: Frisian cloth was famous enough for Charlemagne to send it as a gift to the caliph of Baghdad.
+        answer: true
+        explain: >-
+          A monk who wrote about Charlemagne's life says he sent Frisian cloaks to Harun al-Rashid. "Frisian"
+          cloth may have been woven elsewhere, but Frisian traders sold it all over the North Sea.
+
+  - id: u2-l6
+    title: Charlemagne and the Vikings
+    icon: crown
+    sources:
+      - title: UNESCO, Aachen Cathedral
+        url: https://whc.unesco.org/en/list/3
+      - title: Encyclopaedia Britannica, Charlemagne
+        url: https://www.britannica.com/biography/Charlemagne
+      - title: Encyclopaedia Britannica, Treaty of Verdun
+        url: https://www.britannica.com/event/Treaty-of-Verdun
+      - title: Utrecht University, the Utrecht Psalter
+        url: https://www.uu.nl/en/special-collections/the-treasury/manuscripts/the-utrecht-psalter
+      - title: Encyclopaedia Britannica, Baldwin I, count of Flanders
+        url: https://www.britannica.com/biography/Baldwin-I-count-of-Flanders
+    exercises:
+      - type: story
+        title: An emperor from the Maas valley
+        body: >-
+          Charlemagne's family, the Carolingians, rose from estates along the Maas around Liège. He became king of
+          the Franks in 768, conquered the Frisians and the Saxons, and on Christmas Day 800 was crowned emperor in
+          Rome. He built this chapel at his favourite palace, in Aachen, and was buried there in 814.
+        visual: { kind: photo, photo: aachen-chapel }
+      - type: pin
+        prompt: Pin Aachen, where Charlemagne built his palace.
+        place: aachen
+        okKm: 25
+        explain: Aachen is in Germany, a few kilometres from the Dutch and Belgian borders and about 30 km east of Maastricht.
+      - type: truemyth
+        statement: We know for certain that Charlemagne was born near Liège.
+        visual: { kind: map, highlight: [], rivers: [Maas], pins: [liege, aachen] }
+        answer: false
+        explain: >-
+          Nobody knows where he was born, or even the exact year (742, 747 and 748 are all argued). Herstal and
+          Jupille near Liège, and Aachen, all claim him.
+      - type: choice
+        prompt: Albrecht Dürer painted this imagined Charlemagne in 1513. Which title did Charlemagne take on Christmas Day 800?
+        visual: { kind: photo, photo: charlemagne-durer }
+        answer: 2
+        options:
+          - label: King of France
+            why: France didn't exist yet. Charlemagne was already king of the Franks, from 768.
+          - label: Count of Flanders
+            why: The first count of Flanders appeared 60 years later.
+          - label: Emperor
+            why: >-
+              Right. Pope Leo III crowned him emperor in Saint Peter's in Rome, the first emperor in the west for
+              more than 300 years.
+          - label: Pope
+            why: The pope crowned him. Charlemagne was never a churchman.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Charlemagne becomes king of the Franks, year: 768, when: '768' }
+          - { label: Charlemagne is crowned emperor in Rome, year: 800, when: '800' }
+          - { label: Charlemagne dies in Aachen, year: 814, when: '814' }
+          - { label: The Treaty of Verdun splits the empire, year: 843, when: '843' }
+          - { label: Vikings beaten at Leuven, year: 891, when: '891' }
+        explain: Charlemagne's empire lasted less than 30 years after his death before his grandsons divided it.
+      - type: choice
+        prompt: In 843 Charlemagne's grandsons split his empire in three. Which highlighted river became the border between the western kingdom and the middle kingdom?
+        visual: { kind: map, highlight: [], rivers: [Schelde] }
+        answer: 0
+        options:
+          - label: Scheldt
+            why: >-
+              Right. Land west of the Scheldt went to the western kingdom, later France. That is why the counts of
+              Flanders owed loyalty to the French king, while Brabant, Holland and Liège lay in the empire.
+          - label: Maas
+            why: The Maas ran through the middle kingdom, past Liège and Maastricht.
+          - label: Rhine
+            why: The Rhine ran through the middle and eastern kingdoms, further east.
+          - label: IJssel
+            why: The IJssel lay well inside the middle kingdom, far to the north and east.
+      - type: region
+        prompt: The western kingdom went to Charles the Bald. Which modern country grew out of it? Tap it.
+        layer: countries
+        answer: [FRA]
+        explain: France. The eastern kingdom became the heart of Germany, and the middle one broke apart.
+      - type: choice
+        prompt: This book of psalms, with its lively pen drawings, was made near Reims around 830. Where is it kept today?
+        visual: { kind: photo, photo: utrecht-psalter }
+        answer: 0
+        options:
+          - label: Utrecht
+            why: >-
+              Right. The Utrecht Psalter has belonged to Utrecht University Library since 1716 and is on UNESCO's
+              Memory of the World register.
+          - label: Aachen
+            why: Aachen keeps Charlemagne's chapel and throne, but not this book.
+          - label: Reims
+            why: It was made near Reims but travelled to England and then to Utrecht.
+          - label: Rome
+            why: It has never been in Rome. It is named after the city that keeps it.
+      - type: pin
+        prompt: In 891 a Frankish army defeated Vikings camped by the river Dijle. Pin Leuven.
+        place: leuven
+        explain: Leuven lies about 25 km east of Brussels. The Vikings had used their camp there to raid the region.
+      - type: truemyth
+        statement: Vikings raided Dorestad several years in a row in the 830s.
+        answer: true
+        explain: >-
+          Frankish chronicles record raids in 834, 835, 836 and 837. Later a Danish chief, Rorik, held Dorestad
+          for the Frankish king. By the 860s the town had faded away.
+      - type: match
+        prompt: Match each ruler to what he is known for.
+        pairs:
+          - [Charlemagne, Crowned emperor in 800]
+          - [Lothair, Got the middle kingdom in 843]
+          - [Charles the Bald, Got the western kingdom]
+          - [Baldwin Iron Arm, First count of Flanders]

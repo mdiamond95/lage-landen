@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import type { ExerciseProps } from './types'
+import { VisualView } from './VisualView'
 
 export function TrueMyth({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'truemyth'>>) {
   const [picked, setPicked] = useState<boolean | null>(null)
@@ -15,6 +16,7 @@ export function TrueMyth({ exercise, checked, setAnswer }: ExerciseProps<Exercis
     <div className="exercise">
       <p className="eyebrow">True or myth?</p>
       <blockquote className="claim">{exercise.statement}</blockquote>
+      {exercise.visual && <VisualView visual={exercise.visual} label={exercise.statement} />}
       <div className="options options-two">
         <button type="button" className={`option big ${cls(true)}`} onClick={() => pick(true)} disabled={checked} aria-pressed={picked === true}>
           True
