@@ -50,9 +50,11 @@ type Props = {
   onYear?: (year: number) => void
   // Hides the stage captions, so the map alone must answer the question.
   hideCaption?: boolean
+  // The slider steps from stage to stage instead of year by year.
+  snapshots?: boolean
 }
 
-export function TimeMap({ story, start = story.min, onYear, hideCaption = false }: Props) {
+export function TimeMap({ story, start = story.min, onYear, hideCaption = false, snapshots = false }: Props) {
   const starts = useMemo(() => story.events.map((e) => e.from), [story])
   const { year, playing, togglePlay, scrub } = usePlayback(starts, story.min, start, onYear)
   const event = eventAt(story.events, year)
@@ -62,6 +64,8 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false 
     [story],
   )
   const { toXY, linePath } = frame
+  const shown = (item: { end?: number }) => item.end === undefined || year <= item.end
+  const fresh = event.fresh ?? story.fresh ?? 'fill'
 
   return (
     <figure className="time-map">
@@ -84,7 +88,7 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false 
                 area={a}
                 frame={frame}
                 uid={uid}
-                fresh={a.kind !== 'sea' && a.from === event.from && a.from > story.min && (story.fresh ?? 'fill')}
+                fresh={a.kind !== 'sea' && a.from === event.from && a.from > story.min && fresh}
               />
             ))}
           {story.labels
@@ -92,13 +96,13 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false 
             .map((l) => {
               const [x, y] = toXY(l.at)
               return (
-                <text key={l.text} x={x} y={y} textAnchor="middle" className={`hist-${l.kind ?? 'people'}`}>
+                <text key={`${l.text}-${l.from}`} x={x} y={y} textAnchor="middle" className={`hist-${l.kind ?? 'people'}`}>
                   {l.text}
                 </text>
               )
             })}
           {story.lines.map((line) => {
-            if (line.from > year) return null
+            if (line.from > year || !shown(line)) return null
             if (line.kind === 'flow') {
               if (!activeAt(year, line)) return null
               const d = linePath(line.coords)
@@ -127,7 +131,7 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false 
             )
           })}
           {story.sites
-            .filter((s) => s.from <= year)
+            .filter((s) => s.from <= year && shown(s))
             .map((s) => {
               const [x, y] = toXY(s.at)
               const gone = !activeAt(year, s)
@@ -163,8 +167,9 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false 
         onTogglePlay={togglePlay}
         hideCaption={hideCaption}
         note={story.note}
+        stops={snapshots ? starts : undefined}
       >
-        {story.key.map((k) => (
+        {(event.key ?? story.key).map((k) => (
           <li key={k.text}>
             <span className={`key-swatch ${k.swatch}`} />
             {k.text}

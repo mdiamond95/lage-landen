@@ -14,7 +14,8 @@ import type { Evaluate, Result } from '../exercises/types'
 import { WhoAmI } from '../exercises/WhoAmI'
 import { XP } from './scoring'
 
-export type LessonOutcome = { mistakes: number; bonuses: number; places: string[]; asked: number }
+// `answers` holds each question's first try, for the review schedule.
+export type LessonOutcome = { mistakes: number; bonuses: number; places: string[]; asked: number; answers: [Exercise, boolean][] }
 
 type Props = {
   title: string
@@ -32,7 +33,7 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
   const [result, setResult] = useState<Result | null>(null)
   const [requeued, setRequeued] = useState(false)
   const [retried, setRetried] = useState<Set<Exercise>>(new Set())
-  const [tally, setTally] = useState<LessonOutcome>({ mistakes: 0, bonuses: 0, places: [], asked: 0 })
+  const [tally, setTally] = useState<LessonOutcome>({ mistakes: 0, bonuses: 0, places: [], asked: 0, answers: [] })
 
   const exercise = queue[index]
   const isStory = exercise.type === 'story'
@@ -49,6 +50,7 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
       bonuses: t.bonuses + (r.bonus && !retried.has(exercise) ? 1 : 0),
       places: r.places ? [...t.places, ...r.places] : t.places,
       asked: t.asked + 1,
+      answers: retried.has(exercise) ? t.answers : [...t.answers, [exercise, r.correct]],
     }))
     const again = !r.correct && !retried.has(exercise)
     setRequeued(again)

@@ -408,3 +408,77 @@ test('a chart question and a cause and effect question can be answered', async (
   await answer(page)
   await expect(page.locator('.feedback-detail')).toContainText('Golden Age')
 })
+
+test('a finished lesson comes back in the daily review', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('.review p')).toContainText('Finish a lesson')
+  await expect(page.locator('.review .btn-primary')).toBeDisabled()
+
+  await playLesson(page, 'Two countries, one delta')
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.locator('.review p')).toContainText('All caught up on 9 questions. The next ones are due tomorrow.')
+
+  // Two days later, everything from that lesson is due.
+  await page.evaluate(() => {
+    const p = JSON.parse(localStorage.getItem('lage-landen:progress:v1')!)
+    for (const card of Object.values(p.cards) as { due: string }[]) card.due = '2000-01-01'
+    localStorage.setItem('lage-landen:progress:v1', JSON.stringify(p))
+  })
+  await page.reload()
+  await expect(page.locator('.review p')).toContainText('9 questions are due')
+  const xp = Number(await page.locator('.stat-xp').textContent())
+  await page.getByRole('button', { name: 'Review 9' }).click()
+  for (let step = 0; step < 40 && !(await page.locator('.results').count()); step++) {
+    await answer(page)
+    await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+  }
+  await expect(page.locator('.results .muted')).toHaveText('Daily review')
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.locator('.review .btn-primary')).toHaveText('Nothing due')
+  expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
+})
+
+test('the time map steps through 12 snapshots from Caesar to the Delta Works', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Open the time map' }).click()
+  const map = page.locator('.time-map')
+  const slider = page.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
+  await expect(slider).toHaveAttribute('max', '11')
+
+  await slider.fill('3')
+  await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
+  await expect(map.locator('.hist-battle')).toHaveCount(1)
+  await expect(map.locator('.hist-frontier')).toHaveCount(0)
+
+  await slider.fill('7')
+  await expect(map.locator('.time-map-title')).toHaveText('1579: Two unions')
+  await expect(map.locator('.hist-area-rebel').first()).toBeVisible()
+  await expect(map.locator('.key-swatch.key-rebel')).toHaveCount(1)
+
+  await slider.fill('11')
+  await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
+  await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
+  await expect(map.locator('.hist-dam').first()).toBeVisible()
+
+  await page.getByRole('button', { name: 'Back to the course' }).click()
+  await expect(page.locator('.review')).toBeVisible()
+})
+
+test('once loaded, the app and its pictures work offline', async ({ page, context }) => {
+  await page.goto('/')
+  await page.evaluate(async () => {
+    await navigator.serviceWorker.ready
+  })
+  await page.reload()
+  await expect.poll(() => page.evaluate(() => !!navigator.serviceWorker.controller)).toBe(true)
+
+  await context.setOffline(true)
+  await page.reload()
+  await expect(page.locator('.brand')).toHaveText('Lage Landen')
+  await page.getByRole('button', { name: 'Philip II and the Iconoclastic Fury', exact: true }).click()
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+  const img = page.locator('.lesson-body img').first()
+  await expect(img).toBeVisible()
+  await expect.poll(() => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true)
+})

@@ -1,20 +1,32 @@
+import { cards } from '../content'
 import { courseOutline } from '../content/course'
 import { checkpointId } from '../content/checkpoint'
 import { places } from '../content/places'
 import type { Unit } from '../content/schema'
 import { LowlandsMap } from '../map/LowlandsMap'
-import { streakAlive, useProgress } from '../progress/store'
+import { dueToday, nextDue, REVIEW_SIZE } from '../progress/review'
+import { streakAlive, todayKey, useProgress } from '../progress/store'
 import { Icon } from './Icon'
 
-type Props = { units: Unit[]; onStart: (lessonId: string) => void }
+type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void }
 
 const listUnits = (ns: number[]) => (ns.length < 3 ? ns.join(' and ') : `${ns.slice(0, -1).join(', ')} and ${ns[ns.length - 1]}`)
 
-export function Home({ units, onStart }: Props) {
+const dayName = (day: string, today: string) => {
+  const d = new Date(`${day}T12:00:00`)
+  const diff = Math.round((d.getTime() - Date.parse(`${today}T12:00:00`)) / 86_400_000)
+  return diff <= 1 ? 'tomorrow' : d.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' })
+}
+
+export function Home({ units, onStart, onTimeMap }: Props) {
   const progress = useProgress()
   const totalPlaces = Object.keys(places).length
   const alive = streakAlive(progress)
   const playable = new Set(units.map((u) => u.number))
+  const today = todayKey()
+  const due = dueToday(cards.items, progress.cards, progress.completed, today).length
+  const learned = Object.keys(progress.cards).length
+  const next = nextDue(progress.cards)
 
   return (
     <div className="home">
@@ -47,6 +59,32 @@ export function Home({ units, onStart }: Props) {
             pins={progress.discovered.map((place) => ({ place, tone: 'info' as const }))}
           />
         </div>
+      </section>
+
+      <section className="review card">
+        <div className="review-text">
+          <h2>Daily review</h2>
+          <p>
+            {learned === 0 && due === 0
+              ? 'Finish a lesson and its questions come back here, spaced out so they stick.'
+              : due > 0
+                ? `${due} question${due === 1 ? ' is' : 's are'} due. Missed ones come back sooner.`
+                : `All caught up on ${learned} questions. The next ones are due ${next ? dayName(next, today) : 'soon'}.`}
+          </p>
+        </div>
+        <button type="button" className="btn-primary" disabled={due === 0} onClick={() => onStart('review')}>
+          {due > 0 ? `Review ${Math.min(due, REVIEW_SIZE)}` : 'Nothing due'}
+        </button>
+      </section>
+
+      <section className="timemap-teaser card">
+        <div>
+          <h2>Time map</h2>
+          <p>Watch the Low Countries change in 12 snapshots, from Caesar to the Delta Works.</p>
+        </div>
+        <button type="button" className="btn-ghost" onClick={onTimeMap}>
+          Open the time map
+        </button>
       </section>
 
       {units.map((unit) => {

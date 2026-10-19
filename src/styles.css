@@ -405,3 +405,13 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 /* Cause and effect */
 .cause-heads { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
 .cause-heads span:last-child::before { content: '→ '; }
+
+/* Daily review and the time map */
+.review, .timemap-teaser { display: grid; gap: 12px; }
+.review h2, .timemap-teaser h2 { margin: 0 0 4px; }
+.review p, .timemap-teaser p { margin: 0; color: var(--ink-soft); }
+.review .btn-primary:disabled { opacity: 0.55; cursor: default; box-shadow: none; }
+.time-travel { max-width: 640px; margin: 0 auto; padding-bottom: 32px; }
+.time-travel-title { margin: 0; font-size: 1.25rem; }
+.time-travel-intro { margin: 4px 16px 12px; }
+.time-travel .time-map { margin: 0 16px; }

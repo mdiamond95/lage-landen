@@ -1,6 +1,13 @@
 // Shared by the time maps: items that exist between two years, and one caption per stage.
 
-export type HistEvent = { from: number; title: string; text: string }
+export type HistEvent = {
+  from: number
+  title: string
+  text: string
+  // The time map through all eras changes its key and highlight with the era.
+  key?: TimeStory['key']
+  fresh?: TimeStory['fresh']
+}
 
 // An item can drop out for a while (a trade ban, say): `off` lists those gaps.
 export type Dated = { from: number; to?: number; off?: [number, number][] }
@@ -16,7 +23,9 @@ export const eventAt = (events: HistEvent[], year: number) => [...events].revers
 // still water for a while. Coordinates are [lon, lat] (WGS84).
 // A `flow` is people or goods on the move, drawn as an arrow with moving dashes.
 export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow'
-export type HistLine = Dated & { name: string; kind: LineKind; coords: [number, number][] }
+// Lines and sites that have gone stay on the map, faded. `end` removes them
+// altogether after that year, when one map runs on into a later era.
+export type HistLine = Dated & { name: string; kind: LineKind; coords: [number, number][]; end?: number }
 export type HistSite = Dated & {
   name: string
   // Shown on hover, e.g. the modern name of a Roman fort.
@@ -24,6 +33,7 @@ export type HistSite = Dated & {
   kind: 'fort' | 'town' | 'barrier' | 'battle'
   at: [number, number]
   label?: 'left' | 'right'
+  end?: number
 }
 export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'people' | 'water' | 'land' | 'alert' | 'territory' }
 // A stretch of land tinted while it is active: countries or provinces from the map
