@@ -1,9 +1,11 @@
-import { readFileSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { feature } from 'topojson-client'
 import { parse } from 'yaml'
 import { describe, expect, it } from 'vitest'
 import topology from '../data/lowlands.topo.json'
+import { credits } from '../photos/credits'
+import { photoIds } from '../photos/ids'
 import { places } from './places'
 import { Unit } from './schema'
 
@@ -59,10 +61,22 @@ describe.each(files)('%s', (file) => {
         (e) =>
           e.type === 'pin' ||
           e.type === 'region' ||
-          (e.type === 'choice' && (e.visual || e.options.some((o) => o.art))),
+          (e.type === 'choice' && (e.visual || e.options.some((o) => o.art || o.photo))),
       )
       // The plan's target is 70% across a unit; single lessons may dip to 50%.
       expect(visual.length / asks.length).toBeGreaterThanOrEqual(0.5)
     })
   }
+})
+
+describe('photos', () => {
+  it('every photo has a file and a full credit', () => {
+    for (const id of photoIds) {
+      const c = credits[id]
+      expect(existsSync(join(dir, '../photos', `${id}.jpg`)), id).toBe(true)
+      for (const field of ['alt', 'caption', 'author', 'licence'] as const) expect(c[field], `${id} ${field}`).not.toBe('')
+      expect(c.source, id).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/)
+      expect(c.licenceUrl, id).toMatch(/^https:\/\/creativecommons\.org\//)
+    }
+  })
 })

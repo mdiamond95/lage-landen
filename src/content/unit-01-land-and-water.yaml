@@ -183,14 +183,14 @@ lessons:
         prompt: Which picture shows a terp?
         answer: 1
         options:
-          - art: dike
-            why: That's a dike, a long earth wall that keeps the water out.
-          - art: terp
-            why: Right. A terp is a mound people piled up so their farm stayed dry at high tide.
-          - art: polder
-            why: That's a polder, low land drained into a grid of ditches.
-          - art: windmill
-            why: That's a drainage windmill, which pumps water out of a polder.
+          - photo: afsluitdijk
+            why: That's a dike, a long wall of earth and stone that keeps the water out. This one is the Afsluitdijk.
+          - photo: terp-hogebeintum
+            why: Right. A terp is a mound people piled up so their farm stayed dry at high tide. Hogebeintum's is about 9 m high, with a church on top.
+          - photo: polder-beemster
+            why: That's a polder, low land drained into a grid of ditches. This is the Beemster from the air.
+          - photo: kinderdijk
+            why: Those are drainage windmills at Kinderdijk, which pumped water out of the polders.
       - type: order
         prompt: Put these in order, oldest first.
         items:
@@ -206,8 +206,8 @@ lessons:
         okKm: 30
         explain: Near Nieuwerkerk aan den IJssel the land is 6.76 m below sea level. It was a lake until it was drained around 1840.
       - type: choice
-        prompt: What did a polder windmill do?
-        visual: { kind: art, art: windmill }
+        prompt: What did these windmills at Kinderdijk do?
+        visual: { kind: photo, photo: kinderdijk }
         answer: 1
         options:
           - label: Ground grain into flour
@@ -226,6 +226,19 @@ lessons:
         statement: Schiphol, Amsterdam's airport, is built on the bottom of a former lake.
         answer: true
         explain: The Haarlemmermeer was pumped dry between 1849 and 1852. Schiphol's runways lie about 3 m below sea level.
+      - type: choice
+        prompt: Steam pumping stations like the Cruquius emptied a whole lake between 1849 and 1852. Which lake?
+        visual: { kind: photo, photo: cruquius }
+        answer: 2
+        options:
+          - label: The Beemster
+            why: The Beemster was drained much earlier, in 1612, by 43 windmills.
+          - label: The Zuiderzee
+            why: The Zuiderzee was closed off by the Afsluitdijk in 1932, and only parts of it were drained.
+          - label: The Haarlemmermeer
+            why: Right. Three steam stations, the Cruquius, the Leeghwater and the Lynden, pumped out about 800 million m³ of water.
+          - label: The IJsselmeer
+            why: The IJsselmeer is still a lake. It is what the Zuiderzee became after 1932.
       - type: choice
         prompt: Belgium's highest point is 694 m. How high is the highest point of the European Netherlands?
         answer: 0
@@ -263,7 +276,7 @@ lessons:
           A storm surge broke through the dikes of Zeeland and South Holland. In the Netherlands 1,836
           people died, and hundreds more died in England and Belgium. The country answered with the Delta
           Works, a chain of dams and barriers that took about 40 years to finish.
-        visual: { kind: map, highlight: [NL-ZE, NL-ZH], rivers: [] }
+        visual: { kind: photo, photo: flood-1953-rilland }
       - type: order
         prompt: Put these in order, oldest first.
         items:
@@ -273,6 +286,19 @@ lessons:
           - { label: Flevoland becomes a province, year: 1986, when: '1986' }
           - { label: Maeslantkering protects Rotterdam, year: 1997, when: '1997' }
         explain: The Zuiderzee works started after a 1916 flood; the Delta Works followed the 1953 disaster.
+      - type: choice
+        prompt: The hatched areas on this map flooded in 1953. Which province took the worst of it?
+        visual: { kind: photo, photo: flood-1953-map }
+        answer: 0
+        options:
+          - label: Zeeland
+            why: Right. Most of Zeeland's islands went under, from Schouwen-Duiveland to Zuid-Beveland.
+          - label: Friesland
+            why: Friesland is in the far north, well away from the map. The storm hit the southwest hardest.
+          - label: Limburg
+            why: Limburg is inland, in the southeast. River floods hit it in 1993 and 1995, not 1953.
+          - label: North Holland
+            why: North Holland lies north of the map and mostly held out. The southwest took the worst of it.
       - type: pin
         prompt: Pin the Afsluitdijk, the 32 km dam that turned the salty Zuiderzee into a freshwater lake.
         place: afsluitdijk
@@ -287,14 +313,14 @@ lessons:
         prompt: Which picture shows a storm surge barrier?
         answer: 3
         options:
-          - art: dike
-            why: That's a dike, which is always closed.
-          - art: windmill
-            why: That's a drainage windmill.
-          - art: terp
-            why: That's a terp, a dwelling mound.
-          - art: barrier
-            why: Right. Barriers like the Oosterscheldekering stay open for the tides and close only in storms.
+          - photo: afsluitdijk
+            why: That's the Afsluitdijk, a closed dam with only sluices and locks to let water through.
+          - photo: kinderdijk
+            why: Those are drainage windmills at Kinderdijk.
+          - photo: terp-hogebeintum
+            why: That's the terp at Hogebeintum, a dwelling mound.
+          - photo: oosterscheldekering
+            why: Right. The Oosterscheldekering's 62 steel gates stay open for the tides and close only in storms.
       - type: pin
         prompt: Pin Lelystad, the capital of Flevoland, built on what was seabed until 1957.
         place: lelystad

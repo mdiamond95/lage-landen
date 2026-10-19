@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Art } from '../art/Art'
 import type { ExerciseOf } from '../content/schema'
+import { Photo } from '../photos/Photo'
 import { shuffle } from '../lesson/shuffle'
 import type { ExerciseProps } from './types'
 import { VisualView } from './VisualView'
@@ -8,7 +9,7 @@ import { VisualView } from './VisualView'
 export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'choice'>>) {
   const order = useMemo(() => shuffle(exercise.options.map((_, i) => i)), [exercise])
   const [picked, setPicked] = useState<number | null>(null)
-  const pictures = exercise.options.some((o) => o.art)
+  const pictures = exercise.options.some((o) => o.art || o.photo)
 
   const pick = (i: number) => {
     if (checked) return
@@ -38,6 +39,7 @@ export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<Ex
               disabled={checked}
             >
               {o.art && <Art id={o.art} className="art art-option" />}
+              {o.photo && <Photo id={o.photo} className="photo photo-option" />}
               {o.label && <span>{o.label}</span>}
             </button>
           )

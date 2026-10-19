@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { photoIds } from '../photos/ids'
 
 // Everything a lesson can show or ask is described here. Lesson YAML is
 // parsed against these schemas, so a typo in content fails tests and the build.
@@ -26,9 +27,11 @@ const MapVisual = z.object({
 })
 
 const ArtVisual = z.object({ kind: z.literal('art'), art: z.enum(artIds) })
+// A real photo or historical map from Wikimedia Commons, credited in src/photos/credits.ts.
+const PhotoVisual = z.object({ kind: z.literal('photo'), photo: z.enum(photoIds) })
 const PolderVisual = z.object({ kind: z.literal('polder-slider') })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PolderVisual])
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -69,6 +72,7 @@ const Order = z.object({
 const Option = z.object({
   label: z.string().optional(),
   art: z.enum(artIds).optional(),
+  photo: z.enum(photoIds).optional(),
   why: z.string(),
 })
 

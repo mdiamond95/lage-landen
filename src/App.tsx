@@ -7,6 +7,7 @@ import { lessonXp } from './lesson/scoring'
 import { recordLesson } from './progress/store'
 import { Home } from './screens/Home'
 import { Results } from './screens/Results'
+import { photosUsed } from './photos/used'
 
 type Playing = { id: string; title: string; exercises: Exercise[]; sources: Lesson['sources'] }
 type Screen = { name: 'home' } | { name: 'lesson'; playing: Playing } | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number }
@@ -48,7 +49,7 @@ export default function App() {
     )
   }
   if (screen.name === 'results') {
-    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} onDone={home} />
+    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} onDone={home} />
   }
   return (
     <Home

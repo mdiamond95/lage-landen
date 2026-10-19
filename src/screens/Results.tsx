@@ -1,11 +1,13 @@
 import type { Lesson } from '../content/schema'
 import { LowlandsMap } from '../map/LowlandsMap'
 import type { LessonOutcome } from '../lesson/LessonPlayer'
+import { photo, type PhotoId } from '../photos'
+import { Credit } from '../photos/Photo'
 import { Icon } from './Icon'
 
-type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; onDone: () => void }
+type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; onDone: () => void }
 
-export function Results({ title, outcome, xp, sources, onDone }: Props) {
+export function Results({ title, outcome, xp, sources, photos, onDone }: Props) {
   const right = outcome.asked - outcome.mistakes
   const accuracy = outcome.asked ? Math.round((right / outcome.asked) * 100) : 100
   const newPlaces = [...new Set(outcome.places)]
@@ -36,7 +38,7 @@ export function Results({ title, outcome, xp, sources, onDone }: Props) {
         </div>
       )}
       <details className="sources">
-        <summary>Sources for this lesson</summary>
+        <summary>{photos.length ? 'Sources and credits' : 'Sources for this lesson'}</summary>
         <ul>
           {sources.map((s) => (
             <li key={s.url}>
@@ -46,6 +48,18 @@ export function Results({ title, outcome, xp, sources, onDone }: Props) {
             </li>
           ))}
         </ul>
+        {photos.length > 0 && (
+          <>
+            <p className="sources-sub">Photos and maps</p>
+            <ul>
+              {photos.map((id) => (
+                <li key={id}>
+                  {photo(id).caption}: <Credit id={id} />
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </details>
       <button type="button" className="btn-primary" onClick={onDone}>
         Continue

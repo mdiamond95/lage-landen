@@ -115,7 +115,7 @@ export function Home({ units, onStart }: Props) {
         ))}
       </section>
       <footer className="credits muted">
-        Map data from Natural Earth (public domain). Illustrations drawn for Lage Landen. Every lesson lists its sources at the end.
+        Map data from Natural Earth (public domain). Photos and historical maps from Wikimedia Commons, credited under each picture and at the end of every lesson. Other illustrations drawn for Lage Landen.
       </footer>
     </div>
   )
