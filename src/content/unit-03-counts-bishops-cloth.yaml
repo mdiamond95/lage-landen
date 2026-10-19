@@ -256,6 +256,13 @@ lessons:
             why: Cologne traded with Flanders along the land road, but Italian buyers met Flemings in Champagne.
           - label: London
             why: London sold wool to Flanders; Italian merchants did not buy Flemish cloth there.
+      - type: scrub
+        prompt: Drag the slider to a year when Italian ships sail all the way to Bruges.
+        map: cloth
+        answer: [1277, 1384]
+        explain: >-
+          Genoese ships first sailed round Spain to Bruges in 1277, and Venetian galleys followed in the 1310s.
+          From then on Italians bought their cloth in Bruges, not in Champagne.
       - type: pin
         prompt: Pin Ypres, one of the three great cloth cities of Flanders.
         place: ypres
@@ -429,6 +436,13 @@ lessons:
         place: kortrijk
         okKm: 25
         explain: Kortrijk (Courtrai in French) lies on the Leie in West Flanders. The battle took place on the Groeninge field beside the town.
+      - type: hunt
+        prompt: In this French chronicle picture of the battle, the Flemings carry the banner of Flanders into the fight. Find it.
+        photo: golden-spurs-chronicle
+        targets: [[0.37, 0, 0.27, 0.35]]
+        explain: >-
+          A black lion on gold, the arms of the counts of Flanders. The lion is still the flag of Flanders today.
+          The gold lilies on blue belong to the king of France and his knights.
       - type: choice
         prompt: The front of this chest, carved in the 1300s, shows the Flemish rising of 1302. Who won the battle at Kortrijk?
         visual: { kind: photo, photo: courtrai-chest }

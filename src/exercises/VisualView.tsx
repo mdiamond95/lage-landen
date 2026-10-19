@@ -1,21 +1,36 @@
 import { Art } from '../art/Art'
+import { FamilyTree } from '../art/FamilyTree'
 import { PolderSlider } from '../art/PolderSlider'
 import type { Visual } from '../content/schema'
-import { LowlandsMap } from '../map/LowlandsMap'
-import { PhotoFigure } from '../photos/Photo'
+import { burgundyStory } from '../data/burgundy'
 import { romanStory } from '../data/roman'
 import { waterStory } from '../data/water'
+import { LowlandsMap } from '../map/LowlandsMap'
 import { TimeMap } from '../map/TimeMap'
 import { TradeMap } from '../map/TradeMap'
+import { PhotoFigure } from '../photos/Photo'
+
+const stories = { water: waterStory, roman: romanStory, burgundy: burgundyStory }
+
+type TimeMapProps = {
+  map: Extract<Visual, { kind: 'time-map' }>['map']
+  year?: number
+  onYear?: (year: number) => void
+  hideCaption?: boolean
+}
+
+// Any of the year-slider maps, by name.
+export function AnyTimeMap({ map, year, onYear, hideCaption }: TimeMapProps) {
+  if (map === 'cloth') return <TradeMap start={year} onYear={onYear} hideCaption={hideCaption} />
+  return <TimeMap story={stories[map]} start={year} onYear={onYear} hideCaption={hideCaption} />
+}
 
 export function VisualView({ visual, label }: { visual: Visual; label: string }) {
   if (visual.kind === 'art') return <Art id={visual.art} className="art art-large" />
   if (visual.kind === 'photo') return <PhotoFigure id={visual.photo} />
   if (visual.kind === 'polder-slider') return <PolderSlider />
-  if (visual.kind === 'time-map') {
-    if (visual.map === 'cloth') return <TradeMap start={visual.year} />
-    return <TimeMap story={visual.map === 'water' ? waterStory : romanStory} start={visual.year} />
-  }
+  if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} />
+  if (visual.kind === 'family-tree') return <FamilyTree tree={visual.tree} hide={visual.hide} />
   return (
     <div className="map-frame">
       <LowlandsMap

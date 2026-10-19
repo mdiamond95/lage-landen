@@ -24,12 +24,16 @@ export type HistSite = Dated & {
   at: [number, number]
   label?: 'left' | 'right'
 }
-export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'people' | 'water' | 'land' | 'alert' }
-// Land that was still open water while the area is active: a province (optionally
-// cut to the `clip` polygon) or a hand-drawn `shape`.
+export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'people' | 'water' | 'land' | 'alert' | 'territory' }
+// A stretch of land tinted while it is active: countries or provinces from the map
+// data (optionally cut to the `clip` polygon), or a hand-drawn `shape`. `kind` sets
+// the tint: still sea (the default), lands of a ruler, lands under a ruler's bishop,
+// or plain land that stays outside.
+export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside'
 export type HistArea = Dated & {
   name: string
-  province?: string
+  kind?: AreaKind
+  regions?: string[]
   clip?: [number, number][]
   shape?: [number, number][]
 }
@@ -47,6 +51,8 @@ export type TimeStory = {
   sites: HistSite[]
   labels: HistLabel[]
   areas?: HistArea[]
+  // A note under the key, e.g. that borders are approximate.
+  note?: string
   // The map key under the slider: a swatch class from styles.css and its text.
   key: { swatch: string; text: string }[]
 }

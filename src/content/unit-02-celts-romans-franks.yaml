@@ -130,6 +130,13 @@ lessons:
             why: Hadrian's Wall crosses northern Britain, across the North Sea.
           - label: Corbulo's canal
             why: Corbulo's canal was a short cut from Leiden past Voorburg to the mouth of the Maas, not a long border.
+      - type: scrub
+        prompt: Drag the slider to a year when the Rhine is the guarded edge of the Roman Empire.
+        map: roman
+        answer: [47, 405]
+        explain: >-
+          Claudius made the Rhine the frontier in 47 CE. Its forts were held until soon after 400, when the
+          troops left to defend Italy.
       - type: pin
         prompt: The Romans built a fort called Traiectum, "the crossing", on the Rhine. Today a big Dutch city stands there. Pin it.
         place: utrecht
@@ -373,6 +380,13 @@ lessons:
             why: The baptism took place in Gaul, not in Rome.
           - label: Aachen
             why: Aachen became important under Charlemagne, about 300 years later.
+      - type: hunt
+        prompt: Look again at the baptism. Find Clovis himself.
+        photo: clovis-baptism
+        targets: [[0.36, 0.34, 0.19, 0.28]]
+        explain: >-
+          Clovis stands in the font, bare to the waist but still wearing his crown, as Bishop Remigius pours the
+          water. The painter dressed everyone in the fashions of about 1500, a thousand years after the event.
       - type: order
         prompt: Put these in order, oldest first.
         items:
@@ -566,6 +580,23 @@ lessons:
           - { label: The Treaty of Verdun splits the empire, year: 843, when: '843' }
           - { label: Vikings beaten at Leuven, year: 891, when: '891' }
         explain: Charlemagne's empire lasted less than 30 years after his death before his grandsons divided it.
+      - type: choice
+        prompt: Charlemagne's family ruled for four generations before his grandsons split the empire. Who was his father, the first king of the family?
+        visual: { kind: family-tree, tree: carolingians, hide: pepin }
+        answer: 1
+        options:
+          - label: Charles Martel
+            why: >-
+              Charles Martel was his grandfather, the mayor of the palace who ran the kingdom for the last
+              Merovingian kings but never took the crown himself.
+          - label: Pepin the Short
+            why: >-
+              Right. Pepin pushed aside the last Merovingian king and was crowned king of the Franks in 751.
+              Charlemagne followed him in 768.
+          - label: Louis the Pious
+            why: Louis was Charlemagne's son, emperor from 814. His sons split the empire in 843.
+          - label: Clovis
+            why: Clovis was king of the Franks about 250 years earlier, from the older Merovingian family.
       - type: choice
         prompt: In 843 Charlemagne's grandsons split his empire in three. Which highlighted river became the border between the western kingdom and the middle kingdom?
         visual: { kind: map, highlight: [], rivers: [Schelde] }

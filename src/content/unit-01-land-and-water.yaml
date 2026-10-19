@@ -399,6 +399,13 @@ lessons:
             why: The IJssel, a Rhine branch, already flowed into it. The dam cut it off from the North Sea.
           - label: Made it deeper for ships
             why: Ships pass the dam through locks, but the dam was built for safety and new land.
+      - type: scrub
+        prompt: Drag the slider to a year when the Afsluitdijk is closed but the Noordoostpolder is still under water.
+        map: water
+        answer: [1932, 1941]
+        explain: >-
+          The dam closed in 1932 and the Noordoostpolder fell dry in 1942, during the German occupation. In
+          between, the new IJsselmeer was all water apart from the Wieringermeer.
       - type: pin
         prompt: Pin the Afsluitdijk, the 32 km dam that turned the salty Zuiderzee into a freshwater lake.
         place: afsluitdijk

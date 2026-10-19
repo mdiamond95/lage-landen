@@ -53,4 +53,9 @@ export const places: Record<string, Place> = {
   muiden: { name: 'Muiden', lat: 52.33, lon: 5.069, note: 'Castle where Floris V was held in 1296' },
   limbourg: { name: 'Limbourg', lat: 50.612, lon: 5.941, note: 'Seat of the medieval duchy of Limburg' },
   'den-bosch': { name: "'s-Hertogenbosch", lat: 51.689, lon: 5.304, note: 'Founded by the duke of Brabant, town rights about 1185' },
+  // Unit 4: the Burgundian Netherlands
+  lille: { name: 'Lille', lat: 50.633, lon: 3.063, note: 'Feast of the Pheasant, 1454' },
+  mechelen: { name: 'Mechelen', lat: 51.028, lon: 4.48, note: 'Court of Margaret of Austria, 1507 to 1530' },
+  dinant: { name: 'Dinant', lat: 50.261, lon: 4.912, note: 'Sacked by Charles the Bold in 1466' },
+  aalst: { name: 'Aalst', lat: 50.938, lon: 4.039, note: 'First printing press in the Southern Netherlands, 1473' },
 }
