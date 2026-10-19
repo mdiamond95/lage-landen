@@ -14,13 +14,14 @@ export const eventAt = (events: HistEvent[], year: number) => [...events].revers
 // What a year-slider map on the main Low Countries map draws: lines (frontiers,
 // roads, dams), sites (forts, towns, barriers), text labels, and areas that were
 // still water for a while. Coordinates are [lon, lat] (WGS84).
-export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier'
+// A `flow` is people or goods on the move, drawn as an arrow with moving dashes.
+export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow'
 export type HistLine = Dated & { name: string; kind: LineKind; coords: [number, number][] }
 export type HistSite = Dated & {
   name: string
   // Shown on hover, e.g. the modern name of a Roman fort.
   note?: string
-  kind: 'fort' | 'town' | 'barrier'
+  kind: 'fort' | 'town' | 'barrier' | 'battle'
   at: [number, number]
   label?: 'left' | 'right'
 }
@@ -28,8 +29,9 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // A stretch of land tinted while it is active: countries or provinces from the map
 // data (optionally cut to the `clip` polygon), or a hand-drawn `shape`. `kind` sets
 // the tint: still sea (the default), lands of a ruler, lands under a ruler's bishop,
-// or plain land that stays outside.
-export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside'
+// plain land that stays outside, lands held by rebels against the ruler, or lands
+// split or fought over between the two.
+export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside' | 'rebel' | 'contested'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind
@@ -55,4 +57,8 @@ export type TimeStory = {
   note?: string
   // The map key under the slider: a swatch class from styles.css and its text.
   key: { swatch: string; text: string }[]
+  // How land that changed hands in the stage on screen stands out: filled with a
+  // highlight (the default, for lands joining a ruler), or outlined, keeping its
+  // colour (for lands changing sides in a war).
+  fresh?: 'fill' | 'outline'
 }

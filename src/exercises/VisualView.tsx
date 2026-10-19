@@ -1,8 +1,10 @@
 import { Art } from '../art/Art'
 import { FamilyTree } from '../art/FamilyTree'
+import { LineChart } from '../art/LineChart'
 import { PolderSlider } from '../art/PolderSlider'
 import type { Visual } from '../content/schema'
 import { burgundyStory } from '../data/burgundy'
+import { revoltStory } from '../data/revolt'
 import { romanStory } from '../data/roman'
 import { waterStory } from '../data/water'
 import { LowlandsMap } from '../map/LowlandsMap'
@@ -10,7 +12,7 @@ import { TimeMap } from '../map/TimeMap'
 import { TradeMap } from '../map/TradeMap'
 import { PhotoFigure } from '../photos/Photo'
 
-const stories = { water: waterStory, roman: romanStory, burgundy: burgundyStory }
+const stories = { water: waterStory, roman: romanStory, burgundy: burgundyStory, revolt: revoltStory }
 
 type TimeMapProps = {
   map: Extract<Visual, { kind: 'time-map' }>['map']
@@ -31,6 +33,7 @@ export function VisualView({ visual, label }: { visual: Visual; label: string })
   if (visual.kind === 'polder-slider') return <PolderSlider />
   if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} />
   if (visual.kind === 'family-tree') return <FamilyTree tree={visual.tree} hide={visual.hide} />
+  if (visual.kind === 'chart') return <LineChart chart={visual.chart} until={visual.until} />
   return (
     <div className="map-frame">
       <LowlandsMap

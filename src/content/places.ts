@@ -58,4 +58,15 @@ export const places: Record<string, Place> = {
   mechelen: { name: 'Mechelen', lat: 51.028, lon: 4.48, note: 'Court of Margaret of Austria, 1507 to 1530' },
   dinant: { name: 'Dinant', lat: 50.261, lon: 4.912, note: 'Sacked by Charles the Bold in 1466' },
   aalst: { name: 'Aalst', lat: 50.938, lon: 4.039, note: 'First printing press in the Southern Netherlands, 1473' },
+  // Unit 5: the revolt
+  steenvoorde: { name: 'Steenvoorde', lat: 50.81, lon: 2.583, note: 'Where the Iconoclastic Fury began, 10 August 1566' },
+  heiligerlee: { name: 'Heiligerlee', lat: 53.155, lon: 7.02, note: 'First battle of the revolt, 23 May 1568' },
+  brielle: { name: 'Brielle', lat: 51.902, lon: 4.163, note: 'Taken by the Sea Beggars, 1 April 1572' },
+  leiden: { name: 'Leiden', lat: 52.16, lon: 4.49, note: 'Relieved on 3 October 1574' },
+  delft: { name: 'Delft', lat: 52.012, lon: 4.357, note: 'William of Orange was murdered here in 1584' },
+  arras: { name: 'Arras', lat: 50.291, lon: 2.778, note: 'Union of Arras, 1579' },
+  middelburg: { name: 'Middelburg', lat: 51.499, lon: 3.61, note: 'Capital of Zeeland, a haven for refugees from the south' },
+  nieuwpoort: { name: 'Nieuwpoort', lat: 51.13, lon: 2.751, note: 'Battle of the Dunes, 1600' },
+  ostend: { name: 'Ostend', lat: 51.226, lon: 2.918, note: 'Besieged from 1601 to 1604' },
+  breda: { name: 'Breda', lat: 51.589, lon: 4.776, note: 'Taken and retaken: 1590, 1625, 1637' },
 }

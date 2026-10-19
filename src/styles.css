@@ -363,3 +363,45 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .hunt-live { cursor: crosshair; }
 .hunt-target { position: absolute; border: 3px solid var(--green); border-radius: 8px; pointer-events: none; }
 .hunt-tap { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; border: 3px solid #fff; background: var(--orange); box-shadow: 0 1px 4px rgb(0 0 0 / 0.4); pointer-events: none; }
+
+/* Revolt map: the king's lands (the Burgundian tint), the rebels in Orange, land split
+   between them hatched, refugees on the move, battles and sieges */
+.hist-area-rebel { fill: #fbd1a2; stroke: #c25f00; stroke-width: 0.8; transition: fill 0.4s; }
+.hist-area-contested { stroke: #8a4b2a; stroke-width: 0.8; }
+.hatch-a { fill: #e7c7cc; }
+.hatch-b { fill: #fbd1a2; }
+.hist-area-flash { stroke: var(--ink); stroke-width: 2.4; animation: pulse-in 0.9s ease-out; }
+.hist-line.hist-flow { stroke: #6b3fa0; stroke-width: 4; }
+.hist-flow-head { fill: #6b3fa0; stroke: none; }
+.hist-battle path { fill: #b3261e; stroke: #fff; stroke-width: 1.2; }
+.hist-site.hist-gone path { fill: #b9a9a4; }
+.key-rebel { width: 12px; height: 10px; background: #fbd1a2; border: 1px solid #c25f00; border-radius: 2px; }
+.key-contested { width: 12px; height: 10px; background: repeating-linear-gradient(45deg, #e7c7cc 0 3px, #fbd1a2 3px 6px); border: 1px solid #8a4b2a; border-radius: 2px; }
+.key-flash { width: 12px; height: 10px; border: 2px solid var(--ink); border-radius: 2px; }
+.key-flow { background: #6b3fa0; height: 5px; }
+.key-battle { width: 10px; height: 10px; background: #b3261e; clip-path: polygon(50% 0, 64% 36%, 100% 50%, 64% 64%, 50% 100%, 36% 64%, 0 50%, 36% 36%); }
+
+/* Line charts */
+.line-chart { margin: 0; border: 2px solid var(--line); border-radius: 16px; background: var(--card); padding: 12px; display: grid; gap: 6px; }
+.line-chart svg { width: 100%; height: auto; display: block; }
+.chart-grid { stroke: var(--line); stroke-width: 1; }
+.chart-tick { font-size: 13px; fill: var(--ink-soft); font-weight: 700; }
+.chart-series polyline { fill: none; stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
+.chart-series circle { stroke: #fff; stroke-width: 2; }
+.chart-label { font-size: 14px; font-weight: 900; }
+.chart-orange polyline { stroke: var(--orange); } .chart-orange circle, .chart-orange text { fill: var(--orange); }
+.chart-red polyline { stroke: #9b2f45; } .chart-red circle, .chart-red text { fill: #9b2f45; }
+.chart-delft polyline { stroke: var(--delft); } .chart-delft circle, .chart-delft text { fill: var(--delft); }
+.chart-green polyline { stroke: var(--green); } .chart-green circle, .chart-green text { fill: var(--green); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Fill the gap: a quote from a primary source */
+.source-quote { margin: 0; padding: 14px 16px; border-left: 5px solid var(--delft); background: var(--card); border-radius: 0 12px 12px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 1.12rem; line-height: 1.5; }
+.source-quote cite { display: block; margin-top: 8px; font-family: inherit; font-style: normal; font-size: 0.8rem; font-weight: 800; color: var(--ink-soft); }
+.gap { display: inline-block; min-width: 5.5em; padding: 0 6px; border-bottom: 3px solid var(--orange); color: var(--orange-dark, #c25f00); font-weight: 800; text-align: center; }
+.gap.right { border-color: var(--green); color: var(--green-dark); }
+.gap.wrong { border-color: #b3261e; color: #b3261e; }
+
+/* Cause and effect */
+.cause-heads { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+.cause-heads span:last-child::before { content: '→ '; }

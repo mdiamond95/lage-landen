@@ -313,3 +313,98 @@ test('a detail hunt scores a tap inside the target and shows where it was', asyn
   await expect(page.locator('.feedback-head')).toHaveText('Correct!')
   await expect(page.locator('.hunt-target')).toHaveCount(1)
 })
+
+test('plays all of unit 5 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'Philip II and the Iconoclastic Fury',
+    'Alba and the Council of Blood',
+    'William of Orange and the Sea Beggars',
+    'Two unions',
+    'Antwerp falls, Amsterdam rises',
+    'From war to the Peace of Münster',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 5 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the revolt map splits the provinces and sends refugees north', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Philip II and the Iconoclastic Fury', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.time-map-title')).toHaveText('1555: Philip II takes over')
+  await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
+
+  await year.fill('1572')
+  // Holland and Zeeland's islands go over, and are outlined as just changed.
+  await expect(map.locator('.hist-area-rebel')).toHaveCount(2)
+  await expect(map.locator('.hist-area-flash')).toHaveCount(2)
+
+  await year.fill('1585')
+  await expect(map.locator('.time-map-title')).toHaveText('1585: Antwerp falls')
+  await expect(map.locator('.hist-flow')).toHaveCount(4)
+  await expect(map.locator('.hist-area-contested')).not.toHaveCount(0)
+
+  await year.fill('1609')
+  await expect(map.locator('.hist-alert')).toHaveText("TWELVE YEARS' TRUCE")
+  await expect(map.locator('.hist-flow')).toHaveCount(0)
+
+  await year.fill('1645')
+  await map.getByRole('button', { name: 'Play the story' }).click()
+  await expect(map.locator('.time-map-title')).toHaveText('1648: The Peace of Münster', { timeout: 6000 })
+  await expect(map.locator('.hist-water')).toHaveText('DUTCH REPUBLIC')
+})
+
+// Plays on through a lesson until a question of the given kind comes up.
+async function skipTo(page: Page, eyebrow: string) {
+  const foot = page.locator('.lesson-foot')
+  for (let step = 0; step < 20; step++) {
+    if ((await page.locator('.eyebrow').first().textContent()) === eyebrow) return
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  throw new Error(`no ${eyebrow} question`)
+}
+
+test('fill the gap puts the chosen word in the quote and shows the right one', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Philip II and the Iconoclastic Fury', exact: true }).click()
+  await skipTo(page, 'Fill the gap')
+
+  await expect(page.locator('.source-quote cite')).toContainText('1566')
+  await page.getByRole('button', { name: 'children' }).click()
+  await expect(page.locator('.gap')).toHaveText('children')
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Not quite')
+  await expect(page.locator('.gap')).toHaveText('beggars')
+  await expect(page.locator('.feedback-detail')).toContainText('The missing word is "beggars"')
+})
+
+test('a chart question and a cause and effect question can be answered', async ({ page }) => {
+  await unlock(page, ['u5-l1', 'u5-l2', 'u5-l3', 'u5-l4'])
+  await page.getByRole('button', { name: 'Antwerp falls, Amsterdam rises', exact: true }).click()
+  await skipTo(page, 'Read the chart')
+  await expect(page.locator('.line-chart polyline')).toHaveCount(2)
+  await expect(page.locator('.line-chart .chart-label')).toHaveText(['Antwerp', 'Amsterdam'])
+  await page.getByRole('button', { name: 'About 100,000' }).click()
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Correct!')
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+
+  await skipTo(page, 'Cause and effect')
+  await expect(page.locator('.cause-heads')).toHaveText('CauseEffect')
+  await answer(page)
+  await expect(page.locator('.feedback-detail')).toContainText('Golden Age')
+})

@@ -1,0 +1,677 @@
+id: unit-05
+number: 5
+title: Revolt and the great split
+era: 1555 to 1648
+summary: Philip II's harsh rule sparks a revolt led by William of Orange. Eighty years of war split the Seventeen Provinces into a Dutch Republic in the north and a Spanish Netherlands in the south, and Antwerp's people and money move to Amsterdam.
+lessons:
+  - id: u5-l1
+    title: Philip II and the Iconoclastic Fury
+    icon: cross
+    sources:
+      - title: "Canon van Nederland, De Opstand (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/opstand
+      - title: "Rijksmuseum, Hogenberg, The Iconoclastic Fury in Antwerp's Church of Our Lady, 1566"
+        url: https://www.rijksmuseum.nl/en/collection/object/Beeldenstorm-in-de-Onze-Lieve-Vrouwekerk-van-Antwerpen-1566--38044342e7c6effa09f85ae1220bf112
+      - title: "Encyclopaedia Britannica, Margaret of Parma"
+        url: https://www.britannica.com/biography/Margaret-of-Parma
+      - title: "Werner Thomas, The myth of the Spanish Inquisition in the Netherlands, BMGN 1990 (in Dutch)"
+        url: https://dbnl.org/tekst/_bij005199001_01/_bij005199001_01_0023.php
+      - title: "Historisch Nieuwsblad, Testimonies from the Eighty Years' War (in Dutch)"
+        url: https://www.historischnieuwsblad.nl/getuigenissen-uit-de-tachtigjarige-oorlog/
+    exercises:
+      - type: story
+        title: A king far away
+        body: >-
+          In 1555 Charles V handed the Seventeen Provinces to his son, Philip II, who was also king of Spain. Philip
+          left for Spain in 1559 and never came back. Within a dozen years his provinces were at war with him, and
+          by 1648 they had split in two for good. Press play to watch the split happen, year by year.
+        visual: { kind: time-map, map: revolt }
+      - type: who
+        photo: philip-ii
+        clues:
+          - I was born in Valladolid, in Spain, in 1527.
+          - My father gave me the Netherlands in Brussels in 1555.
+          - I left in 1559 and ruled the Low Countries from Spain for the rest of my life.
+          - I built the palace of El Escorial and sent the Armada against England.
+        options: [Philip II, Charles V, Don John of Austria, Alexander Farnese]
+        answer: 0
+        explain: >-
+          Philip II. A devout Catholic, he meant to stamp out Protestantism in his lands, and he wanted the proud
+          provinces to obey his officials and pay their taxes.
+      - type: choice
+        prompt: When Philip left in 1559, he made this woman governor of the Netherlands. Who was she?
+        visual: { kind: photo, photo: margaret-parma }
+        answer: 1
+        options:
+          - label: Margaret of Austria
+            why: Margaret of Austria governed for Charles V, but she had died in 1530.
+          - label: Margaret of Parma
+            why: >-
+              Right. She was Philip's half-sister, a daughter of Charles V born in Oudenaarde in Flanders. She ruled
+              from Brussels until 1567.
+          - label: Mary of Hungary
+            why: Mary of Hungary, Charles V's sister, governed before her, until 1555.
+          - label: Mary of Burgundy
+            why: Mary of Burgundy had died in 1482.
+      - type: truemyth
+        statement: Philip II brought the Spanish Inquisition to the Netherlands.
+        visual: { kind: photo, photo: philip-ii }
+        answer: false
+        explain: >-
+          A myth, though people at the time feared it, and the rebels' pamphlets said he meant to. Heretics were
+          already hunted under harsh laws, the placards, and by inquisitors appointed in Charles V's day. But the
+          Spanish Inquisition itself was never set up in the Low Countries.
+      - type: gap
+        prompt: >-
+          In April 1566 about 200 nobles marched into Brussels to ask Margaret of Parma to soften the laws against
+          heretics. One of her advisers is said to have sneered at them. Fill the gap.
+        quote: Madam, do not be afraid. They are only ___.
+        source: A courtier, traditionally the Count of Berlaymont, to Margaret of Parma, 5 April 1566
+        options: [beggars, children, Frenchmen, peasants]
+        answer: 0
+        explain: >-
+          "Ce ne sont que des gueux": they are only beggars. The nobles took the insult as a badge of honour. At a
+          banquet their leader, Hendrik van Brederode, hung a beggar's bag over his shoulder and toasted "Long
+          live the beggars!" The rebels have been called the Geuzen, the Beggars, ever since.
+      - type: choice
+        prompt: In the summer of 1566, crowds met in fields and dunes outside the towns to hear Protestant preachers in the open air. What were these meetings called?
+        visual: { kind: photo, photo: hedge-sermon }
+        answer: 2
+        options:
+          - label: Beggars' feasts
+            why: The nobles held a banquet in Brussels, but these open-air meetings had another name.
+          - label: Field masses
+            why: A mass is a Catholic service. These were Protestant sermons.
+          - label: Hedge sermons
+            why: >-
+              Right: hagenpreken in Dutch. In the dunes of Walcheren about 300 people came to the first big one.
+              Out in the fields, the town authorities could not easily stop them.
+          - label: Synods
+            why: A synod is a church council of ministers, not a crowd in a field.
+      - type: pin
+        prompt: On 10 August 1566, after a hedge sermon, a crowd smashed the statues in a monastery near Steenvoorde, in Flanders. Today it is in France. Pin Steenvoorde.
+        place: steenvoorde
+        okKm: 30
+        fullKm: 12
+        explain: >-
+          Steenvoorde lies in French Flanders, between Ypres and Cassel. From there the Iconoclastic Fury spread
+          north town by town, reaching Antwerp on 20 August and Groningen within weeks.
+      - type: hunt
+        prompt: In this print of Antwerp's great church on 20 August 1566, crowds wreck the altars and statues. Find someone pulling a statue down with a rope.
+        photo: iconoclasm-antwerp
+        targets: [[0.21, 0.44, 0.17, 0.27], [0.52, 0.0, 0.08, 0.13]]
+        explain: The print is by Frans Hogenberg, who made hundreds of news prints of the revolt.
+      - type: scrub
+        prompt: Drag the slider to the year of the Iconoclastic Fury.
+        map: revolt
+        answer: [1566, 1566]
+        explain: >-
+          1566, the Wonder Year. It shocked Philip, who decided to send an army to restore order and punish the
+          rebels.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Charles V hands the Netherlands to Philip, year: 1555, when: '1555' }
+          - { label: Philip leaves for Spain, year: 1559, when: '1559' }
+          - { label: Cardinal Granvelle is recalled, year: 1564, when: '1564' }
+          - { label: The Iconoclastic Fury, year: 1566, when: August 1566 }
+          - { label: Alba arrives in Brussels, year: 1567, when: August 1567 }
+        explain: In twelve years, distrust of a distant king turned into open defiance.
+
+  - id: u5-l2
+    title: Alba and the Council of Blood
+    icon: sword
+    sources:
+      - title: "Encyclopaedia Britannica, Council of Troubles"
+        url: https://www.britannica.com/topic/Council-of-Troubles
+      - title: "Historisch Centrum Leeuwarden, Ad patibulum (in Dutch)"
+        url: https://historischcentrumleeuwarden.nl/images/pdf/Ad_patibulum_-_de_galg.pdf
+      - title: "Museum Slag bij Heiligerlee, via Visit Groningen"
+        url: https://www.visitgroningen.nl/en/plekken/westerwolde/overnachten-westerwolde/hotels-b-bs-en-meer-in-westerwolde/2706206408/museum-slag-bij-heiligerlee-1
+      - title: "Encyclopaedia Britannica, Tenth Penny"
+        url: https://www.britannica.com/topic/Tenth-Penny
+      - title: "visit.brussels, The Renaissance in Brussels"
+        url: https://www.visit.brussels/en/visitors/plan-your-trip/the-renaissance-in-brussels
+    exercises:
+      - type: story
+        title: The iron duke
+        body: >-
+          In August 1567 the Duke of Alba marched into Brussels with about 10,000 Spanish and Italian veterans.
+          Margaret of Parma resigned. Alba set up the Council of Troubles to try everyone involved in the
+          disorders of 1566. People soon called it the Council of Blood. In June 1568, two of the country's
+          greatest nobles were beheaded on the Grand Place in Brussels, as this print shows.
+        visual: { kind: photo, photo: egmont-horne-execution }
+      - type: who
+        photo: alba
+        clues:
+          - I was Spain's most famous general, already sixty when I came north.
+          - I set up a council that condemned thousands for the troubles of 1566.
+          - I had the counts of Egmont and Horne beheaded in Brussels.
+          - I wanted a tax of a tenth on every sale, and Holland and Zeeland rose against me in 1572.
+        options: [The Duke of Alba, Don John of Austria, The Duke of Parma, Cardinal Granvelle]
+        answer: 0
+        explain: >-
+          Fernando Álvarez de Toledo, Duke of Alba. He went home in 1573, his task a failure. In Dutch history he
+          is still the villain of the revolt.
+      - type: hunt
+        prompt: Find the scaffold where the two counts were beheaded, in the middle of the crowded square.
+        photo: egmont-horne-execution
+        targets: [[0.31, 0.36, 0.38, 0.42]]
+        explain: >-
+          The counts were beheaded in front of the Broodhuis, the King's House, on 5 June 1568. Thousands watched,
+          and many wept.
+      - type: choice
+        prompt: This statue in Brussels honours the two counts beheaded in 1568. Who were they?
+        visual: { kind: photo, photo: egmont-horne-statue }
+        answer: 1
+        options:
+          - label: William and Louis of Nassau
+            why: The Nassau brothers escaped to Germany; Louis was killed in battle in 1574.
+          - label: Egmont and Horne
+            why: >-
+              Right. Lamoral, Count of Egmont, had won great victories for Philip against France. Both counts were
+              Catholics loyal to the king, which made their execution all the more shocking.
+          - label: Breydel and De Coninck
+            why: Breydel and De Coninck led the Bruges rising of 1302. Their statue stands in Bruges.
+          - label: Alba and Granvelle
+            why: Nobody in Brussels raised a statue to Alba or Granvelle.
+      - type: truemyth
+        statement: The Council of Troubles sentenced more than a thousand people to death.
+        visual: { kind: time-map, map: revolt, year: 1567 }
+        answer: true
+        explain: >-
+          About 1,000 people were executed. Some 12,000 were sentenced in all, most of them in their absence, to
+          banishment and the loss of everything they owned, because they had already fled abroad.
+      - type: pin
+        prompt: In May 1568 an army sent by William of Orange beat Alba's troops at Heiligerlee, in Groningen. Pin it.
+        place: heiligerlee
+        okKm: 30
+        fullKm: 12
+        explain: >-
+          Heiligerlee, on 23 May 1568, is counted as the start of the Eighty Years' War. The rebels were led by
+          William's brothers Louis and Adolf, and Adolf was killed there.
+      - type: scrub
+        prompt: Drag the slider to a year when the war has begun, but the king still holds all of Holland.
+        map: revolt
+        answer: [1568, 1571]
+        explain: >-
+          The fighting began in 1568, but the first invasions failed. Holland and Zeeland only went over to the
+          rebels in 1572.
+      - type: choice
+        prompt: Alba wanted to pay for his army with a new tax. What did it take?
+        answer: 2
+        options:
+          - label: One penny from every household each year
+            why: Alba's tax hit every sale, not every household.
+          - label: Half of every harvest
+            why: No ruler could have collected that much.
+          - label: A tenth of the price of every sale, for ever
+            why: >-
+              Right: the Tenth Penny. Alba proposed it in 1569. Even loyal Catholics turned against him, and it was
+              never fully collected.
+          - label: All church silver
+            why: The rebels melted down church silver, not Alba.
+      - type: match
+        prompt: Match each person to their part in these years.
+        pairs:
+          - [Margaret of Parma, Resigned as governor in 1567]
+          - [The Count of Egmont, Beheaded in Brussels in 1568]
+          - [Louis of Nassau, Led the rebel army at Heiligerlee]
+          - [The Duke of Alba, Set up the Council of Troubles]
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The Iconoclastic Fury, year: 1566, when: '1566' }
+          - { label: Alba arrives in Brussels, year: 1567, when: '1567' }
+          - { label: Egmont and Horne are beheaded, year: 1568, when: June 1568 }
+          - { label: Alba proposes the Tenth Penny, year: 1569, when: '1569' }
+          - { label: Alba goes home to Spain, year: 1573, when: '1573' }
+        explain: Alba's terror was meant to end the trouble. Instead it turned loyal subjects into rebels.
+
+  - id: u5-l3
+    title: William of Orange and the Sea Beggars
+    icon: ship
+    sources:
+      - title: "Scientias, How the Duke of Alba lost his glasses (in Dutch)"
+        url: https://scientias.nl/niet-zomaar-een-1-aprilgrap-zo-verloor-de-hertog-van-alva-zijn-bril/
+      - title: "Royal House of the Netherlands, Wilhelmus: music, lyrics and customs"
+        url: https://www.royal-house.nl/topics/monarchy/national-anthem/music-lyrics-and-customs
+      - title: "Museum De Lakenhal, Siege and relief of Leiden"
+        url: https://www.lakenhal.nl/en/story/siege-and-relief-of-leiden
+      - title: "Canon van Nederland, William of Orange"
+        url: https://www.canonvannederland.nl/en/willemvanoranje
+      - title: "J.Z. Kannegieter, The nickname 'the Silent', De Gids 1942 (in Dutch)"
+        url: https://dbnl.org/tekst/_gid001194201_01/_gid001194201_01_0072.php
+      - title: "Museum Prinsenhof Delft, 10 July 1584 (in Dutch)"
+        url: https://blog.prinsenhof-delft.nl/10-juli-1584-deel6/
+    exercises:
+      - type: story
+        title: Rebels from the sea
+        body: >-
+          On 1 April 1572 a fleet of rebel privateers, the Sea Beggars, led by Lumey and Treslong, sailed into the
+          harbour of Brielle and took the town in the name of the Prince of Orange. Town after town in Holland and
+          Zeeland went over to the revolt, and William of Orange became its leader.
+        visual: { kind: photo, photo: brielle-1572 }
+      - type: who
+        photo: william-orange
+        clues:
+          - I was born in 1533 at Dillenburg, in Germany, and raised a Lutheran.
+          - At 11 I inherited the principality of Orange, in the south of France.
+          - In 1555 the old emperor leaned on my shoulder as he gave up his lands.
+          - I led the revolt against Philip II until I was shot dead in my own house.
+        options: [William of Orange, Maurice of Nassau, Louis of Nassau, Frederick Henry]
+        answer: 0
+        explain: >-
+          William of Orange, called the Silent, the Father of the Fatherland. Much of the Dutch royal family's
+          name and colour, orange, comes from him.
+      - type: pin
+        prompt: Pin Brielle, the port the Sea Beggars took on 1 April 1572.
+        place: brielle
+        fullKm: 10
+        okKm: 25
+        explain: Brielle, Den Briel in Dutch, guards the mouth of the Maas west of Rotterdam.
+      - type: truemyth
+        statement: A Dutch rhyme about 1 April 1572 makes a pun on Brielle, because bril is Dutch for glasses.
+        visual: { kind: photo, photo: brielle-1572 }
+        answer: true
+        explain: >-
+          "Op 1 april verloor Alva zijn bril": on 1 April Alba lost his glasses, that is, Brielle.
+      - type: region
+        prompt: The revolt took root in two counties, Holland and Zeeland. Shade the three provinces of today that cover them.
+        layer: provinces
+        answer: [NL-NH, NL-ZH, NL-ZE]
+        explain: >-
+          North Holland, South Holland and Zeeland. Their towns, ports and water made them hard to attack, and
+          from 1572 they were the heart of the rebel state.
+      - type: gap
+        prompt: The Wilhelmus, written during the revolt, is now the Dutch national anthem. William himself sings in it. Fill the gap in its first verse.
+        quote: William of Nassau am I, of Germanic blood; true to the fatherland I remain until death. A Prince of Orange am I, free and fearless; the King of Spain I have always ___.
+        source: Het Wilhelmus, written between 1568 and 1572, first verse in English
+        options: [honoured, fought, feared, hated]
+        answer: 0
+        explain: >-
+          "Den Coninck van Hispangien heb ick altijt gheeert": the King of Spain I have always honoured. The rebels
+          claimed to fight the king's bad advisers, not the king. The song is often credited to Marnix of Saint
+          Aldegonde, but nobody knows who wrote it. It has been the national anthem since 1932.
+      - type: choice
+        prompt: In 1574 the rebels broke the dikes and sailed a fleet across the flooded land to save this besieged town. What did the starving townspeople get when it arrived on 3 October?
+        visual: { kind: photo, photo: leiden-relief }
+        answer: 1
+        options:
+          - label: Cheese and beer
+            why: Cheese and beer were common food, but not what the fleet handed out.
+          - label: Herring and white bread
+            why: >-
+              Right. Leiden still celebrates 3 October with herring and white bread. Legend adds a pot of hutspot,
+              a stew, found in the abandoned Spanish camp. The siege had cost over 6,000 lives, almost half the
+              town.
+          - label: Apples and cabbage
+            why: The fleet brought sea fish and bread.
+          - label: Nothing, the town had already fallen
+            why: Leiden held out, and the Spanish army pulled back as the water rose.
+      - type: truemyth
+        statement: William of Orange was called the Silent because he hardly ever spoke.
+        visual: { kind: photo, photo: william-orange }
+        answer: false
+        explain: >-
+          A myth. He was sociable and talkative. His enemies called him taciturnus, "the silent", meaning sly: a
+          man who kept his plans to himself. Only centuries later did the nickname become a compliment.
+      - type: hunt
+        prompt: On 10 July 1584 William was shot in the Prinsenhof in Delft, his home. The holes left by the bullets can still be seen. Find them.
+        photo: prinsenhof-bullet-holes
+        targets: [[0.39, 0.67, 0.36, 0.15]]
+        explain: >-
+          The killer, Balthasar Gerards, was a Catholic from Franche-Comté, after the reward of 25,000 gold crowns
+          that Philip had offered for William's death. William was buried in the New Church in Delft, because the
+          family tomb at Breda was in Spanish hands.
+      - type: scrub
+        prompt: Drag the slider to a year when Holland has gone over to the rebels, but nearly every other province is still the king's.
+        map: revolt
+        answer: [1572, 1575]
+        explain: >-
+          From 1572 to 1576 Holland and Zeeland fought the king almost alone. Then the Spanish Fury drove the
+          other provinces to join them.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The Sea Beggars take Brielle, year: 1572, when: April 1572 }
+          - { label: Haarlem surrenders after a long siege, year: 1573, when: July 1573 }
+          - { label: Leiden is relieved, year: 1574, when: October 1574 }
+          - { label: Leiden University is founded, year: 1575, when: '1575' }
+          - { label: William is shot in Delft, year: 1584, when: July 1584 }
+        explain: Holland held out, and Leiden's university trained the ministers and lawyers of the new state.
+
+  - id: u5-l4
+    title: Two unions
+    icon: book
+    sources:
+      - title: "Raymond Fagel, The Spanish Fury in Antwerp, Early Modern Low Countries 2020"
+        url: https://emlc-journal.org/article/view/7257/7885
+      - title: "Flemish heritage inventory, Antwerp town hall (in Dutch)"
+        url: https://inventaris.onroerenderfgoed.be/erfgoedobjecten/4032
+      - title: "Encyclopaedia Britannica, Pacification of Ghent"
+        url: https://www.britannica.com/event/Pacification-of-Ghent
+      - title: "Encyclopaedia Britannica, Union of Arras"
+        url: https://www.britannica.com/topic/Union-of-Arras
+      - title: "Encyclopaedia Britannica, Union of Utrecht"
+        url: https://www.britannica.com/topic/Union-of-Utrecht
+      - title: "House of Representatives of the Netherlands, Act of Abjuration on display (in Dutch)"
+        url: https://www.tweedekamer.nl/nieuws/kamernieuws/%E2%80%98plakkaat-van-verlatinghe%E2%80%99-tentoongesteld-de-kamer
+    exercises:
+      - type: story
+        title: The Spanish Fury
+        body: >-
+          On 4 November 1576, Spanish soldiers who had not been paid for months stormed Antwerp, looting and
+          killing. Thousands died: people at the time spoke of 7,000 or more, though historians today count fewer.
+          Four days later the provinces made a pact, the Pacification of Ghent: nearly all of them would stand with
+          Holland and Zeeland to drive the foreign troops out.
+        visual: { kind: photo, photo: spanish-fury }
+      - type: truemyth
+        statement: Antwerp's brand-new town hall was set on fire during the Spanish Fury.
+        visual: { kind: photo, photo: antwerp-town-hall }
+        answer: true
+        explain: >-
+          The town hall had been finished only in 1565. In the fire only its outer walls were left standing, and
+          rebuilding began in 1579, inside the old walls you still see today.
+      - type: scrub
+        prompt: Drag the slider to a year when nearly all the provinces stand together against the king's troops.
+        map: revolt
+        start: 1572
+        answer: [1576, 1578]
+        explain: >-
+          After the Pacification of Ghent in 1576, almost the whole country was against the Spanish army. The
+          unity did not last: Catholics and Calvinists soon distrusted each other more than they did the king.
+      - type: choice
+        prompt: Look at the map in 1579. In January the provinces in the south-west made their peace with the king in the Union of Arras. Which?
+        visual: { kind: time-map, map: revolt, year: 1579 }
+        answer: 0
+        options:
+          - label: Artois, Hainaut and Walloon Flanders
+            why: >-
+              Right. Artois, Hainaut and the town of Douai signed first, and Lille and Orchies joined them. These
+              Catholic, French-speaking lands wanted peace, their old rights and their faith.
+          - label: Flanders and Brabant
+            why: Flanders and Brabant still sided with the rebels in 1579.
+          - label: Holland and Zeeland
+            why: Holland and Zeeland were the heart of the revolt.
+          - label: Luxembourg and Namur
+            why: Luxembourg had never joined the rebels, and Don John had already seized Namur.
+      - type: pin
+        prompt: The Union of Arras was signed in the capital of Artois, today in France. Pin Arras.
+        place: arras
+        okKm: 30
+        fullKm: 12
+        explain: >-
+          Arras lies in northern France. Artois stayed Spanish until France took it in the 1600s.
+      - type: region
+        prompt: On 23 January 1579 Holland, Zeeland, Utrecht and Guelders signed the Union of Utrecht, promising to fight on together. Shade those lands, using today's provinces.
+        layer: provinces
+        answer: [NL-NH, NL-ZH, NL-ZE, NL-UT, NL-GE]
+        explain: >-
+          North and South Holland, Zeeland, Utrecht and Gelderland. Overijssel, Friesland and Groningen joined
+          soon after, and so, for a few years, did Ghent, Bruges, Ypres, Antwerp and Breda in the south. The union
+          served as the Republic's constitution until 1795.
+      - type: gap
+        prompt: Article 13 of the Union of Utrecht promised something new in the Europe of its day. Fill the gap.
+        visual: { kind: photo, photo: union-utrecht }
+        quote: Each person shall remain free in his religion, and no one shall be ___ or investigated because of his religion.
+        source: Union of Utrecht, article 13, 23 January 1579
+        options: [persecuted, taxed, honoured, baptised]
+        answer: 0
+        explain: >-
+          Freedom of conscience: what you believed in private could not be punished. It did not mean freedom of
+          worship. Each province decided which church could hold public services, and in Holland and Zeeland only
+          the Reformed church could.
+      - type: gap
+        prompt: In 1581 the States General declared that Philip was no longer their ruler. Fill the gap in their reason.
+        visual: { kind: photo, photo: abjuration }
+        quote: A prince is constituted by God to be ruler of a people, to defend them from oppression and violence as the ___ his sheep.
+        source: Act of Abjuration, 26 July 1581, in an English translation of 1907
+        options: [shepherd, father, wolf, farmer]
+        answer: 0
+        explain: >-
+          A prince who oppresses his people instead of protecting them, it went on, is no longer a prince but a
+          tyrant, and his subjects may choose another. Some historians see it as a model for the American
+          Declaration of Independence of 1776, though the link is debated.
+      - type: match
+        prompt: Match each agreement to what it did.
+        pairs:
+          - [Pacification of Ghent, United the provinces against the Spanish troops]
+          - [Union of Arras, Brought the Walloon provinces back to the king]
+          - [Union of Utrecht, Bound the north to fight on together]
+          - [Act of Abjuration, Declared Philip no longer their ruler]
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The Spanish Fury and the Pacification of Ghent, year: 1576, when: November 1576 }
+          - { label: Don John seizes Namur, year: 1577, when: '1577' }
+          - { label: The Unions of Arras and Utrecht, year: 1579, when: January 1579 }
+          - { label: Groningen goes over to the king, year: 1580, when: '1580' }
+          - { label: The Act of Abjuration, year: 1581, when: July 1581 }
+        explain: In five years the provinces went from one front against Spain to two camps.
+
+  - id: u5-l5
+    title: Antwerp falls, Amsterdam rises
+    icon: road
+    sources:
+      - title: "Encyclopaedia Britannica, Fall of Antwerp"
+        url: https://www.britannica.com/event/Fall-of-Antwerp
+      - title: "J. Briels, The southern Netherlands immigration, Neerlandia 2005 (in Dutch)"
+        url: https://dbnl.org/tekst/_nee003200501_01/_nee003200501_01_0099.php
+      - title: "J. De Belder, Housing in Antwerp, Journal of Belgian History 1977 (in Dutch)"
+        url: https://www.journalbelgianhistory.be/en/system/files/article_pdf/BTNG-RBHC,%2008,%201977,%203-4,%20pp%20367-446.pdf
+      - title: "Demos (NIDI), the 1622 census of Amsterdam (in Dutch)"
+        url: https://publ.nidi.nl/demos/2022/demos-38-08.pdf
+      - title: "Encyclopaedia Britannica, Simon Stevin"
+        url: https://www.britannica.com/biography/Simon-Stevin
+      - title: "Museum De Lakenhal, Leiden cloth"
+        url: https://www.lakenhal.nl/en/story/leiden-cloth
+    exercises:
+      - type: story
+        title: The great move north
+        body: >-
+          The king's new governor, Alexander Farnese, Duke of Parma, won back the south town by town. In 1585, after
+          a siege of more than a year, Antwerp surrendered. Its Protestants were given four years to convert or
+          leave, and tens of thousands went north, taking their money, skills and contacts with them.
+        visual: { kind: time-map, map: revolt, year: 1585 }
+      - type: who
+        photo: parma
+        clues:
+          - My mother governed the Netherlands from 1559 to 1567.
+          - I was the nephew of Philip II and the grandson of Charles V.
+          - I won back Flanders and Brabant for the king, one town at a time.
+          - I built a bridge of boats across the Scheldt to starve Antwerp.
+        options: ["Alexander Farnese, Duke of Parma", The Duke of Alba, Don John of Austria, Maurice of Nassau]
+        answer: 0
+        explain: >-
+          Alexander Farnese, Duke of Parma, son of Margaret of Parma. He was the best general of his age, and the
+          border between the Netherlands and Belgium owes much to how far he got.
+      - type: hunt
+        prompt: To cut Antwerp off from the sea, Parma built a bridge of ships across the Scheldt. Find the bridge.
+        photo: antwerp-siege-bridge
+        targets: [[0.21, 0.22, 0.36, 0.40], [0.55, 0.55, 0.25, 0.18]]
+        explain: >-
+          Finished in February 1585, it closed the river. In April an Italian engineer, Federigo Giambelli, sent
+          ships packed with gunpowder, the hellburners, against it. One blew up part of the bridge and killed many
+          soldiers, but the bridge was repaired and the siege went on.
+      - type: scrub
+        prompt: Drag the slider to a year when refugees are pouring north out of Antwerp.
+        map: revolt
+        answer: [1585, 1608]
+        explain: >-
+          The great wave came after Antwerp fell in 1585. Most went to Holland and Zeeland, and others to Germany
+          and England.
+      - type: choice
+        prompt: Read the chart. About how many people lived in Antwerp in the 1560s, before the troubles?
+        visual: { kind: chart, chart: antwerp-amsterdam }
+        answer: 2
+        options:
+          - label: About 25,000
+            why: That is closer to Amsterdam's size at the time.
+          - label: About 50,000
+            why: That is about what Antwerp had around 1500. By 1568 it had doubled.
+          - label: About 100,000
+            why: >-
+              Right. A count in 1568 found about 100,000 people. By 1589, after the fall, only about 42,000 were
+              left.
+          - label: About 200,000
+            why: Only Paris, and later London, reached that size in northern Europe.
+      - type: truemyth
+        statement: Amsterdam was already bigger than Antwerp before Antwerp fell in 1585.
+        visual: { kind: chart, chart: antwerp-amsterdam }
+        answer: false
+        explain: >-
+          Follow the two lines. Amsterdam had about 30,000 people around 1580, less than a third of Antwerp. It
+          overtook Antwerp in the 1590s, and a count in 1622 found almost 105,000.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Antwerp falls to Parma, Protestant merchants move to Amsterdam]
+          - [The Dutch close the Scheldt, Antwerp's port is cut off from the sea]
+          - [Flemish cloth workers flee north, Leiden becomes a great cloth town]
+        explain: >-
+          The south's loss was the north's gain. The money and skills of Antwerp helped build the Dutch Golden
+          Age, which is the next unit.
+      - type: pin
+        prompt: Many refugees settled in Middelburg, the capital of Zeeland. Pin it.
+        place: middelburg
+        okKm: 25
+        explain: >-
+          Middelburg lies on Walcheren. With Amsterdam, Leiden and Rotterdam it was one of the towns that took in
+          the most people from the south. In all, perhaps 150,000 came north.
+      - type: truemyth
+        statement: Amsterdam's famous ring of canals was mostly dug after 1600, to house its fast-growing population.
+        visual: { kind: photo, photo: amsterdam-1649 }
+        answer: true
+        explain: >-
+          Compare this map with Amsterdam in the 1530s, a small walled town on the IJ. The city decided to expand
+          in 1613. The Herengracht was dug from that year, the Prinsengracht and Keizersgracht soon after, and the
+          ring was pushed east in stages until the 1660s.
+      - type: match
+        prompt: Match each migrant from the south to what they did in the north.
+        pairs:
+          - [Simon Stevin of Bruges, Engineer to Prince Maurice]
+          - [Jodocus Hondius of Wakken, Made maps and globes in Amsterdam]
+          - [Willem Usselincx of Antwerp, Pushed for a West India Company]
+          - [Vondel's parents from Antwerp, Raised the great Dutch poet Joost van den Vondel]
+
+  - id: u5-l6
+    title: From war to the Peace of Münster
+    icon: crown
+    sources:
+      - title: "Canon van Nederland, De Republiek (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/republiek
+      - title: "Rijksmuseum, The capture of Breda, 1590"
+        url: https://www.rijksmuseum.nl/en/collection/object/Inname-van-Breda-1590--2d11b9a6dacbf0aabbab821ecc99f63c
+      - title: "Encyclopaedia Britannica, Siege of Ostend"
+        url: https://www.britannica.com/event/Siege-of-Ostend
+      - title: "Encyclopaedia Britannica, Twelve Years' Truce"
+        url: https://www.britannica.com/topic/Twelve-Years-Truce
+      - title: "Museo del Prado, The Surrender of Breda"
+        url: https://www.museodelprado.es/en/the-collection/art-work/the-surrender-of-breda/0cc7577a-51d9-44fd-b4d5-4dba8d9cb13a
+      - title: "Nationaal Archief, Finally peace (1648) (in Dutch)"
+        url: https://www.nationaalarchief.nl/beleven/onderwijs/bronnenbox/eindelijk-vrede-1648
+      - title: "National Gallery, ter Borch, The Ratification of the Treaty of Münster"
+        url: https://www.nationalgallery.org.uk/paintings/gerard-ter-borch-the-ratification-of-the-treaty-of-munster
+    exercises:
+      - type: story
+        title: Princes of Orange at war
+        body: >-
+          With William dead, his son Maurice of Nassau led the Republic's army. He drilled his soldiers and studied
+          siege craft, and in the 1590s he won back the north and east. After a twelve-year truce, Maurice's
+          half-brother Frederick Henry pushed the front south. In 1648, at Münster, Spain finally made peace.
+        visual: { kind: time-map, map: revolt, year: 1588 }
+      - type: who
+        photo: maurice
+        clues:
+          - I was born in 1567, a son of William of Orange.
+          - I studied at Leiden, and Simon Stevin taught me mathematics.
+          - I drilled my soldiers with the same set moves, a model for armies all over Europe.
+          - I beat the Spanish on the beach at Nieuwpoort in 1600.
+        options: [Maurice of Nassau, Frederick Henry, William of Orange, Ambrogio Spínola]
+        answer: 0
+        explain: >-
+          Maurice of Nassau, Prince of Orange from 1618. A brilliant soldier, he was a hard politician: in 1619 he
+          let the old statesman Johan van Oldenbarnevelt be beheaded.
+      - type: hunt
+        prompt: In March 1590, Dutch soldiers hid under a load of peat on a barge and were let into Breda's castle. Find the barge.
+        photo: breda-peat-barge
+        targets: [[0.66, 0.29, 0.32, 0.37]]
+        explain: >-
+          About seventy men lay under the peat. At night they climbed out and took the castle. The peat barge of
+          Breda is the Dutch Trojan horse.
+      - type: pin
+        prompt: On 2 July 1600, Maurice beat a Spanish army on the dunes and beach near Nieuwpoort, in Flanders. Pin it.
+        place: nieuwpoort
+        okKm: 25
+        explain: >-
+          The Battle of the Dunes was a victory, but Maurice had to march back north. Flanders stayed Spanish.
+      - type: truemyth
+        statement: The siege of Ostend, the last rebel town in Flanders, lasted more than three years.
+        visual: { kind: photo, photo: ostend-siege }
+        answer: true
+        explain: >-
+          From July 1601 to September 1604. The Spanish general Ambrogio Spínola finally took it, but by then
+          Maurice had won Sluis, on the other side of Bruges.
+      - type: scrub
+        prompt: Drag the slider to a year when the fighting has stopped for the Twelve Years' Truce.
+        map: revolt
+        start: 1588
+        answer: [1609, 1620]
+        explain: >-
+          The truce was signed in Antwerp on 9 April 1609. Spain treated the Republic, for the moment, as a free
+          country, and the fighting started again in 1621.
+      - type: truemyth
+        statement: The Eighty Years' War was fought for eighty years without a break.
+        visual: { kind: photo, photo: fishing-souls }
+        answer: false
+        explain: >-
+          Adriaen van de Venne painted this in 1614, during the Twelve Years' Truce: Protestants and Catholics
+          fish for people's souls from their boats. With twelve years of truce in the middle, the war was fought
+          for 68 years.
+      - type: hunt
+        prompt: Velázquez painted Breda surrendering to the Spanish in 1625. The Dutch commander hands over the key of the town. Find the key.
+        photo: surrender-breda
+        targets: [[0.49, 0.52, 0.09, 0.09]]
+        explain: >-
+          Justin of Nassau, a son of William of Orange, bows to the Spanish general Spínola, who stops him from
+          kneeling. Frederick Henry took Breda back in 1637.
+      - type: region
+        prompt: The Republic ruled the lands it won in the south as conquered land, with no vote in the States General. The largest is a province of today. Shade it.
+        layer: provinces
+        answer: [NL-NB]
+        explain: >-
+          North Brabant, then called States Brabant. Mostly Catholic, it was ruled from The Hague as one of the
+          Generality Lands, with States Flanders and Maastricht, until the old Republic fell in 1795.
+      - type: hunt
+        prompt: Gerard ter Borch painted the envoys swearing to the peace in Münster's town hall on 15 May 1648, and put himself in the picture, at the far edge of the front row. Find the painter, looking out at you.
+        photo: munster-ratification
+        targets: [[0.0, 0.42, 0.07, 0.14]]
+        explain: >-
+          He stands at the far left of the front row. The Dutch envoys raise their hands to swear on the left, the
+          Spanish swear on the Gospels on the right. The painting is now in the National Gallery in London.
+      - type: choice
+        prompt: Look at the map in 1648. Which of these was NOT agreed in the Peace of Münster?
+        visual: { kind: time-map, map: revolt, year: 1648 }
+        answer: 3
+        options:
+          - label: Spain recognises the Republic as an independent state
+            why: That was agreed. After 80 years, Spain gave up its claim to the north.
+          - label: Each side keeps the land it holds
+            why: That was agreed, in Brabant, Flanders and Limburg as well as in the East and West Indies.
+          - label: The Scheldt stays closed
+            why: That was agreed, and it kept Antwerp's port shut off from the sea until the 1790s.
+          - label: The southern provinces become an independent country
+            why: >-
+              Right, that came much later. The south stayed under Spain and then Austria, and Belgium only became
+              independent in 1830.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The peat barge of Breda, year: 1590, when: '1590' }
+          - { label: The Battle of Nieuwpoort, year: 1600, when: '1600' }
+          - { label: Ostend surrenders, year: 1604, when: '1604' }
+          - { label: The Twelve Years' Truce begins, year: 1609, when: '1609' }
+          - { label: Breda surrenders to Spínola, year: 1625, when: '1625' }
+          - { label: The Peace of Münster, year: 1648, when: '1648' }
+        explain: Eighty years after Heiligerlee, the north was a free republic and the south a Spanish province.
