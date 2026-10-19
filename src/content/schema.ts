@@ -33,8 +33,9 @@ const ArtVisual = z.object({ kind: z.literal('art'), art: z.enum(artIds) })
 // A real photo or historical map from Wikimedia Commons, credited in src/photos/credits.ts.
 const PhotoVisual = z.object({ kind: z.literal('photo'), photo: z.enum(photoIds) })
 const PolderVisual = z.object({ kind: z.literal('polder-slider') })
-// A map with a year slider, played as an animation: the Roman frontier and roads.
-const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.literal('roman') })
+// A map with a year slider, played as an animation: the Roman frontier and roads,
+// or the wool and cloth trade. `year` opens it at a given year instead of the start.
+const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(['roman', 'cloth']), year: z.number().optional() })
 
 export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual])
 export type Visual = z.infer<typeof Visual>
@@ -103,7 +104,18 @@ const Match = z.object({
   pairs: z.array(z.tuple([z.string(), z.string()])).min(3).max(5),
 })
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match])
+// Who am I? Clues appear one at a time beside a portrait or statue; answering
+// before the last clue earns the bonus.
+const Who = z.object({
+  type: z.literal('who'),
+  photo: z.enum(photoIds),
+  clues: z.array(z.string()).min(2).max(4),
+  options: z.array(z.string()).min(2).max(4),
+  answer: z.number().int().nonnegative(),
+  explain: z.string(),
+})
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

@@ -1,0 +1,623 @@
+id: unit-03
+number: 3
+title: Counts, bishops and cloth cities
+era: 900 to 1384
+summary: Counts, dukes and prince-bishops carve up the Low Countries, towns win their freedoms, and English wool makes Flanders rich.
+lessons:
+  - id: u3-l1
+    title: Counts and bishops
+    icon: shield
+    sources:
+      - title: Encyclopaedia Britannica, History of the Low Countries, the territorial principalities and the rise of the towns
+        url: https://www.britannica.com/topic/history-of-the-Low-Countries-prehistoric-times-to-1579-2157575/The-development-of-the-territorial-principalities-and-the-rise-of-the-towns-925-c-1350
+      - title: Encyclopaedia Britannica, Imperial Flanders
+        url: https://www.britannica.com/place/Imperial-Flanders
+      - title: City of Ghent, Castle of the Counts, history and stories
+        url: https://historischehuizen.stad.gent/en/castle-counts/history-and-stories
+      - title: Encyclopaedia Britannica, Dirk III
+        url: https://www.britannica.com/biography/Dirk-III
+      - title: University of Liège, Notger and his time
+        url: https://www.reflexions.uliege.be/cms/c_18697/en/notger-and-his-time
+      - title: Encyclopaedia Britannica, Henry I, duke of Brabant
+        url: https://www.britannica.com/biography/Henry-I-duke-of-Brabant
+    exercises:
+      - type: story
+        title: A patchwork of lords
+        body: >-
+          After Charlemagne's empire broke up, the kings were far away and Vikings raided the rivers. Local lords
+          took charge. By 1100 the Low Countries were a patchwork: counts in Flanders and Holland, a duke in
+          Brabant, and bishops in Liège and Utrecht who ruled land like princes. The Scheldt split them: the count
+          of Flanders held most of his land from the king of France, while the others answered to the German
+          emperor.
+        visual: { kind: map, highlight: [], rivers: [Schelde], pins: [ghent, liege, utrecht, leuven] }
+      - type: region
+        prompt: The counts of Flanders ruled the coast west of the Scheldt. Shade the two Belgian provinces that still carry the name Flanders.
+        layer: provinces
+        answer: [BE-VWV, BE-VOV]
+        explain: >-
+          West and East Flanders. The medieval county also reached into today's France, around Lille and Dunkirk,
+          and into Zeeland, which is why the strip south of the Westerschelde is still called Zeelandic Flanders.
+      - type: choice
+        prompt: Count Philip of Alsace rebuilt this castle in Ghent as a stone fortress in 1180. What is it called?
+        visual: { kind: photo, photo: gravensteen }
+        answer: 0
+        options:
+          - label: The Gravensteen, the Castle of the Counts
+            why: >-
+              Right. An older castle stood on the spot; Philip's gate still carries the date 1180. Later it served as
+              a court, a prison and even a cotton mill before Ghent restored it around 1900.
+          - label: The Belfry of Ghent
+            why: The belfry is a tall tower that belonged to the town, not a castle that belonged to the count.
+          - label: The Steen of Antwerp
+            why: The Steen is a castle in Antwerp, on the Scheldt, not in Ghent.
+          - label: The Muiderslot
+            why: The Muiderslot is a castle near Amsterdam, in the old county of Holland.
+      - type: truemyth
+        statement: Baldwin "Iron Arm", the first count of Flanders, began his career by running off with a king's daughter.
+        answer: true
+        explain: >-
+          Around 862 he eloped with Judith, daughter of the West Frankish king Charles the Bald. The furious king
+          later forgave him and gave him land in Flanders, which his descendants turned into a county.
+      - type: region
+        prompt: Around 1100 the counts of the boggy coast north of the Maas began to call their land Holland. Shade the two provinces that carry the name today.
+        layer: provinces
+        answer: [NL-NH, NL-ZH]
+        explain: >-
+          North and South Holland. Earlier counts were called counts "in Frisia". Holland probably means
+          "wood land" (holt-land), not "hollow land".
+      - type: truemyth
+        statement: Holland is the official name of the whole Netherlands.
+        visual: { kind: map, highlight: [NL-NH, NL-ZH], rivers: [], pins: [] }
+        answer: false
+        explain: >-
+          Holland is only the two western provinces, the heart of the old county. The country is the Netherlands,
+          and since 2020 the Dutch government has stopped using Holland in its promotion abroad.
+      - type: pin
+        prompt: In 1018 Count Dirk III beat an army sent by the emperor at his fort on the Maas, where he charged tolls on passing ships. Pin Vlaardingen.
+        place: vlaardingen
+        okKm: 25
+        explain: Vlaardingen lies just west of Rotterdam. Winning the battle let the counts keep their tolls and grow rich on river trade.
+      - type: pin
+        prompt: In 985 the emperor gave Bishop Notger a county, making the bishops of this city worldly rulers too. Pin Liège.
+        place: liege
+        explain: >-
+          Notger is often called the first prince-bishop of Liège. The principality lasted until 1795, when France
+          annexed it. A later saying goes: "Liège owes Notger to Christ, and everything else to Notger."
+      - type: region
+        prompt: Henry I called himself duke of Brabant from about 1190. Shade the three provinces, in two countries, that still carry the name Brabant.
+        layer: provinces
+        answer: [NL-NB, BE-VBR, BE-WBR]
+        explain: >-
+          North Brabant in the Netherlands, and Flemish Brabant and Walloon Brabant in Belgium. The dukes ruled
+          from Leuven and later Brussels.
+      - type: match
+        prompt: Match each land to its ruler.
+        pairs:
+          - [Flanders, A count who served the king of France]
+          - [Holland, A count who served the emperor]
+          - [Brabant, A duke]
+          - [Liège, A prince-bishop]
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Baldwin Iron Arm runs off with Judith, year: 862, when: about 862 }
+          - { label: Bishop Notger gets the county of Huy, year: 985, when: '985' }
+          - { label: Dirk III wins at Vlaardingen, year: 1018, when: '1018' }
+          - { label: Philip of Alsace rebuilds the Gravensteen, year: 1180, when: '1180' }
+          - { label: Henry I takes the title duke of Brabant, year: 1190, when: about 1190 }
+        explain: It took three centuries for the counties, duchies and bishoprics to settle into shapes that would last until the Burgundians.
+
+  - id: u3-l2
+    title: Towns and their freedoms
+    icon: bell
+    sources:
+      - title: UNESCO, Belfries of Belgium and France
+        url: https://whc.unesco.org/en/list/943/
+      - title: Visit Bruges, the Belfry
+        url: https://www.visitbruges.be/en/things-to-do/culture-and-heritage/belfort-belfry
+      - title: Focus on Belgium, Huy, the first free city in Western Europe
+        url: https://focusonbelgium.be/en/facts/huy-first-free-city-western-europe
+      - title: Amsterdam City Archives, the toll privilege of 1275
+        url: https://www.amsterdam.nl/stadsarchief/stukken/handel/tolprivilege/
+      - title: UNESCO, Flemish Béguinages
+        url: https://whc.unesco.org/en/list/855/
+    exercises:
+      - type: story
+        title: Towers of freedom
+        body: >-
+          Trade made towns rich, and rich towns bought or fought for rights from their lords: their own courts,
+          councils and taxes. A town kept its charter of freedoms, its treasury and its great bell in a tall tower,
+          the belfry, which also served as a lookout for fire and enemies. The belfry of Bruges, begun around 1240,
+          stands 83 m tall.
+        visual: { kind: photo, photo: bruges-belfry }
+      - type: pin
+        prompt: In 1066 the bishop of Liège gave this town on the Maas a charter of freedoms, often called the oldest north of the Alps. Pin Huy.
+        place: huy
+        okKm: 25
+        explain: Huy lies on the Maas about 30 km upstream from Liège. Its citizens paid the bishop for their rights.
+      - type: region
+        prompt: UNESCO lists 56 belfries as world heritage. They stand in two countries. Tap both.
+        layer: countries
+        answer: [BEL, FRA]
+        explain: >-
+          Belgium has 33 and France 23, mostly in the old county of Flanders and its neighbours. Towns in the
+          north of France were once Flemish too: Lille, Douai and Dunkirk.
+      - type: choice
+        prompt: The Cloth Hall of Ypres has a belfry rising from its middle. Which of these did a town keep in its belfry?
+        visual: { kind: photo, photo: ypres-cloth-hall }
+        answer: 1
+        options:
+          - label: The count's throne
+            why: The count lived in his own castle. The belfry belonged to the citizens.
+          - label: The town charter, the treasury and the bell
+            why: >-
+              Right. The bell called people to work, to meetings and to arms, and rang out alarms. Bruges's tower
+              now holds a carillon of 47 bells.
+          - label: The bishop's relics
+            why: Relics were kept in churches. The belfry was the town's own, non-church tower.
+          - label: Bales of wool for sale
+            why: Wool and cloth were sold in the cloth hall, often built right beside the belfry.
+      - type: pin
+        prompt: In 1220 the count gave town rights to Dordrecht, usually called the oldest town of Holland. Pin it.
+        place: dordrecht
+        explain: Dordrecht grew rich from river trade where the Merwede and other rivers meet, about 20 km south-east of Rotterdam.
+      - type: order
+        prompt: Put these town rights in order, oldest first.
+        items:
+          - { label: Huy gets its charter, year: 1066, when: '1066' }
+          - { label: "'s-Hertogenbosch gets town rights", year: 1185, when: about 1185 }
+          - { label: Dordrecht gets town rights, year: 1220, when: '1220' }
+          - { label: Amsterdam is first named in a toll privilege, year: 1275, when: '1275' }
+          - { label: Amsterdam gets town rights, year: 1300, when: about 1300 }
+        explain: The towns of the south were older and richer. Holland's towns, built on peat and clay, came later but grew fast.
+      - type: truemyth
+        statement: Amsterdam is first mentioned in a document from 1275 that freed its people from paying tolls.
+        visual: { kind: map, highlight: [], rivers: [], pins: [amsterdam] }
+        answer: true
+        explain: >-
+          Count Floris V freed the people living by the dam in the Amstel, "Amestelledamme", from tolls in his
+          county. The document is in the Amsterdam City Archives.
+      - type: choice
+        prompt: Women called beguines lived in courts of small houses like this one, praying and working but taking no lifelong vows. What is such a place called?
+        visual: { kind: photo, photo: beguinage }
+        answer: 2
+        options:
+          - label: A monastery
+            why: Nuns in a monastery took lifelong vows. Beguines could leave and marry.
+          - label: A guildhall
+            why: A guildhall was a meeting house for craftsmen or merchants.
+          - label: A béguinage, or begijnhof
+            why: >-
+              Right. Béguinages spread through the Low Countries from the 1200s. UNESCO lists 13 in Flanders,
+              among them Bruges, Leuven and Kortrijk.
+          - label: An almshouse
+            why: Almshouses housed the poor. Béguinages were run by the women themselves.
+      - type: truemyth
+        statement: The last beguine of the old tradition died in 2013.
+        answer: true
+        explain: Marcella Pattyn died in the béguinage of Kortrijk in April 2013, aged 92. The movement had lasted about 800 years.
+      - type: pin
+        prompt: The duke of Brabant founded a town in the north of his duchy around 1185. Its name means "the duke's wood". Pin 's-Hertogenbosch.
+        place: den-bosch
+        okKm: 25
+        explain: Today it is the capital of North Brabant, also called Den Bosch.
+
+  - id: u3-l3
+    title: Wool and cloth
+    icon: ship
+    sources:
+      - title: Encyclopaedia Britannica, Flanders
+        url: https://www.britannica.com/place/Flanders
+      - title: The Hanse, the Kontore
+        url: https://hanse.org/en/the-medieval-hanseatic-league/die-kontore
+      - title: Visit Gent, Ghent over the centuries
+        url: https://visit.gent.be/en/good-know/practical-information/why-ghent/ghent-over-centuries
+      - title: Encyclopaedia Britannica, Edward III and the Calais staple
+        url: https://www.britannica.com/place/United-Kingdom/Edward-III-1327-77
+      - title: British Library, the Luttrell Psalter
+        url: https://www.bl.uk/collection-items/luttrell-psalter
+    exercises:
+      - type: story
+        title: The wool road
+        body: >-
+          Flanders grew rich on cloth. Its towns wove more than their own sheep could supply, so they bought the
+          best wool in Europe from England and sold fine, brightly dyed cloth across the continent. Press play to
+          follow three centuries of trade around the North Sea.
+        visual: { kind: time-map, map: cloth }
+      - type: choice
+        prompt: The sheep in this English book of psalms, made around 1330, grew the wool that Flemish weavers wanted most. Which way did the wool travel?
+        visual: { kind: photo, photo: luttrell-sheep }
+        answer: 0
+        options:
+          - label: From England to Flanders
+            why: >-
+              Right. Raw wool crossed the North Sea to Flanders, and finished cloth came back and went on to the
+              rest of Europe.
+          - label: From Flanders to England
+            why: The other way round. England had the sheep; Flanders had the weavers.
+          - label: From Italy to Flanders
+            why: Italy sent spices, silk and alum, a chemical that fixed dyes, but not wool.
+          - label: From the Baltic to Flanders
+            why: The Baltic sent furs, wax, grain and timber.
+      - type: choice
+        prompt: Look at the map around 1250. Where did Flemish cloth go south to be sold to Italian merchants?
+        visual: { kind: time-map, map: cloth, year: 1250 }
+        answer: 1
+        options:
+          - label: Paris
+            why: Paris was a big buyer, but the great meeting place for northern and Italian traders lay further east.
+          - label: The fairs of Champagne, at Troyes and Provins
+            why: >-
+              Right. Fairs moved between four towns in Champagne through the year. Once Italian ships sailed
+              straight to Bruges, from 1277, the fairs faded.
+          - label: Cologne
+            why: Cologne traded with Flanders along the land road, but Italian buyers met Flemings in Champagne.
+          - label: London
+            why: London sold wool to Flanders; Italian merchants did not buy Flemish cloth there.
+      - type: pin
+        prompt: Pin Ypres, one of the three great cloth cities of Flanders.
+        place: ypres
+        okKm: 25
+        explain: Ypres lies in West Flanders, near the French border. With Bruges and Ghent it was one of the "Three Members" that spoke for Flanders.
+      - type: choice
+        prompt: This hall in Ypres, about 125 m long, was finished in 1304. What was sold in it?
+        visual: { kind: photo, photo: ypres-cloth-hall }
+        answer: 2
+        options:
+          - label: Fish
+            why: Fish was sold in a separate fish market. This hall was built for the town's main trade.
+          - label: Grain
+            why: Grain had its own market. This hall was for the product that made Ypres rich.
+          - label: Cloth
+            why: >-
+              Right. The Cloth Hall was one of the largest commercial buildings of the Middle Ages. It burned
+              down in 1914, in the First World War, and was rebuilt by 1967.
+          - label: Wine
+            why: Wine came in through Damme, near Bruges. Ypres made and sold cloth.
+      - type: pin
+        prompt: Around 1300 one Flemish city was the biggest north of the Alps after Paris, with perhaps 60,000 people. Pin Ghent.
+        place: ghent
+        explain: Ghent lies where the Leie meets the Scheldt. Thousands of its people worked in cloth, as weavers, fullers and dyers.
+      - type: match
+        prompt: Match each trade good to where it came from.
+        pairs:
+          - [Wool, England]
+          - [Spices and silk, Italian galleys]
+          - [Furs and wax, The Baltic]
+          - [Wine, France and the Rhineland]
+      - type: truemyth
+        statement: When England stopped selling wool to Flanders in 1336, the Flemish weavers hardly noticed.
+        visual: { kind: time-map, map: cloth, year: 1336 }
+        answer: false
+        explain: >-
+          The looms fell silent and weavers went hungry. Within two years Ghent turned to Jacob van Artevelde, who
+          struck a deal with Edward III to get the wool back.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The Hanse gets privileges in Flanders, year: 1252, when: '1252' }
+          - { label: Genoese galleys first sail to Bruges, year: 1277, when: '1277' }
+          - { label: Edward III bans wool exports to Flanders, year: 1336, when: '1336' }
+          - { label: England takes Calais, year: 1347, when: '1347' }
+          - { label: All English wool must go through Calais, year: 1363, when: '1363' }
+        explain: The wool trade tied Flanders to England, even though the count owed loyalty to England's enemy, the king of France.
+      - type: choice
+        prompt: Look at the map in 1370. Where must Flemish buyers now fetch their English wool?
+        visual: { kind: time-map, map: cloth, year: 1370 }
+        answer: 2
+        options:
+          - label: Bruges
+            why: Before 1363 wool came straight to Bruges. Now it stopped short, across the border.
+          - label: Boston
+            why: Boston was an English wool port, but foreign buyers were now sent to one market.
+          - label: Calais
+            why: >-
+              Right. England captured Calais in 1347, and from 1363 all its exported wool had to be sold there, so
+              the crown could tax it easily.
+          - label: Cologne
+            why: Cologne lies on the Rhine, far from the sheep of England.
+
+  - id: u3-l4
+    title: Bruges, market of the world
+    icon: coin
+    sources:
+      - title: National Bank of Belgium Museum, the Ter Beurze house
+        url: https://museum.nbb.be/en/node/242
+      - title: UNESCO, Historic Centre of Brugge
+        url: https://whc.unesco.org/en/list/996/
+      - title: The Hanse, the Kontore
+        url: https://hanse.org/en/the-medieval-hanseatic-league/die-kontore
+      - title: Visit Bruges, the Belfry
+        url: https://www.visitbruges.be/en/things-to-do/culture-and-heritage/belfort-belfry
+    exercises:
+      - type: story
+        title: A port 15 km from the sea
+        body: >-
+          Bruges lies inland. In 1134 a storm flood tore open an inlet, the Zwin, and gave the town a waterway to
+          the sea. Around 1180 the port of Damme was founded on it, and later Sluis. By 1300 ships from Genoa,
+          Venice, Germany, England and Spain crowded the Zwin, and Bruges was the great market of northern Europe.
+        visual: { kind: map, highlight: [BE-VWV], rivers: [], pins: [bruges, damme, sluis] }
+      - type: pin
+        prompt: Pin Damme, the outport of Bruges on the Zwin.
+        place: damme
+        fullKm: 6
+        okKm: 15
+        explain: Damme lies about 6 km north-east of Bruges, linked to it by a canal. Wine and herring were unloaded here.
+      - type: choice
+        prompt: Merchants met on the square in front of this inn, run by the Van der Buerse family. Which word do we get from their name?
+        visual: { kind: photo, photo: ter-beurze }
+        answer: 0
+        options:
+          - label: Bourse, a stock exchange
+            why: >-
+              Right. People called the square "the Beurs", and the word spread: beurs in Dutch, bourse in French,
+              Börse in German. The building you see dates from 1453.
+          - label: Purse
+            why: Purse is a cousin of the word, from the Latin bursa, a leather bag, but the stock exchange came from the Bruges family.
+          - label: Bank
+            why: Bank comes from the Italian banco, the bench where money changers sat.
+          - label: Market
+            why: Market comes from the Latin mercatus.
+      - type: truemyth
+        statement: Bruges declined partly because its waterway to the sea silted up.
+        visual: { kind: map, highlight: [], rivers: [], pins: [bruges, sluis] }
+        answer: true
+        explain: >-
+          The Zwin slowly filled with sand and silt from the late 1200s. By the late 1400s big ships could no
+          longer reach Bruges, and trade moved to Antwerp, on the deep Scheldt.
+      - type: choice
+        prompt: The German merchants of the Hanse had four great trading offices abroad. Which city was NOT one of them?
+        answer: 3
+        options:
+          - label: Bruges
+            why: Bruges was one of the four, though the Hanse had no walled compound there, only a meeting house.
+          - label: London
+            why: London's Steelyard was one of the four.
+          - label: Novgorod
+            why: Novgorod, in Russia, was one of the four, the source of furs and wax.
+          - label: Venice
+            why: Right. Venice was not a Hanse office. The fourth was Bergen in Norway, the stockfish market.
+      - type: region
+        prompt: Bruges is the capital of a Belgian province. Shade it.
+        layer: provinces
+        answer: [BE-VWV]
+        explain: West Flanders. Its coast is only about 65 km long, but in the Middle Ages its harbours faced half of Europe.
+      - type: pin
+        prompt: Pin Bruges.
+        place: bruges
+        explain: Bruges lies about 15 km from the coast. Its medieval centre is a UNESCO world heritage site.
+      - type: choice
+        prompt: Which building on the market square of Bruges is this?
+        visual: { kind: photo, photo: bruges-belfry }
+        answer: 1
+        options:
+          - label: The cathedral
+            why: The cathedral of Bruges is a church a few streets away, not this tower on the market square.
+          - label: The belfry, above the old market hall
+            why: Right. Cloth was sold in the hall around the courtyard at its foot, and the tower held the town's charters and bells.
+          - label: The count's castle
+            why: The count of Flanders had a castle and court in Bruges, but this tower belonged to the town.
+          - label: A lighthouse
+            why: Bruges is inland. The tower was a lookout for fires, not ships.
+
+  - id: u3-l5
+    title: The Golden Spurs
+    icon: sword
+    sources:
+      - title: VRT NWS, The story of Flanders, "schild en vriend" (in Dutch)
+        url: https://www.vrt.be/vrtnws/nl/2023/01/23/verhaal-van-vlaanderen-schild-en-vriend/
+      - title: Visit Kortrijk, Church of Our Lady
+        url: https://visitkortrijk.be/en/onze-lieve-vrouwekerk
+      - title: VRT NWS, why 11 July is the Flemish holiday (in Dutch)
+        url: https://www.vrt.be/vrtnws/nl/2023/07/10/waarom-wordt-op-11-juli-de-vlaamse-feestdag-gevierd/
+      - title: New College, Oxford, the Courtrai Chest
+        url: https://www.new.ox.ac.uk/node/216
+      - title: Encyclopaedia Britannica, Guy, count of Flanders
+        url: https://www.britannica.com/biography/Guy-count-of-Flanders
+    exercises:
+      - type: story
+        title: Craftsmen against knights
+        body: >-
+          In 1300 the French king Philip IV locked up the count of Flanders and took over his county. The weavers
+          and craftsmen of Bruges rose up. On 11 July 1302, outside Kortrijk, an army of Flemish townsmen on foot
+          faced the knights of France, the best cavalry in Europe. Few expected the result.
+        visual: { kind: photo, photo: golden-spurs-chronicle }
+      - type: pin
+        prompt: Pin Kortrijk, where the battle was fought.
+        place: kortrijk
+        okKm: 25
+        explain: Kortrijk (Courtrai in French) lies on the Leie in West Flanders. The battle took place on the Groeninge field beside the town.
+      - type: choice
+        prompt: The front of this chest, carved in the 1300s, shows the Flemish rising of 1302. Who won the battle at Kortrijk?
+        visual: { kind: photo, photo: courtrai-chest }
+        answer: 1
+        options:
+          - label: The French knights
+            why: The knights charged across streams and ditches and were stopped by a wall of Flemish pikes and clubs.
+          - label: The Flemish foot soldiers
+            why: >-
+              Right. Their commander killed, the French fled. Foot soldiers beating knights shocked Europe. The
+              chest belongs to New College, Oxford.
+          - label: The English army
+            why: England was not in this battle. It was Flemings against the king of France.
+          - label: Neither; it was a draw
+            why: It was a clear Flemish victory, though the French won two years later at Mons-en-Pévèle.
+      - type: truemyth
+        statement: After the battle the Flemings hung hundreds of captured golden spurs in a church in Kortrijk.
+        answer: true
+        explain: >-
+          Tradition says 500 spurs, taken from fallen knights, were hung in the Church of Our Lady. French troops
+          took them back after beating the Flemings at Roosebeke in 1382. The battle is named after them.
+      - type: choice
+        prompt: This statue on the market square of Bruges, from 1887, honours the leaders of the 1302 rising. Pieter de Coninck was a weaver. Who stands beside him?
+        visual: { kind: photo, photo: breydel-statue }
+        answer: 0
+        options:
+          - label: Jan Breydel, a butcher
+            why: >-
+              Right, at least in legend. Breydel's leading role was only written up in the 1400s, and historians
+              have found no proof for it. Pieter de Coninck's role is well recorded.
+          - label: Count Guy of Dampierre
+            why: Count Guy was a prisoner in France in 1302. He died in captivity in 1305.
+          - label: Jacob van Artevelde
+            why: Jacob van Artevelde led Ghent a generation later, from 1338. His statue stands in Ghent.
+          - label: King Philip IV
+            why: Philip IV was the French king the Flemings rose against. He has no statue in Bruges.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The count of Flanders is locked up in France, year: 1300, when: '1300' }
+          - { label: The Bruges Matins, rebels kill French soldiers in Bruges, year: 1302, when: 18 May 1302 }
+          - { label: The French win at Mons-en-Pévèle, year: 1304, when: '1304' }
+          - { label: The Treaty of Athis forces Flanders to pay France, year: 1305, when: '1305' }
+          - { label: Hendrik Conscience writes The Lion of Flanders, year: 1838, when: '1838' }
+        explain: >-
+          The victory of 1302 did not last: by 1305 Flanders had to pay France heavily. But 500 years later
+          Conscience's novel made the battle a symbol for the Flemish Movement.
+      - type: truemyth
+        statement: 11 July, the day of the battle, is the official holiday of the Flemish Community.
+        visual: { kind: map, highlight: [BE-VWV, BE-VOV, BE-VAN, BE-VLI, BE-VBR], rivers: [], pins: [kortrijk] }
+        answer: true
+        explain: It has been the official Flemish holiday since 1973. Wallonia has its own holiday in September, and Belgium's national day is 21 July.
+      - type: truemyth
+        statement: Historians agree that the rebels in Bruges killed anyone who could not pronounce "schild en vriend".
+        answer: false
+        explain: >-
+          The chronicles say the rebels used the password "schild en vriend" (shield and friend). Whether it was
+          really a test that French speakers would fail is still argued, and the gory scenes come from
+          19th-century retellings.
+      - type: match
+        prompt: Match each person to their part in 1302.
+        pairs:
+          - [Philip IV, French king who seized Flanders]
+          - [Guy of Dampierre, Count held prisoner in France]
+          - [Pieter de Coninck, Weaver who led Bruges]
+          - [Robert of Artois, French commander killed in battle]
+
+  - id: u3-l6
+    title: War, plague and Burgundy
+    icon: crown
+    sources:
+      - title: Encyclopaedia Britannica, Battle of Sluys
+        url: https://www.britannica.com/topic/Battle-of-Sluys
+      - title: Visit Gent, Ghent over the centuries
+        url: https://visit.gent.be/en/good-know/practical-information/why-ghent/ghent-over-centuries
+      - title: Encyclopaedia Britannica, Brabant
+        url: https://www.britannica.com/place/Brabant
+      - title: Domtoren Utrecht, timeline
+        url: https://www.domtoren.nl/en/the-story/timeline/
+      - title: Encyclopaedia Britannica, Joyeuse Entrée
+        url: https://www.britannica.com/event/Joyeuse-Entree-1356-Brabant
+      - title: Encyclopaedia Britannica, Louis II, count of Flanders
+        url: https://www.britannica.com/biography/Louis-II-count-of-Flanders
+      - title: Columbia Encyclopedia (via Encyclopedia.com), Limburg
+        url: https://encyclopedia.com/places/britain-ireland-france-and-low-countries/benelux-political-geography/limburg
+    exercises:
+      - type: story
+        title: A war over the Channel
+        body: >-
+          In 1337 England and France began the Hundred Years' War, and Flanders was caught in the middle: its count
+          sided with France, its weavers needed English wool. On 24 June 1340, in the Zwin off Sluis, the English
+          fleet destroyed the French one, as this chronicle shows.
+        visual: { kind: photo, photo: sluys-battle }
+      - type: who
+        photo: artevelde-statue
+        clues:
+          - I was a rich cloth merchant in Ghent, and in 1338 the city put me in charge.
+          - When England's wool ban starved our weavers, I made a deal with King Edward III.
+          - In 1340 Edward III was proclaimed king of France on the Friday Market in Ghent, where my statue stands.
+          - I was killed in a riot in 1345. My son Philip later led Ghent too.
+        options: [Jacob van Artevelde, Pieter de Coninck, Floris V, Philip the Bold]
+        answer: 0
+        explain: >-
+          Jacob van Artevelde, nicknamed "the wise man of Ghent", kept the looms working by keeping Flanders on
+          good terms with England. His statue went up on the Vrijdagmarkt in 1863.
+      - type: pin
+        prompt: Pin Sluis, where the English fleet won in 1340.
+        place: sluis
+        okKm: 20
+        explain: Sluis lies on the Dutch side of the border, north of Bruges. The Zwin inlet has since silted up, leaving the town inland.
+      - type: choice
+        prompt: This picture from a Tournai chronicle of 1349 shows townspeople doing what?
+        visual: { kind: photo, photo: plague-tournai }
+        answer: 2
+        options:
+          - label: Building the town walls
+            why: The boxes are coffins, not building stones.
+          - label: Carrying goods to market
+            why: They are carrying the dead, not goods.
+          - label: Burying victims of the Black Death
+            why: >-
+              Right. The plague reached Tournai and Flanders in 1349. Across Europe it killed perhaps a third of
+              the people in a few years.
+          - label: Celebrating a saint's day
+            why: The scene is a burial, painted by Pierart dou Tielt for the abbot Gilles li Muisis.
+      - type: choice
+        prompt: Count Floris V of Holland built this hall in The Hague around 1295. What does it stand beside today?
+        visual: { kind: photo, photo: ridderzaal }
+        answer: 0
+        options:
+          - label: The Dutch parliament
+            why: >-
+              Right. The Ridderzaal (Hall of Knights) is at the heart of the Binnenhof, where the parliament meets.
+              Traditionally the king reads the Speech from the Throne here on Prinsjesdag; during the current
+              renovation it is held nearby.
+          - label: The royal palace in Amsterdam
+            why: The palace on Dam Square in Amsterdam was built as a town hall in the 1600s.
+          - label: Utrecht cathedral
+            why: Utrecht cathedral was the bishop's church. The counts of Holland lived in The Hague.
+          - label: A cloth hall
+            why: Holland's cloth halls came later, in Leiden. This was the count's own hall.
+      - type: truemyth
+        statement: Floris V of Holland was murdered by his own nobles in 1296.
+        visual: { kind: map, highlight: [], rivers: [], pins: [muiden] }
+        answer: true
+        explain: >-
+          Nobles kidnapped him and took him to Muiden castle. When peasants tried to rescue him, Gerard van Velsen
+          stabbed him to death. Tradition calls Floris "der keerlen god", the god of the common people.
+      - type: truemyth
+        statement: The duchy of Limburg, won by the duke of Brabant at Worringen in 1288, lay in today's two Limburg provinces.
+        visual: { kind: map, highlight: [NL-LI, BE-VLI], rivers: [Maas], pins: [limbourg] }
+        answer: false
+        explain: >-
+          The medieval duchy lay mostly around the small town of Limbourg, east of Liège, with only a sliver in
+          today's Limburgs. The province created in 1815 borrowed the old name; in 1839 it was split between the
+          Netherlands and Belgium.
+      - type: choice
+        prompt: Building began in 1321 and ended in 1382. At 112 m it is still the tallest church tower in the Netherlands. Where is it?
+        visual: { kind: photo, photo: utrecht-dom }
+        answer: 1
+        options:
+          - label: Amsterdam
+            why: Amsterdam's churches are much lower. This tower belonged to a bishop's cathedral.
+          - label: Utrecht
+            why: Right. The Dom tower stood beside the cathedral of the bishops of Utrecht. A storm in 1674 brought down the nave, leaving the tower alone.
+          - label: Bruges
+            why: Bruges's belfry is 83 m and belongs to the town, not a cathedral.
+          - label: Ghent
+            why: Ghent's belfry and cathedral are both lower than 112 m.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Brabant wins at Worringen, year: 1288, when: '1288' }
+          - { label: Floris V is murdered, year: 1296, when: '1296' }
+          - { label: The English win at Sluys, year: 1340, when: '1340' }
+          - { label: The Black Death reaches Flanders, year: 1349, when: '1349' }
+          - { label: Brabant's Joyous Entry charter, year: 1356, when: '1356' }
+          - { label: Flanders passes to Burgundy, year: 1384, when: '1384' }
+        explain: The 1300s were years of war, revolt and plague, and they ended with Flanders in the hands of a new dynasty.
+      - type: choice
+        prompt: In 1384 Count Louis of Male died. His daughter Margaret had married a French prince, so Flanders went to him. Who was he?
+        visual: { kind: time-map, map: cloth, year: 1384 }
+        answer: 0
+        options:
+          - label: Philip the Bold, duke of Burgundy
+            why: >-
+              Right. Over the next 50 years his family gathered most of the Low Countries under one ruler. That is
+              the story of the next unit.
+          - label: Edward III of England
+            why: Edward III wanted Margaret to marry his son, but the French king won her for his own brother, Philip.
+          - label: Jacob van Artevelde
+            why: Artevelde was a Ghent citizen, not a prince, and he had died in 1345.
+          - label: The duke of Brabant
+            why: Brabant passed to Burgundy too, but later, in the 1400s.

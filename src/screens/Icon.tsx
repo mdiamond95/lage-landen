@@ -18,6 +18,14 @@ const paths: Record<string, React.ReactNode> = {
   road: <path d="M8 3 4 21M16 3l4 18M12 4v3M12 11v3M12 18v3" fill="none" />,
   cross: <path d="M12 3v18M7 8h10" fill="none" />,
   ship: <path d="M3 15h18l-3 5H6zM12 15V3l6 9h-6M8 8l4-5" fill="none" strokeLinejoin="round" />,
+  bell: <path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 21h4M12 3v2" fill="none" strokeLinejoin="round" />,
+  coin: (
+    <>
+      <circle cx="12" cy="12" r="8" fill="none" />
+      <path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.6 2.5 2 2.5.9 2.5 2-1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6.5v1.5M12 16v1.5" fill="none" />
+    </>
+  ),
+  sword: <path d="M19 3 9 13M19 3v4l-9 9M19 3h-4M7 12l5 5M8 16l-4 4M5 15l4 4" fill="none" strokeLinejoin="round" />,
   crown: <path d="M4 18 3 7l5 4 4-6 4 6 5-4-1 11zM4 21h16" fill="none" strokeLinejoin="round" />,
 }
 

@@ -113,3 +113,81 @@ test('the Roman time map follows the year slider and plays', async ({ page }) =>
   await map.getByRole('button', { name: 'Play the story' }).click()
   await expect(map.locator('.time-map-title')).toHaveText('The quiet centuries', { timeout: 6000 })
 })
+
+test('plays all of unit 3 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'Counts and bishops',
+    'Towns and their freedoms',
+    'Wool and cloth',
+    'Bruges, market of the world',
+    'The Golden Spurs',
+    'War, plague and Burgundy',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 3 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+// Marks lessons as done so a later lesson in a unit can be opened directly.
+async function unlock(page: Page, lessonIds: string[]) {
+  await page.goto('/')
+  await page.evaluate((ids) => {
+    const completed = Object.fromEntries(ids.map((id) => [id, { bestXp: 10, perfect: false }]))
+    localStorage.setItem(
+      'lage-landen:progress:v1',
+      JSON.stringify({ xp: 0, streak: 0, lastDay: null, freezeWeek: null, completed, discovered: [] }),
+    )
+  }, lessonIds)
+  await page.reload()
+}
+
+test('the cloth trade map follows the year slider and plays', async ({ page }) => {
+  await unlock(page, ['u3-l1', 'u3-l2'])
+  await page.getByRole('button', { name: 'Wool and cloth', exact: true }).click()
+
+  const map = page.locator('.trade-map')
+  await expect(map.locator('.time-map-title')).toHaveText('About 1100: Cloth from Flemish sheep')
+  await expect(map.locator('.trade-line.trade-wool')).toHaveCount(0)
+
+  await map.getByRole('slider', { name: 'Year' }).fill('1300')
+  await expect(map.locator('.slider-value')).toHaveText('1300')
+  await expect(map.locator('.trade-line.trade-wool')).toHaveCount(3)
+
+  // During the wool ban the routes from England turn grey.
+  await map.getByRole('slider', { name: 'Year' }).fill('1336')
+  await expect(map.locator('.time-map-title')).toHaveText('1336: England stops the wool')
+  await expect(map.locator('.trade-line.trade-wool')).toHaveCount(0)
+  await expect(map.locator('.trade-gone')).not.toHaveCount(0)
+
+  await map.getByRole('slider', { name: 'Year' }).fill('1370')
+  await expect(map.locator('.trade-town-label', { hasText: 'Calais' })).toBeVisible()
+
+  await map.getByRole('slider', { name: 'Year' }).fill('1338')
+  await map.getByRole('button', { name: 'Play the story' }).click()
+  await expect(map.locator('.time-map-title')).toHaveText('1363: The Calais staple', { timeout: 6000 })
+})
+
+test('who am I reveals clues and pays a bonus for an early answer', async ({ page }) => {
+  await unlock(page, ['u3-l1', 'u3-l2', 'u3-l3', 'u3-l4', 'u3-l5'])
+  await page.getByRole('button', { name: 'War, plague and Burgundy', exact: true }).click()
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+
+  await expect(page.locator('.eyebrow').first()).toHaveText('Who am I?')
+  await expect(page.locator('.clue')).toHaveCount(1)
+  await page.getByRole('button', { name: 'Show clue 2 of 4' }).click()
+  await expect(page.locator('.clue')).toHaveCount(2)
+  await page.getByRole('button', { name: 'Jacob van Artevelde' }).click()
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Spot on! +2 XP')
+  await expect(page.locator('.clue')).toHaveCount(4)
+})

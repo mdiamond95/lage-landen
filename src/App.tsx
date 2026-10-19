@@ -41,7 +41,7 @@ export default function App() {
         exercises={playing.exercises}
         onExit={home}
         onFinish={(outcome) => {
-          const xp = lessonXp(outcome.mistakes, outcome.pinBonuses)
+          const xp = lessonXp(outcome.mistakes, outcome.bonuses)
           recordLesson(playing.id, xp, outcome.mistakes === 0, outcome.places)
           setScreen({ name: 'results', playing, outcome, xp })
         }}

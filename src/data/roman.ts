@@ -3,11 +3,14 @@
 // Routes are simplified and run through known Roman sites; where the exact line
 // of a road is unknown, it is drawn straight between them.
 
+import { eventAt as stageAt, type HistEvent } from './timeline'
+
+export { activeAt } from './timeline'
+
 export type LineKind = 'frontier' | 'road' | 'canal'
 export type HistLine = { name: string; kind: LineKind; from: number; to?: number; coords: [number, number][] }
 export type HistSite = { latin: string; modern: string; kind: 'fort' | 'town'; from: number; to?: number; at: [number, number]; label?: 'left' | 'right' }
 export type HistLabel = { text: string; from: number; to?: number; at: [number, number] }
-export type HistEvent = { from: number; title: string; text: string }
 
 export const lineIds = ['limes', 'via-belgica', 'maas-road', 'bavay-cassel', 'reims-trier', 'trier-cologne', 'corbulo-canal'] as const
 export type LineId = (typeof lineIds)[number]
@@ -163,7 +166,4 @@ export const ROMAN_MAX = 500
 // There is no year 0: 1 BCE is followed by 1 CE.
 export const formatYear = (y: number) => (y < 0 ? `${-y} BCE` : `${Math.max(1, y)} CE`)
 
-export const eventAt = (year: number) => [...romanEvents].reverse().find((e) => e.from <= year) ?? romanEvents[0]
-
-export const activeAt = (year: number, item: { from: number; to?: number }) =>
-  item.from <= year && (item.to === undefined || year <= item.to)
+export const eventAt = (year: number) => stageAt(romanEvents, year)

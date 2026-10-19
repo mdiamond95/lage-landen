@@ -8,8 +8,10 @@ import { StoryCard } from '../exercises/StoryCard'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
 import type { Evaluate, Result } from '../exercises/types'
+import { WhoAmI } from '../exercises/WhoAmI'
+import { XP } from './scoring'
 
-export type LessonOutcome = { mistakes: number; pinBonuses: number; places: string[]; asked: number }
+export type LessonOutcome = { mistakes: number; bonuses: number; places: string[]; asked: number }
 
 type Props = {
   title: string
@@ -27,7 +29,7 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
   const [result, setResult] = useState<Result | null>(null)
   const [requeued, setRequeued] = useState(false)
   const [retried, setRetried] = useState<Set<Exercise>>(new Set())
-  const [tally, setTally] = useState<LessonOutcome>({ mistakes: 0, pinBonuses: 0, places: [], asked: 0 })
+  const [tally, setTally] = useState<LessonOutcome>({ mistakes: 0, bonuses: 0, places: [], asked: 0 })
 
   const exercise = queue[index]
   const isStory = exercise.type === 'story'
@@ -41,7 +43,7 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
     setResult(r)
     setTally((t) => ({
       mistakes: t.mistakes + (r.correct ? 0 : 1),
-      pinBonuses: t.pinBonuses + (r.bonus && !retried.has(exercise) ? 1 : 0),
+      bonuses: t.bonuses + (r.bonus && !retried.has(exercise) ? 1 : 0),
       places: r.places ? [...t.places, ...r.places] : t.places,
       asked: t.asked + 1,
     }))
@@ -81,6 +83,8 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
         return <TrueMyth exercise={exercise} {...props} />
       case 'match':
         return <MatchPairs exercise={exercise} {...props} />
+      case 'who':
+        return <WhoAmI exercise={exercise} {...props} />
     }
   })()
 
@@ -104,7 +108,7 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
       <footer className={`lesson-foot ${result ? (result.correct ? 'is-right' : 'is-wrong') : ''}`} aria-live="polite">
         {result && (
           <div className="feedback">
-            <p className="feedback-head">{result.correct ? (result.bonus ? 'Spot on! +2 XP' : 'Correct!') : 'Not quite'}</p>
+            <p className="feedback-head">{result.correct ? (result.bonus ? `Spot on! +${XP.bonus} XP` : 'Correct!') : 'Not quite'}</p>
             <p className="feedback-detail">{result.detail}</p>
             {requeued && <p className="feedback-note">You'll see this one again before the lesson ends.</p>}
           </div>
