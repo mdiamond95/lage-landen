@@ -9,15 +9,17 @@ import type { HistArea, HistEvent, HistLabel, HistSite, TimeStory } from './time
 export const BURGUNDY_MIN = 1384
 export const BURGUNDY_MAX = 1555
 
-// Rough cuts of the French map for the parts of Flanders and Artois now in France.
-const frenchFlanders: [number, number][] = [
+// Rough cuts of the French map for the parts of Flanders and Artois now in France,
+// and of the province of Liège for the old duchy of Limburg. The revolt map uses them too.
+export const frenchFlanders: [number, number][] = [
   [2.1, 51.08], [2.6, 51.12], [2.62, 50.95], [2.9, 50.72], [3.1, 50.8], [3.3, 50.6], [3.3, 50.45],
   [3.2, 50.3], [3.0, 50.33], [2.85, 50.48], [2.6, 50.6], [2.35, 50.68], [2.12, 50.95],
 ]
-const artois: [number, number][] = [
+export const artois: [number, number][] = [
   [2.12, 50.95], [2.35, 50.68], [2.6, 50.6], [2.85, 50.48], [3.0, 50.33], [3.05, 50.2], [2.9, 50.08],
   [2.5, 50.1], [2.05, 50.3], [1.98, 50.6], [2.0, 50.85],
 ]
+export const limburgDuchy: [number, number][] = [[5.7, 50.77], [6.05, 50.78], [6.12, 50.62], [5.95, 50.55], [5.72, 50.6]]
 
 // Later entries draw on top: Limburg over Liège, Tournai over Hainaut.
 const areas: HistArea[] = [
@@ -36,7 +38,7 @@ const areas: HistArea[] = [
     kind: 'ruled',
     from: 1430,
     regions: ['BE-WLG'],
-    clip: [[5.7, 50.77], [6.05, 50.78], [6.12, 50.62], [5.95, 50.55], [5.72, 50.6]],
+    clip: limburgDuchy,
   },
   {
     name: 'Tournai',
@@ -80,6 +82,7 @@ const sites: HistSite[] = [
   { name: 'Brussels', kind: 'town', from: 1430, at: [4.357, 50.847], label: 'right' },
   { name: 'Mechelen', kind: 'town', from: 1430, at: [4.48, 51.028], label: 'right' },
   { name: 'Antwerp', kind: 'town', from: 1430, at: [4.402, 51.219], label: 'right' },
+  { name: 'Liège', kind: 'battle', from: 1468, to: 1472, at: [5.571, 50.633], label: 'right', note: 'Stormed and burned by Charles the Bold, 1468' },
 ]
 
 const events: HistEvent[] = [
@@ -190,5 +193,6 @@ export const burgundyStory: TimeStory = {
     { swatch: 'key-ruled', text: 'Burgundian, then Habsburg' },
     { swatch: 'key-client', text: 'Under a Burgundian bishop' },
     { swatch: 'key-new', text: 'Just joined' },
+    { swatch: 'key-battle', text: 'Battle or siege' },
   ],
 }

@@ -22,7 +22,7 @@ export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<Ex
 
   return (
     <div className="exercise">
-      <p className="eyebrow">{pictures ? 'Pick the picture' : 'Choose'}</p>
+      <p className="eyebrow">{pictures ? 'Pick the picture' : exercise.visual?.kind === 'chart' ? 'Read the chart' : 'Choose'}</p>
       <h2>{exercise.prompt}</h2>
       {exercise.visual && <VisualView visual={exercise.visual} label={exercise.prompt} />}
       <div className={pictures ? 'options options-grid' : 'options'}>

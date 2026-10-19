@@ -5,7 +5,9 @@ import type { ExerciseProps } from './types'
 
 type Side = 'left' | 'right'
 
-export function MatchPairs({ exercise, setAnswer }: ExerciseProps<ExerciseOf<'match'>>) {
+// Match pairs, or cause and effect: tap one card on each side to link them.
+export function MatchPairs({ exercise, setAnswer }: ExerciseProps<ExerciseOf<'match'> | ExerciseOf<'cause'>>) {
+  const cause = exercise.type === 'cause'
   const left = useMemo(() => shuffle(exercise.pairs.map((_, i) => i)), [exercise])
   const right = useMemo(() => shuffle(exercise.pairs.map((_, i) => i)), [exercise])
   const [pending, setPending] = useState<{ side: Side; i: number } | null>(null)
@@ -21,10 +23,8 @@ export function MatchPairs({ exercise, setAnswer }: ExerciseProps<ExerciseOf<'ma
       setDone(next)
       setPending(null)
       if (next.length === exercise.pairs.length) {
-        setAnswer(() => ({
-          correct: mistakes === 0,
-          detail: mistakes === 0 ? 'Every pair matched first time.' : `All matched, with ${mistakes} wrong ${mistakes === 1 ? 'try' : 'tries'} on the way.`,
-        }))
+        const lead = mistakes === 0 ? 'Every pair matched first time.' : `All matched, with ${mistakes} wrong ${mistakes === 1 ? 'try' : 'tries'} on the way.`
+        setAnswer(() => ({ correct: mistakes === 0, detail: cause ? `${lead} ${exercise.explain}` : lead }))
       }
     } else {
       setMistakes((m) => m + 1)
@@ -39,9 +39,15 @@ export function MatchPairs({ exercise, setAnswer }: ExerciseProps<ExerciseOf<'ma
 
   return (
     <div className="exercise">
-      <p className="eyebrow">Match the pairs</p>
+      <p className="eyebrow">{cause ? 'Cause and effect' : 'Match the pairs'}</p>
       <h2>{exercise.prompt}</h2>
-      <div className="match-grid">
+      {cause && (
+        <p className="cause-heads" aria-hidden="true">
+          <span>Cause</span>
+          <span>Effect</span>
+        </p>
+      )}
+      <div className={`match-grid${cause ? ' cause-grid' : ''}`}>
         <div className="match-col">
           {left.map((i) => (
             <button type="button" key={i} className={`option ${cls('left', i)}`} onClick={() => tap('left', i)} disabled={done.includes(i)}>

@@ -1,14 +1,21 @@
 import aachenChapel from './aachen-chapel.jpg'
 import abdication from './abdication.jpg'
+import abjuration from './abjuration.jpg'
 import afsluitdijk from './afsluitdijk.jpg'
+import alba from './alba.jpg'
 import ambiorixStatue from './ambiorix-statue.jpg'
+import amsterdam1649 from './amsterdam-1649.jpg'
 import antwerpBourse from './antwerp-bourse.jpg'
 import antwerpCathedral from './antwerp-cathedral.jpg'
+import antwerpSiegeBridge from './antwerp-siege-bridge.jpg'
+import antwerpTownHall from './antwerp-town-hall.jpg'
 import arnolfini from './arnolfini.jpg'
 import arteveldeStatue from './artevelde-statue.jpg'
 import beguinage from './beguinage.jpg'
 import bonifaceFulda from './boniface-fulda.jpg'
+import bredaPeatBarge from './breda-peat-barge.jpg'
 import breydelStatue from './breydel-statue.jpg'
+import brielle1572 from './brielle-1572.jpg'
 import brugesBelfry from './bruges-belfry.jpg'
 import brusselsTownHall from './brussels-town-hall.jpg'
 import charlemagneDurer from './charlemagne-durer.jpg'
@@ -25,7 +32,10 @@ import descentCross from './descent-cross.jpg'
 import deurneHelmet from './deurne-helmet.jpg'
 import dorestadBrooch from './dorestad-brooch.jpg'
 import drielandenpunt from './drielandenpunt.jpg'
+import egmontHorneExecution from './egmont-horne-execution.jpg'
+import egmontHorneStatue from './egmont-horne-statue.jpg'
 import erasmus from './erasmus.jpg'
+import fishingSouls from './fishing-souls.jpg'
 import flood1953Map from './flood-1953-map.jpg'
 import flood1953Rilland from './flood-1953-rilland.jpg'
 import ghentAltarpiece from './ghent-altarpiece.jpg'
@@ -33,33 +43,47 @@ import ghentLamb from './ghent-lamb.jpg'
 import goldenSpursChronicle from './golden-spurs-chronicle.jpg'
 import gravensteen from './gravensteen.jpg'
 import hansjeBrinker from './hansje-brinker.jpg'
+import hedgeSermon from './hedge-sermon.jpg'
 import heerlenThermen from './heerlen-thermen.jpg'
+import iconoclasmAntwerp from './iconoclasm-antwerp.jpg'
 import jacoba from './jacoba.jpg'
 import kinderdijk from './kinderdijk.jpg'
+import leidenRelief from './leiden-relief.jpg'
 import lelyStatue from './lely-statue.jpg'
 import leoBelgicus from './leo-belgicus.jpg'
 import leuvenTownHall from './leuven-town-hall.jpg'
 import luttrellSheep from './luttrell-sheep.jpg'
 import margaretAustria from './margaret-austria.jpg'
+import margaretParma from './margaret-parma.jpg'
 import maryBurgundy from './mary-burgundy.jpg'
 import maryTomb from './mary-tomb.jpg'
+import maurice from './maurice.jpg'
 import memlingJudgment from './memling-judgment.jpg'
+import munsterRatification from './munster-ratification.jpg'
 import nancyBattle from './nancy-battle.jpg'
 import nehalenniaAltar from './nehalennia-altar.jpg'
 import oosterscheldekering from './oosterscheldekering.jpg'
+import ostendSiege from './ostend-siege.jpg'
+import parma from './parma.jpg'
 import peutingerMap from './peutinger-map.jpg'
 import philipGood from './philip-good.jpg'
+import philipIi from './philip-ii.jpg'
 import plagueTournai from './plague-tournai.jpg'
 import polderBeemster from './polder-beemster.jpg'
 import portRotterdam from './port-rotterdam.jpg'
+import prinsenhofBulletHoles from './prinsenhof-bullet-holes.jpg'
 import ridderzaal from './ridderzaal.jpg'
 import sluysBattle from './sluys-battle.jpg'
+import spanishFury from './spanish-fury.jpg'
+import surrenderBreda from './surrender-breda.jpg'
 import terBeurze from './ter-beurze.jpg'
 import terpHogebeintum from './terp-hogebeintum.jpg'
 import tongerenWall from './tongeren-wall.jpg'
+import unionUtrecht from './union-utrecht.jpg'
 import utrechtDom from './utrecht-dom.jpg'
 import utrechtPsalter from './utrecht-psalter.jpg'
 import vanEyckTurban from './van-eyck-turban.jpg'
+import williamOrange from './william-orange.jpg'
 import ypresClothHall from './ypres-cloth-hall.jpg'
 import { credits } from './credits'
 import type { PhotoId } from './ids'
@@ -132,6 +156,30 @@ const files: Record<PhotoId, string> = {
   'leo-belgicus': leoBelgicus,
   'charles-v-titian': charlesVTitian,
   abdication,
+  abjuration,
+  alba,
+  'amsterdam-1649': amsterdam1649,
+  'antwerp-siege-bridge': antwerpSiegeBridge,
+  'antwerp-town-hall': antwerpTownHall,
+  'breda-peat-barge': bredaPeatBarge,
+  'brielle-1572': brielle1572,
+  'egmont-horne-execution': egmontHorneExecution,
+  'egmont-horne-statue': egmontHorneStatue,
+  'fishing-souls': fishingSouls,
+  'hedge-sermon': hedgeSermon,
+  'iconoclasm-antwerp': iconoclasmAntwerp,
+  'leiden-relief': leidenRelief,
+  'margaret-parma': margaretParma,
+  maurice,
+  'munster-ratification': munsterRatification,
+  'ostend-siege': ostendSiege,
+  parma,
+  'philip-ii': philipIi,
+  'prinsenhof-bullet-holes': prinsenhofBulletHoles,
+  'spanish-fury': spanishFury,
+  'surrender-breda': surrenderBreda,
+  'union-utrecht': unionUtrecht,
+  'william-orange': williamOrange,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

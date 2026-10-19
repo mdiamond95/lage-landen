@@ -172,13 +172,18 @@ lessons:
           - { label: Amsterdam is first named in a toll privilege, year: 1275, when: '1275' }
           - { label: Amsterdam gets town rights, year: 1300, when: about 1300 }
         explain: The towns of the south were older and richer. Holland's towns, built on peat and clay, came later but grew fast.
-      - type: truemyth
-        statement: Amsterdam is first mentioned in a document from 1275 that freed its people from paying tolls.
+      - type: gap
+        prompt: >-
+          Amsterdam is first named in a document of 27 October 1275. Count Floris V of Holland freed its people
+          from paying tolls in his county. Fill the gap in how he described them.
+        quote: homines manentes apud Amestelledamme, the people living near the Amstel ___
+        source: Toll privilege of Floris V, given at Leiden, 1275, in Latin with an English rendering
         visual: { kind: map, highlight: [], rivers: [], pins: [amsterdam] }
-        answer: true
+        options: [dam, castle, church, bridge]
+        answer: 0
         explain: >-
-          Count Floris V freed the people living by the dam in the Amstel, "Amestelledamme", from tolls in his
-          county. The document is in the Amsterdam City Archives.
+          The dam in the river Amstel gave the town its name: Amestelledamme, Amsterdam. The toll privilege is the
+          oldest document naming the town, and it is kept in the Amsterdam City Archives.
       - type: choice
         prompt: Women called beguines lived in courts of small houses like this one, praying and working but taking no lifelong vows. What is such a place called?
         visual: { kind: photo, photo: beguinage }
@@ -408,6 +413,15 @@ lessons:
             why: The count of Flanders had a castle and court in Bruges, but this tower belonged to the town.
           - label: A lighthouse
             why: Bruges is inland. The tower was a lookout for fires, not ships.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [A storm flood tears open the Zwin in 1134, Ships can sail from the sea to Bruges]
+          - [Merchants meet by the Van der Buerse inn, Stock exchanges are called bourses]
+          - [The Zwin fills up with sand and silt, Trade moves to Antwerp]
+        explain: >-
+          The sea made Bruges and the sea unmade it. When big ships could no longer reach the town in the late
+          1400s, the merchants moved to Antwerp, on the deep Scheldt.
 
   - id: u3-l5
     title: The Golden Spurs

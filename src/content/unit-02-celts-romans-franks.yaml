@@ -109,6 +109,10 @@ lessons:
         url: https://www.livius.org/articles/concept/batavian-revolt/
       - title: Livius.org, Fossa Corbulonis
         url: https://www.livius.org/articles/place/fossa-corbulonis/
+      - title: Perseus, Tacitus, Germania 29, translated by Church and Brodribb
+        url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0083:chapter=29
+      - title: Perseus, Tacitus, Annals 11.20, translated by Church and Brodribb
+        url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0078:book=11:chapter=20
     exercises:
       - type: story
         title: A frontier along a river
@@ -167,6 +171,25 @@ lessons:
           - [Corbulo, Dug a canal from the Rhine to the Maas]
           - [Julius Civilis, Led the Batavian revolt]
           - [Rembrandt, Painted Civilis's oath]
+      - type: gap
+        prompt: The Batavians lived between the Rhine and the Waal, in today's Gelderland. The Roman historian Tacitus wrote about them around 98 CE. Fill the gap.
+        quote: Foremost among all these nations in ___, the Batavi occupy an island within the Rhine and but a small portion of the bank.
+        source: Tacitus, Germania 29, about 98 CE, translated by Church and Brodribb
+        visual: { kind: map, highlight: [NL-GE], rivers: [Rhine, Waal, Nederrijn], pins: [nijmegen] }
+        options: [valour, wealth, numbers, learning]
+        answer: 0
+        explain: >-
+          Valour. Tacitus adds that Rome did not insult them with tribute. It wanted their soldiers instead, which
+          is why their revolt in 69 CE hurt so much.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Claudius pulls his army back behind the Rhine, Forts and watchtowers line the river]
+          - [Corbulo wants to avoid the perils of the ocean, A canal is dug from the Rhine to the Maas]
+          - [The troops leave to defend Italy, The Rhine forts are abandoned]
+        explain: >-
+          Tacitus says Corbulo dug his canal to keep his soldiers from sloth and to avoid "the uncertain perils of
+          the ocean". Soon after 400 the soldiers were needed elsewhere, and the frontier was left open.
       - type: choice
         prompt: Peat cutters found this gilded silver helmet near Deurne, in North Brabant, in 1910. Who wore a helmet like this?
         visual: { kind: photo, photo: deurne-helmet }

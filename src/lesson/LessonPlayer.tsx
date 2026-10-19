@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Exercise } from '../content/schema'
 import { DetailHunt } from '../exercises/DetailHunt'
+import { FillGap } from '../exercises/FillGap'
 import { MatchPairs } from '../exercises/MatchPairs'
 import { PictureChoice } from '../exercises/PictureChoice'
 import { PinMap } from '../exercises/PinMap'
@@ -84,6 +85,7 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
       case 'truemyth':
         return <TrueMyth exercise={exercise} {...props} />
       case 'match':
+      case 'cause':
         return <MatchPairs exercise={exercise} {...props} />
       case 'who':
         return <WhoAmI exercise={exercise} {...props} />
@@ -91,6 +93,8 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
         return <ScrubMap exercise={exercise} {...props} />
       case 'hunt':
         return <DetailHunt exercise={exercise} {...props} />
+      case 'gap':
+        return <FillGap exercise={exercise} {...props} />
     }
   })()
 

@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { chartIds } from '../data/charts'
 import { treeIds } from '../data/families'
 import { lineIds } from '../data/roman'
 import { photoIds } from '../photos/ids'
@@ -35,14 +36,18 @@ const ArtVisual = z.object({ kind: z.literal('art'), art: z.enum(artIds) })
 const PhotoVisual = z.object({ kind: z.literal('photo'), photo: z.enum(photoIds) })
 const PolderVisual = z.object({ kind: z.literal('polder-slider') })
 // A map with a year slider, played as an animation: the Zuiderzee and Delta Works,
-// the Roman frontier and roads, the wool and cloth trade, or the lands joining
-// Burgundy. `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy'] as const
+// the Roman frontier and roads, the wool and cloth trade, the lands joining
+// Burgundy, or the revolt splitting them. `year` opens it at a given year instead
+// of the start.
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt'] as const
 const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(timeMaps), year: z.number().optional() })
 // A family tree from src/data/families.ts; `hide` blanks out one person by id.
 const TreeVisual = z.object({ kind: z.literal('family-tree'), tree: z.enum(treeIds), hide: z.string().optional() })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual, TreeVisual])
+// A line chart from src/data/charts.ts; `until` cuts it off at a year.
+const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds), until: z.number().optional() })
+
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual, TreeVisual, ChartVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -144,7 +149,28 @@ const Hunt = z.object({
   explain: z.string(),
 })
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt])
+// Fill the gap: pick the missing word in a quote from a primary source. `quote`
+// marks the gap with ___; `source` names the document and its date.
+const Gap = z.object({
+  type: z.literal('gap'),
+  prompt: z.string(),
+  quote: z.string().refine((q) => q.split('___').length === 2, 'quote needs exactly one ___'),
+  source: z.string(),
+  visual: Visual.optional(),
+  options: z.array(z.string()).min(2).max(4),
+  answer: z.number().int().nonnegative(),
+  explain: z.string(),
+})
+
+// Cause and effect: link each cause to what it led to.
+const Cause = z.object({
+  type: z.literal('cause'),
+  prompt: z.string(),
+  pairs: z.array(z.tuple([z.string(), z.string()])).min(3).max(4),
+  explain: z.string(),
+})
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

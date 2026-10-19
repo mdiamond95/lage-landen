@@ -11,10 +11,14 @@ const polygon = (frame: Frame, coords: [number, number][]) => `M${coords.map((c)
 
 const regionShapes = [...countries, ...provinces]
 
-// `fresh` marks land that joined in the stage on screen, so it stands out.
-function Area({ area, frame, uid, fresh }: { area: HistArea; frame: Frame; uid: string; fresh: boolean }) {
-  const cls = `hist-area hist-area-${area.kind ?? 'sea'}${fresh ? ' hist-area-new' : ''}`
-  if (area.shape) return <path d={polygon(frame, area.shape)} className={cls} />
+// `fresh` marks land that changed hands in the stage on screen, so it stands out.
+// Land split between two sides is hatched in both their colours.
+type AreaProps = { area: HistArea; frame: Frame; uid: string; fresh: false | 'fill' | 'outline' }
+
+function Area({ area, frame, uid, fresh }: AreaProps) {
+  const cls = `hist-area hist-area-${area.kind ?? 'sea'}${fresh === 'fill' ? ' hist-area-new' : fresh === 'outline' ? ' hist-area-flash' : ''}`
+  const style = area.kind === 'contested' ? { fill: `url(#${uid}-hatch)` } : undefined
+  if (area.shape) return <path d={polygon(frame, area.shape)} className={cls} style={style} />
   const shapes = regionShapes.filter((f) => area.regions?.includes(f.properties.id!))
   const clipId = `${uid}-${area.name.replace(/\W+/g, '-')}`
   return (
@@ -24,7 +28,7 @@ function Area({ area, frame, uid, fresh }: { area: HistArea; frame: Frame; uid: 
           <path d={polygon(frame, area.clip)} />
         </clipPath>
       )}
-      <g className={cls} clipPath={area.clip ? `url(#${clipId})` : undefined}>
+      <g className={cls} style={style} clipPath={area.clip ? `url(#${clipId})` : undefined}>
         {shapes.map((f) => (
           <path key={f.properties.id} d={frame.path(f) ?? undefined} />
         ))}
@@ -36,7 +40,9 @@ function Area({ area, frame, uid, fresh }: { area: HistArea; frame: Frame; uid: 
 // A year-slider map of the Low Countries: drag the years, or press play to step
 // through each stage. Lines draw themselves in when they first appear; a line that
 // has gone (the Roman frontier after 405) stays on the map as a faint dashed line.
-// Areas tint land that was still sea, or flooded, at the time.
+// Flows (refugees leaving Antwerp) are arrows with dashes moving along them, and
+// vanish when they stop. Areas tint land that was still sea, or flooded, at the time,
+// or who held it.
 type Props = {
   story: TimeStory
   start?: number
@@ -61,10 +67,25 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false 
     <figure className="time-map">
       <div className="map-frame">
         <LowlandsMap label={`Map of ${story.place} in ${story.format(year)}: ${event.title}`} frame={frame}>
+          <defs>
+            <pattern id={`${uid}-hatch`} width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <rect width="8" height="8" className="hatch-a" />
+              <rect width="4" height="8" className="hatch-b" />
+            </pattern>
+            <marker id={`${uid}-flow`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+              <path d="M0 0 10 5 0 10z" className="hist-flow-head" />
+            </marker>
+          </defs>
           {(story.areas ?? [])
             .filter((a) => activeAt(year, a))
             .map((a) => (
-              <Area key={a.name} area={a} frame={frame} uid={uid} fresh={a.kind !== 'sea' && a.from === event.from && a.from > story.min} />
+              <Area
+                key={a.name}
+                area={a}
+                frame={frame}
+                uid={uid}
+                fresh={a.kind !== 'sea' && a.from === event.from && a.from > story.min && (story.fresh ?? 'fill')}
+              />
             ))}
           {story.labels
             .filter((l) => activeAt(year, l))
@@ -78,6 +99,18 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false 
             })}
           {story.lines.map((line) => {
             if (line.from > year) return null
+            if (line.kind === 'flow') {
+              if (!activeAt(year, line)) return null
+              const d = linePath(line.coords)
+              return (
+                <g key={line.name} className="fade-in">
+                  <path d={d} className="hist-line hist-flow" markerEnd={`url(#${uid}-flow)`} />
+                  <path d={d} className="trade-flow">
+                    <title>{line.name}</title>
+                  </path>
+                </g>
+              )
+            }
             // Keyed by state so the draw-in animation replays when a line returns.
             const gone = !activeAt(year, line)
             const draw = !gone && line.kind !== 'road'
@@ -99,9 +132,16 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false 
               const [x, y] = toXY(s.at)
               const gone = !activeAt(year, s)
               return (
-                <g key={s.name} className={`hist-site hist-${s.kind}${gone ? ' hist-gone' : ''}`} transform={`translate(${x},${y})`}>
-                  {s.kind === 'town' ? <circle r={5} /> : <rect x={-4.5} y={-4.5} width={9} height={9} />}
-                  {s.label && (
+                <g key={`${s.name}-${s.from}`} className={`hist-site hist-${s.kind}${gone ? ' hist-gone' : ''}`} transform={`translate(${x},${y})`}>
+                  {s.kind === 'town' ? (
+                    <circle r={5} />
+                  ) : s.kind === 'battle' ? (
+                    <path d="M0-7 2 -2 7 0 2 2 0 7-2 2-7 0-2-2z" />
+                  ) : (
+                    <rect x={-4.5} y={-4.5} width={9} height={9} />
+                  )}
+                  {/* A battle's name goes once its stage is over; its grey mark stays. */}
+                  {s.label && !(gone && s.kind === 'battle') && (
                     <text x={s.label === 'left' ? -8 : 8} y={4} textAnchor={s.label === 'left' ? 'end' : 'start'} className="hist-site-label">
                       {s.name}
                     </text>

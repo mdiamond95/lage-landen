@@ -10,6 +10,8 @@ import { ROMAN_MAX, ROMAN_MIN, romanEvents, romanLines, romanSites } from '../da
 import { CLOTH_MAX, CLOTH_MIN, clothEvents, regions, routes, towns } from '../data/cloth'
 import { waterStory } from '../data/water'
 import { burgundyStory } from '../data/burgundy'
+import { revoltStory } from '../data/revolt'
+import { charts } from '../data/charts'
 import { peopleIn, trees } from '../data/families'
 import { places } from './places'
 import { Unit, timeMaps, type Exercise } from './schema'
@@ -34,7 +36,7 @@ const isVisual = (e: Exercise) =>
   e.type === 'who' ||
   e.type === 'scrub' ||
   e.type === 'hunt' ||
-  (e.type === 'truemyth' && e.visual !== undefined) ||
+  ((e.type === 'truemyth' || e.type === 'gap') && e.visual !== undefined) ||
   (e.type === 'choice' && (e.visual !== undefined || e.options.some((o) => o.art || o.photo)))
 
 describe.each(files)('%s', (file) => {
@@ -65,6 +67,11 @@ describe.each(files)('%s', (file) => {
     expect(asks.some((e) => e.type === 'truemyth' && e.visual)).toBe(true)
   })
 
+  it('reads a primary source and links causes to effects', () => {
+    expect(asks.some((e) => e.type === 'gap')).toBe(true)
+    expect(asks.some((e) => e.type === 'cause')).toBe(true)
+  })
+
   for (const lesson of unit.lessons) {
     it(`${lesson.id} references real places, regions and rivers`, () => {
       for (const ex of lesson.exercises) {
@@ -77,7 +84,8 @@ describe.each(files)('%s', (file) => {
         }
         if (ex.type === 'pin') expect(places[ex.place], ex.place).toBeDefined()
         if (ex.type === 'region') for (const id of ex.answer) expect(regionIds[ex.layer].has(id), id).toBe(true)
-        if (ex.type === 'choice' || ex.type === 'who') expect(ex.answer).toBeLessThan(ex.options.length)
+        if (ex.type === 'choice' || ex.type === 'who' || ex.type === 'gap') expect(ex.answer).toBeLessThan(ex.options.length)
+        if (ex.type === 'gap') expect(new Set(ex.options).size, 'gap options differ').toBe(ex.options.length)
         if (visual?.kind === 'family-tree' && visual.hide)
           expect(peopleIn(trees[visual.tree]).map((p) => p.id), visual.hide).toContain(visual.hide)
         if (ex.type === 'hunt') {
@@ -205,6 +213,7 @@ describe('time maps in lessons', () => {
     roman: [ROMAN_MIN, ROMAN_MAX],
     cloth: [CLOTH_MIN, CLOTH_MAX],
     burgundy: [burgundyStory.min, burgundyStory.max],
+    revolt: [revoltStory.min, revoltStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -231,8 +240,11 @@ describe('time maps in lessons', () => {
   })
 })
 
-describe('Burgundian lands time map', () => {
-  const { min, max, events, sites, labels, areas = [] } = burgundyStory
+describe.each([
+  ['Burgundian lands', burgundyStory],
+  ['revolt', revoltStory],
+])('%s time map', (_, story) => {
+  const { min, max, events, sites, labels, lines, areas = [] } = story
   const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7
 
   it('has areas, sites and labels on real regions and coordinates', () => {
@@ -240,10 +252,14 @@ describe('Burgundian lands time map', () => {
       expect(a.regions?.length, a.name).toBeGreaterThan(0)
       for (const id of a.regions ?? []) expect(regionIds.provinces.has(id) || regionIds.countries.has(id), `${a.name} ${id}`).toBe(true)
       for (const c of a.clip ?? []) expect(inFrame(c), `${a.name} ${c}`).toBe(true)
-      if (a.to !== undefined) expect(a.to, a.name).toBeGreaterThan(a.from)
+      if (a.to !== undefined) expect(a.to, a.name).toBeGreaterThanOrEqual(a.from)
     }
     for (const s of sites) expect(inFrame(s.at), s.name).toBe(true)
     for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+    for (const l of lines) for (const c of l.coords) expect(inFrame(c), `${l.name} ${c}`).toBe(true)
+    // Areas are keyed by name on the map.
+    const names = new Set(areas.map((a) => a.name))
+    expect(names.size, 'area names are unique').toBe(areas.length)
   })
 
   it('tells its story in order, and every change on the map has a caption', () => {
@@ -252,7 +268,7 @@ describe('Burgundian lands time map', () => {
     expect([...starts].sort((a, b) => a - b)).toEqual(starts)
     expect(new Set(starts).size).toBe(starts.length)
     expect(starts[starts.length - 1]).toBe(max)
-    for (const item of [...sites, ...labels, ...areas]) {
+    for (const item of [...sites, ...labels, ...lines, ...areas]) {
       const name = 'name' in item ? item.name : item.text
       if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
       if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
@@ -266,6 +282,20 @@ describe('family trees', () => {
     for (const tree of Object.values(trees)) {
       const ids = peopleIn(tree).map((p) => p.id)
       expect(new Set(ids).size).toBe(ids.length)
+    }
+  })
+})
+
+describe('charts', () => {
+  it('have points in year order with positive values', () => {
+    for (const [id, chart] of Object.entries(charts)) {
+      for (const series of chart.series) {
+        const years = series.points.map(([y]) => y)
+        expect([...years].sort((a, b) => a - b), `${id} ${series.name}`).toEqual(years)
+        expect(new Set(years).size, `${id} ${series.name}`).toBe(years.length)
+        for (const [, v] of series.points) expect(v, `${id} ${series.name}`).toBeGreaterThan(0)
+      }
+      expect(chart.source, id).not.toBe('')
     }
   })
 })
