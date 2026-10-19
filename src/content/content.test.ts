@@ -8,8 +8,9 @@ import { credits } from '../photos/credits'
 import { photoIds } from '../photos/ids'
 import { ROMAN_MAX, ROMAN_MIN, romanEvents, romanLines, romanSites } from '../data/roman'
 import { CLOTH_MAX, CLOTH_MIN, clothEvents, regions, routes, towns } from '../data/cloth'
+import { waterStory } from '../data/water'
 import { places } from './places'
-import { Unit } from './schema'
+import { Unit, timeMaps, type Exercise } from './schema'
 
 const dir = import.meta.dirname
 const files = readdirSync(dir).filter((f) => f.endsWith('.yaml'))
@@ -24,12 +25,30 @@ const riverNames = new Set(
   (feature(topology as any, (topology as any).objects.rivers) as any).features.map((f: any) => f.properties.name),
 )
 
+// A question counts as visual if it is answered on a map or picture, or shows one.
+const isVisual = (e: Exercise) =>
+  e.type === 'pin' ||
+  e.type === 'region' ||
+  e.type === 'who' ||
+  (e.type === 'truemyth' && e.visual !== undefined) ||
+  (e.type === 'choice' && (e.visual !== undefined || e.options.some((o) => o.art || o.photo)))
+
 describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
+  const asks = unit.lessons.flatMap((l) => l.exercises).filter((e) => e.type !== 'story')
 
   it('has unique lesson ids', () => {
     const ids = unit.lessons.map((l) => l.id)
     expect(new Set(ids).size).toBe(ids.length)
+  })
+
+  it('is at least 70% visual across the unit, as the plan asks', () => {
+    expect(asks.filter(isVisual).length / asks.length).toBeGreaterThanOrEqual(0.7)
+  })
+
+  it('has a Who am I? and a true or myth with a picture or map', () => {
+    expect(asks.some((e) => e.type === 'who')).toBe(true)
+    expect(asks.some((e) => e.type === 'truemyth' && e.visual)).toBe(true)
   })
 
   for (const lesson of unit.lessons) {
@@ -59,16 +78,8 @@ describe.each(files)('%s', (file) => {
 
     it(`${lesson.id} is mostly visual`, () => {
       const asks = lesson.exercises.filter((e) => e.type !== 'story')
-      const visual = asks.filter(
-        (e) =>
-          e.type === 'pin' ||
-          e.type === 'region' ||
-          e.type === 'who' ||
-          (e.type === 'truemyth' && e.visual) ||
-          (e.type === 'choice' && (e.visual || e.options.some((o) => o.art || o.photo))),
-      )
-      // The plan's target is 70% across a unit; single lessons may dip to 50%.
-      expect(visual.length / asks.length).toBeGreaterThanOrEqual(0.5)
+      // The plan's target is 70% across a unit (tested above); single lessons may dip to 50%.
+      expect(asks.filter(isVisual).length / asks.length).toBeGreaterThanOrEqual(0.5)
     })
   }
 })
@@ -95,7 +106,7 @@ describe('roman time map', () => {
       for (const c of line.coords) expect(inBox(c), `${id} ${c}`).toBe(true)
       if (line.to !== undefined) expect(line.to, id).toBeGreaterThan(line.from)
     }
-    for (const site of romanSites) expect(inBox(site.at), site.modern).toBe(true)
+    for (const site of romanSites) expect(inBox(site.at), site.name).toBe(true)
   })
 
   it('tells its story in order across the whole slider', () => {
@@ -131,14 +142,53 @@ describe('wool and cloth trade map', () => {
     expect(starts[starts.length - 1]).toBeLessThanOrEqual(CLOTH_MAX)
   })
 
-  it('opens lessons at years inside the slider', () => {
+})
+
+describe('water works time map', () => {
+  // The Zuiderzee and the Delta: well inside the Netherlands.
+  const inNl = ([lon, lat]: [number, number]) => lon > 3.3 && lon < 7.2 && lat > 51.2 && lat < 53.6
+  const { min, max, events, lines, sites, labels, areas = [] } = waterStory
+
+  it('has lines, sites, labels and areas with real coordinates', () => {
+    for (const line of lines) {
+      expect(line.coords.length, line.name).toBeGreaterThanOrEqual(2)
+      for (const c of line.coords) expect(inNl(c), `${line.name} ${c}`).toBe(true)
+    }
+    for (const s of sites) expect(inNl(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inNl(l.at), l.text).toBe(true)
+    for (const a of areas) {
+      expect(a.province !== undefined || a.shape !== undefined, a.name).toBe(true)
+      if (a.province) expect(regionIds.provinces.has(a.province), a.name).toBe(true)
+      for (const c of a.shape ?? []) expect(inNl(c), `${a.name} ${c}`).toBe(true)
+    }
+  })
+
+  it('tells its story in order across the whole slider', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    expect(starts[starts.length - 1]).toBeLessThanOrEqual(max)
+    // Everything on the map appears at one of the stages, so play shows it.
+    for (const item of [...lines, ...sites, ...labels, ...areas]) {
+      if (item.from > min) expect(starts, JSON.stringify(item).slice(0, 60)).toContain(item.from)
+    }
+  })
+})
+
+describe('time maps in lessons', () => {
+  const range = { water: [waterStory.min, waterStory.max], roman: [ROMAN_MIN, ROMAN_MAX], cloth: [CLOTH_MIN, CLOTH_MAX] }
+
+  it('open at years inside their slider', () => {
+    expect(Object.keys(range)).toEqual([...timeMaps])
     for (const file of files) {
       const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
       for (const ex of unit.lessons.flatMap((l) => l.exercises)) {
         const v = 'visual' in ex ? ex.visual : undefined
-        if (v?.kind === 'time-map' && v.map === 'cloth' && v.year !== undefined) {
-          expect(v.year).toBeGreaterThanOrEqual(CLOTH_MIN)
-          expect(v.year).toBeLessThanOrEqual(CLOTH_MAX)
+        if (v?.kind === 'time-map' && v.year !== undefined) {
+          const [lo, hi] = range[v.map]
+          expect(v.year, `${unit.id} ${v.map}`).toBeGreaterThanOrEqual(lo)
+          expect(v.year, `${unit.id} ${v.map}`).toBeLessThanOrEqual(hi)
         }
       }
     }

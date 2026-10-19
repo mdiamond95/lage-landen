@@ -20,6 +20,8 @@ lessons:
         url: https://www.reflexions.uliege.be/cms/c_18697/en/notger-and-his-time
       - title: Encyclopaedia Britannica, Henry I, duke of Brabant
         url: https://www.britannica.com/biography/Henry-I-duke-of-Brabant
+      - title: Online Etymology Dictionary, Holland
+        url: https://www.etymonline.com/word/Holland
     exercises:
       - type: story
         title: A patchwork of lords
@@ -63,15 +65,15 @@ lessons:
         layer: provinces
         answer: [NL-NH, NL-ZH]
         explain: >-
-          North and South Holland. Earlier counts were called counts "in Frisia". Holland probably means
-          "wood land" (holt-land), not "hollow land".
+          North and South Holland. Earlier counts were called counts "in Frisia", and Holland first named only
+          part of their land before it spread to the whole county.
       - type: truemyth
-        statement: Holland is the official name of the whole Netherlands.
+        statement: Holland means "hollow land", after its low, wet ground.
         visual: { kind: map, highlight: [NL-NH, NL-ZH], rivers: [], pins: [] }
         answer: false
         explain: >-
-          Holland is only the two western provinces, the heart of the old county. The country is the Netherlands,
-          and since 2020 the Dutch government has stopped using Holland in its promotion abroad.
+          Probably not. The name most likely comes from holt-land, "wood land". "Hollow land" is a popular guess
+          that fits the low landscape, but language historians reject it.
       - type: pin
         prompt: In 1018 Count Dirk III beat an army sent by the emperor at his fort on the Maas, where he charged tolls on passing ships. Pin Vlaardingen.
         place: vlaardingen
@@ -381,7 +383,7 @@ lessons:
         prompt: Bruges is the capital of a Belgian province. Shade it.
         layer: provinces
         answer: [BE-VWV]
-        explain: West Flanders. Its coast is only about 65 km long, but in the Middle Ages its harbours faced half of Europe.
+        explain: West Flanders. Its coast is only about 67 km long, but in the Middle Ages its harbours faced half of Europe.
       - type: pin
         prompt: Pin Bruges.
         place: bruges

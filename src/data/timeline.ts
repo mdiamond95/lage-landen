@@ -10,3 +10,43 @@ export const activeAt = (year: number, item: Dated) =>
 
 // The caption whose stage the year falls in. Each runs until the next one starts.
 export const eventAt = (events: HistEvent[], year: number) => [...events].reverse().find((e) => e.from <= year) ?? events[0]
+
+// What a year-slider map on the main Low Countries map draws: lines (frontiers,
+// roads, dams), sites (forts, towns, barriers), text labels, and areas that were
+// still water for a while. Coordinates are [lon, lat] (WGS84).
+export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier'
+export type HistLine = Dated & { name: string; kind: LineKind; coords: [number, number][] }
+export type HistSite = Dated & {
+  name: string
+  // Shown on hover, e.g. the modern name of a Roman fort.
+  note?: string
+  kind: 'fort' | 'town' | 'barrier'
+  at: [number, number]
+  label?: 'left' | 'right'
+}
+export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'people' | 'water' | 'land' | 'alert' }
+// Land that was still open water while the area is active: a province (optionally
+// cut to the `clip` polygon) or a hand-drawn `shape`.
+export type HistArea = Dated & {
+  name: string
+  province?: string
+  clip?: [number, number][]
+  shape?: [number, number][]
+}
+
+export type TimeStory = {
+  // Named in the map's accessible label: "Map of <place> in <year>".
+  place: string
+  // Two corners, [lon, lat], to zoom the map to; the whole Low Countries if left out.
+  bounds?: [[number, number], [number, number]]
+  min: number
+  max: number
+  format: (year: number) => string
+  events: HistEvent[]
+  lines: HistLine[]
+  sites: HistSite[]
+  labels: HistLabel[]
+  areas?: HistArea[]
+  // The map key under the slider: a swatch class from styles.css and its text.
+  key: { swatch: string; text: string }[]
+}

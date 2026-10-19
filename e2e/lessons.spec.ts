@@ -54,7 +54,7 @@ test('plays all of unit 1 and the checkpoint without errors', async ({ page }) =
   await page.goto('/')
 
   const shots = process.env.SHOTS
-  for (const name of ['Two countries, one delta', 'Three rivers', 'Below sea level', 'Holding back the sea']) {
+  for (const name of ['Two countries, one delta', 'Three rivers', 'Below sea level', 'Holding back the sea', 'Land from the sea']) {
     await playLesson(page, name, shots)
     await expect(page.locator('.results h1')).toBeVisible()
     await page.getByRole('button', { name: 'Continue' }).click()
@@ -112,6 +112,32 @@ test('the Roman time map follows the year slider and plays', async ({ page }) =>
   await map.getByRole('slider', { name: 'Year' }).fill('69')
   await map.getByRole('button', { name: 'Play the story' }).click()
   await expect(map.locator('.time-map-title')).toHaveText('The quiet centuries', { timeout: 6000 })
+})
+
+test('the water works map drains the Zuiderzee and builds the Delta Works', async ({ page }) => {
+  await unlock(page, ['u1-l1', 'u1-l2', 'u1-l3', 'u1-l4'])
+  await page.getByRole('button', { name: 'Land from the sea', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  await expect(map.locator('.time-map-title')).toHaveText('1916: The Zuiderzee floods')
+  // Before 1930 the four future polders are still sea, and there are no dams yet.
+  await expect(map.locator('.hist-area')).toHaveCount(4)
+  await expect(map.locator('.hist-dam')).toHaveCount(0)
+
+  await map.getByRole('slider', { name: 'Year' }).fill('1932')
+  await expect(map.locator('.time-map-title')).toHaveText('1932: The Afsluitdijk')
+  await expect(map.locator('.hist-dam')).toHaveCount(1)
+  await expect(map.locator('.hist-area')).toHaveCount(3)
+  await expect(map.locator('.hist-water')).toHaveText('IJSSELMEER')
+
+  await map.getByRole('slider', { name: 'Year' }).fill('1997')
+  await expect(map.locator('.hist-area')).toHaveCount(0)
+  await expect(map.locator('.hist-line.hist-barrier')).toHaveCount(1)
+  await expect(map.locator('.hist-site.hist-barrier')).toHaveCount(2)
+
+  await map.getByRole('slider', { name: 'Year' }).fill('1968')
+  await map.getByRole('button', { name: 'Play the story' }).click()
+  await expect(map.locator('.time-map-title')).toHaveText('1971: Haringvliet and Brouwersdam', { timeout: 6000 })
 })
 
 test('plays all of unit 3 and the checkpoint without errors', async ({ page }) => {

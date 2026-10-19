@@ -13,19 +13,23 @@ import clovisBaptism from './clovis-baptism.jpg'
 import courtraiChest from './courtrai-chest.jpg'
 import cruquius from './cruquius.jpg'
 import deurneHelmet from './deurne-helmet.jpg'
+import drielandenpunt from './drielandenpunt.jpg'
 import dorestadBrooch from './dorestad-brooch.jpg'
 import flood1953Map from './flood-1953-map.jpg'
 import flood1953Rilland from './flood-1953-rilland.jpg'
 import goldenSpursChronicle from './golden-spurs-chronicle.jpg'
 import gravensteen from './gravensteen.jpg'
+import hansjeBrinker from './hansje-brinker.jpg'
 import heerlenThermen from './heerlen-thermen.jpg'
 import kinderdijk from './kinderdijk.jpg'
+import lelyStatue from './lely-statue.jpg'
 import luttrellSheep from './luttrell-sheep.jpg'
 import nehalenniaAltar from './nehalennia-altar.jpg'
 import oosterscheldekering from './oosterscheldekering.jpg'
 import peutingerMap from './peutinger-map.jpg'
 import plagueTournai from './plague-tournai.jpg'
 import polderBeemster from './polder-beemster.jpg'
+import portRotterdam from './port-rotterdam.jpg'
 import ridderzaal from './ridderzaal.jpg'
 import sluysBattle from './sluys-battle.jpg'
 import terBeurze from './ter-beurze.jpg'
@@ -50,6 +54,10 @@ const files: Record<PhotoId, string> = {
   'flood-1953-rilland': flood1953Rilland,
   'flood-1953-map': flood1953Map,
   cruquius,
+  'port-rotterdam': portRotterdam,
+  drielandenpunt,
+  'lely-statue': lelyStatue,
+  'hansje-brinker': hansjeBrinker,
   'ambiorix-statue': ambiorixStatue,
   'claudius-civilis': claudiusCivilis,
   'deurne-helmet': deurneHelmet,

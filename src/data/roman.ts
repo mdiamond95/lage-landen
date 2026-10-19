@@ -3,14 +3,9 @@
 // Routes are simplified and run through known Roman sites; where the exact line
 // of a road is unknown, it is drawn straight between them.
 
-import { eventAt as stageAt, type HistEvent } from './timeline'
+import { eventAt as stageAt, type HistEvent, type HistLabel, type HistLine, type HistSite, type TimeStory } from './timeline'
 
 export { activeAt } from './timeline'
-
-export type LineKind = 'frontier' | 'road' | 'canal'
-export type HistLine = { name: string; kind: LineKind; from: number; to?: number; coords: [number, number][] }
-export type HistSite = { latin: string; modern: string; kind: 'fort' | 'town'; from: number; to?: number; at: [number, number]; label?: 'left' | 'right' }
-export type HistLabel = { text: string; from: number; to?: number; at: [number, number] }
 
 export const lineIds = ['limes', 'via-belgica', 'maas-road', 'bavay-cassel', 'reims-trier', 'trier-cologne', 'corbulo-canal'] as const
 export type LineId = (typeof lineIds)[number]
@@ -120,21 +115,21 @@ export const romanLines: Record<LineId, HistLine> = {
 }
 
 export const romanSites: HistSite[] = [
-  { latin: 'Noviomagus', modern: 'Nijmegen', kind: 'fort', from: -19, at: [5.86, 51.84], label: 'right' },
-  { latin: 'Atuatuca', modern: 'Tongeren', kind: 'town', from: -10, at: [5.46, 50.78], label: 'right' },
-  { latin: 'Traiectum ad Mosam', modern: 'Maastricht', kind: 'town', from: 1, at: [5.69, 50.85] },
-  { latin: 'Coriovallum', modern: 'Heerlen', kind: 'town', from: 1, at: [5.98, 50.89] },
-  { latin: 'Traiectum', modern: 'Utrecht', kind: 'fort', from: 47, to: 405, at: [5.12, 52.09], label: 'right' },
-  { latin: 'Praetorium Agrippinae', modern: 'Valkenburg', kind: 'fort', from: 40, to: 405, at: [4.43, 52.18] },
-  { latin: 'Laurium', modern: 'Woerden', kind: 'fort', from: 47, to: 405, at: [4.88, 52.085] },
-  { latin: 'Fectio', modern: 'Vechten', kind: 'fort', from: 47, to: 405, at: [5.17, 52.06] },
-  { latin: 'Forum Hadriani', modern: 'Voorburg', kind: 'town', from: 70, to: 300, at: [4.36, 52.07], label: 'left' },
-  { latin: 'Vetera', modern: 'Xanten', kind: 'fort', from: -13, at: [6.45, 51.66] },
-  { latin: 'Colonia', modern: 'Cologne', kind: 'town', from: -38, at: [6.96, 50.94], label: 'right' },
-  { latin: 'Bagacum', modern: 'Bavay', kind: 'town', from: -20, at: [3.79, 50.3], label: 'right' },
-  { latin: 'Turnacum', modern: 'Tournai', kind: 'town', from: 1, at: [3.39, 50.61] },
-  { latin: 'Orolaunum', modern: 'Arlon', kind: 'town', from: 1, at: [5.81, 49.68] },
-  { latin: 'Augusta Treverorum', modern: 'Trier', kind: 'town', from: -16, at: [6.64, 49.75], label: 'left' },
+  { name: 'Noviomagus', note: 'Nijmegen', kind: 'fort', from: -19, at: [5.86, 51.84], label: 'right' },
+  { name: 'Atuatuca', note: 'Tongeren', kind: 'town', from: -10, at: [5.46, 50.78], label: 'right' },
+  { name: 'Maas crossing', note: 'Maastricht; its Roman name is not recorded', kind: 'town', from: 1, at: [5.69, 50.85] },
+  { name: 'Coriovallum', note: 'Heerlen', kind: 'town', from: 1, at: [5.98, 50.89] },
+  { name: 'Traiectum', note: 'Utrecht', kind: 'fort', from: 47, to: 405, at: [5.12, 52.09], label: 'right' },
+  { name: 'Praetorium Agrippinae', note: 'Valkenburg', kind: 'fort', from: 40, to: 405, at: [4.43, 52.18] },
+  { name: 'Laurium', note: 'Woerden', kind: 'fort', from: 47, to: 405, at: [4.88, 52.085] },
+  { name: 'Fectio', note: 'Vechten', kind: 'fort', from: 47, to: 405, at: [5.17, 52.06] },
+  { name: 'Forum Hadriani', note: 'Voorburg', kind: 'town', from: 70, to: 300, at: [4.36, 52.07], label: 'left' },
+  { name: 'Vetera', note: 'Xanten', kind: 'fort', from: -13, at: [6.45, 51.66] },
+  { name: 'Colonia', note: 'Cologne', kind: 'town', from: -38, at: [6.96, 50.94], label: 'right' },
+  { name: 'Bagacum', note: 'Bavay', kind: 'town', from: -20, at: [3.79, 50.3], label: 'right' },
+  { name: 'Turnacum', note: 'Tournai', kind: 'town', from: 1, at: [3.39, 50.61] },
+  { name: 'Orolaunum', note: 'Arlon', kind: 'town', from: 1, at: [5.81, 49.68] },
+  { name: 'Augusta Treverorum', note: 'Trier', kind: 'town', from: -16, at: [6.64, 49.75], label: 'left' },
 ]
 
 export const romanLabels: HistLabel[] = [
@@ -167,3 +162,20 @@ export const ROMAN_MAX = 500
 export const formatYear = (y: number) => (y < 0 ? `${-y} BCE` : `${Math.max(1, y)} CE`)
 
 export const eventAt = (year: number) => stageAt(romanEvents, year)
+
+export const romanStory: TimeStory = {
+  place: 'the Low Countries',
+  min: ROMAN_MIN,
+  max: ROMAN_MAX,
+  format: formatYear,
+  events: romanEvents,
+  lines: lineIds.map((id) => romanLines[id]),
+  sites: romanSites,
+  labels: romanLabels,
+  key: [
+    { swatch: 'key-frontier', text: 'Frontier' },
+    { swatch: 'key-road', text: 'Road' },
+    { swatch: 'key-fort', text: 'Fort' },
+    { swatch: 'key-town', text: 'Town' },
+  ],
+}

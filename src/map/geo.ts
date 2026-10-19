@@ -1,4 +1,4 @@
-import { geoDistance, geoMercator, geoPath } from 'd3-geo'
+import { geoDistance, geoMercator, geoPath, type GeoPath, type GeoPermissibleObjects, type GeoProjection } from 'd3-geo'
 import type { Feature, FeatureCollection, Geometry } from 'geojson'
 import { feature } from 'topojson-client'
 import type { Topology } from 'topojson-specification'
@@ -24,15 +24,35 @@ const focus: FeatureCollection<Geometry, Props> = {
   type: 'FeatureCollection',
   features: countries.filter((f) => f.properties.id === 'NLD' || f.properties.id === 'BEL'),
 }
-export const projection = geoMercator().fitExtent(
-  [
-    [30, 30],
-    [MAP_W - 30, MAP_H - 30],
-  ],
-  focus,
-)
-export const path = geoPath(projection)
-export const linePath = (coords: [number, number][]) => path({ type: 'LineString', coordinates: coords }) ?? undefined
+
+// A Mercator view of the map data fitted around some area: the whole Low Countries
+// by default, or a closer view for a time map that only needs the Netherlands.
+export type Frame = {
+  projection: GeoProjection
+  path: GeoPath
+  linePath: (coords: [number, number][]) => string | undefined
+  toXY: (lonLat: [number, number]) => [number, number]
+}
+
+export const makeFrame = (fit: GeoPermissibleObjects): Frame => {
+  const projection = geoMercator().fitExtent(
+    [
+      [30, 30],
+      [MAP_W - 30, MAP_H - 30],
+    ],
+    fit,
+  )
+  const path = geoPath(projection)
+  return {
+    projection,
+    path,
+    linePath: (coords) => path({ type: 'LineString', coordinates: coords }) ?? undefined,
+    toXY: (lonLat) => projection(lonLat)!,
+  }
+}
+
+export const lowlandsFrame = makeFrame(focus)
+export const { projection, path, linePath } = lowlandsFrame
 
 const EARTH_RADIUS_KM = 6371
 

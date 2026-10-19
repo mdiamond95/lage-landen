@@ -22,7 +22,7 @@ lessons:
         body: >-
           In 57 BCE Julius Caesar marched north into the land of the Belgae, a group of tribes living between
           the Seine and the Rhine. He wrote that "of all these, the Belgae are the bravest". Within a few years
-          Rome ruled everything up to the Rhine. Beyond the river lived the Batavians and, along the northern
+          Rome ruled everything up to the Rhine. In the Rhine delta lived the Batavians and, along the northern
           coast, the Frisians.
         visual: { kind: map, highlight: [BEL], rivers: [Rhine, Waal, Nederrijn, Maas, Schelde], pins: [tongeren, nijmegen] }
       - type: region
@@ -38,21 +38,18 @@ lessons:
         explain: >-
           His book on the Gallic War opens with it. He thought they were tough because traders rarely brought
           them luxuries and because they were always fighting the Germans across the Rhine.
-      - type: choice
-        prompt: This statue on the market square of Tongeren honours a leader who wiped out a Roman legion in 54 BCE. Who is he?
-        visual: { kind: photo, photo: ambiorix-statue }
+      - type: who
+        photo: ambiorix-statue
+        clues:
+          - I was one of two kings of the Eburones, a Belgic people living between the Maas and the Rhine.
+          - In the winter of 54 BCE my warriors ambushed a Roman legion and five more cohorts camped in our land.
+          - Caesar burned our villages in revenge and hunted me for years, but he never caught me.
+          - Since 1866 my statue has stood on the market square of Tongeren.
+        options: [Ambiorix, Vercingetorix, Julius Civilis, Clovis]
         answer: 0
-        options:
-          - label: Ambiorix
-            why: >-
-              Right. Ambiorix led the Eburones, who ambushed a legion and five more cohorts in the winter of 54 BCE.
-              The statue went up in 1866, when the young Belgium was looking for national heroes.
-          - label: Vercingetorix
-            why: Vercingetorix led the great Gallic revolt of 52 BCE, much further south, in today's central France.
-          - label: Julius Civilis
-            why: Julius Civilis led the Batavian revolt more than a century later, in 69 CE.
-          - label: Clovis
-            why: Clovis was a Frankish king who lived 500 years later, around 500 CE.
+        explain: >-
+          Ambiorix of the Eburones. Nobody knows what he looked like: the statue shows a 19th-century idea of a
+          Gaulish hero, made when the young Belgium was looking for national heroes.
       - type: pin
         prompt: Pin Tongeren, in the land of the Eburones, which grew into the oldest town in Belgium.
         place: tongeren
@@ -74,6 +71,7 @@ lessons:
         explain: The Betuwe is in Gelderland and takes its name from the Batavians. Their main town grew into Nijmegen, on the Waal.
       - type: truemyth
         statement: The Batavians paid Rome in soldiers instead of taxes.
+        visual: { kind: map, highlight: [NL-GE], rivers: [Rhine, Waal, Nederrijn], pins: [nijmegen] }
         answer: true
         explain: >-
           Tacitus wrote that they paid no tribute and were kept "for war, like weapons". Batavian horsemen,
@@ -143,21 +141,18 @@ lessons:
         explain: >-
           Everything north of the frontier, including Friesland, Groningen and most of Holland, stayed outside the
           empire. The border ran right through Utrecht.
-      - type: choice
-        prompt: Rembrandt painted this in 1661 to 1662 for Amsterdam's new town hall. Whose rebellion against Rome does it show?
-        visual: { kind: photo, photo: claudius-civilis }
-        answer: 1
-        options:
-          - label: Ambiorix and the Eburones
-            why: Ambiorix fought Caesar in 54 BCE, long before this.
-          - label: Julius Civilis and the Batavians
-            why: >-
-              Right. The one-eyed Civilis swears his allies to revolt in 69 CE. The town hall sent the huge painting
-              back, and only this cut-down piece survives, now in Stockholm.
-          - label: William of Orange
-            why: William of Orange led the Dutch Revolt against Spain from 1568, not against Rome.
-          - label: Boudica
-            why: Boudica led a revolt in Britain in 60 to 61 CE.
+      - type: who
+        photo: claudius-civilis
+        clues:
+          - I was a Batavian prince, and I served in Rome's army for 25 years.
+          - The Roman historian Tacitus compared me to Hannibal, because like him I had lost an eye.
+          - In 69 CE I led my people in revolt and burned the Roman forts along the Rhine.
+          - Rembrandt painted me swearing my allies to the revolt, for Amsterdam's new town hall.
+        options: [Julius Civilis, Ambiorix, Arminius, William of Orange]
+        answer: 0
+        explain: >-
+          Julius Civilis. Rembrandt painted his oath in 1661 to 1662, but the town hall sent the huge canvas back.
+          Only this cut-down piece survives, now in Stockholm.
       - type: match
         prompt: Match each person to their part in the story.
         pairs:
@@ -269,6 +264,7 @@ lessons:
           Rhine to the Maas.
       - type: truemyth
         statement: The Dutch word "straat" (street) comes from Latin.
+        visual: { kind: map, highlight: [], rivers: [], lines: [via-belgica, maas-road, bavay-cassel, reims-trier, trier-cologne] }
         answer: true
         explain: >-
           It comes from strata, a paved road. Muur (wall), kelder (cellar), tegel (tile) and keizer (emperor,
@@ -386,6 +382,13 @@ lessons:
           - { label: Childeric is buried in Tournai, year: 481, when: about 481 }
           - { label: Clovis is baptised, year: 500, when: between about 496 and 508 }
         explain: The Franks went from raiders to Roman allies to rulers in about 250 years.
+      - type: truemyth
+        statement: In 450 Roman soldiers still guarded the forts along the Rhine.
+        visual: { kind: time-map, map: roman, year: 450 }
+        answer: false
+        explain: >-
+          After about 400 the troops were called away to defend Italy and the forts fell empty. By 450 the
+          frontier was gone, and Frankish kings were taking over the north of Gaul.
       - type: pin
         prompt: Saint Servatius, bishop of Tongeren, moved to a town on the Maas and was buried there. Pin it.
         place: maastricht
@@ -477,6 +480,7 @@ lessons:
             why: He founded churches and monasteries, but that's not what the picture shows.
       - type: truemyth
         statement: Willibrord is buried in Utrecht.
+        visual: { kind: map, highlight: [LUX], rivers: [], pins: [utrecht, echternach] }
         answer: false
         explain: >-
           He died in 739 at Echternach, the abbey he founded in Luxembourg, and is buried there. Every Whit Tuesday
@@ -603,6 +607,7 @@ lessons:
         explain: Leuven lies about 25 km east of Brussels. The Vikings had used their camp there to raid the region.
       - type: truemyth
         statement: Vikings raided Dorestad several years in a row in the 830s.
+        visual: { kind: map, highlight: [], rivers: [Rhine, Nederrijn, Lek], pins: [wijk-bij-duurstede] }
         answer: true
         explain: >-
           Frankish chronicles record raids in 834, 835, 836 and 837. Later a Danish chief, Rorik, held Dorestad

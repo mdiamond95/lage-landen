@@ -32,7 +32,7 @@ export const credits: Record<PhotoId, Credit> = {
   },
   'terp-hogebeintum': {
     alt: 'A village church on top of a high grassy mound, with a retaining wall where the mound was dug away',
-    caption: 'The terp at Hogebeintum, Friesland, about 9 m high',
+    caption: 'The terp at Hogebeintum, Friesland, almost 9 m high',
     author: 'Baykedevries',
     ...BY_SA_3_NL,
     source: commons('De terp Hogebeintum..JPG'),
@@ -82,6 +82,34 @@ export const credits: Record<PhotoId, Credit> = {
   },
 
   // Unit 2
+  'port-rotterdam': {
+    alt: 'Aerial view of a wide waterway curving inland from the sea, with ships at quays, harbour basins and rows of round white storage tanks',
+    caption: 'Europoort and the Nieuwe Waterweg, part of the Port of Rotterdam, seen from the northwest',
+    author: 'Dicklyon',
+    ...BY_SA_4,
+    source: commons('Europoort Rotterdam and Nieuwe Waterweg of the Maas.jpg'),
+  },
+  drielandenpunt: {
+    alt: 'A grey eight-sided stone boundary pillar in a beech wood, with the Dutch, German and Belgian flags behind it',
+    caption: 'The boundary pillar on the Vaalserberg where the Netherlands, Belgium and Germany meet',
+    author: 'Frans Berkelaar',
+    ...BY_SA_2,
+    source: commons("'Echte' drielandenpunt grenspaal - omgeving Vaals (Zuid-Limburg) (21950660541).jpg"),
+  },
+  'lely-statue': {
+    alt: 'A green bronze statue of a bearded man in a long coat holding a roll of plans, on a tall brick plinth by the dike',
+    caption: "Mari Andriessen's statue of Cornelis Lely on the Afsluitdijk near Den Oever, unveiled in 1954",
+    author: 'Agnes Monkelbaan',
+    ...BY_SA_4,
+    source: commons('Monument afsluitdijk en omgeving 28-06-2019. (actm.) 06.jpg'),
+  },
+  'hansje-brinker': {
+    alt: 'A bronze statue of a kneeling boy pressing his hand against a dike, on a stone pedestal by a marina',
+    caption: 'The statue of "Hansje Brinker" on the Woerdersluis at Spaarndam, put up in 1950',
+    author: 'Zandcee',
+    ...BY_SA_4,
+    source: commons('Woerdersluis.JPG'),
+  },
   'ambiorix-statue': {
     alt: 'Bronze statue of a long-haired warrior with a winged helmet and an axe, on a stone pedestal in a town square',
     caption: 'Statue of Ambiorix by Jules Bertin (1866), Grote Markt, Tongeren',
