@@ -9,6 +9,8 @@ import { photoIds } from '../photos/ids'
 import { ROMAN_MAX, ROMAN_MIN, romanEvents, romanLines, romanSites } from '../data/roman'
 import { CLOTH_MAX, CLOTH_MIN, clothEvents, regions, routes, towns } from '../data/cloth'
 import { waterStory } from '../data/water'
+import { burgundyStory } from '../data/burgundy'
+import { peopleIn, trees } from '../data/families'
 import { places } from './places'
 import { Unit, timeMaps, type Exercise } from './schema'
 
@@ -30,6 +32,8 @@ const isVisual = (e: Exercise) =>
   e.type === 'pin' ||
   e.type === 'region' ||
   e.type === 'who' ||
+  e.type === 'scrub' ||
+  e.type === 'hunt' ||
   (e.type === 'truemyth' && e.visual !== undefined) ||
   (e.type === 'choice' && (e.visual !== undefined || e.options.some((o) => o.art || o.photo)))
 
@@ -64,6 +68,15 @@ describe.each(files)('%s', (file) => {
         if (ex.type === 'pin') expect(places[ex.place], ex.place).toBeDefined()
         if (ex.type === 'region') for (const id of ex.answer) expect(regionIds[ex.layer].has(id), id).toBe(true)
         if (ex.type === 'choice' || ex.type === 'who') expect(ex.answer).toBeLessThan(ex.options.length)
+        if (visual?.kind === 'family-tree' && visual.hide)
+          expect(peopleIn(trees[visual.tree]).map((p) => p.id), visual.hide).toContain(visual.hide)
+        if (ex.type === 'hunt') {
+          for (const [x, y, w, h] of ex.targets)
+            expect(x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= 1 && y + h <= 1, 'hunt target inside the picture').toBe(true)
+          // Targets covering more than a fifth of the picture are too easy to hit by chance.
+          const area = ex.targets.reduce((sum, [, , w, h]) => sum + w * h, 0)
+          expect(area, 'hunt target size').toBeLessThanOrEqual(0.2)
+        }
         if (ex.type === 'order') {
           const years = ex.items.map((i) => i.year)
           expect(new Set(years).size, 'order items need distinct years').toBe(years.length)
@@ -157,8 +170,8 @@ describe('water works time map', () => {
     for (const s of sites) expect(inNl(s.at), s.name).toBe(true)
     for (const l of labels) expect(inNl(l.at), l.text).toBe(true)
     for (const a of areas) {
-      expect(a.province !== undefined || a.shape !== undefined, a.name).toBe(true)
-      if (a.province) expect(regionIds.provinces.has(a.province), a.name).toBe(true)
+      expect(a.regions !== undefined || a.shape !== undefined, a.name).toBe(true)
+      for (const id of a.regions ?? []) expect(regionIds.provinces.has(id), a.name).toBe(true)
       for (const c of a.shape ?? []) expect(inNl(c), `${a.name} ${c}`).toBe(true)
     }
   })
@@ -177,7 +190,12 @@ describe('water works time map', () => {
 })
 
 describe('time maps in lessons', () => {
-  const range = { water: [waterStory.min, waterStory.max], roman: [ROMAN_MIN, ROMAN_MAX], cloth: [CLOTH_MIN, CLOTH_MAX] }
+  const range = {
+    water: [waterStory.min, waterStory.max],
+    roman: [ROMAN_MIN, ROMAN_MAX],
+    cloth: [CLOTH_MIN, CLOTH_MAX],
+    burgundy: [burgundyStory.min, burgundyStory.max],
+  }
 
   it('open at years inside their slider', () => {
     expect(Object.keys(range)).toEqual([...timeMaps])
@@ -190,7 +208,54 @@ describe('time maps in lessons', () => {
           expect(v.year, `${unit.id} ${v.map}`).toBeGreaterThanOrEqual(lo)
           expect(v.year, `${unit.id} ${v.map}`).toBeLessThanOrEqual(hi)
         }
+        if (ex.type === 'scrub') {
+          const [lo, hi] = range[ex.map]
+          const [from, to] = ex.answer
+          const start = ex.start ?? lo
+          expect(lo <= from && from <= to && to <= hi, `${unit.id} ${ex.prompt}`).toBe(true)
+          // The map must not open on a right answer.
+          expect(start < from || start > to, `${unit.id} scrub starts inside its answer`).toBe(true)
+        }
       }
+    }
+  })
+})
+
+describe('Burgundian lands time map', () => {
+  const { min, max, events, sites, labels, areas = [] } = burgundyStory
+  const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7
+
+  it('has areas, sites and labels on real regions and coordinates', () => {
+    for (const a of areas) {
+      expect(a.regions?.length, a.name).toBeGreaterThan(0)
+      for (const id of a.regions ?? []) expect(regionIds.provinces.has(id) || regionIds.countries.has(id), `${a.name} ${id}`).toBe(true)
+      for (const c of a.clip ?? []) expect(inFrame(c), `${a.name} ${c}`).toBe(true)
+      if (a.to !== undefined) expect(a.to, a.name).toBeGreaterThan(a.from)
+    }
+    for (const s of sites) expect(inFrame(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    expect(starts[starts.length - 1]).toBe(max)
+    for (const item of [...sites, ...labels, ...areas]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+      for (const [, end] of item.off ?? []) expect(starts, `${name} returns`).toContain(end + 1)
+    }
+  })
+})
+
+describe('family trees', () => {
+  it('give every person a unique id', () => {
+    for (const tree of Object.values(trees)) {
+      const ids = peopleIn(tree).map((p) => p.id)
+      expect(new Set(ids).size).toBe(ids.length)
     }
   })
 })

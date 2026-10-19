@@ -54,8 +54,10 @@ const LABEL = {
 
 // The wool and cloth trade, 1100 to 1384: drag the years or press play. Moving
 // dashes show which way goods flowed; a route that has stopped turns grey.
-export function TradeMap({ start = CLOTH_MIN }: { start?: number }) {
-  const { year, playing, togglePlay, scrub } = usePlayback(starts, CLOTH_MIN, start)
+type MapProps = { start?: number; onYear?: (year: number) => void; hideCaption?: boolean }
+
+export function TradeMap({ start = CLOTH_MIN, onYear, hideCaption = false }: MapProps) {
+  const { year, playing, togglePlay, scrub } = usePlayback(starts, CLOTH_MIN, start, onYear)
   const event = clothEventAt(year)
   const uid = useId().replace(/:/g, '')
 
@@ -140,6 +142,7 @@ export function TradeMap({ start = CLOTH_MIN }: { start?: number }) {
         playing={playing}
         onScrub={scrub}
         onTogglePlay={togglePlay}
+        hideCaption={hideCaption}
       >
         <li><span className="key-swatch key-wool" />Wool</li>
         <li><span className="key-swatch key-cloth" />Cloth</li>

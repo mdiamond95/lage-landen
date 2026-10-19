@@ -27,6 +27,8 @@ const paths: Record<string, React.ReactNode> = {
     </>
   ),
   sword: <path d="M19 3 9 13M19 3v4l-9 9M19 3h-4M7 12l5 5M8 16l-4 4M5 15l4 4" fill="none" strokeLinejoin="round" />,
+  brush: <path d="M14 4l6 6-8 8-6-6zM6 12l-2 2c-1 1-1 3 0 4l2 2c1 1 3 1 4 0l2-2" fill="none" strokeLinejoin="round" />,
+  book: <path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1zM12 6v14" fill="none" strokeLinejoin="round" />,
   crown: <path d="M4 18 3 7l5 4 4-6 4 6 5-4-1 11zM4 21h16" fill="none" strokeLinejoin="round" />,
 }
 

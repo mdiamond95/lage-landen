@@ -10,18 +10,24 @@ type Props = {
   playing: boolean
   onScrub: (year: number) => void
   onTogglePlay: () => void
+  hideCaption?: boolean
+  note?: string
   // The map key, as <li> items.
   children: ReactNode
 }
 
 // The caption, year slider, play button and key under a time map.
-export function TimeControls({ event, year, min, max, format, playing, onScrub, onTogglePlay, children }: Props) {
+export function TimeControls({ event, year, min, max, format, playing, onScrub, onTogglePlay, hideCaption, note, children }: Props) {
   return (
     <figcaption>
-      <div className="time-map-caption" aria-live="polite">
-        <p className="time-map-title">{event.title}</p>
-        <p className="time-map-text">{event.text}</p>
-      </div>
+      {hideCaption ? (
+        <p className="time-map-caption time-map-hidden">Read the map: the captions come back once you check.</p>
+      ) : (
+        <div className="time-map-caption" aria-live="polite">
+          <p className="time-map-title">{event.title}</p>
+          <p className="time-map-text">{event.text}</p>
+        </div>
+      )}
       <label className="slider-row">
         <span>Year</span>
         <input
@@ -44,6 +50,7 @@ export function TimeControls({ event, year, min, max, format, playing, onScrub, 
           {children}
         </ul>
       </div>
+      {note && <p className="time-map-note">{note}</p>}
     </figcaption>
   )
 }

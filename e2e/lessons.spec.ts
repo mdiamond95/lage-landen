@@ -4,7 +4,13 @@ import { expect, test, type Page } from '@playwright/test'
 async function answer(page: Page) {
   const foot = page.locator('.lesson-foot')
   if (await page.locator('.story').count()) return
-  if (await page.locator('.match-grid').count()) {
+  if (await page.locator('.exercise-scrub').count()) {
+    const slider = page.getByRole('slider', { name: 'Year' })
+    await slider.fill(await slider.getAttribute('max') ?? '0')
+  } else if (await page.locator('.hunt-image').count()) {
+    const box = (await page.locator('.hunt-image').boundingBox())!
+    await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2)
+  } else if (await page.locator('.match-grid').count()) {
     const left = page.locator('.match-col').nth(0).locator('.option')
     const right = page.locator('.match-col').nth(1).locator('.option')
     const n = await left.count()
@@ -216,4 +222,94 @@ test('who am I reveals clues and pays a bonus for an early answer', async ({ pag
   await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
   await expect(page.locator('.feedback-head')).toHaveText('Spot on! +2 XP')
   await expect(page.locator('.clue')).toHaveCount(4)
+})
+
+test('plays all of unit 4 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'Burgundy gathers the lands',
+    'The court of Burgundy',
+    'Van Eyck and the new painters',
+    'Charles the Bold and Mary',
+    'Antwerp and the new learning',
+    'Charles V and the Seventeen Provinces',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 4 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the Burgundy map fills in as lands join, one by one', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Burgundy gathers the lands', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  await expect(map.locator('.time-map-title')).toHaveText('1384: Flanders goes to Burgundy')
+  // Flanders, French Flanders and Artois; Holland not yet.
+  await expect(map.locator('.hist-area-ruled')).toHaveCount(3)
+
+  await map.getByRole('slider', { name: 'Year' }).fill('1433')
+  await expect(map.locator('.time-map-title')).toHaveText('1433: Holland, Zeeland and Hainaut')
+  await expect(map.locator('.hist-area-new')).toHaveCount(1)
+  await expect(map.locator('.hist-area-ruled')).toHaveCount(7)
+
+  // Liège is under a Burgundian bishop from 1456 until Charles dies in 1477.
+  await map.getByRole('slider', { name: 'Year' }).fill('1468')
+  await expect(map.locator('.hist-area-client')).toHaveCount(2)
+  await map.getByRole('slider', { name: 'Year' }).fill('1477')
+  await expect(map.locator('.hist-area-client')).toHaveCount(1)
+
+  await map.getByRole('slider', { name: 'Year' }).fill('1549')
+  await expect(map.locator('.hist-water')).toHaveText('THE SEVENTEEN PROVINCES')
+
+  await map.getByRole('slider', { name: 'Year' }).fill('1521')
+  await map.getByRole('button', { name: 'Play the story' }).click()
+  await expect(map.locator('.time-map-title')).toHaveText('1528: Utrecht and Overijssel', { timeout: 6000 })
+})
+
+test('find the year hides the captions and marks the year chosen', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Burgundy gathers the lands', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  await foot.getByRole('button', { name: 'Continue' }).click()
+  await page.locator('.option').first().click()
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await foot.getByRole('button', { name: 'Continue' }).click()
+
+  await expect(page.locator('.eyebrow').first()).toHaveText('Find the year')
+  await expect(page.locator('.time-map-title')).toHaveCount(0)
+  await expect(foot.getByRole('button', { name: 'Check' })).toBeDisabled()
+  await page.getByRole('slider', { name: 'Year' }).fill('1430')
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Not quite')
+  await expect(page.locator('.feedback-detail')).toContainText('You chose 1430')
+  // The caption comes back once checked.
+  await expect(page.locator('.time-map-title')).toHaveText('1430: Brabant and Limburg')
+})
+
+// The Utrecht-like tower on the skyline of the Ghent Altarpiece, as in the Unit 4 lesson.
+const TOWER = [0.35, 0.07, 0.08, 0.12]
+
+test('a detail hunt scores a tap inside the target and shows where it was', async ({ page }) => {
+  await unlock(page, ['u4-l1', 'u4-l2'])
+  await page.getByRole('button', { name: 'Van Eyck and the new painters', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  await foot.getByRole('button', { name: 'Continue' }).click()
+
+  await expect(page.locator('.eyebrow').first()).toHaveText('Find the detail')
+  const box = (await page.locator('.hunt-image').boundingBox())!
+  const [x, y, w, h] = TOWER
+  await page.mouse.click(box.x + box.width * (x + w / 2), box.y + box.height * (y + h / 2))
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Correct!')
+  await expect(page.locator('.hunt-target')).toHaveCount(1)
 })

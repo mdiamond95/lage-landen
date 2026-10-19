@@ -1,0 +1,713 @@
+id: unit-04
+number: 4
+title: The Burgundian Netherlands
+era: 1384 to 1555
+summary: The dukes of Burgundy gather the Low Countries under one ruler, their court makes Flemish painting famous, and Charles V, born in Ghent, binds the Seventeen Provinces together.
+lessons:
+  - id: u4-l1
+    title: Burgundy gathers the lands
+    icon: map
+    sources:
+      - title: Larousse, Philippe II le Hardi (in French)
+        url: https://www.larousse.fr/encyclopedie/personnage/Philippe_II_le_Hardi/137975
+      - title: Larousse, Philippe III le Bon (in French)
+        url: https://www.larousse.fr/encyclopedie/personnage/Philippe_III_le_Bon/137976
+      - title: Encyclopaedia Britannica, Philip III, duke of Burgundy
+        url: https://www.britannica.com/biography/Philip-III-duke-of-Burgundy
+      - title: Canon van Nederland, Jacoba van Beieren (in Dutch)
+        url: https://www.canonvannederland.nl/nl/page/439262/jacoba-van-beieren
+      - title: Luxembourg City Tourist Office, history
+        url: https://www.luxembourg-city.com/en/about-luxembourg-city/presentation/history
+      - title: Larousse, Charles Quint (in French)
+        url: https://www.larousse.fr/encyclopedie/personnage/Charles_V/112815
+      - title: Larousse, Liège (in French)
+        url: https://www.larousse.fr/encyclopedie/ville/Li%C3%A8ge/129877
+    exercises:
+      - type: story
+        title: One ruler for many lands
+        body: >-
+          In 1384 the count of Flanders died, and his rich county passed to his son-in-law, Philip the Bold, duke
+          of Burgundy in eastern France. Philip's grandson, Philip the Good, then gathered land after land by
+          inheritance, purchase, treaty and force. Press play to watch the Low Countries join Burgundy one by one.
+        visual: { kind: time-map, map: burgundy }
+      - type: choice
+        prompt: Look at the map in 1384. Which land of the Low Countries came to the duke of Burgundy first?
+        visual: { kind: time-map, map: burgundy, year: 1384 }
+        answer: 0
+        options:
+          - label: Flanders, with Artois
+            why: >-
+              Right. Philip the Bold had married Margaret of Male, the count of Flanders' only heir. When the count
+              died in 1384, Flanders and Artois passed to the couple.
+          - label: Holland
+            why: Holland came half a century later, in 1433.
+          - label: Brabant
+            why: Brabant came to Philip the Good in 1430.
+          - label: Luxembourg
+            why: Luxembourg was the last of the duke's big gains, in 1443.
+      - type: scrub
+        prompt: Drag the slider to a year when the duke of Burgundy rules Holland.
+        map: burgundy
+        answer: [1433, 1555]
+        explain: >-
+          Holland, Zeeland and Hainaut all joined in 1433, when Countess Jacqueline of Bavaria gave them up to
+          Philip the Good.
+      - type: who
+        photo: jacoba
+        clues:
+          - I became countess of Holland, Zeeland and Hainaut in 1417, when I was only 15.
+          - I married four times. My second husband was the duke of Brabant; my third, an English prince.
+          - My cousin Philip the Good fought me for my lands for years.
+          - In 1433 I had to hand them all to him. I died three years later, aged 35.
+        options: [Jacqueline of Bavaria, Mary of Burgundy, Margaret of Austria, Isabella of Portugal]
+        answer: 0
+        explain: >-
+          Jacqueline of Bavaria, Jacoba van Beieren in Dutch. Holland's nobles split into two parties, the Hooks
+          and the Cods, and the Cods backed Philip. A treaty in 1428 left her only the title; a secret fourth
+          marriage broke it and cost her the counties.
+      - type: pin
+        prompt: In 1421 Philip the Good bought the county of Namur, on the Maas. Pin the town of Namur.
+        place: namur
+        okKm: 25
+        explain: Namur stands where the Sambre flows into the Maas. Its old count kept the county until he died in 1429.
+      - type: region
+        prompt: In 1443 Philip took the duchy of Luxembourg. It was bigger than today's country. Shade the Belgian province that carries its name.
+        layer: provinces
+        answer: [BE-WLX]
+        explain: >-
+          The province of Luxembourg, in the Ardennes. The old duchy covered it as well as today's Grand Duchy;
+          the two were split in 1839.
+      - type: truemyth
+        statement: By 1443 the duke of Burgundy ruled every part of today's Belgium.
+        visual: { kind: time-map, map: burgundy, year: 1443 }
+        answer: false
+        explain: >-
+          Look at the white hole in the middle. The prince-bishopric of Liège stayed separate, ruled by its own
+          prince-bishop, and it never joined the Burgundian lands. The dukes could only try to control it through
+          the bishops they chose.
+      - type: order
+        prompt: Put the duke's gains in order, oldest first.
+        items:
+          - { label: Flanders and Artois, year: 1384, when: '1384' }
+          - { label: Namur is bought, year: 1421, when: '1421' }
+          - { label: Brabant and Limburg, year: 1430, when: '1430' }
+          - { label: Holland, Zeeland and Hainaut, year: 1433, when: '1433' }
+          - { label: Luxembourg, year: 1443, when: '1443' }
+        explain: In 60 years the dukes of Burgundy went from one Flemish county to almost all of the Low Countries.
+      - type: match
+        prompt: Match each duke to what he is remembered for.
+        pairs:
+          - [Philip the Bold, Won Flanders by marriage]
+          - [John the Fearless, Murdered on a bridge in 1419]
+          - [Philip the Good, Gathered most of the Low Countries]
+          - [Charles the Bold, Killed in battle at Nancy in 1477]
+      - type: choice
+        prompt: The dukes ruled each land under its own title. What did Philip the Good call himself in Holland?
+        visual: { kind: time-map, map: burgundy, year: 1433 }
+        answer: 2
+        options:
+          - label: King of Holland
+            why: There was no king of Holland until Napoleon's brother Louis, in 1806.
+          - label: Duke of Holland
+            why: Holland was a county, not a duchy.
+          - label: Count of Holland
+            why: >-
+              Right. Philip was duke in Brabant and Luxembourg, count in Flanders, Holland and Hainaut, and lord
+              in Mechelen. Each land kept its own laws, so he swore a separate oath to each.
+          - label: Stadtholder of Holland
+            why: A stadtholder governed a province for an absent ruler. Philip was the ruler himself.
+
+  - id: u4-l2
+    title: The court of Burgundy
+    icon: star
+    sources:
+      - title: Royal Library of Belgium (KBR), In the footsteps of the Burgundians
+        url: https://www.kbr.be/en/accompanying-texts-burgundians/
+      - title: Encyclopaedia Britannica, Order of the Golden Fleece
+        url: https://www.britannica.com/topic/The-Order-of-the-Golden-Fleece
+      - title: Encyclopedia.com, Philip the Good
+        url: https://www.encyclopedia.com/people/history/french-history-biographies/philip-good
+      - title: Tweede Kamer, the States General before 1795 (in Dutch)
+        url: https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer-door-de-eeuwen-heen/wel-een-staten-generaal-geen-democratie-tot
+      - title: Coudenberg, history of the palace
+        url: https://coudenberg.brussels/en/history/history-of-the-palace
+      - title: visit.brussels, in the footsteps of the Burgundian dukes
+        url: https://www.visit.brussels/en/visitors/plan-your-trip/historical-walk-burgundian-dukes
+      - title: Flemish heritage inventory, Leuven town hall (in Dutch)
+        url: https://inventaris.onroerenderfgoed.be/erfgoedobjecten/42150
+      - title: Dutch Language Institute dictionary (ANW), Bourgondiër (in Dutch)
+        url: https://anw.ivdnt.org/article/Bourgondi%C3%ABr
+    exercises:
+      - type: story
+        title: A court on the move
+        body: >-
+          The dukes had no single capital. Their court travelled between Brussels, Bruges, Lille and Dijon, with
+          cooks, musicians, painters and hundreds of servants. In this book painting from about 1448, a writer
+          kneels to offer Philip the Good a history of Hainaut, surrounded by his courtiers.
+        visual: { kind: photo, photo: chroniques-hainaut }
+      - type: hunt
+        prompt: Philip's son and heir, Charles, about 14 years old, stands right beside him. Find him.
+        photo: chroniques-hainaut
+        targets: [[0.49, 0.29, 0.13, 0.36]]
+        explain: >-
+          Charles wears the Golden Fleece too. The painting is credited to Rogier van der Weyden, and the book is
+          in the Royal Library of Belgium in Brussels.
+      - type: who
+        photo: philip-good
+        clues:
+          - My father, John the Fearless, was murdered on a bridge in 1419, and I took his place.
+          - I founded the Order of the Golden Fleece in Bruges in 1430.
+          - I gathered Brabant, Holland, Hainaut and Luxembourg under one ruler.
+          - I am usually painted in black, with the Golden Fleece around my neck.
+        options: [Philip the Good, Charles the Bold, John the Fearless, Maximilian of Austria]
+        answer: 0
+        explain: >-
+          Philip the Good ruled for 48 years, from 1419 to 1467. This portrait comes from the workshop of Rogier
+          van der Weyden, who painted the duke and his court.
+      - type: choice
+        prompt: Philip the Good founded the Order of the Golden Fleece in 1430, at his wedding feast. In which city?
+        visual: { kind: map, highlight: [], rivers: [], pins: [bruges, brussels, lille, ghent] }
+        answer: 0
+        options:
+          - label: Bruges
+            why: >-
+              Right. He married Isabella of Portugal there in January 1430. The order bound the greatest nobles to
+              the duke, and its golden ram's fleece hung from a heavy chain.
+          - label: Brussels
+            why: Brussels became the main home of the court later, but the order was founded in Bruges.
+          - label: Lille
+            why: Lille hosted the Feast of the Pheasant in 1454, not the founding of the order.
+          - label: Ghent
+            why: Ghent was the biggest city of Flanders, but the wedding and the order were in Bruges.
+      - type: truemyth
+        statement: At the Feast of the Pheasant in Lille in 1454, Philip and his knights vowed to go on crusade, and they set sail the next year.
+        visual: { kind: map, highlight: [], rivers: [], pins: [lille] }
+        answer: false
+        explain: >-
+          They did make the vows, on a pheasant at a lavish banquet, after the Ottoman Turks took Constantinople
+          in 1453. But the crusade never happened.
+      - type: choice
+        prompt: The tower of this town hall, finished in 1455, is crowned by Saint Michael slaying a dragon. Which city is it in?
+        visual: { kind: photo, photo: brussels-town-hall }
+        answer: 1
+        options:
+          - label: Bruges
+            why: Bruges has a belfry on its market square, but this town hall stands on a different Grand Place.
+          - label: Brussels
+            why: >-
+              Right. Brussels's town hall faces the Grand Place. Saint Michael is the patron saint of the city, and
+              the tower is about 96 m tall.
+          - label: Leuven
+            why: Leuven's town hall has no tall tower; it is covered in statues instead.
+          - label: Antwerp
+            why: Antwerp's Gothic giant is its cathedral tower. Its town hall came a century later.
+      - type: choice
+        prompt: Built from 1448 to 1469, this town hall is covered with hundreds of carved figures. Where is it?
+        visual: { kind: photo, photo: leuven-town-hall }
+        answer: 2
+        options:
+          - label: Ghent
+            why: Ghent's town hall is a mix of Gothic and Renaissance, built over centuries.
+          - label: Brussels
+            why: Brussels's town hall has a tall tower. This one has six slim turrets instead.
+          - label: Leuven
+            why: >-
+              Right. Rich towns like Leuven showed off with buildings as grand as the duke's palaces. Most of the
+              statues on it now were added in the 1800s.
+          - label: Mechelen
+            why: Mechelen's town hall is on its Grote Markt, but this is Leuven's.
+      - type: pin
+        prompt: The dukes' palace on the Coudenberg hill made this city the favourite home of the court. Pin Brussels.
+        place: brussels
+        explain: >-
+          The Coudenberg palace burned down in 1731. Its cellars and an old street still lie under the Place Royale
+          and can be visited.
+      - type: truemyth
+        statement: In Dutch, living "Burgundian" (Bourgondisch) means enjoying good food and drink.
+        answer: true
+        explain: >-
+          True, and it is a compliment. Where it comes from is argued: many say it recalls the feasts of the
+          Burgundian court, but Dutch dictionary makers link it to the wine and food of the French region of
+          Burgundy.
+      - type: choice
+        prompt: In 1464 the duke called deputies from all his lands to meet together for the first time. Where did this first States General meet?
+        visual: { kind: map, highlight: [], rivers: [], pins: [bruges, brussels, mechelen, lille] }
+        answer: 0
+        options:
+          - label: Bruges
+            why: >-
+              Right. The States General brought the separate lands to one table, mostly to approve taxes. The Dutch
+              parliament is still called the States General.
+          - label: Brussels
+            why: The States General often met in Brussels later, but the first meeting was in Bruges.
+          - label: Mechelen
+            why: Mechelen got the dukes' high court a few years later, in 1473.
+          - label: Lille
+            why: Lille was a ducal city, but the first States General met in Bruges.
+
+  - id: u4-l3
+    title: Van Eyck and the new painters
+    icon: brush
+    sources:
+      - title: Visit Gent, things you did not know about the Ghent Altarpiece
+        url: https://visit.gent.be/en/things-you-did-not-know-about-ghent-altarpiece
+      - title: Visit Gent, the adventures of the Ghent Altarpiece
+        url: https://visit.gent.be/en/adventures-ghent-altarpiece
+      - title: "Visit Gent, myth busting: three fallacies about the Ghent Altarpiece"
+        url: https://visit.gent.be/en/blog/myth-busting-3-persistent-fallacies-about-ghent-altarpiece
+      - title: National Gallery, Jan van Eyck
+        url: https://www.nationalgallery.org.uk/artists/jan-van-eyck
+      - title: National Gallery, The Arnolfini Portrait
+        url: https://www.nationalgallery.org.uk/paintings/jan-van-eyck-the-arnolfini-portrait
+      - title: Museo del Prado, The Descent from the Cross
+        url: https://www.museodelprado.es/en/the-collection/art-work/the-descent-from-the-cross/856d822a-dd22-4425-bebd-920a1d416aa7
+      - title: Encyclopaedia Britannica, Hans Memling
+        url: https://www.britannica.com/biography/Hans-Memling
+      - title: Pomorskie Travel, Memling's Last Judgment
+        url: https://pomorskie.travel/?p=90690
+    exercises:
+      - type: story
+        title: Painting in oil and light
+        body: >-
+          In 1432 a huge folding altarpiece was unveiled in a Ghent church. Its painters, the brothers Hubert and
+          Jan van Eyck, worked in thin layers of oil paint, so every pearl, leaf and hair seems real. Painters in
+          Bruges, Brussels and Leuven followed. Much later, these painters were called the Flemish Primitives.
+        visual: { kind: photo, photo: ghent-altarpiece }
+      - type: hunt
+        prompt: >-
+          Here is the Lamb at the heart of the altarpiece. Behind it, Van Eyck painted heaven as a landscape full of
+          real buildings. One tower looks like the Dom tower of Utrecht, the tallest church tower in the
+          Netherlands. Find it.
+        photo: ghent-lamb
+        targets: [[0.35, 0.07, 0.08, 0.12]]
+        explain: >-
+          It stands alone above the trees, left of the dove: square, with an open lantern on top. Van Eyck had worked for the count
+          of Holland in The Hague in the 1420s, so he may have seen the real tower, finished in 1382.
+      - type: choice
+        prompt: This man in a red turban, painted in 1433, may be Jan van Eyck himself. Along the top of the frame he painted his motto, "Als ich can". What does it mean?
+        visual: { kind: photo, photo: van-eyck-turban }
+        answer: 1
+        options:
+          - label: God sees all
+            why: The motto is about the painter himself, not about God.
+          - label: As best I can
+            why: >-
+              Right. It sounds modest, but it is really a boast. Philip the Good made Van Eyck his court painter in
+              1425 and sent him to Portugal to paint his future bride.
+          - label: Made in Bruges
+            why: Van Eyck lived in Bruges, but his motto does not mention the city.
+          - label: I am Jan
+            why: The frame does carry his name, at the bottom, but the motto says something else.
+      - type: truemyth
+        statement: Jan van Eyck invented oil painting.
+        visual: { kind: photo, photo: arnolfini }
+        answer: false
+        explain: >-
+          A myth, spread by the Italian writer Vasari in 1550. Oil paints were known long before. What Van Eyck
+          and his circle did was master them, building up thin, see-through layers that glow.
+      - type: hunt
+        prompt: Van Eyck painted this couple in Bruges in 1434. Find the round mirror, which shows two more people in the doorway.
+        photo: arnolfini
+        targets: [[0.42, 0.225, 0.165, 0.13]]
+        explain: >-
+          Above the mirror he wrote "Johannes de eyck fuit hic 1434": Jan van Eyck was here, 1434. The man is
+          probably Giovanni Arnolfini, a merchant from Lucca who lived in Bruges.
+      - type: truemyth
+        statement: One panel of the Ghent Altarpiece was stolen in 1934 and has never been found.
+        visual: { kind: photo, photo: ghent-altarpiece }
+        answer: true
+        explain: >-
+          The Just Judges panel, at the bottom left, vanished in 1934. The panel there now is a copy by Jef Van
+          der Veken. Over the centuries French revolutionary armies carried panels off to Paris, wings were sold
+          to Berlin, and the Nazis hid the whole altarpiece in an Austrian salt mine.
+      - type: hunt
+        prompt: In this Descent from the Cross by Rogier van der Weyden, a skull lies at the foot of the cross. Find it.
+        photo: descent-cross
+        targets: [[0.15, 0.9, 0.09, 0.09]]
+        explain: >-
+          Old Christian legend said the cross stood over the grave of Adam, the first man, so painters put his
+          skull at its foot. Rogier became the official painter of Brussels in 1436.
+      - type: truemyth
+        statement: Rogier painted this for the crossbowmen's guild of Leuven, and hid tiny crossbows in its corners.
+        visual: { kind: photo, photo: descent-cross }
+        answer: true
+        explain: >-
+          Small crossbows, the guild's sign, are painted in the gilded tracery of the top corners. The painting
+          later went to Spain and is now in the Prado, in Madrid.
+      - type: choice
+        prompt: Hans Memling painted this Last Judgment in Bruges for an Italian banker. Where is it today?
+        visual: { kind: photo, photo: memling-judgment }
+        answer: 1
+        options:
+          - label: Florence
+            why: It was on its way to Italy, but it never arrived.
+          - label: Gdańsk, in Poland
+            why: >-
+              Right. In 1473 a privateer from Danzig, today's Gdańsk, captured the ship carrying it. The painting
+              went to a church in Danzig, and it is now in the city's National Museum.
+          - label: Bruges
+            why: Memling's works fill a museum in Bruges, but this one left the city in 1473.
+          - label: Rome
+            why: It was never in Rome. It was seized at sea on the way to Italy.
+      - type: match
+        prompt: Match each painter to a work.
+        pairs:
+          - [Jan van Eyck, The Arnolfini Portrait]
+          - [Rogier van der Weyden, The Descent from the Cross]
+          - [Hans Memling, The Last Judgment in Gdańsk]
+          - [Hubert and Jan van Eyck, The Ghent Altarpiece]
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Van Eyck becomes Philip the Good's painter, year: 1425, when: '1425' }
+          - { label: The Ghent Altarpiece is unveiled, year: 1432, when: '1432' }
+          - { label: The Arnolfini Portrait, year: 1434, when: '1434' }
+          - { label: Rogier becomes the painter of Brussels, year: 1436, when: '1436' }
+          - { label: Memling settles in Bruges, year: 1465, when: '1465' }
+          - { label: Memling's Last Judgment is seized at sea, year: 1473, when: '1473' }
+        explain: In half a century, painters working for the court and the rich towns changed European art.
+
+  - id: u4-l4
+    title: Charles the Bold and Mary
+    icon: sword
+    sources:
+      - title: Larousse, Charles le Téméraire (in French)
+        url: https://www.larousse.fr/encyclopedie/personnage/Charles_le_T%C3%A9m%C3%A9raire/112841
+      - title: Encyclopaedia Britannica, Charles, duke of Burgundy
+        url: https://www.britannica.com/biography/Charles-duke-of-Burgundy
+      - title: Larousse, Marie de Bourgogne (in French)
+        url: https://www.larousse.fr/encyclopedie/personnage/Marie_de_Bourgogne/181166
+      - title: Royal Library of Belgium (KBR), In the footsteps of the Burgundians
+        url: https://www.kbr.be/en/accompanying-texts-burgundians/
+      - title: Visit Bruges, Church of Our Lady museum
+        url: https://www.visitbruges.be/en/things-to-do/culture-and-heritage/olv-kerk-museum-museum-church-our-lady
+      - title: Visit Bruges, Craenenburg
+        url: https://www.visitbruges.be/en/eat-and-sleep/food-bars-cafes/craenenburg
+    exercises:
+      - type: story
+        title: A duke who wanted a crown
+        body: >-
+          Philip the Good's son Charles ruled from 1467. He wanted to turn his lands into a kingdom stretching from
+          the North Sea to the Alps, and spent ten years at war. On 5 January 1477, outside Nancy in Lorraine, his
+          army was beaten and he was killed. This painting of the battle is by Eugène Delacroix.
+        visual: { kind: photo, photo: nancy-battle }
+      - type: who
+        photo: charles-bold
+        clues:
+          - I was the only son of Philip the Good.
+          - I had Dinant and Liège sacked for rebelling.
+          - I hoped the emperor would crown me king, but he slipped away instead.
+          - I died in battle in 1477, and my body was found in a frozen pond days later.
+        options: [Charles the Bold, Philip the Bold, Charles V, Maximilian of Austria]
+        answer: 0
+        explain: >-
+          Charles the Bold, called le Téméraire in French: the rash one. Rogier van der Weyden painted him wearing
+          the Golden Fleece.
+      - type: scrub
+        prompt: Charles the Bold added one last duchy, in the north-east. Drag the slider to a year when it is his.
+        map: burgundy
+        start: 1443
+        answer: [1473, 1476]
+        explain: >-
+          Guelders became Charles's in 1473. After his death it slipped away again, and it only joined for good
+          under Charles V, in 1543.
+      - type: pin
+        prompt: In 1466, while still his father's heir, Charles had this copper-working town on the Maas sacked and burned. Pin Dinant.
+        place: dinant
+        okKm: 25
+        explain: >-
+          Dinant belonged to the prince-bishop of Liège and had rebelled against Burgundy. Two years later Liège
+          itself was burned.
+      - type: truemyth
+        statement: In 1473 the emperor crowned Charles the Bold king at Trier.
+        visual: { kind: time-map, map: burgundy, year: 1473 }
+        answer: false
+        explain: >-
+          The two rulers met at Trier and a crowning seemed close, but Emperor Frederick III left suddenly by night
+          and Charles never got his crown.
+      - type: choice
+        prompt: Charles the Bold left only one child, the heir to all his lands. Who belongs in the gap?
+        visual: { kind: family-tree, tree: burgundy, hide: mary }
+        answer: 0
+        options:
+          - label: Mary of Burgundy
+            why: >-
+              Right. Mary was 19 when her father died. France invaded at once and the towns rose up, so she had to
+              grant the Great Privilege, giving back old rights to the provinces and towns.
+          - label: Margaret of York
+            why: Margaret of York was Charles's third wife and Mary's stepmother, not his daughter.
+          - label: Margaret of Austria
+            why: Margaret of Austria was Mary's daughter, born in 1480.
+          - label: Joanna of Castile
+            why: Joanna of Castile married Mary's son, Philip the Handsome.
+      - type: who
+        photo: mary-burgundy
+        clues:
+          - I was only 19 when my father was killed at Nancy.
+          - To keep my lands, I granted the Great Privilege in 1477.
+          - That same year I married Maximilian of Austria in Ghent.
+          - I died at 25, after a fall from my horse while out hawking.
+        options: [Mary of Burgundy, Jacqueline of Bavaria, Margaret of Austria, Isabella of Portugal]
+        answer: 0
+        explain: >-
+          Mary of Burgundy. Her marriage brought the Low Countries to the Habsburgs, the family of Austria, who
+          would rule them for more than 300 years.
+      - type: choice
+        prompt: Mary of Burgundy lies in this tomb in the Church of Our Lady in Bruges. Whose tomb stands beside hers?
+        visual: { kind: photo, photo: mary-tomb }
+        answer: 1
+        options:
+          - label: Maximilian of Austria
+            why: Maximilian outlived Mary by 37 years and is buried in Austria.
+          - label: Her father, Charles the Bold
+            why: >-
+              Right. Charles was first buried in Nancy. His great-grandson Charles V had his remains brought to
+              Bruges and laid beside his daughter, though some doubt the bones are really his.
+          - label: Philip the Good
+            why: Philip the Good was buried in Dijon, with the earlier dukes.
+          - label: Jan van Eyck
+            why: Van Eyck was buried in Bruges, but in St Donatian's church, which was later demolished.
+      - type: truemyth
+        statement: Bruges keeps swans on its canals because Maximilian ordered it as a punishment for killing his official.
+        visual: { kind: map, highlight: [], rivers: [], pins: [bruges] }
+        answer: false
+        explain: >-
+          A legend. Bruges did hold Maximilian prisoner in 1488 and beheaded his official Pieter Lanchals, whose
+          name means long neck and whose coat of arms bore a swan. But no record shows Maximilian ordering swans.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Charles has Dinant sacked, year: 1466, when: '1466' }
+          - { label: Liège is burned, year: 1468, when: '1468' }
+          - { label: Charles meets the emperor at Trier, year: 1473, when: '1473' }
+          - { label: Charles dies at Nancy, year: 1477, when: January 1477 }
+          - { label: Mary dies after a riding accident, year: 1482, when: '1482' }
+          - { label: Bruges holds Maximilian prisoner, year: 1488, when: '1488' }
+        explain: In 20 years Burgundy went from a would-be kingdom to a Habsburg inheritance.
+
+  - id: u4-l5
+    title: Antwerp and the new learning
+    icon: book
+    sources:
+      - title: Larousse, Anvers (in French)
+        url: https://www.larousse.fr/encyclopedie/ville/Anvers/105760
+      - title: Cathedral of Our Lady, Antwerp, the Gothic tower
+        url: https://www.dekathedraal.be/en/gothic-tower
+      - title: Flemish heritage inventory, Cathedral of Our Lady (in Dutch)
+        url: https://inventaris.onroerenderfgoed.be/erfgoedobjecten/4092
+      - title: KU Leuven, an eventful history
+        url: https://www.kuleuven.be/english/about-kuleuven/history
+      - title: "Erasmus House, Erasmus: who is he?"
+        url: https://www.erasmushouse.museum/en/erasmus-who/
+      - title: KU Leuven, 500 years ago Utopia was born in Leuven (in Dutch)
+        url: https://nieuws.kuleuven.be/nl/2016/500-jaar-geleden-zag-utopia-het-levenslicht-in-leuven
+      - title: Royal Library of Belgium (KBR), showpieces that tell the story of Belgium
+        url: https://www.kbr.be/en/kbr-showpieces-tell-the-story-of-belgium/
+    exercises:
+      - type: story
+        title: Market of the world, again
+        body: >-
+          Bruges's waterway to the sea silted up, and the town quarrelled with its rulers. Trade moved to Antwerp,
+          on the deep Scheldt. Portuguese ships brought pepper from India, German merchants brought silver and copper, and
+          English cloth came to be finished and dyed. By 1560 about 100,000 people lived in Antwerp.
+        visual: { kind: map, highlight: [], rivers: [Schelde], pins: [antwerp, bruges] }
+      - type: pin
+        prompt: Pin Antwerp, the great port of the 1500s.
+        place: antwerp
+        explain: Antwerp lies on the Scheldt, about 80 km from the open sea, yet deep enough for the biggest ships of the day.
+      - type: choice
+        prompt: Antwerp's Bourse, built from 1531, was the first building made just for this. What?
+        visual: { kind: photo, photo: antwerp-bourse }
+        answer: 2
+        options:
+          - label: A royal palace
+            why: It was built by the city for merchants, not for a ruler.
+          - label: A cloth hall
+            why: Cloth halls sold one product. This building was for every kind of deal.
+          - label: Trading, for merchants of every nation
+            why: >-
+              Right. Merchants met in its courtyard to deal in goods, bills and loans. Its inscription said it was
+              for merchants of every nation and language.
+          - label: A church for foreign sailors
+            why: It was a place of business, not worship.
+      - type: truemyth
+        statement: In the 1500s, pepper from India reached Antwerp on Portuguese ships.
+        visual: { kind: map, highlight: [], rivers: [Schelde], pins: [antwerp] }
+        answer: true
+        explain: >-
+          After Vasco da Gama sailed around Africa to India, the king of Portugal sold his spices through Antwerp.
+          The first cargo of pepper arrived in 1501.
+      - type: choice
+        prompt: Finished in 1521, this tower is 123 m tall, the tallest church tower in the Benelux. Where is it?
+        visual: { kind: photo, photo: antwerp-cathedral }
+        answer: 0
+        options:
+          - label: Antwerp
+            why: >-
+              Right. It is the north tower of the Cathedral of Our Lady. A south tower was planned too but never
+              built.
+          - label: Utrecht
+            why: Utrecht's Dom tower is 112 m. Antwerp's is taller.
+          - label: Mechelen
+            why: Mechelen's St Rumbold's tower stopped at about 97 m; its spire was never built.
+          - label: Brussels
+            why: Brussels's tallest Gothic tower is on its town hall, at about 96 m.
+      - type: who
+        photo: erasmus
+        clues:
+          - I was born in Rotterdam in the late 1460s.
+          - I wrote In Praise of Folly, mocking greedy monks and foolish princes.
+          - I inspired a college in Leuven that taught Latin, Greek and Hebrew.
+          - I wrote a book on how to be a good Christian prince for the young Charles V.
+        options: [Erasmus, Thomas More, Gerard Mercator, Andreas Vesalius]
+        answer: 0
+        explain: >-
+          Desiderius Erasmus, the best-known scholar in Europe in his day. Hans Holbein the Younger painted him in
+          1523.
+      - type: pin
+        prompt: The first university in the Low Countries opened here in 1425. Pin Leuven.
+        place: leuven
+        explain: Leuven lies about 25 km east of Brussels. Its university, founded by the duke of Brabant, is still one of the biggest in Europe.
+      - type: truemyth
+        statement: Thomas More's book Utopia opens in Antwerp, and it was first printed in Leuven.
+        visual: { kind: map, highlight: [], rivers: [], pins: [antwerp, leuven] }
+        answer: true
+        explain: >-
+          More started it while on a mission to Flanders in 1515. In the book he meets the traveller who describes
+          Utopia in Antwerp, through his friend Pieter Gillis. Dirk Martens printed it in Leuven in 1516.
+      - type: region
+        prompt: Antwerp gives its name to a Belgian province. Shade it.
+        layer: provinces
+        answer: [BE-VAN]
+        explain: The province of Antwerp. In the Middle Ages the area was the margraviate of Antwerp, part of the duchy of Brabant.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Leuven University is founded, year: 1425, when: '1425' }
+          - { label: The first printing press in the Southern Netherlands, at Aalst, year: 1473, when: '1473' }
+          - { label: The first Portuguese pepper reaches Antwerp, year: 1501, when: '1501' }
+          - { label: Erasmus publishes In Praise of Folly, year: 1511, when: '1511' }
+          - { label: Utopia is printed in Leuven, year: 1516, when: '1516' }
+          - { label: Antwerp's Bourse is built, year: 1531, when: '1531' }
+        explain: Trade, printing and new ideas grew up together in the cities of Brabant and Flanders.
+
+  - id: u4-l6
+    title: Charles V and the Seventeen Provinces
+    icon: crown
+    sources:
+      - title: Larousse, Charles Quint (in French)
+        url: https://www.larousse.fr/encyclopedie/personnage/Charles_V/112815
+      - title: Encyclopaedia Britannica, Charles V
+        url: https://www.britannica.com/biography/Charles-V-Holy-Roman-emperor
+      - title: Visit Mechelen, Margaret of Austria
+        url: https://www.visitmechelen.be/en/margaret-austria
+      - title: Visit Gent, St Bavo's Abbey
+        url: https://visit.gent.be/en/see-do/st-bavos-abbey
+      - title: "Library of Congress, Propaganimals: the Leo Belgicus"
+        url: https://blogs.loc.gov/maps/2024/01/propaganimals/
+      - title: Encyclopaedia Britannica, Burgundian Kreis
+        url: https://www.britannica.com/topic/Burgundian-Kreis
+    exercises:
+      - type: story
+        title: A prince from Ghent
+        body: >-
+          On 24 February 1500 a boy was born in Ghent: Charles, grandson of Mary of Burgundy and Maximilian. By
+          luck and a string of deaths, he inherited the Low Countries, Spain, its lands in America and Italy, and
+          Austria. Elected emperor in 1519, he was the most powerful ruler in Europe, and he spoke French as his
+          first language.
+        visual: { kind: photo, photo: charles-v-young }
+      - type: choice
+        prompt: Charles inherited Spain through his mother. Who was she?
+        visual: { kind: family-tree, tree: burgundy, hide: joanna }
+        answer: 0
+        options:
+          - label: Joanna of Castile
+            why: >-
+              Right. Joanna was the daughter of Ferdinand and Isabella, the rulers who sent Columbus west. After her
+              husband Philip died in 1506, she was declared unfit to rule and kept shut away.
+          - label: Mary of Burgundy
+            why: Mary was Charles's grandmother, on his father's side.
+          - label: Margaret of Austria
+            why: Margaret was his aunt, who brought him up in Mechelen.
+          - label: Isabella of Portugal
+            why: Isabella of Portugal was Philip the Good's wife, Charles's great-great-grandmother. Charles did marry another Isabella of Portugal, in 1526.
+      - type: who
+        photo: margaret-austria
+        clues:
+          - My parents were Maximilian of Austria and Mary of Burgundy.
+          - I was promised to a French king as a child, and widowed twice before I turned 25.
+          - I ruled the Netherlands for many years from my palace in Mechelen.
+          - I brought up my nephew, the future Charles V.
+        options: [Margaret of Austria, Mary of Burgundy, Joanna of Castile, Jacqueline of Bavaria]
+        answer: 0
+        explain: >-
+          Margaret of Austria. Her court in Mechelen was full of books, music and paintings. Bernard van Orley
+          painted her in a widow's white headdress.
+      - type: pin
+        prompt: Charles grew up at his aunt Margaret's court. Pin Mechelen.
+        place: mechelen
+        fullKm: 10
+        okKm: 25
+        explain: Mechelen lies between Brussels and Antwerp. For a few decades it was the capital of the Netherlands.
+      - type: scrub
+        prompt: Charles V took the far north of the Netherlands bit by bit. Drag the slider to a year when Friesland is his.
+        map: burgundy
+        start: 1500
+        answer: [1524, 1555]
+        explain: >-
+          Friesland accepted Charles in 1524 after years of war. Utrecht and Overijssel followed in 1528,
+          Groningen and Drenthe in 1536, and Guelders in 1543.
+      - type: truemyth
+        statement: After Ghent refused a tax and rebelled in 1539, Charles made its leaders beg for mercy with nooses around their necks.
+        visual: { kind: map, highlight: [], rivers: [Schelde], pins: [ghent] }
+        answer: true
+        explain: >-
+          In 1540 they had to walk in white shirts with a noose around the neck, and the city lost its old rights.
+          People from Ghent are still nicknamed stroppendragers, noose-bearers, and the noose has become a proud
+          symbol of the city.
+      - type: truemyth
+        statement: The Seventeen Provinces were often drawn as a lion on maps, the Leo Belgicus.
+        visual: { kind: photo, photo: leo-belgicus }
+        answer: true
+        explain: >-
+          The first lion map was printed in 1583. The lion was on the coats of arms of many of the provinces, so
+          it stood for them all.
+      - type: truemyth
+        statement: Charles V said, "I speak Spanish to God, Italian to women, French to men and German to my horse."
+        visual: { kind: photo, photo: charles-v-titian }
+        answer: false
+        explain: >-
+          No one has found the saying in any source from his lifetime. It turns up in many versions with the
+          languages swapped around, and it is pinned on other rulers too. His own first language was French.
+      - type: choice
+        prompt: In Brussels on 25 October 1555, a tired Charles V gave up the Netherlands to his son. On whose shoulder did he lean?
+        visual: { kind: photo, photo: abdication }
+        answer: 0
+        options:
+          - label: The young William of Orange
+            why: >-
+              Right. William was 22 and a favourite at court. Within a few years he would lead the revolt against
+              Charles's son, Philip II. That is the story of the next unit.
+          - label: Philip II
+            why: Philip received the lands that day, but Charles leaned on a young nobleman.
+          - label: Erasmus
+            why: Erasmus had died in 1536.
+          - label: Margaret of Austria
+            why: Margaret had died in 1530.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Charles is born in Ghent, year: 1500, when: '1500' }
+          - { label: He becomes king of Spain, year: 1516, when: '1516' }
+          - { label: He is elected emperor, year: 1519, when: '1519' }
+          - { label: Ghent is humbled, year: 1540, when: '1540' }
+          - { label: The Pragmatic Sanction, year: 1549, when: '1549' }
+          - { label: He gives up the Netherlands in Brussels, year: 1555, when: '1555' }
+        explain: Charles was the last ruler to hold all of the Low Countries together. Within 30 years of his abdication they split apart.
+      - type: match
+        prompt: Match each land to the year it joined Charles V's Netherlands.
+        pairs:
+          - [Friesland, '1524']
+          - [Utrecht and Overijssel, '1528']
+          - [Groningen and Drenthe, '1536']
+          - [Guelders, '1543']

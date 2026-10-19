@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import type { Exercise } from '../content/schema'
+import { DetailHunt } from '../exercises/DetailHunt'
 import { MatchPairs } from '../exercises/MatchPairs'
 import { PictureChoice } from '../exercises/PictureChoice'
 import { PinMap } from '../exercises/PinMap'
 import { RegionPaint } from '../exercises/RegionPaint'
+import { ScrubMap } from '../exercises/ScrubMap'
 import { StoryCard } from '../exercises/StoryCard'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
@@ -85,6 +87,10 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
         return <MatchPairs exercise={exercise} {...props} />
       case 'who':
         return <WhoAmI exercise={exercise} {...props} />
+      case 'scrub':
+        return <ScrubMap exercise={exercise} {...props} />
+      case 'hunt':
+        return <DetailHunt exercise={exercise} {...props} />
     }
   })()
 

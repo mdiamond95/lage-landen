@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { treeIds } from '../data/families'
 import { lineIds } from '../data/roman'
 import { photoIds } from '../photos/ids'
 
@@ -34,12 +35,14 @@ const ArtVisual = z.object({ kind: z.literal('art'), art: z.enum(artIds) })
 const PhotoVisual = z.object({ kind: z.literal('photo'), photo: z.enum(photoIds) })
 const PolderVisual = z.object({ kind: z.literal('polder-slider') })
 // A map with a year slider, played as an animation: the Zuiderzee and Delta Works,
-// the Roman frontier and roads, or the wool and cloth trade. `year` opens it at a
-// given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth'] as const
+// the Roman frontier and roads, the wool and cloth trade, or the lands joining
+// Burgundy. `year` opens it at a given year instead of the start.
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy'] as const
 const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(timeMaps), year: z.number().optional() })
+// A family tree from src/data/families.ts; `hide` blanks out one person by id.
+const TreeVisual = z.object({ kind: z.literal('family-tree'), tree: z.enum(treeIds), hide: z.string().optional() })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual])
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual, TreeVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -117,7 +120,31 @@ const Who = z.object({
   explain: z.string(),
 })
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who])
+// Border scrubber: drag a time map's year slider until the map shows what the
+// prompt asks. Any year from answer[0] to answer[1] counts. The captions stay
+// hidden until the answer is checked, so the map itself has to be read.
+const Scrub = z.object({
+  type: z.literal('scrub'),
+  prompt: z.string(),
+  map: z.enum(timeMaps),
+  start: z.number().optional(),
+  answer: z.tuple([z.number(), z.number()]),
+  explain: z.string(),
+})
+
+// Detail hunt: find and tap something inside a painting or photo. Each target is a
+// box as fractions of the picture, [left, top, width, height]; a tap in any counts
+// (the crossbows hide in more than one corner).
+const Box = z.tuple([z.number(), z.number(), z.number(), z.number()])
+const Hunt = z.object({
+  type: z.literal('hunt'),
+  prompt: z.string(),
+  photo: z.enum(photoIds),
+  targets: z.array(Box).min(1),
+  explain: z.string(),
+})
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 
