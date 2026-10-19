@@ -23,5 +23,20 @@ export const photoIds = [
   'aachen-chapel',
   'charlemagne-durer',
   'utrecht-psalter',
+  // Unit 3
+  'gravensteen',
+  'bruges-belfry',
+  'beguinage',
+  'luttrell-sheep',
+  'ypres-cloth-hall',
+  'ter-beurze',
+  'golden-spurs-chronicle',
+  'courtrai-chest',
+  'breydel-statue',
+  'sluys-battle',
+  'artevelde-statue',
+  'plague-tournai',
+  'ridderzaal',
+  'utrecht-dom',
 ] as const
 export type PhotoId = (typeof photoIds)[number]

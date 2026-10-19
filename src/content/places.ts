@@ -39,4 +39,15 @@ export const places: Record<string, Place> = {
   dokkum: { name: 'Dokkum', lat: 53.326, lon: 5.998, note: 'Where Boniface was killed in 754' },
   aachen: { name: 'Aachen', lat: 50.775, lon: 6.084, note: "Charlemagne's palace and grave" },
   leuven: { name: 'Leuven', lat: 50.879, lon: 4.701, note: 'Vikings defeated on the Dijle in 891' },
+  // Unit 3: counts, bishops and cloth cities
+  kortrijk: { name: 'Kortrijk', lat: 50.828, lon: 3.265, note: 'Battle of the Golden Spurs, 1302' },
+  ypres: { name: 'Ypres', lat: 50.851, lon: 2.885, note: 'One of the three great cloth cities of Flanders' },
+  damme: { name: 'Damme', lat: 51.251, lon: 3.281, note: 'Outport of Bruges on the Zwin' },
+  sluis: { name: 'Sluis', lat: 51.308, lon: 3.387, note: 'Battle of Sluys, 1340' },
+  huy: { name: 'Huy', lat: 50.519, lon: 5.239, note: 'Town charter of 1066' },
+  dordrecht: { name: 'Dordrecht', lat: 51.813, lon: 4.69, note: 'Oldest town of Holland, town rights 1220' },
+  vlaardingen: { name: 'Vlaardingen', lat: 51.912, lon: 4.342, note: 'Dirk III beat an imperial army here in 1018' },
+  muiden: { name: 'Muiden', lat: 52.33, lon: 5.069, note: 'Castle where Floris V was held in 1296' },
+  limbourg: { name: 'Limbourg', lat: 50.612, lon: 5.941, note: 'Seat of the medieval duchy of Limburg' },
+  'den-bosch': { name: "'s-Hertogenbosch", lat: 51.689, lon: 5.304, note: 'Founded by the duke of Brabant, town rights about 1185' },
 }

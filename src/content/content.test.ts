@@ -7,6 +7,7 @@ import topology from '../data/lowlands.topo.json'
 import { credits } from '../photos/credits'
 import { photoIds } from '../photos/ids'
 import { ROMAN_MAX, ROMAN_MIN, romanEvents, romanLines, romanSites } from '../data/roman'
+import { CLOTH_MAX, CLOTH_MIN, clothEvents, regions, routes, towns } from '../data/cloth'
 import { places } from './places'
 import { Unit } from './schema'
 
@@ -43,7 +44,7 @@ describe.each(files)('%s', (file) => {
         }
         if (ex.type === 'pin') expect(places[ex.place], ex.place).toBeDefined()
         if (ex.type === 'region') for (const id of ex.answer) expect(regionIds[ex.layer].has(id), id).toBe(true)
-        if (ex.type === 'choice') expect(ex.answer).toBeLessThan(ex.options.length)
+        if (ex.type === 'choice' || ex.type === 'who') expect(ex.answer).toBeLessThan(ex.options.length)
         if (ex.type === 'order') {
           const years = ex.items.map((i) => i.year)
           expect(new Set(years).size, 'order items need distinct years').toBe(years.length)
@@ -62,6 +63,7 @@ describe.each(files)('%s', (file) => {
         (e) =>
           e.type === 'pin' ||
           e.type === 'region' ||
+          e.type === 'who' ||
           (e.type === 'truemyth' && e.visual) ||
           (e.type === 'choice' && (e.visual || e.options.some((o) => o.art || o.photo))),
       )
@@ -102,5 +104,43 @@ describe('roman time map', () => {
     expect([...starts].sort((a, b) => a - b)).toEqual(starts)
     expect(new Set(starts).size).toBe(starts.length)
     expect(starts[starts.length - 1]).toBeLessThanOrEqual(ROMAN_MAX)
+  })
+})
+
+describe('wool and cloth trade map', () => {
+  // The trade map's frame: London to beyond the Ems, the Wash to Troyes.
+  const inFrame = ([lon, lat]: [number, number]) => lon >= -0.95 && lon <= 9.05 && lat >= 48.15 && lat <= 54.25
+
+  it('has routes, towns and labels inside the frame', () => {
+    for (const [id, route] of Object.entries(routes)) {
+      expect(route.coords.length, id).toBeGreaterThanOrEqual(2)
+      for (const c of route.coords) expect(inFrame(c), `${id} ${c}`).toBe(true)
+      if (route.label) expect(inFrame(route.label.at), `${id} label`).toBe(true)
+      if (route.to !== undefined) expect(route.to, id).toBeGreaterThan(route.from)
+      for (const [a, b] of route.off ?? []) expect(a <= b && a > route.from, `${id} gap`).toBe(true)
+    }
+    for (const t of towns) expect(inFrame(t.at), t.name).toBe(true)
+    for (const r of regions) expect(inFrame(r.at), r.text).toBe(true)
+  })
+
+  it('tells its story in order across the whole slider', () => {
+    const starts = clothEvents.map((e) => e.from)
+    expect(starts[0]).toBe(CLOTH_MIN)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    expect(starts[starts.length - 1]).toBeLessThanOrEqual(CLOTH_MAX)
+  })
+
+  it('opens lessons at years inside the slider', () => {
+    for (const file of files) {
+      const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
+      for (const ex of unit.lessons.flatMap((l) => l.exercises)) {
+        const v = 'visual' in ex ? ex.visual : undefined
+        if (v?.kind === 'time-map' && v.map === 'cloth' && v.year !== undefined) {
+          expect(v.year).toBeGreaterThanOrEqual(CLOTH_MIN)
+          expect(v.year).toBeLessThanOrEqual(CLOTH_MAX)
+        }
+      }
+    }
   })
 })

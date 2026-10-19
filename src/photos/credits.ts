@@ -17,6 +17,8 @@ const CC0 = { licence: 'CC0 (public domain)', licenceUrl: 'https://creativecommo
 const BY_4 = { licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/' }
 const BY_SA_2 = { licence: 'CC BY-SA 2.0', licenceUrl: 'https://creativecommons.org/licenses/by-sa/2.0/' }
 const BY_SA_3 = { licence: 'CC BY-SA 3.0', licenceUrl: 'https://creativecommons.org/licenses/by-sa/3.0/' }
+const BY_3 = { licence: 'CC BY 3.0', licenceUrl: 'https://creativecommons.org/licenses/by/3.0/' }
+const BY_2 = { licence: 'CC BY 2.0', licenceUrl: 'https://creativecommons.org/licenses/by/2.0/' }
 // Old artworks whose copyright has long expired; Commons marks them public domain.
 const PD = { licence: 'Public domain', licenceUrl: 'https://creativecommons.org/publicdomain/mark/1.0/' }
 
@@ -177,5 +179,103 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Unknown artist, Reims',
     ...PD,
     source: commons('Utrecht psalter (salterio di utrecht), utrecht Bibliothek der Rijksuniversiteit, Ms.32 f.30 r., 820-830 circa.jpg'),
+  },
+  gravensteen: {
+    alt: 'A grey stone castle with towers and battlements rising from a moat',
+    caption: 'The Gravensteen, the Castle of the Counts in Ghent, rebuilt in stone in 1180',
+    author: 'Maros Mraz',
+    ...BY_SA_3,
+    source: commons('Gravensteen (Gent) MM.jpg'),
+  },
+  'bruges-belfry': {
+    alt: 'A tall brick tower with an eight-sided stone top, lit by the evening sun',
+    caption: 'The belfry of Bruges, 83 m tall, begun around 1240; the eight-sided top was added in the 1480s',
+    author: 'Dietmar Rabich',
+    ...BY_SA_4,
+    source: commons('Brügge (B), Belfort von Brügge -- 2018 -- 8611.jpg'),
+  },
+  beguinage: {
+    alt: 'Whitewashed houses with dark roofs along a cobbled lane beside a lawn',
+    caption: 'The béguinage Ten Wijngaerde in Bruges, home to beguines from the 1200s; Benedictine nuns live there today',
+    author: 'Dimitri Allemeersch',
+    ...BY_SA_4,
+    source: commons('Huizen Begijnhof.jpg'),
+  },
+  'luttrell-sheep': {
+    alt: 'Medieval painting of a wicker pen packed with white sheep; a woman milks one while two women carry jugs on their heads',
+    caption: 'A sheep pen in the Luttrell Psalter, made in England about 1325 to 1340, British Library',
+    author: 'Unknown illuminator, England',
+    ...PD,
+    source: commons('Sheep pen (Luttrell Psalter).png'),
+  },
+  'ypres-cloth-hall': {
+    alt: 'A very long Gothic hall with rows of pointed windows, a steep slate roof and a square tower in the middle',
+    caption: 'The Cloth Hall of Ypres, finished in 1304, burned in 1914 and rebuilt by 1967',
+    author: 'Mark Ahsmann',
+    ...BY_SA_4,
+    source: commons('20141110 Cloth Hall, Ypres 01.jpg'),
+  },
+  'ter-beurze': {
+    alt: 'A narrow Gothic stone house front with tall windows on a street corner',
+    caption: 'Huis ter Beurze in Bruges, on the site of the Van der Buerse family inn; the present building dates from 1453',
+    author: 'Chivista',
+    ...BY_SA_3,
+    source: commons('Huis ter Beurze.JPG'),
+  },
+  'golden-spurs-chronicle': {
+    alt: 'Medieval painting of a tangle of knights in armour and coats with gold lilies, struck down by soldiers on foot',
+    caption: 'The Battle of the Golden Spurs in the Grandes Chroniques de France, about 1390 to 1400, Bibliothèque nationale de France',
+    author: 'Unknown illuminator, France',
+    ...PD,
+    source: commons('GCF - Battle of the Golden Spurs.png'),
+  },
+  'courtrai-chest': {
+    alt: 'A wooden chest whose front panel is carved with rows of tiny buildings, soldiers and fighting',
+    caption: 'The Courtrai Chest: its carved front, from the 1300s, shows the events of 1302. New College, Oxford, here on loan in Kortrijk',
+    author: 'Bernard Pauwels, Stad Kortrijk',
+    ...BY_SA_4,
+    source: commons('De Kist van Oxford a.k.a. the Courtrai Chest. On display at the Kortrijk 1302 museum.jpg'),
+  },
+  'breydel-statue': {
+    alt: 'Bronze statue of two medieval men, one holding up a banner, on a tall stone pedestal in a square with flags',
+    caption: 'Statue of Jan Breydel and Pieter de Coninck on the Markt in Bruges, 1887',
+    author: 'Marc Ryckaert',
+    ...BY_4,
+    source: commons('Brugge Breydel en de Coninck R01.jpg'),
+  },
+  'sluys-battle': {
+    alt: 'Medieval painting of ships packed with soldiers fighting at close quarters, with men falling into the sea',
+    caption: "The Battle of Sluys, 1340, painted by Loyset Liédet in a 15th-century copy of Froissart's Chronicles",
+    author: 'Loyset Liédet',
+    ...PD,
+    source: commons('BattleofSluys.jpeg'),
+  },
+  'artevelde-statue': {
+    alt: 'Bronze statue of a bearded medieval man in a long tunic, pointing with an outstretched arm',
+    caption: 'Statue on the Vrijdagmarkt (Friday Market) in Ghent, 1863',
+    author: 'Romainbehar',
+    ...CC0,
+    source: commons('Gent - Vrijdagmarkt - Statue of Jacob van Artevelde.jpg'),
+  },
+  'plague-tournai': {
+    alt: 'Medieval painting of townspeople carrying coffins and digging graves in a field',
+    caption: 'The people of Tournai bury victims of the Black Death, by Pierart dou Tielt, about 1353, Royal Library of Belgium',
+    author: 'Pierart dou Tielt',
+    ...PD,
+    source: commons('Doutielt3.jpg'),
+  },
+  ridderzaal: {
+    alt: 'A Gothic hall with two slim pointed towers and a large round window, facing a square with a fountain',
+    caption: 'The Ridderzaal (Hall of Knights) in the Binnenhof, The Hague, built around 1295',
+    author: 'Frans Berkelaar',
+    ...BY_2,
+    source: commons('Ridderzaal - Binnenhof - Den Haag - NL.jpg'),
+  },
+  'utrecht-dom': {
+    alt: 'A tall Gothic church tower with an open eight-sided top rising above the roofs of a city',
+    caption: 'The Dom tower in Utrecht, built from 1321 to 1382',
+    author: 'Massimo Catarinella',
+    ...BY_3,
+    source: commons('DomTorenUtrechtNederland.jpg'),
   },
 }

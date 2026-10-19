@@ -1,6 +1,6 @@
 import { distanceKm } from '../map/geo'
 
-export const XP = { lesson: 10, perfect: 5, pinBonus: 2 }
+export const XP = { lesson: 10, perfect: 5, bonus: 2 }
 
 export type PinResult = { km: number; correct: boolean; bonus: boolean }
 
@@ -21,7 +21,7 @@ export const sameSet = (a: string[], b: string[]) => {
 
 export const isChronological = (years: number[]) => years.every((y, i) => i === 0 || years[i - 1] < y)
 
-export const lessonXp = (mistakes: number, pinBonuses: number) =>
-  XP.lesson + (mistakes === 0 ? XP.perfect : 0) + pinBonuses * XP.pinBonus
+export const lessonXp = (mistakes: number, bonuses: number) =>
+  XP.lesson + (mistakes === 0 ? XP.perfect : 0) + bonuses * XP.bonus
 
 export const formatKm = (km: number) => (km < 10 ? `${km.toFixed(1)} km` : `${Math.round(km)} km`)
