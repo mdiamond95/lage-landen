@@ -33,9 +33,11 @@ const ArtVisual = z.object({ kind: z.literal('art'), art: z.enum(artIds) })
 // A real photo or historical map from Wikimedia Commons, credited in src/photos/credits.ts.
 const PhotoVisual = z.object({ kind: z.literal('photo'), photo: z.enum(photoIds) })
 const PolderVisual = z.object({ kind: z.literal('polder-slider') })
-// A map with a year slider, played as an animation: the Roman frontier and roads,
-// or the wool and cloth trade. `year` opens it at a given year instead of the start.
-const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(['roman', 'cloth']), year: z.number().optional() })
+// A map with a year slider, played as an animation: the Zuiderzee and Delta Works,
+// the Roman frontier and roads, or the wool and cloth trade. `year` opens it at a
+// given year instead of the start.
+export const timeMaps = ['water', 'roman', 'cloth'] as const
+const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(timeMaps), year: z.number().optional() })
 
 export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual])
 export type Visual = z.infer<typeof Visual>

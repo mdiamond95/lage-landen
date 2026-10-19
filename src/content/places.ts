@@ -20,6 +20,8 @@ export const places: Record<string, Place> = {
     note: 'Lowest point of the Netherlands, 6.76 m below sea level',
   },
   afsluitdijk: { name: 'Afsluitdijk', lat: 53.03, lon: 5.2 },
+  maeslantkering: { name: 'Maeslantkering', lat: 51.955, lon: 4.16, note: "Storm barrier guarding Rotterdam's waterway, 1997" },
+  schiphol: { name: 'Schiphol', lat: 52.31, lon: 4.76, note: 'Airport on the bed of the Haarlemmermeer' },
   vaalserberg: { name: 'Vaalserberg', lat: 50.754, lon: 6.021, note: 'Highest point of the European Netherlands, 322 m' },
   brussels: { name: 'Brussels', lat: 50.847, lon: 4.357 },
   antwerp: { name: 'Antwerp', lat: 51.219, lon: 4.402 },
@@ -39,6 +41,7 @@ export const places: Record<string, Place> = {
   dokkum: { name: 'Dokkum', lat: 53.326, lon: 5.998, note: 'Where Boniface was killed in 754' },
   aachen: { name: 'Aachen', lat: 50.775, lon: 6.084, note: "Charlemagne's palace and grave" },
   leuven: { name: 'Leuven', lat: 50.879, lon: 4.701, note: 'Vikings defeated on the Dijle in 891' },
+  echternach: { name: 'Echternach', lat: 49.812, lon: 6.421, note: 'Abbey founded by Willibrord, who is buried there' },
   // Unit 3: counts, bishops and cloth cities
   kortrijk: { name: 'Kortrijk', lat: 50.828, lon: 3.265, note: 'Battle of the Golden Spurs, 1302' },
   ypres: { name: 'Ypres', lat: 50.851, lon: 2.885, note: 'One of the three great cloth cities of Flanders' },

@@ -8,6 +8,10 @@ export const photoIds = [
   'flood-1953-rilland',
   'flood-1953-map',
   'cruquius',
+  'port-rotterdam',
+  'drielandenpunt',
+  'lely-statue',
+  'hansje-brinker',
   // Unit 2
   'ambiorix-statue',
   'claudius-civilis',

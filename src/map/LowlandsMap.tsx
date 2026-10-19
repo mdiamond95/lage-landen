@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import type { ReactNode } from 'react'
-import { MAP_H, MAP_W, countries, lakes, linePath, path, projection, provinces, rivers } from './geo'
+import { MAP_H, MAP_W, countries, lakes, lowlandsFrame, provinces, rivers, type Frame } from './geo'
 import { places } from '../content/places'
 import { romanLines, type LineId } from '../data/roman'
 
@@ -21,6 +21,8 @@ type Props = {
   onRegion?: (id: string) => void
   children?: ReactNode
   label: string
+  // The area to fit; the whole Low Countries unless a time map zooms in.
+  frame?: Frame
 }
 
 const FOCUS = new Set(['NLD', 'BEL'])
@@ -38,7 +40,9 @@ export function LowlandsMap({
   onRegion,
   children,
   label,
+  frame = lowlandsFrame,
 }: Props) {
+  const { path, linePath, projection } = frame
   const svg = useRef<SVGSVGElement>(null)
   const hl = new Set(highlight)
   const riverHl = new Set(riverHighlight)
@@ -163,4 +167,4 @@ export function LowlandsMap({
   )
 }
 
-export const toXY = (lonLat: [number, number]) => projection(lonLat)!
+export const toXY = lowlandsFrame.toXY

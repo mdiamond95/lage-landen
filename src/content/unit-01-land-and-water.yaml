@@ -72,6 +72,7 @@ lessons:
           - [Antwerp, Belgium's biggest port]
       - type: truemyth
         statement: Belgium has more people than the Netherlands.
+        visual: { kind: map, highlight: [NLD, BEL], rivers: [], pins: [] }
         answer: false
         explain: >-
           The Netherlands has about 18 million people and Belgium about 11.9 million. The Netherlands
@@ -85,6 +86,8 @@ lessons:
         url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/room-for-the-river
       - title: Port of Rotterdam, facts and figures
         url: https://www.portofrotterdam.com/en/experience-online/facts-and-figures
+      - title: Livius.org, Traiectum ad Mosam (Maastricht)
+        url: https://livius.org/articles/place/traiectum-ad-mosam-maastricht
     exercises:
       - type: story
         title: Rhine, Maas and Scheldt
@@ -130,8 +133,9 @@ lessons:
         explain: Antwerp lies about 80 km up the Scheldt from the sea, which shelters its port from storms.
       - type: truemyth
         statement: Maastricht is named after a crossing over the Maas.
+        visual: { kind: map, highlight: [], rivers: [Maas], pins: [maastricht] }
         answer: true
-        explain: The Romans called it Trajectum ad Mosam, "the crossing on the Maas", for the bridge they built there.
+        explain: The town grew up where a Roman road crossed the Maas by a bridge. Its medieval Latin name, Traiectum ad Mosam, means "the crossing on the Maas".
       - type: match
         prompt: Match each river to a city on its banks.
         pairs:
@@ -140,7 +144,8 @@ lessons:
           - [Waal, Nijmegen]
           - [IJssel, Deventer]
       - type: choice
-        prompt: Which is the largest port in Europe?
+        prompt: This waterway leads from the North Sea into the largest port in Europe, lined with harbour basins and oil tanks. Which port is it?
+        visual: { kind: photo, photo: port-rotterdam }
         answer: 0
         options:
           - label: Rotterdam
@@ -186,7 +191,7 @@ lessons:
           - photo: afsluitdijk
             why: That's a dike, a long wall of earth and stone that keeps the water out. This one is the Afsluitdijk.
           - photo: terp-hogebeintum
-            why: Right. A terp is a mound people piled up so their farm stayed dry at high tide. Hogebeintum's is about 9 m high, with a church on top.
+            why: Right. A terp is a mound people piled up so their farm stayed dry at high tide. Hogebeintum's is almost 9 m high, with a church on top.
           - photo: polder-beemster
             why: That's a polder, low land drained into a grid of ditches. This is the Beemster from the air.
           - photo: kinderdijk
@@ -204,7 +209,7 @@ lessons:
         prompt: The lowest point in the Netherlands is in the Zuidplaspolder, just northeast of Rotterdam. Pin it.
         place: zuidplaspolder
         okKm: 30
-        explain: Near Nieuwerkerk aan den IJssel the land is 6.76 m below sea level. It was a lake until it was drained around 1840.
+        explain: Near Nieuwerkerk aan den IJssel the land is 6.76 m below sea level. It was a lake until windmills drained it between 1825 and 1840.
       - type: choice
         prompt: What did these windmills at Kinderdijk do?
         visual: { kind: photo, photo: kinderdijk }
@@ -224,6 +229,7 @@ lessons:
         explain: Kinderdijk lies east of Rotterdam where the Lek and Noord rivers meet. It became a UNESCO site in 1997.
       - type: truemyth
         statement: Schiphol, Amsterdam's airport, is built on the bottom of a former lake.
+        visual: { kind: map, highlight: [], rivers: [], pins: [schiphol, amsterdam] }
         answer: true
         explain: The Haarlemmermeer was pumped dry between 1849 and 1852. Schiphol's runways lie about 3 m below sea level.
       - type: choice
@@ -240,7 +246,8 @@ lessons:
           - label: The IJsselmeer
             why: The IJsselmeer is still a lake. It is what the Zuiderzee became after 1932.
       - type: choice
-        prompt: Belgium's highest point is 694 m. How high is the highest point of the European Netherlands?
+        prompt: This marker on the Vaalserberg stands where the Netherlands, Belgium and Germany meet, at the highest point of the European Netherlands. Belgium's highest point is 694 m. How high is this one?
+        visual: { kind: photo, photo: drielandenpunt }
         answer: 0
         options:
           - label: 322 m
@@ -252,7 +259,7 @@ lessons:
           - label: 98 m
             why: Higher than that. The southeast tip of Limburg is hilly.
       - type: pin
-        prompt: Pin the Vaalserberg, where the Netherlands, Belgium and Germany meet.
+        prompt: Now pin the Vaalserberg, where the Netherlands, Belgium and Germany meet.
         place: vaalserberg
         okKm: 30
         explain: The Vaalserberg is just south of Vaals, near Aachen. A marker on top shows where the three countries meet.
@@ -265,10 +272,12 @@ lessons:
         url: https://watersnoodmuseum.nl/en/exhibitions/1835-1
       - title: Rijkswaterstaat, Eastern Scheldt barrier
         url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/eastern-scheldt-barrier
-      - title: Rijkswaterstaat, the Afsluitdijk
-        url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/the-afsluitdijk
+      - title: Rijkswaterstaat, Maeslant barrier
+        url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/maeslant-barrier
       - title: UNESCO, Wadden Sea
         url: https://whc.unesco.org/en/list/1314
+      - title: Schultz, The story of the Dutch boy who prevented a flooding disaster (Water History, 2019)
+        url: https://doi.org/10.1007/s12685-019-00237-0
     exercises:
       - type: story
         title: The night of 31 January 1953
@@ -277,15 +286,6 @@ lessons:
           people died, and hundreds more died in England and Belgium. The country answered with the Delta
           Works, a chain of dams and barriers that took about 40 years to finish.
         visual: { kind: photo, photo: flood-1953-rilland }
-      - type: order
-        prompt: Put these in order, oldest first.
-        items:
-          - { label: Law to close off the Zuiderzee, year: 1918, when: '1918' }
-          - { label: Afsluitdijk completed, year: 1932, when: '1932' }
-          - { label: North Sea flood, year: 1953, when: '1953' }
-          - { label: Flevoland becomes a province, year: 1986, when: '1986' }
-          - { label: Maeslantkering protects Rotterdam, year: 1997, when: '1997' }
-        explain: The Zuiderzee works started after a 1916 flood; the Delta Works followed the 1953 disaster.
       - type: choice
         prompt: The hatched areas on this map flooded in 1953. Which province took the worst of it?
         visual: { kind: photo, photo: flood-1953-map }
@@ -299,16 +299,19 @@ lessons:
             why: Limburg is inland, in the southeast. River floods hit it in 1993 and 1995, not 1953.
           - label: North Holland
             why: North Holland lies north of the map and mostly held out. The southwest took the worst of it.
-      - type: pin
-        prompt: Pin the Afsluitdijk, the 32 km dam that turned the salty Zuiderzee into a freshwater lake.
-        place: afsluitdijk
-        okKm: 25
-        explain: The Afsluitdijk runs from North Holland to Friesland. Behind it, the Zuiderzee became the IJsselmeer.
-      - type: region
-        prompt: Shade Flevoland, a province made almost entirely of land pumped dry from the Zuiderzee.
-        layer: provinces
-        answer: [NL-FL]
-        explain: Flevoland sits in the middle of the old Zuiderzee. Its two polders fell dry in 1957 and 1968.
+      - type: choice
+        prompt: This map opens in 1953. Press play to watch the Delta Works go up. Which was the last to be finished?
+        visual: { kind: time-map, map: water, year: 1953 }
+        answer: 3
+        options:
+          - label: The Veerse Gatdam
+            why: The Veerse Gatdam was the first sea arm closed, in 1961.
+          - label: The Haringvlietdam
+            why: The Haringvlietdam closed in 1971, with sluices to let the rivers out.
+          - label: The Oosterscheldekering
+            why: The Oosterschelde barrier opened in 1986, but one more barrier came after it.
+          - label: The Maeslantkering
+            why: Right. The Maeslantkering, finished in 1997, guards the waterway to Rotterdam with two swinging gates.
       - type: choice
         prompt: Which picture shows a storm surge barrier?
         answer: 3
@@ -322,9 +325,28 @@ lessons:
           - photo: oosterscheldekering
             why: Right. The Oosterscheldekering's 62 steel gates stay open for the tides and close only in storms.
       - type: pin
-        prompt: Pin Lelystad, the capital of Flevoland, built on what was seabed until 1957.
-        place: lelystad
-        explain: Lelystad is named after Cornelis Lely, the engineer who planned the Zuiderzee works.
+        prompt: Pin the Maeslantkering, which guards the waterway to Rotterdam where it meets the sea at Hoek van Holland.
+        place: maeslantkering
+        okKm: 25
+        explain: Its two gates, each about 210 m long, lie in docks on either bank and swing shut only when a storm surge threatens.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: North Sea flood, year: 1953, when: '1953' }
+          - { label: The Delta Act is passed, year: 1958, when: '1958' }
+          - { label: The Veerse Gat is dammed, year: 1961, when: '1961' }
+          - { label: The Oosterschelde barrier opens, year: 1986, when: '1986' }
+          - { label: The Maeslantkering protects Rotterdam, year: 1997, when: '1997' }
+        explain: The Delta Works took about 40 years, from the first barrier in 1958 to the last in 1997.
+      - type: truemyth
+        statement: The story of the boy who saved his town by plugging a leaking dike with his finger is an old Dutch folk tale.
+        visual: { kind: photo, photo: hansje-brinker }
+        answer: false
+        explain: >-
+          No old Dutch source tells it. It was first printed abroad, in French by 1848, and became world-famous
+          through an American novel, Hans Brinker, or The Silver Skates (1865), where English children read it from
+          a schoolbook. The boy has no name there. This statue at Spaarndam went up in 1950, for the tourists who
+          came looking for him.
       - type: match
         prompt: Match each structure to its job.
         pairs:
@@ -334,9 +356,90 @@ lessons:
           - [Polder mill, Lifts water out of low land]
       - type: truemyth
         statement: Belgium's coast is more than 200 km long.
+        visual: { kind: map, highlight: [BE-VWV], rivers: [], pins: [] }
         answer: false
-        explain: Belgium's coast is only about 67 km, from De Panne to Knokke-Heist, and lined with dunes and seawalls.
+        explain: Belgium's coast is only about 67 km, from De Panne to Knokke-Heist, all of it in West Flanders, and lined with dunes and seawalls.
       - type: truemyth
         statement: The Wadden Sea, north of Friesland and Groningen, is a UNESCO World Heritage site.
         answer: true
         explain: The Wadden Sea, shared with Germany and Denmark, is the world's largest unbroken system of tidal sand and mud flats.
+
+  - id: u1-l5
+    title: Land from the sea
+    icon: polder
+    sources:
+      - title: Rijkswaterstaat, the Afsluitdijk
+        url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/the-afsluitdijk
+      - title: Rijkswaterstaat, 100 years of the Zuiderzee Act (in Dutch)
+        url: https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/100-jaar-zuiderzeewet
+      - title: CBS, New land, what the IJsselmeer polders brought the Netherlands (in Dutch)
+        url: https://www.cbs.nl/nl-nl/achtergrond/2018/24/nieuw-land-wat-de-ijsselmeerpolders-nederland-brachten
+      - title: Nationaal Park Nieuw Land, Flevoland's history
+        url: https://www.nationaalparknieuwland.nl/en/the-park/flevolands-history
+      - title: TU Delft heritage, the Delta honorary doctors
+        url: https://erfgoed.tudelft.nl/en/publications/delta-eredotors
+    exercises:
+      - type: story
+        title: Closing the Zuiderzee
+        body: >-
+          Until 1932 a shallow arm of the North Sea, the Zuiderzee, reached deep into the middle of the
+          Netherlands. After a flood in 1916 the country decided to shut it off with a dam and drain new land
+          behind it. Press play to watch the sea turn into a lake and the lake into polders.
+        visual: { kind: time-map, map: water }
+      - type: choice
+        prompt: Look at the map in 1932. What did the Afsluitdijk do to the Zuiderzee?
+        visual: { kind: time-map, map: water, year: 1932 }
+        answer: 1
+        options:
+          - label: Drained it completely
+            why: The dam only closed it off. Draining came polder by polder, and much of the lake is still water.
+          - label: Turned it into a freshwater lake, the IJsselmeer
+            why: Right. Cut off from the sea and fed by the IJssel, the water slowly turned fresh. It is now a big store of fresh water.
+          - label: Joined it to the Rhine
+            why: The IJssel, a Rhine branch, already flowed into it. The dam cut it off from the North Sea.
+          - label: Made it deeper for ships
+            why: Ships pass the dam through locks, but the dam was built for safety and new land.
+      - type: pin
+        prompt: Pin the Afsluitdijk, the 32 km dam that turned the salty Zuiderzee into a freshwater lake.
+        place: afsluitdijk
+        okKm: 25
+        explain: The Afsluitdijk runs from North Holland to Friesland. Behind it, the Zuiderzee became the IJsselmeer.
+      - type: who
+        photo: lely-statue
+        clues:
+          - I was an engineer, and three times the Dutch minister in charge of public works.
+          - In 1891 I drew up a plan to close off the Zuiderzee with a dam and drain polders behind it.
+          - After the flood of 1916, parliament finally turned my plan into law.
+          - I died in 1929, before the dam was finished, but Flevoland's capital is named after me.
+        options: [Cornelis Lely, Jan Leeghwater, Hendrik Lorentz, Johan van Veen]
+        answer: 0
+        explain: >-
+          Cornelis Lely. His statue looks out over the Afsluitdijk. The physicist Hendrik Lorentz worked out how the
+          dam would change the tides, and the sluices in it are named after him.
+      - type: region
+        prompt: Shade Flevoland, a province made almost entirely of land pumped dry from the Zuiderzee.
+        layer: provinces
+        answer: [NL-FL]
+        explain: >-
+          Flevoland is the Noordoostpolder, dry in 1942, and the Flevopolder, which fell dry in two halves in 1957
+          and 1968. It became a province in 1986.
+      - type: pin
+        prompt: Pin Lelystad, the capital of Flevoland, built on what was seabed until 1957.
+        place: lelystad
+        explain: Lelystad lies on the west side of the Flevopolder, where the Houtribdijk to Enkhuizen begins.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Law to close off the Zuiderzee, year: 1918, when: '1918' }
+          - { label: The Wieringermeer falls dry, year: 1930, when: '1930' }
+          - { label: Afsluitdijk completed, year: 1932, when: '1932' }
+          - { label: The Noordoostpolder falls dry, year: 1942, when: '1942' }
+          - { label: Flevoland becomes a province, year: 1986, when: '1986' }
+        explain: The Zuiderzee works took about 70 years, from the law of 1918 to the new province of 1986.
+      - type: truemyth
+        statement: Every polder planned in the Zuiderzee was drained in the end.
+        visual: { kind: time-map, map: water, year: 1997 }
+        answer: false
+        explain: >-
+          The last one, the Markerwaard, was never built. The Houtribdijk of 1975 cut off its lake, the
+          Markermeer, but the polder was put off and finally dropped. The lake is now a nature and water reserve.

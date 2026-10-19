@@ -4,7 +4,7 @@ A Duolingo-style web app for learning the history and culture of the Netherlands
 
 Phase 1 from the project plan is under way. Playable so far:
 
-- Unit 1, Land and water: four lessons and a checkpoint.
+- Unit 1, Land and water: five lessons and a checkpoint, with a dike slider and an animated map of the Zuiderzee and Delta Works.
 - Unit 2, Celts, Romans and Franks (57 BCE to 900): six lessons and a checkpoint, opening with an animated map of the Roman frontier and roads.
 - Unit 3, Counts, bishops and cloth cities (900 to 1384): six lessons and a checkpoint, built around an animated map of the wool and cloth trade across the North Sea.
 
@@ -24,10 +24,11 @@ npm run build:single # one self-contained HTML file in dist-single/
 - `src/content/*.yaml`: lessons, one file per unit, checked against `src/content/schema.ts`. `npm test` fails if a lesson points at a place, province or river that doesn't exist, or has too few visual questions.
 - `src/content/places.ts`: every place a lesson can pin.
 - `src/data/lowlands.topo.json`: countries, provinces, rivers and the IJsselmeer from [Natural Earth](https://www.naturalearthdata.com/) (public domain), clipped and simplified with mapshaper.
-- `src/map/`: the SVG map (d3-geo, Mercator), used for pins, region painting and story maps. `TimeMap.tsx` adds a year slider and a play button on top of it. `TradeMap.tsx` is a wider North Sea map (England to the Ems, down to the Champagne fairs) with moving trade routes; both share `TimeControls.tsx` and `usePlayback.ts`.
+- `src/map/`: the SVG map (d3-geo, Mercator), used for pins, region painting and story maps. `TimeMap.tsx` adds a year slider and a play button on top of it, drawing any `TimeStory` (lines, sites, labels and areas that were still sea, each with the years it existed). `TradeMap.tsx` is a wider North Sea map (England to the Ems, down to the Champagne fairs) with moving trade routes; both share `TimeControls.tsx` and `usePlayback.ts`.
 - `src/data/northsea.topo.json`: land and main rivers for the trade map, from Natural Earth 10m, clipped to the North Sea frame and simplified with mapshaper.
+- `src/data/water.ts`: the Zuiderzee works and the Delta Works for Unit 1, 1916 to 1997. Flevoland's province shape is cut into its three polders, which show as sea until they fall dry.
 - `src/data/roman.ts`: the Roman frontier, roads, forts, towns and captions for the time map, each with the years it existed. Lessons can also draw these lines on an ordinary map with `lines: [limes]`.
-- `src/data/cloth.ts`: wool, cloth and other trade routes, towns and captions for the trade map, 1100 to 1384. A route can pause for a few years with `off` (the wool ban of 1336). Lessons open it with `{ kind: time-map, map: cloth, year: 1336 }`.
+- `src/data/cloth.ts`: wool, cloth and other trade routes, towns and captions for the trade map, 1100 to 1384. A route can pause for a few years with `off` (the wool ban of 1336). Any time map opens at a chosen year with `{ kind: time-map, map: cloth, year: 1336 }` (or `map: water` or `map: roman`).
 - `src/exercises/`: story cards, pin the map, paint the region, timeline order, picture choice, true or myth, match pairs, and who am I (clues revealed one at a time beside a portrait or statue; answering before the last clue earns +2 XP). Picture choice and true or myth can both show a photo or map.
 - `src/photos/`: photos, paintings and historical maps from Wikimedia Commons, with author and licence for each in `credits.ts`.
 - `src/art/`: original illustrations and the dike cross-section slider.
@@ -36,3 +37,14 @@ npm run build:single # one self-contained HTML file in dist-single/
 ## Writing a lesson
 
 Add an entry under `lessons:` in a unit's YAML. Start with a `story`, then mix question types; each lesson needs at least six questions, half of them visual, and at least one source.
+
+## Unit checklist
+
+Each new unit is held to what the best units so far do, and when one is finished the earlier units are reviewed against it (see the retrospective notes in each PR). `npm test` enforces the first two.
+
+- At least 70% of the unit's questions are answered on, or show, a map or picture, and every lesson at least half.
+- At least one "Who am I?" and true or myth questions that show a picture or map.
+- A signature interactive piece: a slider or a year-slider map, reused in later questions with `year`.
+- Myths and legends taught as such: a true or myth that tests a popular story against the evidence.
+- Every claim fact-checked against a source listed on the lesson, with figures kept consistent across units.
+- Real photos, paintings and maps from Wikimedia Commons, each credited in `src/photos/credits.ts`.

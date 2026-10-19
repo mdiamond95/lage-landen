@@ -271,6 +271,17 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .key-road { background: repeating-linear-gradient(90deg, #7a5a2b 0 5px, transparent 5px 8px); }
 .key-fort { width: 9px; height: 9px; background: #b3261e; border-radius: 1px; }
 .key-town { width: 10px; height: 10px; background: var(--ink); border-radius: 50%; }
+/* The water works map: dams, storm barriers, sea not yet drained */
+.hist-dam { stroke: #3b3f46; stroke-width: 4; }
+.hist-line.hist-barrier { stroke: #e8742a; stroke-width: 4.5; }
+.hist-barrier rect { fill: #e8742a; }
+.hist-area { fill: var(--sea); stroke: #9fc2dd; stroke-width: 0.6; pointer-events: none; }
+.hist-alert { font-size: 14px; font-weight: 900; letter-spacing: 0.08em; fill: #b3261e; pointer-events: none; paint-order: stroke; stroke: rgb(255 255 255 / 0.85); stroke-width: 3px; stroke-linejoin: round; }
+.hist-water { font-size: 13px; font-weight: 800; font-style: italic; letter-spacing: 0.08em; fill: #3d6f99; pointer-events: none; }
+.hist-land { font-size: 12px; font-weight: 800; fill: #4f6b2c; pointer-events: none; paint-order: stroke; stroke: rgb(255 255 255 / 0.85); stroke-width: 3px; stroke-linejoin: round; }
+.key-dam { background: #3b3f46; height: 5px; }
+.key-barrier { background: #e8742a; height: 5px; }
+.key-sea { width: 12px; height: 10px; background: var(--sea); border: 1px solid #9fc2dd; border-radius: 2px; }
 @media (prefers-reduced-motion: reduce) { .draw-in { animation: none; stroke-dashoffset: 0; stroke-dasharray: none; } .hist-site, .fade-in { animation: none; } }
 
 /* The wool and cloth trade map */
