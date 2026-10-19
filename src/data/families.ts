@@ -2,16 +2,41 @@
 // the person they married, and sometimes a brother or sister who mattered too.
 // `house` colours the card, so a change of dynasty shows at a glance.
 
-export type House = 'valois' | 'habsburg' | 'other'
+export type House = 'carolingian' | 'valois' | 'habsburg' | 'other'
 export type Person = { id: string; name: string; dates: string; house: House; note?: string }
 export type Generation = { heir: Person; spouse?: Person; sibling?: Person }
 // `key` names the houses that get a colour; everyone else is plain.
 export type FamilyTree = { title: string; key: Partial<Record<House, string>>; generations: Generation[] }
 
-export const treeIds = ['burgundy'] as const
+export const treeIds = ['carolingians', 'burgundy'] as const
 export type TreeId = (typeof treeIds)[number]
 
 export const trees: Record<TreeId, FamilyTree> = {
+  carolingians: {
+    title: 'From Charles Martel to the split of 843',
+    key: { carolingian: 'Carolingians' },
+    generations: [
+      {
+        heir: { id: 'charles-martel', name: 'Charles Martel', dates: 'about 688–741', house: 'carolingian', note: 'Mayor of the palace' },
+      },
+      {
+        heir: { id: 'pepin', name: 'Pepin the Short', dates: 'about 714–768', house: 'carolingian', note: 'King of the Franks from 751' },
+        spouse: { id: 'bertrada', name: 'Bertrada of Laon', dates: 'died 783', house: 'other' },
+      },
+      {
+        heir: { id: 'charlemagne', name: 'Charlemagne', dates: 'about 747–814', house: 'carolingian', note: 'Emperor from 800' },
+        spouse: { id: 'hildegard', name: 'Hildegard', dates: 'about 758–783', house: 'other' },
+      },
+      {
+        heir: { id: 'louis-pious', name: 'Louis the Pious', dates: '778–840', house: 'carolingian', note: 'Emperor from 814' },
+        spouse: { id: 'ermengarde', name: 'Ermengarde of Hesbaye', dates: 'about 778–818', house: 'other', note: 'From Hesbaye, in today\'s Belgium' },
+      },
+      {
+        heir: { id: 'lothair', name: 'Lothair I', dates: '795–855', house: 'carolingian', note: 'The middle kingdom, 843' },
+        sibling: { id: 'charles-bald', name: 'Charles the Bald', dates: '823–877', house: 'carolingian', note: 'His half-brother: the western kingdom' },
+      },
+    ],
+  },
   burgundy: {
     title: 'From the dukes of Burgundy to Charles V',
     key: { valois: 'Dukes of Burgundy', habsburg: 'Habsburgs' },

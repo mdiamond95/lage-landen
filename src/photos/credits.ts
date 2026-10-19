@@ -98,7 +98,7 @@ export const credits: Record<PhotoId, Credit> = {
   },
   'lely-statue': {
     alt: 'A green bronze statue of a bearded man in a long coat holding a roll of plans, on a tall brick plinth by the dike',
-    caption: "Mari Andriessen's statue of Cornelis Lely on the Afsluitdijk near Den Oever, unveiled in 1954",
+    caption: "Mari Andriessen's statue on the Afsluitdijk near Den Oever, unveiled in 1954",
     author: 'Agnes Monkelbaan',
     ...BY_SA_4,
     source: commons('Monument afsluitdijk en omgeving 28-06-2019. (actm.) 06.jpg'),
@@ -112,14 +112,14 @@ export const credits: Record<PhotoId, Credit> = {
   },
   'ambiorix-statue': {
     alt: 'Bronze statue of a long-haired warrior with a winged helmet and an axe, on a stone pedestal in a town square',
-    caption: 'Statue of Ambiorix by Jules Bertin (1866), Grote Markt, Tongeren',
+    caption: 'Statue by Jules Bertin (1866), Grote Markt, Tongeren',
     author: 'Trougnouf (Benoit Brummer)',
     ...BY_4,
     source: commons('Ambiorix statue on the Grote Markt of Tongeren (DSCF4344).jpg'),
   },
   'claudius-civilis': {
     alt: 'Dark painting of men around a glowing table raising swords together, a large crowned figure in the middle',
-    caption: 'Rembrandt, The Conspiracy of the Batavians under Claudius Civilis (1661 to 1662), Nationalmuseum, Stockholm',
+    caption: 'Rembrandt, The Conspiracy of the Batavians (1661 to 1662), Nationalmuseum, Stockholm',
     author: 'Rembrandt van Rijn; photo Nationalmuseum',
     ...PD,
     source: commons('The Conspiracy of the Batavians under Claudius Civilis (Rembrandt Harmensz. van Rijn) - Nationalmuseum - 17581.jpg'),

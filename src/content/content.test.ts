@@ -41,6 +41,16 @@ describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
   const asks = unit.lessons.flatMap((l) => l.exercises).filter((e) => e.type !== 'story')
 
+  it("doesn't give away a Who am I? in its picture's caption or description", () => {
+    for (const e of asks) {
+      if (e.type !== 'who') continue
+      const { caption, alt } = credits[e.photo]
+      // Every proper name in the answer, e.g. Jacqueline and Bavaria.
+      const names = e.options[e.answer].split(/\s+/).filter((w) => /^[A-Z]/.test(w) && w.length > 2)
+      for (const n of names) expect(`${caption} ${alt}`, `${e.photo} names ${n}`).not.toContain(n)
+    }
+  })
+
   it('has unique lesson ids', () => {
     const ids = unit.lessons.map((l) => l.id)
     expect(new Set(ids).size).toBe(ids.length)
