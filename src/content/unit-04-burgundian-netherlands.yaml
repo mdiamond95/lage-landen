@@ -484,6 +484,15 @@ lessons:
           - { label: Mary dies after a riding accident, year: 1482, when: '1482' }
           - { label: Bruges holds Maximilian prisoner, year: 1488, when: '1488' }
         explain: In 20 years Burgundy went from a would-be kingdom to a Habsburg inheritance.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Charles the Bold leaves no son, His daughter Mary inherits all his lands]
+          - [France invades and the towns rise up, Mary grants the Great Privilege]
+          - [Mary marries Maximilian of Austria, The Low Countries pass to the Habsburgs]
+        explain: >-
+          One battle at Nancy changed who ruled the Low Countries for the next 300 years. Mary's son and grandson,
+          Philip the Handsome and Charles V, were Habsburgs.
 
   - id: u4-l5
     title: Antwerp and the new learning
@@ -503,6 +512,12 @@ lessons:
         url: https://nieuws.kuleuven.be/nl/2016/500-jaar-geleden-zag-utopia-het-levenslicht-in-leuven
       - title: Royal Library of Belgium (KBR), showpieces that tell the story of Belgium
         url: https://www.kbr.be/en/kbr-showpieces-tell-the-story-of-belgium/
+      - title: Flemish heritage inventory, the Antwerp Bourse (in Dutch)
+        url: https://inventaris.onroerenderfgoed.be/erfgoedobjecten/6243
+      - title: De Tijdspiegel 1879, the Bourse inscription (in Dutch)
+        url: https://www.dbnl.org/tekst/_tij008187901_01/_tij008187901_01_0082.php
+      - title: J. De Belder, Housing in Antwerp, Journal of Belgian History 1977 (in Dutch)
+        url: https://www.journalbelgianhistory.be/en/system/files/article_pdf/BTNG-RBHC,%2008,%201977,%203-4,%20pp%20367-446.pdf
     exercises:
       - type: story
         title: Market of the world, again
@@ -526,10 +541,35 @@ lessons:
             why: Cloth halls sold one product. This building was for every kind of deal.
           - label: Trading, for merchants of every nation
             why: >-
-              Right. Merchants met in its courtyard to deal in goods, bills and loans. Its inscription said it was
-              for merchants of every nation and language.
+              Right. Merchants met in its courtyard to deal in goods, bills and loans. Later exchanges in London
+              and Amsterdam copied it.
           - label: A church for foreign sailors
             why: It was a place of business, not worship.
+      - type: gap
+        prompt: The Bourse of 1531 was open to foreigners as well as Antwerp's own traders. Fill the gap in its Latin motto.
+        quote: In usum negotiatorum cuiuscumque nationis ac linguae, for the use of merchants of every nation and ___
+        source: Motto of the Antwerp Bourse, 1531, in Latin with an English rendering
+        visual: { kind: photo, photo: antwerp-bourse }
+        options: [tongue, faith, guild, city]
+        answer: 0
+        explain: >-
+          Lingua means tongue, or language. Italians, Portuguese, Germans and English all traded here. The
+          building burned in 1583 and again in 1858, and the motto on today's Bourse is a restoration.
+      - type: choice
+        prompt: Read the chart. How did the number of people in Antwerp change between 1500 and 1568?
+        visual: { kind: chart, chart: antwerp-amsterdam, until: 1568 }
+        answer: 1
+        options:
+          - label: It stayed about the same
+            why: Follow the red line. It climbs steeply.
+          - label: It roughly doubled
+            why: >-
+              Right. From about 46,000 around 1500 to about 100,000 at a count in 1568. Antwerp was one of the
+              biggest cities north of the Alps.
+          - label: It halved
+            why: Antwerp's fall came later, after the war reached it.
+          - label: It grew ten times over
+            why: That would be nearly half a million people. Antwerp roughly doubled.
       - type: truemyth
         statement: In the 1500s, pepper from India reached Antwerp on Portuguese ships.
         visual: { kind: map, highlight: [], rivers: [Schelde], pins: [antwerp] }

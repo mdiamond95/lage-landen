@@ -82,6 +82,7 @@ const sites: HistSite[] = [
   { name: 'Brussels', kind: 'town', from: 1430, at: [4.357, 50.847], label: 'right' },
   { name: 'Mechelen', kind: 'town', from: 1430, at: [4.48, 51.028], label: 'right' },
   { name: 'Antwerp', kind: 'town', from: 1430, at: [4.402, 51.219], label: 'right' },
+  { name: 'Liège', kind: 'battle', from: 1468, to: 1472, at: [5.571, 50.633], label: 'right', note: 'Stormed and burned by Charles the Bold, 1468' },
 ]
 
 const events: HistEvent[] = [
@@ -192,5 +193,6 @@ export const burgundyStory: TimeStory = {
     { swatch: 'key-ruled', text: 'Burgundian, then Habsburg' },
     { swatch: 'key-client', text: 'Under a Burgundian bishop' },
     { swatch: 'key-new', text: 'Just joined' },
+    { swatch: 'key-battle', text: 'Battle or siege' },
   ],
 }

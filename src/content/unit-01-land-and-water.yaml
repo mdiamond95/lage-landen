@@ -274,6 +274,8 @@ lessons:
         url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/eastern-scheldt-barrier
       - title: Rijkswaterstaat, Maeslant barrier
         url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/maeslant-barrier
+      - title: Rijkswaterstaat, 40 years of the Oosterscheldekering (in Dutch)
+        url: https://www.rijkswaterstaat.nl/nieuws/archief/40-jaar-oosterscheldekering-van-dam-naar-stormvloedkering
       - title: UNESCO, Wadden Sea
         url: https://whc.unesco.org/en/list/1314
       - title: Schultz, The story of the Dutch boy who prevented a flooding disaster (Water History, 2019)
@@ -354,6 +356,16 @@ lessons:
           - [Oosterscheldekering, Storm barrier with 62 gates]
           - [Maeslantkering, Swinging gates guarding Rotterdam]
           - [Polder mill, Lifts water out of low land]
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The North Sea flood of 1953, The Delta Works are built]
+          - [Fishermen and scientists fear for the shellfish, The Oosterschelde gets a barrier that stays open]
+          - [Ships must still reach Rotterdam from the sea, The Maeslantkering's gates close only in storms]
+        explain: >-
+          Each disaster or worry shaped the next piece of work. The Oosterschelde was first meant to get a closed
+          dam, but in 1976 the government chose gates that stay open, so the barrier kept most of the tide and its
+          mussels and oysters.
       - type: truemyth
         statement: Belgium's coast is more than 200 km long.
         visual: { kind: map, highlight: [BE-VWV], rivers: [], pins: [] }
@@ -378,6 +390,8 @@ lessons:
         url: https://www.nationaalparknieuwland.nl/en/the-park/flevolands-history
       - title: TU Delft heritage, the Delta honorary doctors
         url: https://erfgoed.tudelft.nl/en/publications/delta-eredotors
+      - title: Rijksmonumentenregister, Afsluitdijk monument (in Dutch)
+        url: https://monumentenregister.cultureelerfgoed.nl/monumenten/pdf/510384
     exercises:
       - type: story
         title: Closing the Zuiderzee
@@ -411,6 +425,16 @@ lessons:
         place: afsluitdijk
         okKm: 25
         explain: The Afsluitdijk runs from North Holland to Friesland. Behind it, the Zuiderzee became the IJsselmeer.
+      - type: gap
+        prompt: Where the last gap in the Afsluitdijk was closed, on 28 May 1932, a monument with a lookout tower stands on the dam. Fill the gap in its inscription.
+        quote: A people that lives builds for its ___.
+        source: Inscription on the Afsluitdijk monument by W.M. Dudok, 1933, in English
+        visual: { kind: photo, photo: afsluitdijk }
+        options: [future, children, safety, country]
+        answer: 0
+        explain: >-
+          "Een volk dat leeft bouwt aan zijn toekomst." The bronze letters stand above a relief of three dike
+          workers. Nobody knows for certain who wrote the line.
       - type: who
         photo: lely-statue
         clues:

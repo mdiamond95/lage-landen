@@ -67,6 +67,11 @@ describe.each(files)('%s', (file) => {
     expect(asks.some((e) => e.type === 'truemyth' && e.visual)).toBe(true)
   })
 
+  it('reads a primary source and links causes to effects', () => {
+    expect(asks.some((e) => e.type === 'gap')).toBe(true)
+    expect(asks.some((e) => e.type === 'cause')).toBe(true)
+  })
+
   for (const lesson of unit.lessons) {
     it(`${lesson.id} references real places, regions and rivers`, () => {
       for (const ex of lesson.exercises) {
