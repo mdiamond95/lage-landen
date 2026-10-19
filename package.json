@@ -1,0 +1,39 @@
+{
+  "name": "lage-landen",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "build:single": "tsc -b && vite build --mode single --outDir dist-single",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "preview": "vite preview",
+    "validate": "vitest run src/content"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "topojson-client": "^3.1.0",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/d3-geo": "^3.1.1",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
+    "@vitejs/plugin-react": "^6.1.2",
+    "mapshaper": "^0.7.90",
+    "oxlint": "^1.88.0",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.4",
+    "vite-plugin-singlefile": "^2.3.4",
+    "vitest": "^5.0.5"
+  }
+}

@@ -1,0 +1,316 @@
+id: unit-01
+number: 1
+title: Land and water
+era: Geography
+summary: Where the Low Countries are, the three rivers that made them, and how people kept the sea out.
+lessons:
+  - id: u1-l1
+    title: Two countries, one delta
+    icon: map
+    sources:
+      - title: CBS, population growth 2026 (Netherlands)
+        url: https://www.cbs.nl/en-gb/news/2026/06/population-growth-slows-for-third-consecutive-year
+      - title: NBTC, the Netherlands vs Holland
+        url: https://www.holland.com/global/tourism/getting-around/information/netherlands-vs-holland
+      - title: Statbel, structure of the population (Belgium)
+        url: https://statbel.fgov.be/en/themes/population/structure-population
+    exercises:
+      - type: story
+        title: The Low Countries
+        body: >-
+          The Netherlands and Belgium sit where three big rivers, the Rhine, the Maas and the Scheldt,
+          reach the North Sea. "Nederland" literally means "low land". For most of history the whole
+          area was one patchwork of counties and duchies called the Low Countries. North and south were split
+          by war in the late 1500s, reunited in 1815, and split again when Belgium broke away in 1830.
+        visual: { kind: map, highlight: [NLD, BEL], rivers: [Rhine, Waal, Lek, Nederrijn, IJssel, Maas, Schelde] }
+      - type: choice
+        prompt: Which is the flag of Belgium?
+        answer: 1
+        options:
+          - art: flag-nl
+            why: Red, white and blue stripes running sideways belong to the Netherlands.
+          - art: flag-be
+            why: Belgium's black, yellow and red stripes stand upright.
+          - art: flag-lu
+            why: That's Luxembourg. It looks like the Dutch flag, but its blue is lighter.
+          - art: flag-de
+            why: Germany's black, red and gold stripes run sideways.
+      - type: region
+        prompt: Tap the Netherlands.
+        layer: countries
+        answer: [NLD]
+        explain: The Netherlands is the northern of the two, with a long North Sea coast and the big IJsselmeer lake.
+      - type: pin
+        prompt: Pin Amsterdam, the capital of the Netherlands.
+        place: amsterdam
+        explain: Amsterdam is the capital, but the government, parliament and the king's working palace are in The Hague.
+      - type: pin
+        prompt: Pin Brussels, the capital of Belgium.
+        place: brussels
+        explain: Brussels is Belgium's capital. It is also home to the main EU institutions and NATO's headquarters.
+      - type: truemyth
+        statement: '"Holland" is just another name for the whole Netherlands.'
+        answer: false
+        explain: >-
+          Holland is only two of the 12 provinces, North Holland and South Holland. They were the
+          richest part of the Dutch Republic, which is why the name stuck abroad.
+      - type: region
+        prompt: Shade the two provinces that make up Holland.
+        layer: provinces
+        answer: [NL-NH, NL-ZH]
+        explain: North Holland (with Amsterdam) and South Holland (with The Hague and Rotterdam) run along the coast.
+      - type: pin
+        prompt: Pin The Hague, the seat of the Dutch government.
+        place: the-hague
+        explain: The Hague sits on the coast in South Holland, about 50 km southwest of Amsterdam.
+      - type: match
+        prompt: Match each city to what it is known for.
+        pairs:
+          - [Amsterdam, Capital of the Netherlands]
+          - [The Hague, Seat of the Dutch government]
+          - [Brussels, Capital of Belgium and the EU's main seat]
+          - [Antwerp, Belgium's biggest port]
+      - type: truemyth
+        statement: Belgium has more people than the Netherlands.
+        answer: false
+        explain: >-
+          The Netherlands has about 18 million people and Belgium about 11.9 million. The Netherlands
+          is also larger, about 41,500 km² including its water, against Belgium's 30,700 km².
+
+  - id: u1-l2
+    title: Three rivers
+    icon: river
+    sources:
+      - title: Rijkswaterstaat, the Rhine and Maas river areas
+        url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/room-for-the-river
+      - title: Port of Rotterdam, facts and figures
+        url: https://www.portofrotterdam.com/en/experience-online/facts-and-figures
+    exercises:
+      - type: story
+        title: Rhine, Maas and Scheldt
+        body: >-
+          The Rhine flows in from Germany at Lobith and splits into the Waal, the Nederrijn-Lek and the
+          IJssel. The Maas (Meuse in French) comes up from France through Namur, Liège and Maastricht.
+          The Scheldt rises in France and runs past Ghent and Antwerp to the sea in Zeeland.
+        visual: { kind: map, highlight: [NLD, BEL], rivers: [Rhine, Waal, Lek, Nederrijn, IJssel, Maas, Schelde], pins: [lobith, antwerp, liege] }
+      - type: choice
+        prompt: Which river is highlighted?
+        visual: { kind: map, highlight: [], rivers: [Schelde] }
+        answer: 2
+        options:
+          - label: Rhine
+            why: The Rhine comes in from Germany in the east, well north of this river.
+          - label: Maas
+            why: The Maas runs further east, through Liège and Maastricht.
+          - label: Scheldt
+            why: Right. The Scheldt runs from France through Ghent and Antwerp.
+          - label: IJssel
+            why: The IJssel is a Rhine branch flowing north to the IJsselmeer.
+      - type: pin
+        prompt: Pin the spot where the Rhine enters the Netherlands.
+        place: lobith
+        okKm: 35
+        explain: The Rhine crosses the border at Lobith, near Arnhem and Nijmegen. Dutch river levels are measured there.
+      - type: choice
+        prompt: Which river is highlighted?
+        visual: { kind: map, highlight: [], rivers: [Maas] }
+        answer: 1
+        options:
+          - label: Scheldt
+            why: The Scheldt is the westernmost of the three, through Ghent and Antwerp.
+          - label: Maas
+            why: Right. The Maas (Meuse) runs through Namur, Liège and Maastricht.
+          - label: Waal
+            why: The Waal is the main branch of the Rhine, running east to west through Nijmegen.
+          - label: IJssel
+            why: The IJssel flows north from the Rhine to the IJsselmeer.
+      - type: pin
+        prompt: Pin Antwerp, the big port city on the Scheldt.
+        place: antwerp
+        explain: Antwerp lies about 80 km up the Scheldt from the sea, which shelters its port from storms.
+      - type: truemyth
+        statement: Maastricht is named after a crossing over the Maas.
+        answer: true
+        explain: The Romans called it Trajectum ad Mosam, "the crossing on the Maas", for the bridge they built there.
+      - type: match
+        prompt: Match each river to a city on its banks.
+        pairs:
+          - [Maas, Liège]
+          - [Scheldt, Antwerp]
+          - [Waal, Nijmegen]
+          - [IJssel, Deventer]
+      - type: choice
+        prompt: Which is the largest port in Europe?
+        answer: 0
+        options:
+          - label: Rotterdam
+            why: Rotterdam, near the mouths of the Rhine and Maas, handles more cargo than any other port in Europe.
+          - label: Antwerp
+            why: Antwerp-Bruges is a close second, not first.
+          - label: Hamburg
+            why: Hamburg is Germany's biggest port, but smaller than Rotterdam.
+          - label: Amsterdam
+            why: Amsterdam has a busy port, but it is far smaller than Rotterdam's.
+      - type: region
+        prompt: Shade Zeeland, the "sea land" where the Scheldt meets the sea.
+        layer: provinces
+        answer: [NL-ZE]
+        explain: Zeeland is a cluster of former islands in the southwest, between the Scheldt and Maas estuaries.
+      - type: pin
+        prompt: Pin Rotterdam.
+        place: rotterdam
+        explain: Rotterdam grew up on the Nieuwe Maas. Despite its name, it now carries mostly Rhine water to the sea.
+
+  - id: u1-l3
+    title: Below sea level
+    icon: wave
+    sources:
+      - title: PBL Netherlands Environmental Assessment Agency, flood-prone area
+        url: https://www.pbl.nl/en/correction-wording-flood-risks-for-the-netherlands-in-ipcc-report
+      - title: UNESCO, Mill Network at Kinderdijk-Elshout
+        url: https://whc.unesco.org/en/list/818
+      - title: UNESCO, Droogmakerij de Beemster
+        url: https://whc.unesco.org/en/list/899
+    exercises:
+      - type: story
+        title: A country that should be under water
+        body: >-
+          About a quarter of the Netherlands lies below sea level, and almost 60% could flood from
+          the sea or the rivers without dikes, dunes and pumps. Drag the slider to raise the water and
+          see what the dike is holding back.
+        visual: { kind: polder-slider }
+      - type: choice
+        prompt: Which picture shows a terp?
+        answer: 1
+        options:
+          - art: dike
+            why: That's a dike, a long earth wall that keeps the water out.
+          - art: terp
+            why: Right. A terp is a mound people piled up so their farm stayed dry at high tide.
+          - art: polder
+            why: That's a polder, low land drained into a grid of ditches.
+          - art: windmill
+            why: That's a drainage windmill, which pumps water out of a polder.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: First terps built in Friesland, year: -500, when: about 500 BCE }
+          - { label: First sea dikes, year: 1000, when: about 1000 }
+          - { label: Beemster lake drained, year: 1612, when: '1612' }
+          - { label: Kinderdijk windmills built, year: 1740, when: 1738 to 1740 }
+          - { label: Haarlemmermeer pumped dry by steam, year: 1852, when: 1849 to 1852 }
+        explain: People first lived on mounds, then joined them with dikes, then drained whole lakes with windmills and later steam.
+      - type: pin
+        prompt: The lowest point in the Netherlands is in the Zuidplaspolder, just northeast of Rotterdam. Pin it.
+        place: zuidplaspolder
+        okKm: 30
+        explain: Near Nieuwerkerk aan den IJssel the land is 6.76 m below sea level. It was a lake until it was drained around 1840.
+      - type: choice
+        prompt: What did a polder windmill do?
+        visual: { kind: art, art: windmill }
+        answer: 1
+        options:
+          - label: Ground grain into flour
+            why: Some windmills did, but polder mills had another job.
+          - label: Lifted water out of the polder
+            why: Right. Each mill lifted water from the low polder into higher canals that led to the rivers.
+          - label: Made electricity
+            why: Electricity came centuries later. These mills drove scoop wheels or screws.
+          - label: Sawed timber for ships
+            why: Sawmills existed, especially along the Zaan, but polder mills pumped water.
+      - type: pin
+        prompt: Pin Kinderdijk, where 19 windmills, most built around 1740, still stand.
+        place: kinderdijk
+        explain: Kinderdijk lies east of Rotterdam where the Lek and Noord rivers meet. It became a UNESCO site in 1997.
+      - type: truemyth
+        statement: Schiphol, Amsterdam's airport, is built on the bottom of a former lake.
+        answer: true
+        explain: The Haarlemmermeer was pumped dry between 1849 and 1852. Schiphol's runways lie about 3 m below sea level.
+      - type: choice
+        prompt: Belgium's highest point is 694 m. How high is the highest point of the European Netherlands?
+        answer: 0
+        options:
+          - label: 322 m
+            why: Right. The Vaalserberg, in the far southeast, reaches 322 m.
+          - label: 694 m
+            why: That's Belgium's Signal de Botrange, in the Ardennes.
+          - label: 1,050 m
+            why: Nothing in the Low Countries comes close to that.
+          - label: 98 m
+            why: Higher than that. The southeast tip of Limburg is hilly.
+      - type: pin
+        prompt: Pin the Vaalserberg, where the Netherlands, Belgium and Germany meet.
+        place: vaalserberg
+        okKm: 30
+        explain: The Vaalserberg is just south of Vaals, near Aachen. A marker on top shows where the three countries meet.
+
+  - id: u1-l4
+    title: Holding back the sea
+    icon: shield
+    sources:
+      - title: Watersnoodmuseum, the 1953 flood
+        url: https://watersnoodmuseum.nl/en/exhibitions/1835-1
+      - title: Rijkswaterstaat, Eastern Scheldt barrier
+        url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/eastern-scheldt-barrier
+      - title: Rijkswaterstaat, the Afsluitdijk
+        url: https://www.rijkswaterstaat.nl/en/projects/iconic-structures/the-afsluitdijk
+      - title: UNESCO, Wadden Sea
+        url: https://whc.unesco.org/en/list/1314
+    exercises:
+      - type: story
+        title: The night of 31 January 1953
+        body: >-
+          A storm surge broke through the dikes of Zeeland and South Holland. In the Netherlands 1,836
+          people died, and hundreds more died in England and Belgium. The country answered with the Delta
+          Works, a chain of dams and barriers that took about 40 years to finish.
+        visual: { kind: map, highlight: [NL-ZE, NL-ZH], rivers: [] }
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Law to close off the Zuiderzee, year: 1918, when: '1918' }
+          - { label: Afsluitdijk completed, year: 1932, when: '1932' }
+          - { label: North Sea flood, year: 1953, when: '1953' }
+          - { label: Flevoland becomes a province, year: 1986, when: '1986' }
+          - { label: Maeslantkering protects Rotterdam, year: 1997, when: '1997' }
+        explain: The Zuiderzee works started after a 1916 flood; the Delta Works followed the 1953 disaster.
+      - type: pin
+        prompt: Pin the Afsluitdijk, the 32 km dam that turned the salty Zuiderzee into a freshwater lake.
+        place: afsluitdijk
+        okKm: 25
+        explain: The Afsluitdijk runs from North Holland to Friesland. Behind it, the Zuiderzee became the IJsselmeer.
+      - type: region
+        prompt: Shade Flevoland, a province made almost entirely of land pumped dry from the Zuiderzee.
+        layer: provinces
+        answer: [NL-FL]
+        explain: Flevoland sits in the middle of the old Zuiderzee. Its two polders fell dry in 1957 and 1968.
+      - type: choice
+        prompt: Which picture shows a storm surge barrier?
+        answer: 3
+        options:
+          - art: dike
+            why: That's a dike, which is always closed.
+          - art: windmill
+            why: That's a drainage windmill.
+          - art: terp
+            why: That's a terp, a dwelling mound.
+          - art: barrier
+            why: Right. Barriers like the Oosterscheldekering stay open for the tides and close only in storms.
+      - type: pin
+        prompt: Pin Lelystad, the capital of Flevoland, built on what was seabed until 1957.
+        place: lelystad
+        explain: Lelystad is named after Cornelis Lely, the engineer who planned the Zuiderzee works.
+      - type: match
+        prompt: Match each structure to its job.
+        pairs:
+          - [Afsluitdijk, Closes off the IJsselmeer]
+          - [Oosterscheldekering, Storm barrier with 62 gates]
+          - [Maeslantkering, Swinging gates guarding Rotterdam]
+          - [Polder mill, Lifts water out of low land]
+      - type: truemyth
+        statement: Belgium's coast is more than 200 km long.
+        answer: false
+        explain: Belgium's coast is only about 67 km, from De Panne to Knokke-Heist, and lined with dunes and seawalls.
+      - type: truemyth
+        statement: The Wadden Sea, north of Friesland and Groningen, is a UNESCO World Heritage site.
+        answer: true
+        explain: The Wadden Sea, shared with Germany and Denmark, is the world's largest unbroken system of tidal sand and mud flats.
