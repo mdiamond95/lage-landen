@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { lineIds } from '../data/roman'
 import { photoIds } from '../photos/ids'
 
 // Everything a lesson can show or ask is described here. Lesson YAML is
@@ -24,14 +25,18 @@ const MapVisual = z.object({
   // River names as they appear in the map data (Rhine, Maas, Schelde...).
   rivers: z.array(z.string()).default([]),
   pins: z.array(z.string()).default([]),
+  // Historical lines (frontiers, roads) from src/data/roman.ts.
+  lines: z.array(z.enum(lineIds)).default([]),
 })
 
 const ArtVisual = z.object({ kind: z.literal('art'), art: z.enum(artIds) })
 // A real photo or historical map from Wikimedia Commons, credited in src/photos/credits.ts.
 const PhotoVisual = z.object({ kind: z.literal('photo'), photo: z.enum(photoIds) })
 const PolderVisual = z.object({ kind: z.literal('polder-slider') })
+// A map with a year slider, played as an animation: the Roman frontier and roads.
+const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.literal('roman') })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual])
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -87,6 +92,7 @@ const Choice = z.object({
 const TrueMyth = z.object({
   type: z.literal('truemyth'),
   statement: z.string(),
+  visual: Visual.optional(),
   answer: z.boolean(),
   explain: z.string(),
 })

@@ -1,11 +1,25 @@
+import aachenChapel from './aachen-chapel.jpg'
 import afsluitdijk from './afsluitdijk.jpg'
+import ambiorixStatue from './ambiorix-statue.jpg'
+import bonifaceFulda from './boniface-fulda.jpg'
+import charlemagneDurer from './charlemagne-durer.jpg'
+import childericBees from './childeric-bees.jpg'
+import claudiusCivilis from './claudius-civilis.jpg'
+import clovisBaptism from './clovis-baptism.jpg'
 import cruquius from './cruquius.jpg'
+import deurneHelmet from './deurne-helmet.jpg'
+import dorestadBrooch from './dorestad-brooch.jpg'
 import flood1953Map from './flood-1953-map.jpg'
 import flood1953Rilland from './flood-1953-rilland.jpg'
+import heerlenThermen from './heerlen-thermen.jpg'
 import kinderdijk from './kinderdijk.jpg'
+import nehalenniaAltar from './nehalennia-altar.jpg'
 import oosterscheldekering from './oosterscheldekering.jpg'
+import peutingerMap from './peutinger-map.jpg'
 import polderBeemster from './polder-beemster.jpg'
 import terpHogebeintum from './terp-hogebeintum.jpg'
+import tongerenWall from './tongeren-wall.jpg'
+import utrechtPsalter from './utrecht-psalter.jpg'
 import { credits } from './credits'
 import type { PhotoId } from './ids'
 
@@ -22,6 +36,20 @@ const files: Record<PhotoId, string> = {
   'flood-1953-rilland': flood1953Rilland,
   'flood-1953-map': flood1953Map,
   cruquius,
+  'ambiorix-statue': ambiorixStatue,
+  'claudius-civilis': claudiusCivilis,
+  'deurne-helmet': deurneHelmet,
+  'tongeren-wall': tongerenWall,
+  'heerlen-thermen': heerlenThermen,
+  'nehalennia-altar': nehalenniaAltar,
+  'peutinger-map': peutingerMap,
+  'childeric-bees': childericBees,
+  'clovis-baptism': clovisBaptism,
+  'dorestad-brooch': dorestadBrooch,
+  'boniface-fulda': bonifaceFulda,
+  'aachen-chapel': aachenChapel,
+  'charlemagne-durer': charlemagneDurer,
+  'utrecht-psalter': utrechtPsalter,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

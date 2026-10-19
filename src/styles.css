@@ -239,3 +239,36 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .photo-figure figcaption a { color: inherit; }
 .photo-option { aspect-ratio: 4 / 3; border-radius: 8px; }
 .sources-sub { margin: 12px 0 0; font-weight: 800; font-size: 0.9rem; }
+
+/* Historical lines and the Roman time map */
+.hist-line { fill: none; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.hist-frontier { stroke: #b3261e; stroke-width: 4.5; }
+.hist-road { stroke: #7a5a2b; stroke-width: 2.4; stroke-dasharray: 7 4; }
+.hist-canal { stroke: var(--delft); stroke-width: 2.4; }
+.hist-line.hist-gone { stroke: #b9a9a4; stroke-width: 2.5; stroke-dasharray: 3 5; }
+.draw-in { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.6s ease-out forwards; }
+.fade-in { animation: pop 1s ease-out; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.hist-site { pointer-events: none; animation: pop 0.4s ease-out; }
+.hist-site rect, .hist-site circle { stroke: #fff; stroke-width: 1.5; }
+.hist-fort rect { fill: #b3261e; }
+.hist-town circle { fill: var(--ink); }
+.hist-site.hist-gone rect, .hist-site.hist-gone circle { fill: #b9a9a4; }
+.hist-site-label { font-size: 13px; font-weight: 800; font-style: italic; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 3.5px; stroke-linejoin: round; }
+.hist-people { font-size: 15px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; fill: #6b5a3e; opacity: 0.8; pointer-events: none; }
+@keyframes pop { from { opacity: 0; } }
+.time-map { margin: 0; border: 2px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); }
+.time-map .map-frame { border: 0; border-radius: 0; }
+.time-map figcaption { display: grid; gap: 10px; padding: 12px; }
+.time-map-caption { min-height: 4.6em; }
+.time-map-title { margin: 0; font-weight: 900; color: var(--delft); }
+.time-map-text { margin: 4px 0 0; font-size: 0.92rem; line-height: 1.4; }
+.time-map-foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+.time-map-key { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.8rem; color: var(--ink-soft); font-weight: 700; }
+.time-map-key li { display: flex; align-items: center; gap: 4px; }
+.key-swatch { display: inline-block; width: 16px; height: 4px; border-radius: 2px; }
+.key-frontier { background: #b3261e; height: 5px; }
+.key-road { background: repeating-linear-gradient(90deg, #7a5a2b 0 5px, transparent 5px 8px); }
+.key-fort { width: 9px; height: 9px; background: #b3261e; border-radius: 1px; }
+.key-town { width: 10px; height: 10px; background: var(--ink); border-radius: 50%; }
+@media (prefers-reduced-motion: reduce) { .draw-in { animation: none; stroke-dashoffset: 0; stroke-dasharray: none; } .hist-site, .fade-in { animation: none; } }

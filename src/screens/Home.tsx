@@ -8,6 +8,8 @@ import { Icon } from './Icon'
 
 type Props = { units: Unit[]; onStart: (lessonId: string) => void }
 
+const listUnits = (ns: number[]) => (ns.length < 3 ? ns.join(' and ') : `${ns.slice(0, -1).join(', ')} and ${ns[ns.length - 1]}`)
+
 export function Home({ units, onStart }: Props) {
   const progress = useProgress()
   const totalPlaces = Object.keys(places).length
@@ -98,7 +100,10 @@ export function Home({ units, onStart }: Props) {
 
       <section className="outline card">
         <h2>The whole course</h2>
-        <p className="muted">26 units are planned. Unit 1 is playable now; the others arrive in later phases.</p>
+        <p className="muted">
+          26 units are planned. {units.length === 1 ? 'Unit 1 is' : `Units ${listUnits(units.map((u) => u.number))} are`} playable now; the
+          others arrive in later phases.
+        </p>
         {courseOutline.map((track) => (
           <div key={track.track} className="outline-track">
             <h3>{track.track}</h3>

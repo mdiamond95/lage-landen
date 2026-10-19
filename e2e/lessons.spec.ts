@@ -65,3 +65,51 @@ test('plays all of unit 1 and the checkpoint without errors', async ({ page }) =
   await expect(page.locator('.discover p')).toContainText('places discovered')
   expect(errors).toEqual([])
 })
+
+test('plays all of unit 2 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'Caesar and the Belgae',
+    'The Rhine frontier',
+    'Roads, towns and gods',
+    'The Franks',
+    'Saints and Frisian traders',
+    'Charlemagne and the Vikings',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 2 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the Roman time map follows the year slider and plays', async ({ page }) => {
+  await page.goto('/')
+  // The frontier story opens the second lesson, unlocked by finishing the first.
+  await playLesson(page, 'Caesar and the Belgae')
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await page.getByRole('button', { name: 'The Rhine frontier', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
+  await expect(map.locator('.hist-frontier')).toHaveCount(0)
+
+  await map.getByRole('slider', { name: 'Year' }).fill('47')
+  await expect(map.locator('.time-map-title')).toHaveText('47 CE: The Rhine becomes the frontier')
+  await expect(map.locator('.hist-frontier')).toHaveCount(1)
+  await expect(map.locator('.slider-value')).toHaveText('47 CE')
+
+  await map.getByRole('slider', { name: 'Year' }).fill('450')
+  await expect(map.locator('.hist-frontier.hist-gone')).toHaveCount(1)
+
+  await map.getByRole('slider', { name: 'Year' }).fill('69')
+  await map.getByRole('button', { name: 'Play the story' }).click()
+  await expect(map.locator('.time-map-title')).toHaveText('The quiet centuries', { timeout: 6000 })
+})

@@ -28,4 +28,15 @@ export const places: Record<string, Place> = {
   liege: { name: 'Liège', lat: 50.633, lon: 5.567 },
   namur: { name: 'Namur', lat: 50.467, lon: 4.867 },
   botrange: { name: 'Signal de Botrange', lat: 50.501, lon: 6.093, note: 'Highest point of Belgium, 694 m' },
+  // Unit 2: Romans, Franks and Frisians
+  tongeren: { name: 'Tongeren', lat: 50.781, lon: 5.464, note: 'Roman Atuatuca Tungrorum, the oldest town in Belgium' },
+  heerlen: { name: 'Heerlen', lat: 50.888, lon: 5.981, note: 'Roman Coriovallum, on the Via Belgica' },
+  katwijk: { name: 'Katwijk', lat: 52.203, lon: 4.399, note: 'Where the Roman frontier met the North Sea' },
+  voorburg: { name: 'Voorburg', lat: 52.074, lon: 4.36, note: 'Roman Forum Hadriani' },
+  cologne: { name: 'Cologne', lat: 50.938, lon: 6.96, note: 'Roman Colonia, capital of Lower Germany' },
+  tournai: { name: 'Tournai', lat: 50.606, lon: 3.388, note: 'Where the Frankish king Childeric was buried' },
+  'wijk-bij-duurstede': { name: 'Wijk bij Duurstede', lat: 51.975, lon: 5.341, note: 'Site of Dorestad, the Frisian trading town' },
+  dokkum: { name: 'Dokkum', lat: 53.326, lon: 5.998, note: 'Where Boniface was killed in 754' },
+  aachen: { name: 'Aachen', lat: 50.775, lon: 6.084, note: "Charlemagne's palace and grave" },
+  leuven: { name: 'Leuven', lat: 50.879, lon: 4.701, note: 'Vikings defeated on the Dijle in 891' },
 }

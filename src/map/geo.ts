@@ -32,6 +32,7 @@ export const projection = geoMercator().fitExtent(
   focus,
 )
 export const path = geoPath(projection)
+export const linePath = (coords: [number, number][]) => path({ type: 'LineString', coordinates: coords }) ?? undefined
 
 const EARTH_RADIUS_KM = 6371
 
