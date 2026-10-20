@@ -1,13 +1,14 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 12 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
-// sites, labels and areas come from the unit maps (Roman, Burgundy, revolt, water),
-// and leave the map when their era ends, so one era never bleeds into the next.
-// The plan's full time map runs to today with about 40 snapshots; this is the
-// first 12, for Units 1 to 5.
+// through 14 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
+// sites, labels and areas come from the unit maps (Roman, Burgundy, revolt, the
+// Spanish Netherlands, water), and leave the map when their era ends, so one era
+// never bleeds into the next. The plan's full time map runs to today with about 40
+// snapshots; this is the first 14, for Units 1 to 6.
 
 import { burgundyStory } from './burgundy'
 import { revoltStory } from './revolt'
 import { romanStory } from './roman'
+import { spanishStory } from './spanish'
 import type { HistEvent, HistLabel, HistSite, TimeStory } from './timeline'
 import { waterStory } from './water'
 
@@ -63,6 +64,8 @@ const snapshots: Snapshot[] = [
   { story: revoltStory, from: 1585 },
   { story: revoltStory, from: 1609 },
   { story: revoltStory, from: 1648 },
+  { story: spanishStory, from: 1668 },
+  { story: spanishStory, from: 1678 },
   {
     story: waterStory,
     from: 1997,

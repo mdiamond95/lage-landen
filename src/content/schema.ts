@@ -37,9 +37,9 @@ const PhotoVisual = z.object({ kind: z.literal('photo'), photo: z.enum(photoIds)
 const PolderVisual = z.object({ kind: z.literal('polder-slider') })
 // A map with a year slider, played as an animation: the Zuiderzee and Delta Works,
 // the Roman frontier and roads, the wool and cloth trade, the lands joining
-// Burgundy, or the revolt splitting them. `year` opens it at a given year instead
-// of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt'] as const
+// Burgundy, the revolt splitting them, Amsterdam growing in the Golden Age, or the
+// Spanish Netherlands shrinking. `year` opens it at a given year instead of the start.
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish'] as const
 const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(timeMaps), year: z.number().optional() })
 // A family tree from src/data/families.ts; `hide` blanks out one person by id.
 const TreeVisual = z.object({ kind: z.literal('family-tree'), tree: z.enum(treeIds), hide: z.string().optional() })
@@ -170,7 +170,19 @@ const Cause = z.object({
   explain: z.string(),
 })
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause])
+// Odd one out: spot the item that doesn't belong among four, then say why. Both
+// have to be right.
+const Odd = z.object({
+  type: z.literal('odd'),
+  prompt: z.string(),
+  items: z.array(z.object({ label: z.string(), photo: z.enum(photoIds).optional() })).length(4),
+  answer: z.number().int().nonnegative(),
+  reasons: z.array(z.string()).min(2).max(3),
+  reason: z.number().int().nonnegative(),
+  explain: z.string(),
+})
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

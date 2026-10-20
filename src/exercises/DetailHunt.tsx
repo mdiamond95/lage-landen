@@ -1,24 +1,22 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import { photo } from '../photos'
 import { Credit } from '../photos/Photo'
+import { ZoomImage } from '../photos/ZoomImage'
 import type { ExerciseProps } from './types'
 
 // A little slack around the target box, as a fraction of the picture, so a tap on
 // its edge still counts.
 const SLACK = 0.03
 
-// Detail hunt: tap the detail the prompt asks for inside a painting or photo.
+// Detail hunt: tap the detail the prompt asks for inside a painting or photo. The
+// picture can be zoomed into, so small details in big paintings can be found.
 export function DetailHunt({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'hunt'>>) {
   const [tap, setTap] = useState<[number, number] | null>(null)
-  const img = useRef<HTMLDivElement>(null)
   const p = photo(exercise.photo)
 
-  const onTap = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (checked || !img.current) return
-    const box = img.current.getBoundingClientRect()
-    const x = (e.clientX - box.left) / box.width
-    const y = (e.clientY - box.top) / box.height
+  const onTap = (x: number, y: number) => {
+    if (checked) return
     setTap([x, y])
     const correct = exercise.targets.some(
       ([left, top, width, height]) =>
@@ -34,19 +32,18 @@ export function DetailHunt({ exercise, checked, setAnswer }: ExerciseProps<Exerc
       <p className="eyebrow">Find the detail</p>
       <h2>{exercise.prompt}</h2>
       <figure className="photo-figure">
-        <div ref={img} className={`hunt-image${checked ? '' : ' hunt-live'}`} onPointerDown={onTap}>
-          <img src={p.src} alt={p.alt} draggable={false} />
+        <ZoomImage src={p.src} alt={p.alt} onTap={onTap} className={`hunt-image${checked ? '' : ' hunt-live'}`}>
           {checked &&
             exercise.targets.map(([left, top, width, height], i) => (
               <span key={i} className="hunt-target" style={{ left: pct(left), top: pct(top), width: pct(width), height: pct(height) }} />
             ))}
           {tap && <span className="hunt-tap" style={{ left: pct(tap[0]), top: pct(tap[1]) }} />}
-        </div>
+        </ZoomImage>
         <figcaption>
           {p.caption} · <span className="photo-credit">Credit: <Credit id={exercise.photo} /></span>
         </figcaption>
       </figure>
-      {!tap && <p className="hint">Tap the picture where you see it. Tap again to move your mark.</p>}
+      {!tap && <p className="hint">Tap the picture where you see it. Zoom in with + to look closer; tap again to move your mark.</p>}
     </div>
   )
 }

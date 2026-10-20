@@ -1,0 +1,847 @@
+id: unit-06
+number: 6
+title: Golden Age and Spanish Netherlands
+era: 1588 to 1700
+summary: The Dutch Republic becomes the richest trading nation in Europe. Amsterdam rings itself with canals, the VOC sells the world's first shares, and Rembrandt, Hals and Vermeer paint the new middle class. In the Spanish south, Rubens fills the churches of the Counter-Reformation while France takes town after town.
+lessons:
+  - id: u6-l1
+    title: Amsterdam, warehouse of the world
+    icon: ship
+    sources:
+      - title: "Het Grachtenhuis, The canal ring (in Dutch)"
+        url: https://grachten.museum/
+      - title: "Royal Palace Amsterdam"
+        url: https://www.paleisamsterdam.nl/en/
+      - title: "René Descartes, Correspondence 1619 to 1648, translated by Jonathan Bennett"
+        url: https://www.earlymoderntexts.com/assets/pdfs/descartes1619_1.pdf
+      - title: "Australian National Maritime Museum, Dutch fluyt Zeehaen"
+        url: https://collections.sea.museum/objects/40202/dutch-fluyt-zeehaen
+      - title: "Zaans Museum, Czar Peter House"
+        url: https://zaansmuseum.nl/en/tsar-peter-house/tsar-peter-house-see-do/
+      - title: "Encyclopaedia Britannica, Amsterdam: history"
+        url: https://www.britannica.com/place/Amsterdam
+    exercises:
+      - type: story
+        title: A city on piles
+        body: >-
+          When Antwerp fell to Spain in 1585, its merchants, money and skills moved north, and Amsterdam took
+          its place as the trading capital of Europe. Grain from the Baltic, spices from Asia and timber from
+          Norway passed through its warehouses. The town of about 30,000 people in the 1580s had about 200,000
+          by 1700. Press play to watch it grow, ring by ring.
+        visual: { kind: time-map, map: amsterdam }
+      - type: choice
+        prompt: Cornelis Anthonisz painted this bird's-eye view of Amsterdam in 1538. Which of these was NOT there yet?
+        visual: { kind: photo, photo: amsterdam-1538 }
+        answer: 3
+        options:
+          - label: The Oude Kerk, the Old Church
+            why: The Old Church was already more than 200 years old in 1538.
+          - label: A town wall with towers and gates
+            why: The medieval wall runs right round the town in the painting.
+          - label: Ships at anchor in the IJ
+            why: The IJ in front of the town was already full of ships.
+          - label: The Keizersgracht
+            why: >-
+              Right. The Keizersgracht, the Emperor's Canal, was dug from 1615, as part of the great canal ring
+              that the town council decided on in 1613.
+      - type: scrub
+        prompt: Drag the slider to a year when the canal ring has been begun, but does not yet reach past the Amstel.
+        map: amsterdam
+        start: 1550
+        answer: [1613, 1662]
+        explain: >-
+          The western half of the ring, and the Jordaan for workers beside it, was laid out from 1613. The
+          eastern half, past the Amstel, followed in the 1660s.
+      - type: choice
+        prompt: The richest merchants built their mansions on the widest stretch of the Herengracht, the Gentlemen's Canal. What is it called?
+        visual: { kind: photo, photo: golden-bend }
+        answer: 0
+        options:
+          - label: The Golden Bend
+            why: >-
+              Right, the Gouden Bocht. The plots here were extra wide, so the houses could be double-fronted,
+              with stone fronts instead of brick.
+          - label: The Jordaan
+            why: The Jordaan was the crowded workers' quarter outside the ring.
+          - label: The Lastage
+            why: The Lastage was the old shipbuilding quarter on the east side.
+          - label: The Plantage
+            why: The Plantage was a district of gardens east of the Amstel, laid out after 1663.
+      - type: truemyth
+        statement: The town hall on the Dam, now the Royal Palace, stands on more than 13,000 wooden piles.
+        visual: { kind: photo, photo: dam-town-hall }
+        answer: true
+        explain: >-
+          True: 13,659 of them, driven through the soft peat to the firm sand below. Building began in 1648 and it
+          opened in 1655. Since 1808 it has been a royal palace.
+      - type: hunt
+        prompt: Find the ship sailing high above the Dam. Zoom in if you need to.
+        photo: dam-town-hall
+        targets: [[0.38, 0.085, 0.08, 0.08]]
+        explain: >-
+          A golden cog ship turns in the wind on top of the dome. A cog has been on Amsterdam's seal since the
+          Middle Ages, and the town hall was built to show off a city that lived from ships.
+      - type: choice
+        prompt: Opened in 1611, this was the first building in Amsterdam put up just for merchants to meet and trade, from grain to shares. What was it?
+        visual: { kind: photo, photo: exchange-courtyard }
+        answer: 1
+        options:
+          - label: The Weigh House
+            why: The Weigh House on the Dam weighed goods, but it was not where merchants met to deal.
+          - label: The Exchange
+            why: >-
+              Right, the Beurs, by the architect Hendrick de Keyser. Here merchants bought and sold goods, ships'
+              cargoes and the shares of the VOC.
+          - label: The East India House
+            why: The East India House was the VOC's headquarters, not a meeting place for all merchants.
+          - label: The Town Hall
+            why: The new town hall was not begun until 1648.
+      - type: gap
+        prompt: The French philosopher René Descartes lived in Amsterdam in the 1630s. He liked it there because nobody bothered him. Fill the gap in his letter to a friend.
+        quote: In this large town where I live, everyone but myself is engaged in ___, and thus is so focussed on his own profit that I could live here all my life without ever being noticed by anyone.
+        source: René Descartes, letter to Jean-Louis Guez de Balzac, 5 May 1631 (translated by Jonathan Bennett)
+        visual: { kind: photo, photo: descartes }
+        options: [trade, prayer, war, painting]
+        answer: 0
+        explain: >-
+          Trade. Descartes lived in the Republic for about twenty years, and his Discourse on Method was printed in
+          Leiden in 1637.
+      - type: choice
+        prompt: Shipbuilders in Hoorn began building this new kind of cargo ship around 1595. Why could Dutch merchants carry goods more cheaply in it?
+        visual: { kind: photo, photo: fluyt }
+        answer: 2
+        options:
+          - label: It had oars as well as sails
+            why: Oars belonged on galleys in the Mediterranean, not on cargo ships.
+          - label: It was built of iron
+            why: Iron ships came in the 1800s. The fluyt was built of wood.
+          - label: It carried a big load with a small crew
+            why: >-
+              Right. The fluyt had a round, roomy hull and simple rigging, so a few sailors could handle it, and it
+              had few guns. Fewer wages and more cargo made Dutch freight the cheapest in Europe.
+          - label: It never needed a harbour
+            why: Like any cargo ship, it needed a harbour to load and unload.
+      - type: pin
+        prompt: Just north of Amsterdam, the Zaan district filled with shipyards and windmills that sawed timber into planks. In 1697 a young tsar came to learn shipbuilding there. Pin Zaandam.
+        place: zaandam
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Peter the Great of Russia stayed for about a week in the wooden house of a smith who had worked for him
+          in Moscow, then moved on to the VOC yards in Amsterdam. The little house still stands. Wind-powered
+          sawmills, invented by Cornelis Corneliszoon of Uitgeest in the 1590s, cut planks far faster than men
+          could by hand.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Antwerp falls to Spain in 1585, Its merchants and money move to Amsterdam]
+          - [The town runs out of room, The canal ring is dug from 1613]
+          - [The ground is soft peat, Buildings stand on wooden piles]
+          - [Windmills saw timber into planks, Dutch shipyards build ships fast]
+        explain: >-
+          Refugees, trade and clever use of wind and water turned a fishing town into the warehouse of the world.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The Exchange opens, year: 1611, when: '1611' }
+          - { label: The canal ring is begun, year: 1613, when: '1613' }
+          - { label: The Westerkerk opens, year: 1631, when: '1631' }
+          - { label: The new town hall opens, year: 1655, when: '1655' }
+          - { label: The Portuguese Synagogue opens, year: 1675, when: '1675' }
+        explain: In a single lifetime Amsterdam built nearly all of the old city you can walk through today.
+
+  - id: u6-l2
+    title: The VOC and tulip mania
+    icon: tulip
+    sources:
+      - title: "Canon van Nederland, De VOC (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/voc
+      - title: "Encyclopaedia Britannica, Dutch East India Company"
+        url: https://www.britannica.com/money/Dutch-East-India-Company
+      - title: "Westfries Archief, The oldest share in the world (in Dutch)"
+        url: https://www.westfriesarchief.nl/
+      - title: "Smithsonian Magazine, There never was a real tulip fever (Anne Goldgar)"
+        url: https://www.smithsonianmag.com/history/there-never-was-real-tulip-fever-180964915/
+      - title: "Frans Hals Museum, Flora's Wagon of Fools"
+        url: https://www.franshalsmuseum.nl/en/
+    exercises:
+      - type: story
+        title: Pepper and profit
+        body: >-
+          In 1599 a fleet came home to Amsterdam from the East Indies loaded with pepper, cloves and nutmeg. The profits were enormous, and soon rival companies in different towns were
+          racing each other to Asia. In 1602 the States General merged them into one company, with sole rights to
+          Dutch trade east of the Cape of Good Hope.
+        visual: { kind: photo, photo: second-expedition }
+      - type: choice
+        prompt: This was the headquarters of the company founded in 1602. What did its initials, VOC, stand for?
+        visual: { kind: photo, photo: east-india-house }
+        answer: 0
+        options:
+          - label: The United East India Company
+            why: >-
+              Right: the Verenigde Oostindische Compagnie. It could make treaties, build forts and wage war in Asia
+              in the name of the Republic.
+          - label: The Free Ocean Company
+            why: No such company. The VOC was anything but free for its rivals.
+          - label: The West India Company
+            why: The West India Company, the WIC, came in 1621 and traded with Africa and the Americas.
+          - label: The Company of Distant Lands
+            why: That was one of the early companies that came before the VOC.
+      - type: region
+        prompt: The VOC had six chambers, in Amsterdam, Middelburg, Enkhuizen, Hoorn, Delft and Rotterdam. Shade the provinces of today they lie in.
+        layer: provinces
+        answer: [NL-NH, NL-ZH, NL-ZE]
+        explain: >-
+          North Holland, South Holland and Zeeland. Amsterdam was by far the biggest chamber and paid half the
+          costs, so it had eight of the seventeen seats on the board, the Heeren XVII.
+      - type: truemyth
+        statement: Only rich merchants could buy a share in the VOC.
+        visual: { kind: photo, photo: voc-share }
+        answer: false
+        explain: >-
+          A myth. Anyone could sign up in 1602. In Enkhuizen alone 538 people did, many of them craftsmen. This
+          receipt from 1606, for 150 guilders paid by Pieter Harmensz, is thought to be the oldest share in the
+          world. Shares could be sold on to others at the Exchange.
+      - type: pin
+        prompt: Jan Pieterszoon Coen, who built the VOC's capital at Batavia on Java in 1619, came from a port on the Zuiderzee with its own VOC chamber. Pin Hoorn.
+        place: hoorn
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Hoorn, in West Friesland. Coen's statue there is now disputed, because of his brutal conquest of the
+          Banda Islands in 1621, where most of the people were killed, enslaved or driven out to seize the nutmeg
+          trade.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The VOC sells shares to anyone, People buy and sell shares at the Exchange]
+          - [The States General give the VOC sole rights, Dutch companies stop racing each other to Asia]
+          - [The VOC may wage war in Asia, It seizes forts and spice islands by force]
+        explain: >-
+          The VOC was a business and a fighting power at once. It made the Republic rich, at a terrible cost to
+          many people in Asia.
+      - type: choice
+        prompt: Collectors paid the most for tulips with flame-like stripes, like this Semper Augustus. What made the stripes?
+        visual: { kind: photo, photo: semper-augustus }
+        answer: 1
+        options:
+          - label: Growers painted the petals
+            why: The stripes grew naturally, which is why no one could make them to order.
+          - label: A virus carried by aphids
+            why: >-
+              Right, though nobody knew it until the 1920s. The virus weakened the bulb, so striped tulips were
+              rare and slow to multiply, which made them even more precious.
+          - label: Crossing tulips with roses
+            why: Tulips and roses cannot be crossed.
+          - label: Iron in the soil
+            why: Soil changes the health of a plant, not stripes like these.
+      - type: truemyth
+        statement: When tulip prices crashed in February 1637, ruined traders drowned themselves in the canals and the Dutch economy collapsed.
+        visual: { kind: photo, photo: tulip-satire }
+        answer: false
+        explain: >-
+          A myth. Prices for rare bulbs had soared, and then the market suddenly stopped. But the historian Anne
+          Goldgar found no one who went bankrupt over tulips and no wave of drownings, and the wider economy hardly
+          noticed. The wild stories come from moralising pamphlets of the time, retold in a popular book in 1841.
+      - type: hunt
+        prompt: Jan Brueghel the Younger painted the tulip traders as monkeys. Find the monkeys counting their money.
+        photo: tulip-satire
+        targets: [[0.6, 0.62, 0.16, 0.2]]
+        explain: >-
+          At the red-covered table, monkeys pile up gold coins. Elsewhere they read contracts and show off their
+          flowers. Painted in Flanders, it mocks the folly of the Dutch.
+      - type: choice
+        prompt: Hendrik Pot of Haarlem painted Flora, goddess of flowers, riding a wagon with a sail, holding tulips. What was he saying?
+        visual: { kind: photo, photo: floras-wagon }
+        answer: 2
+        options:
+          - label: That tulips were a gift from the gods
+            why: Pot was not praising tulips. Look at the company Flora keeps.
+          - label: That Haarlem had won a flower show
+            why: There was no prize. The painting is a warning.
+          - label: That tulip traders were fools
+            why: >-
+              Right. Its title is Flora's Wagon of Fools. Her passengers stand for vices like greed, Haarlem weavers
+              who left their looms to trade tulips run after the wagon, and it is heading for the sea.
+          - label: That sailing wagons would replace horses
+            why: Sailing wagons did exist, but here the wagon is a symbol of folly.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The first Dutch fleet sails for the East Indies, year: 1595, when: '1595' }
+          - { label: The second fleet returns rich with spices, year: 1599, when: '1599' }
+          - { label: The VOC is founded, year: 1602, when: '1602' }
+          - { label: The Amsterdam Exchange opens, year: 1611, when: '1611' }
+          - { label: Tulip prices crash, year: 1637, when: February 1637 }
+        explain: In forty years the Dutch built a trading empire, and learned that prices can fall as well as rise.
+
+  - id: u6-l3
+    title: A republic of provinces
+    icon: book
+    sources:
+      - title: "Rijksmuseum, The Great Assembly of the States General, 1651"
+        url: https://www.rijksmuseum.nl/en/collection/SK-C-1350
+      - title: "Encyclopaedia Britannica, Johan van Oldenbarnevelt"
+        url: https://www.britannica.com/biography/Johan-van-Oldenbarnevelt
+      - title: "Canon van Nederland, Hugo de Groot (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/hugodegroot
+      - title: "Hugo Grotius, The Freedom of the Seas, translated by Ralph Magoffin, 1916 (Project Gutenberg)"
+        url: https://www.gutenberg.org/ebooks/75962
+      - title: "National Endowment for the Humanities, Why Spinoza was excommunicated"
+        url: https://www.neh.gov/article/why-spinoza-was-excommunicated
+      - title: "Museum Ons' Lieve Heer op Solder"
+        url: https://opsolder.nl/en/
+    exercises:
+      - type: story
+        title: A country without a king
+        body: >-
+          After it threw off Philip II, the Republic never found a new king. Each of its seven provinces ran its own
+          affairs and sent delegates to the States General in The Hague, where every province had one vote. A
+          stadtholder, usually a prince of Orange, led the army. Here the States General meet in 1651 in the Hall of
+          Knights, hung with flags captured from Spain.
+        visual: { kind: photo, photo: great-assembly }
+      - type: region
+        prompt: Seven provinces had a vote in the States General. Shade the provinces of today that cover them.
+        layer: provinces
+        answer: [NL-NH, NL-ZH, NL-ZE, NL-UT, NL-GE, NL-OV, NL-FR, NL-GR]
+        explain: >-
+          Holland (today North and South Holland), Zeeland, Utrecht, Guelders, Overijssel, Friesland and
+          Groningen. Drenthe ran its own affairs but had no vote, and Brabant and Limburg were ruled as conquered
+          lands. Holland paid more than half of all the taxes, so it usually got its way.
+      - type: who
+        photo: oldenbarnevelt
+        clues:
+          - For more than thirty years I was the leading statesman of Holland.
+          - I helped bring about the Twelve Years' Truce with Spain in 1609.
+          - In a bitter quarrel over religion, I fell out with Prince Maurice.
+          - I was beheaded in The Hague in 1619, at the age of 71.
+        options: [Johan van Oldenbarnevelt, Hugo Grotius, Johan de Witt, Maurice of Nassau]
+        answer: 0
+        explain: >-
+          Johan van Oldenbarnevelt, Land's Advocate of Holland. Calvinists were split over predestination, and
+          Maurice backed the strict side against him. After a trial by special judges he was executed on the Binnenhof.
+      - type: choice
+        prompt: Oldenbarnevelt's young ally Hugo Grotius was locked up for life in Loevestein Castle. How did he escape in 1621?
+        visual: { kind: photo, photo: book-chest }
+        answer: 1
+        options:
+          - label: Dressed as a bricklayer
+            why: Grotius did dress up as a bricklayer, but only after he was out of the castle.
+          - label: Hidden in a chest of books
+            why: >-
+              Right. His wife, Maria van Reigersberch, was allowed to send him books in a chest. On 22 March 1621
+              he climbed in, and the guards carried it out. He fled to Antwerp and then Paris.
+          - label: By swimming the moat at night
+            why: The castle was surrounded by water, but he never swam it.
+          - label: Through a tunnel his friends dug
+            why: There was no tunnel. The trick was much simpler.
+      - type: pin
+        prompt: Pin Loevestein Castle, where the Maas and the Waal meet.
+        place: loevestein
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Loevestein stands at the tip of the Bommelerwaard, between Gorinchem and Zaltbommel. It was the
+          Republic's state prison.
+      - type: truemyth
+        statement: Three different museums say they have the book chest Grotius escaped in.
+        visual: { kind: photo, photo: loevestein }
+        answer: true
+        explain: >-
+          True. The Rijksmuseum in Amsterdam, the Prinsenhof in Delft and Loevestein Castle itself each own a
+          chest said to be the one. At most one can be right.
+      - type: gap
+        prompt: In 1609 Grotius argued that the seas belong to no one, so the Portuguese could not keep the Dutch out of Asia. Fill the gap in his first rule.
+        quote: Every nation is free to travel to every other nation, and to ___ with it.
+        source: Hugo Grotius, Mare Liberum (The Free Sea), 1609, chapter 1 (translated by Ralph Magoffin)
+        visual: { kind: photo, photo: mare-liberum }
+        options: [trade, talk, fight, pray]
+        answer: 0
+        explain: >-
+          Trade. He first wrote it to defend the VOC's capture of a Portuguese ship, the Santa Catarina, in 1603.
+          Later, in exile, he wrote one of the founding books of international law.
+      - type: choice
+        prompt: In 1656 Amsterdam's Portuguese Jewish community expelled the 23-year-old Baruch Spinoza for his ideas about God. What did he do next?
+        visual: { kind: photo, photo: spinoza }
+        answer: 2
+        options:
+          - label: He became a rabbi in Venice
+            why: Spinoza never returned to any religious community.
+          - label: He joined the VOC and sailed to Asia
+            why: He never left the Republic.
+          - label: He ground lenses for a living and wrote philosophy
+            why: >-
+              Right. He lived quietly near Leiden and in The Hague, polishing lenses and writing. His Ethics, which
+              says God and nature are one and the same, appeared only after his death in 1677.
+          - label: He became a Calvinist minister
+            why: He joined no church at all.
+      - type: truemyth
+        statement: Catholics in Amsterdam could not worship in public, so they met in churches hidden inside ordinary houses.
+        visual: { kind: photo, photo: attic-church }
+        answer: true
+        explain: >-
+          True. The Republic gave freedom of conscience, but only the Reformed Church could worship openly. Our
+          Lord in the Attic was built from 1661 to 1663 in the roof of a canal house. The town turned a blind eye,
+          as long as it could not be seen from the street.
+      - type: hunt
+        prompt: Jews who had fled the Inquisition in Spain and Portugal built this great synagogue in Amsterdam, opened in 1675. Find the two dogs.
+        photo: synagogue
+        targets: [[0.14, 0.86, 0.14, 0.13]]
+        explain: >-
+          They wander among the congregation, lower left. When it opened, the Portuguese Synagogue was one of the
+          largest in the world, and it is still in use.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [No one may be persecuted for their beliefs, Refugees of many faiths settle in the Republic]
+          - [Printers are freer than elsewhere, Books banned abroad are printed in Leiden and Amsterdam]
+          - [Maurice and Oldenbarnevelt quarrel over religion, Oldenbarnevelt is executed in 1619]
+        explain: >-
+          The Republic was not fully tolerant, but it was freer than most of Europe, and that drew people, money and
+          ideas.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The Twelve Years' Truce begins, year: 1609, when: '1609' }
+          - { label: The Synod of Dordrecht opens, year: 1618, when: November 1618 }
+          - { label: Oldenbarnevelt is beheaded, year: 1619, when: May 1619 }
+          - { label: Grotius escapes in a book chest, year: 1621, when: March 1621 }
+          - { label: Spinoza is expelled, year: 1656, when: July 1656 }
+        explain: The quarrels of the Truce years ended in blood, but the Republic kept its name as a refuge.
+
+  - id: u6-l4
+    title: Rembrandt and Frans Hals
+    icon: brush
+    sources:
+      - title: "Rijksmuseum, The Night Watch"
+        url: https://www.rijksmuseum.nl/en/collection/SK-C-5
+      - title: "Mauritshuis, The Anatomy Lesson of Dr Nicolaes Tulp"
+        url: https://www.mauritshuis.nl/en/our-collection/artworks/146-the-anatomy-lesson-of-dr-nicolaes-tulp/
+      - title: "Constantijn Huygens, Briefwisseling, part 2, 1634 to 1639 (DBNL, in Dutch)"
+        url: https://www.dbnl.org/tekst/huyg001jawo04_01/
+      - title: "National Gallery of Art, Judith Leyster, Self-Portrait"
+        url: https://www.nga.gov/collection/art-object-page.37003.html
+      - title: "Canon van Nederland, Rembrandt (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/rembrandt
+    exercises:
+      - type: story
+        title: Painting the new rich
+        body: >-
+          In the Republic, painters sold to merchants, guilds and town halls rather than to kings and bishops.
+          Militia companies, Amsterdam's citizen guards, paid to be painted together. In 1642 Rembrandt finished the
+          biggest of these group portraits, for the company of Captain Frans Banninck Cocq. Zoom in with the + button,
+          or pinch, to look closer.
+        visual: { kind: photo, photo: night-watch }
+      - type: hunt
+        prompt: A girl in a golden dress glows among the militiamen, with a dead chicken hanging from her belt. Find her.
+        photo: night-watch
+        targets: [[0.26, 0.57, 0.1, 0.3]]
+        explain: >-
+          The chicken's claws are a pun: claws, klauwen, were the emblem of the kloveniers, the musketeers, and
+          the painting hung in their headquarters, the Kloveniersdoelen.
+      - type: truemyth
+        statement: The Night Watch shows the militia out on patrol at night.
+        visual: { kind: photo, photo: night-watch }
+        answer: false
+        explain: >-
+          A myth. It is a daytime scene. Layers of varnish darkened over the years, and by the late 1700s people
+          called it the Night Watch. Its real title is the Militia Company of District II under the Command of
+          Captain Frans Banninck Cocq. The 18 men named on the shield each paid about 100 guilders to be in it.
+      - type: who
+        photo: rembrandt-1669
+        clues:
+          - I was born in Leiden in 1606, the son of a miller.
+          - I moved to Amsterdam, married Saskia van Uylenburgh and bought a grand house.
+          - In 1656 I could not pay my debts, and lost my house and my art collection.
+          - I painted, drew and etched myself again and again, right up to the year I died.
+        options: [Rembrandt van Rijn, Frans Hals, Johannes Vermeer, Ferdinand Bol]
+        answer: 0
+        explain: >-
+          Rembrandt van Rijn. This self-portrait is from 1669, the year of his death. His house in the
+          Jodenbreestraat is now a museum, the Rembrandthuis.
+      - type: choice
+        prompt: In 1632 Rembrandt painted the Amsterdam surgeons watching Dr Tulp dissect the body of an executed thief. What is Tulp showing them?
+        visual: { kind: photo, photo: anatomy-lesson }
+        answer: 0
+        options:
+          - label: The muscles of the arm
+            why: >-
+              Right. With his forceps he lifts the muscles that bend the fingers, and with his own left hand he shows
+              how they work. Public dissections were held in winter, so the body would keep.
+          - label: The heart
+            why: The chest has not been opened. Look at the forceps.
+          - label: The brain
+            why: The head has not been touched.
+          - label: The eyes
+            why: Look at where the doctor's forceps are.
+      - type: gap
+        prompt: In 1639 Rembrandt wrote to Constantijn Huygens, the stadtholder's secretary, about two paintings of Christ's Passion. He had tried to put something into them. Fill the gap.
+        quote: Therein has been observed the greatest and most natural ___.
+        source: Rembrandt, letter to Constantijn Huygens, 12 January 1639 (in English)
+        options: [movement, light, colour, gold]
+        answer: 0
+        explain: >-
+          In Dutch he wrote "beweechgelickheijt", which can mean movement, or movement of the soul, emotion. Scholars
+          still argue over which he meant. This is one of only seven letters by Rembrandt that survive.
+      - type: choice
+        prompt: Frans Hals painted with quick, loose brushstrokes that make his sitters seem alive. In which town did he live and work?
+        visual: { kind: photo, photo: merry-drinker }
+        answer: 1
+        options:
+          - label: Leiden
+            why: Leiden was Rembrandt's home town, not Hals's.
+          - label: Haarlem
+            why: >-
+              Right. Born in Antwerp, Hals grew up in Haarlem and worked there all his life. The Frans Hals Museum
+              in Haarlem has his great militia portraits.
+          - label: Delft
+            why: Delft was Vermeer's town.
+          - label: Utrecht
+            why: Utrecht had its own painters, who followed the Italian Caravaggio.
+      - type: pin
+        prompt: Pin Haarlem, the town of Frans Hals.
+        place: haarlem
+        okKm: 20
+        fullKm: 8
+        explain: Haarlem lies just west of Amsterdam, behind the dunes. It was also the heart of the tulip trade.
+      - type: choice
+        prompt: Judith Leyster painted this self-portrait in Haarlem about 1630. Why is she remembered?
+        visual: { kind: photo, photo: leyster }
+        answer: 3
+        options:
+          - label: She was the first woman to found a museum
+            why: No. She is remembered for her own painting.
+          - label: She painted the town hall's ceiling
+            why: No. She painted lively scenes and portraits for the open market.
+          - label: She was Rembrandt's wife
+            why: Rembrandt married Saskia van Uylenburgh. Leyster married the painter Jan Miense Molenaer.
+          - label: She was one of the first women in the painters' guild
+            why: >-
+              Right, in 1633. After her death her pictures were sold as works by Frans Hals, and she was only
+              rediscovered in 1893, when an expert found her monogram on one of them.
+      - type: odd
+        prompt: Which painting is the odd one out?
+        items:
+          - { label: The Night Watch, photo: night-watch }
+          - { label: The Merry Drinker, photo: merry-drinker }
+          - { label: The Milkmaid, photo: milkmaid }
+          - { label: The Arnolfini Portrait, photo: arnolfini }
+        answer: 3
+        reasons:
+          - It was painted about 200 years earlier, in Bruges
+          - It is a portrait of real people
+          - It hangs in a museum in Amsterdam
+        reason: 0
+        explain: >-
+          The Arnolfini Portrait is by Jan van Eyck, 1434, from Unit 4. The other three were painted in the Dutch
+          Republic between about 1628 and 1660. The Arnolfini Portrait is in London.
+      - type: truemyth
+        statement: Rembrandt is buried in the Westerkerk in Amsterdam, but no one knows exactly where.
+        visual: { kind: photo, photo: westerkerk-1660 }
+        answer: true
+        explain: >-
+          True. He died poor in 1669 and was buried in a rented grave, which was later cleared. A plaque in the
+          church remembers him.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Rembrandt is born in Leiden, year: 1606, when: '1606' }
+          - { label: The Anatomy Lesson of Dr Tulp, year: 1632, when: '1632' }
+          - { label: The Night Watch, year: 1642, when: '1642' }
+          - { label: Rembrandt goes bankrupt, year: 1656, when: '1656' }
+          - { label: Rembrandt dies, year: 1669, when: October 1669 }
+        explain: From fame and wealth to debt, Rembrandt never stopped painting.
+
+  - id: u6-l5
+    title: Vermeer, Delft and the microscope
+    icon: lens
+    sources:
+      - title: "Mauritshuis, View of Delft"
+        url: https://www.mauritshuis.nl/en/our-collection/artworks/92-view-of-delft/
+      - title: "Mauritshuis, Girl with a Pearl Earring"
+        url: https://www.mauritshuis.nl/en/our-collection/artworks/670-girl-with-a-pearl-earring/
+      - title: "Mauritshuis, Carel Fabritius"
+        url: https://www.mauritshuis.nl/en/our-collection/our-masters/carel-fabritius
+      - title: "Rijksmuseum, The Milkmaid"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-2344
+      - title: "Lens on Leeuwenhoek, Letter of 17 September 1683"
+        url: https://lensonleeuwenhoek.net/
+      - title: "MacTutor History of Mathematics, Christiaan Huygens"
+        url: https://mathshistory.st-andrews.ac.uk/Biographies/Huygens/
+      - title: "Encyclopaedia Britannica, Delftware"
+        url: https://www.britannica.com/art/delftware
+    exercises:
+      - type: story
+        title: Light in Delft
+        body: >-
+          In October 1632 two boys came into the world in Delft, days apart. Johannes Vermeer grew up to paint
+          the light falling through windows, and only about 35 of his paintings survive. Antonie van Leeuwenhoek
+          grew up to sell cloth, and to see through lenses what no one had seen before. Zoom into Vermeer's view of
+          his town.
+        visual: { kind: photo, photo: view-delft }
+      - type: hunt
+        prompt: Vermeer left most of Delft in the shadow of a cloud, but one church tower shines in the sun. Find it.
+        photo: view-delft
+        targets: [[0.61, 0.5, 0.07, 0.14]]
+        explain: >-
+          The tower of the New Church, where William of Orange is buried. Today the Dutch royal family is buried
+          there too.
+      - type: truemyth
+        statement: Girl with a Pearl Earring is a portrait of Vermeer's maid.
+        visual: { kind: photo, photo: girl-pearl }
+        answer: false
+        explain: >-
+          A myth, made popular by a novel and a film. It is a tronie, a study of a face in exotic costume, not a
+          portrait of a real person, and no one knows who posed for it. It hangs in the Mauritshuis in The Hague.
+      - type: hunt
+        prompt: On the floor behind the milkmaid stands a small wooden box with holes in its lid. Find it.
+        photo: milkmaid
+        targets: [[0.76, 0.82, 0.16, 0.13]]
+        explain: >-
+          A foot warmer. A pot of glowing coals went inside, and women rested their feet on it to keep warm in
+          cold, damp houses.
+      - type: who
+        photo: leeuwenhoek
+        clues:
+          - I was born in Delft in October 1632, the same month as a famous painter.
+          - I sold cloth and held posts in the town government.
+          - I made hundreds of tiny lenses, stronger than anyone else's.
+          - Looking at a drop of water, I saw tiny living creatures no one had seen before.
+        options: [Antonie van Leeuwenhoek, Christiaan Huygens, Johannes Vermeer, Jan Swammerdam]
+        answer: 0
+        explain: >-
+          Antonie van Leeuwenhoek. With no university training he wrote to the Royal Society in London for fifty
+          years, and is called the father of microbiology.
+      - type: gap
+        prompt: In 1683 Leeuwenhoek looked at the white stuff between his teeth through one of his lenses. Fill the gap in his report.
+        quote: I then most always saw, with great wonder, that in the said matter there were many very little living ___, very prettily a-moving.
+        source: Antonie van Leeuwenhoek, letter to the Royal Society, 17 September 1683 (translated by Clifford Dobell)
+        visual: { kind: photo, photo: leeuwenhoek }
+        options: [animalcules, worms, stars, seeds]
+        answer: 0
+        explain: >-
+          Animalcules, little animals. They were bacteria, seen for the first time.
+      - type: choice
+        prompt: Carel Fabritius, a former pupil of Rembrandt, painted this goldfinch in Delft in 1654. What happened to him that same year?
+        visual: { kind: photo, photo: goldfinch }
+        answer: 2
+        options:
+          - label: He became court painter in The Hague
+            why: He never got the chance.
+          - label: He sailed to Asia for the VOC
+            why: He stayed in Delft.
+          - label: He was killed when a gunpowder store exploded
+            why: >-
+              Right. On 12 October 1654 about 90,000 pounds of gunpowder blew up near his studio. He was pulled
+              from the ruins but died soon after, aged 32. The Goldfinch survived, and is in the Mauritshuis.
+          - label: He gave up painting to brew beer
+            why: No, he was painting until the day he died.
+      - type: truemyth
+        statement: The Delft Thunderclap of 1654 flattened a large part of the town and killed hundreds of people.
+        visual: { kind: photo, photo: delft-explosion }
+        answer: true
+        explain: >-
+          True. More than 500 people may have died. The town rebuilt quickly, and painters like Egbert van der
+          Poel painted the empty ground where houses had stood.
+      - type: choice
+        prompt: From the mid-1600s Delft became famous for blue-and-white pottery like this tulip vase. Why did its potters start making it?
+        visual: { kind: photo, photo: delftware }
+        answer: 1
+        options:
+          - label: The clay around Delft is naturally blue
+            why: The clay is not blue. The blue is painted on.
+          - label: War in China cut off supplies of Chinese porcelain
+            why: >-
+              Right. The VOC had brought home blue-and-white porcelain from China, and buyers loved it. When war in
+              China cut off supplies, Delft potters copied it in cheaper glazed earthenware.
+          - label: The stadtholder ordered dishes for his palace
+            why: The trade grew from ordinary buyers, not one royal order.
+          - label: To sell to China
+            why: The Dutch were buying Chinese porcelain, not selling pottery to China.
+      - type: odd
+        prompt: Which of these famous Dutchmen is the odd one out?
+        items:
+          - { label: Johannes Vermeer, photo: view-delft }
+          - { label: Antonie van Leeuwenhoek, photo: leeuwenhoek }
+          - { label: Hugo Grotius, photo: grotius }
+          - { label: Christiaan Huygens, photo: huygens }
+        answer: 3
+        reasons:
+          - He was not born in Delft
+          - He was not a painter
+          - He never went to university
+        reason: 0
+        explain: >-
+          Huygens was born in The Hague in 1629. Vermeer, Leeuwenhoek and Grotius were all born in Delft. Huygens
+          built the first pendulum clock in 1656, studied the rings of Saturn and argued that light is a wave.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [War in China cuts off porcelain, Delft potters copy it in earthenware]
+          - [Leeuwenhoek grinds stronger lenses, He sees living things in a drop of water]
+          - [A gunpowder store explodes, Fabritius dies and part of Delft is flattened]
+          - [Huygens adds a pendulum to a clock, Clocks keep far better time]
+        explain: Trade, craft and curiosity made Delft a town of painters and scientists.
+      - type: pin
+        prompt: Pin Delft, the town of Vermeer and Leeuwenhoek.
+        place: delft
+        okKm: 20
+        fullKm: 8
+        explain: Delft lies between The Hague and Rotterdam. It was also home to one of the six VOC chambers.
+
+  - id: u6-l6
+    title: Rubens and the Spanish Netherlands
+    icon: tower
+    sources:
+      - title: "Rubenshuis, Antwerp"
+        url: https://www.rubenshuis.be/en
+      - title: "Tate, Rubens and Britain"
+        url: https://www.tate.org.uk/press/press-releases/bp-british-art-displays-rubens-and-britain
+      - title: "Cathedral of Our Lady, Antwerp"
+        url: https://www.dekathedraal.be/en/
+      - title: "UNESCO World Heritage Centre, La Grand-Place, Brussels"
+        url: https://whc.unesco.org/en/list/857/
+      - title: "Encyclopaedia Britannica, Treaties of Nijmegen"
+        url: https://www.britannica.com/event/Treaties-of-Nijmegen
+    exercises:
+      - type: story
+        title: The south stays Catholic
+        body: >-
+          In 1598 Philip II handed the Spanish Netherlands to his daughter Isabella and her husband, Archduke
+          Albert. From Brussels they made peace with the Republic for twelve years and rebuilt the south as a
+          Catholic land. New churches rose everywhere, and they needed painters. The greatest lived in Antwerp.
+        visual: { kind: photo, photo: archdukes }
+      - type: who
+        photo: rubens-self
+        clues:
+          - I was born in Germany in 1577, to a family that had fled Antwerp.
+          - I spent eight years in Italy studying the great painters.
+          - I became court painter to the archdukes, but kept my studio in Antwerp.
+          - Kings sent me as a diplomat, and both Philip IV of Spain and Charles I of England knighted me.
+        options: [Peter Paul Rubens, Anthony van Dyck, Jacob Jordaens, David Teniers]
+        answer: 0
+        explain: >-
+          Peter Paul Rubens. His workshop turned out hundreds of paintings, and his pupils included Anthony van
+          Dyck.
+      - type: hunt
+        prompt: In The Elevation of the Cross, painted in 1610 and 1611, men strain to raise the cross. Find the dog in the corner.
+        photo: raising-cross
+        targets: [[0.29, 0.76, 0.12, 0.2]]
+        explain: >-
+          A dog barks at the bottom left of the centre panel. Rubens painted the altarpiece for Saint
+          Walburga's church. The French took it to Paris in 1794, and since its return it has hung in Antwerp
+          Cathedral.
+      - type: choice
+        prompt: The Jesuits built this church in Antwerp from 1615 to 1621, with Rubens's help. What style is it?
+        visual: { kind: photo, photo: borromeus }
+        answer: 2
+        options:
+          - label: Gothic
+            why: Gothic churches, like Antwerp Cathedral, have pointed arches and tall spires.
+          - label: Romanesque
+            why: Romanesque churches have thick walls and round arches, and are centuries older.
+          - label: Baroque
+            why: >-
+              Right. Columns, scrolls and statues were meant to dazzle and move believers. Rubens designed 39
+              ceiling paintings for it, which burned when lightning struck in 1718.
+          - label: Art Nouveau
+            why: Art Nouveau came around 1900.
+      - type: gap
+        prompt: Rubens was not modest about his gifts. Fill the gap in a letter he wrote to an English envoy.
+        quote: My talent is such that no undertaking, however vast in size or diversified in subject, has ever surpassed my ___.
+        source: Peter Paul Rubens, letter to William Trumbull, 1621
+        visual: { kind: photo, photo: rubenshuis }
+        options: [courage, patience, purse, strength]
+        answer: 0
+        explain: >-
+          Courage. He was offering to paint the ceiling of the Banqueting House in London, which he finished
+          for Charles I in the 1630s. His own house and studio in Antwerp, the Rubenshuis, is now a museum.
+      - type: odd
+        prompt: Which is the odd one out?
+        items:
+          - { label: The Elevation of the Cross, photo: raising-cross }
+          - { label: The Jesuit church in Antwerp, photo: borromeus }
+          - { label: The archduke's gallery, photo: teniers-gallery }
+          - { label: The Night Watch, photo: night-watch }
+        answer: 3
+        reasons:
+          - It was made in the Dutch Republic, not the Spanish Netherlands
+          - It was made after 1700
+          - It was made for a church
+        reason: 0
+        explain: >-
+          The Night Watch was painted in Amsterdam in 1642. The other three were made in the Catholic south, in
+          Antwerp and Brussels.
+      - type: hunt
+        prompt: David Teniers painted his master, Archduke Leopold Wilhelm, governor of the Spanish Netherlands, showing off his paintings in Brussels. Find the archduke, the only man with his hat on.
+        photo: teniers-gallery
+        targets: [[0.28, 0.62, 0.07, 0.27]]
+        explain: >-
+          Teniers looked after the archduke's collection. When Leopold Wilhelm went home to Vienna, he took the
+          paintings with him, and they are now in the Kunsthistorisches Museum there.
+      - type: scrub
+        prompt: Drag the slider to a year when Lille is French, but Ypres still belongs to Spain.
+        map: spanish
+        start: 1648
+        answer: [1668, 1677]
+        explain: >-
+          Lille went to France in 1668, and Ypres ten years later, in the Peace of Nijmegen.
+      - type: choice
+        prompt: Look at the map in 1678, after the Peace of Nijmegen. Which Flemish town has just become French?
+        visual: { kind: time-map, map: spanish, year: 1678 }
+        answer: 0
+        options:
+          - label: Ypres
+            why: >-
+              Right. Ypres was French until the Peace of Utrecht in 1713 gave it back. Cambrai, Valenciennes and
+              Saint-Omer stayed French for good.
+          - label: Ghent
+            why: Ghent stayed in the Spanish Netherlands.
+          - label: Bruges
+            why: Bruges stayed in the Spanish Netherlands.
+          - label: Antwerp
+            why: Antwerp stayed in the Spanish Netherlands.
+      - type: pin
+        prompt: Louis XIV took Lille, the chief town of Walloon Flanders, after a siege in 1667. Pin Lille.
+        place: lille
+        okKm: 25
+        fullKm: 10
+        explain: Lille has been French ever since. Its old Flemish name is Rijsel.
+      - type: choice
+        prompt: In August 1695 French guns bombarded Brussels for two days. Why?
+        visual: { kind: photo, photo: brussels-1695 }
+        answer: 1
+        options:
+          - label: Brussels had refused to pay a tax to France
+            why: Brussels owed France nothing. It was the capital of an enemy.
+          - label: To draw the allies away from their siege of Namur
+            why: >-
+              Right, and in revenge for English and Dutch attacks on French ports. William III did not take the
+              bait, and took Namur anyway.
+          - label: To clear the way for a French palace
+            why: France did not want to build in Brussels, only to punish it.
+          - label: By mistake, aiming at another town
+            why: The French aimed at the city centre on purpose.
+      - type: truemyth
+        statement: The guild houses on the Grand Place in Brussels date from the Middle Ages.
+        visual: { kind: photo, photo: grand-place }
+        answer: false
+        explain: >-
+          A myth. The bombardment of 1695 burned most of the square. Only the town hall's stone shell and a few
+          walls survived. The guilds rebuilt their houses within a few years, richer than before.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The archdukes back the Catholic Church, Baroque churches rise across the south]
+          - [Louis XIV claims the south for his Spanish wife, France takes Lille and Tournai in 1668]
+          - [French guns bombard Brussels, The guilds rebuild the Grand Place]
+        explain: The south lost towns to France, but its painters and builders made it shine.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Isabella and Albert take over the south, year: 1598, when: '1598' }
+          - { label: Rubens paints the Elevation of the Cross, year: 1610, when: '1610' }
+          - { label: Rubens dies in Antwerp, year: 1640, when: '1640' }
+          - { label: France takes Lille and Tournai, year: 1668, when: '1668' }
+          - { label: French guns bombard Brussels, year: 1695, when: August 1695 }
+        explain: In a century, the Spanish Netherlands went from Catholic revival to a battlefield for France.

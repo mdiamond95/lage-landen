@@ -30,6 +30,8 @@ const paths: Record<string, React.ReactNode> = {
   brush: <path d="M14 4l6 6-8 8-6-6zM6 12l-2 2c-1 1-1 3 0 4l2 2c1 1 3 1 4 0l2-2" fill="none" strokeLinejoin="round" />,
   book: <path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1zM12 6v14" fill="none" strokeLinejoin="round" />,
   crown: <path d="M4 18 3 7l5 4 4-6 4 6 5-4-1 11zM4 21h16" fill="none" strokeLinejoin="round" />,
+  tulip: <path d="M12 21v-9M12 12c-4 0-6-3-6-8l3 2 3-3 3 3 3-2c0 5-2 8-6 8zM12 18c-2-2-5-2-6-1 2 2 4 2 6 1zM12 18c2-2 5-2 6-1-2 2-4 2-6 1" fill="none" strokeLinejoin="round" />,
+  lens: <path d="M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM15 15l6 6M7 8a3 3 0 0 1 3-2" fill="none" />,
 }
 
 export function Icon({ name }: { name: string }) {

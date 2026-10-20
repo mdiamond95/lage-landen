@@ -7,6 +7,7 @@ export const photosUsed = (exercises: Exercise[]): PhotoId[] => {
     ...('visual' in e && e.visual?.kind === 'photo' ? [e.visual.photo] : []),
     ...(e.type === 'choice' ? e.options.flatMap((o) => (o.photo ? [o.photo] : [])) : []),
     ...(e.type === 'who' || e.type === 'hunt' ? [e.photo] : []),
+    ...(e.type === 'odd' ? e.items.flatMap((i) => (i.photo ? [i.photo] : [])) : []),
   ])
   return [...new Set(ids)]
 }

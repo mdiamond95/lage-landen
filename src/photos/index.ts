@@ -85,6 +85,49 @@ import utrechtPsalter from './utrecht-psalter.jpg'
 import vanEyckTurban from './van-eyck-turban.jpg'
 import williamOrange from './william-orange.jpg'
 import ypresClothHall from './ypres-cloth-hall.jpg'
+import amsterdam1538 from './amsterdam-1538.jpg'
+import anatomyLesson from './anatomy-lesson.jpg'
+import archdukes from './archdukes.jpg'
+import atticChurch from './attic-church.jpg'
+import bookChest from './book-chest.jpg'
+import borromeus from './borromeus.jpg'
+import brussels1695 from './brussels-1695.jpg'
+import damTownHall from './dam-town-hall.jpg'
+import delftExplosion from './delft-explosion.jpg'
+import delftware from './delftware.jpg'
+import descartes from './descartes.jpg'
+import eastIndiaHouse from './east-india-house.jpg'
+import exchangeCourtyard from './exchange-courtyard.jpg'
+import florasWagon from './floras-wagon.jpg'
+import fluyt from './fluyt.jpg'
+import girlPearl from './girl-pearl.jpg'
+import goldenBend from './golden-bend.jpg'
+import goldfinch from './goldfinch.jpg'
+import grandPlace from './grand-place.jpg'
+import greatAssembly from './great-assembly.jpg'
+import grotius from './grotius.jpg'
+import huygens from './huygens.jpg'
+import leeuwenhoek from './leeuwenhoek.jpg'
+import leyster from './leyster.jpg'
+import loevestein from './loevestein.jpg'
+import mareLiberum from './mare-liberum.jpg'
+import merryDrinker from './merry-drinker.jpg'
+import milkmaid from './milkmaid.jpg'
+import nightWatch from './night-watch.jpg'
+import oldenbarnevelt from './oldenbarnevelt.jpg'
+import raisingCross from './raising-cross.jpg'
+import rembrandt1669 from './rembrandt-1669.jpg'
+import rubensSelf from './rubens-self.jpg'
+import rubenshuis from './rubenshuis.jpg'
+import secondExpedition from './second-expedition.jpg'
+import semperAugustus from './semper-augustus.jpg'
+import spinoza from './spinoza.jpg'
+import synagogue from './synagogue.jpg'
+import teniersGallery from './teniers-gallery.jpg'
+import tulipSatire from './tulip-satire.jpg'
+import viewDelft from './view-delft.jpg'
+import vocShare from './voc-share.jpg'
+import westerkerk1660 from './westerkerk-1660.jpg'
 import { credits } from './credits'
 import type { PhotoId } from './ids'
 
@@ -180,6 +223,49 @@ const files: Record<PhotoId, string> = {
   'surrender-breda': surrenderBreda,
   'union-utrecht': unionUtrecht,
   'william-orange': williamOrange,
+  'amsterdam-1538': amsterdam1538,
+  'anatomy-lesson': anatomyLesson,
+  archdukes,
+  'attic-church': atticChurch,
+  'book-chest': bookChest,
+  borromeus,
+  'brussels-1695': brussels1695,
+  'dam-town-hall': damTownHall,
+  'delft-explosion': delftExplosion,
+  delftware,
+  descartes,
+  'east-india-house': eastIndiaHouse,
+  'exchange-courtyard': exchangeCourtyard,
+  'floras-wagon': florasWagon,
+  fluyt,
+  'girl-pearl': girlPearl,
+  'golden-bend': goldenBend,
+  goldfinch,
+  'grand-place': grandPlace,
+  'great-assembly': greatAssembly,
+  grotius,
+  huygens,
+  leeuwenhoek,
+  leyster,
+  loevestein,
+  'mare-liberum': mareLiberum,
+  'merry-drinker': merryDrinker,
+  milkmaid,
+  'night-watch': nightWatch,
+  oldenbarnevelt,
+  'raising-cross': raisingCross,
+  'rembrandt-1669': rembrandt1669,
+  'rubens-self': rubensSelf,
+  rubenshuis,
+  'second-expedition': secondExpedition,
+  'semper-augustus': semperAugustus,
+  spinoza,
+  synagogue,
+  'teniers-gallery': teniersGallery,
+  'tulip-satire': tulipSatire,
+  'view-delft': viewDelft,
+  'voc-share': vocShare,
+  'westerkerk-1660': westerkerk1660,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

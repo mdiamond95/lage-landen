@@ -11,6 +11,8 @@ import { CLOTH_MAX, CLOTH_MIN, clothEvents, regions, routes, towns } from '../da
 import { waterStory } from '../data/water'
 import { burgundyStory } from '../data/burgundy'
 import { revoltStory } from '../data/revolt'
+import { spanishStory } from '../data/spanish'
+import { amsterdamStory } from '../data/amsterdam'
 import { charts } from '../data/charts'
 import { peopleIn, trees } from '../data/families'
 import { places } from './places'
@@ -37,12 +39,15 @@ const isVisual = (e: Exercise) =>
   e.type === 'scrub' ||
   e.type === 'hunt' ||
   ((e.type === 'truemyth' || e.type === 'gap') && e.visual !== undefined) ||
-  (e.type === 'choice' && (e.visual !== undefined || e.options.some((o) => o.art || o.photo)))
+  (e.type === 'choice' && (e.visual !== undefined || e.options.some((o) => o.art || o.photo))) ||
+  (e.type === 'odd' && e.items.every((i) => i.photo))
 
 describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
   const asks = unit.lessons.flatMap((l) => l.exercises).filter((e) => e.type !== 'story')
 
+  // The credit (the painter) stays hidden until the answer is checked, so a
+  // self-portrait can be credited honestly.
   it("doesn't give away a Who am I? in its picture's caption or description", () => {
     for (const e of asks) {
       if (e.type !== 'who') continue
@@ -86,6 +91,10 @@ describe.each(files)('%s', (file) => {
         if (ex.type === 'region') for (const id of ex.answer) expect(regionIds[ex.layer].has(id), id).toBe(true)
         if (ex.type === 'choice' || ex.type === 'who' || ex.type === 'gap') expect(ex.answer).toBeLessThan(ex.options.length)
         if (ex.type === 'gap') expect(new Set(ex.options).size, 'gap options differ').toBe(ex.options.length)
+        if (ex.type === 'odd') {
+          expect(ex.answer).toBeLessThan(ex.items.length)
+          expect(ex.reason).toBeLessThan(ex.reasons.length)
+        }
         if (visual?.kind === 'family-tree' && visual.hide)
           expect(peopleIn(trees[visual.tree]).map((p) => p.id), visual.hide).toContain(visual.hide)
         if (ex.type === 'hunt') {
@@ -214,6 +223,8 @@ describe('time maps in lessons', () => {
     cloth: [CLOTH_MIN, CLOTH_MAX],
     burgundy: [burgundyStory.min, burgundyStory.max],
     revolt: [revoltStory.min, revoltStory.max],
+    amsterdam: [amsterdamStory.min, amsterdamStory.max],
+    spanish: [spanishStory.min, spanishStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -243,6 +254,7 @@ describe('time maps in lessons', () => {
 describe.each([
   ['Burgundian lands', burgundyStory],
   ['revolt', revoltStory],
+  ['Spanish Netherlands', spanishStory],
 ])('%s time map', (_, story) => {
   const { min, max, events, sites, labels, lines, areas = [] } = story
   const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7
@@ -274,6 +286,33 @@ describe.each([
       if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
       for (const [, end] of item.off ?? []) expect(starts, `${name} returns`).toContain(end + 1)
     }
+  })
+})
+
+describe('Amsterdam growth map', () => {
+  const { min, max, events, sites, labels, lines, areas = [] } = amsterdamStory
+  // Central Amsterdam, from the Jordaan to the eastern islands.
+  const inCity = ([lon, lat]: [number, number]) => lon > 4.86 && lon < 4.94 && lat > 52.35 && lat < 52.395
+
+  it('draws every stage, wall, site and label inside the city', () => {
+    for (const a of areas) for (const c of a.shape ?? []) expect(inCity(c), `${a.name} ${c}`).toBe(true)
+    for (const l of lines) for (const c of l.coords) expect(inCity(c), `${l.name} ${c}`).toBe(true)
+    for (const s of sites) expect(inCity(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inCity(l.at), l.text).toBe(true)
+  })
+
+  it('grows stage by stage, with a caption for everything that appears', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    for (const item of [...sites, ...labels, ...lines, ...areas]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined && item.to < max) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
+    // The city only grows: no stage of land inside the walls is ever taken away.
+    for (const a of areas) expect(a.to, a.name).toBeUndefined()
   })
 })
 

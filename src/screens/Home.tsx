@@ -80,7 +80,7 @@ export function Home({ units, onStart, onTimeMap }: Props) {
       <section className="timemap-teaser card">
         <div>
           <h2>Time map</h2>
-          <p>Watch the Low Countries change in 12 snapshots, from Caesar to the Delta Works.</p>
+          <p>Watch the Low Countries change in 14 snapshots, from Caesar to the Delta Works.</p>
         </div>
         <button type="button" className="btn-ghost" onClick={onTimeMap}>
           Open the time map

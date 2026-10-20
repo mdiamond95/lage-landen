@@ -8,7 +8,7 @@ async function answer(page: Page) {
     const slider = page.getByRole('slider', { name: 'Year' })
     await slider.fill(await slider.getAttribute('max') ?? '0')
   } else if (await page.locator('.hunt-image').count()) {
-    const box = (await page.locator('.hunt-image').boundingBox())!
+    const box = (await page.locator('.hunt-image img').boundingBox())!
     await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2)
   } else if (await page.locator('.match-grid').count()) {
     const left = page.locator('.match-col').nth(0).locator('.option')
@@ -27,6 +27,9 @@ async function answer(page: Page) {
     await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2)
   } else if (await page.locator('.mode-region').count()) {
     await page.locator('.mode-region [role="button"]').last().dispatchEvent('click')
+  } else if (await page.locator('.exercise-odd').count()) {
+    await page.locator('.exercise-odd .option').first().click()
+    await page.locator('.odd-reasons .option').first().click()
   } else if (await page.locator('.chip-pool').count()) {
     while (await page.locator('.chip').count()) await page.locator('.chip').first().click()
   } else {
@@ -306,7 +309,7 @@ test('a detail hunt scores a tap inside the target and shows where it was', asyn
   await foot.getByRole('button', { name: 'Continue' }).click()
 
   await expect(page.locator('.eyebrow').first()).toHaveText('Find the detail')
-  const box = (await page.locator('.hunt-image').boundingBox())!
+  const box = (await page.locator('.hunt-image img').boundingBox())!
   const [x, y, w, h] = TOWER
   await page.mouse.click(box.x + box.width * (x + w / 2), box.y + box.height * (y + h / 2))
   await foot.getByRole('button', { name: 'Check' }).click()

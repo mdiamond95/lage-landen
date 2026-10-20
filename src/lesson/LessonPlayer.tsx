@@ -3,6 +3,7 @@ import type { Exercise } from '../content/schema'
 import { DetailHunt } from '../exercises/DetailHunt'
 import { FillGap } from '../exercises/FillGap'
 import { MatchPairs } from '../exercises/MatchPairs'
+import { OddOneOut } from '../exercises/OddOneOut'
 import { PictureChoice } from '../exercises/PictureChoice'
 import { PinMap } from '../exercises/PinMap'
 import { RegionPaint } from '../exercises/RegionPaint'
@@ -97,6 +98,8 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
         return <DetailHunt exercise={exercise} {...props} />
       case 'gap':
         return <FillGap exercise={exercise} {...props} />
+      case 'odd':
+        return <OddOneOut exercise={exercise} {...props} />
     }
   })()
 
