@@ -18,6 +18,8 @@ export const lakes = layer('lakes').features
 
 export const MAP_W = 600
 export const MAP_H = 680
+// The Amsterdam map is about as wide as it is tall.
+export const CITY_H = 560
 
 // Fit the Netherlands and Belgium, leaving a margin of neighbouring land and sea.
 const focus: FeatureCollection<Geometry, Props> = {
@@ -34,11 +36,11 @@ export type Frame = {
   toXY: (lonLat: [number, number]) => [number, number]
 }
 
-export const makeFrame = (fit: GeoPermissibleObjects): Frame => {
+export const makeFrame = (fit: GeoPermissibleObjects, height = MAP_H): Frame => {
   const projection = geoMercator().fitExtent(
     [
       [30, 30],
-      [MAP_W - 30, MAP_H - 30],
+      [MAP_W - 30, height - 30],
     ],
     fit,
   )

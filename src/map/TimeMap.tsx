@@ -1,6 +1,7 @@
-import { useId, useMemo } from 'react'
+import { useId, useMemo, type ReactNode } from 'react'
 import { activeAt, eventAt, type HistArea, type TimeStory } from '../data/timeline'
-import { countries, lowlandsFrame, makeFrame, provinces, type Frame } from './geo'
+import { CITY_H, countries, lowlandsFrame, makeFrame, MAP_H, provinces, type Frame } from './geo'
+import { AmsterdamBase } from './AmsterdamBase'
 import { LowlandsMap } from './LowlandsMap'
 import { TimeControls } from './TimeControls'
 import { usePlayback } from './usePlayback'
@@ -54,23 +55,42 @@ type Props = {
   snapshots?: boolean
 }
 
+// Areas go under the city's water, and first on the Low Countries map.
+function LowlandsBase({ areas, children, ...props }: { label: string; frame: Frame; areas: ReactNode; children: ReactNode }) {
+  return (
+    <LowlandsMap {...props}>
+      {areas}
+      {children}
+    </LowlandsMap>
+  )
+}
+
 export function TimeMap({ story, start = story.min, onYear, hideCaption = false, snapshots = false }: Props) {
   const starts = useMemo(() => story.events.map((e) => e.from), [story])
   const { year, playing, togglePlay, scrub } = usePlayback(starts, story.min, start, onYear)
   const event = eventAt(story.events, year)
   const uid = useId().replace(/:/g, '')
   const frame = useMemo(
-    () => (story.bounds ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }) : lowlandsFrame),
+    () =>
+      story.bounds
+        ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : MAP_H)
+        : lowlandsFrame,
     [story],
   )
   const { toXY, linePath } = frame
+  const Base = story.base === 'amsterdam' ? AmsterdamBase : LowlandsBase
   const shown = (item: { end?: number }) => item.end === undefined || year <= item.end
   const fresh = event.fresh ?? story.fresh ?? 'fill'
+  const areas = (story.areas ?? [])
+    .filter((a) => activeAt(year, a))
+    .map((a) => (
+      <Area key={a.name} area={a} frame={frame} uid={uid} fresh={a.kind !== 'sea' && a.from === event.from && a.from > story.min && fresh} />
+    ))
 
   return (
     <figure className="time-map">
       <div className="map-frame">
-        <LowlandsMap label={`Map of ${story.place} in ${story.format(year)}: ${event.title}`} frame={frame}>
+        <Base label={`Map of ${story.place} in ${story.format(year)}: ${event.title}`} frame={frame} areas={areas}>
           <defs>
             <pattern id={`${uid}-hatch`} width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
               <rect width="8" height="8" className="hatch-a" />
@@ -80,17 +100,6 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false,
               <path d="M0 0 10 5 0 10z" className="hist-flow-head" />
             </marker>
           </defs>
-          {(story.areas ?? [])
-            .filter((a) => activeAt(year, a))
-            .map((a) => (
-              <Area
-                key={a.name}
-                area={a}
-                frame={frame}
-                uid={uid}
-                fresh={a.kind !== 'sea' && a.from === event.from && a.from > story.min && fresh}
-              />
-            ))}
           {story.labels
             .filter((l) => activeAt(year, l))
             .map((l) => {
@@ -154,7 +163,7 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false,
                 </g>
               )
             })}
-        </LowlandsMap>
+        </Base>
       </div>
       <TimeControls
         event={event}

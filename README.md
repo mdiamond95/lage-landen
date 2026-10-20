@@ -2,18 +2,19 @@
 
 A Duolingo-style web app for learning the history and culture of the Netherlands and Belgium, built around maps, pictures and timelines.
 
-Phase 1 from the project plan (Units 1 to 5) is built. Playable now:
+Phase 1 from the project plan (Units 1 to 5) is built, and Phase 2 has begun with Unit 6. Playable now:
 
 - Unit 1, Land and water: five lessons and a checkpoint, with a dike slider and an animated map of the Zuiderzee and Delta Works.
 - Unit 2, Celts, Romans and Franks (57 BCE to 900): six lessons and a checkpoint, opening with an animated map of the Roman frontier and roads.
 - Unit 3, Counts, bishops and cloth cities (900 to 1384): six lessons and a checkpoint, built around an animated map of the wool and cloth trade across the North Sea.
 - Unit 4, The Burgundian Netherlands (1384 to 1555): six lessons and a checkpoint, built around a map of the lands joining Burgundy one by one, with a family tree from the dukes to Charles V and detail hunts in Flemish paintings.
 - Unit 5, Revolt and the great split (1555 to 1648): six lessons and a checkpoint, built around a front-line map of the Eighty Years' War that shows refugees streaming north from Antwerp, with a population chart of Antwerp and Amsterdam and quotes from the Wilhelmus, the Union of Utrecht and the Act of Abjuration.
+- Unit 6, Golden Age and Spanish Netherlands (1588 to 1700): six lessons and a checkpoint, built around a map of Amsterdam growing ring by ring on today's canals and a map of France taking the southern towns, with zoomable paintings by Rembrandt, Vermeer and Rubens.
 
 Around the units:
 
 - A daily review: every question in a finished lesson comes back on a spaced schedule, missed ones sooner, ten at a time.
-- A time map of 12 snapshots, from Caesar's conquest in 57 BCE to the Delta Works, built from the unit maps.
+- A time map of 14 snapshots, from Caesar's conquest in 57 BCE to the Delta Works, built from the unit maps.
 - XP, a day streak with one free missed day a week, and a map of the places discovered.
 - Works offline once loaded, and installs on a phone's home screen.
 
@@ -41,15 +42,17 @@ npm run build:single # one self-contained HTML file in dist-single/
 - `src/data/roman.ts`: the Roman frontier, roads, forts, towns and captions for the time map, each with the years it existed. Lessons can also draw these lines on an ordinary map with `lines: [limes]`.
 - `src/data/burgundy.ts`: the lands joining the dukes of Burgundy and then Charles V, 1384 to 1555, for `{ kind: time-map, map: burgundy }`. Each territory is drawn with the modern provinces closest to it (`regions`), cut by a rough `clip` polygon where only part of one belongs; the map says its borders are approximate.
 - `src/data/revolt.ts`: the revolt map for `{ kind: time-map, map: revolt }`, 1555 to 1648. Each land changes sides with `sides(...)`: the king's (`ruled`), the rebels' (`rebel`) or split between them (`contested`, hatched). Refugee routes are lines of kind `flow` (arrows with moving dashes), and battles and sieges are sites of kind `battle`. The story sets `fresh: 'outline'`, so lands that just changed sides are outlined rather than refilled.
+- `src/data/amsterdam.ts`: Amsterdam's growth for `{ kind: time-map, map: amsterdam }`, 1550 to 1700, drawn on `AmsterdamBase.tsx` instead of the Low Countries (the story sets `base: 'amsterdam'`). Its water is today's canals, the IJ and the Amstel from the Kadaster's TOP10NL (via the PDOK API, CC BY 4.0) in `amsterdam.topo.json`. Each expansion is an area of kind `city`, listed newest first so only the newest ring shows as just added; walls are lines of kind `wall`.
+- `src/data/spanish.ts`: the Republic and the Spanish Netherlands for `{ kind: time-map, map: spanish }`, 1648 to 1700, with the towns France took as areas of kind `france`.
 - `src/data/charts.ts`: line charts from real figures (`antwerp-amsterdam`), drawn by `{ kind: chart, chart: antwerp-amsterdam }`; `until: 1568` stops a chart at a year.
 - `src/data/families.ts`: family trees (`carolingians`, `burgundy`), drawn by `{ kind: family-tree, tree: burgundy }`; `hide: mary` blanks out one person for a question.
 - `src/data/cloth.ts`: wool, cloth and other trade routes, towns and captions for the trade map, 1100 to 1384. A route can pause for a few years with `off` (the wool ban of 1336). Any time map opens at a chosen year with `{ kind: time-map, map: cloth, year: 1336 }` (or `map: water` or `map: roman`).
-- `src/exercises/`: story cards, pin the map, paint the region, timeline order, picture choice, true or myth, match pairs, who am I (clues revealed one at a time beside a portrait or statue; answering before the last clue earns +2 XP), find the year (`scrub`: drag a time map's slider until the map shows what the prompt asks, with the captions hidden until checked) and find the detail (`hunt`: tap a detail inside a painting; `targets` are boxes as fractions of the picture), fill the gap (`gap`: pick the missing word in a quote from a primary source, marked `___`, with its `source`) and cause and effect (`cause`: link each cause to its effect, with an `explain` shown after). Picture choice, true or myth and fill the gap can show a photo, map, family tree or chart; a choice on a chart is shown as "Read the chart".
-- `src/photos/`: photos, paintings and historical maps from Wikimedia Commons, with author and licence for each in `credits.ts`.
+- `src/exercises/`: story cards, pin the map, paint the region, timeline order, picture choice, true or myth, match pairs, who am I (clues revealed one at a time beside a portrait or statue; answering before the last clue earns +2 XP), find the year (`scrub`: drag a time map's slider until the map shows what the prompt asks, with the captions hidden until checked) and find the detail (`hunt`: tap a detail inside a painting; `targets` are boxes as fractions of the picture), fill the gap (`gap`: pick the missing word in a quote from a primary source, marked `___`, with its `source`), odd one out (`odd`: pick which of four pictures doesn't belong, then the right reason; both must be right) and cause and effect (`cause`: link each cause to its effect, with an `explain` shown after). Picture choice, true or myth and fill the gap can show a photo, map, family tree or chart; a choice on a chart is shown as "Read the chart".
+- `src/photos/`: photos, paintings and historical maps from Wikimedia Commons, with author and licence for each in `credits.ts`. Paintings full of detail are saved at 1280 to 1600 px and marked `zoom: true`, so they can be zoomed into with buttons, a pinch or a trackpad (`ZoomImage.tsx`); detail hunts can always be zoomed. A Who am I? holds back the picture's credit until it is answered, so self-portraits are credited honestly.
 - `src/art/`: original illustrations and the dike cross-section slider.
 - `src/progress/store.ts`: XP, streak (with one free missed day per week), discovered places and review cards, kept in the browser.
 - `src/progress/review.ts` and `src/content/cards.ts`: the daily review. Every question is a card named by its lesson and a hash of the question (so an edited question starts afresh). A right answer brings it back in 1 day, then 3, then further out by the card's ease; a miss brings it back tomorrow. The review takes up to ten due cards, the most missed first, shuffled so eras mix.
-- `src/data/throughTime.ts`: the 12-snapshot time map (`TimeMap` with `snapshots`, so the slider steps from snapshot to snapshot). It reuses each era's lines, sites, labels and areas, and drops them when the era ends.
+- `src/data/throughTime.ts`: the 14-snapshot time map (`TimeMap` with `snapshots`, so the slider steps from snapshot to snapshot). It reuses each era's lines, sites, labels and areas, and drops them when the era ends.
 - `scripts/sw.js`, `public/manifest.webmanifest`: offline and install. The build writes `dist/sw.js` listing every built file, pictures included, so the whole course is saved on first visit.
 
 ## Writing a lesson
@@ -58,7 +61,7 @@ Add an entry under `lessons:` in a unit's YAML. Start with a `story`, then mix q
 
 ## Unit checklist
 
-Each new unit is held to what the best units so far do, and when one is finished the earlier units are reviewed against it (see the retrospective notes in each PR). `npm test` enforces the first two.
+Each new unit is held to what the best units so far do, and when one is finished the earlier units are reviewed against it (see the retrospective notes in each PR). `npm test` enforces the first two, and requires a fill-the-gap, a cause and effect and an odd one out in every unit.
 
 - At least 70% of the unit's questions are answered on, or show, a map or picture, and every lesson at least half.
 - At least one "Who am I?" and true or myth questions that show a picture or map.
@@ -66,6 +69,7 @@ Each new unit is held to what the best units so far do, and when one is finished
 - A signature interactive piece: a slider or a year-slider map, reused in later questions with `year`.
 - Myths and legends taught as such: a true or myth that tests a popular story against the evidence.
 - Primary sources read, not just cited: a fill-the-gap question on a quote from a document, song or letter of the time.
+- Things compared: an odd one out with a picture for each choice, and a reason to pick.
 - Causes linked to effects, and numbers read from a real chart where the unit has figures worth showing.
 - Every claim fact-checked against a source listed on the lesson, with figures kept consistent across units.
 - Real photos, paintings and maps from Wikimedia Commons, each credited in `src/photos/credits.ts`.

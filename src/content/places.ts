@@ -69,4 +69,9 @@ export const places: Record<string, Place> = {
   nieuwpoort: { name: 'Nieuwpoort', lat: 51.13, lon: 2.751, note: 'Battle of the Dunes, 1600' },
   ostend: { name: 'Ostend', lat: 51.226, lon: 2.918, note: 'Besieged from 1601 to 1604' },
   breda: { name: 'Breda', lat: 51.589, lon: 4.776, note: 'Taken and retaken: 1590, 1625, 1637' },
+  // Unit 6: the Golden Age
+  zaandam: { name: 'Zaandam', lat: 52.438, lon: 4.826, note: 'Shipyards and wind-powered sawmills; Peter the Great stayed here in 1697' },
+  hoorn: { name: 'Hoorn', lat: 52.643, lon: 5.06, note: 'Home of the first fluyts, 1595, and a VOC chamber' },
+  loevestein: { name: 'Loevestein Castle', lat: 51.816, lon: 5.023, note: 'Hugo Grotius escaped from here in a book chest, 1621' },
+  haarlem: { name: 'Haarlem', lat: 52.381, lon: 4.636, note: 'Frans Hals and Judith Leyster worked here' },
 }

@@ -1,7 +1,7 @@
 import { throughTimeStory } from '../data/throughTime'
 import { TimeMap } from '../map/TimeMap'
 
-// The time map on its own screen: 12 snapshots of the Low Countries, stepped
+// The time map on its own screen: 14 snapshots of the Low Countries, stepped
 // through with the slider or played one after another.
 export function TimeTravel({ onBack }: { onBack: () => void }) {
   return (
@@ -15,7 +15,7 @@ export function TimeTravel({ onBack }: { onBack: () => void }) {
         <h1 className="time-travel-title">Time map</h1>
       </header>
       <p className="muted time-travel-intro">
-        Two thousand years of the Low Countries in 12 snapshots. Drag the slider, or play them one after another.
+        Two thousand years of the Low Countries in 14 snapshots. Drag the slider, or play them one after another.
       </p>
       <TimeMap story={throughTimeStory} snapshots />
     </div>

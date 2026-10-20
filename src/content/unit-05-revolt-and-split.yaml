@@ -675,3 +675,19 @@ lessons:
           - { label: Breda surrenders to Spínola, year: 1625, when: '1625' }
           - { label: The Peace of Münster, year: 1648, when: '1648' }
         explain: Eighty years after Heiligerlee, the north was a free republic and the south a Spanish province.
+      - type: odd
+        prompt: Which of these men is the odd one out?
+        items:
+          - { label: Philip II, photo: philip-ii }
+          - { label: The Duke of Alba, photo: alba }
+          - { label: Alexander Farnese, Duke of Parma, photo: parma }
+          - { label: William of Orange, photo: william-orange }
+        answer: 3
+        reasons:
+          - He led the revolt against the king
+          - He was born in Spain
+          - He never set foot in the Netherlands
+        reason: 0
+        explain: >-
+          William of Orange led the rebels. Philip II was the king, and Alba and Parma were his governors and
+          generals in the Netherlands.

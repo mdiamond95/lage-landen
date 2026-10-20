@@ -8,7 +8,7 @@ async function answer(page: Page) {
     const slider = page.getByRole('slider', { name: 'Year' })
     await slider.fill(await slider.getAttribute('max') ?? '0')
   } else if (await page.locator('.hunt-image').count()) {
-    const box = (await page.locator('.hunt-image').boundingBox())!
+    const box = (await page.locator('.hunt-image img').boundingBox())!
     await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2)
   } else if (await page.locator('.match-grid').count()) {
     const left = page.locator('.match-col').nth(0).locator('.option')
@@ -27,6 +27,9 @@ async function answer(page: Page) {
     await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2)
   } else if (await page.locator('.mode-region').count()) {
     await page.locator('.mode-region [role="button"]').last().dispatchEvent('click')
+  } else if (await page.locator('.exercise-odd').count()) {
+    await page.locator('.exercise-odd .option').first().click()
+    await page.locator('.odd-reasons .option').first().click()
   } else if (await page.locator('.chip-pool').count()) {
     while (await page.locator('.chip').count()) await page.locator('.chip').first().click()
   } else {
@@ -306,7 +309,7 @@ test('a detail hunt scores a tap inside the target and shows where it was', asyn
   await foot.getByRole('button', { name: 'Continue' }).click()
 
   await expect(page.locator('.eyebrow').first()).toHaveText('Find the detail')
-  const box = (await page.locator('.hunt-image').boundingBox())!
+  const box = (await page.locator('.hunt-image img').boundingBox())!
   const [x, y, w, h] = TOWER
   await page.mouse.click(box.x + box.width * (x + w / 2), box.y + box.height * (y + h / 2))
   await foot.getByRole('button', { name: 'Check' }).click()
@@ -438,13 +441,13 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 12 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 14 snapshots from Caesar to the Delta Works', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Open the time map' }).click()
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '11')
+  await expect(slider).toHaveAttribute('max', '13')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -456,13 +459,111 @@ test('the time map steps through 12 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-area-rebel').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-rebel')).toHaveCount(1)
 
-  await slider.fill('11')
+  await slider.fill('12')
+  await expect(map.locator('.time-map-title')).toHaveText('1678: The Peace of Nijmegen')
+  await expect(map.locator('.hist-area-france')).not.toHaveCount(0)
+
+  await slider.fill('13')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
 
   await page.getByRole('button', { name: 'Back to the course' }).click()
   await expect(page.locator('.review')).toBeVisible()
+})
+
+test('plays all of unit 6 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'Amsterdam, warehouse of the world',
+    'The VOC and tulip mania',
+    'A republic of provinces',
+    'Rembrandt and Frans Hals',
+    'Vermeer, Delft and the microscope',
+    'Rubens and the Spanish Netherlands',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 6 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the Amsterdam map grows ring by ring on its canals', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Amsterdam, warehouse of the world', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.city-map')).toBeVisible()
+  await expect(map.locator('.city-water')).toBeVisible()
+  await expect(map.locator('.time-map-title')).toHaveText('About 1550: A walled town on the IJ')
+  await expect(map.locator('.hist-area-city')).toHaveCount(1)
+
+  await year.fill('1613')
+  await expect(map.locator('.time-map-title')).toHaveText('1613: The canal ring')
+  await expect(map.locator('.hist-area-city')).toHaveCount(3)
+  // Only the newest ring is marked as just added.
+  await expect(map.locator('.hist-area-new')).toHaveCount(1)
+
+  await year.fill('1663')
+  await expect(map.locator('.hist-area-city')).toHaveCount(4)
+  await expect(map.locator('.hist-wall').first()).toBeVisible()
+})
+
+test('the Spanish Netherlands shrink as France takes town after town', async ({ page }) => {
+  await unlock(page, ['u6-l1', 'u6-l2', 'u6-l3', 'u6-l4', 'u6-l5'])
+  await page.getByRole('button', { name: 'Rubens and the Spanish Netherlands', exact: true }).click()
+  await skipTo(page, 'Find the year')
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await year.fill('1648')
+  await expect(map.locator('.hist-area-france')).toHaveCount(0)
+  await year.fill('1668')
+  await expect(map.locator('.hist-area-france')).toHaveCount(4)
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Correct!')
+})
+
+test('odd one out needs the right picture and the right reason', async ({ page }) => {
+  await unlock(page, ['u6-l1', 'u6-l2', 'u6-l3'])
+  await page.getByRole('button', { name: 'Rembrandt and Frans Hals', exact: true }).click()
+  await skipTo(page, 'Odd one out')
+
+  const foot = page.locator('.lesson-foot')
+  await page.locator('.exercise-odd .option', { hasText: 'The Arnolfini Portrait' }).click()
+  await page.locator('.odd-reasons .option', { hasText: 'It is a portrait of real people' }).click()
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Not quite')
+  await expect(page.locator('.feedback-detail')).toContainText('Right one, wrong reason.')
+})
+
+test('a painting can be zoomed into, and a detail hunt still scores when zoomed', async ({ page }) => {
+  await unlock(page, ['u6-l1', 'u6-l2', 'u6-l3'])
+  await page.getByRole('button', { name: 'Rembrandt and Frans Hals', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  await expect(page.locator('.zoom-frame')).toBeVisible()
+  await page.getByRole('button', { name: 'Zoom in' }).click()
+  await expect(page.locator('.zoom-frame.is-zoomed')).toBeVisible()
+  await page.getByRole('button', { name: 'Whole picture' }).click()
+  await expect(page.locator('.zoom-frame.is-zoomed')).toHaveCount(0)
+  await foot.getByRole('button', { name: 'Continue' }).click()
+
+  // The girl with the chicken in the Night Watch.
+  await expect(page.locator('.eyebrow').first()).toHaveText('Find the detail')
+  await page.getByRole('button', { name: 'Zoom in' }).click()
+  const box = (await page.locator('.hunt-image img').boundingBox())!
+  await page.mouse.click(box.x + box.width * 0.31, box.y + box.height * 0.72)
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Correct!')
 })
 
 test('once loaded, the app and its pictures work offline', async ({ page, context }) => {

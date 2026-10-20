@@ -22,7 +22,8 @@ export const eventAt = (events: HistEvent[], year: number) => [...events].revers
 // roads, dams), sites (forts, towns, barriers), text labels, and areas that were
 // still water for a while. Coordinates are [lon, lat] (WGS84).
 // A `flow` is people or goods on the move, drawn as an arrow with moving dashes.
-export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow'
+// A `wall` is a town wall, on the city map.
+export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow' | 'wall'
 // Lines and sites that have gone stay on the map, faded. `end` removes them
 // altogether after that year, when one map runs on into a later era.
 export type HistLine = Dated & { name: string; kind: LineKind; coords: [number, number][]; end?: number }
@@ -40,8 +41,9 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // data (optionally cut to the `clip` polygon), or a hand-drawn `shape`. `kind` sets
 // the tint: still sea (the default), lands of a ruler, lands under a ruler's bishop,
 // plain land that stays outside, lands held by rebels against the ruler, or lands
-// split or fought over between the two.
-export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside' | 'rebel' | 'contested'
+// split or fought over between the two, or taken by France; on the city map, a town
+// inside its walls.
+export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside' | 'rebel' | 'contested' | 'city' | 'france'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind
@@ -53,6 +55,8 @@ export type HistArea = Dated & {
 export type TimeStory = {
   // Named in the map's accessible label: "Map of <place> in <year>".
   place: string
+  // What the map is drawn on: the Low Countries (the default), or the canals of Amsterdam.
+  base?: 'lowlands' | 'amsterdam'
   // Two corners, [lon, lat], to zoom the map to; the whole Low Countries if left out.
   bounds?: [[number, number], [number, number]]
   min: number

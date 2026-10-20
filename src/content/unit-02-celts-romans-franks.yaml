@@ -673,3 +673,19 @@ lessons:
           - [Lothair, Got the middle kingdom in 843]
           - [Charles the Bald, Got the western kingdom]
           - [Baldwin Iron Arm, First count of Flanders]
+      - type: odd
+        prompt: Which of these is the odd one out?
+        items:
+          - { label: The baths at Heerlen, photo: heerlen-thermen }
+          - { label: The town wall of Tongeren, photo: tongeren-wall }
+          - { label: An altar to Nehalennia, photo: nehalennia-altar }
+          - { label: The palace chapel at Aachen, photo: aachen-chapel }
+        answer: 3
+        reasons:
+          - It was built centuries after the Romans left, for Charlemagne
+          - It is made of stone
+          - It stands in the Netherlands
+        reason: 0
+        explain: >-
+          Charlemagne's chapel was built around 800. The baths, the wall and the altar are all Roman, from the
+          first to the third centuries.

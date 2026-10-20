@@ -3,16 +3,25 @@ import { FamilyTree } from '../art/FamilyTree'
 import { LineChart } from '../art/LineChart'
 import { PolderSlider } from '../art/PolderSlider'
 import type { Visual } from '../content/schema'
+import { amsterdamStory } from '../data/amsterdam'
 import { burgundyStory } from '../data/burgundy'
 import { revoltStory } from '../data/revolt'
 import { romanStory } from '../data/roman'
+import { spanishStory } from '../data/spanish'
 import { waterStory } from '../data/water'
 import { LowlandsMap } from '../map/LowlandsMap'
 import { TimeMap } from '../map/TimeMap'
 import { TradeMap } from '../map/TradeMap'
 import { PhotoFigure } from '../photos/Photo'
 
-const stories = { water: waterStory, roman: romanStory, burgundy: burgundyStory, revolt: revoltStory }
+const stories = {
+  water: waterStory,
+  roman: romanStory,
+  burgundy: burgundyStory,
+  revolt: revoltStory,
+  amsterdam: amsterdamStory,
+  spanish: spanishStory,
+}
 
 type TimeMapProps = {
   map: Extract<Visual, { kind: 'time-map' }>['map']
