@@ -1816,4 +1816,47 @@ export const credits: Record<PhotoId, Credit> = {
     ...PD,
     source: commons("Willem I naar Pruissen (1840.JPG"),
   },
+  // Unit 10
+  "thorbecke": {
+    alt: "Portrait of a thin-faced man with a high forehead in a black coat and white cravat, one hand tucked in his coat, seated in a red armchair beside a table with papers",
+    caption: "Portrait painted by Johan Heinrich Neuman in 1852",
+    author: "Johan Heinrich Neuman",
+    ...PD,
+    source: commons("Johan Heinrich Neuman - Johan Rudolf Thorbecke.jpg"),
+  },
+  "william-ii-king": {
+    alt: "A man in a dark uniform with gold epaulettes and a red collar leans against a sandy bank with his arms folded, a greyhound at his side",
+    caption: "William II, painted by Jan Adam Kruseman in 1839, the year before he became king",
+    author: "Jan Adam Kruseman",
+    ...PD,
+    source: commons("Jan Adam Kruseman William II King of the Netherlands 1840.jpg"),
+  },
+  "grondwet-1848": {
+    alt: "A handwritten page beginning with a printed heading, 'Wij Willem II, bij de gratie Gods, Koning der Nederlanden'",
+    caption: "The first page of the constitutional revision of 1848, signed by William II, Nationaal Archief, The Hague",
+    author: "Nationaal Archief",
+    ...PD,
+    source: commons("Grondwet 1848 Nl-HaNA 2.02.04 514 01.jpg"),
+  },
+  "william-iii-king": {
+    alt: "A bearded king in a black uniform and an ermine cloak stands beside a crown on a red cushion",
+    caption: "King William III, painted by Nicolaas Pieneman in 1856",
+    author: "Nicolaas Pieneman",
+    ...PD,
+    source: commons("Portrait of King Willem III of the Netherlands, Nicolaas Pieneman (1856).jpg"),
+  },
+  "multatuli": {
+    alt: "Old photograph of a man with swept-back hair, a heavy moustache and a dark bow tie",
+    caption: "Photograph by César Mitkiewicz, 1864",
+    author: "César Mitkiewicz",
+    ...PD,
+    source: commons("Portret van de schrijver Multatuli (cropped).jpg"),
+  },
+  "havelaar-1860": {
+    alt: "A plain grey book cover with the printed title 'Max Havelaar, of de koffij-veilingen der Nederlandsche Handel-Maatschappij, door Multatuli', Amsterdam, 1860",
+    caption: "The cover of the first edition of Max Havelaar, 1860",
+    author: "Enkidu1947",
+    ...PD,
+    source: commons("Omslag eerste druk max havelaar 1860.jpg"),
+  },
 }

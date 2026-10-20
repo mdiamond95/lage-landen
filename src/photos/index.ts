@@ -207,6 +207,13 @@ import baarleBorder from './baarle-border.jpg'
 import moresnetMap from './moresnet-map.jpg'
 import conscience from './conscience.jpg'
 import williamLeaves1840 from './william-leaves-1840.jpg'
+// Unit 10
+import thorbecke from './thorbecke.jpg'
+import williamIiKing from './william-ii-king.jpg'
+import grondwet1848 from './grondwet-1848.jpg'
+import williamIiiKing from './william-iii-king.jpg'
+import multatuli from './multatuli.jpg'
+import havelaar1860 from './havelaar-1860.jpg'
 import semperAugustus from './semper-augustus.jpg'
 import silverFleet from './silver-fleet.jpg'
 import slaveryMonument from './slavery-monument.jpg'
@@ -502,6 +509,12 @@ const files: Record<PhotoId, string> = {
   'moresnet-map': moresnetMap,
   conscience,
   'william-leaves-1840': williamLeaves1840,
+  'thorbecke': thorbecke,
+  'william-ii-king': williamIiKing,
+  'grondwet-1848': grondwet1848,
+  'william-iii-king': williamIiiKing,
+  'multatuli': multatuli,
+  'havelaar-1860': havelaar1860,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })
