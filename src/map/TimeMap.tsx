@@ -1,6 +1,7 @@
 import { useId, useMemo, type ReactNode } from 'react'
 import { activeAt, eventAt, type FlowTone, type HistArea, type TimeStory } from '../data/timeline'
-import { CITY_H, countries, DELTA_H, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, type Frame } from './geo'
+import { AFRICA_H, CITY_H, countries, DELTA_H, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, type Frame, type GeoFeature } from './geo'
+import { AfricaBase, africaCountries } from './AfricaBase'
 import { AmsterdamBase } from './AmsterdamBase'
 import { DeltaBase, deltaProvinces } from './DeltaBase'
 import { LowlandsMap } from './LowlandsMap'
@@ -12,19 +13,20 @@ import { usePlayback } from './usePlayback'
 // doesn't care which way the ring winds.
 const polygon = (frame: Frame, coords: [number, number][]) => `M${coords.map((c) => frame.toXY(c).join(',')).join('L')}Z`
 
-const regionShapes = [...countries, ...provinces]
+const lowlandsShapes = [...countries, ...provinces]
 const tones: FlowTone[] = ['asia', 'atlantic', 'enslaved']
 
 // `fresh` marks land that changed hands in the stage on screen, so it stands out.
-// Land split between two sides is hatched in both their colours. On the delta's own
-// base, provinces come from its detailed coastline.
-type AreaProps = { area: HistArea; frame: Frame; uid: string; fresh: false | 'fill' | 'outline'; delta: boolean }
+// Land split between two sides is hatched in both their colours. `regions` name shapes
+// of the story's own base: the delta's detailed provinces, Africa's countries, or the
+// Low Countries' countries and provinces.
+type AreaProps = { area: HistArea; frame: Frame; uid: string; fresh: false | 'fill' | 'outline'; regionShapes: GeoFeature[] }
 
-function Area({ area, frame, uid, fresh, delta }: AreaProps) {
+function Area({ area, frame, uid, fresh, regionShapes }: AreaProps) {
   const cls = `hist-area hist-area-${area.kind ?? 'sea'}${fresh === 'fill' ? ' hist-area-new' : fresh === 'outline' ? ' hist-area-flash' : ''}`
   const style = area.kind === 'contested' ? { fill: `url(#${uid}-hatch)` } : undefined
   if (area.shape) return <path d={polygon(frame, area.shape)} className={cls} style={style} />
-  const shapes = (delta ? deltaProvinces : regionShapes).filter((f) => area.regions?.includes(f.properties.id!))
+  const shapes = regionShapes.filter((f) => area.regions?.includes(f.properties.id!))
   const clipId = `${uid}-${area.name.replace(/\W+/g, '-')}`
   return (
     <>
@@ -80,12 +82,14 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
       story.base === 'world'
         ? makeWorldFrame(story.bounds ?? [[-98, 8], [152, -5], [27, 64], [27, -46]])
         : story.bounds
-          ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : story.base === 'delta' ? DELTA_H : MAP_H)
+          ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : story.base === 'delta' ? DELTA_H : story.base === 'africa' ? AFRICA_H : MAP_H)
           : lowlandsFrame,
     [story],
   )
   const { toXY, linePath } = frame
-  const Base = story.base === 'amsterdam' ? AmsterdamBase : story.base === 'world' ? WorldBase : story.base === 'delta' ? DeltaBase : LowlandsBase
+  const Base =
+    story.base === 'amsterdam' ? AmsterdamBase : story.base === 'world' ? WorldBase : story.base === 'delta' ? DeltaBase : story.base === 'africa' ? AfricaBase : LowlandsBase
+  const regionShapes = story.base === 'delta' ? deltaProvinces : story.base === 'africa' ? africaCountries : lowlandsShapes
   const shown = (item: { end?: number }) => item.end === undefined || year <= item.end
   const fresh = highlightFresh && (event.fresh ?? story.fresh ?? 'fill')
   const areas = (story.areas ?? [])
@@ -96,7 +100,7 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
         area={a}
         frame={frame}
         uid={uid}
-        delta={story.base === 'delta'}
+        regionShapes={regionShapes}
         fresh={(a.kind ?? 'sea') !== 'sea' && a.from === event.from && a.from > story.min && fresh}
       />
     ))

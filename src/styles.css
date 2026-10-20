@@ -575,3 +575,13 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .key-flooded { width: 12px; height: 10px; background: #6f9fcb; border: 1px solid #2f5f8f; border-radius: 2px; }
 .hist-breach rect { fill: #2f5f8f; stroke: #b3261e; stroke-width: 2; }
 .key-breach { width: 9px; height: 9px; background: #2f5f8f; border: 2px solid #b3261e; border-radius: 1px; }
+
+/* Unit 13: Belgium's coal belt is a hatch-like dark grey over the yellow of Belgium;
+   collieries and ironworks are black squares with an orange rim, like a furnace. On
+   the Central Africa map, today's borders are thin and pale, so the colony stands out. */
+.hist-area-coal { fill: #4a4a4a; fill-opacity: 0.45; stroke: #2b2b2b; stroke-width: 0.8; }
+.hist-area-coal.hist-area-new { fill: #4a4a4a; stroke: #1d1d1f; }
+.key-coal { width: 12px; height: 10px; background: rgba(74, 74, 74, 0.45); border: 1px solid #2b2b2b; border-radius: 2px; }
+.hist-mine rect { fill: #1d1d1f; stroke: #e07a12; stroke-width: 2; }
+.key-mine { width: 9px; height: 9px; background: #1d1d1f; border: 2px solid #e07a12; border-radius: 1px; }
+.africa-map .africa-border { stroke: #b9b2a0; stroke-width: 0.6; }

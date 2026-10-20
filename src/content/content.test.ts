@@ -20,6 +20,9 @@ import { kingdomStory } from '../data/kingdom'
 import { railsStory } from '../data/rails'
 import { occupationStory } from '../data/occupation'
 import { deltaStory } from '../data/delta'
+import { industryStory } from '../data/industry'
+import { congoStory } from '../data/congo'
+import congoTopology from '../data/congo.topo.json'
 import { charts } from '../data/charts'
 import { eventAt } from '../data/timeline'
 import { peopleIn, trees } from '../data/families'
@@ -271,6 +274,8 @@ describe('time maps in lessons', () => {
     rails: railsStory,
     occupation: occupationStory,
     delta: deltaStory,
+    industry: industryStory,
+    congo: congoStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -286,6 +291,8 @@ describe('time maps in lessons', () => {
     rails: [railsStory.min, railsStory.max],
     occupation: [occupationStory.min, occupationStory.max],
     delta: [deltaStory.min, deltaStory.max],
+    industry: [industryStory.min, industryStory.max],
+    congo: [congoStory.min, congoStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -329,6 +336,7 @@ describe.each([
   ['railways and canals', railsStory],
   ['occupation and liberation', occupationStory],
   ['flood and Delta Works', deltaStory],
+  ['railways and coal', industryStory],
 ])('%s time map', (_, story) => {
   const { min, max, events, sites, labels, lines, areas = [] } = story
   const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7
@@ -425,6 +433,38 @@ describe('world trade map', () => {
     const enslaved = lines.filter((l) => /enslaved|slave/i.test(l.name))
     expect(enslaved.length).toBeGreaterThan(0)
     for (const l of enslaved) expect(l.tone, l.name).toBe('enslaved')
+  })
+})
+
+describe('Congo map', () => {
+  const { min, max, events, sites, labels, lines, areas = [] } = congoStory
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const countries = new Set((feature(congoTopology as any, (congoTopology as any).objects.countries) as any).features.map((f: any) => f.properties.id))
+  // The Congo basin, from the Atlantic to the great lakes.
+  const inAfrica = ([lon, lat]: [number, number]) => lon > 11 && lon < 32 && lat > -15 && lat < 6
+
+  it('puts every area, line, site and label on the Central Africa map', () => {
+    for (const a of areas) {
+      expect(a.regions?.length ?? 0, a.name).toBeGreaterThan(0)
+      for (const id of a.regions ?? []) expect(countries.has(id), `${a.name} ${id}`).toBe(true)
+      for (const c of a.clip ?? []) expect(inAfrica(c), `${a.name} ${c}`).toBe(true)
+    }
+    for (const l of lines) for (const c of l.coords) expect(inAfrica(c), `${l.name} ${c}`).toBe(true)
+    for (const s of sites) expect(inAfrica(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inAfrica(l.at), l.text).toBe(true)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels, ...lines, ...areas]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
   })
 })
 
