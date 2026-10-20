@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 22 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(22)
+  it('has 26 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(26)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -29,5 +29,9 @@ describe('time map through the eras', () => {
     expect(at(1815).some((x) => 'kind' in x && x.kind === 'belgium')).toBe(false)
     expect(at(1830).some((x) => 'kind' in x && x.kind === 'belgium')).toBe(true)
     expect(at(1839).some((x) => 'kind' in x && x.kind === 'duchy')).toBe(true)
+    // The railway map starts at 1856; Luxembourg leaves the Dutch crown in 1890.
+    expect(at(1856).some((x) => 'kind' in x && x.kind === 'duchy')).toBe(true)
+    expect(at(1890).some((x) => 'kind' in x && x.kind === 'duchy')).toBe(false)
+    expect(at(1890).some((x) => 'text' in x && x.text === 'UNITED KINGDOM OF THE NETHERLANDS')).toBe(false)
   })
 })

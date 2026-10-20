@@ -16,6 +16,7 @@ import { amsterdamStory } from '../data/amsterdam'
 import { empireStory } from '../data/empire'
 import { bordersStory } from '../data/borders'
 import { kingdomStory } from '../data/kingdom'
+import { railsStory } from '../data/rails'
 import { charts } from '../data/charts'
 import { eventAt } from '../data/timeline'
 import { peopleIn, trees } from '../data/families'
@@ -45,7 +46,8 @@ const isVisual = (e: Exercise) =>
   ((e.type === 'truemyth' || e.type === 'gap') && e.visual !== undefined) ||
   (e.type === 'choice' && (e.visual !== undefined || e.options.some((o) => o.art || o.photo))) ||
   (e.type === 'odd' && e.items.every((i) => i.photo)) ||
-  (e.type === 'voices' && e.voices.some((v) => v.photo))
+  (e.type === 'voices' && e.voices.some((v) => v.photo)) ||
+  (e.type === 'sort' && (e.visual !== undefined || e.items.every((i) => i.photo)))
 
 describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
@@ -80,6 +82,10 @@ describe.each(files)('%s', (file) => {
   it('reads a primary source and links causes to effects', () => {
     expect(asks.some((e) => e.type === 'gap')).toBe(true)
     expect(asks.some((e) => e.type === 'cause')).toBe(true)
+  })
+
+  it('sorts things into groups', () => {
+    expect(asks.some((e) => e.type === 'sort')).toBe(true)
   })
 
   it('has an odd one out told apart by pictures', () => {
@@ -254,6 +260,7 @@ describe('time maps in lessons', () => {
     empire: empireStory,
     borders: bordersStory,
     kingdom: kingdomStory,
+    rails: railsStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -266,6 +273,7 @@ describe('time maps in lessons', () => {
     empire: [empireStory.min, empireStory.max],
     borders: [bordersStory.min, bordersStory.max],
     kingdom: [kingdomStory.min, kingdomStory.max],
+    rails: [railsStory.min, railsStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -306,13 +314,16 @@ describe.each([
   ['Spanish Netherlands', spanishStory],
   ['border-change', bordersStory],
   ['one kingdom, then two', kingdomStory],
+  ['railways and canals', railsStory],
 ])('%s time map', (_, story) => {
   const { min, max, events, sites, labels, lines, areas = [] } = story
   const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7
 
   it('has areas, sites and labels on real regions and coordinates', () => {
     for (const a of areas) {
-      expect(a.regions?.length, a.name).toBeGreaterThan(0)
+      // Land is drawn with provinces; a lake pumped dry (the Haarlemmermeer) has a shape.
+      expect((a.regions?.length ?? 0) + (a.shape?.length ?? 0), a.name).toBeGreaterThan(0)
+      for (const c of a.shape ?? []) expect(inFrame(c), `${a.name} ${c}`).toBe(true)
       for (const id of a.regions ?? []) expect(regionIds.provinces.has(id) || regionIds.countries.has(id), `${a.name} ${id}`).toBe(true)
       for (const c of a.clip ?? []) expect(inFrame(c), `${a.name} ${c}`).toBe(true)
       if (a.to !== undefined) expect(a.to, a.name).toBeGreaterThanOrEqual(a.from)

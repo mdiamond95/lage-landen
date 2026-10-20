@@ -1,6 +1,7 @@
 import { Art } from '../art/Art'
 import { FamilyTree } from '../art/FamilyTree'
 import { LineChart } from '../art/LineChart'
+import { PillarDiagram } from '../art/PillarDiagram'
 import { PolderSlider } from '../art/PolderSlider'
 import type { Visual } from '../content/schema'
 import { amsterdamStory } from '../data/amsterdam'
@@ -8,6 +9,7 @@ import { bordersStory } from '../data/borders'
 import { burgundyStory } from '../data/burgundy'
 import { empireStory } from '../data/empire'
 import { kingdomStory } from '../data/kingdom'
+import { railsStory } from '../data/rails'
 import { revoltStory } from '../data/revolt'
 import { romanStory } from '../data/roman'
 import { spanishStory } from '../data/spanish'
@@ -28,6 +30,7 @@ const stories = {
   empire: empireStory,
   borders: bordersStory,
   kingdom: kingdomStory,
+  rails: railsStory,
 }
 
 type TimeMapProps = {
@@ -50,6 +53,7 @@ export function VisualView({ visual, label }: { visual: Visual; label: string })
   if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} />
   if (visual.kind === 'family-tree') return <FamilyTree tree={visual.tree} hide={visual.hide} />
   if (visual.kind === 'chart') return <LineChart chart={visual.chart} until={visual.until} />
+  if (visual.kind === 'pillars') return <PillarDiagram hide={visual.hide} only={visual.only} />
   if (visual.kind === 'compare') return <CompareMap story={stories[visual.map]} years={visual.years} />
   return (
     <div className="map-frame">

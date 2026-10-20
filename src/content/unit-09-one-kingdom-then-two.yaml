@@ -891,6 +891,21 @@ lessons:
           - [William I wants to marry a Belgian Catholic, He gives up his throne in 1840]
         explain: >-
           The line drawn in 1839 is, with small changes, the border between the Netherlands and Belgium today.
+      - type: sort
+        prompt: Read the map of 1839. Which country did each town end up in?
+        visual: { kind: time-map, map: kingdom, year: 1839 }
+        groups: [The Netherlands, Belgium, Grand Duchy of Luxembourg]
+        items:
+          - { label: Maastricht, group: 0 }
+          - { label: Venlo, group: 0 }
+          - { label: Antwerp, group: 1 }
+          - { label: Liège, group: 1 }
+          - { label: Arlon, group: 1 }
+          - { label: Luxembourg city, group: 2 }
+        explain: >-
+          The treaty of 1839 split Limburg and Luxembourg. Maastricht and Venlo stayed Dutch, with the rest of
+          Limburg along the Maas; the French-speaking west of Luxembourg, round Arlon, went to Belgium, and the rest stayed a
+          grand duchy under the Dutch king.
       - type: order
         prompt: Put these in order, oldest first.
         items:

@@ -677,6 +677,20 @@ lessons:
             why: >-
               Right. It won him affection. Jan Willem Pieneman drew the ruins along the Rapenburg canal, where
               whole rows of houses had gone.
+      - type: sort
+        prompt: Who ran the country? Sort these into their time.
+        groups: ['The Republic, before 1795', 'The Batavian Republic, 1795 to 1806', 'Under a Bonaparte, 1806 to 1813']
+        items:
+          - { label: 'Johan de Witt, Grand Pensionary', group: 0, photo: de-witt }
+          - { label: "William III, stadholder", group: 0, photo: william-iii }
+          - { label: Dancing round a liberty tree, group: 1, photo: liberty-tree }
+          - { label: The first National Assembly, group: 1, photo: national-assembly-1796 }
+          - { label: "King Louis Napoleon", group: 2, photo: louis-bonaparte }
+          - { label: The emperor Napoleon, group: 2, photo: napoleon-study }
+        explain: >-
+          The Republic of the stadholders fell when the French and the Patriots came in 1795. The Batavian Republic
+          held its first National Assembly in 1796. In 1806 Napoleon made his brother Louis king of Holland, and
+          in 1810 he took the country into France itself, until 1813.
       - type: cause
         prompt: Link each cause to its effect.
         pairs:

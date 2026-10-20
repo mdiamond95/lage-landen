@@ -872,6 +872,20 @@ lessons:
           - [Louis XIV claims the south for his Spanish wife, France takes Lille and Tournai in 1668]
           - [French guns bombard Brussels, The guilds rebuild the Grand Place]
         explain: The south lost towns to France, but its painters and builders made it shine.
+      - type: sort
+        prompt: North or south? Sort these paintings by where they were painted.
+        groups: [The Dutch Republic, The Spanish Netherlands]
+        items:
+          - { label: "The Night Watch, by Rembrandt", group: 0, photo: night-watch }
+          - { label: "The Milkmaid, by Vermeer", group: 0, photo: milkmaid }
+          - { label: "The Merry Drinker, by Frans Hals", group: 0, photo: merry-drinker }
+          - { label: "Self-portrait, by Judith Leyster", group: 0, photo: leyster }
+          - { label: "The Elevation of the Cross, by Rubens", group: 1, photo: raising-cross }
+          - { label: "An archduke's gallery, by David Teniers", group: 1, photo: teniers-gallery }
+        explain: >-
+          Amsterdam, Delft and Haarlem were in the Republic, where merchants and town guards bought the art.
+          Rubens worked in Antwerp and Teniers in Brussels, in the Spanish Netherlands, where the church and the
+          court were the great patrons.
       - type: order
         prompt: Put these in order, oldest first.
         items:

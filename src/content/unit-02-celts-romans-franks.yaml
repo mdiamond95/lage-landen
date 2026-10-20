@@ -717,6 +717,22 @@ lessons:
           - [Lothair, Got the middle kingdom in 843]
           - [Charles the Bald, Got the western kingdom]
           - [Baldwin Iron Arm, First count of Flanders]
+      - type: sort
+        prompt: Roman or Frankish? Sort these finds and buildings.
+        groups: [Roman, Frankish]
+        items:
+          - { label: A gilded helmet found at Deurne, group: 0, photo: deurne-helmet }
+          - { label: The town wall of Tongeren, group: 0, photo: tongeren-wall }
+          - { label: The baths of Heerlen, group: 0, photo: heerlen-thermen }
+          - { label: An altar to Nehalennia, group: 0, photo: nehalennia-altar }
+          - { label: Golden bees from a king's grave in Tournai, group: 1, photo: childeric-bees }
+          - { label: A brooch from Dorestad, group: 1, photo: dorestad-brooch }
+          - { label: The palace chapel at Aachen, group: 1, photo: aachen-chapel }
+          - { label: The Utrecht Psalter, group: 1, photo: utrecht-psalter }
+        explain: >-
+          The helmet, the wall, the baths and the altar are Roman, from the first to the fourth centuries. The
+          bees come from the grave of Childeric, father of Clovis, who died in 481; the brooch, the chapel and the
+          psalter are from the time of Charlemagne and his son, around 800.
       - type: odd
         prompt: Which of these is the odd one out?
         items:

@@ -658,6 +658,19 @@ lessons:
             why: Artevelde was a Ghent citizen, not a prince, and he had died in 1345.
           - label: The duke of Brabant
             why: Brabant passed to Burgundy too, but later, in the 1400s.
+      - type: sort
+        prompt: Whose land was it in the 1300s? Sort these buildings by the lord who ruled where they stand.
+        groups: [County of Flanders, County of Holland, Bishop of Utrecht]
+        items:
+          - { label: The Gravensteen in Ghent, group: 0, photo: gravensteen }
+          - { label: The belfry of Bruges, group: 0, photo: bruges-belfry }
+          - { label: The Cloth Hall of Ypres, group: 0, photo: ypres-cloth-hall }
+          - { label: The Ridderzaal in The Hague, group: 1, photo: ridderzaal }
+          - { label: The Dom tower in Utrecht, group: 2, photo: utrecht-dom }
+        explain: >-
+          Ghent, Bruges and Ypres were the three great cloth towns of Flanders. The counts of Holland built the
+          Ridderzaal at their hunting lodge in The Hague, and the bishop of Utrecht ruled his own lands from the
+          city of the Dom.
       - type: odd
         prompt: Which of these buildings is the odd one out?
         items:

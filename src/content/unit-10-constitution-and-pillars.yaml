@@ -1,0 +1,862 @@
+id: unit-10
+number: 10
+title: Constitution and pillars
+era: 1848 to 1914
+summary: In 1848 a frightened king lets Thorbecke write a constitution that still shapes the Netherlands. Colonial profits from Java pay for railways while Multatuli shames the country with Max Havelaar. Catholics, Protestants and socialists each build a world of their own, the pillars, and workers and women fight for the vote. Trains, canals and science make a modern country, and Van Gogh paints the poor of Brabant.
+note: >-
+  One lesson in this unit is about Dutch colonial rule in the East Indies, today's Indonesia: forced
+  cultivation, famine and the war in Aceh, in which tens of thousands of people died. It is told plainly,
+  without celebrations.
+lessons:
+  - id: u10-l1
+    title: Thorbecke's constitution
+    icon: book
+    sources:
+      - title: "Parlement.com, Grondwetsherziening 1848 (in Dutch)"
+        url: https://www.parlement.com/id/vh8lnhrpfxtu/grondwetsherziening_1848
+      - title: "Canon van Nederland, De Grondwet (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/grondwet
+      - title: "Parlement.com, Historische ontwikkeling kiesstelsels en kiesrecht (in Dutch)"
+        url: https://www.parlement.com/id/vhnnmt7ltkw9/historische_ontwikkeling_kiesstelsels_en
+      - title: "Wikipedia (Dutch), Grondwetsherziening van 1848"
+        url: https://nl.wikipedia.org/wiki/Grondwetsherziening_van_1848
+      - title: "Wikipedia (Dutch), Aprilbeweging"
+        url: https://nl.wikipedia.org/wiki/Aprilbeweging
+    exercises:
+      - type: story
+        title: A king changes his mind
+        body: >-
+          In 1848 revolutions swept Paris, Berlin and Vienna. In The Hague, King William II took fright and,
+          in his own words, turned from very conservative to very liberal in a single night. He asked a
+          professor from Leiden to write a new constitution. It still shapes how the Netherlands is governed.
+        visual: { kind: photo, photo: grondwet-1848 }
+      - type: who
+        photo: thorbecke
+        clues:
+          - I was born in Zwolle in 1798, the son of a tobacco maker.
+          - I taught law at the University of Leiden.
+          - In 1844 I and eight other members of parliament proposed a new constitution, and the king refused it.
+          - In 1848 the king asked me to lead the committee that wrote one.
+        options: [Johan Rudolph Thorbecke, Abraham Kuyper, Samuel van Houten, Gijsbert Karel van Hogendorp]
+        answer: 0
+        explain: >-
+          Johan Rudolph Thorbecke, painted by Johan Heinrich Neuman. He led three governments, from 1849, 1862
+          and 1871, and died in office in 1872. His statue stands on the Thorbeckeplein in Amsterdam.
+      - type: truemyth
+        statement: King William II said that in 1848 he changed from very conservative to very liberal in one night.
+        visual: { kind: photo, photo: william-ii-king }
+        answer: true
+        explain: >-
+          True, by his own account. With revolutions all round, he went behind his ministers' backs and let a
+          committee under Thorbecke draft a new constitution on 17 March 1848. It was proclaimed on 3 November.
+          William II died the next March.
+      - type: gap
+        prompt: The first page of the new constitution, signed by William II. Its key rule is often quoted in a single line. Fill the gap.
+        quote: The King is inviolable; the ministers are ___.
+        source: The principle of the Dutch constitution of 1848 (translated from the Dutch)
+        visual: { kind: photo, photo: grondwet-1848 }
+        options: [responsible, appointed, obedient, elected]
+        answer: 0
+        explain: >-
+          Responsible. From 1848 ministers, not the king, answer to parliament for what the government does. The
+          king can do no wrong, because he no longer decides alone.
+      - type: choice
+        prompt: Read the chart. In 1880, about how many adult men had the vote?
+        visual: { kind: chart, chart: voters }
+        answer: 1
+        options:
+          - label: About 1 in 50
+            why: More than that, though still very few.
+          - label: About 1 in 8
+            why: >-
+              Right, about 12%. The constitution of 1848 let men elect the Second Chamber directly, but only if
+              they paid enough tax. Women could not vote at all.
+          - label: About half
+            why: Half of men only had the vote by about 1900.
+          - label: All of them
+            why: All men over 25 got the vote in 1917.
+      - type: choice
+        prompt: Read the chart. When did the share of men who could vote jump the most?
+        visual: { kind: chart, chart: voters }
+        answer: 2
+        options:
+          - label: In the 1850s
+            why: It hardly moved in the 1850s and 1860s.
+          - label: In the 1870s
+            why: It crept from 11% to 12%.
+          - label: In the 1890s
+            why: >-
+              Right. A new election law of 1896 gave the vote to men with savings, exams, a decent wage or a
+              house of their own. By 1900 about half of all men could vote.
+          - label: After 1918
+            why: By 1918 every man over 25 already had the vote.
+      - type: choice
+        prompt: In 1853 the Pope restored Catholic bishops in the Netherlands, with an archbishop in Utrecht. Thousands of Protestants signed petitions against it, in the April Movement. What happened to Thorbecke, who had allowed it?
+        visual: { kind: photo, photo: william-iii-king }
+        answer: 1
+        options:
+          - label: He was made a count
+            why: He was never given a title.
+          - label: His government fell
+            why: >-
+              Right. The new king, William III, painted here in 1856, sided with the protesters, and Thorbecke
+              resigned. The bishops stayed: under the constitution the church ran its own affairs.
+          - label: He became archbishop
+            why: Thorbecke was a Lutheran, and a lawyer.
+          - label: He was banished
+            why: He came back as prime minister in 1862.
+      - type: pin
+        prompt: Pin Zwolle, where Thorbecke was born, on the IJssel.
+        place: zwolle
+        okKm: 25
+        fullKm: 10
+        explain: >-
+          Zwolle, capital of Overijssel. An old Hanseatic town on the IJssel.
+      - type: scrub
+        prompt: In 1848, how far had the railway come? Drag the slider to a year when trains already ran from Amsterdam all the way to Rotterdam.
+        map: rails
+        start: 1839
+        answer: [1847, 1914]
+        explain: >-
+          From 1847, when the Holland line reached Rotterdam through Leiden and The Hague. In 1848 the Netherlands
+          still had only two railways.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Revolutions break out across Europe in 1848, William II agrees to a new constitution]
+          - [Ministers become responsible to parliament, The king can no longer govern alone]
+          - [The constitution allows freedom of education, Churches can open schools of their own]
+          - [Only men who pay enough tax can vote, About one man in nine has a say]
+        explain: >-
+          The constitution of 1848 made the Netherlands a parliamentary monarchy. It took another seventy years
+          for everyone to get the vote.
+
+  - id: u10-l2
+    title: Coffee, sugar and Max Havelaar
+    icon: quill
+    note: >-
+      This lesson is about Dutch colonial rule on Java and Sumatra, in today's Indonesia: forced labour,
+      famine, and a long colonial war in Aceh in which tens of thousands of people were killed.
+    sources:
+      - title: "Canon van Nederland, Max Havelaar (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/maxhavelaar
+      - title: "Canon van Nederland, Indonesië (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/indonesie
+      - title: "Multatuli, Max Havelaar, translated by Alphonse Nahuys, 1868 (Project Gutenberg)"
+        url: https://www.gutenberg.org/ebooks/70128
+      - title: "Kartini, Letters of a Javanese Princess, translated by Agnes Louise Symmers, 1920 (Project Gutenberg)"
+        url: https://www.gutenberg.org/ebooks/34647
+      - title: "Bijdragen en Mededelingen betreffende de Geschiedenis der Nederlanden 105, 1990, on the colonial surplus (in Dutch, DBNL)"
+        url: https://dbnl.org/tekst/_bij005199001_01/_bij005199001_01_0025.php
+      - title: "Wikipedia (Dutch), Cultuurstelsel"
+        url: https://nl.wikipedia.org/wiki/Cultuurstelsel
+      - title: "Wikipedia (Dutch), Atjehoorlog"
+        url: https://nl.wikipedia.org/wiki/Atjehoorlog
+      - title: "Wikipedia (Dutch), Ethische politiek"
+        url: https://nl.wikipedia.org/wiki/Ethische_politiek
+    exercises:
+      - type: story
+        title: Profit from Java
+        body: >-
+          From 1830 the Dutch made the farmers of Java grow coffee, sugar and indigo for Europe, under what they
+          called the Cultivation System. The profits paid for much of the Dutch state, and for its first
+          railways. In 1860 a former colonial official published a novel that told the Dutch what it cost.
+        visual: { kind: photo, photo: nhm-semarang }
+      - type: choice
+        prompt: Under the Cultivation System, what did a Javanese village have to do?
+        visual: { kind: photo, photo: tobacco-java }
+        answer: 0
+        options:
+          - label: Grow crops for the government on part of its land, or work for it about 66 days a year
+            why: >-
+              Right. In principle a fifth of the land, in practice often more and the best of it. The crops went
+              at fixed prices to the Netherlands Trading Society, which shipped them to the Netherlands and sold
+              them at auction. Local rulers and officials earned a percentage, so they pushed for more.
+          - label: Pay its taxes in Dutch guilders
+            why: The point was to be paid in crops, not money.
+          - label: Send its young men to the Dutch army
+            why: That was not part of the system.
+          - label: Buy cloth made in the Netherlands
+            why: Dutch cloth was sold in Java, but villages were not forced to buy it.
+      - type: choice
+        prompt: In the 1850s, how much of the Dutch state's income came from the profits of the colony?
+        visual: { kind: photo, photo: nhm-semarang }
+        answer: 2
+        options:
+          - label: About 1%
+            why: Far more.
+          - label: About 10%
+            why: More than that.
+          - label: About a third
+            why: >-
+              Right, about 31% from 1851 to 1860. The money paid off debts, built railways, and in 1863 paid
+              compensation to slave owners in Suriname and the Antilles, as Unit 7 told.
+          - label: All of it
+            why: Taxes at home still brought in most of it.
+      - type: who
+        photo: multatuli
+        clues:
+          - I was born in Amsterdam in 1820 and went to the East Indies at eighteen.
+          - In 1856 I became assistant resident of Lebak, on Java, and accused the local regent of abusing his people.
+          - My superiors would not listen, so I resigned.
+          - In 1859, poor and in a room in Brussels, I wrote a novel in about a month, under a Latin pen name.
+        options: [Multatuli, Louis Couperus, Abraham Kuyper, Herman Schaepman]
+        answer: 0
+        explain: >-
+          Multatuli, "I have suffered much", the pen name of Eduard Douwes Dekker. Max Havelaar appeared in 1860.
+      - type: gap
+        prompt: Max Havelaar opens with a smug Amsterdam merchant, Batavus Droogstoppel, who cares only for profit. Fill the gap in the book's famous first line.
+        quote: I am a ___-broker, and live at No. 37 Laurier Canal, Amsterdam.
+        source: Multatuli, Max Havelaar, 1860, translated by Alphonse Nahuys, 1868
+        visual: { kind: photo, photo: havelaar-1860 }
+        options: [coffee, sugar, tea, tobacco]
+        answer: 0
+        explain: >-
+          Coffee. The full title is Max Havelaar, or the Coffee Auctions of the Netherlands Trading Society. Inside
+          Droogstoppel's dull story is Havelaar's, and the tale of Saidjah and Adinda, two young Javanese ruined by
+          the system. Today a fair-trade label carries the name Max Havelaar.
+      - type: truemyth
+        statement: Max Havelaar ended the Cultivation System the year it came out.
+        visual: { kind: photo, photo: havelaar-1860 }
+        answer: false
+        explain: >-
+          A myth. The book shocked readers and made Multatuli famous, which frustrated him, because the policy
+          barely changed at first. Laws of 1870 opened Java to private planters; forced coffee growing lasted
+          into the 1900s.
+      - type: choice
+        prompt: In 1873 the Dutch went to war with the sultanate of Aceh, in the north of Sumatra, shown here at the start of the war. Why?
+        visual: { kind: photo, photo: aceh-kraton }
+        answer: 3
+        options:
+          - label: Aceh had attacked Java
+            why: Aceh never attacked Java.
+          - label: To free enslaved people there
+            why: That was not the reason given.
+          - label: To stop Britain taking the Netherlands' own colony
+            why: In 1871 Britain had agreed to leave Aceh to the Dutch.
+          - label: To bring the last independent state on Sumatra under Dutch rule
+            why: >-
+              Right. After the Suez Canal opened in 1869, ships sailed past Aceh, and the Dutch wanted control of
+              the strait and of the pepper coast. The first attack failed, and its general was killed.
+      - type: choice
+        prompt: Joannes van Heutsz, governor of Aceh from 1898, crushed its resistance and in 1904 became governor-general of the Indies. How long did the Aceh War last, by the Dutch count?
+        visual: { kind: photo, photo: van-heutsz }
+        answer: 2
+        options:
+          - label: About a year
+            why: The first expedition alone failed within weeks.
+          - label: About ten years
+            why: Longer.
+          - label: About thirty years, 1873 to 1904
+            why: >-
+              Right, and the people of Aceh say they never surrendered, until the Dutch left in 1942. Estimates of
+              the Acehnese dead run from about 50,000 to over 100,000. Some 2,000 soldiers of the Dutch army were
+              killed in action and over 10,000 died of disease, and about 25,000 forced porters died.
+          - label: About a hundred years
+            why: Shorter, though the fighting flared up again later.
+      - type: gap
+        prompt: In 1901 the young Queen Wilhelmina announced a new course for the colonies, which became known as the Ethical Policy. Fill the gap in her speech to parliament.
+        quote: The Netherlands has a moral ___ to fulfil towards the people of these regions.
+        source: Speech from the throne, 17 September 1901 (translated from the Dutch)
+        visual: { kind: photo, photo: van-deventer }
+        options: [calling, debt, claim, profit]
+        answer: 0
+        explain: >-
+          A moral calling: "een zedelijke roeping". The lawyer Conrad Theodor van Deventer, pictured, had written
+          in 1899 that the Netherlands owed Java a debt of honour for the profits it had taken. The policy promised
+          irrigation, emigration and schools, but it also went hand in hand with more military expeditions.
+      - type: voices
+        prompt: Multatuli wrote in 1860. Forty years later Kartini, a Javanese regent's daughter, answered a Dutch friend who asked whether Java was still as he had described. What is her answer?
+        voices:
+          - who: Multatuli, at the end of Max Havelaar
+            when: 1860 (translated by Alphonse Nahuys, 1868)
+            text: "\"The book is a medley; there is no order, nothing but a desire to make a sensation. The style is bad; the author is inexperienced; no talent, no method.\" Good! good!... all very well!... but the Javanese are ill-treated!"
+            photo: multatuli
+          - who: Kartini, to Stella Zeehandelaar
+            when: Jepara, 12 January 1900 (translated by Agnes Louise Symmers, 1920)
+            text: I thank God that I can answer "No" to your question as to whether the condition of our people is as sad as Multatuli has described it. No, the history of Saïdjah and Adinda belongs to the past. ... The Government cares much for the well-being of the people of Java, but alas it allows them to be burdened by heavy taxes, under the load of which they can move but slowly.
+            photo: kartini
+        options:
+          - Things are better than in his day, but the people are still poor and heavily taxed
+          - Multatuli made it all up
+          - Nothing at all has changed since 1860
+          - Java should become part of the Netherlands
+        answer: 0
+        explain: >-
+          Kartini, born in 1879, wrote her letters in Dutch. She wanted schools for Javanese girls, and opened one
+          in 1903. She died in 1904, aged 25, days after giving birth. Her letters, published in 1911, made her
+          famous; Indonesia keeps Kartini Day on her birthday, 21 April.
+
+  - id: u10-l3
+    title: Schools and pillars
+    icon: cross
+    sources:
+      - title: "Canon van Nederland, Onderwijs (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/onderwijs
+      - title: "Parlement.com, Kabinet-Kappeyne van de Coppello (1877-1879), on the petitions of 1878 (in Dutch)"
+        url: https://www.parlement.com/id/vh8lnhrp8wsd/kabinet_kappeyne_van_de_coppello_1877
+      - title: "Wikipedia (Dutch), Verzuiling"
+        url: https://nl.wikipedia.org/wiki/Verzuiling
+      - title: "Wikipedia (Dutch), Pacificatie van 1917"
+        url: https://nl.wikipedia.org/wiki/Pacificatie_van_1917
+      - title: "Wikipedia (Dutch), Abraham Kuyper"
+        url: https://nl.wikipedia.org/wiki/Abraham_Kuyper
+      - title: "Wikipedia (Dutch), Herman Schaepman"
+        url: https://nl.wikipedia.org/wiki/Herman_Schaepman
+      - title: "Abraham Kuyper, Sphere Sovereignty, 1880, in James D. Bratt (ed.), Abraham Kuyper: A Centennial Reader, 1998"
+        url: https://en.wikipedia.org/wiki/Sphere_sovereignty
+    exercises:
+      - type: story
+        title: Four worlds under one roof
+        body: >-
+          Catholics, orthodox Protestants and socialists each built a world of their own: a party, a newspaper,
+          trade unions, schools, and later a radio station. People lived inside their pillar from cradle to grave,
+          and only the leaders met at the top. Tap a pillar to bring it forward.
+        visual: { kind: pillars }
+      - type: choice
+        prompt: The constitution of 1848 allowed anyone to found a school. Why were church schools still at a disadvantage until 1917?
+        visual: { kind: photo, photo: school-struggle-end }
+        answer: 1
+        options:
+          - label: They were banned in the cities
+            why: They were allowed everywhere.
+          - label: The state paid for public schools, and church schools had to pay their own way
+            why: >-
+              Right. Parents paid twice, through taxes and fees. This cartoon of 1917 shows the end of the school
+              struggle: millions brought in for church schools.
+          - label: Their teachers could not be Dutch
+            why: Their teachers were Dutch.
+          - label: They had to teach in Latin
+            why: They taught in Dutch like any other school.
+      - type: choice
+        prompt: In 1878 a new law made schools better, and dearer. Protestants and Catholics each gathered signatures against it. About how many signed?
+        visual: { kind: photo, photo: school-struggle-end }
+        answer: 3
+        options:
+          - label: About 5,000
+            why: Far more.
+          - label: About 50,000
+            why: More than that.
+          - label: About 5 million
+            why: That was more than the whole population of the country.
+          - label: About 470,000
+            why: >-
+              Right, some 305,000 Protestants and 164,000 Catholics, about one in ten Dutch people. The king
+              signed the law anyway, but the petitions drew Protestants and Catholics together.
+      - type: who
+        photo: kuyper
+        clues:
+          - I was born in Maassluis in 1837, the son of a preacher, and became one myself.
+          - In 1872 I founded a newspaper, De Standaard.
+          - In 1879 I founded the first national political party in the Netherlands, and in 1880 a university.
+          - From 1901 to 1905 I was prime minister.
+        options: [Abraham Kuyper, Herman Schaepman, Johan Rudolph Thorbecke, Pieter Jelles Troelstra]
+        answer: 0
+        explain: >-
+          Abraham Kuyper, leader of the orthodox Protestants. His Anti-Revolutionary Party was named against the
+          French Revolution: God, not the people, was sovereign. Newspaper, party, university and church made his
+          followers the first pillar.
+      - type: gap
+        prompt: Opening his Free University in Amsterdam in 1880, Kuyper said every part of life belonged to God, each with its own sphere. Fill the gap in his most quoted line.
+        quote: There is not a square ___ in the whole domain of our human existence over which Christ, who is Sovereign over all, does not cry, "Mine!"
+        source: Abraham Kuyper, Sphere Sovereignty, speech of 20 October 1880 (translated from the Dutch)
+        visual: { kind: photo, photo: vu-keizersgracht }
+        options: [inch, mile, metre, acre]
+        answer: 0
+        explain: >-
+          Inch: in Dutch "geen duimbreed", not a thumb's breadth. The university began in this house on the
+          Keizersgracht, with five professors and five students.
+      - type: choice
+        prompt: Herman Schaepman, a priest from Tubbergen in Twente, sat in parliament from 1880. In 1888 he did something new for a Catholic leader. What?
+        visual: { kind: photo, photo: schaepman }
+        answer: 2
+        options:
+          - label: He became the first Catholic prime minister
+            why: He was never prime minister.
+          - label: He founded a Catholic radio station
+            why: Radio came in the 1920s, after his death in 1903.
+          - label: He joined Kuyper's Protestants in a coalition that won the election
+            why: >-
+              Right. Catholics and orthodox Protestants had distrusted each other for centuries, but both wanted
+              money for their schools. Liberals called it the monster alliance. They won again in 1901, under
+              Kuyper.
+          - label: He left the church to join the socialists
+            why: He stayed a priest all his life.
+      - type: choice
+        prompt: The diagram has a gap. Which broadcaster belonged to the socialist pillar?
+        visual: { kind: pillars, hide: socialist.radio, only: radio }
+        answer: 0
+        options:
+          - label: VARA
+            why: >-
+              Right, founded in 1925 by workers' radio clubs. Dutch public broadcasting is still shared out among
+              associations like these: KRO, NCRV, VARA and AVRO live on in merged form today.
+          - label: KRO
+            why: The KRO, 1925, was the Catholic broadcaster.
+          - label: NCRV
+            why: The NCRV, 1924, was the Protestant broadcaster.
+          - label: AVRO
+            why: The AVRO, 1927, was for everyone, and liberal in spirit.
+      - type: sort
+        prompt: Build the pillars. Put each body into its pillar.
+        groups: [Catholic, Protestant, Socialist]
+        items:
+          - { label: KRO, group: 0 }
+          - { label: De Tijd, group: 0 }
+          - { label: Anti-Revolutionary Party, group: 1 }
+          - { label: Free University, group: 1 }
+          - { label: NCRV, group: 1 }
+          - { label: SDAP, group: 2 }
+          - { label: Het Volk, group: 2 }
+          - { label: VARA, group: 2 }
+        explain: >-
+          Each pillar had its own party, newspaper and broadcaster. The liberals and the "general" side had theirs
+          too, but never closed themselves off in the same way.
+      - type: truemyth
+        statement: In a pillarised town, a Catholic and a Protestant family might live in the same street but read different papers, listen to different radio and buy bread from different bakers.
+        visual: { kind: pillars }
+        answer: true
+        explain: >-
+          True. Even sports clubs, choirs and shops could belong to a pillar, and marrying across the lines was
+          rare. The leaders made deals at the top, which kept the peace. The pillars only crumbled from the 1960s.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The state pays only for public schools, Protestants and Catholics fight for their own schools]
+          - [Catholics and Protestants both want school money, They form a coalition in 1888]
+          - [Socialists want a vote and a voice for workers, They build a pillar of their own]
+          - [The Pacification of 1917, Church schools get the same money as public schools]
+        explain: >-
+          The deal of 1917 gave the churches their schools and gave every man the vote. To this day about two in
+          three Dutch children go to a school run by an association, most of them Christian, paid for by the state.
+
+  - id: u10-l4
+    title: Workers, women and the vote
+    icon: flame
+    sources:
+      - title: "Canon van Nederland, Het Kinderwetje van Van Houten (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/kinderwetje
+      - title: "Canon van Nederland, Aletta Jacobs (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/alettajacobs
+      - title: "Parlement.com, Historische ontwikkeling kiesstelsels en kiesrecht (in Dutch)"
+        url: https://www.parlement.com/id/vhnnmt7ltkw9/historische_ontwikkeling_kiesstelsels_en
+      - title: "Wikipedia (Dutch), Palingoproer"
+        url: https://nl.wikipedia.org/wiki/Palingoproer
+      - title: "Wikipedia (Dutch), Spoorwegstakingen van 1903"
+        url: https://nl.wikipedia.org/wiki/Spoorwegstakingen_van_1903
+      - title: "Wikipedia (Dutch), Ferdinand Domela Nieuwenhuis"
+        url: https://nl.wikipedia.org/wiki/Ferdinand_Domela_Nieuwenhuis
+      - title: "Wikipedia (Dutch), Pieter Jelles Troelstra"
+        url: https://nl.wikipedia.org/wiki/Pieter_Jelles_Troelstra
+    exercises:
+      - type: story
+        title: Children in the factories
+        body: >-
+          Factories came late to the Netherlands, but they came: cotton mills in Twente, pottery in Maastricht,
+          shipyards in Amsterdam. Children worked in them from a young age, for long days. Workers had no vote,
+          and in 1874 a liberal MP took the first step to protect them.
+        visual: { kind: photo, photo: sphinx-1910 }
+      - type: choice
+        prompt: This print of 1874 thanks Samuel van Houten for his law, the first one proposed by a member of parliament rather than the government. What did the Children's Law ban?
+        visual: { kind: photo, photo: child-law-print }
+        answer: 1
+        options:
+          - label: All work by anyone under 16
+            why: Not nearly so much.
+          - label: Factory work by children under 12
+            why: >-
+              Right. It did not cover farm work or work at home, and had few inspectors, so many children kept
+              working. A labour law of 1889 went further, and from 1901 children from 6 to 12 had to go to school.
+          - label: Night work by women
+            why: That came in 1889.
+          - label: Work on Sundays
+            why: The Children's Law did not deal with Sundays.
+      - type: truemyth
+        statement: In the 1840s, almost half the workers in some textile mills in Twente were children under fifteen.
+        visual: { kind: photo, photo: sphinx-1910 }
+        answer: true
+        explain: >-
+          True. A count of 1841 found a third of the workers in a cotton mill at Enschede were under fifteen, and
+          46% in one at Lonneker. In Friesland's textile works it was over a quarter.
+      - type: choice
+        prompt: In July 1886 police in Amsterdam's Jordaan tried to stop a game, shown here in a French magazine. The riots that followed left about 26 dead. What was the game?
+        visual: { kind: photo, photo: eel-riot }
+        answer: 0
+        options:
+          - label: Eel-pulling, grabbing a live eel hung over a canal from a boat
+            why: >-
+              Right, the Eel Riot. The game had been banned as cruel. When a policeman cut the rope, the crowd
+              turned on the police, and the army fired into the barricades the next day. Poverty in the
+              crowded Jordaan lay behind the anger.
+          - label: Football in the street
+            why: Football was still new in the Netherlands, and not banned.
+          - label: Skating on the canals
+            why: It was July.
+          - label: A card game for money
+            why: Not this time.
+      - type: who
+        photo: domela
+        clues:
+          - I was born in Amsterdam in 1846 and became a Lutheran preacher.
+          - In 1879 I left the church to fight for the workers, and founded a paper called Justice for All.
+          - In 1887 I was jailed for insulting the king.
+          - In 1888 Frisian voters made me the first socialist in parliament.
+        options: [Ferdinand Domela Nieuwenhuis, Pieter Jelles Troelstra, Samuel van Houten, Abraham Kuyper]
+        answer: 0
+        explain: >-
+          Ferdinand Domela Nieuwenhuis, "Our Ferdinand" to his followers. Parliament disappointed him, and he
+          became an anarchist. His statue stands in Amsterdam, near the Jordaan.
+      - type: choice
+        prompt: Pieter Jelles Troelstra, a lawyer and poet from Leeuwarden, chose another road. In 1894 he and eleven others founded a party. What did they want?
+        visual: { kind: photo, photo: troelstra }
+        answer: 3
+        options:
+          - label: To bring back the Dutch Republic
+            why: They had other aims.
+          - label: To overthrow the state by force
+            why: That was closer to Domela's anarchists.
+          - label: To protect the church schools
+            why: That was Kuyper's and Schaepman's cause.
+          - label: To win the vote and change society through parliament
+            why: >-
+              Right: the Social Democratic Workers' Party, the SDAP. Its founders were nicknamed the twelve
+              apostles. By 1913 it had 18 seats. Troelstra's one call for revolution, in November 1918, failed.
+      - type: choice
+        prompt: In January 1903 railwaymen struck to back dockers in Amsterdam, and won. Soldiers guarded the lines. What did Kuyper's government do next?
+        visual: { kind: photo, photo: rail-strike-1903 }
+        answer: 2
+        options:
+          - label: Gave the railwaymen the vote
+            why: That came for all men in 1917.
+          - label: Nationalised the railways
+            why: The railways stayed in the hands of companies until 1938.
+          - label: Passed laws making strikes on the railways a crime
+            why: >-
+              Right. The workers called them the strangling laws. A general strike against them in April 1903
+              collapsed, and thousands lost their jobs. The socialist unions joined in a new federation, the NVV,
+              in 1906.
+          - label: Resigned
+            why: Kuyper stayed in office until 1905.
+      - type: who
+        photo: aletta-jacobs
+        clues:
+          - I was born in Sappemeer in 1854, the eighth of eleven children of a village doctor.
+          - In 1871 I wrote to Thorbecke for leave to study at a university, and he let me.
+          - In 1878 I became the first woman doctor in the Netherlands.
+          - In 1883 I tried to put my name on the voters' roll.
+        options: [Aletta Jacobs, Kartini, Queen Emma, Jo van Gogh-Bonger]
+        answer: 0
+        explain: >-
+          Aletta Jacobs. The law said "Dutch residents" could vote, and did not say men. The courts turned her
+          away, and in 1887 the constitution was changed to say male residents. She led the fight for women's
+          votes until it was won.
+      - type: order
+        prompt: Put the steps towards everyone's vote in order.
+        items:
+          - { label: Men who pay enough tax elect the Second Chamber, year: 1848, when: '1848' }
+          - { label: The constitution says only men may vote, year: 1887, when: '1887' }
+          - { label: A new election law gives about half of men the vote, year: 1896, when: '1896' }
+          - { label: Every man over 25 gets the vote, year: 1917, when: '1917' }
+          - { label: Women get the vote, year: 1919, when: '1919' }
+        explain: >-
+          Women could stand for parliament from 1917, a year before they could vote; Suze Groeneweg, a socialist,
+          was elected in 1918. Women first voted in a general election in 1922.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Children work long days in the factories, The Children's Law of 1874]
+          - [Aletta Jacobs tries to register as a voter, The constitution is changed to say only men may vote]
+          - [Railwaymen strike and win in January 1903, Kuyper makes railway strikes a crime]
+          - [Workers have no vote and few rights, Socialists found the SDAP in 1894]
+        explain: >-
+          Workers, women and the churches all pushed against a state run by a small group of well-off men.
+          The Pacification of 1917 settled the vote and the schools at once.
+
+  - id: u10-l5
+    title: A modern country
+    icon: road
+    sources:
+      - title: "Canon van Nederland, De eerste spoorlijn (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/eerstespoorlijn
+      - title: "Canon van Nederland, De Eerste Wereldoorlog (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/eerstewereldoorlog
+      - title: "Wikipedia (Dutch), Spoorlijn Amsterdam - Rotterdam"
+        url: https://nl.wikipedia.org/wiki/Spoorlijn_Amsterdam_-_Rotterdam
+      - title: "Wikipedia (Dutch), Noordzeekanaal"
+        url: https://nl.wikipedia.org/wiki/Noordzeekanaal
+      - title: "Wikipedia (Dutch), Haarlemmermeer"
+        url: https://nl.wikipedia.org/wiki/Haarlemmermeer
+      - title: "Wikipedia (Dutch), Moerdijkbruggen"
+        url: https://nl.wikipedia.org/wiki/Moerdijkbruggen
+      - title: "Wikipedia (Dutch), Luxemburgse kwestie and the end of the personal union"
+        url: https://nl.wikipedia.org/wiki/Luxemburgse_kwestie
+      - title: "Nobel Prize, Facts on the Nobel Prizes in Physics and Chemistry"
+        url: https://www.nobelprize.org/prizes/lists/all-nobel-prizes/
+    exercises:
+      - type: story
+        title: Trains, canals and a new queen
+        body: >-
+          The Netherlands was slow to build railways, but from 1860 the state stepped in. Canals cut through the
+          dunes gave Amsterdam and Rotterdam new ways to the sea. Press play to watch the country get connected,
+          from the first train in 1839 to a neutral country in 1914.
+        visual: { kind: time-map, map: rails }
+      - type: choice
+        prompt: On 20 September 1839 the first Dutch train ran, from Amsterdam to Haarlem. Its engine was named after a bird. Which?
+        visual: { kind: photo, photo: first-train-1839 }
+        answer: 1
+        options:
+          - label: De Ooievaar, the Stork
+            why: A good Dutch bird, but not this engine.
+          - label: De Arend, the Eagle
+            why: >-
+              Right. De Arend and its sister engine Snelheid, Speed, were built in England. The trip of about 16
+              km took around half an hour. Belgium had had trains since 1835.
+          - label: De Valk, the Falcon
+            why: Not this one.
+          - label: De Zwaan, the Swan
+            why: Not this one.
+      - type: scrub
+        prompt: Drag the slider to the first stage when the Haarlemmermeer, between Haarlem and Leiden, has been pumped dry.
+        map: rails
+        start: 1839
+        answer: [1852, 1914]
+        explain: >-
+          On 1 July 1852 the lake was dry, after three steam pumping stations had worked for four years. Unit 1
+          showed one of them, the Cruquius.
+      - type: choice
+        prompt: Drag the divider from 1847 to 1914. Which part of the country had no railway at all in 1847?
+        visual: { kind: compare, map: rails, years: [1847, 1914] }
+        answer: 3
+        options:
+          - label: Amsterdam
+            why: Amsterdam had both of the first lines.
+          - label: Utrecht
+            why: Trains ran through Utrecht to Arnhem from 1843 and 1845.
+          - label: The Hague
+            why: The Holland line reached The Hague in 1843.
+          - label: The whole north, from Friesland to Groningen
+            why: >-
+              Right. The north got its first lines from the state, from 1863. By 1914 a train could reach almost
+              every town.
+      - type: scrub
+        prompt: Drag the slider to a year when ships could sail straight from the North Sea to Amsterdam through a canal in the dunes.
+        map: rails
+        start: 1856
+        answer: [1876, 1914]
+        explain: >-
+          King William III opened the North Sea Canal at IJmuiden on 1 November 1876. Rotterdam had got its own
+          new way to the sea, the Nieuwe Waterweg, in 1872.
+      - type: choice
+        prompt: The railway bridge at Moerdijk, over the Hollands Diep, opened on 1 January 1872. What was special about it?
+        visual: { kind: photo, photo: moerdijk-bridge }
+        answer: 0
+        options:
+          - label: It was the longest bridge in Europe
+            why: >-
+              Right, fourteen arches of about a hundred metres each, built on the bank and floated into place.
+              Trains could now run from Rotterdam to Breda and Antwerp without a ferry.
+          - label: It was made of wood
+            why: It was iron.
+          - label: It could be lowered under the water
+            why: Part of it turned to let ships through.
+          - label: It was paid for by Belgium
+            why: It was built by the Dutch state.
+      - type: odd
+        prompt: Three of these scientists won a Nobel Prize in its first years. Which is the odd one out, and why?
+        items:
+          - { label: Jacobus van 't Hoff, photo: van-t-hoff }
+          - { label: Hendrik Antoon Lorentz, photo: lorentz }
+          - { label: Heike Kamerlingh Onnes, photo: kamerlingh-onnes }
+          - { label: Abraham Kuyper, photo: kuyper }
+        answer: 3
+        reasons:
+          - He was a politician, not a scientist, and won no Nobel Prize
+          - He was the only one who never taught at a university
+          - He was the only one born after 1850
+        reason: 0
+        explain: >-
+          Van 't Hoff won the very first Nobel Prize in Chemistry, in 1901; Lorentz shared the Physics prize in
+          1902 with Pieter Zeeman; Kamerlingh Onnes, who first made helium liquid, won it in 1913. Kuyper was a
+          professor at his own university, and the only one of the four born before 1850.
+      - type: who
+        photo: wilhelmina-1885
+        clues:
+          - I was born in The Hague in 1880, the only child of an old king and his young second wife.
+          - When I was ten my father died, and my mother ruled for me.
+          - Luxembourg would not have me, because I was a girl.
+          - I was crowned queen in Amsterdam in 1898, aged eighteen.
+        options: [Wilhelmina, Emma, Juliana, Sophie]
+        answer: 0
+        explain: >-
+          Wilhelmina, here as a small girl. She reigned for fifty years, until 1948, through two world wars. Her
+          mother Emma was regent from 1890 to 1898.
+      - type: scrub
+        prompt: Drag the slider to a year when Luxembourg no longer shared its ruler with the Netherlands.
+        map: rails
+        start: 1839
+        answer: [1890, 1914]
+        explain: >-
+          From 1890. William III died in November, and Luxembourg's law of succession allowed only men, so its
+          crown went to Adolphe of Nassau.
+      - type: choice
+        prompt: In 1913 the Peace Palace opened in The Hague, paid for by the Scottish-American Andrew Carnegie. Why The Hague?
+        visual: { kind: photo, photo: peace-palace }
+        answer: 1
+        options:
+          - label: It was the capital of the Netherlands
+            why: Amsterdam is the capital; The Hague is the seat of government.
+          - label: The peace conferences of 1899 and 1907 had met there, and set up a court of arbitration
+            why: >-
+              Right. The Permanent Court of Arbitration still sits in the palace, and since 1946 so does the
+              International Court of Justice of the United Nations.
+          - label: Carnegie was born there
+            why: He was born in Dunfermline, Scotland.
+          - label: The Netherlands had won a war
+            why: It had fought no war in Europe since 1839.
+      - type: order
+        prompt: Put the steps to a modern country in order.
+        items:
+          - { label: The first train runs, Amsterdam to Haarlem, year: 1839, when: '1839' }
+          - { label: The Haarlemmermeer is dry, year: 1852, when: '1852' }
+          - { label: The North Sea Canal opens, year: 1876, when: '1876' }
+          - { label: The Rijksmuseum opens, year: 1885, when: '1885' }
+          - { label: Amsterdam Centraal Station opens, year: 1889, when: '1889' }
+          - { label: The Peace Palace opens, year: 1913, when: '1913' }
+        explain: >-
+          The Rijksmuseum and the Centraal Station were both designed by Pierre Cuypers, a Catholic architect from
+          Roermond.
+      - type: choice
+        prompt: In August 1914 war broke out. Dutch soldiers were called up, like these. What did the Netherlands do?
+        visual: { kind: photo, photo: mobilisation-1914 }
+        answer: 2
+        options:
+          - label: It joined France and Britain
+            why: It did not take sides.
+          - label: It joined Germany
+            why: It did not take sides.
+          - label: It stayed neutral, with its army on guard for four years
+            why: >-
+              Right. About 200,000 men were mobilised. Germany invaded neutral Belgium, and about a million Belgians
+              fled north into the Netherlands in October 1914. Unit 11 tells the rest.
+          - label: It invaded Belgium
+            why: Germany did that.
+
+  - id: u10-l6
+    title: Van Gogh and the painters of his time
+    icon: brush
+    sources:
+      - title: "Canon van Nederland, Vincent van Gogh (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/vincentvangogh
+      - title: "Van Gogh Museum, The Potato Eaters"
+        url: https://www.vangoghmuseum.nl/en/collection/s0005V1962
+      - title: "Van Gogh Museum, Jo van Gogh-Bonger"
+        url: https://www.vangoghmuseum.nl/en/art-and-stories/stories/jo-van-gogh-bonger
+      - title: "Wikipedia (Dutch), Haagse School"
+        url: https://nl.wikipedia.org/wiki/Haagse_School
+      - title: "Wikipedia (Dutch), Panorama Mesdag"
+        url: https://nl.wikipedia.org/wiki/Panorama_Mesdag
+      - title: "Wikipedia (Dutch), George Hendrik Breitner"
+        url: https://nl.wikipedia.org/wiki/George_Hendrik_Breitner
+    exercises:
+      - type: story
+        title: A preacher's son with a brush
+        body: >-
+          Vincent van Gogh was born in 1853 in Zundert, in Brabant, the son of a preacher. He was an art dealer,
+          a teacher and a lay preacher before he began to paint, at 27. He painted for only ten years, and sold
+          almost nothing. Today he is the most famous Dutch painter after Rembrandt.
+        visual: { kind: photo, photo: potato-eaters }
+      - type: who
+        photo: van-gogh-self
+        clues:
+          - I was born in Zundert in 1853, and worked for an art dealer in The Hague, London and Paris.
+          - My brother Theo, an art dealer too, sent me money every month.
+          - I painted peasants in Nuenen, then moved to Paris and on to Arles, in the south of France.
+          - I died in 1890, aged 37, at Auvers-sur-Oise.
+        options: [Vincent van Gogh, George Hendrik Breitner, Jozef Israëls, Hendrik Willem Mesdag]
+        answer: 0
+        explain: >-
+          Vincent van Gogh, in a self-portrait painted in Paris in 1887. He painted over 35 self-portraits, many
+          because he could not pay a model.
+      - type: hunt
+        prompt: Van Gogh painted The Potato Eaters in Nuenen in 1885. Find the only light in the room.
+        photo: potato-eaters
+        targets: [[0.38, 0.0, 0.2, 0.22]]
+        explain: >-
+          An oil lamp hangs above the table. Van Gogh wanted to show people who had dug the earth with the same
+          hands they now put in the dish, and so had honestly earned their food.
+      - type: pin
+        prompt: Pin Nuenen, the village near Eindhoven where Van Gogh painted The Potato Eaters.
+        place: nuenen
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Nuenen, in Brabant, where his father was the preacher. Van Gogh lived there from 1883 to 1885.
+      - type: scrub
+        prompt: In 1885 Van Gogh took the train from Brabant to Antwerp, and then to Paris. Drag the slider to the first stage when a railway runs through Eindhoven.
+        map: rails
+        start: 1839
+        answer: [1866, 1914]
+        explain: >-
+          The state line from Breda to Eindhoven and Venlo was finished in 1866, and another ran from Eindhoven to
+          Hasselt in Belgium.
+      - type: odd
+        prompt: Three of these are by Van Gogh. Which is the odd one out, and why?
+        items:
+          - { label: Sunflowers, photo: sunflowers }
+          - { label: Wheatfield with Crows, photo: wheatfield-crows }
+          - { label: The Starry Night, photo: starry-night }
+          - { label: Girl in a White Kimono, photo: breitner-kimono }
+        answer: 3
+        reasons:
+          - It was painted by George Hendrik Breitner in Amsterdam
+          - It was painted before 1850
+          - It was painted in Belgium
+        reason: 0
+        explain: >-
+          Breitner painted Geesje Kwak, a young seamstress, in a kimono in 1894; Japanese prints were the
+          fashion. Van Gogh loved them too. The other three he painted in France between 1888 and 1890.
+      - type: choice
+        prompt: Hendrik Willem Mesdag painted the sea at Scheveningen again and again. In 1881 he and his team painted a picture 14 m high that runs right round a room. What is it?
+        visual: { kind: photo, photo: panorama-mesdag }
+        answer: 1
+        options:
+          - label: The Night Watch
+            why: That is Rembrandt's, from 1642.
+          - label: The Panorama Mesdag, a view of Scheveningen beach and village
+            why: >-
+              Right, about 120 m round, still in its own building in The Hague. You stand on a dune in the middle
+              and look out at the sea, the fishing boats and the village of 1881.
+          - label: A map of the railways
+            why: It is a painting of the coast.
+          - label: The ceiling of the Rijksmuseum
+            why: It is in The Hague.
+      - type: match
+        prompt: Match each painter to what he is known for.
+        pairs:
+          - [Hendrik Willem Mesdag, The sea at Scheveningen]
+          - [Jozef Israëls, Fishermen's families and the poor]
+          - [George Hendrik Breitner, Amsterdam streets in rain and snow]
+          - [Anton Mauve, "Sheep, beaches and quiet landscapes"]
+        explain: Painters of the Hague School and their younger friends. Mauve, a cousin by marriage, gave Van Gogh his first painting lessons.
+      - type: choice
+        prompt: Jo van Gogh-Bonger, Theo's widow, inherited hundreds of Vincent's paintings when Theo died in 1891. What did she do?
+        visual: { kind: photo, photo: jo-bonger }
+        answer: 3
+        options:
+          - label: Sold them all at once to pay debts
+            why: She sold slowly and with care, and kept many.
+          - label: Burned the ones she disliked
+            why: She did not.
+          - label: Gave them to the Rijksmuseum
+            why: The family kept them; they are now in the Van Gogh Museum, opened in 1973.
+          - label: Spent her life making him known, and published his letters to Theo
+            why: >-
+              Right. She lent paintings to exhibitions, sold some to museums, and in 1914 published the letters.
+              Without her, Vincent might have been forgotten.
+      - type: truemyth
+        statement: Van Gogh sold only one painting in his lifetime.
+        visual: { kind: photo, photo: van-gogh-self }
+        answer: false
+        explain: >-
+          A myth, though not far off. The Red Vineyard was sold in Brussels in 1890, but he also sold or traded
+          a few other works, and drawings to his uncle. Hardly anyone bought his art while he lived.

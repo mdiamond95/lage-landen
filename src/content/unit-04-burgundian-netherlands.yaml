@@ -356,6 +356,18 @@ lessons:
           - [Rogier van der Weyden, The Descent from the Cross]
           - [Hans Memling, The Last Judgment in Gdańsk]
           - [Hubert and Jan van Eyck, The Ghent Altarpiece]
+      - type: sort
+        prompt: Three painters of the Burgundian lands. Who painted what?
+        groups: [Jan van Eyck, Rogier van der Weyden, Hans Memling]
+        items:
+          - { label: The Arnolfini Portrait, group: 0, photo: arnolfini }
+          - { label: The Adoration of the Lamb (with his brother Hubert), group: 0, photo: ghent-lamb }
+          - { label: Portrait of a Man in a Red Turban, group: 0, photo: van-eyck-turban }
+          - { label: The Descent from the Cross, group: 1, photo: descent-cross }
+          - { label: The Last Judgment, group: 2, photo: memling-judgment }
+        explain: >-
+          Van Eyck worked in Bruges for Philip the Good, Rogier van der Weyden was town painter of Brussels, and
+          Memling, born in Germany, ran the busiest workshop in Bruges a generation later.
       - type: order
         prompt: Put these in order, oldest first.
         items:

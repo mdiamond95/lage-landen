@@ -714,6 +714,19 @@ lessons:
             why: Flanders fell to Parma in 1584.
           - label: Luxembourg
             why: Luxembourg stayed Spanish throughout.
+      - type: sort
+        prompt: By the Peace of Münster in 1648, which side held each town?
+        groups: [The Dutch Republic, The Spanish king]
+        items:
+          - { label: Brielle, group: 0, photo: brielle-1572 }
+          - { label: Leiden, group: 0, photo: leiden-relief }
+          - { label: Breda, group: 0, photo: surrender-breda }
+          - { label: Antwerp, group: 1, photo: antwerp-town-hall }
+          - { label: Ostend, group: 1, photo: ostend-siege }
+        explain: >-
+          Brielle and Leiden went over to the revolt in 1572, and Leiden held out through the siege of 1574. Breda fell to Spain in 1625, as Velázquez
+          painted it, but Frederick Henry took it back in 1637. Antwerp fell to Parma in 1585, and Ostend to
+          Spinola in 1604 after a siege of three years.
       - type: odd
         prompt: Which of these men is the odd one out?
         items:

@@ -22,8 +22,8 @@ export const eventAt = (events: HistEvent[], year: number) => [...events].revers
 // roads, dams), sites (forts, towns, barriers), text labels, and areas that were
 // still water for a while. Coordinates are [lon, lat] (WGS84).
 // A `flow` is people or goods on the move, drawn as an arrow with moving dashes.
-// A `wall` is a town wall, on the city map.
-export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow' | 'wall'
+// A `wall` is a town wall, on the city map; a `rail` is a railway line.
+export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow' | 'wall' | 'rail'
 // On the world map, flows are ships: to and from Asia, across the Atlantic, or
 // carrying enslaved Africans. Without a tone a flow is people on the move (refugees).
 export type FlowTone = 'asia' | 'atlantic' | 'enslaved'

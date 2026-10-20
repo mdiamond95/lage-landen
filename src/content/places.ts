@@ -86,4 +86,7 @@ export const places: Record<string, Place> = {
   baarle: { name: 'Baarle-Nassau and Baarle-Hertog', lat: 51.442, lon: 4.93, note: 'Where the Dutch-Belgian border runs through houses and shops' },
   kelmis: { name: 'Kelmis', lat: 50.716, lon: 6.012, note: 'The village of Neutral Moresnet, 1816 to 1920' },
   arlon: { name: 'Arlon', lat: 49.683, lon: 5.816, note: 'Went to Belgium with the west of Luxembourg in 1839' },
+  // Unit 10: constitution and pillars
+  zwolle: { name: 'Zwolle', lat: 52.512, lon: 6.094, note: 'Thorbecke was born here in 1798' },
+  nuenen: { name: 'Nuenen', lat: 51.47, lon: 5.552, note: 'Van Gogh painted The Potato Eaters here in 1885' },
 }
