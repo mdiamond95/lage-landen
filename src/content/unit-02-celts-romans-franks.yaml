@@ -391,6 +391,13 @@ lessons:
         place: tournai
         okKm: 30
         explain: Tournai, Roman Turnacum, lies in Hainaut near the French border. A builder found Childeric's grave there in 1653.
+      - type: scrub
+        prompt: Drag the slider to a year when Franks are settled inside the empire, but Roman troops still guard the Rhine.
+        map: roman
+        answer: [358, 405]
+        explain: >-
+          Julian let the Salian Franks settle in 358 in return for soldiers. The Rhine forts were held until soon
+          after 400, when the troops left to defend Italy.
       - type: choice
         prompt: Childeric's grave was full of gold. Which of its gold pieces, shown here, did Napoleon later borrow as an emblem of his empire?
         visual: { kind: photo, photo: childeric-bees }
