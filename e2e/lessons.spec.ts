@@ -454,15 +454,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 31 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 32 snapshots from Caesar to the Delta Works', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('31 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('32 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 31 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 32 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '30')
+  await expect(slider).toHaveAttribute('max', '31')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -509,44 +509,54 @@ test('the time map steps through 31 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
 
   await slider.fill('21')
+  await expect(map.locator('.time-map-title')).toHaveText('1843: To France and Prussia')
+  await expect(map.locator('.hist-area-coal')).toHaveCount(1)
+  await expect(map.locator('.hist-mine').first()).toBeVisible()
+  await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
+  await expect(map.locator('.key-swatch.key-coal')).toHaveCount(1)
+
+  await slider.fill('22')
   await expect(map.locator('.time-map-title')).toHaveText('1856: Trains to Germany')
+  await expect(map.locator('.hist-area-coal')).toHaveCount(0)
+  // Only Limburg's old Domaniale mine; Belgium's collieries belong to the 1843 map.
+  await expect(map.locator('.hist-mine')).toHaveCount(1)
   await expect(map.locator('.hist-rail').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-rail')).toHaveCount(1)
   await expect(map.locator('.hist-fort', { hasText: 'Maastricht' })).toHaveCount(0)
 
-  await slider.fill('23')
+  await slider.fill('24')
   await expect(map.locator('.time-map-title')).toHaveText('1890: Luxembourg goes its own way')
   await expect(map.locator('.hist-area-duchy')).toHaveCount(0)
 
-  await slider.fill('25')
+  await slider.fill('26')
   await expect(map.locator('.time-map-title')).toHaveText('May 1940: Five days of war')
   await expect(map.locator('.hist-rail')).toHaveCount(0)
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
 
-  await slider.fill('26')
+  await slider.fill('27')
   await expect(map.locator('.time-map-title')).toHaveText('November 1944: The Scheldt, and the Hunger Winter')
   await expect(map.locator('.hist-area-free').first()).toBeVisible()
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-free')).toHaveCount(1)
 
-  await slider.fill('27')
+  await slider.fill('28')
   await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
   await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(0)
 
-  await slider.fill('28')
+  await slider.fill('29')
   await expect(map.locator('.time-map-title')).toHaveText('1953: The great flood')
   await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
   await expect(map.locator('.hist-breach')).toHaveCount(4)
   await expect(map.locator('.key-swatch.key-flooded')).toHaveCount(1)
 
-  await slider.fill('29')
+  await slider.fill('30')
   await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
   await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
 
-  await slider.fill('30')
+  await slider.fill('31')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
@@ -1065,4 +1075,80 @@ test('the storm barrier drops its gates at 3 metres, and the polder floods witho
   await expect(barrier.getByRole('img')).toHaveAttribute('aria-label', /no barrier.*floods the polder/)
   await barrier.getByRole('button', { name: 'Put the barrier back' }).click()
   await expect(barrier.getByRole('img')).not.toHaveAttribute('aria-label', /floods the polder/)
+})
+
+test('plays all of unit 13 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'The first trains on the continent',
+    'Coal country',
+    "Leopold's Congo",
+    'The Belgian Congo',
+    'Independence and Lumumba',
+    'Statues, museums and apologies',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 13 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test("Belgium's railway map grows out of Mechelen, over the coal belt", async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'The first trains on the continent', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.time-map-title')).toHaveText('1835: The first train on the continent')
+  await expect(map.locator('.hist-rail')).toHaveCount(1)
+  await expect(map.locator('.hist-area-coal')).toHaveCount(1)
+  await expect(map.locator('.hist-mine')).toHaveCount(5)
+  await expect(map.locator('.key-swatch.key-mine')).toHaveCount(1)
+
+  await year.fill('1843')
+  await expect(map.locator('.time-map-title')).toHaveText('1843: To France and Prussia')
+  await expect(map.locator('.hist-rail')).toHaveCount(11)
+  await expect(map.locator('.hist-alert', { hasText: 'STRIKES' })).toHaveCount(0)
+
+  await year.fill('1886')
+  await expect(map.locator('.hist-alert', { hasText: 'STRIKES' })).toHaveCount(1)
+  await expect(map.locator('.hist-people', { hasText: 'GERMANY' })).toHaveCount(1)
+  await expect(map.locator('.hist-people', { hasText: 'PRUSSIA' })).toHaveCount(0)
+})
+
+test('the Congo map goes from the Free State to the Belgian Congo to independence', async ({ page }) => {
+  await unlock(page, ['u13-l1', 'u13-l2'])
+  await page.getByRole('button', { name: "Leopold's Congo", exact: true }).click()
+  // The content note comes first.
+  await expect(page.locator('.content-note')).toBeVisible()
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.africa-map')).toBeVisible()
+  await expect(map.locator('.time-map-title')).toHaveText('1876: Kingdoms and peoples')
+  await expect(map.locator('.hist-area-ruled')).toHaveCount(0)
+
+  await year.fill('1885')
+  await expect(map.locator('.hist-area-ruled')).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-ruled')).toHaveCount(1)
+
+  await year.fill('1908')
+  await expect(map.locator('.time-map-title')).toHaveText('1908: The Belgian Congo')
+  await expect(map.locator('.hist-area-ruled')).toHaveCount(0)
+  await expect(map.locator('.hist-area-belgium')).toHaveCount(1)
+  await expect(map.locator('.hist-alert', { hasText: 'RUBBER QUOTAS' })).toHaveCount(0)
+
+  await year.fill('1960')
+  await expect(map.locator('.hist-area-free')).toHaveCount(1)
+  await expect(map.locator('.hist-area-contested')).toHaveCount(1)
+  await expect(map.locator('.hist-alert', { hasText: 'KATANGA' })).toHaveCount(1)
 })

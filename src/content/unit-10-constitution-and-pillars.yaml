@@ -574,7 +574,7 @@ lessons:
 
   - id: u10-l5
     title: A modern country
-    icon: road
+    icon: train
     sources:
       - title: "Canon van Nederland, De eerste spoorlijn (in Dutch)"
         url: https://www.canonvannederland.nl/nl/eerstespoorlijn
@@ -740,6 +740,22 @@ lessons:
               fled north into the Netherlands in October 1914. Unit 11 tells the rest.
           - label: It invaded Belgium
             why: Germany did that.
+      - type: choice
+        prompt: Wipe from 1890 to 1914. What has appeared in the far south of Limburg?
+        visual: { kind: compare, map: rails, years: [1890, 1914] }
+        answer: 1
+        options:
+          - label: A new university
+            why: Limburg's university, in Maastricht, came only in 1976.
+          - label: Coal mines
+            why: >-
+              Right. The coal seams of the Ruhr and Liège run under South Limburg. From 1899 new collieries opened at
+              Heerlen, Kerkrade and Hoensbroek, and in 1902 the state set up its own mining company, the Staatsmijnen.
+              The last Dutch mine closed in 1974.
+          - label: A dike against the Maas
+            why: The Maas dikes came after the floods of 1993 and 1995.
+          - label: A border with France
+            why: Limburg borders Belgium and Germany, not France.
 
   - id: u10-l6
     title: Van Gogh and the painters of his time

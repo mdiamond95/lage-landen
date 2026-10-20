@@ -146,6 +146,7 @@ export const congoStory: TimeStory = {
   key: [
     { swatch: 'key-ruled', text: 'The Congo Free State, Leopold II’s own' },
     { swatch: 'key-belgium', text: 'The Belgian Congo' },
+    { swatch: 'key-client', text: 'Ruanda-Urundi, ruled by Belgium' },
     { swatch: 'key-free', text: 'Independent Congo' },
     { swatch: 'key-flow', text: 'Stanley’s journey' },
   ],

@@ -1,15 +1,16 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 31 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
+// through 32 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, Burgundy, revolt, the
-// Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839, the
-// railways and canals of 1839 to 1914, the war of 1940 to 1945, water and the flood of
-// 1953), and stay on the map only from the era's first snapshot to its end, so one era
-// never bleeds into another.
+// Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
+// Belgium's first railways and coal country, the railways and canals of 1839 to 1914,
+// the war of 1940 to 1945, water and the flood of 1953), and stay on the map only from
+// the era's first snapshot to its end, so one era never bleeds into another.
 // The plan's full time map runs to today with about 40 snapshots; this is the first
-// 31, for Units 1 to 12.
+// 32, for Units 1 to 13.
 
 import { bordersStory } from './borders'
 import { burgundyStory } from './burgundy'
+import { industryStory } from './industry'
 import { kingdomStory } from './kingdom'
 import { occupationByYear } from './occupation'
 import { railsStory } from './rails'
@@ -95,6 +96,21 @@ const companiesStory: TimeStory = {
   ],
 }
 
+// Belgium's first railways and the coal belt (Unit 13), up to the start of the next era
+// in 1856. The Netherlands, its first railway and Luxembourg under the Dutch king come
+// from the railways map of the Netherlands.
+const EARLY_RAILS_MAX = 1855
+const before = <T extends { from: number }>(items: T[]) => items.filter((i) => i.from <= EARLY_RAILS_MAX)
+const earlyRailsStory: TimeStory = {
+  ...industryStory,
+  max: EARLY_RAILS_MAX,
+  events: before(industryStory.events),
+  lines: before([...railsStory.lines, ...industryStory.lines]),
+  sites: before([...railsStory.sites, ...industryStory.sites]),
+  labels: before(industryStory.labels),
+  areas: before([...(railsStory.areas ?? []), ...(industryStory.areas ?? []).filter((a) => a.kind === 'coal')]),
+}
+
 // The stage each snapshot shows, taken from its era's own captions unless given here.
 type Snapshot = { story: TimeStory; from: number; event?: Omit<HistEvent, 'from'> }
 
@@ -120,6 +136,7 @@ const snapshots: Snapshot[] = [
   { story: bordersStory, from: 1815 },
   { story: kingdomStory, from: 1830 },
   { story: kingdomStory, from: 1839 },
+  { story: earlyRailsStory, from: 1843 },
   { story: railsStory, from: 1856 },
   { story: railsStory, from: 1876 },
   { story: railsStory, from: 1890 },

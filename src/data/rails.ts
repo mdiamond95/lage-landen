@@ -1,7 +1,8 @@
 // The map for Unit 10: the Netherlands gets connected, 1839 to 1914. Railways spread
 // from the first line between Amsterdam and Haarlem, the state builds its own lines
 // after 1860, new canals give Amsterdam and Rotterdam a way to the sea, the
-// Haarlemmermeer is pumped dry, and in 1890 Luxembourg goes its own way. Each stage
+// Haarlemmermeer is pumped dry, in 1890 Luxembourg goes its own way, and by 1914 the
+// coal mines of South Limburg are working (backported from Unit 13). Each stage
 // shows the main lines open by its year (a line opened in between appears at the next
 // stage). Coordinates are [lon, lat] (WGS84).
 
@@ -21,6 +22,11 @@ const haarlemmermeer: [number, number][] = [
   [4.69, 52.225], [4.6, 52.225], [4.565, 52.26], [4.6, 52.315],
 ]
 
+// The coalfield of South Limburg, from Geleen to Kerkrade, roughly.
+const limburgCoal: [number, number][] = [
+  [5.8, 50.99], [5.9, 51.0], [6.02, 50.93], [6.1, 50.88], [6.08, 50.84], [5.98, 50.845], [5.88, 50.87], [5.8, 50.93],
+]
+
 const areas: HistArea[] = [
   { name: 'Still sea', kind: 'sea', from: RAILS_MIN, regions: ['NL-FL'] },
   { name: 'The Netherlands', kind: 'rebel', from: RAILS_MIN, regions: NETHERLANDS },
@@ -29,6 +35,7 @@ const areas: HistArea[] = [
   // The grand duchy shares the Dutch king until William III dies in 1890.
   ...sides('Luxembourg', ['LUX'], [[RAILS_MIN, 'duchy'], [1890, 'outside']]),
   { name: 'The Haarlemmermeer', kind: 'sea', from: RAILS_MIN, to: 1851, shape: haarlemmermeer },
+  { name: 'The Limburg coalfield', kind: 'coal', from: 1914, shape: limburgCoal },
 ]
 
 const T = {
@@ -136,6 +143,10 @@ const sites: HistSite[] = [
   { name: 'Hoek van Holland', kind: 'fort', from: 1872, at: [4.12, 51.98], label: 'left', note: 'Mouth of the Nieuwe Waterweg, Rotterdam’s new way to the sea' },
   { name: 'Amsterdam Centraal', kind: 'fort', from: 1889, at: [4.9, 52.379], note: 'The central station, on an island in the IJ, opened in 1889' },
   { name: 'Peace Palace', kind: 'fort', from: 1914, at: [4.296, 52.087], note: 'Opened in The Hague in 1913, for courts settling quarrels between states' },
+  { name: 'Domaniale mijn, Kerkrade', kind: 'mine', from: RAILS_MIN, at: [6.06, 50.865], note: 'Coal mined here since the Middle Ages, by the monks of Rolduc' },
+  { name: 'Oranje-Nassau, Heerlen', kind: 'mine', from: 1914, at: [5.98, 50.885], note: 'The first big modern colliery of Limburg, from 1899' },
+  { name: 'Staatsmijn Wilhelmina', kind: 'mine', from: 1914, at: [6.025, 50.86], note: 'The first mine of the state’s own mining company, from 1906' },
+  { name: 'Staatsmijn Emma, Hoensbroek', kind: 'mine', from: 1914, at: [5.925, 50.925], note: 'A state mine, from 1911' },
 ]
 
 const labels: HistLabel[] = [
@@ -198,7 +209,7 @@ const events: HistEvent[] = [
   {
     from: 1914,
     title: '1914: Neutral in a world war',
-    text: 'War breaks out in August. The Dutch army is mobilised, and the Netherlands stays neutral. Germany invades Belgium, and about a million Belgians flee north across the border. In The Hague, the Peace Palace has been open for a year.',
+    text: 'War breaks out in August. The Dutch army is mobilised, and the Netherlands stays neutral. Germany invades Belgium, and about a million Belgians flee north across the border. In The Hague, the Peace Palace has been open for a year. In South Limburg, new coal mines, some of them run by the state, draw miners from all over the country and abroad.',
   },
 ]
 
@@ -220,5 +231,7 @@ export const railsStory: TimeStory = {
     { swatch: 'key-rail', text: 'Railway' },
     { swatch: 'key-canal', text: 'New canal' },
     { swatch: 'key-fort', text: 'Pumping station, locks or landmark' },
+    { swatch: 'key-coal', text: 'Coalfield' },
+    { swatch: 'key-mine', text: 'Coal mine' },
   ],
 }
