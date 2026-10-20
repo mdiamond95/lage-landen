@@ -8,7 +8,7 @@ export type Credit = {
   licenceUrl: string
   // The file's page on Wikimedia Commons.
   source: string
-  // A painting full of detail, saved larger (1600 px) so it can be zoomed into.
+  // A painting full of detail, saved larger (1280 to 1600 px) so it can be zoomed into.
   zoom?: boolean
 }
 
@@ -280,6 +280,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Loyset Liédet',
     ...PD,
     source: commons('BattleofSluys.jpeg'),
+    zoom: true,
   },
   'artevelde-statue': {
     alt: 'Bronze statue of a bearded medieval man in a long tunic, pointing with an outstretched arm',
@@ -390,6 +391,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Hans Memling',
     ...PD,
     source: commons('Hans Memling - Last Judgment Triptych (open) - WGA14829.jpg'),
+    zoom: true,
   },
   'charles-bold': {
     alt: 'Portrait of a young dark-haired man in black, holding a sword hilt, with a gold chain around his shoulders',
@@ -404,6 +406,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Eugène Delacroix',
     ...PD,
     source: commons('Delacroix - Bataille de Nancy.jpg'),
+    zoom: true,
   },
   'mary-burgundy': {
     alt: 'Portrait of a young woman with a high forehead and a tall pointed headdress with a veil, in an arched frame',
