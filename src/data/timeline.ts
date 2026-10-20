@@ -42,7 +42,8 @@ export type HistSite = Dated & {
   note?: string
   // `voc` and `wic` are the trading posts and forts of the two companies, on the world map.
   // A `camp` is a Nazi camp; a `drop` is where Allied bombers dropped food in 1945.
-  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop'
+  // A `breach` is a gap the sea broke in a dike.
+  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number
@@ -55,7 +56,8 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // split or fought over between the two, or taken by France; lands of the emperor in
 // Vienna, or a state run under France; on the city map, a town inside its walls;
 // Belgium from 1830, and a grand duchy held by the Dutch king (Luxembourg); in the
-// Second World War, land under German occupation and land liberated.
+// Second World War, land under German occupation and land liberated; land the sea
+// flooded (1953).
 export type AreaKind =
   | 'sea'
   | 'ruled'
@@ -71,6 +73,7 @@ export type AreaKind =
   | 'duchy'
   | 'occupied'
   | 'free'
+  | 'flooded'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind
@@ -83,8 +86,8 @@ export type TimeStory = {
   // Named in the map's accessible label: "Map of <place> in <year>".
   place: string
   // What the map is drawn on: the Low Countries (the default), the canals of
-  // Amsterdam, or the world.
-  base?: 'lowlands' | 'amsterdam' | 'world'
+  // Amsterdam, the world, or a close-up of the southwest delta with its islands.
+  base?: 'lowlands' | 'amsterdam' | 'world' | 'delta'
   // Two corners, [lon, lat], to zoom the map to; the whole Low Countries if left out.
   bounds?: [[number, number], [number, number]]
   min: number
@@ -103,4 +106,6 @@ export type TimeStory = {
   // highlight (the default, for lands joining a ruler), or outlined, keeping its
   // colour (for lands changing sides in a war).
   fresh?: 'fill' | 'outline'
+  // The slider counts months (see `month`), so it is labelled Month, not Year.
+  months?: boolean
 }

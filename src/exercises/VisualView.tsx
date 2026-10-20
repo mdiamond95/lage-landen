@@ -3,10 +3,12 @@ import { FamilyTree } from '../art/FamilyTree'
 import { LineChart } from '../art/LineChart'
 import { PillarDiagram } from '../art/PillarDiagram'
 import { PolderSlider } from '../art/PolderSlider'
+import { StormBarrier } from '../art/StormBarrier'
 import type { Visual } from '../content/schema'
 import { amsterdamStory } from '../data/amsterdam'
 import { bordersStory } from '../data/borders'
 import { burgundyStory } from '../data/burgundy'
+import { deltaStory } from '../data/delta'
 import { empireStory } from '../data/empire'
 import { kingdomStory } from '../data/kingdom'
 import { occupationStory } from '../data/occupation'
@@ -34,6 +36,7 @@ export const stories = {
   kingdom: kingdomStory,
   rails: railsStory,
   occupation: occupationStory,
+  delta: deltaStory,
 }
 
 type TimeMapProps = {
@@ -53,6 +56,7 @@ export function VisualView({ visual, label }: { visual: Visual; label: string })
   if (visual.kind === 'art') return <Art id={visual.art} className="art art-large" />
   if (visual.kind === 'photo') return <PhotoFigure id={visual.photo} />
   if (visual.kind === 'polder-slider') return <PolderSlider />
+  if (visual.kind === 'storm-barrier') return <StormBarrier />
   if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} />
   if (visual.kind === 'family-tree') return <FamilyTree tree={visual.tree} hide={visual.hide} />
   if (visual.kind === 'chart') return <LineChart chart={visual.chart} until={visual.until} />

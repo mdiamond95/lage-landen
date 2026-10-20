@@ -3,6 +3,7 @@
 // drawn straight between their ends, and the land still under water is shaded
 // with simplified shapes: the map shows what happened where, not exact coastlines.
 
+import { deltaStory } from './delta'
 import type { HistArea, HistEvent, HistLabel, HistLine, HistSite, TimeStory } from './timeline'
 
 export const WATER_MIN = 1916
@@ -17,7 +18,15 @@ const lines: HistLine[] = [
   { name: 'Oosterscheldekering', kind: 'barrier', from: 1986, coords: [[3.72, 51.66], [3.7, 51.63], [3.68, 51.6]] },
 ]
 
+// The flood of 1953 comes from the delta map (Unit 12): the land it put under water
+// and its worst dike breaches, unlabelled at this scale, until East Flevoland falls
+// dry in 1957.
+const FLOOD_END = 1956
+const floodAreas: HistArea[] = (deltaStory.areas ?? []).map((a) => ({ ...a, to: FLOOD_END }))
+const breaches: HistSite[] = deltaStory.sites.filter((s) => s.kind === 'breach').map((s) => ({ ...s, to: FLOOD_END, label: undefined }))
+
 const sites: HistSite[] = [
+  ...breaches,
   { name: 'Hollandse IJssel barrier', kind: 'barrier', from: 1958, at: [4.58, 51.92] },
   { name: 'Maeslantkering', kind: 'barrier', from: 1997, at: [4.16, 51.95], label: 'left' },
 ]
@@ -26,7 +35,7 @@ const labels: HistLabel[] = [
   { text: 'ZUIDERZEE', kind: 'water', from: WATER_MIN, to: 1931, at: [5.38, 52.78] },
   { text: 'IJSSELMEER', kind: 'water', from: 1932, at: [5.35, 52.83] },
   { text: 'MARKERMEER', kind: 'water', from: 1975, at: [5.13, 52.47] },
-  { text: 'FLOODED', kind: 'alert', from: 1953, to: 1956, at: [3.95, 51.64] },
+  { text: 'FLOODED', kind: 'alert', from: 1953, to: FLOOD_END, at: [4.45, 51.5] },
   // Each polder carries the year it fell dry.
   { text: '1930', kind: 'land', from: 1930, at: [5.02, 52.84] },
   { text: '1942', kind: 'land', from: 1942, at: [5.76, 52.72] },
@@ -64,6 +73,7 @@ const areas: HistArea[] = [
     regions: ['NL-FL'],
     clip: [[5.2, 52.58], [5.3, 52.555], [5.4, 52.49], [5.59, 52.36], [5.69, 52.29], [6.2, 52.2], [6.2, 52.0], [5.0, 52.0], [5.0, 52.58]],
   },
+  ...floodAreas,
 ]
 
 const events: HistEvent[] = [
@@ -101,5 +111,7 @@ export const waterStory: TimeStory = {
     { swatch: 'key-dam', text: 'Dam' },
     { swatch: 'key-barrier', text: 'Storm barrier' },
     { swatch: 'key-sea', text: 'Still sea' },
+    { swatch: 'key-flooded', text: 'Flooded in 1953' },
+    { swatch: 'key-breach', text: 'Dike breach' },
   ],
 }

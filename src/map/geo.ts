@@ -20,6 +20,8 @@ export const MAP_W = 600
 export const MAP_H = 680
 // The Amsterdam map is about as wide as it is tall.
 export const CITY_H = 560
+// The delta of Zeeland and South Holland is wider than it is tall.
+export const DELTA_H = 470
 // The world map is wide and low: from the Americas to Japan, Norway to Tasmania.
 export const WORLD_H = 340
 

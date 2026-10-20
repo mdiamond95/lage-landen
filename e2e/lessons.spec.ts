@@ -6,7 +6,7 @@ async function answer(page: Page) {
   if (await page.locator('.story').count()) return
   if (await page.locator('.content-note').count()) return
   if (await page.locator('.exercise-scrub').count()) {
-    const slider = page.getByRole('slider', { name: 'Year' })
+    const slider = page.locator('.exercise-scrub input[type="range"]')
     await slider.fill(await slider.getAttribute('max') ?? '0')
   } else if (await page.locator('.hunt-image').count()) {
     const box = (await page.locator('.hunt-image img').boundingBox())!
@@ -144,6 +144,13 @@ test('the water works map drains the Zuiderzee and builds the Delta Works', asyn
   await expect(map.locator('.hist-dam')).toHaveCount(1)
   await expect(map.locator('.hist-area')).toHaveCount(3)
   await expect(map.locator('.hist-water')).toHaveText('IJSSELMEER')
+
+  // The flood of 1953, from the delta map: flooded land and four breaches, gone by 1958.
+  await map.getByRole('slider', { name: 'Year' }).fill('1953')
+  await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
+  await expect(map.locator('.hist-breach')).toHaveCount(4)
+  await map.getByRole('slider', { name: 'Year' }).fill('1958')
+  await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
 
   await map.getByRole('slider', { name: 'Year' }).fill('1997')
   await expect(map.locator('.hist-area')).toHaveCount(0)
@@ -447,15 +454,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 29 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 31 snapshots from Caesar to the Delta Works', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('29 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('31 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 29 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 31 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '28')
+  await expect(slider).toHaveAttribute('max', '30')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -529,6 +536,17 @@ test('the time map steps through 29 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(0)
 
   await slider.fill('28')
+  await expect(map.locator('.time-map-title')).toHaveText('1953: The great flood')
+  await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
+  await expect(map.locator('.hist-breach')).toHaveCount(4)
+  await expect(map.locator('.key-swatch.key-flooded')).toHaveCount(1)
+
+  await slider.fill('29')
+  await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
+  await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
+  await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
+
+  await slider.fill('30')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
@@ -953,7 +971,7 @@ test('the occupation map moves month by month from May 1940 to liberation', asyn
   await page.getByRole('button', { name: 'Five days in May', exact: true }).click()
 
   const map = page.locator('.time-map')
-  const month = map.getByRole('slider', { name: 'Year' })
+  const month = map.getByRole('slider', { name: 'Month' })
   await expect(map.locator('.time-map-title')).toHaveText('May 1940: Five days of war')
   await expect(month).toHaveAttribute('aria-valuetext', 'May 1940')
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
@@ -972,4 +990,79 @@ test('the occupation map moves month by month from May 1940 to liberation', asyn
   await month.fill(String(1945 * 12 + 4))
   await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
   await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
+})
+
+test('plays all of unit 12 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'A dam, a slump and a safety net',
+    'The night of the flood',
+    'The Delta Works',
+    'Pillars crumble, Provo plays',
+    'Suriname and the Caribbean',
+    'Tolerance and its limits',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 12 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the delta map floods in 1953 and closes the sea arms one by one', async ({ page }) => {
+  await unlock(page, ['u12-l1'])
+  await page.getByRole('button', { name: 'The night of the flood', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.delta-map')).toBeVisible()
+  await expect(map.locator('.time-map-title')).toHaveText('1952: Open to the sea')
+  await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
+
+  await year.fill('1953')
+  await expect(map.locator('.time-map-title')).toHaveText('1953: The flood')
+  await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
+  await expect(map.locator('.hist-breach')).toHaveCount(4)
+  await expect(map.locator('.key-swatch.key-flooded')).toHaveCount(1)
+  await expect(map.locator('.hist-dam')).toHaveCount(0)
+
+  await year.fill('1971')
+  await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
+  await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
+  await expect(map.locator('.hist-dam')).toHaveCount(6)
+
+  await year.fill('1997')
+  await expect(map.locator('.time-map-title')).toHaveText("1997: Rotterdam's gates")
+  await expect(map.locator('.hist-dam')).toHaveCount(8)
+  await expect(map.locator('.hist-barrier')).not.toHaveCount(0)
+})
+
+test('the storm barrier drops its gates at 3 metres, and the polder floods without it', async ({ page }) => {
+  await unlock(page, ['u12-l1', 'u12-l2'])
+  const foot = page.locator('.lesson-foot')
+  await page.getByRole('button', { name: 'The Delta Works', exact: true }).click()
+  for (let step = 0; step < 10 && !(await page.locator('.storm-barrier').count()); step++) {
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  const barrier = page.locator('.storm-barrier')
+  const sea = barrier.getByRole('slider', { name: 'Sea level in metres above NAP' })
+  await expect(barrier.getByRole('img')).toHaveAttribute('aria-label', /gates are open/)
+
+  await sea.fill('3')
+  await expect(barrier.getByRole('img')).toHaveAttribute('aria-label', /gates are closed/)
+  await expect(barrier.getByRole('img')).not.toHaveAttribute('aria-label', /floods the polder/)
+
+  await sea.fill('5')
+  await barrier.getByRole('button', { name: 'Take the barrier away' }).click()
+  await expect(barrier.getByRole('img')).toHaveAttribute('aria-label', /no barrier.*floods the polder/)
+  await barrier.getByRole('button', { name: 'Put the barrier back' }).click()
+  await expect(barrier.getByRole('img')).not.toHaveAttribute('aria-label', /floods the polder/)
 })

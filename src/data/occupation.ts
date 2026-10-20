@@ -194,6 +194,7 @@ export const occupationStory: TimeStory = {
   min: OCCUPATION_MIN,
   max: OCCUPATION_MAX,
   format: formatMonth,
+  months: true,
   events,
   lines,
   sites,
@@ -228,6 +229,7 @@ export const occupationByYear: TimeStory = {
   min: 1940,
   max: 1945,
   format: String,
+  months: false,
   events: snapshotMonths.map(([year, m]) => {
     const e = [...events].reverse().find((ev) => ev.from <= m)!
     return { ...e, from: year }

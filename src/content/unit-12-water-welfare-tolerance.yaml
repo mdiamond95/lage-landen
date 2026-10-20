@@ -1,0 +1,817 @@
+id: unit-12
+number: 12
+title: Water, welfare and tolerance
+era: 1932 to today
+summary: In 1932 the Afsluitdijk closes off the Zuiderzee. After the war the Netherlands rebuilds, sends half a million emigrants abroad, Canada first, and builds a welfare state. In 1953 the sea breaks through in the southwest, and the Delta Works are the answer. In the 1960s the pillars crumble and Provo mocks authority. Suriname becomes independent in 1975, and the Antilles are split up in 2010. The country becomes known for tolerating soft drugs and for the first laws on euthanasia and same-sex marriage, and it has to face its share in the failure at Srebrenica.
+note: >-
+  The last lesson of this unit tells of the genocide at Srebrenica in July 1995, when more than 8,000 Bosniak men
+  and boys were murdered after the fall of a town that Dutch UN soldiers were there to protect. It is told plainly,
+  without celebrations.
+lessons:
+  - id: u12-l1
+    title: A dam, a slump and a safety net
+    icon: polder
+    sources:
+      - title: "Wikipedia, Afsluitdijk"
+        url: https://en.wikipedia.org/wiki/Afsluitdijk
+      - title: "Wikipedia, Hendrik Lorentz"
+        url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
+      - title: "Vroege Vogels (BNNVARA), the Amsterdamse Bos and the crisis of the 1930s (in Dutch)"
+        url: https://www.bnnvara.nl/vroegevogels/artikelen/bos-profiteert-van-crisis
+      - title: "Wikipedia, Willem Drees"
+        url: https://en.wikipedia.org/wiki/Willem_Drees
+      - title: "CBS, timeline of social security: 1957, the AOW (in Dutch)"
+        url: https://www.cbs.nl/nl-nl/visualisaties/tijdlijn-sociale-zekerheid/1957-algemene-ouderdoms-wet--aow--
+      - title: "Canadian Museum of Immigration at Pier 21, postwar Dutch immigration"
+        url: https://pier21.ca/blog/jan-raska-phd/postwar-dutch-immigration-through-pier-21
+      - title: "Wikipedia, Dutch Canadians"
+        url: https://en.wikipedia.org/wiki/Dutch_Canadians
+      - title: "CVCE, US aid received by the Netherlands (1948 to 1953)"
+        url: https://www.cvce.eu/en/obj/us_aid_received_by_the_netherlands_1948_1953-en-996e0624-db30-45f4-a09a-eaa5b70ca49d.html
+    exercises:
+      - type: story
+        title: The last gap
+        body: >-
+          On 28 May 1932 the last gap in the Afsluitdijk was closed, and the Zuiderzee became a lake. The country
+          behind it was in the grip of the Depression. After the war came hunger for land, homes and work, and
+          two answers: leave for a new country, or build a state that would catch people when they fell.
+        visual: { kind: photo, photo: sluitgat-1932 }
+      - type: who
+        photo: lorentz-nobel
+        clues:
+          - I shared the Nobel Prize for physics in 1902 with my former student.
+          - From 1918 the government asked me to lead a committee on the Zuiderzee dam.
+          - I worked out by hand how the dam would raise the tides along the Wadden coast, and I turned out to be right.
+          - One of the two sets of sluices in the Afsluitdijk is named after me.
+        options: [Hendrik Lorentz, Cornelis Lely, Pieter Zeeman, Johan van Veen]
+        answer: 0
+        explain: >-
+          Hendrik Lorentz, the physicist of Leiden, who shared the prize with Pieter Zeeman. He spent eight years on
+          the committee, from 1918 to 1926, and solved the equations for the flow of the water step by step. The
+          Lorentzsluizen are at Kornwerderzand; the other set, at Den Oever, is named after the engineer Simon Stevin.
+      - type: scrub
+        prompt: Drag the slider to a year when the Noordoostpolder is dry land but the Flevopolder is still all water.
+        map: water
+        start: 1932
+        answer: [1942, 1956]
+        explain: >-
+          The Noordoostpolder fell dry in 1942, under the German occupation, and many people in hiding found work
+          there. East Flevoland followed in 1957, after the war and the flood of 1953.
+      - type: truemyth
+        statement: In the 1930s, thousands of unemployed Amsterdammers were set to dig a forest park by hand.
+        visual: { kind: photo, photo: amsterdamse-bos }
+        answer: true
+        explain: >-
+          True. Amsterdam had more than 50,000 people out of work, and from 1934 the city put them to work on the
+          Amsterdamse Bos, with spades and wheelbarrows. The government paid part of the wages, and a man who did
+          not turn up lost his benefit. About 20,000 men worked on it before 1940. The last trees were planted in 1970.
+      - type: who
+        photo: drees-1947
+        clues:
+          - I was born in Amsterdam in 1886 and joined the socialists at eighteen.
+          - As minister of social affairs, I brought in an emergency law in 1947 that gave the over-65s a small pension from the state.
+          - From 1948 to 1958 I led four cabinets, and I walked or cycled to work.
+          - I lived to be 101, the oldest prime minister the country has had.
+        options: [Willem Drees, Pieter Jelles Troelstra, Joop den Uyl, Wim Kok]
+        answer: 0
+        explain: >-
+          Willem Drees. Old people said they "drew from Drees", and kept saying it after the general state
+          pension, the AOW, replaced his emergency law on 1 January 1957. It is still paid to everyone over the
+          pension age.
+      - type: truemyth
+        statement: When an American diplomat came to see Prime Minister Drees at home, he was served tea and a biscuit.
+        visual: { kind: photo, photo: drees-1958 }
+        answer: true
+        explain: >-
+          True, and the story was told for decades. The diplomat is said to have remarked that a prime minister so
+          careful with money surely needed Marshall aid. The Netherlands received about $1.1 billion of it from
+          1948 to 1953, to rebuild its ports, farms and factories.
+      - type: choice
+        prompt: From the late 1940s to the 1970s about half a million Dutch people emigrated, many of them farm families. Which country took the most, some 185,000?
+        visual: { kind: photo, photo: emigrants-plane }
+        answer: 0
+        options:
+          - label: Canada
+            why: >-
+              Right, about 37% of them. From 1947 Canada recruited Dutch farm families, who remembered the Canadian
+              soldiers of 1945. In 2021 almost a million Canadians named Dutch roots, about 175,000 of them in
+              Alberta.
+          - label: Australia
+            why: Australia took many too, about 160,000 from 1949 to 1970, but Canada took more.
+          - label: The United States
+            why: The United States let in fewer, because of its quotas.
+          - label: South Africa
+            why: Some went there, but far fewer than to Canada.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The Depression puts tens of thousands out of work, Amsterdam's unemployed dig the Amsterdamse Bos]
+          - [The war leaves ports and farms in ruins, The United States sends Marshall aid]
+          - [Farmland is scarce and families are large, Farm families leave for Canada]
+          - [Many old people have no savings, The state starts paying pensions]
+        explain: >-
+          The answers of these years built the Netherlands of today: a country that shares risks through the state.
+          Unemployment benefit, child benefit and health insurance followed in the 1950s and 1960s.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: The Afsluitdijk is closed, year: 1932, when: '1932' }
+          - { label: The unemployed start on the Amsterdamse Bos, year: 1934, when: '1934' }
+          - { label: Drees's emergency pension law, year: 1947, when: '1947' }
+          - { label: Marshall aid begins, year: 1948, when: '1948' }
+          - { label: The AOW pays every pensioner, year: 1957, when: '1957' }
+        explain: >-
+          Twenty-five years from a lake behind a dam to a pension for every old person, with a depression and a
+          war in between.
+
+  - id: u12-l2
+    title: The night of the flood
+    icon: wave
+    sources:
+      - title: "Wikipedia, North Sea flood of 1953"
+        url: https://en.wikipedia.org/wiki/North_Sea_flood_of_1953
+      - title: "Rijkswaterstaat, Watersnoodramp 1953 (in Dutch)"
+        url: https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/watersnoodramp-1953
+      - title: "KNMI, 65 years after the flood (in Dutch)"
+        url: https://www.knmi.nl/over-het-knmi/nieuws/65-jaar-na-de-watersnoodramp
+      - title: "CBS, the damage of the 1953 flood mapped (in Dutch)"
+        url: https://www.cbs.nl/nl-nl/corporate/2023/03/schade-watersnoodramp-1953-in-kaart-gebracht-door-cbs
+      - title: "Wikipedia, Pieter Abraham van de Velde (the closing at Ouwerkerk)"
+        url: https://en.wikipedia.org/wiki/Pieter_Abraham_van_de_Velde
+      - title: "Wikipedia, Phoenix breakwaters"
+        url: https://en.wikipedia.org/wiki/Phoenix_breakwaters
+      - title: "TracesOfWar, Liberation Route marker 496: the Phoenix caissons"
+        url: https://www.tracesofwar.com/sights/75199/Liberation-Route-Marker-496.htm
+    exercises:
+      - type: story
+        title: Saturday, 31 January 1953
+        body: >-
+          A northwesterly storm drove the North Sea into the funnel of the southwest, at spring tide. At
+          Vlissingen the water rose to 4.55 metres above NAP, higher than ever measured. Around three in the
+          morning the dikes began to break. Press play to see the sea come in.
+        visual: { kind: time-map, map: delta, year: 1952 }
+      - type: choice
+        prompt: Wipe from 1952 to 1953. Which island went under almost completely?
+        visual: { kind: compare, map: delta, years: [1952, 1953] }
+        answer: 0
+        options:
+          - label: Schouwen-Duiveland
+            why: >-
+              Right. Only the dunes in the west stayed dry. On Goeree-Overflakkee next door, the villages of
+              Oude-Tonge and Nieuwe-Tonge were under two to three metres of water within half an hour.
+          - label: Walcheren
+            why: Walcheren had been flooded in the war, in 1944. In 1953 its dunes and dikes mostly held.
+          - label: Noord-Beveland
+            why: Only its edges flooded.
+          - label: Zeeuws-Vlaanderen
+            why: The strip south of the Westerschelde got off lightly.
+      - type: choice
+        prompt: The weather service broadcast a warning of dangerous high water at a quarter past six on Saturday evening. Why did so many people never hear it?
+        visual: { kind: photo, photo: flood-papendrecht }
+        answer: 1
+        options:
+          - label: Radios were banned on Sundays
+            why: There was no such ban.
+          - label: Radio stations went off the air at night
+            why: >-
+              Right. One more warning went out just before midnight, and then the broadcasts stopped. Most people
+              were asleep when the water came, and church bells and neighbours knocking on doors were the only alarm.
+          - label: The warning was only in English
+            why: It was in Dutch, on Hilversum radio.
+          - label: The storm had already cut the power
+            why: Power failed later, as the water came in.
+      - type: scrub
+        prompt: Drag the slider to the stage when the sea broke in.
+        map: delta
+        answer: [1953, 1957]
+        explain: >-
+          In the night of 31 January to 1 February 1953. In Zeeland alone the dikes broke in 67 places. The water
+          came in twice, with a second high tide in the afternoon of 1 February.
+      - type: choice
+        prompt: At Nieuwerkerk aan den IJssel the dike along the Hollandse IJssel began to give way. Behind it lay the lowest land in the country. What did the mayor do?
+        visual: { kind: photo, photo: nieuwerkerk-monument }
+        answer: 0
+        options:
+          - label: Ordered a river ship to be sailed into the hole
+            why: >-
+              Right. Skipper Arie Evegroen steered De Twee Gebroeders into the breach, where it stuck fast and held.
+              It kept the water out of the polders of South Holland. A monument on the dike remembers the ship.
+          - label: Had the dike blown up further downstream
+            why: That would have let the water in, not kept it out.
+          - label: Rang the church bell and fled
+            why: The bell was rung as an alarm, but the dike was saved.
+          - label: Waited for the army
+            why: There was no time to wait. The dike was crumbling.
+      - type: pin
+        prompt: Pin the Zuidplaspolder, the lowest point in the Netherlands, which the dike at Nieuwerkerk protected.
+        place: zuidplaspolder
+        okKm: 15
+        fullKm: 6
+        explain: >-
+          The Zuidplaspolder, between Rotterdam and Gouda, lies almost seven metres below sea level. Had the dike
+          gone, the water could have flooded it and much of South Holland behind it.
+      - type: choice
+        prompt: The Netherlands had just one helicopter. Who flew most of the rescue flights over the flooded islands?
+        visual: { kind: photo, photo: flood-helicopters }
+        answer: 1
+        options:
+          - label: The Dutch navy
+            why: It had boats, and one helicopter, but not enough.
+          - label: Foreign helicopters, many of them from the United States Army in Germany
+            why: >-
+              Right. They lifted people off roofs and dikes and dropped food and sandbags. Soldiers from
+              neighbouring countries came to help, and money and goods poured in from all over the world.
+          - label: Private pilots from Amsterdam
+            why: Small planes could not land in the flooded land.
+          - label: Nobody, the storm was too strong to fly
+            why: They flew from the first days after the storm.
+      - type: who
+        photo: juliana-kruiningen
+        clues:
+          - I became queen in 1948.
+          - In the days after the flood I visited the drowned villages of Zeeland and Brabant.
+          - On 6 November 1953 I watched the last breach being closed at Ouwerkerk.
+          - My daughter would open the great storm barrier in the Oosterschelde in 1986.
+        options: [Juliana, Wilhelmina, Beatrix, Emma]
+        answer: 0
+        explain: >-
+          Queen Juliana. She visited Kruiningen and Nieuw-Vossemeer, among other places. Prime Minister Drees was
+          at Ouwerkerk with her when the gap was closed.
+      - type: choice
+        prompt: The last gap, at Ouwerkerk on Duiveland, was closed on 6 November 1953 with four huge hollow concrete boxes. Where had they come from?
+        visual: { kind: photo, photo: ouwerkerk-caissons }
+        answer: 2
+        options:
+          - label: They were built for the Afsluitdijk
+            why: The Afsluitdijk was closed with boulder clay and stone.
+          - label: They were old ships filled with concrete
+            why: They were built as caissons, floating concrete boxes.
+          - label: They were made for the floating harbours of D-Day
+            why: >-
+              Right. They were Phoenix caissons, built in Britain in 1944 for the Mulberry harbours in Normandy, and
+              kept in reserve. Today the Watersnoodmuseum, the national flood museum, is inside them.
+          - label: They were bought from Belgium
+            why: Belgium had its own flood, at the coast, with 28 dead.
+      - type: truemyth
+        statement: The flood of 1953 struck only the Netherlands.
+        visual: { kind: photo, photo: flood-1953-map }
+        answer: false
+        explain: >-
+          The same storm flooded the east coast of England, where 307 people died, and the Belgian coast, where 28
+          died. More than 200 people drowned at sea, among them 135 on the ferry Princess Victoria. In the
+          Netherlands 1,836 people died.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [A northwesterly storm comes with spring tide, The sea rises 4.55 metres above NAP at Vlissingen]
+          - [Many dikes are old and too low, The sea breaks through in dozens of places]
+          - [Radio stations go off the air at night, Many people get no warning]
+          - [A ship is sailed into the breach at Nieuwerkerk, The lowest polders of Holland stay dry]
+        explain: >-
+          About 70,000 people were evacuated, and tens of thousands of farm animals drowned. Three weeks after the
+          flood the government set up the Delta Commission to make sure it would never happen again.
+
+  - id: u12-l3
+    title: The Delta Works
+    icon: shield
+    sources:
+      - title: "Wikipedia, Delta Works"
+        url: https://en.wikipedia.org/wiki/Delta_Works
+      - title: "Wikipedia, Johan van Veen"
+        url: https://en.wikipedia.org/wiki/Johan_van_Veen
+      - title: "Wikipedia (Dutch), Deltacommissie (1953)"
+        url: https://nl.wikipedia.org/wiki/Deltacommissie_(1953)
+      - title: "Wikipedia, Oosterscheldekering"
+        url: https://en.wikipedia.org/wiki/Oosterscheldekering
+      - title: "Wikipedia (Dutch), Oosterscheldekering"
+        url: https://nl.wikipedia.org/wiki/Oosterscheldekering
+      - title: "Rijkswaterstaat, the Haringvliet sluices (in Dutch)"
+        url: https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/waterkeringen/deltawerken/haringvlietsluizen
+      - title: "Wikipedia, Maeslantkering"
+        url: https://en.wikipedia.org/wiki/Maeslantkering
+      - title: "Rijkswaterstaat, progress report on Room for the River (in Dutch)"
+        url: https://zoek.officielebekendmakingen.nl/kst-30080-75.pdf
+    exercises:
+      - type: story
+        title: Never again
+        body: >-
+          Three weeks after the flood the government set up the Delta Commission. Its plan was bold: rather than
+          raise hundreds of kilometres of dikes, close the sea arms themselves and shorten the coast. The Delta Act
+          of 1958 made it law. Press play to watch the dams go in.
+        visual: { kind: time-map, map: delta, year: 1958 }
+      - type: who
+        photo: van-veen
+        clues:
+          - I was an engineer at Rijkswaterstaat, and from 1937 I warned that the dikes of the southwest were too weak.
+          - In my book on Dutch water engineering I wrote a warning chapter under the name "Dr. Cassandra".
+          - My last report before the flood was dated 29 January 1953, three days before the storm.
+          - I became secretary of the Delta Commission, and died in 1959 before the first sea arm was closed.
+        options: [Johan van Veen, Cornelis Lely, Hendrik Lorentz, Jan Leeghwater]
+        answer: 0
+        explain: >-
+          Johan van Veen, often called the father of the Delta Plan. His book was called Dredge, Drain, Reclaim.
+          Cassandra, in the Greek story, was the prophet whom nobody believed.
+      - type: choice
+        prompt: Read the map in 1971. The Haringvliet was closed with a dam full of sluices instead of a solid one. Why?
+        visual: { kind: time-map, map: delta, year: 1971 }
+        answer: 1
+        options:
+          - label: So that ships could sail through to Rotterdam
+            why: Ships use the Nieuwe Waterweg further north. The Haringvliet sluices are not locks.
+          - label: To let the water of the Rhine and Maas out to sea
+            why: >-
+              Right. The great rivers have to go somewhere. The 17 openings, each 56.5 metres wide, let the river
+              water and ice out at low tide and keep the sea out at high tide.
+          - label: To let fish swim in and out
+            why: That came later. Since 2018 the gates are sometimes left ajar to let salmon and other fish pass.
+          - label: Because a solid dam was too expensive
+            why: The sluices cost more than a solid dam would have.
+      - type: scrub
+        prompt: Drag the slider to a year when the Grevelingen is cut off from the sea at both ends.
+        map: delta
+        start: 1958
+        answer: [1971, 1997]
+        explain: >-
+          The Grevelingendam closed its back in 1965, and the Brouwersdam closed its mouth in 1971. The Grevelingen
+          became a salt lake, popular with divers.
+      - type: choice
+        prompt: Raise the storm surge with the barrier in place. At what height above NAP do the gates come down?
+        visual: { kind: storm-barrier }
+        answer: 1
+        options:
+          - label: At +1 metre, every high tide
+            why: Then the tide could not get in, and the shellfish behind the barrier would die.
+          - label: At +3 metres
+            why: >-
+              Right. The 62 gates, each 42 metres wide, close when the sea is expected to reach 3 metres above NAP.
+              The rest of the time they stay open, so the tide keeps flowing in and out.
+          - label: At +4.55 metres, the level of 1953
+            why: By then the water would already be over many dikes behind it.
+          - label: Never, they are only for show
+            why: They have closed for real storms a few dozen times since 1986.
+      - type: truemyth
+        statement: The Oosterschelde barrier is closed most of the time.
+        visual: { kind: storm-barrier }
+        answer: false
+        explain: >-
+          It is open almost all the time. In the 1970s fishermen and nature groups fought the plan to dam the
+          Oosterschelde, and in 1976 the government chose gates instead. The barrier has closed against storms
+          only a few dozen times since 1986, the last in January 2022 in Storm Corrie.
+      - type: gap
+        prompt: On 4 October 1986 Queen Beatrix opened the Oosterschelde barrier. Fill the gap in what she said.
+        quote: The storm surge barrier is closed. The Delta Works are complete. Zeeland is ___.
+        source: Queen Beatrix at the opening of the Oosterscheldekering, 4 October 1986 (translated from the Dutch)
+        visual: { kind: photo, photo: opening-1986 }
+        options: [safe, free, dry, rich]
+        answer: 0
+        explain: >-
+          "Zeeland is veilig." A stone on the island of Neeltje Jans carries a line by the poet Ed Leeflang: "Hier
+          gaan over het tij: de maan, de wind en wij", "Here the tide is ruled by the moon, the wind and us."
+      - type: odd
+        prompt: Three of these were built after the flood of 1953. Which is the odd one out, and why?
+        items:
+          - { label: The Oosterschelde barrier, photo: oosterscheldekering }
+          - { label: The Maeslantkering, photo: maeslantkering }
+          - { label: The Haringvliet sluices, photo: haringvliet-sluices }
+          - { label: The Afsluitdijk, photo: afsluitdijk }
+        answer: 3
+        reasons:
+          - It was finished in 1932, to close off the Zuiderzee
+          - It is in Belgium
+          - It was never finished
+        reason: 0
+        explain: >-
+          The Afsluitdijk was the great work of the Zuiderzee plan, in the north. The other three are Delta Works,
+          built between 1958 and 1997 to guard the southwest.
+      - type: choice
+        prompt: The Maeslantkering, finished in 1997, guards Rotterdam with two gates, each 210 metres long. When did it first close against a real storm?
+        visual: { kind: photo, photo: maeslantkering }
+        answer: 1
+        options:
+          - label: The day it opened, in 1997
+            why: It was opened by Queen Beatrix on 10 May 1997, in fine weather.
+          - label: In November 2007
+            why: >-
+              Right, on the night of 8 to 9 November 2007. It closes when the water at Rotterdam is expected to reach
+              3 metres above NAP. On 21 December 2023, in Storm Pia, it closed on its own for the first time. It
+              is also tested once a year.
+          - label: In 1953
+            why: It was built more than 40 years after the flood.
+          - label: Never yet
+            why: It has closed for real storms.
+      - type: choice
+        prompt: In 1995 the rivers rose so high that 250,000 people were evacuated. The answer this time was not higher dikes. What is "Room for the River"?
+        visual: { kind: photo, photo: room-for-river }
+        answer: 0
+        options:
+          - label: Giving rivers more space, by moving dikes back and digging side channels
+            why: >-
+              Right. At 34 places along the Rhine, Waal, Lek and IJssel, floodplains were dug out, dikes moved
+              inland and side channels made, for about 2.3 billion euros, most of it by 2015.
+          - label: A law that forbids building near rivers
+            why: Building near rivers is limited, but the programme was about digging and moving dikes.
+          - label: Straightening the rivers so the water flows away faster
+            why: That was done in the 1800s. Room for the River does the opposite.
+          - label: A barrier across the Rhine at the German border
+            why: There is no such barrier.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: The barrier on the Hollandse IJssel, year: 1958, when: '1958' }
+          - { label: The Grevelingendam, year: 1965, when: '1965' }
+          - { label: The Brouwersdam, year: 1971, when: '1971' }
+          - { label: The Philipsdam, year: 1987, when: '1987' }
+          - { label: The Maeslantkering's first storm, year: 2007, when: '2007' }
+        explain: >-
+          The Delta Works took 44 years and cost about 8.2 billion guilders. They are built to hold out against a
+          storm that comes once in 10,000 years.
+
+  - id: u12-l4
+    title: Pillars crumble, Provo plays
+    icon: bell
+    sources:
+      - title: "Wikipedia, Provo (movement)"
+        url: https://en.wikipedia.org/wiki/Provo_(movement)
+      - title: "International Institute of Social History, Provo provokes"
+        url: https://iisg.nl/collections/provo/intro.php
+      - title: "International Institute of Social History, 1966: Beatrix and Provo"
+        url: https://archief.socialhistory.org/en/content/1966-beatrix-and-provo
+      - title: "Wikipedia, Robert Jasper Grootveld"
+        url: https://en.wikipedia.org/wiki/Robert_Jasper_Grootveld
+      - title: "Wikipedia, Dolle Mina"
+        url: https://en.wikipedia.org/wiki/Dolle_Mina
+      - title: "NOS, 55 years after 'baas in eigen buik' (in Dutch)"
+        url: https://nos.nl/nieuwsuur/artikel/2585244-55-jaar-na-baas-in-eigen-buik-is-dolle-mina-terug-hoe-effectief-is-de-strijd
+    exercises:
+      - type: story
+        title: The Saturday night magician
+        body: >-
+          In the 1950s most Dutch people still lived inside their pillar, with its own party, paper, union and
+          broadcaster. In the 1960s the young broke out. On Saturday nights in Amsterdam, a crowd gathered around a
+          small statue on the Spui to watch a strange show, and from it grew a movement called Provo.
+        visual: { kind: photo, photo: lieverdje }
+      - type: who
+        photo: grootveld
+        clues:
+          - From 1964, at midnight on Saturdays, I danced around a small statue on the Spui in a cloud of my own cigarette smoke.
+          - I had found out that a tobacco company had given the statue to the city.
+          - My chant "Klaas komt!", "Klaas is coming!", was painted on walls all over Amsterdam.
+          - My happenings led to Provo, which I joined.
+        options: [Robert Jasper Grootveld, Roel van Duijn, Ramses Shaffy, Johan Cruyff]
+        answer: 0
+        explain: >-
+          Robert Jasper Grootveld, an artist who believed advertising had turned people into addicted consumers.
+          Roel van Duijn, a young anarchist, handed out the magazine Provo at his happenings and founded the
+          movement with him and Rob Stolk in May 1965.
+      - type: sort
+        prompt: Sort these into the old Netherlands of the pillars and the protest of the 1960s.
+        visual: { kind: pillars }
+        groups: [The pillars, The protest]
+        items:
+          - { label: A Catholic school, group: 0 }
+          - { label: The socialist broadcaster VARA, group: 0 }
+          - { label: Free white bicycles, group: 1 }
+          - { label: Smoke bombs at a royal wedding, group: 1 }
+          - { label: The Protestant party paper, group: 0 }
+          - { label: '"Boss of your own belly"', group: 1 }
+        explain: >-
+          The pillars sorted people by faith or class from the cradle to the grave. Provo and Dolle Mina belonged to
+          none of them, and mocked them all. By the 1970s churches were emptying and the old pillar parties were
+          merging.
+      - type: choice
+        prompt: Provo's White Bicycle Plan of 1965 used bikes like this one. What was the plan?
+        visual: { kind: photo, photo: white-bicycle }
+        answer: 2
+        options:
+          - label: White bikes for the police
+            why: The police were the ones who took the bikes away.
+          - label: A race around Amsterdam
+            why: It was not a race.
+          - label: Free bikes for everyone, and a city centre closed to cars
+            why: >-
+              Right. The city said no, so the Provos painted fifty bikes white and left them unlocked in the
+              streets. The police took them away, because leaving a bike unlocked was against the rules. Shared city
+              bikes came back decades later, across the world.
+          - label: Bikes painted white to be seen at night
+            why: White was the colour of a clean, free city, not a safety measure.
+      - type: truemyth
+        statement: At the wedding of Princess Beatrix in Amsterdam in March 1966, Provos set off smoke bombs along the route of the royal coach.
+        visual: { kind: photo, photo: royal-wedding-1966 }
+        answer: true
+        explain: >-
+          True. Many Dutch people objected to the bridegroom, the German Claus von Amsberg, who had been in the
+          Hitler Youth as a boy. The police hit hard at protesters and bystanders, and after riots that summer
+          Amsterdam's police chief was dismissed and, in 1967, its mayor left. Claus later became one of the most
+          popular members of the royal family.
+      - type: choice
+        prompt: In June 1966, Provo stood in the election for Amsterdam's city council. How did it do?
+        answer: 1
+        options:
+          - label: It won no votes worth counting
+            why: It did better than that.
+          - label: It won a seat
+            why: >-
+              Right, one seat. Within a year the movement had had enough of its own success, and on 13 May 1967 Provo
+              declared itself dissolved.
+          - label: It won a majority
+            why: Nowhere near.
+          - label: It was banned from standing
+            why: It was allowed to stand.
+      - type: gap
+        prompt: In 1970 a new women's group, Dolle Mina, started with playful actions for equal pay, childcare and the right to abortion. Fill the gap in its best-known slogan.
+        quote: Boss of your own ___.
+        source: Dolle Mina slogan for the right to abortion, 1970s ("Baas in eigen buik", translated from the Dutch)
+        visual: { kind: photo, photo: dolle-mina }
+        options: [belly, house, wallet, street]
+        answer: 0
+        explain: >-
+          "Baas in eigen buik." Dolle Mina was named after Wilhelmina Drucker, a fighter for women's rights of the
+          1800s. Abortion was made legal by a law of 1981.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The princess marries a German who had been in the Hitler Youth, Provos protest at the royal wedding]
+          - [The police beat protesters and bystanders, Amsterdam's police chief is dismissed]
+          - [Cars and smoke fill the city centre, Provo proposes free white bicycles]
+          - [Women want a say over their own pregnancies, Dolle Mina campaigns for legal abortion]
+        explain: >-
+          Small, cheeky actions got huge attention. Provo lasted only two years, but it helped change how the Dutch
+          saw authority, from the police to the royal family.
+
+  - id: u12-l5
+    title: Suriname and the Caribbean
+    icon: globe
+    sources:
+      - title: "Parlement.com, Suriname's independence in 1975 (in Dutch)"
+        url: https://www.parlement.com/id/vhnnmt7lcryw/onafhankelijkheid_suriname_in_1975
+      - title: "Wikipedia, History of Suriname"
+        url: https://en.wikipedia.org/wiki/History_of_Suriname
+      - title: "Leiden University, Peter Meel on the history of Surinamese independence (in Dutch)"
+        url: https://www.universiteitleiden.nl/onderzoek/onderzoeksoutput/geesteswetenschappen/podcast-dr.-peter-meel-vertelt-over-de-geschiedenis-van-de-surinaamse-onafhankelijkheid
+      - title: "CBS, over 250,000 Surinamese have settled in the Netherlands since independence"
+        url: https://www.cbs.nl/en-gb/news/2025/47/over-250-000-surinamese-have-settled-in-the-netherlands-since-independence
+      - title: "Wikipedia, Dissolution of the Netherlands Antilles"
+        url: https://en.wikipedia.org/wiki/Dissolution_of_the_Netherlands_Antilles
+      - title: "Wikipedia, Netherlands–Suriname relations"
+        url: https://en.wikipedia.org/wiki/Netherlands%E2%80%93Suriname_relations
+    exercises:
+      - type: story
+        title: A kingdom on two sides of the ocean
+        body: >-
+          In 1954 a Charter made the Netherlands, Suriname and the Netherlands Antilles equal partners in one
+          kingdom. It did not last. On 25 November 1975 Suriname became an independent republic, with Crown
+          Princess Beatrix and Prime Minister Den Uyl in Paramaribo to see it.
+        visual: { kind: photo, photo: suriname-1975 }
+      - type: who
+        photo: arron
+        clues:
+          - I led the NPS, the party of Suriname's Creoles.
+          - As prime minister from 1973, I negotiated Suriname's independence with The Hague.
+          - On 25 November 1975 I became the first prime minister of the Republic of Suriname.
+          - In 1980 a group of sergeants led by Dési Bouterse overthrew my government.
+        options: [Henck Arron, Johan Ferrier, Dési Bouterse, Jagernath Lachmon]
+        answer: 0
+        explain: >-
+          Henck Arron. Johan Ferrier, the last governor, became the first president. Jagernath Lachmon, leader of the
+          Hindustani party, wanted independence later, fearing tension between Suriname's peoples, and made peace
+          with Arron only weeks before the day.
+      - type: truemyth
+        statement: The people of Suriname chose independence in a referendum.
+        visual: { kind: photo, photo: suriname-stadium }
+        answer: false
+        explain: >-
+          There was no referendum, in Suriname or among the Surinamese in the Netherlands. Independence was decided
+          by a narrow majority in Suriname's parliament. Many people were afraid of what would come.
+      - type: choice
+        prompt: In the years around independence, many Surinamese moved to the Netherlands, where they had the right to live. How many?
+        visual: { kind: photo, photo: ferrier }
+        answer: 2
+        options:
+          - label: A few thousand
+            why: Far more than that.
+          - label: Almost nobody, the borders were closed
+            why: Until 1980 the Surinamese could still settle in the Netherlands.
+          - label: About a third of the population
+            why: >-
+              Right. Since 1975 more than 250,000 people from Suriname have settled in the Netherlands. About 370,000
+              people there were born in Suriname or have a parent who was.
+          - label: Everyone
+            why: Most stayed.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: The Charter for the Kingdom, year: 1954, when: '1954' }
+          - { label: Suriname becomes independent, year: 1975, when: '1975' }
+          - { label: Aruba leaves the Netherlands Antilles, year: 1986, when: '1986' }
+          - { label: The Netherlands Antilles are dissolved, year: 2010, when: '2010' }
+        explain: >-
+          Aruba became a country of its own in the kingdom on 1 January 1986. It was meant to become independent ten
+          years later, but chose to stay.
+      - type: sort
+        prompt: On 10 October 2010 the Netherlands Antilles were dissolved. Sort the six islands by what they are now.
+        visual: { kind: photo, photo: willemstad }
+        groups: [A country in the kingdom, A municipality of the Netherlands]
+        items:
+          - { label: Aruba, group: 0 }
+          - { label: Curaçao, group: 0 }
+          - { label: Sint Maarten, group: 0 }
+          - { label: Bonaire, group: 1 }
+          - { label: Sint Eustatius, group: 1 }
+          - { label: Saba, group: 1 }
+        explain: >-
+          Aruba, Curaçao and Sint Maarten run their own affairs, like the Netherlands itself; the kingdom handles
+          defence and foreign affairs. Bonaire, Sint Eustatius and Saba became "special municipalities", part of
+          the Netherlands itself. This picture is the Handelskade of Willemstad, Curaçao's capital.
+      - type: choice
+        prompt: Bonaire, Sint Eustatius and Saba are part of the Netherlands now. What money do people pay with there?
+        visual: { kind: photo, photo: bonaire }
+        answer: 1
+        options:
+          - label: The euro
+            why: They are outside the European Union, which they joined only as overseas territories.
+          - label: The US dollar
+            why: >-
+              Right, since 1 January 2011. Their trade and tourism run on the dollar. Curaçao and Sint Maarten have
+              the new Caribbean guilder, since 2025.
+          - label: The Dutch guilder
+            why: The guilder was replaced by the euro in the Netherlands in 2002.
+          - label: Their own island coins
+            why: They have no money of their own.
+      - type: truemyth
+        statement: People on Bonaire, Sint Eustatius and Saba vote in elections for the Dutch parliament.
+        visual: { kind: photo, photo: saba }
+        answer: true
+        explain: >-
+          True. They are Dutch citizens living in the Netherlands, so they vote for the Tweede Kamer, and since 2019
+          they also help choose the Eerste Kamer, through an electoral college of their own.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Many Surinamese fear the new country will not cope, About a third of them move to the Netherlands]
+          - [Aruba does not want to be ruled from Curaçao, Aruba becomes a country of its own in 1986]
+          - [Soldiers murder fifteen opponents of the regime in 1982, The Netherlands stops its aid to Suriname]
+          - [Bonaire and Saba vote for closer ties with the Netherlands, They become Dutch municipalities in 2010]
+        explain: >-
+          On 8 December 1982 the army killed fifteen critics of the military government at Fort Zeelandia in
+          Paramaribo. Bouterse was convicted for it in 2019 and died in 2024 without serving his sentence.
+
+  - id: u12-l6
+    title: Tolerance and its limits
+    icon: lens
+    note: >-
+      This lesson ends with the genocide at Srebrenica in July 1995, when more than 8,000 Bosniak men and boys were
+      murdered after the fall of an enclave guarded by Dutch UN soldiers.
+    sources:
+      - title: "Wikipedia, Drug policy of the Netherlands"
+        url: https://en.wikipedia.org/wiki/Drug_policy_of_the_Netherlands
+      - title: "Staatsblad 1976, 425: the amended Opium Act (in Dutch)"
+        url: https://zoek.officielebekendmakingen.nl/stb-1976-424.pdf
+      - title: "Wikipedia, Euthanasia in the Netherlands"
+        url: https://en.wikipedia.org/wiki/Euthanasia_in_the_Netherlands
+      - title: "Wikipedia, Same-sex marriage in the Netherlands"
+        url: https://en.wikipedia.org/wiki/Same-sex_marriage_in_the_Netherlands
+      - title: "Wikipedia, Dutchbat"
+        url: https://en.wikipedia.org/wiki/Dutchbat
+      - title: "Wikipedia, Second Kok cabinet"
+        url: https://en.wikipedia.org/wiki/Second_Kok_cabinet
+      - title: "Hoge Raad, Dutch state bears very limited liability in Mothers of Srebrenica case (19 July 2019)"
+        url: https://www.hogeraad.nl/actueel/nieuwsoverzicht/2019/juli/dutch-state-bears-very-limited-liability-mothers-srebrenica-case
+      - title: "NL Times, Netherlands offers deepest apologies for Srebrenica massacre (11 July 2022)"
+        url: https://nltimes.nl/2022/07/11/netherlands-offers-deepest-apologies-srebrenica-massacre
+      - title: "NL Times, Rutte apologises to Dutchbat III veterans (18 June 2022)"
+        url: https://nltimes.nl/node/59189
+    exercises:
+      - type: story
+        title: Gedogen
+        body: >-
+          The Dutch have a word for it: gedogen, to put up with something that is not quite allowed. From the 1970s
+          the country became known for it, and then for laws that no other country had passed. But tolerance had
+          limits, and in 1995 the world saw them at Srebrenica.
+        visual: { kind: photo, photo: coffeeshop }
+      - type: choice
+        prompt: What has the Netherlands done about cannabis since the Opium Act was changed in 1976?
+        visual: { kind: photo, photo: coffeeshop }
+        answer: 2
+        options:
+          - label: Made it fully legal, like beer
+            why: Growing and selling it in bulk is still a crime.
+          - label: Banned it, with prison for users
+            why: That is the policy the Dutch turned away from.
+          - label: Kept it illegal, but tolerated small sales in coffeeshops
+            why: >-
+              Right. The law of 1976 split drugs into hard drugs, like heroin and cocaine, and soft drugs, like
+              cannabis. Police and prosecutors leave alone a user with up to 5 grams, and coffeeshops that keep to the
+              rules. Since 2023 some towns, Breda and Tilburg first, have tested coffeeshops supplied by licensed growers.
+          - label: Sold it in state shops
+            why: The state has never run the shops.
+      - type: truemyth
+        statement: In 1973 a doctor who ended the life of her dying mother, at her mother's repeated request, was found guilty but given only a one-week suspended sentence.
+        visual: { kind: photo, photo: postma-1973 }
+        answer: true
+        explain: >-
+          True. The case of Geertruida Postma in Leeuwarden set off a national debate, and the court named
+          conditions under which a doctor could act. Later court cases built on them, and in 2002 the Netherlands
+          became the first country with a law allowing euthanasia under strict rules. Belgium followed later that year.
+      - type: choice
+        prompt: Under the law of 2002, a doctor may end a life on request if the suffering is unbearable and hopeless, and a second doctor agrees. How common is it now?
+        visual: { kind: photo, photo: els-borst }
+        answer: 1
+        options:
+          - label: Very rare, a few cases a year
+            why: It is far more common than that.
+          - label: About one death in twenty
+            why: >-
+              Right. In 2024 there were 9,958 reported cases. Every one is checked by a regional review committee of
+              a doctor, a lawyer and an ethicist. Els Borst, the minister of health in this picture, was one of the two
+              ministers who brought the law to parliament.
+          - label: About half of all deaths
+            why: Nowhere near.
+          - label: It has never been used
+            why: It is used thousands of times a year.
+      - type: choice
+        prompt: Just after midnight on 1 April 2001, the mayor of Amsterdam, Job Cohen, married four couples, the first of their kind anywhere in the world. Who were they?
+        visual: { kind: photo, photo: cohen }
+        answer: 0
+        options:
+          - label: Same-sex couples
+            why: >-
+              Right. The Netherlands was the first country to open marriage to couples of the same sex. Belgium
+              followed in 2003, and Canada in 2005.
+          - label: Couples from abroad
+            why: They were Dutch couples.
+          - label: Couples who married on the internet
+            why: They married in person, at the city hall.
+          - label: Couples over 100 years old
+            why: They were of all ages.
+      - type: choice
+        prompt: In July 1995 the town of Srebrenica in Bosnia was a UN "safe area", guarded by a few hundred lightly armed Dutch soldiers. What happened on 11 July?
+        visual: { kind: photo, photo: potocari }
+        answer: 0
+        options:
+          - label: Bosnian Serb forces took the town, and in the days after killed more than 8,000 Bosniak men and boys
+            why: >-
+              Right. The Dutch commander's call for air strikes brought almost nothing, and the Dutch soldiers did not
+              fight. Women and children were driven away in buses; the men were taken away and murdered. Two
+              international courts have called it genocide. The dead are buried at the memorial in Potočari.
+          - label: The Dutch soldiers drove off the attack
+            why: They did not. The town fell without a fight.
+          - label: The town was evacuated safely by the UN
+            why: It was not. The men were separated from the women and children and killed.
+          - label: NATO bombers stopped the Serb advance
+            why: NATO planes came too late and too few, and they did not stop the attack.
+      - type: choice
+        prompt: In April 2002 a government-ordered report by the NIOD institute blamed Dutch politicians and generals for sending the soldiers on a mission they could not carry out. What did Prime Minister Wim Kok do?
+        visual: { kind: photo, photo: kok }
+        answer: 2
+        options:
+          - label: Rejected the report
+            why: He accepted it.
+          - label: Fired the generals
+            why: The army commander resigned too, but Kok went further.
+          - label: Resigned, with his whole cabinet
+            why: >-
+              Right, on 16 April 2002, six days after the report came out. Kok said he was taking the political
+              responsibility for what had gone wrong.
+          - label: Ordered a new report
+            why: He did not.
+      - type: truemyth
+        statement: In 2019 the Dutch Supreme Court held the state responsible for the deaths of all the victims of Srebrenica.
+        visual: { kind: photo, photo: potocari }
+        answer: false
+        explain: >-
+          It ruled on about 350 men who had sheltered in the Dutch base and were sent out to the Serb forces. It
+          found the state 10% liable, the court's estimate of the chance they would have survived had they been
+          allowed to stay.
+      - type: voices
+        prompt: In 2022 the Dutch government apologised twice over Srebrenica. Read them side by side. To whom did each speak?
+        voices:
+          - who: Mark Rutte, prime minister
+            when: 18 June 2022, at an army base in Schaarsbergen
+            text: >-
+              The world failed in a terrible way. You got easy reproaches afterwards from critics who were themselves
+              high and dry in the safe Netherlands.
+          - who: Kajsa Ollongren, minister of defence
+            when: 11 July 2022, at the memorial in Potočari
+            text: >-
+              The international community failed to protect the people of Srebrenica. As part of this community,
+              the Dutch government shares political responsibility for the situation.
+        options:
+          - Rutte to the veterans of Dutchbat; Ollongren to the survivors and the families of the dead
+          - Both to the families of the dead
+          - Rutte to the people of Bosnia; Ollongren to the Dutch soldiers
+          - Both to the United Nations
+        answer: 0
+        explain: >-
+          Rutte apologised to the soldiers for sending them with too little backing, and was criticised for speaking
+          to them first. A month later Ollongren apologised to the survivors and families at the commemoration in
+          Potočari.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The Opium Act of 1976 separates soft and hard drugs, Coffeeshops may sell small amounts of cannabis]
+          - [The Postma case and later court rulings, The euthanasia law of 2002]
+          - [The Dutch soldiers are lightly armed and get no real air support, Srebrenica falls on 11 July 1995]
+          - [The NIOD report blames politicians and generals, The Kok cabinet resigns in 2002]
+        explain: >-
+          The same habit of seeking rules everyone can live with gave the country its tolerant laws. At Srebrenica,
+          a peacekeeping mission with no peace to keep showed where good intentions ran out.

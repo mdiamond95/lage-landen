@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest'
 import topology from '../data/lowlands.topo.json'
 import { credits } from '../photos/credits'
 import { photoIds } from '../photos/ids'
+import { paths as icons } from '../screens/Icon'
 import { ROMAN_MAX, ROMAN_MIN, romanEvents, romanLines, romanSites, romanStory } from '../data/roman'
 import { CLOTH_MAX, CLOTH_MIN, clothEvents, regions, routes, towns } from '../data/cloth'
 import { waterStory } from '../data/water'
@@ -18,6 +19,7 @@ import { bordersStory } from '../data/borders'
 import { kingdomStory } from '../data/kingdom'
 import { railsStory } from '../data/rails'
 import { occupationStory } from '../data/occupation'
+import { deltaStory } from '../data/delta'
 import { charts } from '../data/charts'
 import { eventAt } from '../data/timeline'
 import { peopleIn, trees } from '../data/families'
@@ -53,6 +55,10 @@ const isVisual = (e: Exercise) =>
 describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
   const asks = unit.lessons.flatMap((l) => l.exercises).filter((e) => e.type !== 'story')
+
+  it('draws every lesson icon, rather than falling back to the map', () => {
+    for (const l of unit.lessons) expect(Object.keys(icons), `${l.id} ${l.icon}`).toContain(l.icon)
+  })
 
   // The credit (the painter) stays hidden until the answer is checked, so a
   // self-portrait can be credited honestly.
@@ -165,7 +171,8 @@ describe('photos', () => {
       expect(existsSync(join(dir, '../photos', `${id}.jpg`)), id).toBe(true)
       for (const field of ['alt', 'caption', 'author', 'licence'] as const) expect(c[field], `${id} ${field}`).not.toBe('')
       expect(c.source, id).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/)
-      expect(c.licenceUrl, id).toMatch(/^https:\/\/creativecommons\.org\//)
+      // A Creative Commons licence, or Commons' own free licence that asks only for the author's name.
+      expect(c.licenceUrl, id).toMatch(/^https:\/\/(creativecommons\.org\/|commons\.wikimedia\.org\/wiki\/Template:Attribution$)/)
     }
   })
 })
@@ -263,6 +270,7 @@ describe('time maps in lessons', () => {
     kingdom: kingdomStory,
     rails: railsStory,
     occupation: occupationStory,
+    delta: deltaStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -277,6 +285,7 @@ describe('time maps in lessons', () => {
     kingdom: [kingdomStory.min, kingdomStory.max],
     rails: [railsStory.min, railsStory.max],
     occupation: [occupationStory.min, occupationStory.max],
+    delta: [deltaStory.min, deltaStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -319,6 +328,7 @@ describe.each([
   ['one kingdom, then two', kingdomStory],
   ['railways and canals', railsStory],
   ['occupation and liberation', occupationStory],
+  ['flood and Delta Works', deltaStory],
 ])('%s time map', (_, story) => {
   const { min, max, events, sites, labels, lines, areas = [] } = story
   const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7

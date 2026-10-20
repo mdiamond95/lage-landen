@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 29 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(29)
+  it('has 31 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(31)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -41,5 +41,10 @@ describe('time map through the eras', () => {
     expect(kinds(1944).has('occupied') && kinds(1944).has('free')).toBe(true)
     expect(kinds(1945).has('occupied')).toBe(false)
     expect(kinds(1997).has('free')).toBe(false)
+    // The flood of 1953 shows in 1953 only, not after the Delta Works.
+    expect(kinds(1945).has('flooded')).toBe(false)
+    expect(kinds(1953).has('flooded')).toBe(true)
+    expect(kinds(1986).has('flooded')).toBe(false)
+    expect(kinds(1953).has('occupied')).toBe(false)
   })
 })
