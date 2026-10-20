@@ -553,3 +553,15 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .sort-group-head:disabled { cursor: default; }
 .sort-ready .sort-group-head:not(:disabled) { background: var(--delft); color: #fff; }
 .sort-group-items { display: grid; gap: 6px; }
+
+/* Unit 11: the Low Countries occupied and liberated, 1940 to 1945. Occupied land is a
+   cold grey, liberated land a fresh green; camps are black squares and food drops
+   small open squares. */
+.hist-area-occupied { fill: #c9c6c1; stroke: #5b5853; stroke-width: 0.8; transition: fill 0.4s; }
+.hist-area-free { fill: #cfe8c4; stroke: #2e6b34; stroke-width: 0.8; transition: fill 0.4s; }
+.key-occupied { width: 12px; height: 10px; background: #c9c6c1; border: 1px solid #5b5853; border-radius: 2px; }
+.key-free { width: 12px; height: 10px; background: #cfe8c4; border: 1px solid #2e6b34; border-radius: 2px; }
+.hist-camp rect { fill: #1d1d1f; }
+.key-camp { width: 9px; height: 9px; background: #1d1d1f; border-radius: 1px; }
+.hist-drop rect { fill: #fff; stroke: #2f4f8f; stroke-width: 2; }
+.key-drop { width: 9px; height: 9px; background: #fff; border: 2px solid #2f4f8f; border-radius: 1px; }

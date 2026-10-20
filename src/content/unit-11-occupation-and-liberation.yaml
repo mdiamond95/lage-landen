@@ -1,0 +1,699 @@
+id: unit-11
+number: 11
+title: Occupation and liberation
+era: 1914 to 1949
+summary: The Netherlands stays out of the First World War, with a million Belgian refugees and an electric fence on its border. In May 1940 Germany overruns it in five days and bombs Rotterdam. Three in four Dutch Jews are murdered, Anne Frank among them, while others hide and resist. From September 1944 the Allies, with the Canadians at the front, free the country stage by stage, through Arnhem and a winter of hunger, until 5 May 1945. In Indonesia the war of independence follows.
+note: >-
+  This unit is about war, the Holocaust and a colonial war. Two lessons tell of the murder of Jews from the
+  Netherlands, Anne Frank among them, and of the violence of the Dutch army in Indonesia from 1945 to 1949. They
+  are told plainly, without celebrations.
+lessons:
+  - id: u11-l1
+    title: Neutral in the Great War
+    icon: shield
+    sources:
+      - title: "Canon van Nederland, De Eerste Wereldoorlog (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/eersteWereldoorlog
+      - title: "Wikipedia, Wire of Death"
+        url: https://en.wikipedia.org/wiki/Wire_of_Death
+      - title: "Omroep Brabant, the electric border wire of 1915 (in Dutch)"
+        url: https://www.omroepbrabant.nl/nieuws/6003772/duizend-mensen-doodgebliksemd-toen-ze-deze-grens-wilden-passeren
+      - title: "Wikipedia (Dutch), Belgische vluchtelingen in Nederland tijdens de Eerste Wereldoorlog"
+        url: https://nl.wikipedia.org/wiki/Belgische_vluchtelingen_in_Nederland_tijdens_de_Eerste_Wereldoorlog
+      - title: "Huis Doorn, the last German emperor in exile"
+        url: https://www.huisdoorn.nl/en/
+      - title: "Parlement.com, NSB (in Dutch)"
+        url: https://www.parlement.com/id/vh8lnhrp8wsw/nationaal_socialistische_beweging_nsb
+    exercises:
+      - type: story
+        title: A neutral country at war's edge
+        body: >-
+          In August 1914 the great powers went to war, and the Netherlands stayed out. It called up some 200,000
+          men and kept them on guard for four years. The war still came to the border: Germany overran Belgium,
+          refugees poured north, and food ran short.
+        visual: { kind: photo, photo: mobilisation-1914 }
+      - type: choice
+        prompt: In October 1914 German guns took Antwerp. How many Belgians fled across the Dutch border, like these?
+        visual: { kind: photo, photo: belgian-refugees-1914 }
+        answer: 2
+        options:
+          - label: About 10,000
+            why: Far more than that.
+          - label: About 100,000
+            why: About that many stayed until the end of the war. At the peak there were ten times as many.
+          - label: About a million
+            why: >-
+              Right. In a few days around a million people crossed into Brabant and Zeeland, in a country of six
+              million. Most went home within months, but some 100,000 stayed until 1918, many in camps.
+          - label: Almost nobody, the border was closed
+            why: The Dutch let them in. The border was only sealed later, by the Germans.
+      - type: truemyth
+        statement: In 1915 the German army built an electric fence along the whole border between occupied Belgium and the Netherlands.
+        visual: { kind: photo, photo: dodendraad }
+        answer: true
+        explain: >-
+          True. The "wire of death" ran from Vaals to the Scheldt and carried 2,000 volts. It was meant to stop
+          spies, smugglers, deserters and young Belgians trying to reach the army. Hundreds of people were killed
+          on it, perhaps a thousand. Short stretches have since been rebuilt as memorials.
+      - type: who
+        photo: kaiser-exile
+        clues:
+          - I ruled a great empire for thirty years, and I wanted a navy to match Britain's.
+          - On 10 November 1918, with my army beaten and revolution at home, I crossed the Dutch border at Eijsden.
+          - The Allies wanted me tried for the war. The Dutch would not hand me over.
+          - I chopped wood at a manor house in Doorn until I died there in 1941.
+        options: [Wilhelm II, Franz Joseph, Albert I, Nicholas II]
+        answer: 0
+        explain: >-
+          Wilhelm II, the last German emperor. He lived first at Amerongen castle and from 1920 at Huis Doorn, near
+          Utrecht, which is now a museum. He died in June 1941, a year into the German occupation, and is buried in
+          its park.
+      - type: pin
+        prompt: Pin Doorn, the village where the last German emperor lived in exile, east of Utrecht.
+        place: doorn
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Doorn, on the Utrechtse Heuvelrug. He bought the house in 1919 and moved in the next year.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Germany invades Belgium in 1914, A million Belgians flee into the Netherlands]
+          - [British ships block the North Sea, Food runs short and bread is rationed]
+          - [Germany's army is beaten in 1918, The emperor flees to the Netherlands]
+          - [The Netherlands stays neutral, Its army waits on the border for four years]
+        explain: >-
+          Neutrality kept the Netherlands out of the trenches, not out of the war. In 1917 hungry crowds in
+          Amsterdam rioted over potatoes, and in November 1918 the socialist Troelstra briefly called for a
+          revolution that never came.
+      - type: choice
+        prompt: In 1931 Anton Mussert, a civil engineer from Utrecht, founded the NSB, a Dutch party copying the Nazis. At the provincial elections of 1935, how did it do?
+        visual: { kind: photo, photo: mussert }
+        answer: 1
+        options:
+          - label: It won almost nothing
+            why: It did better than that, at first.
+          - label: Almost 8% of the vote
+            why: >-
+              Right, in the middle of the Depression, with hundreds of thousands out of work. Its vote fell back
+              in 1937. Under the occupation the NSB was the only party allowed, and about 100,000 Dutch people
+              joined it.
+          - label: Half the vote
+            why: It never came close.
+          - label: It was banned before it could stand
+            why: It was not banned until the Liberation.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: The Dutch army is called up, year: 1914, when: '1914' }
+          - { label: The electric wire goes up on the Belgian border, year: 1915, when: '1915' }
+          - { label: The German emperor crosses the border at Eijsden, year: 1918, when: '1918' }
+          - { label: Mussert founds the NSB, year: 1931, when: '1931' }
+          - { label: Germany invades the Netherlands, year: 1940, when: '1940' }
+        explain: >-
+          The Netherlands hoped to stay neutral in the next war too. On 10 May 1940 that hope ended.
+
+  - id: u11-l2
+    title: Five days in May
+    icon: flame
+    sources:
+      - title: "Canon van Nederland, De Tweede Wereldoorlog (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/tweedewereldoorlog
+      - title: "DutchNews, Rotterdam remembers the bombardment of May 14, 1940"
+        url: https://www.dutchnews.nl/2015/05/rotterdam-remembers-the-bombardment-of-may-14-1940
+      - title: "CVCE, Destruction in the city of Rotterdam (May 1940)"
+        url: https://www.cvce.eu/en/obj/destruction_in_the_city_of_rotterdam_netherlands_may_1940-en-81b0a920-ab82-4ddb-9fe9-a2ebd78dcea4.html
+      - title: "Wikipedia, German invasion of the Netherlands"
+        url: https://en.wikipedia.org/wiki/German_invasion_of_the_Netherlands
+      - title: "Wikipedia, Arthur Seyss-Inquart"
+        url: https://en.wikipedia.org/wiki/Arthur_Seyss-Inquart
+    exercises:
+      - type: story
+        title: Five days in May
+        body: >-
+          Before dawn on 10 May 1940 German planes crossed the Netherlands and German troops crossed its border.
+          The country had not fought a war for over a hundred years. Five days later its army surrendered, and
+          the occupation began. It lasted five years.
+        visual: { kind: time-map, map: occupation, year: '1940-05' }
+      - type: choice
+        prompt: Read the map. Where did the Dutch army plan to make its stand, behind water and forts?
+        visual: { kind: time-map, map: occupation, year: '1940-05' }
+        answer: 0
+        options:
+          - label: In Holland and Utrecht, behind the Grebbe line and the Water Line
+            why: >-
+              Right. "Fortress Holland" was to be defended behind flooded land, as in 1672. But German paratroopers
+              landed inside it on the first morning, around The Hague and at the Moerdijk bridges.
+          - label: Along the German border
+            why: Only light troops stood there, to slow the enemy down.
+          - label: In Zeeland
+            why: Zeeland fought on longest, with French help, but it was not the main line.
+          - label: On the Afsluitdijk
+            why: The forts at Kornwerderzand held, but they only guarded the way across from Friesland.
+      - type: choice
+        prompt: On 14 May 1940, while officers were still talking about a surrender, German bombers struck Rotterdam. What happened?
+        visual: { kind: photo, photo: rotterdam-1940 }
+        answer: 1
+        options:
+          - label: The bombs missed the city
+            why: They hit the old centre.
+          - label: The old centre burned, hundreds were killed and some 80,000 people lost their homes
+            why: >-
+              Right. Most counts put the dead at between 600 and 900. The Germans threatened to bomb Utrecht next,
+              and on 15 May the Dutch army surrendered. Rotterdam's centre was rebuilt as a modern city.
+          - label: Only the port was hit
+            why: The bombs fell on the houses and streets of the old centre.
+          - label: The city was evacuated in time
+            why: There was no warning.
+      - type: odd
+        prompt: Three of these places are remembered for the fighting of May 1940. Which is the odd one out, and why?
+        items:
+          - { label: Rotterdam, photo: rotterdam-1940 }
+          - { label: The Afsluitdijk, photo: afsluitdijk }
+          - { label: The Grebbeberg, photo: grebbeberg }
+          - { label: Arnhem, photo: arnhem-1944 }
+        answer: 3
+        reasons:
+          - It is remembered for the battle of September 1944, in Operation Market Garden
+          - It was never damaged in the war
+          - It is in Belgium
+        reason: 0
+        explain: >-
+          Arnhem's bridge was the "bridge too far" of September 1944. On the Afsluitdijk the forts at Kornwerderzand
+          held off every German attack until the surrender, and the Grebbeberg was held for three days; the soldiers
+          who fell there lie in its war cemetery.
+      - type: gap
+        prompt: On 13 May Queen Wilhelmina sailed for England, and her government followed. From London she spoke to the Dutch over the radio, and gave Hitler a name that stuck. Fill the gap.
+        quote: the arch-enemy of ___
+        source: Queen Wilhelmina on Radio Oranje, London ("de aartsvijand der mensheid", translated from the Dutch)
+        visual: { kind: photo, photo: wilhelmina-radio }
+        options: [mankind, the Netherlands, the Church, peace]
+        answer: 0
+        explain: >-
+          Mankind. Radio Oranje first broadcast from London on 28 July 1940. Listening was soon forbidden, and in
+          1943 the Germans took away the radios, but many people hid theirs.
+      - type: who
+        photo: seyss-inquart
+        clues:
+          - I was an Austrian lawyer, and I helped hand Austria to Hitler in 1938.
+          - In May 1940 Hitler made me Reich Commissioner for the occupied Netherlands.
+          - I ran the country for five years, and I signed the orders that sent its Jews to the camps.
+          - I was tried at Nuremberg and hanged in October 1946.
+        options: [Arthur Seyss-Inquart, Anton Mussert, Johannes Blaskowitz, Hanns Albin Rauter]
+        answer: 0
+        explain: >-
+          Arthur Seyss-Inquart. Mussert, the NSB leader, hoped to rule the Netherlands himself but was never given
+          real power; he was shot for treason in 1946. Rauter ran the SS and police, and was shot in 1949.
+      - type: hunt
+        prompt: Ossip Zadkine's statue for Rotterdam, put up in 1953, is called The Destroyed City. Find the hole where its heart should be.
+        photo: zadkine
+        targets: [[0.42, 0.42, 0.15, 0.2]]
+        explain: >-
+          The figure throws up its arms in despair, with its heart torn out: the old centre of the city. Zadkine,
+          a Russian-born sculptor who lived in Paris, made it after seeing the ruined city.
+      - type: pin
+        prompt: Pin Rotterdam, whose centre was bombed on 14 May 1940.
+        place: rotterdam
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Rotterdam, on the Nieuwe Maas. The line where the fires stopped is marked today with lights in the
+          pavement.
+
+  - id: u11-l3
+    title: Persecution and Anne Frank
+    icon: candle
+    note: >-
+      This lesson is about the persecution and murder of the Jews of the Netherlands in the Holocaust, among them
+      Anne Frank, who died in Bergen-Belsen aged fifteen.
+    sources:
+      - title: "Anne Frank House, Anne Frank timeline"
+        url: https://www.annefrank.org/en/anne-frank/the-timeline/
+      - title: "Canon van Nederland, Anne Frank (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/annefrank
+      - title: "Canon van Nederland, De Tweede Wereldoorlog (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/tweedewereldoorlog
+      - title: "Herinneringscentrum Kamp Westerbork, history of the camp"
+        url: https://kampwesterbork.nl/en/history
+      - title: "NOS, 75 years since the February strike (in Dutch)"
+        url: https://nos.nl/artikel/2088889-amsterdam-herdenkt-75-jaar-februaristaking
+    exercises:
+      - type: story
+        title: Step by step
+        body: >-
+          About 140,000 Jews lived in the Netherlands in 1940, many in Amsterdam, some of them refugees from
+          Germany. The occupiers took away their rights one step at a time: their jobs, their schools, their
+          bicycles. Then they took them away. Some 102,000 were murdered, about three in four.
+        visual: { kind: map, pins: [amsterdam, westerbork] }
+      - type: order
+        prompt: Put the steps of the persecution in order.
+        items:
+          - { label: Jews must register, year: 1941, when: January 1941 }
+          - { label: Jews must wear a yellow star, year: 1942.05, when: May 1942 }
+          - { label: The first train leaves Westerbork for Auschwitz, year: 1942.07, when: July 1942 }
+          - { label: The last train leaves Westerbork, year: 1944.09, when: September 1944 }
+        explain: >-
+          Registration, then marking, then deportation. Dutch civil servants and police carried out many of the
+          orders, and the country's careful records made it easier to find people.
+      - type: truemyth
+        statement: The February strike of 1941, remembered by this statue of a dockworker, was a protest against the round-ups of Jews.
+        visual: { kind: photo, photo: dokwerker }
+        answer: true
+        explain: >-
+          True. After German police seized some 400 young Jewish men in Amsterdam on 22 and 23 February 1941, the
+          Communist Party called a strike. On 25 and 26 February trams, shipyards and offices stopped, in Amsterdam
+          and nearby towns. Almost none of the men came back. Mari Andriessen's Dokwerker stands where the strike
+          is remembered each year.
+      - type: scrub
+        prompt: Drag the slider to the first stage when the transit camp at Westerbork is on the map.
+        map: occupation
+        start: '1940-05'
+        answer: ['1942-07', '1942-12']
+        explain: >-
+          July 1942. Westerbork was built in 1939 as a camp for Jewish refugees from Germany. From 15 July 1942
+          trains left it almost every Tuesday for Auschwitz and Sobibor, until 13 September 1944. About 107,000
+          people were deported from the Netherlands; some 5,200 came back.
+      - type: choice
+        prompt: On 6 July 1942 the Frank family went into hiding in the empty rooms behind Otto Frank's business on the Prinsengracht in Amsterdam. Who lived there?
+        visual: { kind: photo, photo: anne-frank-house }
+        answer: 2
+        options:
+          - label: Only the four Franks
+            why: Four more joined them.
+          - label: Twenty people
+            why: Fewer than that, in a few small rooms.
+          - label: Eight people, for two years
+            why: >-
+              Right: the Franks, the Van Pels family of three, and Fritz Pfeffer, a dentist. Four of Otto's staff,
+              Miep Gies among them, brought food and news. On 4 August 1944 they were betrayed and arrested.
+          - label: A family of Dutch farmers
+            why: The rooms were in the city centre, behind an office and a warehouse.
+      - type: truemyth
+        statement: The house on the Prinsengracht, now the Anne Frank House, was the Frank family's home before the war.
+        visual: { kind: photo, photo: anne-frank-house }
+        answer: false
+        explain: >-
+          A myth. The Franks lived in a flat on the Merwedeplein, in south Amsterdam. Prinsengracht 263 was Otto
+          Frank's business, and they hid in its back annex, the Achterhuis, behind a moving bookcase.
+      - type: gap
+        prompt: Anne got her diary for her thirteenth birthday, on 12 June 1942. Three weeks before her arrest she wrote a line that is often quoted. Fill the gap.
+        quote: in spite of everything I still believe that people are really ___ at heart.
+        source: Anne Frank, diary, 15 July 1944 (translated by B. M. Mooyaart-Doubleday, 1952)
+        visual: { kind: photo, photo: achterhuis }
+        options: [good, brave, free, alone]
+        answer: 0
+        explain: >-
+          Good. Anne was sent to Westerbork, then on the last train to Auschwitz, and then to Bergen-Belsen, where she
+          and her sister Margot died in February 1945. Her father, the only one of the eight to survive, published
+          her diary in 1947 as Het Achterhuis.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Germans round up young Jewish men in Amsterdam, Workers strike on 25 and 26 February 1941]
+          - [A minister in London asks on the radio for diaries to be kept, Anne starts rewriting her diary as a book]
+          - [The hiding place is betrayed, The eight are sent to Westerbork]
+          - [Miep Gies finds Anne's papers after the arrest, The diary survives the war]
+        explain: >-
+          Gerrit Bolkestein, a minister in exile, spoke on Radio Oranje in March 1944. Anne began to rewrite her
+          diary that spring, hoping to publish a book after the war. Who betrayed the eight is still not known.
+      - type: pin
+        prompt: Pin Westerbork, the camp in Drenthe from which most Jews deported from the Netherlands were sent east.
+        place: westerbork
+        okKm: 25
+        fullKm: 10
+        explain: >-
+          Near Hooghalen in Drenthe. The camp is now a memorial, with 102,000 small stones for the dead and the end
+          of a railway line bent up towards the sky.
+
+  - id: u11-l4
+    title: Hiding, resistance and hunger
+    icon: lantern
+    sources:
+      - title: "Canon van Nederland, De Tweede Wereldoorlog (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/tweedewereldoorlog
+      - title: "Nationaal Hannie Schaft Comité, Hannie Schaft (in Dutch)"
+        url: https://www.hannieschaft.nl/
+      - title: "Corrie ten Boom House, history"
+        url: https://www.corrietenboom.com/en/information/history
+      - title: "Wikipedia, Dutch famine of 1944–1945"
+        url: https://en.wikipedia.org/wiki/Dutch_famine_of_1944%E2%80%931945
+      - title: "Wikipedia, Operation Manna and Chowhound"
+        url: https://en.wikipedia.org/wiki/Operation_Manna_and_Chowhound
+    exercises:
+      - type: story
+        title: Under the floorboards
+        body: >-
+          Most Dutch people tried to get by under the occupation. A few worked with the Germans, and a few fought
+          them. Many more did something in between: they hid someone, read a forbidden paper, or looked away.
+          In the last winter of the war, the west of the country starved.
+        visual: { kind: time-map, map: occupation, year: '1944-11' }
+      - type: choice
+        prompt: Corrie ten Boom, a watchmaker in Haarlem, and her family hid people above their shop. Where?
+        visual: { kind: map, pins: [haarlem] }
+        answer: 1
+        options:
+          - label: In the cellar
+            why: The hiding place was at the top of the house.
+          - label: In a tiny room behind a false wall in Corrie's bedroom
+            why: >-
+              Right. When the Gestapo raided the house on 28 February 1944, six people hid there and were never
+              found. The Ten Booms were sent to camps; Corrie's sister Betsie and their father died. Corrie told
+              the story in The Hiding Place.
+          - label: In a windmill outside town
+            why: They hid them in their own house, above the shop.
+          - label: In the church tower
+            why: They hid them in their own house, above the shop.
+      - type: who
+        photo: hannie-schaft
+        clues:
+          - I was born in Haarlem in 1920 and studied law in Amsterdam.
+          - In 1943 I would not sign a promise of loyalty to the Germans, so I had to leave university.
+          - I joined the armed resistance, and the Germans hunted "the girl with the red hair".
+          - I was caught in March 1945 and shot in the dunes in April, weeks before the end of the war.
+        options: [Hannie Schaft, Corrie ten Boom, Miep Gies, Truus Oversteegen]
+        answer: 0
+        explain: >-
+          Hannie Schaft. She dyed her red hair black to hide. In November 1945 she was reburied in the dunes at
+          Overveen, with Queen Wilhelmina at the graveside. Truus Oversteegen and her sister Freddie fought beside
+          her.
+      - type: truemyth
+        statement: Almost every Dutch person was in the resistance.
+        visual: { kind: photo, photo: resistance-1945 }
+        answer: false
+        explain: >-
+          A myth that grew after the war. The armed resistance was small, and many of the armed men in photos like
+          this one, of April 1945, joined only in the last months. Far more people helped in quieter ways, by hiding
+          people, sharing ration cards or reading forbidden papers, and some 300,000 people were in hiding by 1944. But most people adapted, and Dutch officials and police helped carry out German
+          orders.
+      - type: sort
+        prompt: Sort these people of the occupation.
+        groups: [Worked with the Germans, Resisted]
+        items:
+          - { label: Anton Mussert, group: 0 }
+          - { label: Hannie Schaft, group: 1 }
+          - { label: Corrie ten Boom, group: 1 }
+          - { label: Henk Feldmeijer, group: 0 }
+          - { label: Miep Gies, group: 1 }
+          - { label: Willem Arondeus, group: 1 }
+        explain: >-
+          Feldmeijer led the Dutch SS. Arondeus, an artist, helped set fire to Amsterdam's population register in
+          March 1943, to stop the Germans checking false papers; he was shot that July.
+      - type: scrub
+        prompt: Drag the slider to a month of the Hunger Winter, when Maastricht was already free but Amsterdam still occupied and starving.
+        map: occupation
+        start: '1940-05'
+        answer: ['1944-11', '1945-04']
+        explain: >-
+          From November 1944 to April 1945. After the railway strike of September 1944, the Germans stopped food
+          barges reaching the west, and the winter was hard. At least 20,000 people died of hunger and cold.
+      - type: choice
+        prompt: In the Hunger Winter, the official ration in the cities of Holland fell below what a person needs to live. What did people eat?
+        visual: { kind: photo, photo: hunger-winter }
+        answer: 3
+        options:
+          - label: Rice sent from the Indies
+            why: Japan held the Indies, and nothing came from there.
+          - label: Food flown in every week by the Allies
+            why: The air drops only started at the very end of April 1945.
+          - label: Enough, because farms were close by
+            why: Farms were close, but the food did not reach the cities.
+          - label: Sugar beet and tulip bulbs, and food bartered on long trips to farms
+            why: >-
+              Right. People walked or cycled with handcarts to farms in the north and east, trading linen and
+              jewellery for potatoes. They burned furniture and the wood of empty houses to keep warm.
+      - type: choice
+        prompt: From 29 April 1945 Allied bombers flew low over the west of the country, by agreement with the Germans. What did they drop?
+        visual: { kind: photo, photo: manna-drop }
+        answer: 0
+        options:
+          - label: Food
+            why: >-
+              Right. In Operations Manna and Chowhound, British, Canadian, Australian, New Zealand, Polish and
+              American crews dropped more than 11,000 tonnes of food in ten days. People painted "Thank you" on
+              rooftops and in the tulip fields.
+          - label: Leaflets
+            why: Leaflets had been dropped before; this time it was something more urgent.
+          - label: Bombs on the German positions
+            why: A truce let them fly in safely.
+          - label: Paratroopers
+            why: Not this time.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Men are called up to work in Germany, "Some 300,000 people go into hiding"]
+          - [People in hiding have no ration cards, Resistance groups steal and forge them]
+          - [The railways strike in September 1944, The Germans stop food reaching the west]
+          - [The west is starving in April 1945, Allied bombers drop food by agreement]
+        explain: >-
+          The railway strike was called from London to help Operation Market Garden. When Arnhem failed, the
+          strikers stayed out, and the west paid for it.
+
+  - id: u11-l5
+    title: Liberation
+    icon: flag
+    sources:
+      - title: "Veterans Affairs Canada, The liberation of the Netherlands"
+        url: https://www.veterans.gc.ca/en/remembrance/history/second-world-war/liberation-netherlands
+      - title: "Canon van Nederland, De Tweede Wereldoorlog (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/tweedewereldoorlog
+      - title: "Wikipedia, Operation Market Garden"
+        url: https://en.wikipedia.org/wiki/Operation_Market_Garden
+      - title: "Wikipedia, Battle of the Scheldt"
+        url: https://en.wikipedia.org/wiki/Battle_of_the_Scheldt
+      - title: "Canadian Tulip Festival, history"
+        url: https://tulipfestival.ca/about/history/
+      - title: "Bernard Montgomery, Memoirs (1958), and Cornelius Ryan, A Bridge Too Far (1974)"
+        url: https://en.wikipedia.org/wiki/A_Bridge_Too_Far_(book)
+    exercises:
+      - type: story
+        title: Freed piece by piece
+        body: >-
+          The Netherlands was not freed in a day. The south was free by the autumn of 1944, the north and east in
+          April 1945, and the west only on 5 May. The First Canadian Army did much of the fighting, and more than
+          7,600 Canadians died in it. Play the map to watch it happen.
+        visual: { kind: time-map, map: occupation, year: '1944-09' }
+      - type: choice
+        prompt: On 17 September 1944 thousands of paratroopers landed in the Netherlands, in Operation Market Garden. What were they meant to seize?
+        visual: { kind: photo, photo: arnhem-gliders }
+        answer: 2
+        options:
+          - label: The port of Rotterdam
+            why: Rotterdam was far to the west.
+          - label: The German government in The Hague
+            why: That was the German plan of May 1940, in reverse.
+          - label: The bridges on the road from Belgium to Arnhem, to cross the Rhine
+            why: >-
+              Right. American paratroopers seized most of the bridges between Eindhoven and Nijmegen. British
+              paratroopers at Arnhem held the north end of the bridge for four days, but tanks could not reach them.
+              Of about 10,000 men at Arnhem, fewer than 2,500 got back across the river.
+          - label: The Afsluitdijk
+            why: That stayed in German hands until May 1945.
+      - type: voices
+        prompt: Two men looked back on Market Garden. How do they disagree?
+        voices:
+          - who: Field Marshal Bernard Montgomery, who planned it
+            when: Memoirs, 1958
+            text: I remain Market Garden's unrepentant advocate.
+            photo: arnhem-1944
+          - who: Prince Bernhard of the Netherlands
+            when: as quoted by Cornelius Ryan, A Bridge Too Far, 1974
+            text: My country can never again afford the luxury of another Montgomery success.
+        options:
+          - Montgomery still thinks it was worth trying; Bernhard says the Dutch paid for its failure
+          - Both say it was a great victory
+          - Both blame the weather
+          - Bernhard thinks it should have gone further
+        answer: 0
+        explain: >-
+          Montgomery called the battle "ninety per cent successful". For the Dutch, the failure meant another winter
+          of occupation and hunger north of the rivers, and the people of Arnhem were driven from their town.
+      - type: choice
+        prompt: Wipe from August to November 1944. Which part of the Netherlands was freed in the autumn of 1944?
+        visual: { kind: compare, map: occupation, years: ['1944-08', '1944-11'] }
+        answer: 1
+        options:
+          - label: The north
+            why: The north waited until April 1945.
+          - label: The south, below the great rivers
+            why: >-
+              Right: Zeeland, Brabant and most of Limburg, and a strip up to Nijmegen. The Battle of the Scheldt, in
+              which Canadian troops did most of the fighting, opened the port of Antwerp to Allied ships on 28
+              November.
+          - label: Holland and Utrecht
+            why: They were the last to be freed, in May 1945.
+          - label: All of it
+            why: The front stuck on the rivers all winter.
+      - type: sort
+        prompt: Read the map. Which of these towns were free by the end of November 1944, and which were still occupied?
+        visual: { kind: time-map, map: occupation, year: '1944-11' }
+        groups: [Free by November 1944, Still occupied]
+        items:
+          - { label: Maastricht, group: 0 }
+          - { label: Eindhoven, group: 0 }
+          - { label: Breda, group: 0 }
+          - { label: Nijmegen, group: 0 }
+          - { label: Venlo, group: 1 }
+          - { label: Arnhem, group: 1 }
+          - { label: Groningen, group: 1 }
+          - { label: Amsterdam, group: 1 }
+        explain: >-
+          Venlo, east of the Maas, was not freed until 1 March 1945. Arnhem, just across the Rhine from the Allied
+          line, waited until 14 April.
+      - type: scrub
+        prompt: Drag the slider to the month the Canadians freed Groningen, after four days of street fighting.
+        map: occupation
+        start: '1944-09'
+        answer: ['1945-04', '1945-04']
+        explain: >-
+          April 1945, on the 16th. The same month Canadian troops freed Westerbork, Arnhem, Apeldoorn and
+          Leeuwarden, and reached the North Sea coast.
+      - type: choice
+        prompt: Where did the German commander in the Netherlands agree to surrender, on 5 May 1945?
+        visual: { kind: photo, photo: hotel-de-wereld }
+        answer: 3
+        options:
+          - label: In the Royal Palace in Amsterdam
+            why: Not there.
+          - label: On Lüneburg Heath in Germany
+            why: That is where German forces in the north-west, the Netherlands among them, surrendered to Montgomery on 4 May.
+          - label: In Reims, in France
+            why: Germany's surrender to all the Allies was signed in Reims on 7 May.
+          - label: In a hotel in Wageningen, before a Canadian general
+            why: >-
+              Right. At the Hotel De Wereld, General Johannes Blaskowitz met the Canadian general Charles Foulkes,
+              with Prince Bernhard there. The papers were signed the next day. 5 May is Liberation Day.
+      - type: pin
+        prompt: Pin Groesbeek, near Nijmegen, where more than 2,300 Canadian soldiers are buried.
+        place: groesbeek
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          The Groesbeek Canadian War Cemetery. Another 1,355 Canadians lie at Holten, in Overijssel. Dutch schools
+          adopt the graves, and on Christmas Eve candles are lit on each one.
+      - type: truemyth
+        statement: The Dutch royal family still sends tulip bulbs to Ottawa every year.
+        visual: { kind: photo, photo: royals-canada }
+        answer: true
+        explain: >-
+          True. Princess Juliana spent the war in Ottawa, and her daughter Margriet was born there in 1943. In 1945
+          she sent 100,000 tulip bulbs to thank Canada, and more have come every year since. They bloom each May at
+          the Canadian Tulip Festival.
+
+  - id: u11-l6
+    title: Indonesia's war of independence
+    icon: globe
+    note: >-
+      This lesson is about the war of independence in Indonesia from 1945 to 1949, in which about 100,000
+      Indonesians were killed, and about the extreme violence used by the Dutch army.
+    sources:
+      - title: "NIOD, Indonesian War of Independence in numbers"
+        url: https://www.niod.nl/en/questions/indonesian-war-of-independence-in-numbers/
+      - title: "Leiden University, how the Netherlands used structural extreme violence in Indonesia (in Dutch, 2022)"
+        url: https://www.universiteitleiden.nl/nieuws/2022/02/hoe-nederland-structureel-extreem-geweld-gebruikte-in-indonesie-en-daarna-verzweeg
+      - title: "Tweede Kamer, letter on the research programme, Kamerstuk 26 049 nr. 82 (in Dutch)"
+        url: https://zoek.officielebekendmakingen.nl/kst-26049-82.pdf
+      - title: "Euronews, Dutch leader apologises for extreme violence in Indonesia (17 February 2022)"
+        url: https://www.euronews.com/2022/02/17/dutch-leader-apologises-for-extreme-violence-in-indonesia-in-colonial-era
+      - title: "Canon van Nederland, Indonesië (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/indonesie
+      - title: "Wikipedia, Proclamation of Indonesian Independence"
+        url: https://en.wikipedia.org/wiki/Proclamation_of_Indonesian_Independence
+    exercises:
+      - type: story
+        title: The war after the war
+        body: >-
+          In 1942 Japan took the Dutch East Indies in a few weeks and locked Dutch civilians in camps. When Japan
+          surrendered in August 1945, Indonesian leaders declared a republic of their own. The Netherlands, just
+          freed itself, sent an army to take its colony back.
+        visual: { kind: photo, photo: merdeka-1945 }
+      - type: who
+        photo: sukarno
+        clues:
+          - I was born on Java in 1901 and trained as an engineer in Bandung.
+          - The Dutch jailed and exiled me for years for leading the nationalists.
+          - On 17 August 1945, in front of my house in Jakarta, I read out a declaration of independence.
+          - I was my country's first president, until 1967.
+        options: [Sukarno, Mohammad Hatta, Sutan Sjahrir, Suharto]
+        answer: 0
+        explain: >-
+          Sukarno. Mohammad Hatta, who had studied in Rotterdam, signed the declaration with him and became vice
+          president. Sjahrir was the republic's first prime minister; Suharto pushed Sukarno aside in the 1960s.
+      - type: gap
+        prompt: The declaration Sukarno read on 17 August 1945 was two sentences long. Fill the gap in the second.
+        quote: Matters concerning the transfer of power and other matters will be executed by careful means and in the shortest possible ___.
+        source: Proclamation of Indonesian Independence, Jakarta, 17 August 1945 (translated from the Indonesian)
+        visual: { kind: photo, photo: merdeka-1945 }
+        options: [time, war, peace, treaty]
+        answer: 0
+        explain: >-
+          Time. The first sentence reads: "We, the people of Indonesia, hereby declare the independence of
+          Indonesia." The Dutch did not accept it, and it took four years of war and talks.
+      - type: choice
+        prompt: In 1947 and 1948 the Dutch army launched two great offensives on Java and Sumatra. What did the Dutch government call them?
+        visual: { kind: photo, photo: dutch-troops-1947 }
+        answer: 1
+        options:
+          - label: Liberation campaigns
+            why: Not that.
+          - label: Police actions
+            why: >-
+              Right: "politionele acties", as if they were keeping order rather than fighting a war. Many of the
+              Dutch soldiers were young conscripts, sent out by ship for two or three years.
+          - label: The Eighty Years' War
+            why: That was the revolt against Spain, Unit 5.
+          - label: The Aceh war
+            why: That was fought from 1873, Unit 10.
+      - type: voices
+        prompt: In 1969 a veteran told Dutch television about war crimes he had seen in Indonesia. The government had the records checked. In 2022, after a large study, a prime minister spoke again. How do they differ?
+        voices:
+          - who: The Dutch government
+            when: letter to parliament with the report on "excesses", June 1969 (translated from the Dutch)
+            text: the armed forces as a whole behaved correctly in Indonesia.
+          - who: Prime Minister Mark Rutte
+            when: Brussels, 17 February 2022
+            text: I offer my deepest apologies to the Indonesian people for the systematic and extreme violence on the Dutch side during those years.
+        options:
+          - In 1969 the violence was called rare excesses; in 2022 it was called systematic, and apologised for
+          - Both say the army did nothing wrong
+          - Both apologise to Indonesia
+          - The 1969 letter says more people died
+        answer: 0
+        explain: >-
+          The 2022 study, by three Dutch research institutes, found that executions, torture and burning villages
+          were structural, and that governments then and later looked away. At Rawagede, on Java, Dutch soldiers
+          shot the men of a village on 9 December 1947: at least 150 by Dutch count, 431 by Indonesian.
+      - type: match
+        prompt: Match each event to its date.
+        pairs:
+          - [Japan takes the Dutch East Indies, March 1942]
+          - [Sukarno declares independence, 17 August 1945]
+          - [The first Dutch offensive, July 1947]
+          - [The Netherlands hands over sovereignty, 27 December 1949]
+        explain: >-
+          Western New Guinea stayed Dutch until 1962. The Netherlands only said in 2023 that it recognises 17 August
+          1945 as Indonesia's independence day.
+      - type: choice
+        prompt: Read the photo. On 27 December 1949, in the Royal Palace in Amsterdam, Queen Juliana signed a document. What was it?
+        visual: { kind: photo, photo: sovereignty-1949 }
+        answer: 2
+        options:
+          - label: A treaty making Indonesia a Dutch province
+            why: It was the other way round.
+          - label: A peace treaty with Japan
+            why: That was signed in San Francisco in 1951.
+          - label: The transfer of sovereignty to the United States of Indonesia
+            why: >-
+              Right. American pressure helped: the United States threatened to stop Marshall aid to the Netherlands.
+              Within a year the federal states joined the Republic of Indonesia.
+          - label: Her abdication
+            why: Juliana reigned until 1980.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Japan surrenders in August 1945, Sukarno and Hatta declare independence]
+          - [The Netherlands wants its colony back, Dutch troops fight a four-year war]
+          - [The United States threatens to stop Marshall aid, The Netherlands agrees to hand over sovereignty]
+          - [Indonesia becomes independent, "Some 300,000 people from the Indies move to the Netherlands"]
+        explain: >-
+          Among them were Dutch, Indo-Dutch and Moluccan families; many Moluccan soldiers of the colonial army came
+          with their families in 1951, and were housed in camps, Westerbork among them.

@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import type { ExerciseProps } from './types'
-import { AnyTimeMap } from './VisualView'
+import { AnyTimeMap, stories } from './VisualView'
 
 // Border scrubber: drag the year slider until the map matches the prompt.
 export function ScrubMap({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'scrub'>>) {
   const [moved, setMoved] = useState(false)
   const [from, to] = exercise.answer
-  const range = from === to ? String(from) : `${from} to ${to}`
+  // Years, or months on the occupation map.
+  const format = exercise.map === 'cloth' ? String : stories[exercise.map].format
+  const range = from === to ? format(from) : `${format(from)} to ${format(to)}`
 
   const onYear = (year: number) => {
     if (checked) return
     setMoved(true)
     const correct = year >= from && year <= to
-    const lead = correct ? `${year} it is.` : `You chose ${year}; the answer is ${range}.`
+    const lead = correct ? `${format(year)} it is.` : `You chose ${format(year)}; the answer is ${range}.`
     setAnswer(() => ({ correct, detail: `${lead} ${exercise.explain}` }))
   }
 

@@ -247,6 +247,31 @@ import joBonger from './jo-bonger.jpg'
 import breitnerKimono from './breitner-kimono.jpg'
 import panoramaMesdag from './panorama-mesdag.jpg'
 import mobilisation1914 from './mobilisation-1914.jpg'
+// Unit 11
+import belgianRefugees1914 from './belgian-refugees-1914.jpg'
+import dodendraad from './dodendraad.jpg'
+import kaiserExile from './kaiser-exile.jpg'
+import mussert from './mussert.jpg'
+import rotterdam1940 from './rotterdam-1940.jpg'
+import grebbeberg from './grebbeberg.jpg'
+import arnhem1944 from './arnhem-1944.jpg'
+import wilhelminaRadio from './wilhelmina-radio.jpg'
+import seyssInquart from './seyss-inquart.jpg'
+import zadkine from './zadkine.jpg'
+import dokwerker from './dokwerker.jpg'
+import anneFrankHouse from './anne-frank-house.jpg'
+import achterhuis from './achterhuis.jpg'
+import hannieSchaft from './hannie-schaft.jpg'
+import resistance1945 from './resistance-1945.jpg'
+import hungerWinter from './hunger-winter.jpg'
+import mannaDrop from './manna-drop.jpg'
+import arnhemGliders from './arnhem-gliders.jpg'
+import hotelDeWereld from './hotel-de-wereld.jpg'
+import royalsCanada from './royals-canada.jpg'
+import merdeka1945 from './merdeka-1945.jpg'
+import sukarno from './sukarno.jpg'
+import dutchTroops1947 from './dutch-troops-1947.jpg'
+import sovereignty1949 from './sovereignty-1949.jpg'
 import semperAugustus from './semper-augustus.jpg'
 import silverFleet from './silver-fleet.jpg'
 import slaveryMonument from './slavery-monument.jpg'
@@ -581,6 +606,30 @@ const files: Record<PhotoId, string> = {
   'breitner-kimono': breitnerKimono,
   'panorama-mesdag': panoramaMesdag,
   'mobilisation-1914': mobilisation1914,
+  'belgian-refugees-1914': belgianRefugees1914,
+  'dodendraad': dodendraad,
+  'kaiser-exile': kaiserExile,
+  'mussert': mussert,
+  'rotterdam-1940': rotterdam1940,
+  'grebbeberg': grebbeberg,
+  'arnhem-1944': arnhem1944,
+  'wilhelmina-radio': wilhelminaRadio,
+  'seyss-inquart': seyssInquart,
+  'zadkine': zadkine,
+  'dokwerker': dokwerker,
+  'anne-frank-house': anneFrankHouse,
+  'achterhuis': achterhuis,
+  'hannie-schaft': hannieSchaft,
+  'resistance-1945': resistance1945,
+  'hunger-winter': hungerWinter,
+  'manna-drop': mannaDrop,
+  'arnhem-gliders': arnhemGliders,
+  'hotel-de-wereld': hotelDeWereld,
+  'royals-canada': royalsCanada,
+  'merdeka-1945': merdeka1945,
+  'sukarno': sukarno,
+  'dutch-troops-1947': dutchTroops1947,
+  'sovereignty-1949': sovereignty1949,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

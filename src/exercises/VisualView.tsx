@@ -9,6 +9,7 @@ import { bordersStory } from '../data/borders'
 import { burgundyStory } from '../data/burgundy'
 import { empireStory } from '../data/empire'
 import { kingdomStory } from '../data/kingdom'
+import { occupationStory } from '../data/occupation'
 import { railsStory } from '../data/rails'
 import { revoltStory } from '../data/revolt'
 import { romanStory } from '../data/roman'
@@ -20,7 +21,8 @@ import { TimeMap } from '../map/TimeMap'
 import { TradeMap } from '../map/TradeMap'
 import { PhotoFigure } from '../photos/Photo'
 
-const stories = {
+// Every year-slider map but the cloth trade map, which has a frame of its own.
+export const stories = {
   water: waterStory,
   roman: romanStory,
   burgundy: burgundyStory,
@@ -31,6 +33,7 @@ const stories = {
   borders: bordersStory,
   kingdom: kingdomStory,
   rails: railsStory,
+  occupation: occupationStory,
 }
 
 type TimeMapProps = {

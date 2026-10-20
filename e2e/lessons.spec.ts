@@ -447,15 +447,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 26 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 29 snapshots from Caesar to the Delta Works', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('26 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('29 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 26 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 29 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '25')
+  await expect(slider).toHaveAttribute('max', '28')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -512,7 +512,25 @@ test('the time map steps through 26 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-area-duchy')).toHaveCount(0)
 
   await slider.fill('25')
+  await expect(map.locator('.time-map-title')).toHaveText('May 1940: Five days of war')
+  await expect(map.locator('.hist-rail')).toHaveCount(0)
+  await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
+  await expect(map.locator('.hist-area-free')).toHaveCount(0)
+
+  await slider.fill('26')
+  await expect(map.locator('.time-map-title')).toHaveText('November 1944: The Scheldt, and the Hunger Winter')
+  await expect(map.locator('.hist-area-free').first()).toBeVisible()
+  await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-free')).toHaveCount(1)
+
+  await slider.fill('27')
+  await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
+  await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
+  await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(0)
+
+  await slider.fill('28')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
+  await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
   await expect(map.locator('.hist-area-belgium')).toHaveCount(0)
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
@@ -904,4 +922,54 @@ test('the railway map connects the country from 1839 to 1914', async ({ page }) 
 
   await year.fill('1914')
   await expect(map.locator('.time-map-title')).toHaveText('1914: Neutral in a world war')
+})
+
+test('plays all of unit 11 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'Neutral in the Great War',
+    'Five days in May',
+    'Persecution and Anne Frank',
+    'Hiding, resistance and hunger',
+    'Liberation',
+    "Indonesia's war of independence",
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 11 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the occupation map moves month by month from May 1940 to liberation', async ({ page }) => {
+  await unlock(page, ['u11-l1'])
+  await page.getByRole('button', { name: 'Five days in May', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const month = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.time-map-title')).toHaveText('May 1940: Five days of war')
+  await expect(month).toHaveAttribute('aria-valuetext', 'May 1940')
+  await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
+  await expect(map.locator('.hist-area-free')).toHaveCount(0)
+
+  // The slider counts months: year * 12 + month - 1.
+  await month.fill(String(1944 * 12 + 8))
+  await expect(map.locator('.time-map-title')).toHaveText('September 1944: Belgium is free, and Market Garden')
+  await expect(month).toHaveAttribute('aria-valuetext', 'September 1944')
+  await expect(map.locator('.hist-area-free').first()).toBeVisible()
+  await expect(map.locator('.key-swatch.key-free')).toHaveCount(1)
+
+  await month.fill(String(1944 * 12 + 10))
+  await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(1)
+
+  await month.fill(String(1945 * 12 + 4))
+  await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
+  await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
 })
