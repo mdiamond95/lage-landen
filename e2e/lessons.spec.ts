@@ -4,6 +4,7 @@ import { expect, test, type Page } from '@playwright/test'
 async function answer(page: Page) {
   const foot = page.locator('.lesson-foot')
   if (await page.locator('.story').count()) return
+  if (await page.locator('.content-note').count()) return
   if (await page.locator('.exercise-scrub').count()) {
     const slider = page.getByRole('slider', { name: 'Year' })
     await slider.fill(await slider.getAttribute('max') ?? '0')
@@ -441,13 +442,13 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 14 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 15 snapshots from Caesar to the Delta Works', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Open the time map' }).click()
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '13')
+  await expect(slider).toHaveAttribute('max', '14')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -459,11 +460,18 @@ test('the time map steps through 14 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-area-rebel').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-rebel')).toHaveCount(1)
 
-  await slider.fill('12')
-  await expect(map.locator('.time-map-title')).toHaveText('1678: The Peace of Nijmegen')
-  await expect(map.locator('.hist-area-france')).not.toHaveCount(0)
+  await slider.fill('10')
+  await expect(map.locator('.time-map-title')).toHaveText('1621: Two trading companies')
+  await expect(map.locator('.hist-voc')).toHaveCount(6)
+  await expect(map.locator('.hist-wic')).toHaveCount(6)
+  await expect(map.locator('.key-swatch.key-voc')).toHaveCount(1)
 
   await slider.fill('13')
+  await expect(map.locator('.time-map-title')).toHaveText('1678: The Peace of Nijmegen')
+  await expect(map.locator('.hist-voc')).toHaveCount(0)
+  await expect(map.locator('.hist-area-france')).not.toHaveCount(0)
+
+  await slider.fill('14')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
@@ -582,4 +590,87 @@ test('once loaded, the app and its pictures work offline', async ({ page, contex
   const img = page.locator('.lesson-body img').first()
   await expect(img).toBeVisible()
   await expect.poll(() => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true)
+})
+
+test('plays all of unit 7 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'Round the Cape to the spice islands',
+    'Japan, Ceylon and the Cape',
+    'The West India Company',
+    'The Atlantic slave trade',
+    'Suriname, Curaçao and resistance',
+    'Keti Koti: the end of slavery',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 7 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the world map follows the ships from Asia to the Caribbean', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Round the Cape to the spice islands', exact: true }).click()
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.world-map')).toBeVisible()
+  await expect(map.locator('.time-map-title')).toHaveText('1602: The VOC is founded')
+  await expect(map.locator('.hist-flow-asia')).toHaveCount(1)
+  await expect(map.locator('.hist-wic')).toHaveCount(0)
+
+  await year.fill('1640')
+  await expect(map.locator('.time-map-title')).toHaveText('1640: Galle on Ceylon')
+  await expect(map.locator('.hist-flow-enslaved')).toHaveCount(1)
+  await expect(map.locator('.hist-wic')).not.toHaveCount(0)
+  await expect(map.locator('.key-swatch.key-enslaved')).toHaveCount(1)
+
+  // New Amsterdam is English from 1664, so its post greys out.
+  await year.fill('1664')
+  await expect(map.locator('.hist-wic.hist-gone')).not.toHaveCount(0)
+
+  await year.fill('1863')
+  await expect(map.locator('.time-map-title')).toHaveText('1863: Keti Koti')
+  await expect(map.locator('.hist-flow-enslaved')).toHaveCount(0)
+})
+
+test('a lesson with a content note shows it first and ends calmly', async ({ page }) => {
+  await unlock(page, ['u7-l1', 'u7-l2', 'u7-l3', 'u7-l4', 'u7-l5'])
+  const foot = page.locator('.lesson-foot')
+  await page.getByRole('button', { name: 'Keti Koti: the end of slavery', exact: true }).click()
+  await expect(page.locator('.eyebrow').first()).toHaveText('Content note')
+  await expect(page.locator('.content-note')).toContainText('end of slavery')
+  await foot.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.locator('.story')).toBeVisible()
+  await foot.getByRole('button', { name: 'Continue' }).click()
+
+  // True or myth: the freed people had to work on under state supervision.
+  await page.getByRole('button', { name: 'Myth' }).click()
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText(/^Correct/)
+  await expect(page.locator('.feedback-head')).not.toContainText('!')
+  await foot.getByRole('button', { name: 'Continue' }).click()
+
+  await skipTo(page, 'Two voices')
+  await expect(page.locator('.exercise-voices .voice')).toHaveCount(2)
+  await expect(page.locator('.exercise-voices cite').first()).toContainText('Mark Rutte')
+  await page.locator('.exercise-voices .option', { hasText: 'Concrete steps' }).click()
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText(/^Correct/)
+
+  for (let step = 0; step < 10 && !(await page.locator('.results').count()); step++) {
+    await foot.getByRole('button', { name: 'Continue' }).click()
+    if (await page.locator('.results').count()) break
+    await answer(page)
+  }
+  await expect(page.locator('.results h1')).toHaveText('Lesson complete')
 })

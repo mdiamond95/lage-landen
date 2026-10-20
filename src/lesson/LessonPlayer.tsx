@@ -12,6 +12,7 @@ import { StoryCard } from '../exercises/StoryCard'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
 import type { Evaluate, Result } from '../exercises/types'
+import { Voices } from '../exercises/Voices'
 import { WhoAmI } from '../exercises/WhoAmI'
 import { XP } from './scoring'
 
@@ -21,13 +22,24 @@ export type LessonOutcome = { mistakes: number; bonuses: number; places: string[
 type Props = {
   title: string
   exercises: Exercise[]
+  // Shown before the first question of a lesson on a painful subject.
+  note?: string
+  // No cheering: a quieter "Correct" in place of "Spot on!".
+  calm?: boolean
   onExit: () => void
   onFinish: (outcome: LessonOutcome) => void
 }
 
+const feedbackHead = (r: Result, calm: boolean) => {
+  if (!r.correct) return 'Not quite'
+  if (calm) return r.bonus ? `Correct. +${XP.bonus} XP` : 'Correct'
+  return r.bonus ? `Spot on! +${XP.bonus} XP` : 'Correct!'
+}
+
 // Plays a lesson Duolingo-style: answer, check, read why, continue.
 // A question answered wrong comes back once at the end of the lesson.
-export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
+export function LessonPlayer({ title, exercises, note, calm = false, onExit, onFinish }: Props) {
+  const [noteRead, setNoteRead] = useState(!note)
   const [queue, setQueue] = useState(exercises)
   const [index, setIndex] = useState(0)
   const [evaluate, setEvaluate] = useState<Evaluate | null>(null)
@@ -100,6 +112,8 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
         return <FillGap exercise={exercise} {...props} />
       case 'odd':
         return <OddOneOut exercise={exercise} {...props} />
+      case 'voices':
+        return <Voices exercise={exercise} {...props} />
     }
   })()
 
@@ -116,19 +130,33 @@ export function LessonPlayer({ title, exercises, onExit, onFinish }: Props) {
         </div>
       </header>
 
-      <main className="lesson-body" key={index}>
-        {body}
+      <main className="lesson-body" key={noteRead ? index : 'note'}>
+        {noteRead ? (
+          body
+        ) : (
+          <div className="exercise">
+            <p className="eyebrow">Content note</p>
+            <div className="content-note">
+              <h2>Before you begin</h2>
+              <p>{note}</p>
+            </div>
+          </div>
+        )}
       </main>
 
       <footer className={`lesson-foot ${result ? (result.correct ? 'is-right' : 'is-wrong') : ''}`} aria-live="polite">
         {result && (
           <div className="feedback">
-            <p className="feedback-head">{result.correct ? (result.bonus ? `Spot on! +${XP.bonus} XP` : 'Correct!') : 'Not quite'}</p>
+            <p className="feedback-head">{feedbackHead(result, calm)}</p>
             <p className="feedback-detail">{result.detail}</p>
             {requeued && <p className="feedback-note">You'll see this one again before the lesson ends.</p>}
           </div>
         )}
-        {isStory ? (
+        {!noteRead ? (
+          <button type="button" className="btn-primary" onClick={() => setNoteRead(true)}>
+            Continue
+          </button>
+        ) : isStory ? (
           <button type="button" className="btn-primary" onClick={next}>
             Continue
           </button>

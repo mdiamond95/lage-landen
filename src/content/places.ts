@@ -74,4 +74,6 @@ export const places: Record<string, Place> = {
   hoorn: { name: 'Hoorn', lat: 52.643, lon: 5.06, note: 'Home of the first fluyts, 1595, and a VOC chamber' },
   loevestein: { name: 'Loevestein Castle', lat: 51.816, lon: 5.023, note: 'Hugo Grotius escaped from here in a book chest, 1621' },
   haarlem: { name: 'Haarlem', lat: 52.381, lon: 4.636, note: 'Frans Hals and Judith Leyster worked here' },
+  // Unit 7: trade, empire and slavery
+  texel: { name: 'Texel', lat: 53.07, lon: 4.8, note: 'The VOC fleets waited in the roads off Oudeschild for a wind' },
 }

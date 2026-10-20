@@ -5,6 +5,7 @@ import { PolderSlider } from '../art/PolderSlider'
 import type { Visual } from '../content/schema'
 import { amsterdamStory } from '../data/amsterdam'
 import { burgundyStory } from '../data/burgundy'
+import { empireStory } from '../data/empire'
 import { revoltStory } from '../data/revolt'
 import { romanStory } from '../data/roman'
 import { spanishStory } from '../data/spanish'
@@ -21,6 +22,7 @@ const stories = {
   revolt: revoltStory,
   amsterdam: amsterdamStory,
   spanish: spanishStory,
+  empire: empireStory,
 }
 
 type TimeMapProps = {

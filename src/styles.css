@@ -406,6 +406,32 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .key-city { width: 12px; height: 10px; background: #e9c7a5; border: 1px solid #8d4a24; border-radius: 2px; }
 .key-wall { background: #6e3417; height: 5px; }
 
+/* World map of Dutch trade and empire: VOC posts in orange, WIC posts in green,
+   ships to Asia in Delft blue, Atlantic ships in teal, and ships carrying enslaved
+   Africans in dark red */
+.world-land { fill: var(--land); stroke: #c9c1ae; stroke-width: 0.6; }
+.world-map .hist-site rect { transform: scale(0.75); }
+.world-map .hist-site circle { r: 4px; }
+.world-map .hist-site-label { font-size: 11px; stroke-width: 3px; }
+.world-map .hist-land { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; fill: #8a7d63; }
+.world-map .hist-water { font-size: 11px; }
+.world-map .hist-people { font-size: 11px; }
+.hist-voc rect { fill: #e07a12; }
+.hist-wic rect { fill: #2e7a43; }
+.hist-line.hist-flow-asia { stroke: #1f4e9c; stroke-width: 2.6; }
+.hist-line.hist-flow-atlantic { stroke: #1f8a87; stroke-width: 2.6; }
+.hist-line.hist-flow-enslaved { stroke: #8e1b2f; stroke-width: 3.2; }
+.hist-head-asia { fill: #1f4e9c; }
+.hist-head-atlantic { fill: #1f8a87; }
+.hist-head-enslaved { fill: #8e1b2f; }
+.world-map .trade-flow { stroke-width: 1.2; stroke-dasharray: 1.2 7; }
+.key-voc { width: 9px; height: 9px; background: #e07a12; border-radius: 1px; }
+.key-wic { width: 9px; height: 9px; background: #2e7a43; border-radius: 1px; }
+.key-asia { background: #1f4e9c; height: 4px; }
+.key-atlantic { background: #1f8a87; height: 4px; }
+.key-enslaved { background: #8e1b2f; height: 5px; }
+.key-colony { width: 12px; height: 10px; background: #e7c7cc; border: 1px solid #9b2f45; border-radius: 2px; }
+
 /* Line charts */
 .line-chart { margin: 0; border: 2px solid var(--line); border-radius: 16px; background: var(--card); padding: 12px; display: grid; gap: 6px; }
 .line-chart svg { width: 100%; height: auto; display: block; }
@@ -430,6 +456,22 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .gap { display: inline-block; min-width: 5.5em; padding: 0 6px; border-bottom: 3px solid var(--orange); color: var(--orange-dark, #c25f00); font-weight: 800; text-align: center; }
 .gap.right { border-color: var(--green); color: var(--green-dark); }
 .gap.wrong { border-color: #b3261e; color: #b3261e; }
+
+/* Two voices: quotes side by side on a wide screen, stacked on a phone. The
+   second voice gets an orange rule, so the two sides read apart */
+.voices { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.voice { margin: 0; display: grid; gap: 8px; align-content: start; }
+.voice:nth-child(2) .source-quote { border-left-color: var(--orange); }
+.voice:nth-child(3) .source-quote { border-left-color: var(--green); }
+.voice .source-quote { font-size: 1.02rem; }
+.voice-photo { width: 100%; max-height: 180px; object-fit: cover; object-position: top; border-radius: 12px; }
+.voice figcaption { font-size: 0.75rem; color: var(--ink-soft); }
+
+/* Content note before a lesson on a painful subject */
+.content-note { display: grid; gap: 12px; padding: 18px; border: 2px solid var(--line); border-left: 6px solid var(--ink-soft); border-radius: 0 16px 16px 0; background: var(--card); }
+.content-note h2 { margin: 0; }
+.content-note p { margin: 0; line-height: 1.55; }
+.lesson-note-tag { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: var(--line); color: var(--ink-soft); font-size: 0.7rem; font-weight: 800; vertical-align: middle; }
 
 /* Cause and effect */
 .cause-heads { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }

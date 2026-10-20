@@ -37,9 +37,10 @@ const PhotoVisual = z.object({ kind: z.literal('photo'), photo: z.enum(photoIds)
 const PolderVisual = z.object({ kind: z.literal('polder-slider') })
 // A map with a year slider, played as an animation: the Zuiderzee and Delta Works,
 // the Roman frontier and roads, the wool and cloth trade, the lands joining
-// Burgundy, the revolt splitting them, Amsterdam growing in the Golden Age, or the
-// Spanish Netherlands shrinking. `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish'] as const
+// Burgundy, the revolt splitting them, Amsterdam growing in the Golden Age, the
+// Spanish Netherlands shrinking, or the Dutch trading posts and colonies around the
+// world. `year` opens it at a given year instead of the start.
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire'] as const
 const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(timeMaps), year: z.number().optional() })
 // A family tree from src/data/families.ts; `hide` blanks out one person by id.
 const TreeVisual = z.object({ kind: z.literal('family-tree'), tree: z.enum(treeIds), hide: z.string().optional() })
@@ -182,7 +183,22 @@ const Odd = z.object({
   explain: z.string(),
 })
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd])
+// Two voices: two or three people of the time, often on opposite sides, speak about
+// the same thing in their own words. The question can only be answered by reading
+// them side by side. Each voice says who spoke, when and where it was written down.
+const Voices = z.object({
+  type: z.literal('voices'),
+  prompt: z.string(),
+  voices: z
+    .array(z.object({ who: z.string(), when: z.string(), text: z.string(), photo: z.enum(photoIds).optional() }))
+    .min(2)
+    .max(3),
+  options: z.array(z.string()).min(2).max(4),
+  answer: z.number().int().nonnegative(),
+  explain: z.string(),
+})
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 
@@ -192,6 +208,9 @@ export const Lesson = z.object({
   id: z.string(),
   title: z.string(),
   icon: z.string(),
+  // A content note, shown before a lesson on a painful subject (slavery, massacres).
+  // Such a lesson is also played without celebrations.
+  note: z.string().optional(),
   exercises: z.array(Exercise).min(3),
   sources: z.array(Source).min(1),
 })
@@ -203,6 +222,8 @@ export const Unit = z.object({
   title: z.string(),
   era: z.string(),
   summary: z.string(),
+  // The content note for the unit's checkpoint, when some of its lessons have one.
+  note: z.string().optional(),
   lessons: z.array(Lesson).min(1),
 })
 export type Unit = z.infer<typeof Unit>

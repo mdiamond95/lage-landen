@@ -11,7 +11,9 @@ import { Results } from './screens/Results'
 import { TimeTravel } from './screens/TimeTravel'
 import { photosUsed } from './photos/used'
 
-type Playing = { id: string; title: string; exercises: Exercise[]; sources: Lesson['sources'] }
+// `note` is a content note shown first; `calm` plays without celebrations, for
+// lessons on painful subjects and any review or checkpoint that draws on them.
+type Playing = { id: string; title: string; exercises: Exercise[]; sources: Lesson['sources']; note?: string; calm?: boolean }
 
 const REVIEW_ID = 'review'
 type Screen = { name: 'home' } | { name: 'timemap' } | { name: 'lesson'; playing: Playing } | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number }
@@ -26,6 +28,7 @@ const buildReview = (): Playing => {
     title: 'Daily review',
     exercises: picked.map((c) => c.exercise),
     sources: units.flatMap((u) => u.lessons.filter((l) => lessonIds.has(l.id)).flatMap((l) => l.sources)),
+    calm: units.some((u) => u.lessons.some((l) => l.note && lessonIds.has(l.id))),
   }
 }
 
@@ -41,9 +44,13 @@ const resolve = (id: string): Playing | undefined => {
       title: `Unit ${cp.number} checkpoint`,
       exercises: buildCheckpoint(cp),
       sources: cp.lessons.flatMap((l) => l.sources),
+      note: cp.note,
+      calm: cp.lessons.some((l) => l.note),
     }
   const found = findLesson(id)
-  return found && { id, title: found.lesson.title, exercises: found.lesson.exercises, sources: found.lesson.sources }
+  if (!found) return undefined
+  const { lesson } = found
+  return { id, title: lesson.title, exercises: lesson.exercises, sources: lesson.sources, note: lesson.note, calm: !!lesson.note }
 }
 
 export default function App() {
@@ -60,6 +67,8 @@ export default function App() {
         key={playing.id}
         title={playing.title}
         exercises={playing.exercises}
+        note={playing.note}
+        calm={playing.calm}
         onExit={home}
         onFinish={(outcome) => {
           const xp = lessonXp(outcome.mistakes, outcome.bonuses)
@@ -80,7 +89,7 @@ export default function App() {
   }
   if (screen.name === 'timemap') return <TimeTravel onBack={home} />
   if (screen.name === 'results') {
-    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} onDone={home} />
+    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} calm={screen.playing.calm} onDone={home} />
   }
   return (
     <Home

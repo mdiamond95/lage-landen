@@ -13,6 +13,7 @@ import { burgundyStory } from '../data/burgundy'
 import { revoltStory } from '../data/revolt'
 import { spanishStory } from '../data/spanish'
 import { amsterdamStory } from '../data/amsterdam'
+import { empireStory } from '../data/empire'
 import { charts } from '../data/charts'
 import { peopleIn, trees } from '../data/families'
 import { places } from './places'
@@ -40,7 +41,8 @@ const isVisual = (e: Exercise) =>
   e.type === 'hunt' ||
   ((e.type === 'truemyth' || e.type === 'gap') && e.visual !== undefined) ||
   (e.type === 'choice' && (e.visual !== undefined || e.options.some((o) => o.art || o.photo))) ||
-  (e.type === 'odd' && e.items.every((i) => i.photo))
+  (e.type === 'odd' && e.items.every((i) => i.photo)) ||
+  (e.type === 'voices' && e.voices.some((v) => v.photo))
 
 describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
@@ -93,7 +95,8 @@ describe.each(files)('%s', (file) => {
         }
         if (ex.type === 'pin') expect(places[ex.place], ex.place).toBeDefined()
         if (ex.type === 'region') for (const id of ex.answer) expect(regionIds[ex.layer].has(id), id).toBe(true)
-        if (ex.type === 'choice' || ex.type === 'who' || ex.type === 'gap') expect(ex.answer).toBeLessThan(ex.options.length)
+        if (ex.type === 'choice' || ex.type === 'who' || ex.type === 'gap' || ex.type === 'voices')
+          expect(ex.answer).toBeLessThan(ex.options.length)
         if (ex.type === 'gap') expect(new Set(ex.options).size, 'gap options differ').toBe(ex.options.length)
         if (ex.type === 'odd') {
           expect(ex.answer).toBeLessThan(ex.items.length)
@@ -114,6 +117,12 @@ describe.each(files)('%s', (file) => {
         }
       }
     })
+
+    if (lesson.note)
+      it(`${lesson.id} has a content note, so its checkpoint has one too`, () => {
+        // Checkpoint questions are drawn from every lesson, so the warning must carry over.
+        expect(unit.note, unit.id).toBeTruthy()
+      })
 
     it(`${lesson.id} opens with a story and asks at least 6 questions`, () => {
       expect(lesson.exercises[0].type).toBe('story')
@@ -229,6 +238,7 @@ describe('time maps in lessons', () => {
     revolt: [revoltStory.min, revoltStory.max],
     amsterdam: [amsterdamStory.min, amsterdamStory.max],
     spanish: [spanishStory.min, spanishStory.max],
+    empire: [empireStory.min, empireStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -317,6 +327,42 @@ describe('Amsterdam growth map', () => {
     }
     // The city only grows: no stage of land inside the walls is ever taken away.
     for (const a of areas) expect(a.to, a.name).toBeUndefined()
+  })
+})
+
+describe('world trade map', () => {
+  const { min, max, events, sites, labels, lines, areas = [] } = empireStory
+  // Roughly the map's frame: the Caribbean to Japan, the North Sea to the Cape.
+  const inWorld = ([lon, lat]: [number, number]) => lon > -100 && lon < 155 && lat > -50 && lat < 66
+
+  it('puts every route, post, label and colony on the world map', () => {
+    for (const l of lines) {
+      expect(l.coords.length, l.name).toBeGreaterThanOrEqual(2)
+      for (const c of l.coords) expect(inWorld(c), `${l.name} ${c}`).toBe(true)
+    }
+    for (const s of sites) expect(inWorld(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inWorld(l.at), l.text).toBe(true)
+    for (const a of areas) for (const c of a.shape ?? []) expect(inWorld(c), `${a.name} ${c}`).toBe(true)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels, ...lines, ...areas]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined && item.to < max) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
+  })
+
+  it('marks every slave-trade route in its own colour', () => {
+    // The routes that carried people must never be drawn like the goods routes.
+    const enslaved = lines.filter((l) => /enslaved|slave/i.test(l.name))
+    expect(enslaved.length).toBeGreaterThan(0)
+    for (const l of enslaved) expect(l.tone, l.name).toBe('enslaved')
   })
 })
 

@@ -113,6 +113,8 @@ lessons:
         url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0083:chapter=29
       - title: Perseus, Tacitus, Annals 11.20, translated by Church and Brodribb
         url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0078:book=11:chapter=20
+      - title: Perseus, Tacitus, Histories 4.14 and 4.73 to 74, translated by Church and Brodribb
+        url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0080:book=4:chapter=14
     exercises:
       - type: story
         title: A frontier along a river
@@ -171,6 +173,26 @@ lessons:
           - [Corbulo, Dug a canal from the Rhine to the Maas]
           - [Julius Civilis, Led the Batavian revolt]
           - [Rembrandt, Painted Civilis's oath]
+      - type: voices
+        prompt: Tacitus wrote speeches for both sides of the Batavian revolt. What does the Roman general say the Gauls' tribute pays for?
+        voices:
+          - who: Julius Civilis, to the Batavian chiefs in a sacred grove
+            when: 69 CE, in Tacitus, Histories 4.14
+            text: There is no alliance, as once there was; we are treated as slaves. We are handed over to prefects and centurions, and when they are glutted with our spoils and our blood, then they are changed, and new receptacles for plunder, new terms for spoliation, are discovered.
+            photo: claudius-civilis
+          - who: Petilius Cerialis, Roman general, to the Treveri and Lingones at Trier
+            when: 70 CE, in Tacitus, Histories 4.74
+            text: For the tranquillity of nations cannot be preserved without armies; armies cannot exist without pay; pay cannot be furnished without tribute; all else is common between us.
+        options:
+          - Armies that keep the peace
+          - Roads, baths and temples
+          - The emperor's palaces in Rome
+          - Nothing; they are a punishment for the revolt
+        answer: 0
+        explain: >-
+          Peace needs armies, armies need pay, pay needs tribute. Civilis saw the same system from below, as
+          plunder. But both speeches were written by Tacitus, a Roman senator, some thirty years later: ancient
+          historians wrote speeches for their characters, so we hear the Batavians only through a Roman.
       - type: gap
         prompt: The Batavians lived between the Rhine and the Waal, in today's Gelderland. The Roman historian Tacitus wrote about them around 98 CE. Fill the gap.
         quote: Foremost among all these nations in ___, the Batavi occupy an island within the Rhine and but a small portion of the bank.

@@ -24,14 +24,18 @@ export const eventAt = (events: HistEvent[], year: number) => [...events].revers
 // A `flow` is people or goods on the move, drawn as an arrow with moving dashes.
 // A `wall` is a town wall, on the city map.
 export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow' | 'wall'
+// On the world map, flows are ships: to and from Asia, across the Atlantic, or
+// carrying enslaved Africans. Without a tone a flow is people on the move (refugees).
+export type FlowTone = 'asia' | 'atlantic' | 'enslaved'
 // Lines and sites that have gone stay on the map, faded. `end` removes them
 // altogether after that year, when one map runs on into a later era.
-export type HistLine = Dated & { name: string; kind: LineKind; coords: [number, number][]; end?: number }
+export type HistLine = Dated & { name: string; kind: LineKind; coords: [number, number][]; end?: number; tone?: FlowTone }
 export type HistSite = Dated & {
   name: string
   // Shown on hover, e.g. the modern name of a Roman fort.
   note?: string
-  kind: 'fort' | 'town' | 'barrier' | 'battle'
+  // `voc` and `wic` are the trading posts and forts of the two companies, on the world map.
+  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number
@@ -55,8 +59,9 @@ export type HistArea = Dated & {
 export type TimeStory = {
   // Named in the map's accessible label: "Map of <place> in <year>".
   place: string
-  // What the map is drawn on: the Low Countries (the default), or the canals of Amsterdam.
-  base?: 'lowlands' | 'amsterdam'
+  // What the map is drawn on: the Low Countries (the default), the canals of
+  // Amsterdam, or the world.
+  base?: 'lowlands' | 'amsterdam' | 'world'
   // Two corners, [lon, lat], to zoom the map to; the whole Low Countries if left out.
   bounds?: [[number, number], [number, number]]
   min: number

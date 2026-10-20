@@ -1,9 +1,9 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 14 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
+// through 15 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, Burgundy, revolt, the
 // Spanish Netherlands, water), and leave the map when their era ends, so one era
 // never bleeds into the next. The plan's full time map runs to today with about 40
-// snapshots; this is the first 14, for Units 1 to 6.
+// snapshots; this is the first 15, for Units 1 to 7.
 
 import { burgundyStory } from './burgundy'
 import { revoltStory } from './revolt'
@@ -49,6 +49,45 @@ const medievalStory: TimeStory = {
   ],
 }
 
+// The two trading companies at home in 1621 (Unit 7): the chambers that ran them.
+// The Republic's borders come from the revolt map, which is still running.
+const COMPANIES = 1621
+// Towns with chambers of both companies get two marks side by side.
+const both = (name: string, [lon, lat]: [number, number], label: 'left' | 'right', voc: string, wic: string): HistSite[] => [
+  { name, kind: 'voc', from: COMPANIES, at: [lon - 0.045, lat], label, note: voc },
+  { name: `${name} (WIC)`, kind: 'wic', from: COMPANIES, at: [lon + 0.045, lat], note: wic },
+]
+
+const companiesStory: TimeStory = {
+  place: 'the Low Countries',
+  min: COMPANIES,
+  max: COMPANIES,
+  format: String,
+  events: [
+    {
+      from: COMPANIES,
+      title: '1621: Two trading companies',
+      text: "The truce with Spain ends, and the West India Company is founded to trade, and fight, in Africa and the Americas. Like the East India Company of 1602, it is run by chambers in the merchant towns, most of them in Holland and Zeeland. From here the ships sail out to Asia, Africa and the Americas.",
+    },
+  ],
+  lines: [],
+  sites: [
+    ...both('Amsterdam', [4.9, 52.373], 'left', 'The largest chambers of the VOC and the WIC', 'WIC chamber'),
+    ...both('Middelburg', [3.61, 51.499], 'left', 'The Zeeland chambers of the VOC and the WIC', 'WIC chamber'),
+    ...both('Rotterdam', [4.48, 51.922], 'right', 'VOC chamber, and the WIC chamber of the Maas', 'WIC chamber'),
+    ...both('Hoorn', [5.06, 52.643], 'left', 'VOC chamber; the WIC chamber of the Noorderkwartier sat here and in Enkhuizen', 'WIC chamber'),
+    ...both('Enkhuizen', [5.293, 52.703], 'right', 'VOC chamber; shared the WIC chamber of the Noorderkwartier with Hoorn', 'WIC chamber'),
+    { name: 'Delft', kind: 'voc', from: COMPANIES, at: [4.357, 52.012], label: 'left', note: 'VOC chamber' },
+    { name: 'Groningen', kind: 'wic', from: COMPANIES, at: [6.567, 53.219], label: 'right', note: 'WIC chamber of Stad en Lande' },
+  ],
+  labels: [],
+  key: [
+    ...(revoltStory.key ?? []).filter((k) => k.swatch === 'key-ruled' || k.swatch === 'key-rebel'),
+    { swatch: 'key-voc', text: 'Chamber of the VOC' },
+    { swatch: 'key-wic', text: 'Chamber of the WIC' },
+  ],
+}
+
 // The stage each snapshot shows, taken from its era's own captions unless given here.
 type Snapshot = { story: TimeStory; from: number; event?: Omit<HistEvent, 'from'> }
 
@@ -63,6 +102,7 @@ const snapshots: Snapshot[] = [
   { story: revoltStory, from: 1579 },
   { story: revoltStory, from: 1585 },
   { story: revoltStory, from: 1609 },
+  { story: companiesStory, from: COMPANIES },
   { story: revoltStory, from: 1648 },
   { story: spanishStory, from: 1668 },
   { story: spanishStory, from: 1678 },
