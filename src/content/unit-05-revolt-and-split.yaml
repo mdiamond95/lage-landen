@@ -244,6 +244,8 @@ lessons:
         url: https://dbnl.org/tekst/_gid001194201_01/_gid001194201_01_0072.php
       - title: "Museum Prinsenhof Delft, 10 July 1584 (in Dutch)"
         url: https://blog.prinsenhof-delft.nl/10-juli-1584-deel6/
+      - title: "J. L. Motley, The Rise of the Dutch Republic, 1855, part 6, chapter 4: the ban and the Apology (Project Gutenberg)"
+        url: https://www.gutenberg.org/ebooks/4900
     exercises:
       - type: story
         title: Rebels from the sea
@@ -316,6 +318,28 @@ lessons:
         explain: >-
           A myth. He was sociable and talkative. His enemies called him taciturnus, "the silent", meaning sly: a
           man who kept his plans to himself. Only centuries later did the nickname become a compliment.
+      - type: voices
+        prompt: In 1580 Philip II outlawed William of Orange, and William answered him. What did the king promise whoever killed William?
+        voices:
+          - who: Philip II, king of Spain, in his ban against William
+            when: 15 March 1580
+            text: For these causes we declare him traitor and miscreant, enemy of ourselves and of the country. And if anyone of our subjects or any stranger should be found sufficiently generous of heart to rid us of this pest, delivering him to us, alive or dead, or taking his life, we will cause to be furnished to him the sum of twenty-five thousand crowns in gold.
+            photo: philip-ii
+          - who: William of Orange, in his Apology, read to the States General at Delft
+            when: December 1580
+            text: I am in the hand of God; my worldly goods and my life have been long since dedicated to His service. He will dispose of them as seems best for His glory and my salvation.
+            photo: william-orange
+        options:
+          - 25,000 crowns in gold, a pardon for any crime, and a noble title
+          - William's lands in Holland
+          - A place at the king's court in Madrid
+          - Nothing; the ban only sent William into exile
+        answer: 0
+        explain: >-
+          Gold, a pardon and a title. William's Apology turned the charge round: Philip had broken his oaths to the
+          provinces, so he had no right to rule them. In 1581 the States went further with the Act of Abjuration, and
+          in 1584 William was shot dead in Delft. Both texts are quoted in the translation of the historian John
+          Lothrop Motley.
       - type: hunt
         prompt: On 10 July 1584 William was shot in the Prinsenhof in Delft, his home. The holes left by the bullets can still be seen. Find them.
         photo: prinsenhof-bullet-holes
