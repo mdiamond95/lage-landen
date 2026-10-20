@@ -14,6 +14,7 @@ import { revoltStory } from '../data/revolt'
 import { spanishStory } from '../data/spanish'
 import { amsterdamStory } from '../data/amsterdam'
 import { empireStory } from '../data/empire'
+import { bordersStory } from '../data/borders'
 import { charts } from '../data/charts'
 import { peopleIn, trees } from '../data/families'
 import { places } from './places'
@@ -81,6 +82,11 @@ describe.each(files)('%s', (file) => {
 
   it('has an odd one out told apart by pictures', () => {
     expect(asks.some((e) => e.type === 'odd' && e.items.every((i) => i.photo))).toBe(true)
+  })
+
+  it('comes back to its time map with find-the-year questions in at least two lessons', () => {
+    const lessons = unit.lessons.filter((l) => l.exercises.some((e) => e.type === 'scrub'))
+    expect(lessons.length).toBeGreaterThanOrEqual(2)
   })
 
   for (const lesson of unit.lessons) {
@@ -239,6 +245,7 @@ describe('time maps in lessons', () => {
     amsterdam: [amsterdamStory.min, amsterdamStory.max],
     spanish: [spanishStory.min, spanishStory.max],
     empire: [empireStory.min, empireStory.max],
+    borders: [bordersStory.min, bordersStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -269,6 +276,7 @@ describe.each([
   ['Burgundian lands', burgundyStory],
   ['revolt', revoltStory],
   ['Spanish Netherlands', spanishStory],
+  ['border-change', bordersStory],
 ])('%s time map', (_, story) => {
   const { min, max, events, sites, labels, lines, areas = [] } = story
   const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7

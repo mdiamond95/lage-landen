@@ -1,10 +1,12 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 15 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
+// through 20 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, Burgundy, revolt, the
-// Spanish Netherlands, water), and leave the map when their era ends, so one era
-// never bleeds into the next. The plan's full time map runs to today with about 40
-// snapshots; this is the first 15, for Units 1 to 7.
+// Spanish Netherlands, the border changes to 1815, water), and stay on the map only
+// from the era's first snapshot to its end, so one era never bleeds into another.
+// The plan's full time map runs to today with about 40 snapshots; this is the first
+// 20, for Units 1 to 8.
 
+import { bordersStory } from './borders'
 import { burgundyStory } from './burgundy'
 import { revoltStory } from './revolt'
 import { romanStory } from './roman'
@@ -105,7 +107,12 @@ const snapshots: Snapshot[] = [
   { story: companiesStory, from: COMPANIES },
   { story: revoltStory, from: 1648 },
   { story: spanishStory, from: 1668 },
+  { story: spanishStory, from: 1672 },
   { story: spanishStory, from: 1678 },
+  { story: bordersStory, from: 1714 },
+  { story: bordersStory, from: 1795 },
+  { story: bordersStory, from: 1810 },
+  { story: bordersStory, from: 1815 },
   {
     story: waterStory,
     from: 1997,
@@ -117,10 +124,22 @@ const snapshots: Snapshot[] = [
 ]
 
 const eras = [...new Set(snapshots.map((s) => s.story))]
+// An era starts at its first snapshot: the map of 1672 to 1815 overlaps the Spanish
+// Netherlands map, and must not draw over its snapshots of 1672 and 1678.
+const eraStart = (era: TimeStory) => Math.min(...snapshots.filter((s) => s.story === era).map((s) => s.from))
 
-// Every item stays inside its era: areas and labels are cut off at its end, and
-// lines and sites, which otherwise linger faded, are removed.
-const within = <T extends { to?: number }>(item: T, end: number) => ({ ...item, to: Math.min(item.to ?? end, end) })
+// Every item stays inside its era: items that ended before it starts are dropped,
+// areas and labels are cut off at its end, and lines and sites, which otherwise
+// linger faded, are removed.
+const within = <T extends { from: number; to?: number }>(item: T, start: number, end: number) => ({
+  ...item,
+  from: Math.max(item.from, start),
+  to: Math.min(item.to ?? end, end),
+})
+const inEra = <T extends { from: number; to?: number }>(era: TimeStory, items: T[]) => {
+  const start = eraStart(era)
+  return items.filter((i) => (i.to ?? Infinity) >= start)
+}
 
 export const formatAnyYear = (y: number) => (y < 0 ? `${-y} BCE` : y < 1000 ? `${y} CE` : String(y))
 
@@ -134,10 +153,10 @@ export const throughTimeStory: TimeStory = {
     if (!own && !event) throw new Error(`No caption for ${from}`)
     return { ...own!, ...event, from, key: story.key, fresh: story.fresh ?? 'fill' }
   }),
-  lines: eras.flatMap((era) => era.lines.map((l) => ({ ...l, end: era.max }))),
-  sites: eras.flatMap((era) => era.sites.map((s) => ({ ...s, end: era.max }))),
-  labels: eras.flatMap((era) => era.labels.map((l) => within(l, era.max))),
-  areas: eras.flatMap((era) => (era.areas ?? []).map((a) => within(a, era.max))),
+  lines: eras.flatMap((era) => inEra(era, era.lines).map((l) => ({ ...l, from: Math.max(l.from, eraStart(era)), end: era.max }))),
+  sites: eras.flatMap((era) => inEra(era, era.sites).map((s) => ({ ...s, from: Math.max(s.from, eraStart(era)), end: era.max }))),
+  labels: eras.flatMap((era) => inEra(era, era.labels).map((l) => within(l, eraStart(era), era.max))),
+  areas: eras.flatMap((era) => inEra(era, era.areas ?? []).map((a) => within(a, eraStart(era), era.max))),
   note: 'Borders are approximate and drawn with today\'s provinces and coastline. Each snapshot comes from the map of its unit.',
   key: romanStory.key,
 }

@@ -15,12 +15,12 @@ const SOUTH = ['BE-VWV', 'BE-VOV', 'BE-VAN', 'BE-VBR', 'BE-WBR', 'BE-BRU', 'BE-W
 
 // Tournai and its district; Kortrijk and Oudenaarde on the Lys and Scheldt; Ypres and
 // its towns in West Flanders; Cambrai, Valenciennes and Maubeuge, now in France.
-const tournai: [number, number][] = [[3.25, 50.68], [3.5, 50.7], [3.6, 50.58], [3.45, 50.5], [3.25, 50.55]]
-const kortrijk: [number, number][] = [[3.12, 50.86], [3.45, 50.9], [3.72, 50.9], [3.75, 50.8], [3.45, 50.75], [3.15, 50.74]]
-const ypres: [number, number][] = [[2.55, 50.93], [2.95, 50.93], [3.1, 50.8], [2.95, 50.73], [2.75, 50.75], [2.55, 50.8]]
-const cambresis: [number, number][] = [[3.1, 50.47], [3.55, 50.5], [3.95, 50.4], [4.2, 50.33], [4.2, 50.1], [3.8, 50.02], [3.1, 50.05]]
+export const tournai: [number, number][] = [[3.25, 50.68], [3.5, 50.7], [3.6, 50.58], [3.45, 50.5], [3.25, 50.55]]
+export const kortrijk: [number, number][] = [[3.12, 50.86], [3.45, 50.9], [3.72, 50.9], [3.75, 50.8], [3.45, 50.75], [3.15, 50.74]]
+export const ypres: [number, number][] = [[2.55, 50.93], [2.95, 50.93], [3.1, 50.8], [2.95, 50.73], [2.75, 50.75], [2.55, 50.8]]
+export const cambresis: [number, number][] = [[3.1, 50.47], [3.55, 50.5], [3.95, 50.4], [4.2, 50.33], [4.2, 50.1], [3.8, 50.02], [3.1, 50.05]]
 // The Generality Lands in the south of Limburg: Maastricht and its surroundings.
-const maastricht: [number, number][] = [[5.6, 50.95], [5.85, 50.95], [5.9, 50.75], [5.62, 50.75]]
+export const maastricht: [number, number][] = [[5.6, 50.95], [5.85, 50.95], [5.9, 50.75], [5.62, 50.75]]
 
 const areas: HistArea[] = [
   { name: 'Still sea', kind: 'sea', from: SPANISH_MIN, regions: ['NL-FL'] },
