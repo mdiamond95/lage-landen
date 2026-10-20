@@ -159,7 +159,7 @@ export const empireLabels: HistLabel[] = [
   { text: 'Europe', kind: 'land', from: 1602, at: [22, 55] },
   { text: 'Africa', kind: 'land', from: 1602, at: [22, 8] },
   { text: 'Asia', kind: 'land', from: 1602, at: [92, 42] },
-  { text: 'North America', kind: 'land', from: 1602, at: [-92, 38] },
+  { text: 'North America', kind: 'land', from: 1602, at: [-82, 50] },
   { text: 'South America', kind: 'land', from: 1602, at: [-60, -14] },
   { text: 'Australia', kind: 'land', from: 1602, at: [134, -25] },
   { text: 'Atlantic Ocean', kind: 'water', from: 1602, at: [-38, 24] },

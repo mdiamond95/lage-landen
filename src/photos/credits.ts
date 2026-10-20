@@ -1001,7 +1001,7 @@ export const credits: Record<PhotoId, Credit> = {
   },
   "hartog-plate": {
     alt: "A battered round pewter plate with scratched lettering, in a glass museum case",
-    caption: "The Hartog plate of 1616, in the Rijksmuseum",
+    caption: "The Hartog plate of 1616, now kept in the Rijksmuseum",
     author: "Adam Carr",
     ...PD,
     source: commons("Ac dirkhartogplate.jpg"),
