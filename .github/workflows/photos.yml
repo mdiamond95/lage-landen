@@ -1,0 +1,39 @@
+# Fetches photos from Wikimedia Commons on a GitHub runner and commits them to the branch.
+# Used when Commons rate-limits the machine the work is done on: push a branch with a
+# scripts/photos/*-missing.tsv list (id, Commons file, width), and this saves each photo
+# to src/photos and its Commons metadata to scripts/photos/meta, for writing the credits.
+# Delete the list once the photos are in.
+name: Fetch photos
+
+on:
+  push:
+    branches: ['claude/**']
+    paths: ['scripts/photos/*-missing.tsv', '.github/workflows/photos.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: photos-${{ github.ref }}
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - run: |
+          shopt -s nullglob
+          for list in scripts/photos/*-missing.tsv; do
+            python3 scripts/photos/fetch.py "$list" src/photos scripts/photos/meta
+          done
+      - if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/photos scripts/photos/meta
+          git diff --cached --quiet || { git commit -m 'Fetch photos from Wikimedia Commons'; git push; }

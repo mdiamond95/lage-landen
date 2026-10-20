@@ -214,6 +214,39 @@ import grondwet1848 from './grondwet-1848.jpg'
 import williamIiiKing from './william-iii-king.jpg'
 import multatuli from './multatuli.jpg'
 import havelaar1860 from './havelaar-1860.jpg'
+import nhmSemarang from './nhm-semarang.jpg'
+import kartini from './kartini.jpg'
+import vanHeutsz from './van-heutsz.jpg'
+import vanDeventer from './van-deventer.jpg'
+import acehKraton from './aceh-kraton.jpg'
+import tobaccoJava from './tobacco-java.jpg'
+import kuyper from './kuyper.jpg'
+import schaepman from './schaepman.jpg'
+import vuKeizersgracht from './vu-keizersgracht.jpg'
+import schoolStruggleEnd from './school-struggle-end.jpg'
+import domela from './domela.jpg'
+import troelstra from './troelstra.jpg'
+import alettaJacobs from './aletta-jacobs.jpg'
+import eelRiot from './eel-riot.jpg'
+import railStrike1903 from './rail-strike-1903.jpg'
+import childLawPrint from './child-law-print.jpg'
+import sphinx1910 from './sphinx-1910.jpg'
+import firstTrain1839 from './first-train-1839.jpg'
+import moerdijkBridge from './moerdijk-bridge.jpg'
+import wilhelmina1885 from './wilhelmina-1885.jpg'
+import peacePalace from './peace-palace.jpg'
+import kamerlinghOnnes from './kamerlingh-onnes.jpg'
+import vanTHoff from './van-t-hoff.jpg'
+import lorentz from './lorentz.jpg'
+import potatoEaters from './potato-eaters.jpg'
+import vanGoghSelf from './van-gogh-self.jpg'
+import sunflowers from './sunflowers.jpg'
+import wheatfieldCrows from './wheatfield-crows.jpg'
+import starryNight from './starry-night.jpg'
+import joBonger from './jo-bonger.jpg'
+import breitnerKimono from './breitner-kimono.jpg'
+import panoramaMesdag from './panorama-mesdag.jpg'
+import mobilisation1914 from './mobilisation-1914.jpg'
 import semperAugustus from './semper-augustus.jpg'
 import silverFleet from './silver-fleet.jpg'
 import slaveryMonument from './slavery-monument.jpg'
@@ -515,6 +548,39 @@ const files: Record<PhotoId, string> = {
   'william-iii-king': williamIiiKing,
   'multatuli': multatuli,
   'havelaar-1860': havelaar1860,
+  'nhm-semarang': nhmSemarang,
+  'kartini': kartini,
+  'van-heutsz': vanHeutsz,
+  'van-deventer': vanDeventer,
+  'aceh-kraton': acehKraton,
+  'tobacco-java': tobaccoJava,
+  'kuyper': kuyper,
+  'schaepman': schaepman,
+  'vu-keizersgracht': vuKeizersgracht,
+  'school-struggle-end': schoolStruggleEnd,
+  'domela': domela,
+  'troelstra': troelstra,
+  'aletta-jacobs': alettaJacobs,
+  'eel-riot': eelRiot,
+  'rail-strike-1903': railStrike1903,
+  'child-law-print': childLawPrint,
+  'sphinx-1910': sphinx1910,
+  'first-train-1839': firstTrain1839,
+  'moerdijk-bridge': moerdijkBridge,
+  'wilhelmina-1885': wilhelmina1885,
+  'peace-palace': peacePalace,
+  'kamerlingh-onnes': kamerlinghOnnes,
+  'van-t-hoff': vanTHoff,
+  'lorentz': lorentz,
+  'potato-eaters': potatoEaters,
+  'van-gogh-self': vanGoghSelf,
+  'sunflowers': sunflowers,
+  'wheatfield-crows': wheatfieldCrows,
+  'starry-night': starryNight,
+  'jo-bonger': joBonger,
+  'breitner-kimono': breitnerKimono,
+  'panorama-mesdag': panoramaMesdag,
+  'mobilisation-1914': mobilisation1914,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

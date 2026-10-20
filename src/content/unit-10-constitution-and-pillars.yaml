@@ -780,7 +780,7 @@ lessons:
       - type: hunt
         prompt: Van Gogh painted The Potato Eaters in Nuenen in 1885. Find the only light in the room.
         photo: potato-eaters
-        targets: [[0.38, 0.0, 0.2, 0.22]]
+        targets: [[0.34, 0.12, 0.2, 0.25]]
         explain: >-
           An oil lamp hangs above the table. Van Gogh wanted to show people who had dug the earth with the same
           hands they now put in the dish, and so had honestly earned their food.
