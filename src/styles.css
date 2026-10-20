@@ -492,3 +492,26 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .time-travel-title { margin: 0; font-size: 1.25rem; }
 .time-travel-intro { margin: 4px 16px 12px; }
 .time-travel .time-map { margin: 0 16px; }
+
+/* Before and after: two years of a time map, wiped from one to the other. */
+.compare-map { margin: 0; border: 2px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); }
+.compare-map .map-frame { border: 0; border-radius: 0; }
+.compare-frame { position: relative; display: grid; }
+.compare-layer { grid-area: 1 / 1; }
+.compare-layer .fade-in, .compare-layer .draw-in { animation: none; stroke-dashoffset: 0; }
+.compare-divider { position: absolute; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--ink); box-shadow: 0 0 0 1px var(--card); pointer-events: none; }
+.compare-tag { position: absolute; top: 8px; padding: 2px 8px; border-radius: 8px; background: var(--card); border: 1px solid var(--line); font-weight: 900; font-size: 0.85rem; color: var(--ink); pointer-events: none; }
+.compare-tag-before { left: 8px; }
+.compare-tag-after { right: 8px; }
+.compare-map figcaption { display: grid; gap: 8px; padding: 12px; }
+.compare-hint { margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
+.compare-captions { display: grid; gap: 4px; }
+.compare-captions p { margin: 0; font-weight: 800; color: var(--delft); font-size: 0.92rem; }
+.compare-side { display: inline-block; min-width: 3.2em; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); }
+
+/* The Kingdom of Belgium, from 1830 (Unit 9). */
+.hist-area-belgium { fill: #f7d23e; stroke: #1d2433; stroke-width: 0.8; transition: fill 0.4s; }
+.key-belgium { width: 12px; height: 10px; background: #f7d23e; border: 1px solid #1d2433; border-radius: 2px; }
+.hist-area-duchy { fill: #fde9d2; stroke: #c25f00; stroke-width: 0.8; stroke-dasharray: 3 2; transition: fill 0.4s; }
+.key-duchy { width: 12px; height: 10px; background: #fde9d2; border: 1px dashed #c25f00; border-radius: 2px; }
+.key-canal { width: 16px; height: 3px; background: var(--delft); }

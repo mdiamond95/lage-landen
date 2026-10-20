@@ -1,0 +1,903 @@
+id: unit-09
+number: 9
+title: One kingdom, then two
+era: 1815 to 1839
+summary: In 1815 the great powers join north and south into one kingdom under William I, a king who builds canals, banks and universities but rules the south as if it were the north. In 1830 Brussels rises, and Belgium breaks away. It takes a war, a French siege and nine years of waiting before a treaty in London draws the line between the two countries, cutting Limburg and Luxembourg in half.
+lessons:
+  - id: u9-l1
+    title: One kingdom
+    icon: crown
+    sources:
+      - title: "Canon van Nederland, King William I (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/koningwillem1
+      - title: "Canon van Nederland, Belgium"
+        url: https://www.canonvannederland.nl/en/belgie
+      - title: "Dietsche Warande en Belfort, 1905, on the vote of the southern notables in 1815 (in Dutch, DBNL)"
+        url: https://dbnl.org/tekst/_die004190501_01/_die004190501_01_0079.php
+      - title: "François Bohn, Nieuwe kaart van het Koningrijk der Nederlanden, 1816 (Wikimedia Commons)"
+        url: https://commons.wikimedia.org/wiki/File:Nieuwe_Kaart_Koningrijk_der_Nederlanden_en_Hertogdom_Luxemburg_C_van_Baarsel_1815.jpg
+      - title: "The Low Countries, Belgium and the Netherlands officially divorced 180 years ago"
+        url: https://www.the-low-countries.com/article/belgium-and-the-netherlands-officially-divorced-180-years-ago/
+    exercises:
+      - type: story
+        title: Joined again
+        body: >-
+          After Napoleon's fall the great powers wanted a strong state on France's northern border. In 1815 they
+          joined the old Dutch Republic, the former Austrian Netherlands and Liège into one kingdom, for the
+          first time since the revolt of the 1500s. Press play to see it last fifteen years, and then come apart.
+        visual: { kind: time-map, map: kingdom }
+      - type: choice
+        prompt: A map of the new kingdom, published in Haarlem in 1816. Which of these towns was not in it?
+        visual: { kind: photo, photo: map-1815 }
+        answer: 3
+        options:
+          - label: Liège
+            why: The old prince-bishopric of Liège became a province of the kingdom.
+          - label: Ghent
+            why: Ghent, in East Flanders, was one of the kingdom's great towns.
+          - label: Luxembourg
+            why: >-
+              Luxembourg was the king's own grand duchy, a member of the German Confederation, but in practice it
+              was run as part of the kingdom.
+          - label: Lille
+            why: >-
+              Right. Lille had been French since 1668, and the peace of 1815 left it in France. Zoom in to find it
+              in the south-west corner, outside the coloured border.
+      - type: choice
+        prompt: "This medal of 1815 calls William I \"WILH. NASS. BELG. REX\": William of Nassau, king of the Belgians? What did Belgium mean in Latin then?"
+        visual: { kind: photo, photo: unification-medal }
+        answer: 0
+        options:
+          - label: The whole Low Countries, north and south
+            why: >-
+              Right. Since the 1500s Belgica had been the Latin name for all the Netherlands, as on the maps of the
+              Leo Belgicus. Only after 1830 did the word come to mean the south alone. LUXEMB. M. DUX means grand
+              duke of Luxembourg.
+          - label: Only the south, today's Belgium
+            why: The kingdom was ruled from The Hague as well as Brussels; the Latin meant all of it.
+          - label: Only the duchy of Brabant
+            why: Brabant was one province among many.
+          - label: The land of the Belgae in France
+            why: The Belgae of Caesar's day gave the name, but by 1815 it meant the Low Countries.
+      - type: truemyth
+        statement: In 1815 most of the south's notables voted against the new constitution, and it came into force anyway.
+        visual: { kind: photo, photo: william-i }
+        answer: true
+        explain: >-
+          True. Of about 1,300 notables in the south who voted, 796 said no and 527 yes. William I counted the
+          280 or so who stayed away as yes votes, and set aside 126 no votes cast for religious reasons, so the
+          constitution passed. People in the south called it Dutch arithmetic.
+      - type: choice
+        prompt: This palace in Brussels, built in the 1780s, is now Belgium's parliament. From 1815 to 1830 the States General of the whole kingdom met here every other year. Where did they meet in the years between?
+        visual: { kind: photo, photo: palace-nation }
+        answer: 1
+        options:
+          - label: Amsterdam
+            why: Amsterdam was the capital in name, but the States General never met there.
+          - label: The Hague
+            why: >-
+              Right. The two halves took turns, and the king moved between The Hague and Brussels too. The lower
+              house had 110 seats, 55 for each half, though the south had more people.
+          - label: Antwerp
+            why: Antwerp was a port, not a seat of government.
+          - label: Utrecht
+            why: Utrecht had hosted the peace of 1713, but not the States General of 1815.
+      - type: choice
+        prompt: The citadel of Huy, high above the Meuse, was built from 1818. It was one of a chain of fortresses paid for partly with British money. Who were they meant to keep out?
+        visual: { kind: photo, photo: huy-citadel }
+        answer: 0
+        options:
+          - label: The French
+            why: >-
+              Right. Britain and its allies called the chain the Wellington Barrier: from Ostend to Huy, the new
+              kingdom was to be Europe's guard against another French invasion.
+          - label: The Prussians
+            why: Prussia was an ally in 1815, and the forts face south and west, towards France.
+          - label: The British
+            why: Britain helped to pay for them.
+          - label: Rebels in the south
+            why: They were built against an enemy from outside, though in 1830 it was rebels who took them.
+      - type: scrub
+        prompt: Drag the slider to a year when north and south were one kingdom.
+        map: kingdom
+        start: 1833
+        answer: [1815, 1829]
+        explain: >-
+          From 1815 until the revolution of 1830. After that the map shows Belgium in its own colour.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The great powers fear France, North and south are joined in one kingdom]
+          - [Most notables of the south vote no, The king counts those who stayed away as yes]
+          - [The south has more people but only half the seats, Many southerners feel outvoted]
+          - [Britain and France's war payments provide money, Fortresses are rebuilt along the French border]
+        explain: >-
+          The kingdom was made by the victors of Waterloo, for their own safety. Nobody asked the people of north
+          or south whether they wanted it.
+      - type: match
+        prompt: Match each place to what it was in the new kingdom.
+        pairs:
+          - [Brussels, Seat of the States General every other year]
+          - [Huy, A fortress against France]
+          - [Luxembourg, The king's own grand duchy]
+          - [Lille, Still in France]
+
+  - id: u9-l2
+    title: The merchant king
+    icon: coin
+    sources:
+      - title: "Ghent University, History of Ghent University"
+        url: https://www.ugent.be/en/ghentuniv/history
+      - title: "Focus on Belgium, Bicentennial of John Cockerill in Seraing, 2017"
+        url: https://focusonbelgium.be/en/business/bicentennial-john-cockerill-seraing
+      - title: "Rijksmuseum, The installation of Ghent University, 9 October 1817, Mattheus Ignatius van Bree"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-4088
+      - title: "Bijdragen en Mededelingen betreffende de Geschiedenis der Nederlanden 92, 1977, on William I's language policy (in Dutch, DBNL)"
+        url: https://dbnl.org/tekst/_bij005197701_01/_bij005197701_01_0005.php
+      - title: "Belgian Senate, the busts in the hemicycle (Louis de Potter)"
+        url: https://www.senate.be/virtualtour/halfrond-midden-bustes_en.html
+      - title: "Canon van Nederland, King William I (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/koningwillem1
+    exercises:
+      - type: story
+        title: A king in a hurry
+        body: >-
+          William I wanted his kingdom rich, and he did not wait for parliament to agree. He dug canals, founded
+          banks and universities and backed new industry, much of it in the south, and people called him the
+          merchant king. Press play from 1817 to watch the canals appear.
+        visual: { kind: time-map, map: kingdom, year: 1817 }
+      - type: choice
+        prompt: On 9 October 1817 a new university was opened in the throne room of Ghent's town hall, painted here by Mattheus Ignatius van Bree. How many students signed up in its first year?
+        visual: { kind: photo, photo: ghent-university-1817 }
+        answer: 1
+        options:
+          - label: '19'
+            why: More than that; it had 16 professors.
+          - label: '190'
+            why: >-
+              Right, in four faculties: arts, law, medicine and sciences. Nine of the 16 professors came from
+              abroad, most of them from the north and from Germany. William I founded state universities at
+              Leuven and Liège the same year.
+          - label: '1,900'
+            why: Universities were far smaller then.
+          - label: '19,000'
+            why: Ghent has about 50,000 students today, but it began small.
+      - type: choice
+        prompt: In 1829 William I came to see the ironworks at Seraing, near Liège, painted here by Jean-Louis Van Hemelryck. Who had set them up in 1817?
+        visual: { kind: photo, photo: cockerill-king }
+        answer: 2
+        options:
+          - label: Lieven Bauwens
+            why: Bauwens smuggled a spinning machine from England to Ghent, around 1800.
+          - label: The Duke of Wellington
+            why: Wellington was a soldier, not an ironmaster.
+          - label: John Cockerill
+            why: >-
+              Right. The Englishman, aged 27, bought the old summer palace of the prince-bishops of Liège for
+              45,000 francs, and built furnaces, steam engines and later locomotives behind it. He employed some
+              3,000 workers.
+          - label: Gijsbert Karel van Hogendorp
+            why: Van Hogendorp wrote the constitution of 1814; he did not run ironworks.
+      - type: pin
+        prompt: Pin Seraing, where Cockerill's ironworks stood, on the Meuse just upstream from Liège.
+        place: seraing
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Seraing, on the Meuse. Coal lay under the valley, so iron and steel works grew up all along it.
+      - type: scrub
+        prompt: Drag the slider to a year when big ships could sail by canal from Amsterdam to Den Helder, avoiding the shallow Zuiderzee.
+        map: kingdom
+        start: 1815
+        answer: [1824, 1839]
+        explain: >-
+          The North Holland Canal opened in 1824. Canals followed from 's-Hertogenbosch to Maastricht in 1826,
+          and from Ghent to Terneuzen in 1827.
+      - type: choice
+        prompt: This one-guilder note of 1826 was printed in Brussels by a bank William I founded in 1822, to lend money to new industry. Which bank?
+        visual: { kind: photo, photo: banknote-1826 }
+        answer: 1
+        options:
+          - label: The Bank of Amsterdam
+            why: The old Bank of Amsterdam was shut down in 1819.
+          - label: The Société Générale
+            why: >-
+              Right, in full the General Society for Favouring National Industry. After 1830 it stayed in Brussels
+              and became Belgium's most powerful bank, behind its railways, mines and steelworks. This note was
+              stamped for use in Suriname.
+          - label: The East India Company
+            why: The VOC had been wound up in 1799.
+          - label: The Bank of England
+            why: It was founded in Brussels, by the king.
+      - type: truemyth
+        statement: From 1823 Dutch was the only language of the courts and government in the provinces shaded on this map.
+        visual: { kind: map, highlight: [BE-VWV, BE-VOV, BE-VAN, BE-VLI, NL-LI] }
+        answer: true
+        explain: >-
+          True. A decree of 1819 gave officials until 1823 to switch to Dutch in East and West Flanders, Antwerp
+          and Limburg, and Brussels and Leuven were added in 1822. Many lawyers and officials, and the upper
+          classes of Flanders, spoke French and hated it. The king gave way in 1829 and 1830, too late.
+      - type: who
+        photo: de-potter
+        clues:
+          - I was born in Bruges in 1786, and spent years in Italy studying the history of the church.
+          - In Brussels I wrote for a newspaper against the king's ministers.
+          - In 1828 I was jailed for my articles, and in 1830 I was banished.
+          - I came back in September 1830 to join the provisional government.
+        options: [Louis de Potter, Charles Rogier, Hendrik Conscience, Jan van Speijk]
+        answer: 0
+        explain: >-
+          Louis de Potter, the most popular man in Brussels in 1830. He wanted a republic, and when the National
+          Congress chose a king instead he left the government. His bust stands in the Belgian Senate.
+      - type: choice
+        prompt: From his prison cell, shown in this print, De Potter called for something new. What?
+        visual: { kind: photo, photo: de-potter-prison }
+        answer: 3
+        options:
+          - label: A return to Austrian rule
+            why: Nobody wanted the emperor back.
+          - label: Union with France
+            why: A few wanted it, but that was not his call.
+          - label: An uprising at once
+            why: He called for peaceful opposition, by press and petition.
+          - label: Catholics and liberals working together against the government
+            why: >-
+              Right. They disagreed about the church, but both wanted a free press and free schools. Their union
+              of 1828 gathered petitions with many thousands of signatures, and the king called it infamous.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Dutch is made the only official language in Flanders, French-speaking officials and lawyers turn against the king]
+          - [The state takes over the training of priests in 1825, Catholic bishops and priests turn against the king]
+          - [Journalists are put on trial, Liberals join the Catholics in opposition]
+          - [A tax is put on milling grain, Bread costs the poor of the south more]
+        explain: >-
+          Each grievance was a different group's: the clergy's, the lawyers', the journalists', the poor's. In
+          1828 they found each other.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Universities open in Ghent, Leuven and Liège, year: 1817, when: '1817' }
+          - { label: The king founds a bank in Brussels, year: 1822, when: '1822' }
+          - { label: Dutch becomes the only official language in Flanders, year: 1823, when: '1823' }
+          - { label: The North Holland Canal opens, year: 1824, when: '1824' }
+          - { label: The state takes over the training of priests, year: 1825, when: '1825' }
+          - { label: Catholics and liberals join forces, year: 1828, when: '1828' }
+        explain: Ten busy years, and by the end of them much of the south had turned against the king.
+
+  - id: u9-l3
+    title: The September Days
+    icon: flame
+    sources:
+      - title: "Royal Museums of Fine Arts of Belgium, Gustave Wappers, Episode of the September Days 1830"
+        url: https://www.fine-arts-museum.be/en/the-collection/artist/wappers-gustave-1/artwork/episode-of-the-september-days-1830-on-the-place-de-l-hotel-de-ville-in-brussels
+      - title: "Belgium.be, The provisional government and the National Congress"
+        url: https://www.belgium.be/en/about_belgium/country/history/belgium_from_1830/foundation_and_growth/provisional_government_and_national_congress
+      - title: "Wikisource, Déclaration d'indépendance de la Belgique, 4 October 1830 (in French)"
+        url: https://fr.wikisource.org/wiki/D%C3%A9claration_d%27ind%C3%A9pendance_de_la_Belgique
+      - title: "Staten-Generaal Digitaal, the king's message of 20 October 1830, with the Prince of Orange's proclamation of 16 October (in Dutch and French)"
+        url: https://repository.overheid.nl/frbr/sgd/18301831/0000450921/1/pdf/SGD_18301831_0000096.pdf
+      - title: "International Institute of Social History, 22 October in history"
+        url: https://archief.socialhistory.org/en/today/10-22
+    exercises:
+      - type: story
+        title: A night at the opera
+        body: >-
+          On 25 August 1830 the theatre of La Monnaie in Brussels put on La Muette de Portici, an opera about a
+          rising in Naples. When the tenor sang "Amour sacré de la patrie", sacred love of the fatherland, the
+          audience poured out into the square and the riots began. A month before, a revolution in Paris had
+          overthrown the French king.
+        visual: { kind: photo, photo: monnaie-1830 }
+      - type: choice
+        prompt: That night the crowd sacked and burned this house in Brussels. Whose was it?
+        visual: { kind: photo, photo: van-maanen-ruin }
+        answer: 2
+        options:
+          - label: The king's
+            why: The king's palace was not burned.
+          - label: The Prince of Orange's
+            why: His palace was left alone; he came to Brussels days later to talk.
+          - label: Cornelis van Maanen's, the minister of justice
+            why: >-
+              Right. He was blamed for the trials of journalists such as De Potter. The crowd also wrecked the
+              printing works of a newspaper that took the king's side.
+          - label: The bishop's
+            why: The church was on the opposition's side.
+      - type: choice
+        prompt: On 23 September Prince Frederick, the king's younger son, led Dutch troops into Brussels, here in the Rue de Flandre. After four days of fighting they gave up. Where had the hardest fighting been?
+        visual: { kind: photo, photo: dutch-enter-1830 }
+        answer: 0
+        options:
+          - label: In and around the Park, between the palace and the parliament
+            why: >-
+              Right. The troops took the Park and held it for four days under fire from the houses and barricades
+              around it. On the night of 26 to 27 September they pulled out.
+          - label: On the Grand Place
+            why: The troops never got that far into the old town.
+          - label: Outside the city, at Waterloo
+            why: That was in 1815.
+          - label: On the canal, from boats
+            why: It was a street fight.
+      - type: hunt
+        prompt: Gustaf Wappers painted the September Days in 1835. On the barricade a man reads out a sheet of paper to the crowd. Find it.
+        photo: wappers-september
+        targets: [[0.56, 0.38, 0.08, 0.13]]
+        explain: >-
+          In the middle, held up by the man with the white sleeves, under the black, yellow and red flag of the
+          revolution. Around him Wappers painted the fighters and the dead: a drummer boy, a mother, a wounded
+          girl. The new state bought it for the museum in Brussels.
+      - type: choice
+        prompt: Charles Rogier, a young lawyer, led a band of volunteers to Brussels to fight. Charles Soubre painted them setting out in 1878. Which city did they come from?
+        visual: { kind: photo, photo: liege-volunteers }
+        answer: 3
+        options:
+          - label: Antwerp
+            why: Antwerp was still held by Dutch troops in September.
+          - label: Paris
+            why: Some French volunteers came, but Rogier's men were Belgians.
+          - label: Ghent
+            why: Ghent's merchants mostly took the king's side.
+          - label: Liège
+            why: >-
+              Right. The volunteers from Liège marched to Brussels with two cannon. Rogier became a member of the
+              provisional government, and later a prime minister of Belgium.
+      - type: choice
+        prompt: Drag the divider from 1815 to 1830. After the revolution, which fortress in the south did the Dutch still hold, with Belgian land all round it?
+        visual: { kind: compare, map: kingdom, years: [1815, 1830] }
+        answer: 1
+        options:
+          - label: Ghent
+            why: Ghent went over to the revolution.
+          - label: Maastricht
+            why: >-
+              Right. General Dibbets held Maastricht for the king until 1839. The citadel of Antwerp and two forts
+              on the Scheldt held out too, and the fortress of Luxembourg kept its Prussian garrison.
+          - label: Namur
+            why: Namur's fortress fell to the revolution.
+          - label: Bruges
+            why: Bruges joined the revolution.
+      - type: gap
+        prompt: On 4 October 1830 the provisional government, shown in this print of that year, decreed Belgium's independence. Fill the gap in its first article.
+        quote: The provinces of Belgium, ___ detached from Holland, shall form an independent state.
+        source: Decree of the provisional government, 4 October 1830 (translated from the French)
+        visual: { kind: photo, photo: provisional-government }
+        options: [violently, peacefully, gladly, lawfully]
+        answer: 0
+        explain: >-
+          Violently: "violemment détachées". The south blamed the north for the blood shed in September. A
+          National Congress was to be elected to write a constitution, and on 18 November it confirmed the
+          independence.
+      - type: who
+        photo: jenneval
+        clues:
+          - I was born in Lyon in 1801, and became an actor.
+          - In 1830 I was on the stage in Brussels.
+          - In September I wrote the words of a song for the revolution, set to music by François Van Campenhout.
+          - I was killed fighting the Dutch near Lier, in October 1830.
+        options: [Jenneval, Charles Rogier, Louis de Potter, Hendrik Conscience]
+        answer: 0
+        explain: >-
+          Jenneval, the stage name of Alexandre Dechet. His song was the Brabançonne, now Belgium's national
+          anthem. Its first words attacked the House of Orange; Charles Rogier rewrote them in 1860.
+      - type: voices
+        prompt: In October 1830 the king's son, the Prince of Orange, tried to save the south for his family. Read what he said, and how his father answered. What did the king decide?
+        voices:
+          - who: William, Prince of Orange, to the Belgians
+            when: Antwerp, 16 October 1830 (translated from the French)
+            text: I have studied your situation with care; I understand it, and I recognise you as an independent nation. I thus place myself, in the provinces I govern, at the head of the movement that is leading us towards a new and stable state of affairs.
+            photo: young-prince
+          - who: King William I, to the States General
+            when: The Hague, 20 October 1830 (translated from the Dutch)
+            text: From the proclamation of Our beloved Son, the Prince of Orange, issued at Antwerp, it is beyond doubt that recognition of lawful authority in the Southern provinces has now wholly ceased. Our cares must from now on be confined entirely and exclusively to the loyal Northern provinces.
+            photo: william-i
+        options:
+          - To look after the north only, until the great powers decided about the south
+          - To make his son king of Belgium
+          - To give up his own throne
+          - To send the army back into Brussels at once
+        answer: 0
+        explain: >-
+          The prince hoped the Belgians would choose him as their king. His father had not been asked, and
+          disowned the plan. Four days later the National Congress was elected, and in November it voted to
+          keep the House of Orange off the Belgian throne for ever.
+      - type: scrub
+        prompt: Drag the slider to a year when a Dutch garrison still held the citadel of Antwerp, inside Belgium.
+        map: kingdom
+        start: 1815
+        answer: [1830, 1832]
+        explain: >-
+          From 1830 until 23 December 1832, when its commander, General Chassé, surrendered to a French army.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The opera's duet stirs the audience, Riots break out in Brussels]
+          - [Dutch troops attack Brussels, Volunteers come from Liège and the provinces]
+          - [The troops pull out after four days, A provisional government declares independence]
+          - [Chassé shells Antwerp from its citadel on 27 October, Antwerp turns against the Dutch]
+        explain: >-
+          In August most of the opposition wanted only self-rule for the south under the same king. The
+          fighting in September made a clean break.
+
+  - id: u9-l4
+    title: A king for the Belgians
+    icon: star
+    sources:
+      - title: "Wikisource, Constitution du Royaume de Belgique de 1831 (in French)"
+        url: https://fr.wikisource.org/wiki/Constitution_du_Royaume_de_Belgique_de_1831
+      - title: "Belgian Chamber of Representatives, the Belgian Constitution (in French)"
+        url: https://www.dekamer.be/kvvcr/pdf_sections/publications/constitution/grondwetFR.pdf
+      - title: "Belgium.be, The provisional government and the National Congress"
+        url: https://www.belgium.be/en/about_belgium/country/history/belgium_from_1830/foundation_and_growth/provisional_government_and_national_congress
+      - title: "Belgian Senate, the busts in the hemicycle (Surlet de Chokier)"
+        url: https://www.senate.be/virtualtour/halfrond-midden-bustes_en.html
+      - title: "The Brussels Times, The first king of Belgium is crowned in Brussels"
+        url: https://brusselstimes.com/610120/today-in-history-the-first-king-of-belgium-is-crowned-in-brussels
+    exercises:
+      - type: story
+        title: A constitution first
+        body: >-
+          The National Congress, elected in November 1830, first decided that Belgium would be a kingdom, and
+          then wrote its rules. The constitution of 7 February 1831 was one of the most liberal in Europe. Only
+          then did the Congress look for a king.
+        visual: { kind: photo, photo: constitution-1831 }
+      - type: gap
+        prompt: The constitution of 1831 set out where the king's power came from. Fill the gap in its article 25.
+        quote: All powers come from the ___. They are exercised in the manner laid down by the Constitution.
+        source: The Belgian Constitution, 7 February 1831, article 25 (translated from the French)
+        visual: { kind: photo, photo: congress-column }
+        options: [nation, king, Church, provinces]
+        answer: 0
+        explain: >-
+          The nation. Not God, not the king: "Tous les pouvoirs émanent de la nation." The constitution also
+          freed the press (no censorship, ever), schools, religion and the right to meet. Statues of these
+          freedoms sit round the Congress Column in Brussels.
+      - type: truemyth
+        statement: The constitution of 1831 made French the only official language of Belgium.
+        visual: { kind: photo, photo: constitution-1831 }
+        answer: false
+        explain: >-
+          A myth. Article 23 said the use of the languages spoken in Belgium was free, and could only be set by
+          law for government and the courts. In practice the state, the army and the courts ran in French for
+          decades, and Dutch speakers had to fight for their rights, as Unit 15 tells.
+      - type: choice
+        prompt: In February 1831 the Congress chose the Duke of Nemours, a son of the French king Louis-Philippe, as king of the Belgians. Its delegates went to Paris to tell his father. What did Louis-Philippe say?
+        visual: { kind: photo, photo: congress-louis-philippe }
+        answer: 2
+        options:
+          - label: Yes, and his son became king
+            why: Nemours never reigned in Belgium.
+          - label: Yes, if Belgium joined France
+            why: He knew Britain would not stand for that.
+          - label: No, because Britain and the other powers would not accept a French prince
+            why: >-
+              Right. A French prince in Brussels would have looked like France taking Belgium by the back door,
+              and Britain would not have it. The Congress had to look elsewhere.
+          - label: No, because his son was too young
+            why: Nemours was 16, but that was not the reason.
+      - type: choice
+        prompt: Until a king could be found, Belgium was run from February to July 1831 by this man, Érasme-Louis Surlet de Chokier, a landowner from near Liège. What was his title?
+        visual: { kind: photo, photo: surlet }
+        answer: 1
+        options:
+          - label: President
+            why: Belgium had chosen to be a kingdom, not a republic.
+          - label: Regent
+            why: >-
+              Right. The Congress made him regent on 25 February 1831. He handed over to the new king on 21 July,
+              and read out the constitution to him before the oath.
+          - label: Stadtholder
+            why: That was the old title of the princes of Orange in the north.
+          - label: Governor-general
+            why: That was the title of the emperor's men in Brussels, before 1794.
+      - type: who
+        photo: leopold-i
+        clues:
+          - I was born in Coburg, in Germany, in 1790, and fought against Napoleon in the Russian army.
+          - In 1816 I married the heir to the British throne, but she died the next year.
+          - In 1830 I turned down the throne of Greece.
+          - In June 1831 the Belgian Congress elected me king, by 152 votes.
+        options: [Leopold I, The Duke of Nemours, William II, Louis-Philippe]
+        answer: 0
+        explain: >-
+          Leopold of Saxe-Coburg, the first king of the Belgians, who reigned until 1865. He was the uncle of
+          Queen Victoria, and Britain trusted him; that was why he was chosen.
+      - type: choice
+        prompt: In May 1816 Leopold married Princess Charlotte of Wales in London. Had she lived, what would he have become?
+        visual: { kind: photo, photo: charlotte-wedding }
+        answer: 3
+        options:
+          - label: King of Hanover
+            why: Hanover went to Charlotte's uncles.
+          - label: Emperor of Austria
+            why: The Habsburgs held that title.
+          - label: Nothing; their marriage was secret
+            why: It was a public wedding at Carlton House.
+          - label: Husband of the queen of Britain
+            why: >-
+              Right. Charlotte was the only child of the future George IV. She died in childbirth in November
+              1817, and her cousin Victoria became queen in 1837 instead.
+      - type: choice
+        prompt: Gustaf Wappers painted Leopold swearing his oath to the constitution, on the Place Royale in Brussels. That day is now Belgium's national day. Which day is it?
+        visual: { kind: photo, photo: leopold-oath }
+        answer: 0
+        options:
+          - label: 21 July
+            why: >-
+              Right: 21 July 1831. Belgians celebrate it with a parade in Brussels. Leopold was the first king to
+              swear the oath; every king since has done the same.
+          - label: 4 October
+            why: That was the day of the decree of independence, in 1830.
+          - label: 25 August
+            why: That was the night of the opera, in 1830.
+          - label: 11 November
+            why: That is Armistice Day, the end of the First World War.
+      - type: gap
+        prompt: The constitution sets out the oath every king must swear. Fill the gap in its last words.
+        quote: I swear to observe the Constitution and the laws of the Belgian people, to maintain the national independence and the integrity of the ___.
+        source: The Belgian Constitution, 7 February 1831, article 80 (translated from the French)
+        visual: { kind: time-map, map: kingdom, year: 1831 }
+        options: [territory, Church, crown, army]
+        answer: 0
+        explain: >-
+          The territory. In 1831 Belgium counted all of Limburg and Luxembourg among its provinces. Eight years
+          later Leopold had to give up half of each, as the last lesson of this unit tells.
+      - type: odd
+        prompt: Three of these people led the new Belgium. Which is the odd one out, and why?
+        items:
+          - { label: Leopold I, photo: leopold-i }
+          - { label: Érasme-Louis Surlet de Chokier, photo: surlet }
+          - { label: Louise-Marie of Orléans, photo: louise-marie }
+          - { label: David Hendrik Chassé, photo: chasse }
+        answer: 3
+        reasons:
+          - He fought for the Dutch king, not for Belgium
+          - He was the only one born before 1800
+          - He was the only one who was not Belgian by birth
+        reason: 0
+        explain: >-
+          General Chassé held the citadel of Antwerp for William I until 1832. Leopold was the king, Surlet the
+          regent before him, and Louise-Marie, a daughter of Louis-Philippe, became Leopold's queen in 1832.
+          Surlet and Chassé were both born before 1800, and Leopold and Louise-Marie were both born abroad.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Louis-Philippe turns down the crown for his son, The Congress makes Surlet de Chokier regent]
+          - [Britain wants a king it can trust, The Congress elects Leopold of Saxe-Coburg]
+          - [Journalists had been jailed under William I, The constitution bans censorship for ever]
+          - [Leopold marries a French princess in 1832, France stands by Belgium]
+        explain: >-
+          Belgium had to be acceptable to the great powers: a kingdom, not a republic, with a king neither French
+          nor Dutch.
+
+  - id: u9-l5
+    title: Ten days and nine years
+    icon: sword
+    sources:
+      - title: "Rijksmuseum, The Battle of Boutersem during the Ten Days' Campaign, Nicolaas Pieneman, 1833"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-3913
+      - title: "Rijksmuseum, Jan van Speijk decides whether to light the fuse, Jacobus Schoemaker Doyer, 1834"
+        url: https://www.rijksmuseum.nl/en/collection/SK-C-221
+      - title: "Rijksmuseum, portrait miniature of Jan Carel Josephus van Speijk"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-4362
+      - title: "KB, National Library of the Netherlands, A piece of Jan van Speijk's uniform"
+        url: https://www.kb.nl/en/ontdekken-bewonderen/opmerkelijke-objecten/stukje-uniform-van-jan-van-speijk
+      - title: "University of Antwerp, Lillo fortress, a short history"
+        url: https://www.uantwerpen.be/en/projects/virtual-technology-for-resilient-fortification-heritage/historical-reconstruction/
+      - title: "The Spectator, 29 December 1832, on Chassé and the citadel"
+        url: https://archive.spectator.co.uk/article/29th-december-1832/9/--chasse
+    exercises:
+      - type: story
+        title: The king strikes back
+        body: >-
+          William I never accepted the loss of the south. On 2 August 1831, twelve days after Leopold's oath, the
+          Dutch army crossed the border. Nicolaas Pieneman painted the Prince of Orange at Boutersem, near Leuven,
+          during what the Dutch called the Ten Days' Campaign.
+        visual: { kind: photo, photo: boutersem-1831 }
+      - type: who
+        photo: van-speijk
+        clues:
+          - I was born in Amsterdam in 1802 and grew up an orphan.
+          - I joined the navy and served in the East Indies.
+          - In February 1831 a gale drove my gunboat against the quay at Antwerp, and a crowd tried to board her.
+          - I would not let them take her.
+        options: [Jan van Speijk, Michiel de Ruyter, David Hendrik Chassé, Piet Hein]
+        answer: 0
+        explain: >-
+          Jan van Speijk. On 5 February 1831 he set fire to the gunpowder and blew up his ship, killing himself,
+          most of his crew and several Belgians. "Dan liever de lucht in", rather into the air, are the words
+          the Dutch remember, though nobody can be sure he said them.
+      - type: choice
+        prompt: Jacobus Schoemaker Doyer painted Van Speijk in his cabin, deciding whether to light the fuse. How did the Netherlands remember him?
+        visual: { kind: photo, photo: van-speijk-cabin }
+        answer: 1
+        options:
+          - label: It forgot him, ashamed of the deaths
+            why: "The opposite: he became a national hero at once."
+          - label: As a hero, with a lighthouse and navy ships named after him
+            why: >-
+              Right. The lighthouse at Egmond aan Zee bears his name, and the Dutch navy has given his name to
+              ship after ship. He was buried in the Nieuwe Kerk in Amsterdam, beside De Ruyter.
+          - label: As a traitor, for losing his ship
+            why: He was honoured for not letting it be taken.
+          - label: With a national holiday on 5 February
+            why: There is no such holiday.
+      - type: choice
+        prompt: On 8 August 1831 the Prince of Orange's army took Hasselt, painted here by Jan Willem Pieneman, and four days later beat Leopold's army near Leuven. Why did it then go home?
+        visual: { kind: photo, photo: hasselt-1831 }
+        answer: 0
+        options:
+          - label: A French army marched in to help Belgium
+            why: >-
+              Right. Leopold called for help, and Marshal Gérard's army crossed the border. Britain and France
+              made William pull back, but the defeat shook Belgium badly.
+          - label: It ran out of food
+            why: It turned back for a political reason, not a shortage.
+          - label: Leopold surrendered
+            why: Leopold kept his throne.
+          - label: The Belgians flooded the land, as the Dutch had in 1672
+            why: There was no flooding.
+      - type: pin
+        prompt: Pin Hasselt, where the Dutch beat the Belgian army of the Meuse.
+        place: hasselt
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Hasselt, capital of the province of Limburg, which was Belgian from 1830 and is still Belgian today.
+      - type: scrub
+        prompt: Drag the slider to the year a Dutch army marched deep into Belgium, and a French army came to stop it.
+        map: kingdom
+        start: 1815
+        answer: [1831, 1831]
+        explain: >-
+          The Ten Days' Campaign ran from 2 to 12 August.
+      - type: choice
+        prompt: Aleida Budde painted these young men in about 1835. They were students who joined up as volunteer riflemen in 1830. Which university were they from?
+        visual: { kind: photo, photo: leiden-jagers }
+        answer: 2
+        options:
+          - label: Ghent
+            why: Ghent was in Belgium after 1830.
+          - label: Groningen
+            why: Groningen's students had their own company, but these are another university's.
+          - label: Leiden
+            why: >-
+              Right: the Leiden Jagers, or riflemen. These ones came from Overijssel. Students from across the
+              north volunteered, and many spent years waiting at the border.
+          - label: Leuven
+            why: Leuven was in Belgium.
+      - type: choice
+        prompt: On 27 October 1830 General Chassé's guns in the citadel, and Dutch warships on the Scheldt, shelled the city of Antwerp. What did the bombardment do?
+        visual: { kind: photo, photo: antwerp-bombardment }
+        answer: 3
+        options:
+          - label: It won Antwerp back for the king
+            why: Only the citadel and the forts stayed Dutch.
+          - label: It destroyed the cathedral
+            why: The cathedral survived; warehouses and houses by the river burned.
+          - label: It ended the war
+            why: The war dragged on until 1833.
+          - label: It turned Antwerp, which had done well under the king, against the Dutch
+            why: >-
+              Right. Antwerp's merchants had prospered in the kingdom, and many had wanted to stay. After the fires
+              of that night, few did.
+      - type: hunt
+        prompt: In December 1832 a French army besieged the Dutch in the citadel of Antwerp. Horace Vernet painted the French trenches, with officers round a map. Find the citadel under fire.
+        photo: antwerp-1832
+        targets: [[0.41, 0.47, 0.24, 0.08]]
+        explain: >-
+          On the horizon, the long low fortress wrapped in smoke from the guns. In the foreground are the French
+          officers, among them two sons of Louis-Philippe, the Dukes of Orléans and Nemours.
+      - type: choice
+        prompt: Jan Willem Pieneman painted General Chassé in 1832, the year of the siege. What did Chassé do when the French army arrived?
+        visual: { kind: photo, photo: chasse }
+        answer: 1
+        options:
+          - label: He surrendered at once
+            why: He held out for weeks.
+          - label: He refused to give up, and held out until 23 December
+            why: >-
+              Right. The French dug trenches up to the walls and fired thousands of shells into the citadel before
+              he surrendered. He was 67, and became a hero in the north.
+          - label: He shelled Paris
+            why: He was in Antwerp.
+          - label: He escaped by sea
+            why: He and his men were taken prisoner.
+      - type: choice
+        prompt: Ferdinand de Braekeleer painted the citadel after the siege. Who got it once the French had taken it?
+        visual: { kind: photo, photo: citadel-1832 }
+        answer: 0
+        options:
+          - label: Belgium
+            why: >-
+              Right. The French handed it to the Belgians and went home. The Dutch still held the forts of Lillo
+              and Liefkenshoek, further down the Scheldt, until 1839.
+          - label: France
+            why: France kept nothing, as it had promised Britain.
+          - label: Britain
+            why: Britain's navy blockaded the Dutch coast, but took no land.
+          - label: The Netherlands
+            why: The Dutch had lost it.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The Dutch army invades in August 1831, A French army marches in to help Belgium]
+          - [William still holds the citadel of Antwerp, France besieges it in 1832]
+          - [William refuses to accept the split, The Dutch army stays ready for war for years]
+          - [The army's cost empties the treasury, William gives way in 1838]
+        explain: >-
+          The Ten Days' Campaign proved the Dutch army could beat the Belgian one, and that the great powers would
+          not let it matter.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The opera and the riots in Brussels, year: 1830, when: 'August 1830' }
+          - { label: Leopold swears his oath, year: 1831, when: '21 July 1831' }
+          - { label: Chassé surrenders the citadel of Antwerp, year: 1832, when: 'December 1832' }
+          - { label: An agreement in London ends the fighting, year: 1833, when: 'May 1833' }
+          - { label: William says he will accept the split, year: 1838, when: 'March 1838' }
+          - { label: The Treaty of London, year: 1839, when: '19 April 1839' }
+        explain: Nine years from the riots to the treaty, most of them spent waiting.
+
+  - id: u9-l6
+    title: The line is drawn
+    icon: map
+    sources:
+      - title: "Library and Archives Canada (web archive), Treaty of London, 1839"
+        url: https://bac-lac.wayback.archive-it.org/web/20171107155727/http:/firstworldwar.com/source/london1839.htm
+      - title: "Nationaal Archief, ratified treaties of the Ministry of Foreign Affairs (2.05.02)"
+        url: https://www.nationaalarchief.nl/onderzoeken/archief/2.05.02
+      - title: "The Low Countries, Belgium and the Netherlands officially divorced 180 years ago"
+        url: https://www.the-low-countries.com/article/belgium-and-the-netherlands-officially-divorced-180-years-ago/
+      - title: "The Low Countries, 100 years ago tiny country Neutral Moresnet became part of Belgium"
+        url: https://www.the-low-countries.com/article/100-years-ago-tiny-country-neutral-moresnet-became-part-of-belgium
+      - title: "Ostbelgien, Crossing into no-man's-land (Neutral Moresnet)"
+        url: https://ostbelgien.eu/en/articles-blog/crossing-into-no-mans-land
+      - title: "DBNL, Letterkundig woordenboek voor Noord en Zuid, Hendrik Conscience (in Dutch)"
+        url: https://www.dbnl.org/tekst/laan005lett01_01/laan005lett01_01_1445.php
+    exercises:
+      - type: story
+        title: Before and after
+        body: >-
+          On 19 April 1839 the Netherlands and Belgium signed a treaty in London, with Britain, France, Austria,
+          Prussia and Russia. Drag the divider to wipe from the kingdom of 1815 to the two countries of 1839, and
+          see what was cut in two.
+        visual: { kind: compare, map: kingdom, years: [1815, 1839] }
+      - type: choice
+        prompt: Drag the divider from 1830 to 1839. What happened to Luxembourg?
+        visual: { kind: compare, map: kingdom, years: [1830, 1839] }
+        answer: 2
+        options:
+          - label: All of it became Belgian
+            why: Only the west did.
+          - label: It went to Prussia
+            why: Prussia kept a garrison in its fortress, but did not get the land.
+          - label: It was split, and the west became Belgium's province of Luxembourg
+            why: >-
+              Right. The French-speaking west, with the German-speaking town of Arlon, stayed Belgian. The rest
+              became the Grand Duchy of Luxembourg we know, ruled by the Dutch king until 1890. It lost more than
+              half its land.
+          - label: It became a province of the Netherlands
+            why: It stayed a grand duchy of its own, under the same king.
+      - type: choice
+        prompt: The Dutch copy of the treaty came with this map of Limburg, cut in two. The pink part went to the Netherlands. Which river does most of the new border follow?
+        visual: { kind: photo, photo: separation-treaty }
+        answer: 0
+        options:
+          - label: The Maas, or Meuse
+            why: >-
+              Right. The Netherlands got the land east of the river, with Maastricht and Venlo, and Belgium the
+              west. From 1839 to 1866 Dutch Limburg was also a duchy of the German Confederation.
+          - label: The Rhine
+            why: The Rhine flows far to the north and east.
+          - label: The Scheldt
+            why: The Scheldt flows through Antwerp, far to the west.
+          - label: The IJssel
+            why: The IJssel is in the north.
+      - type: region
+        prompt: Limburg was cut in two in 1839, and both halves keep the name. Paint the two provinces of today called Limburg.
+        layer: provinces
+        answer: [NL-LI, BE-VLI]
+        explain: >-
+          Dutch Limburg, with Maastricht, and Belgian Limburg, with Hasselt. People on both sides had been
+          Belgian for eight years, and many in Dutch Limburg did not want to go back.
+      - type: gap
+        prompt: Article VII of the treaty decided Belgium's place in Europe for 75 years. Fill the gap.
+        quote: Belgium, within the limits specified, shall form an Independent and ___ Neutral State. It shall be bound to observe such Neutrality towards all other States.
+        source: Treaty of London, 19 April 1839, article VII
+        options: [perpetually, partly, briefly, secretly]
+        answer: 0
+        explain: >-
+          Perpetually: for ever. The great powers, Prussia among them, guaranteed it. Belgium could have no allies
+          and take no side.
+      - type: truemyth
+        statement: In 1914 Britain went to war partly to keep a promise made in 1839.
+        visual: { kind: photo, photo: scrap-of-paper }
+        answer: true
+        explain: >-
+          True. When Germany invaded Belgium in August 1914, its chancellor scoffed that Britain would fight for a
+          "scrap of paper". Britain declared war, and posters like this one showed the seals and signatures of
+          1839, Palmerston's among them.
+      - type: truemyth
+        statement: In one village on the Dutch-Belgian border, the border runs through houses, shops and cafés.
+        visual: { kind: photo, photo: baarle-border }
+        answer: true
+        explain: >-
+          True. In Baarle-Hertog and Baarle-Nassau, medieval landholdings left a patchwork of 22 Belgian
+          pieces inside the Netherlands, some with Dutch pieces inside them. The border treaty of 1843 could not
+          untangle it, so crosses on the pavement still mark the line, even through this shop.
+      - type: pin
+        prompt: Pin Baarle, the village where the border runs through houses.
+        place: baarle
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Baarle, north of Turnhout, deep inside the Dutch province of North Brabant.
+      - type: choice
+        prompt: This postcard of about 1900 shows a strip of land near Aachen, between the Netherlands, Belgium and Germany, that belonged to no single country from 1816 to 1920. Why was it left neutral?
+        visual: { kind: photo, photo: moresnet-map }
+        answer: 1
+        options:
+          - label: Nobody lived there
+            why: Its village, Kelmis, grew to about 5,000 people.
+          - label: Prussia and the Netherlands both wanted its zinc mine, and could not agree
+            why: >-
+              Right. Neutral Moresnet was run by both, and after 1830 by Prussia and Belgium. It had no army and low
+              taxes, and in 1908 some of its people dreamed of an Esperanto state. In 1920 it went to Belgium.
+          - label: It was a hunting ground of the king
+            why: The fight was over its zinc mine.
+          - label: The pope owned it
+            why: The church had nothing to do with it.
+      - type: who
+        photo: conscience
+        clues:
+          - I was born in Antwerp in 1812. My father was French.
+          - In 1830 I joined the Belgian army as a volunteer.
+          - In 1838 I wrote a novel, in Dutch, about the Battle of the Golden Spurs.
+          - People said I taught my people to read.
+        options: [Hendrik Conscience, Jenneval, Charles Rogier, Guido Gezelle]
+        answer: 0
+        explain: >-
+          Hendrik Conscience. His novel De Leeuw van Vlaenderen, The Lion of Flanders, turned 1302 into a story
+          of Flemish pride. Written in the new Belgium, it gave the Flemish Movement its hero, its lion and its
+          date, 11 July.
+      - type: choice
+        prompt: In 1840 William I gave up his throne, and a Dutch cartoonist drew him leaving for Prussia. Why did he go?
+        visual: { kind: photo, photo: william-leaves-1840 }
+        answer: 2
+        options:
+          - label: He had lost a war with Belgium
+            why: The war had ended with a treaty in 1839.
+          - label: He was going to fight for Prussia
+            why: He was 68.
+          - label: He wanted to marry a Catholic Belgian countess, whom his people disliked
+            why: >-
+              Right: Henriette d'Oultremont, his late wife's lady-in-waiting. Parliament was also cutting his powers.
+              His son became William II, and the old king died in Berlin in 1843.
+          - label: He had been deposed
+            why: He gave up the throne himself, on 7 October 1840.
+      - type: scrub
+        prompt: Drag the slider to the year Maastricht's Dutch garrison was surrounded by Dutch land again.
+        map: kingdom
+        start: 1830
+        answer: [1839, 1839]
+        explain: >-
+          For nine years Maastricht had been a Dutch island in Belgian Limburg; the treaty joined it to Dutch land again.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Belgium is made neutral for ever, Britain goes to war when Germany invades in 1914]
+          - [The Netherlands keeps eastern Limburg, Dutch Limburg joins the German Confederation until 1866]
+          - [Luxembourg loses its west, The grand duchy shrinks to less than half its size]
+          - [William I wants to marry a Belgian Catholic, He gives up his throne in 1840]
+        explain: >-
+          The line drawn in 1839 is, with small changes, the border between the Netherlands and Belgium today.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: North and south are joined in one kingdom, year: 1815, when: '1815' }
+          - { label: Ghent, Leuven and Liège get universities, year: 1817, when: '1817' }
+          - { label: The opera and the September Days, year: 1830, when: '1830' }
+          - { label: Leopold becomes king of the Belgians, year: 1831, when: '1831' }
+          - { label: The Treaty of London, year: 1839, when: '1839' }
+          - { label: William I gives up his throne, year: 1840, when: '1840' }
+        explain: Twenty-five years from one kingdom to two, and the shared history of this course ends here.

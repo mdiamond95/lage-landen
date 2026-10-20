@@ -15,7 +15,7 @@ export const BORDERS_MIN = 1672
 export const BORDERS_MAX = 1815
 
 // The Eupen and Malmedy lands, which went to Prussia in 1815 (and to Belgium in 1920).
-const eastCantons: [number, number][] = [[5.97, 50.76], [6.2, 50.75], [6.42, 50.32], [6.2, 50.12], [5.95, 50.3], [5.98, 50.55]]
+export const eastCantons: [number, number][] = [[5.97, 50.76], [6.2, 50.75], [6.42, 50.32], [6.2, 50.12], [5.95, 50.3], [5.98, 50.55]]
 
 const FLANDERS_BRABANT = ['BE-VWV', 'BE-VOV', 'BE-VAN', 'BE-VBR', 'BE-WBR', 'BE-BRU']
 const LIEGE = ['BE-WLG', 'BE-VLI']

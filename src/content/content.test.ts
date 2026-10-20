@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest'
 import topology from '../data/lowlands.topo.json'
 import { credits } from '../photos/credits'
 import { photoIds } from '../photos/ids'
-import { ROMAN_MAX, ROMAN_MIN, romanEvents, romanLines, romanSites } from '../data/roman'
+import { ROMAN_MAX, ROMAN_MIN, romanEvents, romanLines, romanSites, romanStory } from '../data/roman'
 import { CLOTH_MAX, CLOTH_MIN, clothEvents, regions, routes, towns } from '../data/cloth'
 import { waterStory } from '../data/water'
 import { burgundyStory } from '../data/burgundy'
@@ -15,7 +15,9 @@ import { spanishStory } from '../data/spanish'
 import { amsterdamStory } from '../data/amsterdam'
 import { empireStory } from '../data/empire'
 import { bordersStory } from '../data/borders'
+import { kingdomStory } from '../data/kingdom'
 import { charts } from '../data/charts'
+import { eventAt } from '../data/timeline'
 import { peopleIn, trees } from '../data/families'
 import { places } from './places'
 import { Unit, timeMaps, type Exercise } from './schema'
@@ -87,6 +89,12 @@ describe.each(files)('%s', (file) => {
   it('comes back to its time map with find-the-year questions in at least two lessons', () => {
     const lessons = unit.lessons.filter((l) => l.exercises.some((e) => e.type === 'scrub'))
     expect(lessons.length).toBeGreaterThanOrEqual(2)
+  })
+
+  // Unit 3's cloth map draws trade routes, not borders, so there is nothing to wipe between.
+  it.skipIf(unit.id === 'unit-03')('sets two years of its map side by side, before and after', () => {
+    const shown = unit.lessons.flatMap((l) => l.exercises).map((e) => ('visual' in e ? e.visual : undefined))
+    expect(shown.some((v) => v?.kind === 'compare')).toBe(true)
   })
 
   for (const lesson of unit.lessons) {
@@ -236,6 +244,17 @@ describe('water works time map', () => {
 })
 
 describe('time maps in lessons', () => {
+  const stories = {
+    water: waterStory,
+    roman: romanStory,
+    burgundy: burgundyStory,
+    revolt: revoltStory,
+    amsterdam: amsterdamStory,
+    spanish: spanishStory,
+    empire: empireStory,
+    borders: bordersStory,
+    kingdom: kingdomStory,
+  }
   const range = {
     water: [waterStory.min, waterStory.max],
     roman: [ROMAN_MIN, ROMAN_MAX],
@@ -246,6 +265,7 @@ describe('time maps in lessons', () => {
     spanish: [spanishStory.min, spanishStory.max],
     empire: [empireStory.min, empireStory.max],
     borders: [bordersStory.min, bordersStory.max],
+    kingdom: [kingdomStory.min, kingdomStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -254,6 +274,14 @@ describe('time maps in lessons', () => {
       const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
       for (const ex of unit.lessons.flatMap((l) => l.exercises)) {
         const v = 'visual' in ex ? ex.visual : undefined
+        // A before-and-after map compares two different stages of its story.
+        if (v?.kind === 'compare') {
+          const [lo, hi] = range[v.map]
+          const [a, b] = v.years
+          expect(lo <= a && b <= hi, `${unit.id} ${v.map} ${a} to ${b}`).toBe(true)
+          const story = stories[v.map]
+          expect(eventAt(story.events, a).from, `${unit.id} ${v.map} compares one stage with itself`).not.toBe(eventAt(story.events, b).from)
+        }
         if (v?.kind === 'time-map' && v.year !== undefined) {
           const [lo, hi] = range[v.map]
           expect(v.year, `${unit.id} ${v.map}`).toBeGreaterThanOrEqual(lo)
@@ -277,6 +305,7 @@ describe.each([
   ['revolt', revoltStory],
   ['Spanish Netherlands', spanishStory],
   ['border-change', bordersStory],
+  ['one kingdom, then two', kingdomStory],
 ])('%s time map', (_, story) => {
   const { min, max, events, sites, labels, lines, areas = [] } = story
   const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7

@@ -18,9 +18,15 @@ export function WhoAmI({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
   const answer = (pick: number, clues: number) => {
     const correct = pick === exercise.answer
     const early = correct && clues < total
+    const name = exercise.options[exercise.answer]
+    // Most explanations open with the name already; don't say it twice.
+    const first = name.split(' ')[0]
+    const named = first !== 'The' && exercise.explain.startsWith(first)
     const detail = correct
       ? `${early ? `Got it after ${clues} of ${total} clues. ` : ''}${exercise.explain}`
-      : `It was ${exercise.options[exercise.answer]}. ${exercise.explain}`
+      : named
+        ? exercise.explain
+        : `It was ${name}. ${exercise.explain}`
     setAnswer(() => ({ correct, bonus: early, detail }))
   }
   const pick = (i: number) => {

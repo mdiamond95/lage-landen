@@ -699,6 +699,21 @@ lessons:
           - { label: Breda surrenders to Spínola, year: 1625, when: '1625' }
           - { label: The Peace of Münster, year: 1648, when: '1648' }
         explain: Eighty years after Heiligerlee, the north was a free republic and the south a Spanish province.
+      - type: choice
+        prompt: Drag the line to wipe from the two unions of 1579 to the Peace of Münster in 1648. What had the Republic won in the south?
+        visual: { kind: compare, map: revolt, years: [1579, 1648] }
+        answer: 0
+        options:
+          - label: Northern Brabant, with 's-Hertogenbosch and Breda
+            why: >-
+              Right, taken town by town by Maurice and Frederick Henry, with a strip of Flanders and Maastricht. The
+              Republic ruled these lands from The Hague, without a vote of their own.
+          - label: Antwerp
+            why: Antwerp fell to Parma in 1585 and stayed Spanish.
+          - label: Ghent and Bruges
+            why: Flanders fell to Parma in 1584.
+          - label: Luxembourg
+            why: Luxembourg stayed Spanish throughout.
       - type: odd
         prompt: Which of these men is the odd one out?
         items:

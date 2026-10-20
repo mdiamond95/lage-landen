@@ -668,6 +668,21 @@ lessons:
           - [Curaçao, A market selling enslaved people on to Spanish America]
           - [Sint Eustatius, 'A free port, the "Golden Rock"']
           - [Elmina, The main Dutch fort on the Gold Coast]
+      - type: choice
+        prompt: Drag the line to wipe from 1641 to 1667. Two Dutch colonies in the Americas are gone, and a new one has appeared. Which is new?
+        visual: { kind: compare, map: empire, years: [1641, 1667] }
+        answer: 0
+        options:
+          - label: Suriname
+            why: >-
+              Right. Zeeland's ships took it from the English in 1667, the same year the Dutch gave up their claim to
+              New Netherland. It stayed Dutch until 1975.
+          - label: Curaçao
+            why: Curaçao was Dutch from 1634, on both maps.
+          - label: Brazil
+            why: Dutch Brazil was lost in 1654.
+          - label: New Netherland
+            why: New Amsterdam became New York in 1664.
       - type: cause
         prompt: Link each cause to its effect.
         pairs:

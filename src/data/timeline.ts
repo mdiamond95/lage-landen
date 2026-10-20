@@ -46,8 +46,9 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // the tint: still sea (the default), lands of a ruler, lands under a ruler's bishop,
 // plain land that stays outside, lands held by rebels against the ruler, or lands
 // split or fought over between the two, or taken by France; lands of the emperor in
-// Vienna, or a state run under France; on the city map, a town inside its walls.
-export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside' | 'rebel' | 'contested' | 'city' | 'france' | 'austria' | 'sister'
+// Vienna, or a state run under France; on the city map, a town inside its walls;
+// Belgium from 1830, and a grand duchy held by the Dutch king (Luxembourg).
+export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside' | 'rebel' | 'contested' | 'city' | 'france' | 'austria' | 'sister' | 'belgium' | 'duchy'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind

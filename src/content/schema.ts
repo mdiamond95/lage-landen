@@ -39,9 +39,10 @@ const PolderVisual = z.object({ kind: z.literal('polder-slider') })
 // the Roman frontier and roads, the wool and cloth trade, the lands joining
 // Burgundy, the revolt splitting them, Amsterdam growing in the Golden Age, the
 // Spanish Netherlands shrinking, the Dutch trading posts and colonies around the
-// world, or the borders changing from the Disaster Year to Waterloo. `year` opens it
-// at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders'] as const
+// world, the borders changing from the Disaster Year to Waterloo, or one kingdom
+// splitting in two from 1815 to 1839. `year` opens it at a given year instead of the
+// start.
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom'] as const
 const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(timeMaps), year: z.number().optional() })
 // A family tree from src/data/families.ts; `hide` blanks out one person by id.
 const TreeVisual = z.object({ kind: z.literal('family-tree'), tree: z.enum(treeIds), hide: z.string().optional() })
@@ -49,7 +50,16 @@ const TreeVisual = z.object({ kind: z.literal('family-tree'), tree: z.enum(treeI
 // A line chart from src/data/charts.ts; `until` cuts it off at a year.
 const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds), until: z.number().optional() })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual, TreeVisual, ChartVisual])
+// Before and after: two years of a time map, one over the other, with a divider to
+// drag between them. The cloth map draws routes rather than lands, so it can't be used.
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom'] as const
+const CompareVisual = z.object({
+  kind: z.literal('compare'),
+  map: z.enum(compareMaps),
+  years: z.tuple([z.number(), z.number()]).refine(([a, b]) => a < b, 'the earlier year comes first'),
+})
+
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({

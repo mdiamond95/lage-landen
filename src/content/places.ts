@@ -80,4 +80,10 @@ export const places: Record<string, Place> = {
   hellevoetsluis: { name: 'Hellevoetsluis', lat: 51.823, lon: 4.133, note: "William III's fleet sailed for England from here in 1688" },
   'den-helder': { name: 'Den Helder', lat: 52.955, lon: 4.76, note: 'French cavalry took the Dutch fleet here, frozen in the ice, in January 1795' },
   waterloo: { name: 'Battlefield of Waterloo', lat: 50.678, lon: 4.404, note: 'The Lion\'s Mound, where Wellington and Blücher beat Napoleon on 18 June 1815' },
+  // Unit 9: one kingdom, then two
+  seraing: { name: 'Seraing', lat: 50.59, lon: 5.5, note: "John Cockerill's ironworks, from 1817" },
+  hasselt: { name: 'Hasselt', lat: 50.931, lon: 5.338, note: 'The Dutch army beat the Belgians here on 8 August 1831' },
+  baarle: { name: 'Baarle-Nassau and Baarle-Hertog', lat: 51.442, lon: 4.93, note: 'Where the Dutch-Belgian border runs through houses and shops' },
+  kelmis: { name: 'Kelmis', lat: 50.716, lon: 6.012, note: 'The village of Neutral Moresnet, 1816 to 1920' },
+  arlon: { name: 'Arlon', lat: 49.683, lon: 5.816, note: 'Went to Belgium with the west of Luxembourg in 1839' },
 }

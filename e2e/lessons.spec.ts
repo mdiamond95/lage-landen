@@ -442,13 +442,13 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 20 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 22 snapshots from Caesar to the Delta Works', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Open the time map' }).click()
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '19')
+  await expect(slider).toHaveAttribute('max', '21')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -483,8 +483,20 @@ test('the time map steps through 20 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-area-sister')).toHaveCount(0)
   await expect(map.locator('.hist-site', { hasText: 'Waterloo' })).toHaveCount(1)
 
+  await expect(map.locator('.hist-area-belgium')).toHaveCount(0)
+
   await slider.fill('19')
+  await expect(map.locator('.time-map-title')).toHaveText('1830: Revolution in Brussels')
+  await expect(map.locator('.hist-area-belgium').first()).toBeVisible()
+  await expect(map.locator('.key-swatch.key-belgium')).toHaveCount(1)
+
+  await slider.fill('20')
+  await expect(map.locator('.time-map-title')).toHaveText('1839: The Treaty of London')
+  await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
+
+  await slider.fill('21')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
+  await expect(map.locator('.hist-area-belgium')).toHaveCount(0)
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
 
@@ -741,4 +753,73 @@ test('the border map changes hands year by year from 1672 to 1815', async ({ pag
   await year.fill('1815')
   await expect(map.locator('.time-map-title')).toHaveText('1815: Waterloo and a new kingdom')
   await expect(map.locator('.hist-site', { hasText: 'Waterloo' })).toHaveCount(1)
+})
+
+test('plays all of unit 9 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'One kingdom',
+    'The merchant king',
+    'The September Days',
+    'A king for the Belgians',
+    'Ten days and nine years',
+    'The line is drawn',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 9 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the kingdom map splits in 1830 and is settled in 1839', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'One kingdom', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.time-map-title')).toHaveText('1815: One kingdom')
+  await expect(map.locator('.hist-area-belgium')).toHaveCount(0)
+  await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
+
+  await year.fill('1830')
+  await expect(map.locator('.time-map-title')).toHaveText('1830: Revolution in Brussels')
+  await expect(map.locator('.hist-area-belgium').first()).toBeVisible()
+  await expect(map.locator('.hist-area-duchy')).toHaveCount(0)
+  await expect(map.locator('.key-swatch.key-belgium')).toHaveCount(1)
+
+  // The Treaty of London gives half of Limburg and half of Luxembourg back.
+  await year.fill('1839')
+  await expect(map.locator('.time-map-title')).toHaveText('1839: The Treaty of London')
+  await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
+  await expect(map.locator('.hist-area-belgium').first()).toBeVisible()
+})
+
+test('a before and after map wipes from one year to the other', async ({ page }) => {
+  await unlock(page, ['u9-l1', 'u9-l2', 'u9-l3', 'u9-l4', 'u9-l5'])
+  await page.getByRole('button', { name: 'The line is drawn', exact: true }).click()
+
+  const compare = page.locator('.compare-map')
+  await expect(compare.locator('.compare-tag-before')).toHaveText('1815')
+  await expect(compare.locator('.compare-tag-after')).toHaveText('1839')
+  await expect(compare.locator('.compare-captions')).toContainText('1815: One kingdom')
+  await expect(compare.locator('.compare-captions')).toContainText('1839: The Treaty of London')
+  // The earlier map, on top, has no Belgium; the later one, underneath, does.
+  await expect(compare.locator('.compare-before .hist-area-belgium')).toHaveCount(0)
+  await expect(compare.locator('.compare-layer').first().locator('.hist-area-belgium').first()).toBeAttached()
+
+  const wipe = compare.getByRole('slider', { name: 'Before and after' })
+  await expect(wipe).toHaveValue('50')
+  await wipe.fill('10')
+  await expect(compare.locator('.compare-before')).toHaveAttribute('style', /inset\(0px 90% 0px 0px\)|inset\(0 90% 0 0\)/)
+  await wipe.focus()
+  await page.keyboard.press('ArrowRight')
+  await expect(wipe).toHaveValue('11')
 })
