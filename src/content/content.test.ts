@@ -17,6 +17,7 @@ import { empireStory } from '../data/empire'
 import { bordersStory } from '../data/borders'
 import { kingdomStory } from '../data/kingdom'
 import { railsStory } from '../data/rails'
+import { occupationStory } from '../data/occupation'
 import { charts } from '../data/charts'
 import { eventAt } from '../data/timeline'
 import { peopleIn, trees } from '../data/families'
@@ -261,6 +262,7 @@ describe('time maps in lessons', () => {
     borders: bordersStory,
     kingdom: kingdomStory,
     rails: railsStory,
+    occupation: occupationStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -274,6 +276,7 @@ describe('time maps in lessons', () => {
     borders: [bordersStory.min, bordersStory.max],
     kingdom: [kingdomStory.min, kingdomStory.max],
     rails: [railsStory.min, railsStory.max],
+    occupation: [occupationStory.min, occupationStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -315,6 +318,7 @@ describe.each([
   ['border-change', bordersStory],
   ['one kingdom, then two', kingdomStory],
   ['railways and canals', railsStory],
+  ['occupation and liberation', occupationStory],
 ])('%s time map', (_, story) => {
   const { min, max, events, sites, labels, lines, areas = [] } = story
   const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7

@@ -35,5 +35,5 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/photos scripts/photos/meta
+          git add -A src/photos scripts/photos
           git diff --cached --quiet || { git commit -m 'Fetch photos from Wikimedia Commons'; git push; }

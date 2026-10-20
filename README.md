@@ -2,7 +2,7 @@
 
 A Duolingo-style web app for learning the history and culture of the Netherlands and Belgium, built around maps, pictures and timelines.
 
-Phase 1 from the project plan (Units 1 to 5) is built, Phase 2 (Units 6 to 9) is built, and the Netherlands track has begun with Unit 10. Playable now:
+Phase 1 from the project plan (Units 1 to 5) is built, Phase 2 (Units 6 to 9) is built, and the Netherlands track has begun with Units 10 and 11. Playable now:
 
 - Unit 1, Land and water: five lessons and a checkpoint, with a dike slider and an animated map of the Zuiderzee and Delta Works.
 - Unit 2, Celts, Romans and Franks (57 BCE to 900): six lessons and a checkpoint, opening with an animated map of the Roman frontier and roads.
@@ -14,11 +14,12 @@ Phase 1 from the project plan (Units 1 to 5) is built, Phase 2 (Units 6 to 9) is
 - Unit 8, Disaster year to Waterloo (1672 to 1815): six lessons and a checkpoint, built around a border-change map that steps year by year from the French invasion of 1672 through the Austrian Netherlands and the French years to Waterloo, with find-the-year questions on it in four lessons and two voices on whether Holland should stay a country of its own.
 - Unit 9, One kingdom, then two (1815 to 1839): six lessons and a checkpoint on the United Kingdom of the Netherlands, the Belgian Revolution and the Treaty of London, built around a kingdom map that splits in 1830 and is settled in 1839, and a before-and-after swipe between 1815 and 1839.
 - Unit 10, Constitution and pillars (1848 to 1914): six lessons and a checkpoint on Thorbecke's constitution, the colonial profits from Java and Max Havelaar, the school struggle and the pillars, workers and women fighting for the vote, railways and science, and Van Gogh and the painters of his time. Built around a diagram of the four pillars and a map of railways and canals connecting the country, with a chart of who could vote.
+- Unit 11, Occupation and liberation (1914 to 1949): six lessons and a checkpoint on neutrality in the First World War, the five days of May 1940 and the bombing of Rotterdam, the persecution of the Jews and Anne Frank, hiding, resistance and the Hunger Winter, the liberation with the Canadians at the front, and Indonesia's war of independence. Built around a map that moves month by month from May 1940 to May 1945, freeing the country stage by stage. The lessons on the Holocaust and on the war in Indonesia open with a content note.
 
 Around the units:
 
 - A daily review: every question in a finished lesson comes back on a spaced schedule, missed ones sooner, ten at a time.
-- A time map of 26 snapshots, from Caesar's conquest in 57 BCE to the Delta Works, built from the unit maps.
+- A time map of 29 snapshots, from Caesar's conquest in 57 BCE to the Delta Works, built from the unit maps.
 - XP, a day streak with one free missed day a week, and a map of the places discovered.
 - Works offline once loaded, and installs on a phone's home screen.
 
@@ -52,6 +53,7 @@ npm run build:single # one self-contained HTML file in dist-single/
 - `src/data/borders.ts`: the borders of the Low Countries for `{ kind: time-map, map: borders }`, 1672 to 1815, built with `sides(...)` from the revolt map and the regions of the Burgundy and Spanish maps. Two kinds of area join the others: `austria` for the Austrian Netherlands from 1714 and `sister` for the Batavian Republic and Kingdom of Holland, French client states from 1795 to 1810. France's conquests are `france`, lands held by allied armies are `contested`, and the Water Line, William's fleet of 1688 and the Prussian march of 1787 are lines. Barrier fortresses (1715 to 1781) are sites of kind `fort`.
 - `src/data/kingdom.ts`: the United Kingdom of the Netherlands and its split, for `{ kind: time-map, map: kingdom }`, 1815 to 1839. Two kinds of area join the others: `belgium` from 1830 and `duchy` for Luxembourg, the king's grand duchy; half of Limburg and half of Luxembourg go back to the king in 1839. New canals are lines of kind `canal`, the Wellington Barrier forts (1816 to 1829) and the forts the Dutch held after 1830 are sites of kind `fort`.
 - `src/data/rails.ts`: railways and canals for `{ kind: time-map, map: rails }`, 1839 to 1914, with lines of kind `rail`, the North Sea Canal and the Nieuwe Waterweg as `canal`, the Haarlemmermeer as a hand-drawn `shape` of sea until it is drained in 1852, and Luxembourg leaving the Dutch crown in 1890.
+- `src/data/occupation.ts`: the Second World War for `{ kind: time-map, map: occupation }`, May 1940 to May 1945. This map counts in months, not years: `month(1944, 9)` in `timeline.ts` is September 1944, the slider steps month by month, and lessons write a month as `'1944-09'` (in `year`, a compare's `years`, and a scrub's `start` and `answer`). Land is `occupied` or `free`, with the Ardennes `contested` in the Battle of the Bulge; land freed in the stage on screen is outlined. Nazi camps are sites of kind `camp`, and the food drops of April 1945 are sites of kind `drop`. For the time map through all eras, `occupationByYear` pins its stages to 1940, 1944 and 1945.
 - `src/data/pillars.ts` and `src/art/PillarDiagram.tsx`: the pillars of Dutch society (`{ kind: pillars }`), four columns of party, paper, union, broadcaster and schools under one roof; tap a pillar's name to bring it forward. `hide: socialist.radio` blanks one cell for a question, and `only: radio` shows a single row.
 - `src/map/CompareMap.tsx`: before and after (`{ kind: compare, map: kingdom, years: [1815, 1839] }`): two years of any time map but the cloth map laid one over the other, with a divider to drag (or move with the arrow keys) that wipes from the earlier year on the left to the later one on the right. It works as a story card or as the visual of a question.
 - `src/data/charts.ts`: line charts from real figures (`antwerp-amsterdam`, `voters`), drawn by `{ kind: chart, chart: antwerp-amsterdam }`; `until: 1568` stops a chart at a year.
@@ -63,7 +65,7 @@ npm run build:single # one self-contained HTML file in dist-single/
 - `src/progress/store.ts`: XP, streak (with one free missed day per week), discovered places and review cards, kept in the browser.
 - `src/progress/review.ts` and `src/content/cards.ts`: the daily review. Every question is a card named by its lesson and a hash of the question (so an edited question starts afresh). A right answer brings it back in 1 day, then 3, then further out by the card's ease; a miss brings it back tomorrow. The review takes up to ten due cards, the most missed first, shuffled so eras mix.
 - Content notes: a lesson with `note:` opens with a "Before you begin" card and runs calmly: a plain "Correct" in place of "Spot on!", and no trophy or "Perfect lesson!" at the end. The plan asks for this on slavery, colonial Indonesia and the other sensitive topics. A unit with any noted lesson needs its own `note:` too, which its checkpoint shows; a daily review that draws on a noted lesson is calm as well.
-- `src/data/throughTime.ts`: the 26-snapshot time map (`TimeMap` with `snapshots`, so the slider steps from snapshot to snapshot). It reuses each era's lines, sites, labels and areas, starting each era at its first snapshot and dropping them when it ends, so eras that share years (the Spanish and border maps both show 1672 to 1700) never draw over each other.
+- `src/data/throughTime.ts`: the 29-snapshot time map (`TimeMap` with `snapshots`, so the slider steps from snapshot to snapshot). It reuses each era's lines, sites, labels and areas, starting each era at its first snapshot and dropping them when it ends, so eras that share years (the Spanish and border maps both show 1672 to 1700) never draw over each other.
 - `scripts/sw.js`, `public/manifest.webmanifest`: offline and install. The build writes `dist/sw.js` listing every built file, pictures included, so the whole course is saved on first visit.
 
 ## Writing a lesson

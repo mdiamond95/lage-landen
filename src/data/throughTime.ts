@@ -1,15 +1,16 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 26 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
+// through 29 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, Burgundy, revolt, the
 // Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839, the
-// railways and canals of 1839 to 1914, water), and stay on the map only
+// railways and canals of 1839 to 1914, the war of 1940 to 1945, water), and stay on the map only
 // from the era's first snapshot to its end, so one era never bleeds into another.
 // The plan's full time map runs to today with about 40 snapshots; this is the first
-// 26, for Units 1 to 10.
+// 29, for Units 1 to 11.
 
 import { bordersStory } from './borders'
 import { burgundyStory } from './burgundy'
 import { kingdomStory } from './kingdom'
+import { occupationByYear } from './occupation'
 import { railsStory } from './rails'
 import { revoltStory } from './revolt'
 import { romanStory } from './roman'
@@ -122,6 +123,9 @@ const snapshots: Snapshot[] = [
   { story: railsStory, from: 1876 },
   { story: railsStory, from: 1890 },
   { story: railsStory, from: 1914 },
+  { story: occupationByYear, from: 1940 },
+  { story: occupationByYear, from: 1944 },
+  { story: occupationByYear, from: 1945 },
   {
     story: waterStory,
     from: 1997,

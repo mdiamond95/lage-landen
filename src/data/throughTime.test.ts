@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 26 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(26)
+  it('has 29 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(29)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -33,5 +33,13 @@ describe('time map through the eras', () => {
     expect(at(1856).some((x) => 'kind' in x && x.kind === 'duchy')).toBe(true)
     expect(at(1890).some((x) => 'kind' in x && x.kind === 'duchy')).toBe(false)
     expect(at(1890).some((x) => 'text' in x && x.text === 'UNITED KINGDOM OF THE NETHERLANDS')).toBe(false)
+    // The war: all occupied in 1940, the south free by 1944, all free in 1945, gone by 1997.
+    const kinds = (year: number) => new Set(at(year).map((x) => ('kind' in x ? x.kind : undefined)))
+    expect(kinds(1914).has('occupied')).toBe(false)
+    expect(kinds(1940).has('occupied')).toBe(true)
+    expect(kinds(1940).has('free')).toBe(false)
+    expect(kinds(1944).has('occupied') && kinds(1944).has('free')).toBe(true)
+    expect(kinds(1945).has('occupied')).toBe(false)
+    expect(kinds(1997).has('free')).toBe(false)
   })
 })

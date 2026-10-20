@@ -89,4 +89,10 @@ export const places: Record<string, Place> = {
   // Unit 10: constitution and pillars
   zwolle: { name: 'Zwolle', lat: 52.512, lon: 6.094, note: 'Thorbecke was born here in 1798' },
   nuenen: { name: 'Nuenen', lat: 51.47, lon: 5.552, note: 'Van Gogh painted The Potato Eaters here in 1885' },
+  arnhem: { name: 'Arnhem', lat: 51.985, lon: 5.899 },
+  wageningen: { name: 'Wageningen', lat: 51.969, lon: 5.665 },
+  westerbork: { name: 'Westerbork', lat: 52.917, lon: 6.608, note: 'The site of the transit camp, near Hooghalen in Drenthe' },
+  doorn: { name: 'Doorn', lat: 52.033, lon: 5.346, note: 'Huis Doorn, where the last German emperor lived in exile' },
+  groesbeek: { name: 'Groesbeek', lat: 51.777, lon: 5.936, note: 'The Canadian War Cemetery' },
+  eijsden: { name: 'Eijsden', lat: 50.776, lon: 5.708 },
 }

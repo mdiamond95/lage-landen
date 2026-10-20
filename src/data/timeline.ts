@@ -18,6 +18,12 @@ export const activeAt = (year: number, item: Dated) =>
 // The caption whose stage the year falls in. Each runs until the next one starts.
 export const eventAt = (events: HistEvent[], year: number) => [...events].reverse().find((e) => e.from <= year) ?? events[0]
 
+// A map that moves month by month (the war of 1940 to 1945) counts in months, not
+// years: month(1944, 9) is September 1944. Lessons write such a month as "1944-09".
+export const month = (year: number, m: number) => year * 12 + m - 1
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+export const formatMonth = (value: number) => `${MONTHS[value % 12]} ${Math.floor(value / 12)}`
+
 // What a year-slider map on the main Low Countries map draws: lines (frontiers,
 // roads, dams), sites (forts, towns, barriers), text labels, and areas that were
 // still water for a while. Coordinates are [lon, lat] (WGS84).
@@ -35,7 +41,8 @@ export type HistSite = Dated & {
   // Shown on hover, e.g. the modern name of a Roman fort.
   note?: string
   // `voc` and `wic` are the trading posts and forts of the two companies, on the world map.
-  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic'
+  // A `camp` is a Nazi camp; a `drop` is where Allied bombers dropped food in 1945.
+  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number
@@ -47,8 +54,23 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // plain land that stays outside, lands held by rebels against the ruler, or lands
 // split or fought over between the two, or taken by France; lands of the emperor in
 // Vienna, or a state run under France; on the city map, a town inside its walls;
-// Belgium from 1830, and a grand duchy held by the Dutch king (Luxembourg).
-export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside' | 'rebel' | 'contested' | 'city' | 'france' | 'austria' | 'sister' | 'belgium' | 'duchy'
+// Belgium from 1830, and a grand duchy held by the Dutch king (Luxembourg); in the
+// Second World War, land under German occupation and land liberated.
+export type AreaKind =
+  | 'sea'
+  | 'ruled'
+  | 'client'
+  | 'outside'
+  | 'rebel'
+  | 'contested'
+  | 'city'
+  | 'france'
+  | 'austria'
+  | 'sister'
+  | 'belgium'
+  | 'duchy'
+  | 'occupied'
+  | 'free'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind
