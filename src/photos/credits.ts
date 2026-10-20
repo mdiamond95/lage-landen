@@ -174,6 +174,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Master of Saint Giles; National Gallery of Art',
     ...CC0,
     source: commons('Master of Saint Giles, The Baptism of Clovis, c. 1500, NGA 41597.jpg'),
+    zoom: true,
   },
   'dorestad-brooch': {
     alt: 'A round gold brooch covered in red, blue and white inlays and pearls, with a large red stone in the middle',
@@ -329,6 +330,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Attributed to Rogier van der Weyden',
     ...PD,
     source: commons('Rogier van der Weyden - Presentation Miniature, Chroniques de Hainaut KBR 9242.jpg'),
+    zoom: true,
   },
   'brussels-town-hall': {
     alt: 'A long Gothic town hall covered in statues, with a tall, open-work spire rising from its middle, on a crowded square',
@@ -350,6 +352,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Hubert and Jan van Eyck',
     ...PD,
     source: commons('Lamgods open.jpg'),
+    zoom: true,
   },
   'ghent-lamb': {
     alt: 'A lamb standing on an altar in a meadow, ringed by kneeling angels, with a fountain in front and towers on the skyline',
@@ -364,6 +367,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Jan van Eyck',
     ...PD,
     source: commons('Van Eyck - Arnolfini Portrait.jpg'),
+    zoom: true,
   },
   'van-eyck-turban': {
     alt: 'Portrait of a man in a red cloth headdress wound like a turban, in a frame with lettering along the top',
@@ -378,6 +382,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Rogier van der Weyden',
     ...PD,
     source: commons('El Descendimiento, by Rogier van der Weyden, from Prado in Google Earth.jpg'),
+    zoom: true,
   },
   'memling-judgment': {
     alt: 'A three-part painting of the Last Judgment: Christ above a rainbow, an angel weighing souls, the saved climbing to heaven on the left and the damned falling into fire on the right',
@@ -469,6 +474,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: 'Louis Gallait',
     ...PD,
     source: commons('The abdication of Emperor Charles V in favor of his son Philip II . At Brussels, 25 October 1555 (SM 947).png'),
+    zoom: true,
   },
   // Unit 5. Pictures used in "Who am I?" questions get captions that don't give the answer away.
   'philip-ii': {
@@ -540,6 +546,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: "Otto van Veen",
     ...CC0,
     source: commons("Veen, Otto van-The Famished People after the Relief of the Siege of Leiden-Rijksmuseum SK-A-3911.jpg"),
+    zoom: true,
   },
   'prinsenhof-bullet-holes': {
     alt: "A whitewashed wall with a stone plaque above a lit, framed niche showing two holes in the plaster",
@@ -603,6 +610,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: "Baptista van Doetechum",
     ...PD,
     source: commons("Beleg van Oostende in de jaren 1601-1602.jpg"),
+    zoom: true,
   },
   'surrender-breda': {
     alt: "Painting of a man bowing to hand over a key to a commander in black armour, with soldiers and upright lances behind",
@@ -610,6 +618,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: "Diego Velázquez",
     ...PD,
     source: commons("Velazquez-The Surrender of Breda.jpg"),
+    zoom: true,
   },
   'fishing-souls': {
     alt: "Painting of two crowds on either bank of a river under a rainbow, with preachers in boats pulling swimmers from the water",
@@ -624,6 +633,7 @@ export const credits: Record<PhotoId, Credit> = {
     author: "Gerard ter Borch",
     ...PD,
     source: commons("Het sluiten van de Vrede van Munster Rijksmuseum SK-C-1683.jpeg"),
+    zoom: true,
   },
   'amsterdam-1649': {
     alt: "Coloured plan of a city with a fan of canals inside a bastioned wall and many ships along the bottom",

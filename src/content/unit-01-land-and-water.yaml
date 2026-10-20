@@ -474,3 +474,20 @@ lessons:
         explain: >-
           The last one, the Markerwaard, was never built. The Houtribdijk of 1975 cut off its lake, the
           Markermeer, but the polder was put off and finally dropped. The lake is now a nature and water reserve.
+      - type: odd
+        prompt: Which of these is the odd one out?
+        items:
+          - { label: The Cruquius pumping station, photo: cruquius }
+          - { label: The Afsluitdijk, photo: afsluitdijk }
+          - { label: The Oosterscheldekering, photo: oosterscheldekering }
+          - { label: The terp at Hogebeintum, photo: terp-hogebeintum }
+        answer: 3
+        reasons:
+          - It lifts people above the water instead of keeping it out or pumping it away
+          - It stands in Zeeland
+          - It was built in the 1900s
+        reason: 0
+        explain: >-
+          The first terps were piled up by hand around 500 BCE, long before there were dikes. The other three fight
+          the water itself: the Cruquius helped pump the Haarlemmermeer dry, the Afsluitdijk shut off the Zuiderzee and
+          the Oosterscheldekering closes against storm surges.

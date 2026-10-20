@@ -77,6 +77,10 @@ describe.each(files)('%s', (file) => {
     expect(asks.some((e) => e.type === 'cause')).toBe(true)
   })
 
+  it('has an odd one out told apart by pictures', () => {
+    expect(asks.some((e) => e.type === 'odd' && e.items.every((i) => i.photo))).toBe(true)
+  })
+
   for (const lesson of unit.lessons) {
     it(`${lesson.id} references real places, regions and rivers`, () => {
       for (const ex of lesson.exercises) {

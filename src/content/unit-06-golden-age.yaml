@@ -533,8 +533,8 @@ lessons:
           - It hangs in a museum in Amsterdam
         reason: 0
         explain: >-
-          The Arnolfini Portrait is by Jan van Eyck, 1434, from Unit 4. The other three were painted in the Dutch
-          Republic between about 1628 and 1660. The Arnolfini Portrait is in London.
+          Jan van Eyck painted it in Bruges in 1434, as you saw in Unit 4, and it hangs in London. The other three
+          were painted in the Dutch Republic between about 1628 and 1660.
       - type: truemyth
         statement: Rembrandt is buried in the Westerkerk in Amsterdam, but no one knows exactly where.
         visual: { kind: photo, photo: westerkerk-1660 }
@@ -770,8 +770,8 @@ lessons:
           - It was made for a church
         reason: 0
         explain: >-
-          The Night Watch was painted in Amsterdam in 1642. The other three were made in the Catholic south, in
-          Antwerp and Brussels.
+          Rembrandt painted it in Amsterdam in 1642, for a Protestant city's militia. The other three were made in
+          the Catholic south, in Antwerp and Brussels.
       - type: hunt
         prompt: David Teniers painted his master, Archduke Leopold Wilhelm, governor of the Spanish Netherlands, showing off his paintings in Brussels. Find the archduke, the only man with his hat on.
         photo: teniers-gallery

@@ -751,3 +751,19 @@ lessons:
           - [Utrecht and Overijssel, '1528']
           - [Groningen and Drenthe, '1536']
           - [Guelders, '1543']
+      - type: odd
+        prompt: Which painting is the odd one out?
+        items:
+          - { label: The Ghent Altarpiece, photo: ghent-altarpiece }
+          - { label: The Arnolfini Portrait, photo: arnolfini }
+          - { label: The Descent from the Cross, photo: descent-cross }
+          - { label: Charles V at Mühlberg, photo: charles-v-titian }
+        answer: 3
+        reasons:
+          - It was painted by an Italian, more than a century later
+          - It is painted in oils
+          - It hangs in the Prado in Madrid
+        reason: 0
+        explain: >-
+          Titian of Venice painted Charles V in 1548. The other three are by the Flemish Primitives, painted in the
+          1430s. All four are oil paintings, and the Descent from the Cross hangs in the Prado too.

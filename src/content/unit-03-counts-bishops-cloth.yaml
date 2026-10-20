@@ -651,3 +651,19 @@ lessons:
             why: Artevelde was a Ghent citizen, not a prince, and he had died in 1345.
           - label: The duke of Brabant
             why: Brabant passed to Burgundy too, but later, in the 1400s.
+      - type: odd
+        prompt: Which of these buildings is the odd one out?
+        items:
+          - { label: The belfry of Bruges, photo: bruges-belfry }
+          - { label: The Cloth Hall of Ypres, photo: ypres-cloth-hall }
+          - { label: Huis ter Beurze in Bruges, photo: ter-beurze }
+          - { label: The Ridderzaal in The Hague, photo: ridderzaal }
+        answer: 3
+        reasons:
+          - It was built for a count of Holland, not for the towns of Flanders
+          - It is a church
+          - It was built after 1500
+        reason: 0
+        explain: >-
+          The Ridderzaal was the great hall of the counts of Holland, built around 1295. The other three belong to
+          the rich trading towns of Flanders, their freedom, their cloth and their merchants.
