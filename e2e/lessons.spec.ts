@@ -31,6 +31,11 @@ async function answer(page: Page) {
   } else if (await page.locator('.exercise-odd').count()) {
     await page.locator('.exercise-odd .option').first().click()
     await page.locator('.odd-reasons .option').first().click()
+  } else if (await page.locator('.sort-groups').count()) {
+    while (await page.locator('.sort-pool .sort-card').count()) {
+      await page.locator('.sort-pool .sort-card').first().click()
+      await page.locator('.sort-group-head').first().click()
+    }
   } else if (await page.locator('.chip-pool').count()) {
     while (await page.locator('.chip').count()) await page.locator('.chip').first().click()
   } else {
@@ -442,13 +447,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 22 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 26 snapshots from Caesar to the Delta Works', async ({ page }) => {
   await page.goto('/')
+  await expect(page.locator('.timemap-teaser')).toContainText('26 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
+  await expect(page.locator('.time-travel-intro')).toContainText('in 26 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '21')
+  await expect(slider).toHaveAttribute('max', '25')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -495,7 +502,18 @@ test('the time map steps through 22 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
 
   await slider.fill('21')
+  await expect(map.locator('.time-map-title')).toHaveText('1856: Trains to Germany')
+  await expect(map.locator('.hist-rail').first()).toBeVisible()
+  await expect(map.locator('.key-swatch.key-rail')).toHaveCount(1)
+  await expect(map.locator('.hist-fort', { hasText: 'Maastricht' })).toHaveCount(0)
+
+  await slider.fill('23')
+  await expect(map.locator('.time-map-title')).toHaveText('1890: Luxembourg goes its own way')
+  await expect(map.locator('.hist-area-duchy')).toHaveCount(0)
+
+  await slider.fill('25')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
+  await expect(map.locator('.hist-rail')).toHaveCount(0)
   await expect(map.locator('.hist-area-belgium')).toHaveCount(0)
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
@@ -822,4 +840,68 @@ test('a before and after map wipes from one year to the other', async ({ page })
   await wipe.focus()
   await page.keyboard.press('ArrowRight')
   await expect(wipe).toHaveValue('11')
+})
+
+test('plays all of unit 10 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    "Thorbecke's constitution",
+    'Coffee, sugar and Max Havelaar',
+    'Schools and pillars',
+    'Workers, women and the vote',
+    'A modern country',
+    'Van Gogh and the painters of his time',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 10 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the pillar diagram brings one pillar forward at a time', async ({ page }) => {
+  await unlock(page, ['u10-l1', 'u10-l2'])
+  await page.getByRole('button', { name: 'Schools and pillars', exact: true }).click()
+
+  const diagram = page.locator('figure.pillars')
+  await expect(diagram.locator('.pillar')).toHaveCount(4)
+  await expect(diagram.locator('.pillar-dim')).toHaveCount(0)
+  await expect(diagram.locator('.pillar-catholic')).toContainText('KRO')
+
+  await diagram.getByRole('button', { name: 'Socialist' }).click()
+  await expect(diagram.getByRole('button', { name: 'Socialist' })).toHaveAttribute('aria-pressed', 'true')
+  await expect(diagram.locator('.pillar-dim')).toHaveCount(3)
+  await diagram.getByRole('button', { name: 'Socialist' }).click()
+  await expect(diagram.locator('.pillar-dim')).toHaveCount(0)
+})
+
+test('the railway map connects the country from 1839 to 1914', async ({ page }) => {
+  await unlock(page, ['u10-l1', 'u10-l2', 'u10-l3', 'u10-l4'])
+  await page.getByRole('button', { name: 'A modern country', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.time-map-title')).toHaveText('1839: The first train')
+  await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
+  // The Haarlemmermeer is still water, and drained by 1852.
+  await expect(map.locator('.hist-area-sea')).toHaveCount(2)
+
+  await year.fill('1852')
+  await expect(map.locator('.time-map-title')).toHaveText('1852: The Haarlemmermeer is dry')
+  await expect(map.locator('.hist-area-sea')).toHaveCount(1)
+
+  await year.fill('1890')
+  await expect(map.locator('.time-map-title')).toHaveText('1890: Luxembourg goes its own way')
+  await expect(map.locator('.hist-area-duchy')).toHaveCount(0)
+  await expect(map.locator('.key-swatch.key-rail')).toHaveCount(1)
+
+  await year.fill('1914')
+  await expect(map.locator('.time-map-title')).toHaveText('1914: Neutral in a world war')
 })

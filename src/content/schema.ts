@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { chartIds } from '../data/charts'
 import { treeIds } from '../data/families'
+import { cellIds, rowIds } from '../data/pillars'
 import { lineIds } from '../data/roman'
 import { photoIds } from '../photos/ids'
 
@@ -40,9 +41,9 @@ const PolderVisual = z.object({ kind: z.literal('polder-slider') })
 // Burgundy, the revolt splitting them, Amsterdam growing in the Golden Age, the
 // Spanish Netherlands shrinking, the Dutch trading posts and colonies around the
 // world, the borders changing from the Disaster Year to Waterloo, or one kingdom
-// splitting in two from 1815 to 1839. `year` opens it at a given year instead of the
-// start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom'] as const
+// splitting in two from 1815 to 1839, or the railways and canals of the Netherlands from
+// 1839 to 1914. `year` opens it at a given year instead of the start.
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails'] as const
 const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(timeMaps), year: z.number().optional() })
 // A family tree from src/data/families.ts; `hide` blanks out one person by id.
 const TreeVisual = z.object({ kind: z.literal('family-tree'), tree: z.enum(treeIds), hide: z.string().optional() })
@@ -52,14 +53,22 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
   years: z.tuple([z.number(), z.number()]).refine(([a, b]) => a < b, 'the earlier year comes first'),
 })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual])
+// The pillars of Dutch society (src/data/pillars.ts); `hide` blanks one cell, written
+// "pillar.row" (e.g. socialist.radio), and `only` shows a single row.
+const PillarsVisual = z.object({
+  kind: z.literal('pillars'),
+  hide: z.enum(cellIds as [string, ...string[]]).optional(),
+  only: z.enum(rowIds).optional(),
+})
+
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -209,7 +218,21 @@ const Voices = z.object({
   explain: z.string(),
 })
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices])
+// Sort into groups: put each card into one of two to four groups (which pillar, which
+// side of a border, which painter). `group` is the index of the card's right group.
+const Sort = z
+  .object({
+    type: z.literal('sort'),
+    prompt: z.string(),
+    visual: Visual.optional(),
+    groups: z.array(z.string()).min(2).max(4),
+    items: z.array(z.object({ label: z.string(), group: z.number().int().nonnegative(), photo: z.enum(photoIds).optional() })).min(4).max(8),
+    explain: z.string(),
+  })
+  .refine((s) => s.items.every((i) => i.group < s.groups.length), 'every card needs a group that exists')
+  .refine((s) => s.groups.every((_, g) => s.items.some((i) => i.group === g)), 'every group needs a card')
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

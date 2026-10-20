@@ -379,6 +379,18 @@ lessons:
         visual: { kind: map, highlight: [BE-VWV], rivers: [], pins: [] }
         answer: false
         explain: Belgium's coast is only about 67 km, from De Panne to Knokke-Heist, all of it in West Flanders, and lined with dunes and seawalls.
+      - type: sort
+        prompt: Every Dutch way of living with water does one of three jobs. Sort them.
+        groups: [Keeps the sea out, Pumps the water out, Lifts people above the water]
+        items:
+          - { label: The Afsluitdijk, group: 0, photo: afsluitdijk }
+          - { label: The Oosterschelde barrier, group: 0, photo: oosterscheldekering }
+          - { label: The windmills of Kinderdijk, group: 1, photo: kinderdijk }
+          - { label: The Cruquius pumping station, group: 1, photo: cruquius }
+          - { label: The terp of Hogebeintum, group: 2, photo: terp-hogebeintum }
+        explain: >-
+          The first Frisians lived on terps, mounds that stayed dry at high tide. Then came dikes and dams to keep
+          the sea out, and mills, later steam and electric pumps, to lift the water out of the polders behind them.
       - type: truemyth
         statement: The Wadden Sea, north of Friesland and Groningen, is a UNESCO World Heritage site.
         answer: true

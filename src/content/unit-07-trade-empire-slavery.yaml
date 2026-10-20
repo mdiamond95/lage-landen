@@ -421,6 +421,21 @@ lessons:
           A myth, or at least too neat. The treaty let each side keep what it had taken in the war: England kept New
           Netherland, taken in 1664, and the Dutch kept Suriname, taken from the English in February 1667. The Dutch
           even took New York back in 1673, then returned it for good in 1674.
+      - type: sort
+        prompt: East India Company or West India Company? Sort these posts.
+        groups: [East India Company (VOC), West India Company (WIC)]
+        items:
+          - { label: Batavia, group: 0, photo: batavia-castle }
+          - { label: Dejima, group: 0, photo: dejima-bay }
+          - { label: The Cape, group: 0, photo: cape-castle }
+          - { label: Malacca, group: 0, photo: malacca }
+          - { label: New Amsterdam, group: 1, photo: castello-plan }
+          - { label: Pernambuco, group: 1, photo: post-pernambuco }
+          - { label: Elmina, group: 1, photo: elmina-castle }
+          - { label: Curaçao, group: 1, photo: fort-amsterdam-curacao }
+        explain: >-
+          The VOC held everything east of the Cape of Good Hope, and the Cape itself. The WIC traded in West
+          Africa and the Americas, including the trade in enslaved Africans from Elmina to Brazil and Curaçao.
       - type: order
         prompt: Put these in order, oldest first.
         items:

@@ -8,6 +8,7 @@ import { PictureChoice } from '../exercises/PictureChoice'
 import { PinMap } from '../exercises/PinMap'
 import { RegionPaint } from '../exercises/RegionPaint'
 import { ScrubMap } from '../exercises/ScrubMap'
+import { SortGroups } from '../exercises/SortGroups'
 import { StoryCard } from '../exercises/StoryCard'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
@@ -114,6 +115,8 @@ export function LessonPlayer({ title, exercises, note, calm = false, onExit, onF
         return <OddOneOut exercise={exercise} {...props} />
       case 'voices':
         return <Voices exercise={exercise} {...props} />
+      case 'sort':
+        return <SortGroups exercise={exercise} {...props} />
     }
   })()
 

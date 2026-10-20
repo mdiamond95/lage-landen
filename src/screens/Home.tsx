@@ -1,6 +1,7 @@
 import { cards } from '../content'
 import { courseOutline } from '../content/course'
 import { checkpointId } from '../content/checkpoint'
+import { throughTimeStory } from '../data/throughTime'
 import { places } from '../content/places'
 import type { Unit } from '../content/schema'
 import { LowlandsMap } from '../map/LowlandsMap'
@@ -80,7 +81,7 @@ export function Home({ units, onStart, onTimeMap }: Props) {
       <section className="timemap-teaser card">
         <div>
           <h2>Time map</h2>
-          <p>Watch the Low Countries change in 20 snapshots, from Caesar to the Delta Works.</p>
+          <p>Watch the Low Countries change in {throughTimeStory.events.length} snapshots, from Caesar to the Delta Works.</p>
         </div>
         <button type="button" className="btn-ghost" onClick={onTimeMap}>
           Open the time map

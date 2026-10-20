@@ -245,6 +245,7 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .hist-frontier { stroke: #b3261e; stroke-width: 4.5; }
 .hist-road { stroke: #7a5a2b; stroke-width: 2.4; stroke-dasharray: 7 4; }
 .hist-canal { stroke: var(--delft); stroke-width: 2.4; }
+.hist-rail { stroke: #2b2b2b; stroke-width: 2.2; }
 .hist-line.hist-gone { stroke: #b9a9a4; stroke-width: 2.5; stroke-dasharray: 3 5; }
 .draw-in { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.6s ease-out forwards; }
 .fade-in { animation: pop 1s ease-out; }
@@ -515,3 +516,40 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .hist-area-duchy { fill: #fde9d2; stroke: #c25f00; stroke-width: 0.8; stroke-dasharray: 3 2; transition: fill 0.4s; }
 .key-duchy { width: 12px; height: 10px; background: #fde9d2; border: 1px dashed #c25f00; border-radius: 2px; }
 .key-canal { width: 16px; height: 3px; background: var(--delft); }
+.key-rail { width: 16px; height: 3px; background: #2b2b2b; }
+
+/* Pillars of Dutch society (Unit 10): four columns under one roof */
+.pillars { margin: 0; border: 2px solid var(--line); border-radius: 16px; background: var(--card); padding: 12px; display: grid; gap: 6px; }
+.pillars-roof { position: relative; display: grid; place-items: center; padding: 18px 8% 8px; background: #e9e2d2; clip-path: polygon(50% 0, 100% 100%, 0 100%); min-height: 64px; }
+.pillars-roof span { font-size: 0.72rem; font-weight: 800; color: var(--ink-soft); text-align: center; max-width: 60%; line-height: 1.2; padding-top: 14px; }
+.pillars-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+.pillar { display: grid; gap: 4px; align-content: start; border-radius: 8px; padding: 4px; transition: opacity 0.2s; }
+.pillar-dim { opacity: 0.35; }
+.pillar-head { border: 0; border-radius: 6px; padding: 6px 2px; font-weight: 900; font-size: 0.78rem; color: #fff; cursor: pointer; line-height: 1.15; }
+.pillar-cells { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.pillar-cell { border-radius: 6px; padding: 4px 5px; background: var(--paper); border: 1.5px solid var(--line); display: grid; line-height: 1.15; min-height: 52px; align-content: start; }
+.pillar-row { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); font-weight: 800; }
+.pillar-name { font-size: 0.74rem; font-weight: 800; overflow-wrap: break-word; hyphens: auto; }
+.pillar-note { font-size: 0.66rem; color: var(--ink-soft); }
+.pillar-hidden { border-color: var(--orange); border-style: dashed; }
+.pillar-hidden .pillar-name { color: var(--orange-dark); font-size: 1.1rem; }
+.pillars-base { text-align: center; font-weight: 900; font-size: 0.8rem; color: var(--ink-soft); background: #e9e2d2; border-radius: 6px; padding: 6px; }
+.pillar-catholic { background: #fbeee0; } .pillar-catholic .pillar-head { background: #c25f00; }
+.pillar-protestant { background: #e6eef9; } .pillar-protestant .pillar-head { background: var(--delft); }
+.pillar-socialist { background: #fbe6e4; } .pillar-socialist .pillar-head { background: var(--red); }
+.pillar-liberal { background: #e3f3e6; } .pillar-liberal .pillar-head { background: var(--green-dark); }
+
+/* Sort into groups */
+.sort-hint { margin: 0; font-size: 0.9rem; }
+.sort-pool { display: flex; flex-wrap: wrap; gap: 8px; }
+.sort-pool-pictures .sort-card { width: calc(50% - 4px); }
+.sort-card { padding: 8px 10px; font-size: 0.92rem; }
+.sort-card .photo-option { max-height: 110px; object-fit: cover; }
+.sort-groups { display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sort-groups-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sort-group { border: 2px dashed var(--line); border-radius: 14px; padding: 6px; display: grid; gap: 6px; align-content: start; min-height: 96px; background: var(--card); }
+.sort-ready { border-color: var(--delft); }
+.sort-group-head { border: 0; border-radius: 10px; background: var(--delft-soft); color: var(--delft-dark); font-weight: 900; padding: 8px 6px; cursor: pointer; font-size: 0.9rem; }
+.sort-group-head:disabled { cursor: default; }
+.sort-ready .sort-group-head:not(:disabled) { background: var(--delft); color: #fff; }
+.sort-group-items { display: grid; gap: 6px; }
