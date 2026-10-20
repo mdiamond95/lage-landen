@@ -24,6 +24,8 @@ export const CITY_H = 560
 export const DELTA_H = 470
 // Central Africa, from the Atlantic to the great lakes, is about square.
 export const AFRICA_H = 600
+// The Westhoek, from the coast at Nieuwpoort down to Armentières, is taller than wide.
+export const WESTHOEK_H = 700
 // The world map is wide and low: from the Americas to Japan, Norway to Tasmania.
 export const WORLD_H = 340
 

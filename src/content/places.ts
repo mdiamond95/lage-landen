@@ -99,4 +99,8 @@ export const places: Record<string, Place> = {
   marcinelle: { name: 'Marcinelle', lat: 50.388, lon: 4.444, note: 'The Bois du Cazier colliery, where 262 miners died in 1956' },
   charleroi: { name: 'Charleroi', lat: 50.411, lon: 4.444 },
   tervuren: { name: 'Tervuren', lat: 50.823, lon: 4.514, note: 'The AfricaMuseum, opened in 1910 as the Museum of the Belgian Congo' },
+  diksmuide: { name: 'Diksmuide', lat: 51.033, lon: 2.864 },
+  passendale: { name: 'Passendale', lat: 50.9, lon: 3.02, note: 'Passchendaele, in the English of 1917' },
+  mons: { name: 'Mons', lat: 50.454, lon: 3.952 },
+  bastogne: { name: 'Bastogne', lat: 50.0, lon: 5.716 },
 }

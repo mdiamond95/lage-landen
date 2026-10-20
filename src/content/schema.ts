@@ -47,10 +47,11 @@ const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // splitting in two from 1815 to 1839, or the railways and canals of the Netherlands from
 // 1839 to 1914, or the Low Countries occupied and liberated, May 1940 to May 1945, month
 // by month, or the southwest delta from the flood of 1953 to the last of the Delta Works,
-// or Belgium's railways and coal country from 1835 to 1914, or the Congo from 1876 to 1961.
+// or Belgium's railways and coal country from 1835 to 1914, or the Congo from 1876 to 1961,
+// or Belgium in the First World War and the front in the Westhoek, both month by month.
 // `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo'] as const
-// The occupation map counts in months, written "1944-09"; the others count in years.
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek'] as const
+// The maps of the two world wars count in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
   z
@@ -67,7 +68,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),

@@ -28,8 +28,9 @@ export const formatMonth = (value: number) => `${MONTHS[value % 12]} ${Math.floo
 // roads, dams), sites (forts, towns, barriers), text labels, and areas that were
 // still water for a while. Coordinates are [lon, lat] (WGS84).
 // A `flow` is people or goods on the move, drawn as an arrow with moving dashes.
-// A `wall` is a town wall, on the city map; a `rail` is a railway line.
-export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow' | 'wall' | 'rail'
+// A `wall` is a town wall, on the city map; a `rail` is a railway line. A `front` is
+// the front line of a war, where the trenches faced each other.
+export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow' | 'wall' | 'rail' | 'front'
 // On the world map, flows are ships: to and from Asia, across the Atlantic, or
 // carrying enslaved Africans. Without a tone a flow is people on the move (refugees).
 export type FlowTone = 'asia' | 'atlantic' | 'enslaved'
@@ -43,7 +44,8 @@ export type HistSite = Dated & {
   // `voc` and `wic` are the trading posts and forts of the two companies, on the world map.
   // A `camp` is a Nazi camp; a `drop` is where Allied bombers dropped food in 1945.
   // A `breach` is a gap the sea broke in a dike. A `mine` is a colliery, ironworks or mine.
-  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach' | 'mine'
+  // A `grave` is a war cemetery; a `memorial` is a monument to the dead or the missing.
+  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach' | 'mine' | 'grave' | 'memorial'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number
@@ -87,9 +89,10 @@ export type TimeStory = {
   // Named in the map's accessible label: "Map of <place> in <year>".
   place: string
   // What the map is drawn on: the Low Countries (the default), the canals of
-  // Amsterdam, the world, a close-up of the southwest delta with its islands, or
-  // Central Africa, for the Congo.
-  base?: 'lowlands' | 'amsterdam' | 'world' | 'delta' | 'africa'
+  // Amsterdam, the world, a close-up of the southwest delta with its islands,
+  // Central Africa, for the Congo, or the Westhoek, the corner of Flanders around
+  // Ypres where the front of 1914 to 1918 ran.
+  base?: 'lowlands' | 'amsterdam' | 'world' | 'delta' | 'africa' | 'westhoek'
   // Two corners, [lon, lat], to zoom the map to; the whole Low Countries if left out.
   bounds?: [[number, number], [number, number]]
   min: number

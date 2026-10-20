@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 32 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(32)
+  it('has 33 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(33)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -41,6 +41,9 @@ describe('time map through the eras', () => {
     // The war: all occupied in 1940, the south free by 1944, all free in 1945, gone by 1997.
     const kinds = (year: number) => new Set(at(year).map((x) => ('kind' in x ? x.kind : undefined)))
     expect(kinds(1914).has('occupied')).toBe(false)
+    // The front of 1915: Belgium occupied but for the corner behind the Yser, gone by 1940.
+    expect(kinds(1915).has('occupied') && kinds(1915).has('belgium')).toBe(true)
+    expect(kinds(1915).has('coal')).toBe(false)
     expect(kinds(1940).has('occupied')).toBe(true)
     expect(kinds(1940).has('free')).toBe(false)
     expect(kinds(1944).has('occupied') && kinds(1944).has('free')).toBe(true)

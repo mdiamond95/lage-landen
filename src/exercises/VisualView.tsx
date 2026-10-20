@@ -11,6 +11,7 @@ import { burgundyStory } from '../data/burgundy'
 import { congoStory } from '../data/congo'
 import { deltaStory } from '../data/delta'
 import { empireStory } from '../data/empire'
+import { greatWarStory } from '../data/greatwar'
 import { industryStory } from '../data/industry'
 import { kingdomStory } from '../data/kingdom'
 import { occupationStory } from '../data/occupation'
@@ -19,6 +20,7 @@ import { revoltStory } from '../data/revolt'
 import { romanStory } from '../data/roman'
 import { spanishStory } from '../data/spanish'
 import { waterStory } from '../data/water'
+import { westhoekStory } from '../data/westhoek'
 import { CompareMap } from '../map/CompareMap'
 import { LowlandsMap } from '../map/LowlandsMap'
 import { TimeMap } from '../map/TimeMap'
@@ -41,6 +43,8 @@ export const stories = {
   delta: deltaStory,
   industry: industryStory,
   congo: congoStory,
+  greatwar: greatWarStory,
+  westhoek: westhoekStory,
 }
 
 type TimeMapProps = {

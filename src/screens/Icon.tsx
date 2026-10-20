@@ -49,6 +49,13 @@ export const paths: Record<string, React.ReactNode> = {
   // A steam train, for the railways; a miner's pick, for the coal country.
   train: <path d="M7 3h10a2 2 0 0 1 2 2v9a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V5a2 2 0 0 1 2-2zM5 10h14M9 13.5h.01M15 13.5h.01M8 17l-3 4M16 17l3 4" fill="none" strokeLinejoin="round" />,
   pick: <path d="M3 9c5-5 13-5 18 0M14 6.2 6 21M10.5 5.8l4.5 1.6" fill="none" strokeLinejoin="round" />,
+  // A poppy, for the fields of Flanders and the dead of the First World War.
+  poppy: (
+    <>
+      <path d="M12 11c-3-5-8-4-8 0 0 3 3 4 5 3M12 11c3-5 8-4 8 0 0 3-3 4-5 3M9 14c-1 3 1 5 3 5s4-2 3-5M12 19v3" fill="none" strokeLinejoin="round" />
+      <circle cx="12" cy="12.5" r="1.6" fill="currentColor" stroke="none" />
+    </>
+  ),
 }
 
 export function Icon({ name }: { name: string }) {

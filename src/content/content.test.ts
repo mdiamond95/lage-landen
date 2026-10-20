@@ -23,6 +23,9 @@ import { deltaStory } from '../data/delta'
 import { industryStory } from '../data/industry'
 import { congoStory } from '../data/congo'
 import congoTopology from '../data/congo.topo.json'
+import { greatWarStory } from '../data/greatwar'
+import { westhoekStory } from '../data/westhoek'
+import westhoekTopology from '../data/westhoek.topo.json'
 import { charts } from '../data/charts'
 import { eventAt } from '../data/timeline'
 import { peopleIn, trees } from '../data/families'
@@ -276,6 +279,8 @@ describe('time maps in lessons', () => {
     delta: deltaStory,
     industry: industryStory,
     congo: congoStory,
+    greatwar: greatWarStory,
+    westhoek: westhoekStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -293,6 +298,8 @@ describe('time maps in lessons', () => {
     delta: [deltaStory.min, deltaStory.max],
     industry: [industryStory.min, industryStory.max],
     congo: [congoStory.min, congoStory.max],
+    greatwar: [greatWarStory.min, greatWarStory.max],
+    westhoek: [westhoekStory.min, westhoekStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -337,6 +344,7 @@ describe.each([
   ['occupation and liberation', occupationStory],
   ['flood and Delta Works', deltaStory],
   ['railways and coal', industryStory],
+  ['Belgium in the First World War', greatWarStory],
 ])('%s time map', (_, story) => {
   const { min, max, events, sites, labels, lines, areas = [] } = story
   const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7
@@ -465,6 +473,48 @@ describe('Congo map', () => {
       if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
       if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
     }
+  })
+})
+
+describe('Westhoek front map', () => {
+  const { min, max, events, sites, labels, lines, areas = [] } = westhoekStory
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const countries = new Set((feature(westhoekTopology as any, (westhoekTopology as any).objects.countries) as any).features.map((f: any) => f.properties.id))
+  // The Westhoek, from the coast at Nieuwpoort to Armentières; the land behind the
+  // front reaches out past the edge of the map.
+  const inWesthoek = ([lon, lat]: [number, number]) => lon > 2.5 && lon < 3.15 && lat > 50.65 && lat < 51.2
+  const inReach = ([lon, lat]: [number, number]) => lon > 2.3 && lon < 3.6 && lat > 50.4 && lat < 51.4
+
+  it('puts every front, site and label in the Westhoek', () => {
+    for (const a of areas) {
+      for (const id of a.regions ?? []) expect(countries.has(id), `${a.name} ${id}`).toBe(true)
+      for (const c of [...(a.clip ?? []), ...(a.shape ?? [])]) expect(inReach(c), `${a.name} ${c}`).toBe(true)
+    }
+    for (const l of lines) for (const c of l.coords) expect(inWesthoek(c), `${l.name} ${c}`).toBe(true)
+    for (const s of sites) expect(inWesthoek(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inWesthoek(l.at), l.text).toBe(true)
+    expect(new Set(areas.map((a) => a.name)).size, 'area names are unique').toBe(areas.length)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels, ...lines, ...areas]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
+  })
+
+  it('has one front line at a time around Ypres, and the graves stay once dug', () => {
+    for (const e of events) {
+      const fronts = lines.filter((l) => l.kind === 'front' && l.from <= e.from && (l.to === undefined || e.from <= l.to))
+      if (e.from < max - 1) expect(fronts.length, e.title).toBeGreaterThan(0)
+    }
+    for (const s of sites.filter((s) => s.kind === 'grave' || s.kind === 'memorial')) expect(s.to, s.name).toBeUndefined()
   })
 })
 

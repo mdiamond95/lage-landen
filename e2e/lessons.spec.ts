@@ -454,15 +454,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 32 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 33 snapshots from Caesar to the Delta Works', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('32 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('33 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 32 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 33 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '31')
+  await expect(slider).toHaveAttribute('max', '32')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -529,34 +529,41 @@ test('the time map steps through 32 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-area-duchy')).toHaveCount(0)
 
   await slider.fill('26')
+  await expect(map.locator('.time-map-title')).toHaveText('1915: An occupied country')
+  await expect(map.locator('.hist-front')).toHaveCount(1)
+  await expect(map.locator('.hist-line.hist-barrier')).toHaveCount(1)
+  await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
+
+  await slider.fill('27')
   await expect(map.locator('.time-map-title')).toHaveText('May 1940: Five days of war')
   await expect(map.locator('.hist-rail')).toHaveCount(0)
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
 
-  await slider.fill('27')
+  await slider.fill('28')
   await expect(map.locator('.time-map-title')).toHaveText('November 1944: The Scheldt, and the Hunger Winter')
   await expect(map.locator('.hist-area-free').first()).toBeVisible()
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-free')).toHaveCount(1)
 
-  await slider.fill('28')
+  await slider.fill('29')
   await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
   await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(0)
+  await expect(map.locator('.hist-grave')).toHaveCount(4)
 
-  await slider.fill('29')
+  await slider.fill('30')
   await expect(map.locator('.time-map-title')).toHaveText('1953: The great flood')
   await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
   await expect(map.locator('.hist-breach')).toHaveCount(4)
   await expect(map.locator('.key-swatch.key-flooded')).toHaveCount(1)
 
-  await slider.fill('30')
+  await slider.fill('31')
   await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
   await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
 
-  await slider.fill('31')
+  await slider.fill('32')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
@@ -1000,6 +1007,9 @@ test('the occupation map moves month by month from May 1940 to liberation', asyn
   await month.fill(String(1945 * 12 + 4))
   await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
   await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
+  // The Canadian war cemeteries, from Unit 14's war-graves layer.
+  await expect(map.locator('.hist-grave')).toHaveCount(4)
+  await expect(map.locator('.key-swatch.key-grave')).toHaveCount(1)
 })
 
 test('plays all of unit 12 and the checkpoint without errors', async ({ page }) => {
@@ -1151,4 +1161,57 @@ test('the Congo map goes from the Free State to the Belgian Congo to independenc
   await expect(map.locator('.hist-area-free')).toHaveCount(1)
   await expect(map.locator('.hist-area-contested')).toHaveCount(1)
   await expect(map.locator('.hist-alert', { hasText: 'KATANGA' })).toHaveCount(1)
+})
+
+test('plays all of unit 14 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'Brave little Belgium',
+    'Holding the Yser',
+    'Ypres, gas and In Flanders Fields',
+    'Passchendaele and the war graves',
+    'Eighteen days and four years',
+    'Liberation, the Bulge and the king',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 14 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the Westhoek map holds the Yser, moves the salient and fills with war graves', async ({ page }) => {
+  await unlock(page, ['u14-l1'])
+  await page.getByRole('button', { name: 'Holding the Yser', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const month = map.getByRole('slider', { name: 'Month' })
+  await expect(map.locator('.westhoek-map')).toBeVisible()
+  await expect(map.locator('.time-map-title')).toHaveText('October 1914: The Yser and Ypres')
+  await expect(map.locator('.hist-area-flooded')).toHaveCount(1)
+  await expect(map.locator('.hist-front')).toHaveCount(3)
+  await expect(map.locator('.key-swatch.key-front')).toHaveCount(1)
+  await expect(map.locator('.hist-grave')).toHaveCount(0)
+
+  await month.fill(String(1915 * 12 + 3))
+  await expect(map.locator('.time-map-title')).toHaveText('April 1915: Gas')
+  await expect(map.locator('.hist-alert', { hasText: 'GAS' })).toHaveCount(1)
+
+  await month.fill(String(1917 * 12 + 10))
+  await expect(map.locator('.time-map-title')).toHaveText('November 1917: Passchendaele')
+  await expect(map.locator('.hist-grave')).toHaveCount(4)
+  await expect(map.locator('.hist-memorial')).toHaveCount(0)
+
+  // Cemeteries and memorials laid out after the war appear with the Armistice.
+  await month.fill(String(1918 * 12 + 10))
+  await expect(map.locator('.hist-grave')).toHaveCount(5)
+  await expect(map.locator('.hist-memorial')).toHaveCount(5)
+  await expect(map.locator('.hist-alert', { hasText: 'GAS' })).toHaveCount(0)
 })

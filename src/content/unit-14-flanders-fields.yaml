@@ -1,0 +1,810 @@
+id: unit-14
+number: 14
+title: Flanders Fields
+era: 1914 to 1951
+summary: In August 1914 Germany marches through neutral Belgium, and Britain goes to war over a "scrap of paper". King Albert's army holds a last corner of the country behind the flooded Yser, while around Ypres the British, the French and the Canadians fight four years in the mud, through the first gas attack and Passchendaele, and leave behind the cemeteries and the poem that Canadians still read every November. In 1940 Belgium is invaded again, and King Leopold III surrenders after eighteen days. After the liberation, the Battle of the Bulge and a referendum, the question of the king nearly splits the country.
+note: >-
+  Two lessons of this unit tell of the Belgian civilians shot by German troops in 1914, and of the Jews and Roma
+  deported from Mechelen to Auschwitz from 1942 to 1944. They are told plainly, without celebrations, and without
+  photographs of the dead.
+lessons:
+  - id: u14-l1
+    title: Brave little Belgium
+    icon: shield
+    note: >-
+      This lesson tells how German troops shot thousands of Belgian civilians and burned towns in 1914. It does not
+      show photographs of the dead.
+    sources:
+      - title: "Wikipedia, German invasion of Belgium (1914)"
+        url: https://en.wikipedia.org/wiki/German_invasion_of_Belgium_(1914)
+      - title: "Wikipedia, Rape of Belgium"
+        url: https://en.wikipedia.org/wiki/Rape_of_Belgium
+      - title: "Wikipedia, Battle of Liège"
+        url: https://en.wikipedia.org/wiki/Battle_of_Li%C3%A8ge
+      - title: "Wikipedia, University Library of Leuven"
+        url: https://en.wikipedia.org/wiki/University_Library_of_Leuven
+      - title: "Wikipedia, Wire of Death"
+        url: https://en.wikipedia.org/wiki/Wire_of_Death
+      - title: "Wikipedia, Albert I of Belgium"
+        url: https://en.wikipedia.org/wiki/Albert_I_of_Belgium
+      - title: "John Horne and Alan Kramer, German Atrocities, 1914: A History of Denial (Yale, 2001)"
+        url: https://yalebooks.yale.edu/book/9780300107913/german-atrocities-1914/
+    exercises:
+      - type: story
+        title: 4 August 1914
+        body: >-
+          Germany's plan for a war with France was to swing around the French forts through Belgium, and take Paris
+          in six weeks. On the evening of 2 August 1914 it asked Belgium to let its armies through. The next morning
+          the government said no. On 4 August German troops crossed the border near Gemmenich. Press play to see four
+          years of war in Belgium.
+        visual: { kind: time-map, map: greatwar, year: '1914-08' }
+      - type: gap
+        prompt: That evening the British ambassador in Berlin went to see the German chancellor, who was angry that Britain would fight over Belgium. Fill the gap in the ambassador's report.
+        quote: Just for a word, "neutrality", a word which in war time had so often been disregarded, just for a ___ of paper, Great Britain was going to make war on a kindred nation who desired nothing better than to be friends with her.
+        source: Sir Edward Goschen, British ambassador in Berlin, reporting his talk with Chancellor Bethmann Hollweg on 4 August 1914
+        visual: { kind: photo, photo: bravo-belgium }
+        options: [scrap, sheet, page, piece]
+        answer: 0
+        explain: >-
+          The "scrap of paper" was the treaty of 1839, in which Prussia and Britain had promised that Belgium would
+          stay neutral for ever. Britain declared war that night. A week later Punch drew Belgium as a small boy
+          barring the gate to a big German.
+      - type: who
+        photo: albert-speaight
+        clues:
+          - I became king in 1909, after my uncle.
+          - On 3 August 1914 my government refused to let a foreign army march through my country.
+          - I led my army myself, and spent the war in the last strip of my country, behind the Yser.
+          - I died in 1934, climbing alone on the rocks at Marche-les-Dames.
+        options: [Albert I, Leopold II, Leopold III, Baudouin]
+        answer: 0
+        explain: >-
+          Albert I, the "Soldier King". He took over from his uncle Leopold II, and became a hero in Britain and
+          America for standing up to Germany. His death in a climbing fall in 1934 shocked the country.
+      - type: choice
+        prompt: Liège was ringed by twelve forts, and they held up the German army for days. How were the forts finally broken?
+        visual: { kind: photo, photo: big-bertha }
+        answer: 1
+        options:
+          - label: The forts ran out of water
+            why: The forts fell to guns, not thirst.
+          - label: Huge new siege mortars fired shells of 42 cm that smashed through their concrete
+            why: >-
+              Right. The giant guns came up from 12 August, and the last fort fell on 16 August.
+              The forts of Liège had been built in the 1880s, for smaller guns.
+          - label: Belgian traitors opened the gates
+            why: The forts were fought for one by one.
+          - label: They surrendered on the first day
+            why: The city fell on 7 August, but the forts around it held out for days longer.
+      - type: truemyth
+        statement: In 1914 German soldiers cut off the hands of Belgian children, as Allied newspapers and painters claimed.
+        visual: { kind: photo, photo: germans-arrive }
+        answer: false
+        explain: >-
+          Myth. No such case was ever proven, though the story spread through Britain and America and into
+          paintings like this one, of 1918. What happened was bad enough. Believing that civilians were shooting at
+          them, German troops shot about 5,500 Belgian men, women and children from August to October 1914, among
+          them 674 at Dinant, and burned whole streets.
+      - type: choice
+        prompt: On 25 August 1914 German troops set fire to the centre of Leuven. Which loss shocked the world most?
+        visual: { kind: photo, photo: leuven-library }
+        answer: 2
+        options:
+          - label: The Gothic town hall
+            why: The town hall survived the fire.
+          - label: The beguinage
+            why: The beguinage was not burned.
+          - label: The university library, with about 230,000 books and its medieval manuscripts
+            why: >-
+              Right. The burning of the library made Leuven a symbol of the war against culture. It was rebuilt with
+              American money and opened again in 1928, and burned once more in the war of May 1940.
+      - type: pin
+        prompt: Pin Liège, whose forts held up the German army in August 1914.
+        place: liege
+        explain: >-
+          Liège lies on the Meuse, on the road from Germany to the plains of Belgium and France. Every day the forts
+          held out put the German plan further behind.
+      - type: scrub
+        prompt: Drag the slider to a stage when a deadly electric fence ran along the Dutch border.
+        map: greatwar
+        start: '1914-08'
+        answer: ['1915-04', '1918-09']
+        explain: >-
+          From the spring of 1915 the Germans ran a fence of 2,000 volts from Aachen to the Scheldt, to stop young men
+          slipping into the neutral Netherlands to join the Belgian army, and spies and letters going the other way.
+          Between 2,000 and 3,000 people died on the Wire of Death.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Germany's plan to reach Paris ran through Belgium, The invasion of 4 August 1914]
+          - [Britain had promised in 1839 to keep Belgium neutral, Britain declares war on Germany]
+          - [German soldiers believed civilians were shooting at them, Towns like Dinant and Leuven are burned and their people shot]
+          - [The forts of Liège hold out for days, The German timetable falls behind]
+        explain: >-
+          Belgium could not stop the German army, but it slowed it down, and its suffering turned opinion in Britain
+          and America against Germany. "Remember Belgium" was still on American posters in 1918.
+
+  - id: u14-l2
+    title: Holding the Yser
+    icon: wave
+    sources:
+      - title: "Wikipedia, Battle of the Yser"
+        url: https://en.wikipedia.org/wiki/Battle_of_the_Yser
+      - title: "Wikipedia, Elisabeth of Bavaria, Queen of the Belgians"
+        url: https://en.wikipedia.org/wiki/Elisabeth_of_Bavaria,_Queen_of_Belgium
+      - title: "Wikipedia, Yser Tower"
+        url: https://en.wikipedia.org/wiki/Yser_Tower
+      - title: "Wikipedia, Frontbeweging, the Front Movement of Flemish soldiers (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Frontbeweging
+      - title: "Wikipedia, Trench of Death (Dodengang)"
+        url: https://en.wikipedia.org/wiki/Trench_of_Death
+    exercises:
+      - type: story
+        title: October 1914
+        body: >-
+          Antwerp fell on 10 October 1914. What was left of the Belgian army slipped out along the coast and dug in
+          behind the little river Yser, in the last corner of the country. From 18 October the Germans attacked, and
+          to the south the British and the French met them around Ypres. Press play to watch the front for four
+          years.
+        visual: { kind: time-map, map: westhoek, year: '1914-10' }
+      - type: choice
+        prompt: By the end of October the Belgians were almost beaten. How did they stop the Germans on the Yser?
+        visual: { kind: photo, photo: yser-flood-map }
+        answer: 0
+        options:
+          - label: They opened the sluices at Nieuwpoort at high tide, and let the sea flood the plain
+            why: >-
+              Right. On the nights of 26 to 30 October, guided by a boatman who knew the sluices, Hendrik Geeraert,
+              they let the sea in behind the railway embankment from Nieuwpoort to Diksmuide. The water stopped the
+              Germans, and stayed until 1918.
+          - label: They poured a wall of concrete along the river
+            why: There was no time for that; the line was held with earth and water.
+          - label: The French navy shelled the Germans from the sea
+            why: British ships did shell the coast, but they could not stop the attack alone.
+          - label: The Germans ran out of shells
+            why: They had plenty; they turned to Ypres instead.
+      - type: who
+        photo: elisabeth-1915
+        clues:
+          - I was born a duchess in Bavaria in 1876; my father was an eye doctor.
+          - In the war I stayed close to the front, in the dunes at De Panne.
+          - I helped found a hospital there, L'Océan, and nursed the wounded myself.
+          - A music competition in Brussels still carries my name.
+        options: [Queen Elisabeth, Queen Astrid, Edith Cavell, Queen Fabiola]
+        answer: 0
+        explain: >-
+          Queen Elisabeth, Albert I's wife. The hospital at De Panne, run by the surgeon Antoine Depage, opened in
+          December 1914, and soldiers called her the Queen Nurse. The music competition she started in 1937 has
+          carried her name since 1951.
+      - type: truemyth
+        statement: Thousands of Flemish soldiers died on the Yser because their officers gave orders only in French, which they did not understand.
+        visual: { kind: photo, photo: belgian-mg-1918 }
+        answer: false
+        explain: >-
+          Myth, say historians: no case has been found of men dying because of an order in French, and most
+          sergeants spoke the soldiers' language. But the grievance behind it was real. The army was run in French,
+          while most of its soldiers spoke Flemish, and in 1917 Flemish soldiers formed the Front Movement and wrote
+          an open letter to the king.
+      - type: gap
+        prompt: The Flemish soldiers' graves, and later this tower at Diksmuide, carried the letters AVV-VVK. Fill the gap in the motto they stand for.
+        quote: Alles voor Vlaanderen, Vlaanderen voor ___
+        source: The motto of the Catholic Flemish student movement, carved on the Yser Tower (in English, All for Flanders, Flanders for ...)
+        visual: { kind: photo, photo: yser-tower }
+        options: [Kristus, de Koning, België, het Volk]
+        answer: 0
+        explain: >-
+          Flanders for Christ. The first Yser Tower was built in 1930 as a memorial to the Flemish dead, and blown
+          up by unknown men in 1946. The new tower, 84 metres tall, was finished in 1965. On it is written "No more
+          war", in Dutch, French, English and German.
+      - type: scrub
+        prompt: Drag the slider to the stage when the Belgian army left the Yser and attacked at last.
+        map: westhoek
+        start: '1914-10'
+        answer: ['1918-10', '1918-10']
+        explain: >-
+          On 28 September 1918 the Belgians, with British and French troops, broke out of the Yser plain and across the
+          ridge east of Ypres. In October they freed Ostend and Bruges, and King Albert rode into Brussels on 22
+          November.
+      - type: choice
+        prompt: The government went to France, to Sainte-Adresse near Le Havre. Where did the king and queen live for most of the war?
+        visual: { kind: photo, photo: de-panne-villa }
+        answer: 2
+        options:
+          - label: In London
+            why: Many Belgian refugees went to Britain, but the king stayed with his army.
+          - label: At Sainte-Adresse, with the government
+            why: The ministers worked there, in France; the king did not.
+          - label: In a villa in the dunes at De Panne, behind the Yser
+            why: >-
+              Right. De Panne, on the coast by the French border, was in the strip of Belgium the Germans never took.
+              The painter Lucien Frank painted their house there.
+          - label: In their palace at Laeken
+            why: Brussels was occupied from 20 August 1914.
+      - type: pin
+        prompt: Pin Nieuwpoort, where the sluices were opened.
+        place: nieuwpoort
+        explain: >-
+          Nieuwpoort lies where the Yser meets the sea. Several waterways meet at its sluices, the Ganzenpoot, so whoever
+          held them could flood the plain.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: The sea is let in at Nieuwpoort, year: 1914, when: 'October 1914' }
+          - { label: Flemish soldiers write an open letter to the king, year: 1917, when: 'July 1917' }
+          - { label: The Belgian army breaks out of the Yser plain, year: 1918, when: 'September 1918' }
+          - { label: The first Yser Tower is finished, year: 1930, when: '1930' }
+          - { label: The Yser Tower is blown up, year: 1946, when: '1946' }
+          - { label: The new Yser Tower is finished, year: 1965, when: '1965' }
+        explain: >-
+          The Yser front was the Belgian army's war: four years in wet trenches along a river. Every summer Flemish
+          groups still gather at the tower, and the Trench of Death, the last stretch of Belgian trench, can still be
+          walked near Diksmuide.
+
+  - id: u14-l3
+    title: Ypres, gas and In Flanders Fields
+    icon: poppy
+    sources:
+      - title: "Wikipedia, Second Battle of Ypres"
+        url: https://en.wikipedia.org/wiki/Second_Battle_of_Ypres
+      - title: "Canadian War Museum, The Second Battle of Ypres"
+        url: https://www.warmuseum.ca/firstworldwar/history/battles-and-fighting/land-battles/second-battle-of-ypres/
+      - title: "Wikipedia, Christmas truce"
+        url: https://en.wikipedia.org/wiki/Christmas_truce
+      - title: "Wikipedia, John McCrae"
+        url: https://en.wikipedia.org/wiki/John_McCrae
+      - title: "Wikipedia, In Flanders Fields"
+        url: https://en.wikipedia.org/wiki/In_Flanders_Fields
+      - title: "Wikipedia, St. Julien Memorial"
+        url: https://en.wikipedia.org/wiki/St._Julien_Memorial
+      - title: "Wikipedia, Cloth Hall, Ypres"
+        url: https://en.wikipedia.org/wiki/Cloth_Hall,_Ypres
+    exercises:
+      - type: story
+        title: The salient
+        body: >-
+          In November 1914 the Germans failed to take Ypres. For four years the British, the French and later the
+          Canadians held a bulge in the line around the town, the salient, with the Germans on the higher ground on
+          three sides. Ypres was shelled to rubble. Press play to see the front move, and the cemeteries fill.
+        visual: { kind: time-map, map: westhoek, year: '1914-12' }
+      - type: truemyth
+        statement: At Christmas 1914 soldiers on both sides stopped fighting in places along the front, met in no man's land, and buried their dead.
+        visual: { kind: photo, photo: christmas-truce }
+        answer: true
+        explain: >-
+          True. Around 100,000 men took part, along stretches of the British front near Ypres and just over the
+          border in France, where this photo was taken. They swapped cigarettes and buttons, and in a few places
+          played football. The generals made sure it did not happen again.
+      - type: scrub
+        prompt: Drag the slider to the stage when the Germans first let clouds of poison gas drift over the Allied line.
+        map: westhoek
+        start: '1914-10'
+        answer: ['1915-04', '1915-04']
+        explain: >-
+          On 22 April 1915, at about five in the afternoon, the Germans opened thousands of cylinders of chlorine north
+          of Ypres. The green-yellow cloud drifted onto French troops, who broke and ran, and left a gap beside the
+          Canadians.
+      - type: choice
+        prompt: William Roberts painted the first gas attack. Who are the men in red and blue, running from the gas?
+        visual: { kind: photo, photo: gas-attack-roberts }
+        answer: 1
+        options:
+          - label: German soldiers
+            why: The Germans wore grey, and came on behind the cloud.
+          - label: French colonial soldiers, Zouaves and riflemen from North Africa
+            why: >-
+              Right. They held the line beside the Canadians, and took the full force of the gas. In the painting,
+              Canadians in khaki try to help them.
+          - label: Belgian soldiers
+            why: The Belgians were further north, on the Yser.
+          - label: Scottish Highlanders
+            why: There are men in khaki in the painting, but the ones in red and blue are French colonial troops.
+      - type: choice
+        prompt: This memorial near St Julien marks where Canadians held the line after the gas, in their first great battle. How many Canadians were killed, wounded or captured at Ypres in those days?
+        visual: { kind: photo, photo: brooding-soldier }
+        answer: 2
+        options:
+          - label: About 60
+            why: Far more.
+          - label: About 600
+            why: Far more.
+          - label: More than 6,000, about 2,000 of them killed
+            why: >-
+              Right. The Canadians had no masks, and held their noses with cloths soaked in water or urine. The
+              memorial, a soldier's head bowed over his rifle, is called the Brooding Soldier.
+          - label: More than 60,000
+            why: That is about how many Canadians died in the whole war.
+      - type: who
+        photo: mccrae
+        clues:
+          - I was born in Guelph, Ontario, in 1872, and became a doctor.
+          - In 1915 I ran a dressing station dug into the bank of the canal north of Ypres.
+          - After burying a friend killed by a shell, I wrote fifteen lines in the voice of the dead.
+          - I died of pneumonia in France in January 1918, and never saw the war end.
+        options: [John McCrae, Arthur Currie, Wilfred Owen, Frederick Banting]
+        answer: 0
+        explain: >-
+          John McCrae. His friend Alexis Helmer was killed on 2 May 1915, and McCrae wrote the poem the next day. It
+          made the poppy the flower of remembrance.
+      - type: gap
+        prompt: Fill the gap in the opening lines of the poem.
+        quote: In Flanders fields the poppies blow / Between the ___, row on row,
+        source: John McCrae, In Flanders Fields, as printed in Punch on 8 December 1915
+        visual: { kind: photo, photo: essex-farm }
+        options: [crosses, graves, trenches, rifles]
+        answer: 0
+        explain: >-
+          The crosses of the cemetery beside his dressing station, now Essex Farm. The wooden crosses were later
+          replaced by the white headstones in this photo. Canadians wear a poppy every November in memory of the dead.
+      - type: choice
+        prompt: Where was the poem first printed?
+        visual: { kind: photo, photo: flanders-fields-ms }
+        answer: 0
+        options:
+          - label: In Punch, a London magazine, without his name under it
+            why: >-
+              Right. It came out on 8 December 1915, and was soon known across the British Empire and America. This
+              copy in his own hand was printed in his book of poems, in 1919, after his death.
+          - label: In a Toronto newspaper
+            why: It was first printed in London.
+          - label: In The Spectator
+            why: The Spectator turned it down.
+          - label: In a book of his poems in 1915
+            why: His book came out in 1919, after his death.
+      - type: choice
+        prompt: Ypres in 1919, after four years of shelling. What happened to the town?
+        visual: { kind: photo, photo: ypres-1919 }
+        answer: 1
+        options:
+          - label: The ruins were left as a memorial
+            why: Winston Churchill suggested it, but the people of Ypres came home and rebuilt.
+          - label: It was rebuilt as it had been, and the Cloth Hall was finished in 1967
+            why: >-
+              Right. The town was rebuilt on its old plan, paid for as war damages. The Cloth Hall, which took
+              until 1967, now holds the In Flanders Fields Museum.
+          - label: It was rebuilt on a new site
+            why: The town was rebuilt where it stood.
+          - label: It was rebuilt in a modern style
+            why: Ypres chose to look as it had before the war.
+      - type: pin
+        prompt: Pin Ypres.
+        place: ypres
+        explain: >-
+          Ypres, Ieper in Dutch, is in West Flanders, a few kilometres from the French border. Hundreds of thousands
+          of soldiers of all sides were killed in the salient around it.
+
+  - id: u14-l4
+    title: Passchendaele and the war graves
+    icon: cross
+    sources:
+      - title: "Wikipedia, Battle of Passchendaele"
+        url: https://en.wikipedia.org/wiki/Battle_of_Passchendaele
+      - title: "Canadian War Museum, Passchendaele"
+        url: https://www.warmuseum.ca/firstworldwar/history/battles-and-fighting/land-battles/passchendaele/
+      - title: "Wikipedia, Mines in the Battle of Messines (1917)"
+        url: https://en.wikipedia.org/wiki/Mines_in_the_Battle_of_Messines_(1917)
+      - title: "Wikipedia, Arthur Currie"
+        url: https://en.wikipedia.org/wiki/Arthur_Currie
+      - title: "Wikipedia, Cecil Kinross"
+        url: https://en.wikipedia.org/wiki/Cecil_Kinross
+      - title: "Wikipedia, Tyne Cot Cemetery"
+        url: https://en.wikipedia.org/wiki/Tyne_Cot_Commonwealth_War_Graves_Cemetery_and_Memorial_to_the_Missing
+      - title: "Wikipedia, Menin Gate"
+        url: https://en.wikipedia.org/wiki/Menin_Gate
+      - title: "Wikipedia, Vladslo German war cemetery"
+        url: https://en.wikipedia.org/wiki/Vladslo_German_war_cemetery
+      - title: "Wikipedia, Adegem Canadian War Cemetery"
+        url: https://en.wikipedia.org/wiki/Adegem_Canadian_War_Cemetery
+      - title: "Wikipedia, George Lawrence Price"
+        url: https://en.wikipedia.org/wiki/George_Lawrence_Price
+    exercises:
+      - type: story
+        title: The mud, 1917
+        body: >-
+          In the summer of 1917 the British set out to break out of the salient, up to the ridge at Passendale and on
+          to the Belgian coast. The heaviest rain in years and the endless shelling turned the clay into a swamp
+          where men and horses drowned. In October the Canadian Corps was sent in to take the ridge.
+        visual: { kind: photo, photo: passchendaele-mud }
+      - type: choice
+        prompt: This pond south of Ypres is called the Pool of Peace. How did it get there?
+        visual: { kind: photo, photo: lone-tree-crater }
+        answer: 1
+        options:
+          - label: A bomb fell there in 1940
+            why: It is older than that.
+          - label: Tunnellers dug a mine under the German line, and blew it up in June 1917
+            why: >-
+              Right. At 3:10 in the morning on 7 June 1917, British tunnellers fired 19 mines under the ridge at
+              Messines, one of the biggest explosions made by people before the atom bomb. Irish, British, Australian and New Zealand
+              troops took the ridge that day.
+          - label: Farmers dug it for their cattle
+            why: Its shape gives it away; it is a crater.
+          - label: It is the last of the flooded Yser plain
+            why: The Yser is further north.
+      - type: choice
+        prompt: Wipe from May 1915 to November 1917. How far had the front moved forward?
+        visual: { kind: compare, map: westhoek, years: ['1915-05', '1917-11'] }
+        answer: 0
+        options:
+          - label: A few kilometres, up to the ridge at Passendale
+            why: >-
+              Right. The Third Battle of Ypres, from July to November 1917, gained about eight kilometres for
+              hundreds of thousands of men killed and wounded on both sides. The ground was given up again in the
+              German attack of April 1918.
+          - label: It had not moved at all
+            why: Wipe again; the line east of Ypres moved forward in 1917.
+          - label: About 50 kilometres, to Bruges
+            why: Bruges was only freed in October 1918.
+          - label: The Germans had pushed it back into Ypres
+            why: Ypres never fell.
+      - type: hunt
+        prompt: These two photos from the air show the village of Passendale, one before the battle and one after. In the photo taken before, tap the church in the middle of the village.
+        photo: passchendaele-aerial
+        targets:
+          - [0.43, 0.66, 0.14, 0.09]
+        explain: >-
+          The church stood where the roads met. In the photo above it, taken after the battle, the village, the
+          roads and the fields have gone: nothing is left but shell holes.
+      - type: who
+        photo: currie-orpen
+        clues:
+          - Before the war I was a teacher, then sold insurance and land in Victoria, British Columbia.
+          - In 1917 I became the first Canadian to command the Canadian Corps.
+          - I warned that taking the ridge at Passchendaele would cost 16,000 casualties. It cost nearly as many.
+          - After the war I became the head of McGill University in Montreal.
+        options: [Arthur Currie, Julian Byng, Douglas Haig, John McCrae]
+        answer: 0
+        explain: >-
+          Sir Arthur Currie. He took his time to plan each attack. The Canadians attacked from 26 October and took the
+          village on 6 November 1917. They lost 15,654 men killed and wounded, and won nine Victoria Crosses.
+      - type: scrub
+        prompt: Drag the slider to the stage when the Canadians had taken Passchendaele.
+        map: westhoek
+        start: '1915-05'
+        answer: ['1917-11', '1918-03']
+        explain: >-
+          The village fell on 6 November 1917. One of the Victoria Crosses went to Private Cecil Kinross of the 49th
+          (Edmonton) Battalion, a farmer from Lougheed, Alberta, who on 30 October attacked a German machine gun alone.
+      - type: odd
+        prompt: All four are places where Canadians are remembered in Flanders. Which is the odd one out, and why?
+        items:
+          - { label: Tyne Cot, photo: tyne-cot }
+          - { label: The memorial to John McCrae at Essex Farm, photo: mccrae-memorial }
+          - { label: The Hill 62 memorial, photo: hill-62 }
+          - { label: Adegem, photo: adegem }
+        answer: 3
+        reasons:
+          - It holds Canadians of the Second World War, not the First
+          - It is in France
+          - It is a German cemetery
+        reason: 0
+        explain: >-
+          Adegem, near Bruges, holds 848 Canadians killed in the autumn of 1944, freeing the banks of the Scheldt.
+          Tyne Cot, below Passendale, is the largest Commonwealth war cemetery in the world, with nearly 12,000
+          graves. Hill 62 remembers the Canadians who fought at Mount Sorrel in 1916.
+      - type: sort
+        prompt: Whose dead do they remember? Sort them.
+        groups: [Soldiers of the British Empire, German soldiers, Belgian soldiers]
+        items:
+          - { label: Tyne Cot, group: 0, photo: tyne-cot }
+          - { label: The Menin Gate, group: 0, photo: menin-gate }
+          - { label: Lijssenthoek, group: 0, photo: lijssenthoek }
+          - { label: Vladslo, group: 1, photo: vladslo }
+          - { label: The Grieving Parents, group: 1, photo: grieving-parents }
+          - { label: The Yser Tower, group: 2, photo: yser-tower }
+          - { label: The Trench of Death, group: 2, photo: dodengang }
+        explain: >-
+          The Commonwealth dead lie in many cemeteries near where they fell, like Lijssenthoek, beside a
+          field hospital, with 1,058 Canadians among its 10,785 graves. The German dead were gathered into four
+          cemeteries; Vladslo holds 25,644, among them Peter Kollwitz, whose mother Käthe carved the two grieving
+          parents kneeling there.
+      - type: choice
+        prompt: Every evening at eight, the traffic under the Menin Gate in Ypres stops. Why?
+        visual: { kind: photo, photo: last-post }
+        answer: 2
+        options:
+          - label: The gate is closed for the night
+            why: The road stays open; it stops for a few minutes.
+          - label: The town's bells ring the hour
+            why: It is not the bells.
+          - label: Buglers of the fire brigade play the Last Post for the missing
+            why: >-
+              Right. The gate, unveiled in 1927, carries the names of 54,395 soldiers of the Empire who died in the
+              salient and have no known grave. The Last Post has been played there since 1928, except under the
+              German occupation of 1940 to 1944.
+          - label: It marks the time the Armistice began
+            why: The Armistice began at eleven in the morning.
+      - type: choice
+        prompt: This grave is at St Symphorien, near Mons, where the war ended. Why do people stop at it?
+        visual: { kind: photo, photo: st-symphorien }
+        answer: 0
+        options:
+          - label: Private George Price of Canada was killed two minutes before the Armistice, the last soldier of the Empire to die in the war
+            why: >-
+              Right. The Canadians took Mons on the morning of 11 November 1918. Price, from Nova Scotia, was shot at
+              10:58, at Ville-sur-Haine. A few rows away lies John Parr, the first British soldier killed in the war, in
+              August 1914, near the same town.
+          - label: It holds the Unknown Soldier of Canada
+            why: Canada's Unknown Soldier came from near Vimy, in France, and lies in Ottawa.
+          - label: He was the youngest soldier of the war
+            why: Look at the date on the stone.
+          - label: He was a general
+            why: The stone says Private.
+
+  - id: u14-l5
+    title: Eighteen days and four years
+    icon: candle
+    note: >-
+      This lesson tells of the deportation of Jews and Roma from Belgium to Auschwitz, and of a prison camp where
+      prisoners were tortured. It does not show photographs of victims.
+    sources:
+      - title: "Wikipedia, Battle of Belgium"
+        url: https://en.wikipedia.org/wiki/Battle_of_Belgium
+      - title: "Wikipedia, Leopold III of Belgium"
+        url: https://en.wikipedia.org/wiki/Leopold_III_of_Belgium
+      - title: "Wikipedia, Hubert Pierlot"
+        url: https://en.wikipedia.org/wiki/Hubert_Pierlot
+      - title: "Wikipedia, Faux Soir"
+        url: https://en.wikipedia.org/wiki/Faux_Soir
+      - title: "Wikipedia, Comet line"
+        url: https://en.wikipedia.org/wiki/Comet_line
+      - title: "Kazerne Dossin, memorial, museum and documentation centre on Holocaust and human rights"
+        url: https://kazernedossin.eu/en/
+      - title: "Wikipedia, Twentieth convoy"
+        url: https://en.wikipedia.org/wiki/Twentieth_convoy
+      - title: "Wikipedia, Fort Breendonk"
+        url: https://en.wikipedia.org/wiki/Fort_Breendonk
+      - title: "Wikipedia, Léon Degrelle"
+        url: https://en.wikipedia.org/wiki/L%C3%A9on_Degrelle
+    exercises:
+      - type: story
+        title: 10 May 1940
+        body: >-
+          On 10 May 1940 Germany invaded Belgium again, without warning. German glider troops landed on top of the
+          new fort of Eben-Emael, which fell the next day. After eighteen days of fighting, on 28 May, the king
+          surrendered his army. The occupation lasted four years.
+        visual: { kind: time-map, map: occupation, year: '1940-05' }
+      - type: who
+        photo: leopold-iii
+        clues:
+          - As a boy of thirteen I served for a while as a private soldier on the Yser.
+          - My first wife, a Swedish princess, was killed in a car crash in 1935.
+          - In May 1940 I surrendered my army after eighteen days, and would not leave my country.
+          - In 1941, with my people under occupation, I married again.
+        options: [Leopold III, Albert I, Baudouin, Hubert Pierlot]
+        answer: 0
+        explain: >-
+          Leopold III, son of Albert I. His first wife was Queen Astrid. He spent the war as a prisoner in his
+          palace at Laeken, and in June 1944 the Germans took him to Germany.
+      - type: voices
+        prompt: In May 1940 the king and his government split. Read them side by side. What did they disagree about?
+        voices:
+          - who: Hubert Pierlot, prime minister
+            when: 28 May 1940, on the radio from Paris (translated from the French)
+            text: >-
+              Passing over the formal and unanimous advice of the government, the King has opened separate
+              negotiations and treated with the enemy.
+            photo: pierlot-karsh
+          - who: King Leopold III
+            when: His Political Testament, written in 1944 (translated from the French)
+            text: >-
+              Military honour, the dignity of the Crown and the good of the country forbade me from following the
+              government.
+            photo: leopold-iii
+        options:
+          - Whether the king should stay in Belgium with his army, or go abroad and fight on
+          - Whether Belgium should join Germany
+          - Whether to defend the Albert Canal
+          - Whether to hold elections
+        answer: 0
+        explain: >-
+          The government reached London and kept Belgium in the war, with the Congo's copper and its soldiers. The
+          king stayed, a prisoner, and to many Belgians he had abandoned the Allies. Their quarrel became the Royal
+          Question. Pierlot was photographed in 1943 by Yousuf Karsh, of Ottawa.
+      - type: choice
+        prompt: On 9 November 1943 thousands of people in Brussels bought what looked like their usual newspaper. What was it?
+        visual: { kind: photo, photo: faux-soir }
+        answer: 1
+        options:
+          - label: A German paper in disguise
+            why: The real Le Soir was the one run under German control.
+          - label: A fake Le Soir made by the resistance, mocking the Germans
+            why: >-
+              Right. The Front de l'Indépendance printed about 50,000 copies of the Faux Soir, full of jokes about the
+              occupiers, and slipped them into the newsstands. Several of the makers were later arrested.
+          - label: The first paper of the liberation
+            why: Brussels was not freed until September 1944.
+          - label: A paper from London dropped by the RAF
+            why: Leaflets were dropped from the air, but this was printed in Brussels.
+      - type: choice
+        prompt: In 1941 Andrée De Jongh, a young woman from Brussels, set up an escape line, the Comet line. Who did it smuggle out?
+        visual: { kind: photo, photo: andree-de-jongh }
+        answer: 2
+        options:
+          - label: Belgian gold
+            why: The gold had been sent abroad in 1940.
+          - label: The king
+            why: The king stayed a prisoner.
+          - label: Allied airmen shot down over Belgium, led on foot over the Pyrenees to Spain
+            why: >-
+              Right. The line took more than 700 airmen out before the liberation, and she led more than a hundred
+              across the mountains herself. She was arrested in 1943 and survived the camps.
+          - label: Jewish children to Britain
+            why: Other networks hid Jewish children in Belgium itself.
+      - type: choice
+        prompt: From this barracks in Mechelen, the Kazerne Dossin, 28 trains left for Auschwitz from 1942 to 1944. How many of those on them survived?
+        visual: { kind: photo, photo: dossin }
+        answer: 0
+        options:
+          - label: About 1,200 of more than 25,000
+            why: >-
+              Yes. The trains took 24,916 Jews and 351 Roma, from all over Belgium. Most were killed on arrival. The
+              barracks now hold flats, and the museum across the road keeps their names and faces.
+          - label: About half
+            why: Far fewer came back.
+          - label: Nearly all
+            why: Very few came back.
+      - type: truemyth
+        statement: In April 1943 three young men with one pistol stopped a train taking Jews from Mechelen to Auschwitz, and some of the prisoners escaped.
+        visual: { kind: photo, photo: convoy-20 }
+        answer: true
+        explain: >-
+          True. On 19 April 1943 Youra Livchitz, Jean Franklemon and Robert Maistriau stopped the twentieth convoy
+          near Boortmeerbeek with a lamp wrapped in red paper. That night 233 people got off the train, by their
+          help or their own; 26 were shot, and more than a hundred survived the war. This memorial stands at the
+          station.
+      - type: choice
+        prompt: Fort Breendonk, between Antwerp and Brussels, was an old army fort. What did the Germans make of it?
+        visual: { kind: photo, photo: breendonk }
+        answer: 1
+        options:
+          - label: A barracks for their soldiers
+            why: It was worse than that.
+          - label: A camp where the SS held, beat and tortured prisoners
+            why: >-
+              Right. About 3,590 people passed through it, resistance fighters, hostages and, at first, Jews; more
+              than 300 died there. It has been a memorial since 1947.
+          - label: A camp for captured Allied airmen
+            why: Airmen were sent to camps in Germany.
+          - label: A hospital
+            why: No.
+      - type: choice
+        prompt: Léon Degrelle led Rex, a far-right party that won 21 seats in 1936. What did he do in the war?
+        visual: { kind: photo, photo: degrelle }
+        answer: 3
+        options:
+          - label: He led the resistance in Wallonia
+            why: He was on the other side.
+          - label: He went to London with the government
+            why: He stayed and worked with the occupiers.
+          - label: He was a prisoner of the Germans
+            why: He was one of their most willing helpers.
+          - label: He fought for Germany in Russia, in the Waffen-SS, and fled to Spain in 1945
+            why: >-
+              Right. Thousands of Flemish and Walloon volunteers fought for Germany in the east. Degrelle was
+              sentenced to death in Belgium, but Spain would not hand him over, and he died there in 1994.
+      - type: pin
+        prompt: Pin Mechelen, where the Dossin barracks stand.
+        place: mechelen
+        explain: >-
+          Mechelen lies halfway between Brussels and Antwerp, where most of Belgium's Jews lived. The Germans chose the
+          barracks for the railway beside them.
+
+  - id: u14-l6
+    title: Liberation, the Bulge and the king
+    icon: crown
+    sources:
+      - title: "Wikipedia, Battle of the Scheldt"
+        url: https://en.wikipedia.org/wiki/Battle_of_the_Scheldt
+      - title: "Wikipedia, Battle of the Bulge"
+        url: https://en.wikipedia.org/wiki/Battle_of_the_Bulge
+      - title: "Wikipedia, Siege of Bastogne"
+        url: https://en.wikipedia.org/wiki/Siege_of_Bastogne
+      - title: "Wikipedia, Royal Question"
+        url: https://en.wikipedia.org/wiki/Royal_Question
+      - title: "Wikipedia, 1950 Belgian monarchy referendum"
+        url: https://en.wikipedia.org/wiki/1950_Belgian_monarchy_referendum
+    exercises:
+      - type: story
+        title: September 1944
+        body: >-
+          On 3 September 1944 British tanks drove into Brussels, and the city poured into the streets. The next day
+          they reached Antwerp, where the resistance had saved the port from being blown up. But the war in Belgium
+          was not over.
+        visual: { kind: photo, photo: brussels-1944 }
+      - type: choice
+        prompt: Antwerp's docks were free, but no ship could reach them for weeks. Why, and who opened the way?
+        visual: { kind: photo, photo: adegem }
+        answer: 0
+        options:
+          - label: The Germans still held the banks of the Scheldt, and the First Canadian Army fought for weeks to clear them
+            why: >-
+              Right. From October 1944 the Canadians, with British and Polish troops, fought through flooded polders
+              along the Leopold Canal and on the islands of Zeeland. The first ships reached Antwerp on 28 November.
+              Many of the Canadians who fell lie at Adegem.
+          - label: The port had been bombed, and Belgian workers rebuilt it
+            why: The port was saved almost whole.
+          - label: The river froze
+            why: It was autumn.
+          - label: The Dutch closed the river
+            why: The Netherlands was still occupied; the Germans held the mouth of the Scheldt.
+      - type: scrub
+        prompt: Drag the slider to the stage when Germany struck back through the Ardennes.
+        map: occupation
+        start: '1944-09'
+        answer: ['1944-12', '1945-02']
+        explain: >-
+          On 16 December 1944 German armies attacked through the snowy forests of the Ardennes, making a bulge in the
+          American line. About 3,000 civilians were killed, and towns like Saint-Vith and Houffalize were
+          bombed flat. By the end of January the bulge was gone.
+      - type: choice
+        prompt: The Americans in the crossroads town of Bastogne were surrounded over Christmas 1944. How did they get food and ammunition?
+        visual: { kind: photo, photo: bastogne-supply }
+        answer: 2
+        options:
+          - label: Through a tunnel
+            why: There was no way in on the ground.
+          - label: Belgian farmers smuggled it in
+            why: The people of Bastogne shared what they had, but it was not enough.
+          - label: Planes dropped it by parachute, once the fog lifted
+            why: >-
+              Right. The sky cleared on 23 December, and hundreds of planes dropped supplies. General Patton's tanks
+              broke through to the town on 26 December.
+          - label: They had stored enough before
+            why: They were short of almost everything.
+      - type: gap
+        prompt: On 22 December the Germans asked the Americans in Bastogne to surrender. Fill the gap in General Anthony McAuliffe's reply.
+        quote: To the German Commander. ___! The American Commander.
+        source: General Anthony McAuliffe, commander of the 101st Airborne Division at Bastogne, 22 December 1944
+        visual: { kind: time-map, map: occupation, year: '1944-12' }
+        options: [NUTS, NEVER, NO, WAIT]
+        answer: 0
+        explain: >-
+          "Nuts!" The German officers who brought the demand were puzzled, and were told it meant "go to hell". The
+          town's main square is now McAuliffe Square.
+      - type: pin
+        prompt: Pin Bastogne.
+        place: bastogne
+        explain: >-
+          Bastogne is in the province of Luxembourg, in the Ardennes, where seven roads meet. That is why both
+          sides wanted it.
+      - type: region
+        prompt: In March 1950 Belgians voted on whether Leopold III could come back as king, and 57.7% said yes. On today's map, tap the three Walloon provinces where most said no.
+        layer: provinces
+        answer: [BE-WHT, BE-WLG, BE-WBR]
+        explain: >-
+          Hainaut, Liège and Walloon Brabant, the old industrial and Socialist south. Flanders voted about 72% yes,
+          Wallonia 42%, and Brussels 48%. In Namur and Luxembourg a majority said yes. A king with half the
+          country against him could hardly reign.
+      - type: choice
+        prompt: Leopold flew home on 22 July 1950. What happened next?
+        visual: { kind: photo, photo: leopold-return }
+        answer: 1
+        options:
+          - label: The country welcomed him back, and he reigned for twenty years
+            why: Wallonia went on strike.
+          - label: Strikes and riots broke out in Wallonia, and within ten days he agreed to step aside
+            why: >-
+              Right. Hundreds of thousands went on strike. On 30 July gendarmes shot four people dead at Grâce-Berleur,
+              near Liège. On 1 August Leopold agreed to hand his powers to his son Baudouin, who had flown home with
+              him.
+          - label: The army took power
+            why: Belgium stayed a democracy.
+          - label: Belgium became a republic
+            why: The monarchy stayed; the king changed.
+      - type: truemyth
+        statement: Leopold III gave up the throne in the summer of 1950, right after the riots.
+        visual: { kind: photo, photo: referendum-posters }
+        answer: false
+        explain: >-
+          Myth, by a year. He handed his powers to Baudouin on 11 August 1950, but stayed king in name. He abdicated
+          on 16 July 1951, and Baudouin, aged twenty, swore the oath the next day.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The king surrendered in 1940 and stayed in Belgium against his government's advice, His return was fought over after the war]
+          - [Flanders voted yes and Wallonia no in 1950, Strikes and riots in Wallonia]
+          - [The Germans still held the banks of the Scheldt, Canadians fought through flooded polders in the autumn of 1944]
+          - [Fog and snow kept Allied planes on the ground, The German attack in the Ardennes broke through at first]
+        explain: >-
+          The Royal Question showed how far Flanders and Wallonia had drifted apart. The next units follow how
+          Belgium answered: by splitting itself into regions and language communities.
