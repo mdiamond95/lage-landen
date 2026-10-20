@@ -21,9 +21,11 @@ import banda1724 from './banda-1724.jpg'
 import bataviaCastle from './batavia-castle.jpg'
 import bataviaReplica from './batavia-replica.jpg'
 import beguinage from './beguinage.jpg'
+import blucher from './blucher.jpg'
 import bonifaceFulda from './boniface-fulda.jpg'
 import bookChest from './book-chest.jpg'
 import borromeus from './borromeus.jpg'
+import boyne from './boyne.jpg'
 import bredaPeatBarge from './breda-peat-barge.jpg'
 import breydelStatue from './breydel-statue.jpg'
 import brielle1572 from './brielle-1572.jpg'
@@ -33,6 +35,7 @@ import brusselsTownHall from './brussels-town-hall.jpg'
 import cape1795Map from './cape-1795-map.jpg'
 import capeCastle from './cape-castle.jpg'
 import capitein from './capitein.jpg'
+import carrotDou from './carrot-dou.jpg'
 import castelloPlan from './castello-plan.jpg'
 import charlemagneDurer from './charlemagne-durer.jpg'
 import charlesBold from './charles-bold.jpg'
@@ -44,15 +47,20 @@ import claudiusCivilis from './claudius-civilis.jpg'
 import clovisBaptism from './clovis-baptism.jpg'
 import coen from './coen.jpg'
 import compensationCheque from './compensation-cheque.jpg'
+import coronation1689 from './coronation-1689.jpg'
+import coudenbergFire from './coudenberg-fire.jpg'
 import courtraiChest from './courtrai-chest.jpg'
-import { credits } from './credits'
+import crossingRhine1672 from './crossing-rhine-1672.jpg'
 import cruquius from './cruquius.jpg'
 import damTownHall from './dam-town-hall.jpg'
+import dartagnanStatue from './dartagnan-statue.jpg'
 import deKomStatue from './de-kom-statue.jpg'
+import deWitt from './de-witt.jpg'
 import dejimaBay from './dejima-bay.jpg'
 import dejimaPlan from './dejima-plan.jpg'
 import delftExplosion from './delft-explosion.jpg'
 import delftware from './delftware.jpg'
+import denHelder1795 from './den-helder-1795.jpg'
 import descartes from './descartes.jpg'
 import descentCross from './descent-cross.jpg'
 import deurneHelmet from './deurne-helmet.jpg'
@@ -68,15 +76,21 @@ import erasmus from './erasmus.jpg'
 import exchangeCourtyard from './exchange-courtyard.jpg'
 import firstSalute from './first-salute.jpg'
 import fishingSouls from './fishing-souls.jpg'
+import fleet1688 from './fleet-1688.jpg'
 import flood1953Map from './flood-1953-map.jpg'
 import flood1953Rilland from './flood-1953-rilland.jpg'
 import florasWagon from './floras-wagon.jpg'
 import fluyt from './fluyt.jpg'
+import fontenoy from './fontenoy.jpg'
 import fortAmsterdamCuracao from './fort-amsterdam-curacao.jpg'
 import fortBelgica from './fort-belgica.jpg'
+import freeCorpsSneek from './free-corps-sneek.jpg'
+import galenGroningen from './galen-groningen.jpg'
+import gevangenpoort from './gevangenpoort.jpg'
 import ghentAltarpiece from './ghent-altarpiece.jpg'
 import ghentLamb from './ghent-lamb.jpg'
 import girlPearl from './girl-pearl.jpg'
+import goejanverwellesluis from './goejanverwellesluis.jpg'
 import goldenBend from './golden-bend.jpg'
 import goldenSpursChronicle from './golden-spurs-chronicle.jpg'
 import goldfinch from './goldfinch.jpg'
@@ -88,34 +102,44 @@ import hansjeBrinker from './hansje-brinker.jpg'
 import hartogPlate from './hartog-plate.jpg'
 import hedgeSermon from './hedge-sermon.jpg'
 import heerlenThermen from './heerlen-thermen.jpg'
+import hetLoo1690 from './het-loo-1690.jpg'
 import huygens from './huygens.jpg'
 import iconoclasmAntwerp from './iconoclasm-antwerp.jpg'
-import type { PhotoId } from './ids'
 import jacoba from './jacoba.jpg'
 import kinderdijk from './kinderdijk.jpg'
 import kwakoe from './kwakoe.jpg'
 import leeuwenhoek from './leeuwenhoek.jpg'
+import leiden1807 from './leiden-1807.jpg'
 import leidenRelief from './leiden-relief.jpg'
 import lelyStatue from './lely-statue.jpg'
 import leoBelgicus from './leo-belgicus.jpg'
 import leuvenTownHall from './leuven-town-hall.jpg'
 import leyster from './leyster.jpg'
+import libertyTree from './liberty-tree.jpg'
+import lionMound from './lion-mound.jpg'
 import loevestein from './loevestein.jpg'
+import louisBonaparte from './louis-bonaparte.jpg'
 import luttrellSheep from './luttrell-sheep.jpg'
 import malacca from './malacca.jpg'
+import malplaquet from './malplaquet.jpg'
 import mareLiberum from './mare-liberum.jpg'
 import margaretAustria from './margaret-austria.jpg'
 import margaretParma from './margaret-parma.jpg'
+import mariaTheresa from './maria-theresa.jpg'
 import maryBurgundy from './mary-burgundy.jpg'
 import maryTomb from './mary-tomb.jpg'
 import maurice from './maurice.jpg'
 import mauritshuis1825 from './mauritshuis-1825.jpg'
 import mccShips from './mcc-ships.jpg'
 import memlingJudgment from './memling-judgment.jpg'
+import menenRelief from './menen-relief.jpg'
 import merryDrinker from './merry-drinker.jpg'
 import milkmaid from './milkmaid.jpg'
+import monasteriesClosed from './monasteries-closed.jpg'
 import munsterRatification from './munster-ratification.jpg'
 import nancyBattle from './nancy-battle.jpg'
+import napoleonStudy from './napoleon-study.jpg'
+import nationalAssembly1796 from './national-assembly-1796.jpg'
 import nehalenniaAltar from './nehalennia-altar.jpg'
 import nightWatch from './night-watch.jpg'
 import oldenbarnevelt from './oldenbarnevelt.jpg'
@@ -123,6 +147,7 @@ import oosterscheldekering from './oosterscheldekering.jpg'
 import ostendPatent from './ostend-patent.jpg'
 import ostendSiege from './ostend-siege.jpg'
 import parma from './parma.jpg'
+import peasantsWar from './peasants-war.jpg'
 import peutingerMap from './peutinger-map.jpg'
 import philipGood from './philip-good.jpg'
 import philipIi from './philip-ii.jpg'
@@ -131,7 +156,10 @@ import polderBeemster from './polder-beemster.jpg'
 import portRotterdam from './port-rotterdam.jpg'
 import postPernambuco from './post-pernambuco.jpg'
 import prinsenhofBulletHoles from './prinsenhof-bullet-holes.jpg'
+import prussiansAmsterdam from './prussians-amsterdam.jpg'
+import quatreBras from './quatre-bras.jpg'
 import raisingCross from './raising-cross.jpg'
+import ramillies from './ramillies.jpg'
 import rembrandt1669 from './rembrandt-1669.jpg'
 import ridderzaal from './ridderzaal.jpg'
 import riebeeckArrival from './riebeeck-arrival.jpg'
@@ -139,10 +167,12 @@ import rubensSelf from './rubens-self.jpg'
 import rubenshuis from './rubenshuis.jpg'
 import schaghenLetter from './schaghen-letter.jpg'
 import secondExpedition from './second-expedition.jpg'
+import selden from './selden.jpg'
 import semperAugustus from './semper-augustus.jpg'
 import silverFleet from './silver-fleet.jpg'
 import slaveryMonument from './slavery-monument.jpg'
 import sluysBattle from './sluys-battle.jpg'
+import solebay from './solebay.jpg'
 import spanishFury from './spanish-fury.jpg'
 import spinoza from './spinoza.jpg'
 import stuyvesant from './stuyvesant.jpg'
@@ -153,18 +183,32 @@ import teniersGallery from './teniers-gallery.jpg'
 import terBeurze from './ter-beurze.jpg'
 import terpHogebeintum from './terp-hogebeintum.jpg'
 import tongerenWall from './tongeren-wall.jpg'
+import torbayLanding from './torbay-landing.jpg'
+import triumvirate1813 from './triumvirate-1813.jpg'
 import tulaMonument from './tula-monument.jpg'
 import tulipSatire from './tulip-satire.jpg'
+import turnhout1789 from './turnhout-1789.jpg'
 import unionUtrecht from './union-utrecht.jpg'
 import utrechtDom from './utrecht-dom.jpg'
 import utrechtPsalter from './utrecht-psalter.jpg'
+import utrechtTreaty from './utrecht-treaty.jpg'
 import valkenburgPlantation from './valkenburg-plantation.jpg'
 import vanEyckTurban from './van-eyck-turban.jpg'
 import viewDelft from './view-delft.jpg'
 import vocShare from './voc-share.jpg'
+import volkPamphlet from './volk-pamphlet.jpg'
+import waterLine1672 from './water-line-1672.jpg'
+import waterlooPieneman from './waterloo-pieneman.jpg'
+import wellingtonGoya from './wellington-goya.jpg'
 import westerkerk1660 from './westerkerk-1660.jpg'
+import wilhelmina from './wilhelmina.jpg'
+import williamI from './william-i.jpg'
+import williamIii from './william-iii.jpg'
 import williamOrange from './william-orange.jpg'
+import youngPrince from './young-prince.jpg'
 import ypresClothHall from './ypres-cloth-hall.jpg'
+import { credits } from './credits'
+import type { PhotoId } from './ids'
 
 export type { PhotoId } from './ids'
 
@@ -336,6 +380,50 @@ const files: Record<PhotoId, string> = {
   'abolition-law': abolitionLaw,
   'compensation-cheque': compensationCheque,
   'de-kom-statue': deKomStatue,
+  'crossing-rhine-1672': crossingRhine1672,
+  'water-line-1672': waterLine1672,
+  'de-witt': deWitt,
+  gevangenpoort,
+  solebay,
+  'galen-groningen': galenGroningen,
+  'dartagnan-statue': dartagnanStatue,
+  'william-iii': williamIii,
+  'torbay-landing': torbayLanding,
+  'fleet-1688': fleet1688,
+  'coronation-1689': coronation1689,
+  boyne,
+  'het-loo-1690': hetLoo1690,
+  'carrot-dou': carrotDou,
+  ramillies,
+  malplaquet,
+  'utrecht-treaty': utrechtTreaty,
+  'menen-relief': menenRelief,
+  'maria-theresa': mariaTheresa,
+  'coudenberg-fire': coudenbergFire,
+  fontenoy,
+  'free-corps-sneek': freeCorpsSneek,
+  'volk-pamphlet': volkPamphlet,
+  wilhelmina,
+  goejanverwellesluis,
+  'prussians-amsterdam': prussiansAmsterdam,
+  'monasteries-closed': monasteriesClosed,
+  'turnhout-1789': turnhout1789,
+  'liberty-tree': libertyTree,
+  'den-helder-1795': denHelder1795,
+  'national-assembly-1796': nationalAssembly1796,
+  'louis-bonaparte': louisBonaparte,
+  'napoleon-study': napoleonStudy,
+  'peasants-war': peasantsWar,
+  'leiden-1807': leiden1807,
+  'triumvirate-1813': triumvirate1813,
+  'william-i': williamI,
+  'young-prince': youngPrince,
+  'quatre-bras': quatreBras,
+  'waterloo-pieneman': waterlooPieneman,
+  'lion-mound': lionMound,
+  'wellington-goya': wellingtonGoya,
+  blucher,
+  selden,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

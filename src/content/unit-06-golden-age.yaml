@@ -285,7 +285,7 @@ lessons:
         url: https://www.britannica.com/biography/Johan-van-Oldenbarnevelt
       - title: "Canon van Nederland, Hugo de Groot (in Dutch)"
         url: https://www.canonvannederland.nl/nl/hugodegroot
-      - title: "Hugo Grotius, The Freedom of the Seas, translated by Ralph Magoffin, 1916 (Project Gutenberg)"
+      - title: "Hugo Grotius, The Freedom of the Seas, translated by Ralph Magoffin, 1916, with Selden's reply quoted in its introduction (Project Gutenberg)"
         url: https://www.gutenberg.org/ebooks/75962
       - title: "National Endowment for the Humanities, Why Spinoza was excommunicated"
         url: https://www.neh.gov/article/why-spinoza-was-excommunicated
@@ -360,6 +360,27 @@ lessons:
         explain: >-
           Trade. He first wrote it to defend the VOC's capture of a Portuguese ship, the Santa Catarina, in 1603.
           Later, in exile, he wrote one of the founding books of international law.
+      - type: voices
+        prompt: Grotius's book drew a famous English answer, written for King Charles I. What were the two men arguing about?
+        voices:
+          - who: Hugo Grotius, Mare Liberum (The Free Sea)
+            when: 1609, chapter 5 (translated from the Latin by Ralph Magoffin)
+            text: The sea is common to all, because it is so limitless that it cannot become a possession of any one, and because it is adapted for the use of all, whether we consider it from the point of view of navigation or of fisheries.
+            photo: grotius
+          - who: John Selden, Mare Clausum (The Closed Sea)
+            when: 1635 (translated from the Latin)
+            text: The sea, by the law of nature or nations, is not common to all men, but capable of private dominion or property as well as the land.
+            photo: selden
+        options:
+          - Whether a country can own the sea
+          - Whether fishing should be allowed on Sundays
+          - Who owned the Spice Islands
+          - Whether merchant ships could carry guns
+        answer: 0
+        explain: >-
+          Grotius wanted the seas open for Dutch ships. Selden argued that the king of England ruled the seas round
+          Britain, where Dutch boats caught much of their herring. The quarrel over who ruled those waters fed the
+          Anglo-Dutch wars that began in 1652.
       - type: choice
         prompt: In 1656 Amsterdam's Portuguese Jewish community expelled the 23-year-old Baruch Spinoza for his ideas about God. What did he do next?
         visual: { kind: photo, photo: spinoza }

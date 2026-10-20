@@ -11,11 +11,12 @@ Phase 1 from the project plan (Units 1 to 5) is built, and Phase 2 has begun wit
 - Unit 5, Revolt and the great split (1555 to 1648): six lessons and a checkpoint, built around a front-line map of the Eighty Years' War that shows refugees streaming north from Antwerp, with a population chart of Antwerp and Amsterdam and quotes from the Wilhelmus, the Union of Utrecht and the Act of Abjuration.
 - Unit 6, Golden Age and Spanish Netherlands (1588 to 1700): six lessons and a checkpoint, built around a map of Amsterdam growing ring by ring on today's canals and a map of France taking the southern towns, with zoomable paintings by Rembrandt, Vermeer and Rubens.
 - Unit 7, Trade, empire and slavery (1600 to 1863): six lessons and a checkpoint, built around a world map of VOC and WIC posts and ship routes, with the routes that carried enslaved Africans in their own colour. The lessons on slavery and conquest open with a content note and run in a calm mode, and the last lesson weighs two voices on the apology of 2022.
+- Unit 8, Disaster year to Waterloo (1672 to 1815): six lessons and a checkpoint, built around a border-change map that steps year by year from the French invasion of 1672 through the Austrian Netherlands and the French years to Waterloo, with find-the-year questions on it in four lessons and two voices on whether Holland should stay a country of its own.
 
 Around the units:
 
 - A daily review: every question in a finished lesson comes back on a spaced schedule, missed ones sooner, ten at a time.
-- A time map of 15 snapshots, from Caesar's conquest in 57 BCE to the Delta Works, built from the unit maps.
+- A time map of 20 snapshots, from Caesar's conquest in 57 BCE to the Delta Works, built from the unit maps.
 - XP, a day streak with one free missed day a week, and a map of the places discovered.
 - Works offline once loaded, and installs on a phone's home screen.
 
@@ -46,6 +47,7 @@ npm run build:single # one self-contained HTML file in dist-single/
 - `src/data/amsterdam.ts`: Amsterdam's growth for `{ kind: time-map, map: amsterdam }`, 1550 to 1700, drawn on `AmsterdamBase.tsx` instead of the Low Countries (the story sets `base: 'amsterdam'`). Its water is today's canals, the IJ and the Amstel from the Kadaster's TOP10NL (via the PDOK API, CC BY 4.0) in `amsterdam.topo.json`. Each expansion is an area of kind `city`, listed newest first so only the newest ring shows as just added; walls are lines of kind `wall`.
 - `src/data/spanish.ts`: the Republic and the Spanish Netherlands for `{ kind: time-map, map: spanish }`, 1648 to 1700, with the towns France took as areas of kind `france`.
 - `src/data/empire.ts`: the VOC and WIC across the world for `{ kind: time-map, map: empire }`, 1602 to 1863, drawn on `WorldBase.tsx` (the story sets `base: 'world'`; Equal Earth projection, centred on the Cape). Land is Natural Earth 50m (public domain) in `world.topo.json`, clipped to the Caribbean–Japan frame and simplified with mapshaper. Posts are sites of kind `voc` or `wic`; ship routes are `flow` lines with a `tone` (`asia`, `atlantic` or `enslaved`), each with its own arrowhead and key colour. Colonies are areas of kind `ruled` drawn from a rough `shape`.
+- `src/data/borders.ts`: the borders of the Low Countries for `{ kind: time-map, map: borders }`, 1672 to 1815, built with `sides(...)` from the revolt map and the regions of the Burgundy and Spanish maps. Two kinds of area join the others: `austria` for the Austrian Netherlands from 1714 and `sister` for the Batavian Republic and Kingdom of Holland, French client states from 1795 to 1810. France's conquests are `france`, lands held by allied armies are `contested`, and the Water Line, William's fleet of 1688 and the Prussian march of 1787 are lines. Barrier fortresses (1715 to 1781) are sites of kind `fort`.
 - `src/data/charts.ts`: line charts from real figures (`antwerp-amsterdam`), drawn by `{ kind: chart, chart: antwerp-amsterdam }`; `until: 1568` stops a chart at a year.
 - `src/data/families.ts`: family trees (`carolingians`, `burgundy`), drawn by `{ kind: family-tree, tree: burgundy }`; `hide: mary` blanks out one person for a question.
 - `src/data/cloth.ts`: wool, cloth and other trade routes, towns and captions for the trade map, 1100 to 1384. A route can pause for a few years with `off` (the wool ban of 1336). Any time map opens at a chosen year with `{ kind: time-map, map: cloth, year: 1336 }` (or `map: water` or `map: roman`).
@@ -55,7 +57,7 @@ npm run build:single # one self-contained HTML file in dist-single/
 - `src/progress/store.ts`: XP, streak (with one free missed day per week), discovered places and review cards, kept in the browser.
 - `src/progress/review.ts` and `src/content/cards.ts`: the daily review. Every question is a card named by its lesson and a hash of the question (so an edited question starts afresh). A right answer brings it back in 1 day, then 3, then further out by the card's ease; a miss brings it back tomorrow. The review takes up to ten due cards, the most missed first, shuffled so eras mix.
 - Content notes: a lesson with `note:` opens with a "Before you begin" card and runs calmly: a plain "Correct" in place of "Spot on!", and no trophy or "Perfect lesson!" at the end. The plan asks for this on slavery, colonial Indonesia and the other sensitive topics. A unit with any noted lesson needs its own `note:` too, which its checkpoint shows; a daily review that draws on a noted lesson is calm as well.
-- `src/data/throughTime.ts`: the 15-snapshot time map (`TimeMap` with `snapshots`, so the slider steps from snapshot to snapshot). It reuses each era's lines, sites, labels and areas, and drops them when the era ends.
+- `src/data/throughTime.ts`: the 20-snapshot time map (`TimeMap` with `snapshots`, so the slider steps from snapshot to snapshot). It reuses each era's lines, sites, labels and areas, starting each era at its first snapshot and dropping them when it ends, so eras that share years (the Spanish and border maps both show 1672 to 1700) never draw over each other.
 - `scripts/sw.js`, `public/manifest.webmanifest`: offline and install. The build writes `dist/sw.js` listing every built file, pictures included, so the whole course is saved on first visit.
 
 ## Writing a lesson
@@ -68,7 +70,7 @@ Each new unit is held to what the best units so far do, and when one is finished
 
 - At least 70% of the unit's questions are answered on, or show, a map or picture, and every lesson at least half.
 - At least one "Who am I?" and true or myth questions that show a picture or map.
-- Paintings and old pictures are worked with, not just shown: a detail hunt where a picture has a telling detail, and a find-the-year question on the unit's time map.
+- Paintings and old pictures are worked with, not just shown: a detail hunt where a picture has a telling detail, and find-the-year questions on the unit's time map in at least two lessons.
 - A signature interactive piece: a slider or a year-slider map, reused in later questions with `year`.
 - Myths and legends taught as such: a true or myth that tests a popular story against the evidence.
 - Primary sources read, not just cited: a fill-the-gap question on a quote from a document, song or letter of the time.

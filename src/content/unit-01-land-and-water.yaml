@@ -314,6 +314,14 @@ lessons:
             why: The Oosterschelde barrier opened in 1986, but one more barrier came after it.
           - label: The Maeslantkering
             why: Right. The Maeslantkering, finished in 1997, guards the waterway to Rotterdam with two swinging gates.
+      - type: scrub
+        prompt: Drag the slider to a year when the Haringvliet is dammed but the Oosterschelde is still open to the sea.
+        map: water
+        start: 1953
+        answer: [1971, 1985]
+        explain: >-
+          The Haringvlietdam closed in 1971. The Oosterschelde was to be dammed too, but fishermen and nature
+          groups fought the plan, so it got a barrier with gates instead, finished in 1986.
       - type: choice
         prompt: Which picture shows a storm surge barrier?
         answer: 3

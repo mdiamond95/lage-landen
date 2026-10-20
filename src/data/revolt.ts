@@ -16,11 +16,11 @@ const scheldtCut: [number, number][] = [
   [3.2, 51.395], [3.45, 51.405], [3.54, 51.435], [3.62, 51.415], [3.72, 51.4], [3.8, 51.375], [3.9, 51.375],
   [3.97, 51.425], [4.04, 51.415], [4.1, 51.39], [4.2, 51.395], [4.232, 51.39], [4.24, 51.36],
 ]
-const zeelandIslands: [number, number][] = [...scheldtCut, [4.24, 51.3], [4.4, 51.3], [4.4, 51.9], [3.2, 51.9]]
-const zeelandicFlanders: [number, number][] = [...scheldtCut, [4.24, 51.2], [3.2, 51.2]]
+export const zeelandIslands: [number, number][] = [...scheldtCut, [4.24, 51.3], [4.4, 51.3], [4.4, 51.9], [3.2, 51.9]]
+export const zeelandicFlanders: [number, number][] = [...scheldtCut, [4.24, 51.2], [3.2, 51.2]]
 
 // One land's sides over time: each kind holds from its year until the next change.
-const sides = (
+export const sides = (
   name: string,
   regions: string[],
   changes: [number, AreaKind][],

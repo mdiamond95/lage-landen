@@ -1,0 +1,832 @@
+id: unit-08
+number: 8
+title: Disaster year to Waterloo
+era: 1672 to 1815
+summary: In 1672 four enemies attack the Republic at once, and it survives by flooding its own land. Its stadtholder becomes king of England, the south passes from Spain to Austria, and armies fight over it for a century. Then the French Revolution sweeps both away, until Napoleon falls at Waterloo and north and south are joined in one kingdom.
+lessons:
+  - id: u8-l1
+    title: The Disaster Year
+    icon: wave
+    sources:
+      - title: "Rijksmuseum, The Year of Disaster 1672 (in Dutch: Rampjaar 1672)"
+        url: https://www.rijksmuseum.nl/en/stories/rampjaar-1672
+      - title: "Encyclopaedia Britannica, Johan de Witt"
+        url: https://www.britannica.com/biography/Johan-de-Witt
+      - title: "Encyclopaedia Britannica, William III of England"
+        url: https://www.britannica.com/biography/William-III-king-of-England-Scotland-and-Ireland
+      - title: "Hollandse Waterlinies, the Old Dutch Water Line (in Dutch)"
+        url: https://www.hollandsewaterlinies.nl/
+      - title: "Museum de Gevangenpoort, The Hague"
+        url: https://www.gevangenpoort.nl/en/
+      - title: "Royal Museums Greenwich, The Battle of Solebay, 28 May 1672"
+        url: https://www.rmg.co.uk/collections/objects/rmgc-object-11806
+    exercises:
+      - type: story
+        title: Four enemies at once
+        body: >-
+          In 1672 France, England and the bishops of Münster and Cologne attacked the Republic at the same time.
+          The Dutch call it the Rampjaar, the Disaster Year. Press play to see the Republic nearly overrun, and
+          then how the borders kept changing for the next 140 years, all the way to Waterloo.
+        visual: { kind: time-map, map: borders }
+      - type: hunt
+        prompt: Louis XIV's own war painter, Adam Frans van der Meulen, painted the French army crossing the Rhine at Lobith on 12 June 1672. Find the king.
+        photo: crossing-rhine-1672
+        targets: [[0.64, 0.5, 0.18, 0.33]]
+        explain: >-
+          On the white horse, with the red and white plumes, watching from the bank while his cavalry swims the
+          river. The summer was dry, the Rhine was low, and the Republic's small army could not hold the river.
+      - type: truemyth
+        statement: Holland stopped the French army in 1672 by flooding its own farmland.
+        visual: { kind: photo, photo: water-line-1672 }
+        answer: true
+        explain: >-
+          True. Along the Water Line, from Muiden on the Zuiderzee to Gorinchem on the Waal, sluices and dikes
+          were opened so the fields filled with water: too deep to wade, too shallow for boats. The French took
+          Utrecht and stopped. This painting from 1917 imagines the young stadtholder inspecting the flooded line.
+      - type: who
+        photo: william-iii
+        clues:
+          - I was born in The Hague in 1650, eight days after my father died.
+          - In the Disaster Year, aged 21, I was made stadtholder and commander of the army.
+          - I spent my life fighting Louis XIV of France.
+          - In 1677 I married my English cousin, and later we were crowned together.
+        options: [William III, William of Orange the Silent, Maurice of Nassau, Frederick Henry]
+        answer: 0
+        explain: >-
+          William III of Orange. His family had been kept out of power since his father's death; the disaster of
+          1672 brought him back. In 1689 he and his wife Mary became king and queen of England.
+      - type: choice
+        prompt: This man led the Republic for nearly twenty years, without a stadtholder. In 1672 he was blamed for the disaster. Who was he?
+        visual: { kind: photo, photo: de-witt }
+        answer: 2
+        options:
+          - label: Michiel de Ruyter, the admiral
+            why: De Ruyter commanded the fleet. He stayed loyal to his friend, the man in this portrait.
+          - label: Johan van Oldenbarnevelt
+            why: Oldenbarnevelt led Holland around 1600 and was beheaded in 1619.
+          - label: Johan de Witt, Grand Pensionary of Holland
+            why: >-
+              Right, from 1653 to 1672. He was also a mathematician, who worked out what a life annuity was worth.
+              He had built up the navy, but left the army weak.
+          - label: Hugo Grotius
+            why: Grotius, the lawyer who escaped in a book chest, died in 1645.
+      - type: choice
+        prompt: Johan de Witt's brother Cornelis was held in this prison gate in The Hague, falsely accused of plotting to kill William III. What happened on 20 August 1672, when Johan came to fetch him?
+        visual: { kind: photo, photo: gevangenpoort }
+        answer: 1
+        options:
+          - label: The brothers escaped by boat to England
+            why: They never left The Hague.
+          - label: A crowd, helped by the civic guard, dragged them out and killed them both
+            why: >-
+              Right. Their bodies were mutilated and hung up nearby. Nobody was punished, and William III was
+              suspected of having let it happen. The gate is now a prison museum.
+          - label: The judges set them free, and they went home
+            why: Cornelis had been banished, and was about to leave, when the crowd came.
+          - label: They were tried and beheaded
+            why: There was no trial. They were killed by a crowd.
+      - type: choice
+        prompt: At sea things went better. On 7 June 1672 Michiel de Ruyter attacked the English and French fleets at Solebay, off the English coast. What did it achieve?
+        visual: { kind: photo, photo: solebay }
+        answer: 3
+        options:
+          - label: It sank the whole English fleet
+            why: Both sides lost ships, but neither fleet was destroyed.
+          - label: It won the war
+            why: The war at sea and on land went on until 1674.
+          - label: It captured the king of England
+            why: The king's brother, James, Duke of York, commanded the English fleet, and survived.
+          - label: It stopped them landing an army on the Dutch coast
+            why: >-
+              Right. Willem van de Velde painted De Ruyter's flagship, the Zeven Provinciën, fighting the Duke of
+              York's Royal Prince. In 1673 De Ruyter beat off three more attacks.
+      - type: choice
+        prompt: The bishop of Münster, painted here before the walls of Groningen, besieged the town in the summer of 1672 and fired bombs and fire-balls into it. Why do people in Groningen still celebrate every 28 August?
+        visual: { kind: photo, photo: galen-groningen }
+        answer: 0
+        options:
+          - label: On that day in 1672 the bishop gave up the siege
+            why: >-
+              Right. The townspeople, soldiers and students held out for seven weeks. The bishop is remembered as "Bommen
+              Berend", Bernard of the bombs, and the day is a local holiday with fireworks.
+          - label: It is the day the bishop was captured
+            why: He went home to Münster and kept fighting until 1674.
+          - label: It is the founding day of the university
+            why: The university dates from 1614. Its students did help to defend the walls.
+          - label: It is when the French left the Republic
+            why: The French left only in 1674, and they never reached Groningen.
+      - type: truemyth
+        statement: The real d'Artagnan, the musketeer of Alexandre Dumas's novels, was killed in the Netherlands.
+        visual: { kind: photo, photo: dartagnan-statue }
+        answer: true
+        explain: >-
+          True. Charles de Batz de Castelmore, sieur d'Artagnan, captain of Louis XIV's musketeers, was shot at
+          the siege of Maastricht on 25 June 1673. His statue stands in a park by the old walls.
+      - type: scrub
+        prompt: Drag the slider to a year when France held Maastricht.
+        map: borders
+        start: 1672
+        answer: [1673, 1677]
+        explain: >-
+          From June 1673 until the Peace of Nijmegen in 1678, when France gave it back.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Four enemies attack at once, The east of the Republic is overrun]
+          - [The sluices along the Water Line are opened, The French stop at Utrecht]
+          - [The country wants a strong leader, William III is made stadtholder at 21]
+          - [People blame the De Witt brothers, A crowd kills them in The Hague]
+        explain: >-
+          The Republic survived 1672, but its leaders changed: from the merchants of Holland back to the House of
+          Orange.
+      - type: pin
+        prompt: Pin Maastricht, where d'Artagnan fell in 1673.
+        place: maastricht
+        okKm: 25
+        fullKm: 10
+        explain: >-
+          Maastricht, on the Meuse, the strongest fortress of the Republic in the south.
+
+  - id: u8-l2
+    title: A Dutch king for England
+    icon: crown
+    sources:
+      - title: "Royal Museums Greenwich, Departure of William III from Hellevoetsluis, 1688"
+        url: https://www.rmg.co.uk/collections/objects/rmgc-object-11817
+      - title: "UK legislation, the Bill of Rights 1689 (as enacted)"
+        url: https://www.legislation.gov.uk/aep/WillandMarSess2/1/2/enacted
+      - title: "Paleis Het Loo, Apeldoorn"
+        url: https://www.paleishetloo.nl/en/
+      - title: "Encyclopaedia Britannica, Glorious Revolution"
+        url: https://www.britannica.com/event/Glorious-Revolution
+      - title: "World Carrot Museum, Carrot colours: why is the carrot orange?"
+        url: https://www.carrotmuseum.co.uk/carrotcolours.html
+      - title: "University of Western Australia, The political power of carrots, 7 January 2014"
+        url: https://www.news.uwa.edu.au/archive/201401076387/research/political-power-carrots/
+    exercises:
+      - type: story
+        title: The other way round
+        body: >-
+          In 1688 the English were afraid their Catholic king, James II, would rule without Parliament, and some
+          of their leaders invited his Dutch son-in-law, William III, to come over. William sailed with a huge
+          fleet and landed at Torbay on 5 November. Jan Wyck painted him that year, with his ships behind him.
+        visual: { kind: photo, photo: torbay-landing }
+      - type: truemyth
+        statement: The fleet William took to England in 1688 was larger than the Spanish Armada of 1588.
+        visual: { kind: photo, photo: fleet-1688 }
+        answer: true
+        explain: >-
+          True. About 50 warships, 50 smaller warships and fireships, and some 400 transports carried around
+          20,000 soldiers and volunteers, and their horses. The Armada had about 130 ships. This print by Adriaan Schoonebeek shows
+          the fleet sailing in formation.
+      - type: pin
+        prompt: The fleet sailed from the naval harbour of the Republic at the mouth of the Maas. Pin Hellevoetsluis.
+        place: hellevoetsluis
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Hellevoetsluis, on Voorne. A storm drove the fleet back once, and it finally sailed on 11 November by
+          the Dutch calendar, 1 November by the English one. An east wind, the "Protestant wind", carried it down
+          the Channel.
+      - type: gap
+        prompt: In February 1689 Parliament offered William and Mary the crown, together. Fill the gap in what it resolved, as written into the Bill of Rights that year (spelling modernised).
+        quote: The said Lords Spiritual and Temporal and Commons assembled at Westminster do resolve that William and Mary, Prince and Princess of Orange, be and be declared King and Queen of England, ___ and Ireland.
+        source: The Bill of Rights, 1689
+        visual: { kind: photo, photo: coronation-1689 }
+        options: [France, Scotland, Holland, Wales]
+        answer: 0
+        explain: >-
+          France. English kings had called themselves kings of France since the Hundred Years' War, and kept the
+          title until 1801. Scotland offered its crown separately. The Bill of Rights also said a king could not
+          suspend laws or keep an army in peacetime without Parliament.
+      - type: choice
+        prompt: William and Mary were crowned in Westminster Abbey on 11 April 1689. What was unusual about it?
+        visual: { kind: photo, photo: coronation-1689 }
+        answer: 1
+        options:
+          - label: It was held at night
+            why: It was held in the daytime.
+          - label: They were crowned side by side, as joint king and queen
+            why: >-
+              Right. Mary was the heir by birth, but William would not be just his wife's consort. Parliament made
+              them joint rulers, with the power in William's hands.
+          - label: The pope crowned them
+            why: They were Protestants, crowned by the bishop of London.
+          - label: It was held in The Hague
+            why: It was held in Westminster Abbey in London.
+      - type: choice
+        prompt: Every July, marchers in Northern Ireland celebrate a battle William won in Ireland in 1690. Which battle?
+        visual: { kind: photo, photo: boyne }
+        answer: 2
+        options:
+          - label: Waterloo
+            why: Waterloo was in 1815, in the Southern Netherlands.
+          - label: Ramillies
+            why: Ramillies was in 1706, after William's death.
+          - label: The Boyne
+            why: >-
+              Right. William beat James II at the River Boyne. The battle was fought on 1 July by the old calendar,
+              and is now marked on 12 July. Jan van Huchtenburgh painted it for the Dutch.
+          - label: Malplaquet
+            why: Malplaquet was in 1709, in what is now France.
+      - type: choice
+        prompt: William and Mary had this palace built near Apeldoorn from 1684, and enlarged it once they were king and queen. What was it built for?
+        visual: { kind: photo, photo: het-loo-1690 }
+        answer: 0
+        options:
+          - label: Hunting in the woods of the Veluwe
+            why: >-
+              Right. William loved to hunt. Het Loo, with its formal gardens, is now a museum. This print by
+              Bastiaen Stopendael shows it around 1690.
+          - label: Meetings of the States General
+            why: They met at the Binnenhof in The Hague.
+          - label: Defending the east against Münster
+            why: It has no walls; it was built for pleasure.
+          - label: Housing the Dutch navy's officers
+            why: The navy was based on the coast, far from Apeldoorn.
+      - type: truemyth
+        statement: Dutch growers bred the orange carrot to honour the House of Orange.
+        visual: { kind: photo, photo: carrot-dou }
+        answer: false
+        explain: >-
+          A myth, as far as anyone can show. No record says so. Orange carrots were grown in Europe before the
+          House of Orange was famous, and Dutch growers in the 1600s bred them because they sold well. Gerard Dou
+          painted this woman scraping one around 1650. The colour did take on an Orange meaning later.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [James II's son is born in June 1688, English leaders invite William to come over]
+          - [Louis XIV sends his army into Germany, William can sail without fearing a French attack at home]
+          - [An east wind blows down the Channel, The fleet reaches Torbay]
+          - [William dies without children in 1702, Most provinces have no stadtholder until 1747]
+        explain: >-
+          A Catholic heir meant a line of Catholic kings. William wanted England's money and ships against France,
+          and the English wanted their Protestant church and Parliament safe.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: William is made stadtholder, year: 1672, when: '1672' }
+          - { label: William marries Mary, year: 1677, when: '1677' }
+          - { label: The fleet lands at Torbay, year: 1688, when: '5 November 1688' }
+          - { label: William and Mary are crowned, year: 1689, when: '11 April 1689' }
+          - { label: The Battle of the Boyne, year: 1690, when: '1690' }
+          - { label: William dies after a fall from his horse, year: 1702, when: '1702' }
+        explain: Thirteen years as stadtholder and king at once, in The Hague and London.
+
+  - id: u8-l3
+    title: The Austrian Netherlands
+    icon: shield
+    sources:
+      - title: "Encyclopaedia Britannica, War of the Spanish Succession"
+        url: https://www.britannica.com/event/War-of-the-Spanish-Succession
+      - title: "Encyclopaedia Britannica, Peace of Utrecht"
+        url: https://www.britannica.com/event/Peace-of-Utrecht
+      - title: "Rijksmuseum, The Battle of Ramillies, 23 May 1706"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-4061
+      - title: "Coudenberg, the former palace of Brussels"
+        url: https://www.coudenberg.brussels/en/
+      - title: "Encyclopaedia Britannica, Maria Theresa"
+        url: https://www.britannica.com/biography/Maria-Theresa
+      - title: "Encyclopaedia Britannica, Battle of Fontenoy"
+        url: https://www.britannica.com/event/Battle-of-Fontenoy
+    exercises:
+      - type: story
+        title: A new war for the south
+        body: >-
+          In 1700 the last Spanish Habsburg king died without children and left his empire to Louis XIV's
+          grandson. The Republic, England and the emperor went to war to stop France ruling Spain too, and much of
+          the fighting was in the Spanish Netherlands. Press play to watch the south change hands.
+        visual: { kind: time-map, map: borders, year: 1701 }
+      - type: choice
+        prompt: On 23 May 1706 the Duke of Marlborough's British and Dutch army beat the French at Ramillies, north of Namur. What followed within weeks?
+        visual: { kind: photo, photo: ramillies }
+        answer: 1
+        options:
+          - label: Louis XIV gave up his claim to Spain
+            why: The war went on for seven more years.
+          - label: Brussels, Antwerp, Ghent and Bruges went over to the allies
+            why: >-
+              Right. The British and Dutch ran the south until the peace, in the name of the Austrian claimant to
+              the Spanish throne. The Dutch general Ouwerkerk fought at Ramillies too.
+          - label: The French took Amsterdam
+            why: The French never reached Amsterdam in this war.
+          - label: Marlborough was made king of the Netherlands
+            why: He was made a prince of the Holy Roman Empire, but never a king.
+      - type: scrub
+        prompt: Drag the slider to a year when the British and Dutch allies held Brussels, before the south was handed to the emperor in Vienna.
+        map: borders
+        start: 1701
+        answer: [1706, 1713]
+        explain: >-
+          From Ramillies in 1706 until the peace treaties of 1713 and 1714. The hatching shows the land the allies
+          held.
+      - type: truemyth
+        statement: At Malplaquet in 1709, the winners lost far more men than the losers.
+        visual: { kind: photo, photo: malplaquet }
+        answer: true
+        explain: >-
+          True. The allies drove the French from the field, but lost about twice as many men, over 20,000 killed
+          and wounded, many of them Dutch infantry led by the young Prince of Orange. Charles Rochussen painted
+          them in 1867. It was the bloodiest battle of the war, and it made people at home sick of it.
+      - type: choice
+        prompt: The war ended with treaties signed at Utrecht in 1713 and at Rastatt in 1714. Who got the Spanish Netherlands?
+        visual: { kind: photo, photo: utrecht-treaty }
+        answer: 2
+        options:
+          - label: France
+            why: France had to give up towns it had taken, such as Tournai and Ypres.
+          - label: The Dutch Republic
+            why: The Dutch got a barrier of forts in the south, but not the land itself.
+          - label: Emperor Charles VI, in Vienna
+            why: >-
+              Right. For the next 80 years the south was the Austrian Netherlands. Philip V kept Spain, but lost
+              his lands in Italy and the Low Countries.
+          - label: Great Britain
+            why: Britain got Gibraltar, Minorca and lands in North America.
+      - type: region
+        prompt: By the Barrier Treaty of 1715, Dutch soldiers held forts inside the Austrian Netherlands, among them Namur, Tournai, Menen and Ypres. Shade the provinces of today these four towns lie in.
+        layer: provinces
+        answer: [BE-WNA, BE-WHT, BE-VWV]
+        explain: >-
+          Namur, Hainaut (Tournai) and West Flanders (Menen and Ypres). Veurne, Warneton and Fort Knokke were also
+          barrier forts, and Dendermonde was shared. They were meant to stop France, but in 1745 they fell one by
+          one.
+      - type: choice
+        prompt: This is a model of Menen, one of the barrier towns, made for the king of France. Why did French kings have models like this made?
+        visual: { kind: photo, photo: menen-relief }
+        answer: 3
+        options:
+          - label: To sell to tourists
+            why: They were state secrets, not souvenirs.
+          - label: To plan new houses
+            why: They were about walls and ditches, not houses.
+          - label: To teach children geography
+            why: They were kept for the king and his generals.
+          - label: To plan sieges and defences
+            why: >-
+              Right. These plans-reliefs showed every wall, ditch and hill of a fortress town. Many of the Low
+              Countries' towns were modelled, and some of the models are now in Lille and Paris.
+      - type: who
+        photo: maria-theresa
+        clues:
+          - From 1740 I ruled the Habsburg lands, the Austrian Netherlands among them.
+          - I am the only woman ever to rule the Habsburg monarchy.
+          - My brother-in-law Charles of Lorraine governed Brussels for me.
+          - My youngest daughter became queen of France, and was guillotined in 1793.
+        options: [Maria Theresa, Margaret of Austria, Mary of Burgundy, Isabella Clara Eugenia]
+        answer: 0
+        explain: >-
+          Maria Theresa, mother of sixteen children, among them Marie Antoinette and two emperors. Under her and
+          Charles of Lorraine the south had a long, mostly peaceful time after 1748.
+      - type: choice
+        prompt: On the night of 3 February 1731 a fire destroyed the old palace of the dukes of Brabant on the Coudenberg in Brussels. What was later built on its ruins?
+        visual: { kind: photo, photo: coudenberg-fire }
+        answer: 0
+        options:
+          - label: The Place Royale, a new square laid out from 1775 under Charles of Lorraine
+            why: >-
+              Right. The palace's cellars and a street under it can still be visited below the square. This view
+              was drawn just after the fire.
+          - label: The Grand Place
+            why: The Grand Place is the old market square, lower down the hill.
+          - label: The Atomium
+            why: The Atomium was built for the world's fair of 1958.
+          - label: The cathedral
+            why: The cathedral of St Michael and St Gudula is on another hill and is much older.
+      - type: choice
+        prompt: In 1745 Marshal Saxe beat the British, Dutch and Austrians at Fontenoy, near Tournai. What happened next?
+        visual: { kind: photo, photo: fontenoy }
+        answer: 2
+        options:
+          - label: France gave the south to the Dutch
+            why: France kept what it took until the peace of 1748, and then gave it back to Austria.
+          - label: Maria Theresa moved to Brussels
+            why: She stayed in Vienna.
+          - label: France took almost all the south and invaded the Republic, which made William IV stadtholder
+            why: >-
+              Right. In 1747, with French troops in Zeelandic Flanders, every province made William IV its
+              stadtholder. At the Peace of Aachen in 1748 France gave everything back.
+          - label: Britain left the war
+            why: Britain fought on until 1748.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Charles II of Spain dies without children, The War of the Spanish Succession]
+          - [The Dutch fear France, Dutch soldiers hold barrier forts in the south]
+          - [French troops invade the Republic in 1747, Every province makes William IV stadtholder]
+          - [The old palace of Brussels burns down, The Place Royale is built]
+        explain: >-
+          The south was ruled from Madrid, then Vienna, and fought over by everybody. The Dutch wanted it as a
+          shield, not as part of the Republic.
+
+  - id: u8-l4
+    title: Patriots and Brabanters
+    icon: quill
+    sources:
+      - title: "Canon van Nederland, De patriotten 1780 to 1795 (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/patriotten
+      - title: "Joan Derk van der Capellen, Aan het volk van Nederland (1781), edited by W.F. Wertheim and A.H. Wertheim-Gijse Weenink, on DBNL (in Dutch)"
+        url: https://www.dbnl.org/tekst/cape004aanv01_01/
+      - title: "Amsterdam Museum, The arrest of the Princess of Orange at Goejanverwellesluis, Charles Rochussen"
+        url: https://www.amsterdammuseum.nl/en
+      - title: "Encyclopaedia Britannica, Brabant Revolution"
+        url: https://www.britannica.com/event/Brabant-Revolution
+      - title: "Encyclopaedia Britannica, Joseph II"
+        url: https://www.britannica.com/biography/Joseph-II
+    exercises:
+      - type: story
+        title: Citizens in arms
+        body: >-
+          In the 1780s the Republic lost a war with Britain, and many people blamed the stadtholder, William V.
+          Reformers who called themselves Patriots wanted power for the citizens, not the Prince and the old
+          families. They formed free corps that drilled with muskets, like these in Sneek in 1786.
+        visual: { kind: photo, photo: free-corps-sneek }
+      - type: gap
+        prompt: In the night of 25 to 26 September 1781 an anonymous pamphlet was spread through the towns of the Republic, To the People of the Netherlands. Fill the gap in its call to arms (translated from the Dutch).
+        quote: Arm yourselves, all of you, choose for yourselves those who are to command you, and go to work in everything with calm and modesty, like the people of ___, where not a drop of blood was shed before the English attacked them first.
+        source: Joan Derk van der Capellen, Aan het volk van Nederland, 1781
+        visual: { kind: photo, photo: volk-pamphlet }
+        options: [America, France, England, Switzerland]
+        answer: 0
+        explain: >-
+          America, whose revolution had begun in 1775. The writer was the Overijssel nobleman Joan Derk van der
+          Capellen tot den Pol, though that came out only long after he died. In 1782 the Republic became
+          one of the first countries to recognise the United States.
+      - type: who
+        photo: wilhelmina
+        clues:
+          - I was born a princess in Berlin, a niece of Frederick the Great.
+          - In 1767 I married the stadtholder, William V.
+          - In June 1787 Patriots stopped me near Gouda on my way to The Hague, and sent me back.
+          - My brother, the king of Prussia, sent an army to put things right.
+        options: [Wilhelmina of Prussia, Mary Stuart, Maria Theresa, Anne of Hanover]
+        answer: 0
+        explain: >-
+          Wilhelmina of Prussia, the stadtholder's strong-willed wife. She took the stop at Goejanverwellesluis as
+          an insult, and asked her brother Frederick William II for satisfaction.
+      - type: truemyth
+        statement: In 1787 Prussia invaded the Republic because Patriots had stopped the stadtholder's wife on the road.
+        visual: { kind: photo, photo: goejanverwellesluis }
+        answer: true
+        explain: >-
+          True, though it was the excuse more than the cause: Prussia and Britain wanted the House of Orange back
+          in power. In September 1787 some 20,000 Prussian soldiers marched in, and the free corps could not stop
+          them. Charles Rochussen painted the stop in 1862.
+      - type: choice
+        prompt: Prussian troops entered Amsterdam through the Leidsepoort on 10 October 1787. What happened to the Patriots?
+        visual: { kind: photo, photo: prussians-amsterdam }
+        answer: 3
+        options:
+          - label: They were all put to death
+            why: Some were attacked by Orangist crowds, but there were no mass executions.
+          - label: They took over the government
+            why: The opposite. William V was back in power.
+          - label: They sailed to America
+            why: A few went to America, but most went somewhere closer.
+          - label: Thousands fled, most of them to France
+            why: >-
+              Right. In France they saw a revolution of their own in 1789, and in 1795 they came back with the
+              French armies.
+      - type: hunt
+        prompt: Léonard Defrance of Liège painted the closing of the monasteries by Emperor Joseph II in the 1780s. Find the emperor himself, shown as a statue.
+        photo: monasteries-closed
+        targets: [[0.63, 0.24, 0.17, 0.25]]
+        explain: >-
+          The imaginary bronze statue in Roman dress, looking on as monks and nuns leave with their belongings. Joseph II closed
+          the monasteries he thought useless, let Protestants worship freely, and changed the courts and
+          provinces from above. In the south, many saw it as an attack on their old rights and their church.
+      - type: choice
+        prompt: In 1789 the south rose against Joseph II, and in January 1790 the rebels declared a new state. What did they call it?
+        visual: { kind: time-map, map: borders, year: 1790 }
+        answer: 0
+        options:
+          - label: The United Belgian States
+            why: >-
+              Right, the first state to be called Belgian, modelled partly on the Dutch Republic and the United
+              States. The rebels soon split between the conservatives of Henri van der Noot and the democrats of
+              Jan Frans Vonck, and the Austrians came back in December 1790.
+          - label: The Kingdom of Belgium
+            why: The Kingdom of Belgium came in 1831.
+          - label: The Batavian Republic
+            why: The Batavian Republic was in the north, from 1795.
+          - label: The Republic of Flanders
+            why: The revolt took in Brabant, Flanders, Hainaut and more.
+      - type: choice
+        prompt: This print celebrates a boy who fought for the rebels at Turnhout, where they beat the Austrians in October 1789. What did the rebels want?
+        visual: { kind: photo, photo: turnhout-1789 }
+        answer: 1
+        options:
+          - label: To join France
+            why: Most of them distrusted revolutionary France.
+          - label: To keep their old rights and their church as they had been
+            why: >-
+              Right, at least for most of them. Joseph's reforms swept away the old privileges of the provinces,
+              and the Catholic church felt under attack.
+          - label: To join the Dutch Republic
+            why: They wanted their own state, not to join the north.
+          - label: To bring back Spanish rule
+            why: Spanish rule had ended in 1714, and nobody wanted it back.
+      - type: pin
+        prompt: In August 1789 the people of another city drove out their prince-bishop, a month after the storming of the Bastille. Pin Liège.
+        place: liege
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Liège, on the Meuse, capital of a prince-bishopric that was not part of the Austrian Netherlands. Its
+          Happy Revolution was put down by Austrian troops in January 1791.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The war with Britain goes badly, Patriots blame the stadtholder]
+          - [Patriots stop Wilhelmina near Gouda, A Prussian army invades the Republic]
+          - [Joseph II closes monasteries and changes the courts, The south rises in the Brabant Revolution]
+          - [The Belgian rebels split into two camps, Austrian troops return in December 1790]
+        explain: >-
+          Both revolts of the 1780s failed. Within a few years the French Revolution swept away the stadtholder
+          and the emperor alike.
+
+  - id: u8-l5
+    title: Under French rule
+    icon: flame
+    sources:
+      - title: "Canon van Nederland, Napoleon Bonaparte (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/napoleon
+      - title: "Albert Réville, La Hollande et le roi Louis Bonaparte, Revue des Deux Mondes, 1870 (in French, on Wikisource)"
+        url: https://fr.wikisource.org/wiki/La_Hollande_et_le_roi_Louis_Bonaparte/03
+      - title: "Tamura Jones, Dutch naming myths"
+        url: https://www.tamurajones.net/DutchNamingMyths.xhtml
+      - title: "Rijksmuseum, The consequences of the gunpowder disaster in Leiden, 1807"
+        url: https://www.rijksmuseum.nl/en/collection/RP-P-OB-70.911
+      - title: "Encyclopaedia Britannica, Batavian Republic"
+        url: https://www.britannica.com/place/Batavian-Republic
+      - title: "Encyclopaedia Britannica, Peasants' War (Belgium, 1798)"
+        url: https://www.britannica.com/place/Belgium/The-French-period-1795-1814
+    exercises:
+      - type: story
+        title: Liberty trees
+        body: >-
+          In January 1795 the rivers froze hard, French armies marched north over the ice, and William V fled to
+          England. Patriots proclaimed the Batavian Republic and danced round liberty trees, like this one in
+          Groningen. The south, meanwhile, was swallowed up by France itself.
+        visual: { kind: photo, photo: liberty-tree }
+      - type: truemyth
+        statement: In January 1795 French cavalry captured a Dutch war fleet.
+        visual: { kind: photo, photo: den-helder-1795 }
+        answer: true
+        explain: >-
+          True, if not quite as heroic as this painting from 1836 makes it. The fleet lay frozen in the ice near
+          Den Helder, and French hussars and soldiers crossed the ice to it. The Dutch had been told not to resist, so
+          there was no real fight.
+      - type: pin
+        prompt: Pin Den Helder, where the fleet lay frozen in the ice.
+        place: den-helder
+        okKm: 25
+        fullKm: 10
+        explain: >-
+          Den Helder, at the tip of North Holland, across the Marsdiep from Texel.
+      - type: scrub
+        prompt: Drag the slider to a year when today's Belgium was part of France itself, and the north was a republic run under France.
+        map: borders
+        start: 1789
+        answer: [1795, 1805]
+        explain: >-
+          From 1795, when France annexed the south and Liège, until 1806, when the Batavian Republic became the
+          Kingdom of Holland.
+      - type: choice
+        prompt: On 1 March 1796 something new met in The Hague. What was it?
+        visual: { kind: photo, photo: national-assembly-1796 }
+        answer: 2
+        options:
+          - label: The first Dutch royal court
+            why: The Netherlands had no king until 1806.
+          - label: A court to try the stadtholder
+            why: William V was safe in England.
+          - label: The National Assembly, the first parliament elected for the whole country
+            why: >-
+              Right, elected by men only. Within months it gave Jews equal rights as citizens, and in 1798 the
+              first Dutch constitution separated church and state.
+          - label: The governors of the VOC
+            why: The VOC was taken over by the state in 1796, but this is a parliament.
+      - type: who
+        photo: louis-bonaparte
+        clues:
+          - My elder brother was the most powerful man in Europe.
+          - In 1806 he made me king of Holland, though I did not want it.
+          - I made Amsterdam's town hall on the Dam my palace.
+          - I took my people's side so often that in 1810 I had to give up my throne.
+        options: [Louis Bonaparte, Joseph Bonaparte, Rutger Jan Schimmelpenninck, William I]
+        answer: 0
+        explain: >-
+          Louis Bonaparte, King Lodewijk I of Holland. He learned Dutch and rushed to Leiden after its gunpowder
+          disaster of 1807. His son became Emperor Napoleon III of France.
+      - type: voices
+        prompt: In 1809 Napoleon's newspaper and his brother Louis wrote about Holland. What were they arguing about?
+        voices:
+          - who: Le Moniteur, Napoleon's official newspaper
+            when: 14 December 1809 (translated from the French)
+            text: Holland is really only a portion of France. This country can be defined by saying that it is the alluvium of the Rhine, the Meuse and the Scheldt, that is to say, of the great arteries of the empire.
+            photo: napoleon-study
+          - who: King Louis of Holland, writing to Napoleon
+            when: 4 November 1809 (translated from the French)
+            text: I can sacrifice my rank and my life to you, but I can never consent to the demands made of me, all the more since nobody needs me to do by force what is not only harmful but fatal for this nation.
+            photo: louis-bonaparte
+        options:
+          - Whether Holland should stay a country of its own
+          - Whether to build new dikes along the rivers
+          - Who should be the next stadtholder
+          - Whether Holland should go to war with France
+        answer: 0
+        explain: >-
+          Napoleon wanted Holland to stop trading with Britain, and saw it as mud washed down by French rivers.
+          Louis would not give in. He gave up the throne on 1 July 1810, and on 9 July Napoleon annexed Holland.
+      - type: truemyth
+        statement: When Napoleon's officials made everyone register a surname in 1811, many Dutch families picked silly names to mock the French.
+        visual: { kind: photo, photo: napoleon-study }
+        answer: false
+        explain: >-
+          A myth. Most people registered the name they already used, a farm name or their father's name. Odd
+          names such as Naaktgeboren, born naked, were in use long before Napoleon. The new civil registry did
+          fix those names for good.
+      - type: choice
+        prompt: In the autumn of 1798 farmers in Flanders, Brabant and the Kempen rose against French rule. What set off the Peasants' War?
+        visual: { kind: photo, photo: peasants-war }
+        answer: 1
+        options:
+          - label: A new tax on beer
+            why: Taxes angered people, but they were not the spark.
+          - label: A law calling up young men into the French army
+            why: >-
+              Right, along with attacks on the church: priests who would not swear an oath to the republic were
+              hunted down. The rising was crushed by December. Belgians later remembered it as a fight for freedom.
+          - label: The arrival of the Dutch
+            why: The Dutch had no part in it.
+          - label: A bad harvest
+            why: The trouble was conscription, not food.
+      - type: choice
+        prompt: On 12 January 1807 a ship loaded with gunpowder blew up in the middle of Leiden, killing about 150 people. What did King Louis do?
+        visual: { kind: photo, photo: leiden-1807 }
+        answer: 3
+        options:
+          - label: He blamed the British and declared war
+            why: It was an accident, and Holland was already at war with Britain.
+          - label: He sent the army to keep order and stayed in The Hague
+            why: He went himself.
+          - label: He banned gunpowder in towns
+            why: He did not.
+          - label: He came to Leiden the same night and set up help for the victims
+            why: >-
+              Right. It won him affection. Jan Willem Pieneman drew the ruins along the Rapenburg canal, where
+              whole rows of houses had gone.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The rivers freeze in January 1795, French armies cross into Holland]
+          - [Napoleon wants to stop all trade with Britain, Holland is annexed to France in 1810]
+          - [Young men are called up into the French army, Farmers in the south rise in the Peasants' War]
+          - [Everyone must register a surname, Families keep the names they already used]
+        explain: >-
+          The French years left a lot behind: a civil registry, fixed surnames, the metric system, a code of
+          civil law and one state in place of seven provinces.
+
+  - id: u8-l6
+    title: Orange returns, and Waterloo
+    icon: sword
+    sources:
+      - title: "Domaine du champ de bataille de Waterloo, the Lion's Mound"
+        url: https://www.waterloo1815.be/en/
+      - title: "Rijksmuseum, The Battle of Waterloo, Jan Willem Pieneman, 1824"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-1115
+      - title: "Rijksmuseum, The Prince of Orange at Quatre Bras, Jan Willem Pieneman"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-1520
+      - title: "The Creevey Papers, edited by Sir Herbert Maxwell, 1903 (on Wikiquote)"
+        url: https://en.wikiquote.org/wiki/Arthur_Wellesley,_1st_Duke_of_Wellington
+      - title: "Canon van Nederland, Koning Willem I (in Dutch)"
+        url: https://www.canonvannederland.nl/nl/koningwillem1
+      - title: "Encyclopaedia Britannica, Battle of Waterloo"
+        url: https://www.britannica.com/event/Battle-of-Waterloo
+    exercises:
+      - type: story
+        title: Orange on top
+        body: >-
+          After Napoleon's defeat at Leipzig in October 1813, the French began to leave. In The Hague, Gijsbert
+          Karel van Hogendorp and two friends took power on 21 November in the name of the Prince of Orange,
+          the son of William V, who landed at Scheveningen on 30 November. Jan Willem Pieneman painted the scene.
+        visual: { kind: photo, photo: triumvirate-1813 }
+      - type: choice
+        prompt: In 1815 the great powers at the Congress of Vienna joined north and south into one kingdom under William I. Why did they want it?
+        visual: { kind: photo, photo: william-i }
+        answer: 2
+        options:
+          - label: The Belgians had voted for it
+            why: Nobody asked the people of north or south.
+          - label: William I had conquered the south
+            why: Allied armies, not William's, had freed the south.
+          - label: To make a strong state on France's northern border
+            why: >-
+              Right. The new United Kingdom of the Netherlands was meant to keep France in check. William I was
+              also made grand duke of Luxembourg. The union lasted only until 1830.
+          - label: To pay off the Dutch for the colonies
+            why: Britain did keep some Dutch colonies, but that was not the reason for the union.
+      - type: scrub
+        prompt: Drag the slider to the year north and south were first joined into one kingdom.
+        map: borders
+        start: 1810
+        answer: [1815, 1815]
+        explain: >-
+          1815. William I proclaimed himself king on 16 March 1815, and the Congress of Vienna confirmed it.
+      - type: who
+        photo: young-prince
+        clues:
+          - I was born in The Hague in 1792, and grew up in exile in Berlin and England.
+          - I served on Wellington's staff in Spain.
+          - At 22 I commanded the Dutch and Belgian troops at Quatre Bras.
+          - I was shot in the shoulder at Waterloo, and became king in 1840.
+        options: [Prince William of Orange, Napoleon Bonaparte, Gebhard von Blücher, Louis Bonaparte]
+        answer: 0
+        explain: >-
+          William, Prince of Orange, the later King William II. He was brave but inexperienced, and British
+          officers blamed him for costly mistakes. In the Netherlands he was a hero all the same.
+      - type: choice
+        prompt: On 16 June 1815 Dutch and Belgian troops held the crossroads of Quatre Bras, south of Brussels, against the French. Why did it matter?
+        visual: { kind: photo, photo: quatre-bras }
+        answer: 0
+        options:
+          - label: It kept the road open for Wellington's army to gather
+            why: >-
+              Right. Their staff officer Constant Rebecque held the crossroads against orders, and British troops
+              arrived during the day. Two days later the armies met at Waterloo.
+          - label: It ended the war
+            why: The decisive battle came two days later, at Waterloo.
+          - label: Napoleon was captured there
+            why: Napoleon surrendered to the British weeks later, in France.
+          - label: It was the first battle the Prussians fought
+            why: The Prussians fought Napoleon the same day, at Ligny.
+      - type: hunt
+        prompt: Jan Willem Pieneman painted the evening of Waterloo, with Wellington on his horse in the middle. Find the wounded Prince of Orange, being carried off the field.
+        photo: waterloo-pieneman
+        targets: [[0.17, 0.6, 0.15, 0.26]]
+        explain: >-
+          Lower left, leaning back on a stretcher in a gold-braided jacket. Pieneman painted it for the king, the prince's
+          father, so the prince is right in the front.
+      - type: truemyth
+        statement: The Battle of Waterloo was fought in the village of Waterloo.
+        visual: { kind: photo, photo: lion-mound }
+        answer: false
+        explain: >-
+          A myth. Waterloo was Wellington's headquarters, a few kilometres north, and he named the battle after it
+          in his report. The fighting was around Mont-Saint-Jean, Hougoumont, La Haye Sainte and Plancenoit. The
+          Lion's Mound, 43 metres high, was raised from 1823 to 1826 roughly where the Prince of Orange was hit.
+      - type: pin
+        prompt: Pin the battlefield of Waterloo.
+        place: waterloo
+        okKm: 20
+        fullKm: 8
+        explain: >-
+          Nearly 20 kilometres south of Brussels, in Walloon Brabant. Napoleon had hoped to reach Brussels.
+      - type: gap
+        prompt: Soon after the battle, Wellington told the diarist Thomas Creevey in Brussels how it had gone. Fill the gap.
+        quote: It has been a damned nice thing, the ___ run thing you ever saw in your life.
+        source: The Duke of Wellington to Thomas Creevey, June 1815 (The Creevey Papers, 1903)
+        visual: { kind: photo, photo: wellington-goya }
+        options: [nearest, finest, longest, bloodiest]
+        answer: 0
+        explain: >-
+          The nearest run thing: it could have gone either way. In those days "nice" could mean delicate or
+          uncertain. The Prussians under Blücher arriving in the afternoon made the difference.
+      - type: odd
+        prompt: Three of these men led armies at Waterloo. Which is the odd one out, and why?
+        items:
+          - { label: The Duke of Wellington, photo: wellington-goya }
+          - { label: Gebhard von Blücher, photo: blucher }
+          - { label: Napoleon Bonaparte, photo: napoleon-study }
+          - { label: Louis Bonaparte, photo: louis-bonaparte }
+        answer: 3
+        reasons:
+          - He was not at the battle
+          - He was the only one on the winning side
+          - He was the only one who was not French
+        reason: 0
+        explain: >-
+          Louis Bonaparte, the former king of Holland, had fallen out with his brother and was living in exile.
+          Wellington led the British, Dutch, Belgian and German army, Blücher the Prussians, and Napoleon the
+          French.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Napoleon is beaten at Leipzig, The French leave the Netherlands]
+          - [Napoleon escapes from Elba, The Hundred Days and Waterloo]
+          - [The Prussians arrive in the afternoon, Napoleon's army breaks]
+          - [The great powers fear France, North and south are joined in one kingdom]
+        explain: >-
+          In 143 years the Low Countries had gone from the Disaster Year to a single kingdom, and the next unit
+          tells how it split again.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The Disaster Year, year: 1672, when: '1672' }
+          - { label: William III lands in England, year: 1688, when: '1688' }
+          - { label: The south goes to Austria, year: 1714, when: '1714' }
+          - { label: The Batavian Republic, year: 1795, when: '1795' }
+          - { label: Holland is annexed to France, year: 1810, when: '1810' }
+          - { label: Waterloo, year: 1815, when: '1815' }
+        explain: From one disaster to a new kingdom, in six steps.

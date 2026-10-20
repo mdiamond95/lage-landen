@@ -38,9 +38,10 @@ const PolderVisual = z.object({ kind: z.literal('polder-slider') })
 // A map with a year slider, played as an animation: the Zuiderzee and Delta Works,
 // the Roman frontier and roads, the wool and cloth trade, the lands joining
 // Burgundy, the revolt splitting them, Amsterdam growing in the Golden Age, the
-// Spanish Netherlands shrinking, or the Dutch trading posts and colonies around the
-// world. `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire'] as const
+// Spanish Netherlands shrinking, the Dutch trading posts and colonies around the
+// world, or the borders changing from the Disaster Year to Waterloo. `year` opens it
+// at a given year instead of the start.
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders'] as const
 const TimeMapVisual = z.object({ kind: z.literal('time-map'), map: z.enum(timeMaps), year: z.number().optional() })
 // A family tree from src/data/families.ts; `hide` blanks out one person by id.
 const TreeVisual = z.object({ kind: z.literal('family-tree'), tree: z.enum(treeIds), hide: z.string().optional() })

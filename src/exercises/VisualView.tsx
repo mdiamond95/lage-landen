@@ -4,6 +4,7 @@ import { LineChart } from '../art/LineChart'
 import { PolderSlider } from '../art/PolderSlider'
 import type { Visual } from '../content/schema'
 import { amsterdamStory } from '../data/amsterdam'
+import { bordersStory } from '../data/borders'
 import { burgundyStory } from '../data/burgundy'
 import { empireStory } from '../data/empire'
 import { revoltStory } from '../data/revolt'
@@ -23,6 +24,7 @@ const stories = {
   amsterdam: amsterdamStory,
   spanish: spanishStory,
   empire: empireStory,
+  borders: bordersStory,
 }
 
 type TimeMapProps = {

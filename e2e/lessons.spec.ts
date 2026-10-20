@@ -442,13 +442,13 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 15 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 20 snapshots from Caesar to the Delta Works', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Open the time map' }).click()
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '14')
+  await expect(slider).toHaveAttribute('max', '19')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -466,12 +466,24 @@ test('the time map steps through 15 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-wic')).toHaveCount(6)
   await expect(map.locator('.key-swatch.key-voc')).toHaveCount(1)
 
-  await slider.fill('13')
+  await slider.fill('14')
   await expect(map.locator('.time-map-title')).toHaveText('1678: The Peace of Nijmegen')
   await expect(map.locator('.hist-voc')).toHaveCount(0)
   await expect(map.locator('.hist-area-france')).not.toHaveCount(0)
+  await expect(map.locator('.hist-area-austria')).toHaveCount(0)
 
-  await slider.fill('14')
+  await slider.fill('15')
+  await expect(map.locator('.time-map-title')).toHaveText('1714: The Austrian Netherlands')
+  await expect(map.locator('.hist-area-austria').first()).toBeVisible()
+  await expect(map.locator('.key-swatch.key-austria')).toHaveCount(1)
+
+  await slider.fill('18')
+  await expect(map.locator('.time-map-title')).toHaveText('1815: Waterloo and a new kingdom')
+  await expect(map.locator('.hist-area-austria')).toHaveCount(0)
+  await expect(map.locator('.hist-area-sister')).toHaveCount(0)
+  await expect(map.locator('.hist-site', { hasText: 'Waterloo' })).toHaveCount(1)
+
+  await slider.fill('19')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
@@ -673,4 +685,60 @@ test('a lesson with a content note shows it first and ends calmly', async ({ pag
     await answer(page)
   }
   await expect(page.locator('.results h1')).toHaveText('Lesson complete')
+})
+
+test('plays all of unit 8 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'The Disaster Year',
+    'A Dutch king for England',
+    'The Austrian Netherlands',
+    'Patriots and Brabanters',
+    'Under French rule',
+    'Orange returns, and Waterloo',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 8 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the border map changes hands year by year from 1672 to 1815', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'The Disaster Year', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.time-map-title')).toHaveText('1672: The Disaster Year')
+  await expect(map.locator('.hist-area-france')).not.toHaveCount(0)
+  await expect(map.locator('.hist-area-austria')).toHaveCount(0)
+
+  // Utrecht hands the south from Spain to Austria.
+  await year.fill('1714')
+  await expect(map.locator('.time-map-title')).toHaveText('1714: The Austrian Netherlands')
+  await expect(map.locator('.hist-area-austria').first()).toBeVisible()
+  await expect(map.locator('.hist-area-ruled')).toHaveCount(0)
+  await expect(map.locator('.key-swatch.key-austria')).toHaveCount(1)
+
+  await year.fill('1795')
+  await expect(map.locator('.time-map-title')).toHaveText('1795: The Batavian Republic')
+  await expect(map.locator('.hist-area-sister').first()).toBeVisible()
+  await expect(map.locator('.hist-area-austria')).toHaveCount(0)
+
+  // In 1810 Napoleon annexes Holland, so the sister republic is gone.
+  await year.fill('1810')
+  await expect(map.locator('.time-map-title')).toHaveText('1810: Part of France')
+  await expect(map.locator('.hist-area-sister')).toHaveCount(0)
+
+  await year.fill('1815')
+  await expect(map.locator('.time-map-title')).toHaveText('1815: Waterloo and a new kingdom')
+  await expect(map.locator('.hist-site', { hasText: 'Waterloo' })).toHaveCount(1)
 })

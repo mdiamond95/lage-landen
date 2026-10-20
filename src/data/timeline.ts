@@ -45,9 +45,9 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // data (optionally cut to the `clip` polygon), or a hand-drawn `shape`. `kind` sets
 // the tint: still sea (the default), lands of a ruler, lands under a ruler's bishop,
 // plain land that stays outside, lands held by rebels against the ruler, or lands
-// split or fought over between the two, or taken by France; on the city map, a town
-// inside its walls.
-export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside' | 'rebel' | 'contested' | 'city' | 'france'
+// split or fought over between the two, or taken by France; lands of the emperor in
+// Vienna, or a state run under France; on the city map, a town inside its walls.
+export type AreaKind = 'sea' | 'ruled' | 'client' | 'outside' | 'rebel' | 'contested' | 'city' | 'france' | 'austria' | 'sister'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind

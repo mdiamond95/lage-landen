@@ -357,6 +357,13 @@ lessons:
         fullKm: 6
         okKm: 15
         explain: Damme lies about 6 km north-east of Bruges, linked to it by a canal. Wine and herring were unloaded here.
+      - type: scrub
+        prompt: Drag the slider to a year when Hanseatic ships already sail to Bruges, but Flemish cloth still goes overland to the fairs of Champagne.
+        map: cloth
+        answer: [1252, 1320]
+        explain: >-
+          The German merchants of the Hanse won their rights in Bruges in 1252. The Champagne fairs faded in the
+          early 1300s, once Italian ships could buy cloth in Bruges itself.
       - type: choice
         prompt: Merchants met on the square in front of this inn, run by the Van der Buerse family. Which word do we get from their name?
         visual: { kind: photo, photo: ter-beurze }

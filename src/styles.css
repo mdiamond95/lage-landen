@@ -392,6 +392,12 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .key-flow { background: #6b3fa0; height: 5px; }
 .hist-area-france { fill: #c9d6ee; stroke: #2f4f8f; stroke-width: 0.8; transition: fill 0.4s; }
 .key-france { width: 12px; height: 10px; background: #c9d6ee; border: 1px solid #2f4f8f; border-radius: 2px; }
+/* Border-change map, 1672 to 1815: the emperor's lands in Habsburg gold, and the
+   Batavian Republic and Kingdom of Holland in a paler, dashed French blue */
+.hist-area-austria { fill: #f4e3a8; stroke: #9a7410; stroke-width: 0.8; transition: fill 0.4s; }
+.key-austria { width: 12px; height: 10px; background: #f4e3a8; border: 1px solid #9a7410; border-radius: 2px; }
+.hist-area-sister { fill: #e4eaf6; stroke: #2f4f8f; stroke-width: 0.8; stroke-dasharray: 3 2; transition: fill 0.4s; }
+.key-sister { width: 12px; height: 10px; background: #e4eaf6; border: 1px dashed #2f4f8f; border-radius: 2px; }
 .key-battle { width: 10px; height: 10px; background: #b3261e; clip-path: polygon(50% 0, 64% 36%, 100% 50%, 64% 64%, 50% 100%, 36% 64%, 0 50%, 36% 36%); }
 
 /* Amsterdam growth map: the land inside the walls in brick, under today's canals;

@@ -76,4 +76,8 @@ export const places: Record<string, Place> = {
   haarlem: { name: 'Haarlem', lat: 52.381, lon: 4.636, note: 'Frans Hals and Judith Leyster worked here' },
   // Unit 7: trade, empire and slavery
   texel: { name: 'Texel', lat: 53.07, lon: 4.8, note: 'The VOC fleets waited in the roads off Oudeschild for a wind' },
+  // Unit 8: Disaster Year to Waterloo
+  hellevoetsluis: { name: 'Hellevoetsluis', lat: 51.823, lon: 4.133, note: "William III's fleet sailed for England from here in 1688" },
+  'den-helder': { name: 'Den Helder', lat: 52.955, lon: 4.76, note: 'French cavalry took the Dutch fleet here, frozen in the ice, in January 1795' },
+  waterloo: { name: 'Battlefield of Waterloo', lat: 50.678, lon: 4.404, note: 'The Lion\'s Mound, where Wellington and Blücher beat Napoleon on 18 June 1815' },
 }
