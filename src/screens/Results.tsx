@@ -5,17 +5,18 @@ import { photo, type PhotoId } from '../photos'
 import { Credit } from '../photos/Photo'
 import { Icon } from './Icon'
 
-type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; onDone: () => void }
+// A calm lesson (on slavery, say) ends without a trophy or "Perfect lesson!".
+type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; calm?: boolean; onDone: () => void }
 
-export function Results({ title, outcome, xp, sources, photos, onDone }: Props) {
+export function Results({ title, outcome, xp, sources, photos, calm = false, onDone }: Props) {
   const right = outcome.asked - outcome.mistakes
   const accuracy = outcome.asked ? Math.round((right / outcome.asked) * 100) : 100
   const newPlaces = [...new Set(outcome.places)]
   return (
     <div className="results">
       <div className="results-hero">
-        <Icon name="trophy" />
-        <h1>{outcome.mistakes === 0 ? 'Perfect lesson!' : 'Lesson complete!'}</h1>
+        <Icon name={calm ? 'book' : 'trophy'} />
+        <h1>{calm ? 'Lesson complete' : outcome.mistakes === 0 ? 'Perfect lesson!' : 'Lesson complete!'}</h1>
         <p className="muted">{title}</p>
       </div>
       <div className="results-stats">

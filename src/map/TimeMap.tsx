@@ -1,8 +1,9 @@
 import { useId, useMemo, type ReactNode } from 'react'
-import { activeAt, eventAt, type HistArea, type TimeStory } from '../data/timeline'
-import { CITY_H, countries, lowlandsFrame, makeFrame, MAP_H, provinces, type Frame } from './geo'
+import { activeAt, eventAt, type FlowTone, type HistArea, type TimeStory } from '../data/timeline'
+import { CITY_H, countries, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, type Frame } from './geo'
 import { AmsterdamBase } from './AmsterdamBase'
 import { LowlandsMap } from './LowlandsMap'
+import { WorldBase } from './WorldBase'
 import { TimeControls } from './TimeControls'
 import { usePlayback } from './usePlayback'
 
@@ -11,6 +12,7 @@ import { usePlayback } from './usePlayback'
 const polygon = (frame: Frame, coords: [number, number][]) => `M${coords.map((c) => frame.toXY(c).join(',')).join('L')}Z`
 
 const regionShapes = [...countries, ...provinces]
+const tones: FlowTone[] = ['asia', 'atlantic', 'enslaved']
 
 // `fresh` marks land that changed hands in the stage on screen, so it stands out.
 // Land split between two sides is hatched in both their colours.
@@ -72,13 +74,15 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false,
   const uid = useId().replace(/:/g, '')
   const frame = useMemo(
     () =>
-      story.bounds
-        ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : MAP_H)
-        : lowlandsFrame,
+      story.base === 'world'
+        ? makeWorldFrame(story.bounds ?? [[-98, 8], [152, -5], [27, 64], [27, -46]])
+        : story.bounds
+          ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : MAP_H)
+          : lowlandsFrame,
     [story],
   )
   const { toXY, linePath } = frame
-  const Base = story.base === 'amsterdam' ? AmsterdamBase : LowlandsBase
+  const Base = story.base === 'amsterdam' ? AmsterdamBase : story.base === 'world' ? WorldBase : LowlandsBase
   const shown = (item: { end?: number }) => item.end === undefined || year <= item.end
   const fresh = event.fresh ?? story.fresh ?? 'fill'
   const areas = (story.areas ?? [])
@@ -99,6 +103,12 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false,
             <marker id={`${uid}-flow`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
               <path d="M0 0 10 5 0 10z" className="hist-flow-head" />
             </marker>
+            {story.base === 'world' &&
+              tones.map((t) => (
+                <marker key={t} id={`${uid}-${t}`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                  <path d="M0 0 10 5 0 10z" className={`hist-flow-head hist-head-${t}`} />
+                </marker>
+              ))}
           </defs>
           {story.labels
             .filter((l) => activeAt(year, l))
@@ -115,9 +125,10 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false,
             if (line.kind === 'flow') {
               if (!activeAt(year, line)) return null
               const d = linePath(line.coords)
+              const tone = line.tone ? ` hist-flow-${line.tone}` : ''
               return (
                 <g key={line.name} className="fade-in">
-                  <path d={d} className="hist-line hist-flow" markerEnd={`url(#${uid}-flow)`} />
+                  <path d={d} className={`hist-line hist-flow${tone}`} markerEnd={`url(#${uid}-${line.tone ?? 'flow'})`} />
                   <path d={d} className="trade-flow">
                     <title>{line.name}</title>
                   </path>

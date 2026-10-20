@@ -31,6 +31,16 @@ const paths: Record<string, React.ReactNode> = {
   book: <path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1zM12 6v14" fill="none" strokeLinejoin="round" />,
   crown: <path d="M4 18 3 7l5 4 4-6 4 6 5-4-1 11zM4 21h16" fill="none" strokeLinejoin="round" />,
   tulip: <path d="M12 21v-9M12 12c-4 0-6-3-6-8l3 2 3-3 3 3 3-2c0 5-2 8-6 8zM12 18c-2-2-5-2-6-1 2 2 4 2 6 1zM12 18c2-2 5-2 6-1-2 2-4 2-6 1" fill="none" strokeLinejoin="round" />,
+  // A globe, for trade around the world; a broken chain, for the end of slavery; a
+  // feather pen, for the lessons told through people's own words.
+  globe: (
+    <>
+      <circle cx="12" cy="12" r="8.5" fill="none" />
+      <path d="M3.5 12h17M12 3.5c-3 3-3 14 0 17M12 3.5c3 3 3 14 0 17" fill="none" />
+    </>
+  ),
+  chain: <path d="M9.5 14.5 7 17a3 3 0 0 1-4-4l3-3a3 3 0 0 1 4 0M14.5 9.5 17 7a3 3 0 0 1 4 4l-3 3a3 3 0 0 1-4 0M11 6l1-3M13 18l-1 3M6 10.5 4 9M18 13.5l2 1.5" fill="none" strokeLinejoin="round" />,
+  quill: <path d="M20 3c-7 1-12 6-13 13l-3 5M7 16c4 0 8-3 9-7M10 13l-3-1" fill="none" strokeLinejoin="round" />,
   lens: <path d="M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM15 15l6 6M7 8a3 3 0 0 1 3-2" fill="none" />,
 }
 

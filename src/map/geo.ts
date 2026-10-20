@@ -1,4 +1,4 @@
-import { geoDistance, geoMercator, geoPath, type GeoPath, type GeoPermissibleObjects, type GeoProjection } from 'd3-geo'
+import { geoDistance, geoEqualEarth, geoMercator, geoPath, type GeoPath, type GeoPermissibleObjects, type GeoProjection } from 'd3-geo'
 import type { Feature, FeatureCollection, Geometry } from 'geojson'
 import { feature } from 'topojson-client'
 import type { Topology } from 'topojson-specification'
@@ -20,6 +20,8 @@ export const MAP_W = 600
 export const MAP_H = 680
 // The Amsterdam map is about as wide as it is tall.
 export const CITY_H = 560
+// The world map is wide and low: from the Americas to Japan, Norway to Tasmania.
+export const WORLD_H = 340
 
 // Fit the Netherlands and Belgium, leaving a margin of neighbouring land and sea.
 const focus: FeatureCollection<Geometry, Props> = {
@@ -44,6 +46,28 @@ export const makeFrame = (fit: GeoPermissibleObjects, height = MAP_H): Frame => 
     ],
     fit,
   )
+  const path = geoPath(projection)
+  return {
+    projection,
+    path,
+    linePath: (coords) => path({ type: 'LineString', coordinates: coords }) ?? undefined,
+    toXY: (lonLat) => projection(lonLat)!,
+  }
+}
+
+// An equal-area view of the world, centred on the Indian Ocean side of Africa so the
+// Atlantic and Asian routes both fit, from New York to Japan and Norway to Tasmania.
+// `fit` is the area to fit: its corners as [lon, lat].
+export const makeWorldFrame = (fit: [number, number][]): Frame => {
+  const projection = geoEqualEarth()
+    .rotate([-27, 0])
+    .fitExtent(
+      [
+        [6, 6],
+        [MAP_W - 6, WORLD_H - 6],
+      ],
+      { type: 'MultiPoint', coordinates: fit },
+    )
   const path = geoPath(projection)
   return {
     projection,

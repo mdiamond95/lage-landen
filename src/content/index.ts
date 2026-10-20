@@ -5,10 +5,11 @@ import unit03 from './unit-03-counts-bishops-cloth.yaml?raw'
 import unit04 from './unit-04-burgundian-netherlands.yaml?raw'
 import unit05 from './unit-05-revolt-and-split.yaml?raw'
 import unit06 from './unit-06-golden-age.yaml?raw'
+import unit07 from './unit-07-trade-empire-slavery.yaml?raw'
 import { buildCards } from './cards'
 import { Unit } from './schema'
 
-export const units: Unit[] = [unit01, unit02, unit03, unit04, unit05, unit06].map((text) => Unit.parse(parse(text)))
+export const units: Unit[] = [unit01, unit02, unit03, unit04, unit05, unit06, unit07].map((text) => Unit.parse(parse(text)))
 
 export const cards = buildCards(units)
 
