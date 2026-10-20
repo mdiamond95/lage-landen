@@ -12,12 +12,16 @@ type Props = {
   onTogglePlay: () => void
   hideCaption?: boolean
   note?: string
+  // Years the slider snaps between, one notch per stage, instead of every year.
+  stops?: number[]
   // The map key, as <li> items.
   children: ReactNode
 }
 
 // The caption, year slider, play button and key under a time map.
-export function TimeControls({ event, year, min, max, format, playing, onScrub, onTogglePlay, hideCaption, note, children }: Props) {
+export function TimeControls({ event, year, min, max, format, playing, onScrub, onTogglePlay, hideCaption, note, stops, children }: Props) {
+  // With stops, the slider's value is the number of the stage on screen.
+  const stop = stops ? Math.max(0, stops.findLastIndex((s) => s <= year)) : 0
   return (
     <figcaption>
       {hideCaption ? (
@@ -29,14 +33,14 @@ export function TimeControls({ event, year, min, max, format, playing, onScrub, 
         </div>
       )}
       <label className="slider-row">
-        <span>Year</span>
+        <span>{stops ? `${stop + 1} of ${stops.length}` : 'Year'}</span>
         <input
           type="range"
-          min={min}
-          max={max}
+          min={stops ? 0 : min}
+          max={stops ? stops.length - 1 : max}
           step={1}
-          value={year}
-          onChange={(e) => onScrub(Number(e.target.value))}
+          value={stops ? stop : year}
+          onChange={(e) => onScrub(stops ? stops[Number(e.target.value)] : Number(e.target.value))}
           aria-label="Year"
           aria-valuetext={format(year)}
         />

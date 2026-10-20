@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from 'react'
+import { schedule, type Card } from './review'
 
 // Progress lives on the device for now (phase 4 adds accounts and sync).
 export type Progress = {
@@ -8,10 +9,12 @@ export type Progress = {
   freezeWeek: string | null
   completed: Record<string, { bestXp: number; perfect: boolean }>
   discovered: string[]
+  // Review cards by id (see content/cards.ts), for the daily review.
+  cards: Record<string, Card>
 }
 
 const KEY = 'lage-landen:progress:v1'
-const empty: Progress = { xp: 0, streak: 0, lastDay: null, freezeWeek: null, completed: {}, discovered: [] }
+const empty: Progress = { xp: 0, streak: 0, lastDay: null, freezeWeek: null, completed: {}, discovered: [], cards: {} }
 
 const load = (): Progress => {
   try {
@@ -38,6 +41,8 @@ const save = (next: Progress) => {
 export const dayKey = (d: Date) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 
+export const todayKey = () => dayKey(new Date())
+
 const weekKey = (d: Date) => {
   const monday = new Date(d)
   monday.setDate(d.getDate() - ((d.getDay() + 6) % 7))
@@ -58,19 +63,29 @@ export const nextStreak = (p: Progress, now: Date): Pick<Progress, 'streak' | 'l
   return { streak: 1, lastDay: today, freezeWeek: p.freezeWeek }
 }
 
-export const recordLesson = (lessonId: string, xp: number, perfect: boolean, places: string[], now = new Date()) => {
-  const prev = state.completed[lessonId]
+// One finished lesson, checkpoint or review. `lessonId` is left out for a review,
+// which counts for the streak and XP but isn't a step on the path. Each question
+// answered (first tries only) moves its review card.
+export type Session = { lessonId?: string; xp: number; perfect: boolean; places: string[]; answers: [cardId: string, correct: boolean][] }
+
+export const recordSession = ({ lessonId, xp, perfect, places, answers }: Session, now = new Date()) => {
+  const today = dayKey(now)
+  const cards = { ...state.cards }
+  for (const [id, correct] of answers) cards[id] = schedule(cards[id], correct, today)
+  const prev = lessonId ? state.completed[lessonId] : undefined
   save({
     ...state,
     ...nextStreak(state, now),
     xp: state.xp + xp,
-    completed: {
-      ...state.completed,
-      [lessonId]: { bestXp: Math.max(prev?.bestXp ?? 0, xp), perfect: (prev?.perfect ?? false) || perfect },
-    },
+    completed: lessonId
+      ? { ...state.completed, [lessonId]: { bestXp: Math.max(prev?.bestXp ?? 0, xp), perfect: (prev?.perfect ?? false) || perfect } }
+      : state.completed,
     discovered: [...new Set([...state.discovered, ...places])],
+    cards,
   })
 }
+
+export const getProgress = () => state
 
 export const resetProgress = () => save(empty)
 

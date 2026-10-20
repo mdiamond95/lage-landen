@@ -2,13 +2,22 @@
 
 A Duolingo-style web app for learning the history and culture of the Netherlands and Belgium, built around maps, pictures and timelines.
 
-Phase 1 from the project plan is under way. Playable so far:
+Phase 1 from the project plan (Units 1 to 5) is built. Playable now:
 
 - Unit 1, Land and water: five lessons and a checkpoint, with a dike slider and an animated map of the Zuiderzee and Delta Works.
 - Unit 2, Celts, Romans and Franks (57 BCE to 900): six lessons and a checkpoint, opening with an animated map of the Roman frontier and roads.
 - Unit 3, Counts, bishops and cloth cities (900 to 1384): six lessons and a checkpoint, built around an animated map of the wool and cloth trade across the North Sea.
 - Unit 4, The Burgundian Netherlands (1384 to 1555): six lessons and a checkpoint, built around a map of the lands joining Burgundy one by one, with a family tree from the dukes to Charles V and detail hunts in Flemish paintings.
 - Unit 5, Revolt and the great split (1555 to 1648): six lessons and a checkpoint, built around a front-line map of the Eighty Years' War that shows refugees streaming north from Antwerp, with a population chart of Antwerp and Amsterdam and quotes from the Wilhelmus, the Union of Utrecht and the Act of Abjuration.
+
+Around the units:
+
+- A daily review: every question in a finished lesson comes back on a spaced schedule, missed ones sooner, ten at a time.
+- A time map of 12 snapshots, from Caesar's conquest in 57 BCE to the Delta Works, built from the unit maps.
+- XP, a day streak with one free missed day a week, and a map of the places discovered.
+- Works offline once loaded, and installs on a phone's home screen.
+
+The live site for testers is published to GitHub Pages from `main` by `.github/workflows/pages.yml`, at https://mdiamond95.github.io/lage-landen/ once Pages is switched on (Settings > Pages > Source: GitHub Actions).
 
 ## Run it
 
@@ -38,7 +47,10 @@ npm run build:single # one self-contained HTML file in dist-single/
 - `src/exercises/`: story cards, pin the map, paint the region, timeline order, picture choice, true or myth, match pairs, who am I (clues revealed one at a time beside a portrait or statue; answering before the last clue earns +2 XP), find the year (`scrub`: drag a time map's slider until the map shows what the prompt asks, with the captions hidden until checked) and find the detail (`hunt`: tap a detail inside a painting; `targets` are boxes as fractions of the picture), fill the gap (`gap`: pick the missing word in a quote from a primary source, marked `___`, with its `source`) and cause and effect (`cause`: link each cause to its effect, with an `explain` shown after). Picture choice, true or myth and fill the gap can show a photo, map, family tree or chart; a choice on a chart is shown as "Read the chart".
 - `src/photos/`: photos, paintings and historical maps from Wikimedia Commons, with author and licence for each in `credits.ts`.
 - `src/art/`: original illustrations and the dike cross-section slider.
-- `src/progress/store.ts`: XP, streak (with one free missed day per week) and discovered places, kept in the browser.
+- `src/progress/store.ts`: XP, streak (with one free missed day per week), discovered places and review cards, kept in the browser.
+- `src/progress/review.ts` and `src/content/cards.ts`: the daily review. Every question is a card named by its lesson and a hash of the question (so an edited question starts afresh). A right answer brings it back in 1 day, then 3, then further out by the card's ease; a miss brings it back tomorrow. The review takes up to ten due cards, the most missed first, shuffled so eras mix.
+- `src/data/throughTime.ts`: the 12-snapshot time map (`TimeMap` with `snapshots`, so the slider steps from snapshot to snapshot). It reuses each era's lines, sites, labels and areas, and drops them when the era ends.
+- `scripts/sw.js`, `public/manifest.webmanifest`: offline and install. The build writes `dist/sw.js` listing every built file, pictures included, so the whole course is saved on first visit.
 
 ## Writing a lesson
 

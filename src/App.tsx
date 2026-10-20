@@ -1,18 +1,39 @@
 import { useState } from 'react'
 import { buildCheckpoint, checkpointId } from './content/checkpoint'
-import { findLesson, units } from './content'
+import { cards, findLesson, units } from './content'
 import type { Exercise, Lesson } from './content/schema'
 import { LessonPlayer, type LessonOutcome } from './lesson/LessonPlayer'
 import { lessonXp } from './lesson/scoring'
-import { recordLesson } from './progress/store'
+import { dueToday, pickReview } from './progress/review'
+import { getProgress, recordSession, todayKey } from './progress/store'
 import { Home } from './screens/Home'
 import { Results } from './screens/Results'
+import { TimeTravel } from './screens/TimeTravel'
 import { photosUsed } from './photos/used'
 
 type Playing = { id: string; title: string; exercises: Exercise[]; sources: Lesson['sources'] }
-type Screen = { name: 'home' } | { name: 'lesson'; playing: Playing } | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number }
+
+const REVIEW_ID = 'review'
+type Screen = { name: 'home' } | { name: 'timemap' } | { name: 'lesson'; playing: Playing } | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number }
+
+// Today's review: up to ten due questions from the lessons finished so far.
+const buildReview = (): Playing => {
+  const p = getProgress()
+  const picked = pickReview(dueToday(cards.items, p.cards, p.completed, todayKey()))
+  const lessonIds = new Set(picked.map((c) => c.lessonId))
+  return {
+    id: REVIEW_ID,
+    title: 'Daily review',
+    exercises: picked.map((c) => c.exercise),
+    sources: units.flatMap((u) => u.lessons.filter((l) => lessonIds.has(l.id)).flatMap((l) => l.sources)),
+  }
+}
 
 const resolve = (id: string): Playing | undefined => {
+  if (id === REVIEW_ID) {
+    const review = buildReview()
+    return review.exercises.length ? review : undefined
+  }
   const cp = units.find((u) => checkpointId(u) === id)
   if (cp)
     return {
@@ -42,12 +63,22 @@ export default function App() {
         onExit={home}
         onFinish={(outcome) => {
           const xp = lessonXp(outcome.mistakes, outcome.bonuses)
-          recordLesson(playing.id, xp, outcome.mistakes === 0, outcome.places)
+          recordSession({
+            lessonId: playing.id === REVIEW_ID ? undefined : playing.id,
+            xp,
+            perfect: outcome.mistakes === 0,
+            places: outcome.places,
+            answers: outcome.answers.flatMap(([exercise, correct]) => {
+              const card = cards.byExercise.get(exercise)
+              return card ? [[card.id, correct] as [string, boolean]] : []
+            }),
+          })
           setScreen({ name: 'results', playing, outcome, xp })
         }}
       />
     )
   }
+  if (screen.name === 'timemap') return <TimeTravel onBack={home} />
   if (screen.name === 'results') {
     return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} onDone={home} />
   }
@@ -57,6 +88,10 @@ export default function App() {
       onStart={(id) => {
         const playing = resolve(id)
         if (playing) setScreen({ name: 'lesson', playing })
+        window.scrollTo(0, 0)
+      }}
+      onTimeMap={() => {
+        setScreen({ name: 'timemap' })
         window.scrollTo(0, 0)
       }}
     />
