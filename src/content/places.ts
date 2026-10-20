@@ -95,4 +95,8 @@ export const places: Record<string, Place> = {
   doorn: { name: 'Doorn', lat: 52.033, lon: 5.346, note: 'Huis Doorn, where the last German emperor lived in exile' },
   groesbeek: { name: 'Groesbeek', lat: 51.777, lon: 5.936, note: 'The Canadian War Cemetery' },
   eijsden: { name: 'Eijsden', lat: 50.776, lon: 5.708 },
+  'grand-hornu': { name: 'Grand-Hornu', lat: 50.435, lon: 3.838, note: "Colliery and workers' town near Mons, built from 1810 to 1830" },
+  marcinelle: { name: 'Marcinelle', lat: 50.388, lon: 4.444, note: 'The Bois du Cazier colliery, where 262 miners died in 1956' },
+  charleroi: { name: 'Charleroi', lat: 50.411, lon: 4.444 },
+  tervuren: { name: 'Tervuren', lat: 50.823, lon: 4.514, note: 'The AfricaMuseum, opened in 1910 as the Museum of the Belgian Congo' },
 }

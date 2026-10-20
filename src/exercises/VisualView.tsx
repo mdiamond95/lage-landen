@@ -8,8 +8,10 @@ import type { Visual } from '../content/schema'
 import { amsterdamStory } from '../data/amsterdam'
 import { bordersStory } from '../data/borders'
 import { burgundyStory } from '../data/burgundy'
+import { congoStory } from '../data/congo'
 import { deltaStory } from '../data/delta'
 import { empireStory } from '../data/empire'
+import { industryStory } from '../data/industry'
 import { kingdomStory } from '../data/kingdom'
 import { occupationStory } from '../data/occupation'
 import { railsStory } from '../data/rails'
@@ -37,6 +39,8 @@ export const stories = {
   rails: railsStory,
   occupation: occupationStory,
   delta: deltaStory,
+  industry: industryStory,
+  congo: congoStory,
 }
 
 type TimeMapProps = {

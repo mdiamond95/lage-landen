@@ -42,8 +42,8 @@ export type HistSite = Dated & {
   note?: string
   // `voc` and `wic` are the trading posts and forts of the two companies, on the world map.
   // A `camp` is a Nazi camp; a `drop` is where Allied bombers dropped food in 1945.
-  // A `breach` is a gap the sea broke in a dike.
-  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach'
+  // A `breach` is a gap the sea broke in a dike. A `mine` is a colliery, ironworks or mine.
+  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach' | 'mine'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number
@@ -57,7 +57,7 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // Vienna, or a state run under France; on the city map, a town inside its walls;
 // Belgium from 1830, and a grand duchy held by the Dutch king (Luxembourg); in the
 // Second World War, land under German occupation and land liberated; land the sea
-// flooded (1953).
+// flooded (1953); a coalfield.
 export type AreaKind =
   | 'sea'
   | 'ruled'
@@ -74,6 +74,7 @@ export type AreaKind =
   | 'occupied'
   | 'free'
   | 'flooded'
+  | 'coal'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind
@@ -86,8 +87,9 @@ export type TimeStory = {
   // Named in the map's accessible label: "Map of <place> in <year>".
   place: string
   // What the map is drawn on: the Low Countries (the default), the canals of
-  // Amsterdam, the world, or a close-up of the southwest delta with its islands.
-  base?: 'lowlands' | 'amsterdam' | 'world' | 'delta'
+  // Amsterdam, the world, a close-up of the southwest delta with its islands, or
+  // Central Africa, for the Congo.
+  base?: 'lowlands' | 'amsterdam' | 'world' | 'delta' | 'africa'
   // Two corners, [lon, lat], to zoom the map to; the whole Low Countries if left out.
   bounds?: [[number, number], [number, number]]
   min: number

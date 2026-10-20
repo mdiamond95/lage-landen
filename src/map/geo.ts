@@ -22,6 +22,8 @@ export const MAP_H = 680
 export const CITY_H = 560
 // The delta of Zeeland and South Holland is wider than it is tall.
 export const DELTA_H = 470
+// Central Africa, from the Atlantic to the great lakes, is about square.
+export const AFRICA_H = 600
 // The world map is wide and low: from the Americas to Japan, Norway to Tasmania.
 export const WORLD_H = 340
 

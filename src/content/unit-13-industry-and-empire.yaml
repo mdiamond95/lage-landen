@@ -1,0 +1,855 @@
+id: unit-13
+number: 13
+title: Industry and empire
+era: 1835 to today
+summary: In 1835 the first train on the continent runs from Brussels to Mechelen, and the coal country of Wallonia makes Belgium the first industrial nation on the mainland, at a hard price for its miners. King Leopold II takes the Congo as his own colony, and rules it by terror for rubber until Belgium takes it over in 1908. The Belgian Congo is run by the state, the Church and the companies until independence in 1960, and within months its first prime minister, Patrice Lumumba, is murdered. Belgium is still arguing over how to remember it all.
+note: >-
+  Three lessons of this unit tell of Leopold II's Congo Free State, where people were held hostage, mutilated and
+  killed to force them to gather rubber, of forced labour and people put on show in the Belgian Congo, and of the
+  murder of Patrice Lumumba in 1961. They are told plainly, without celebrations, and without the most graphic
+  photographs of the time.
+lessons:
+  - id: u13-l1
+    title: The first trains on the continent
+    icon: train
+    sources:
+      - title: "Wikipedia, Rail transport in Belgium"
+        url: https://en.wikipedia.org/wiki/Rail_transport_in_Belgium
+      - title: "Pasinomie, the railway law of 1 May 1834 (in French)"
+        url: https://beta.unionisme.be/pasinomie/1834/L18340501.pdf
+      - title: "Wikipedia, Ligne 25: Brussels to Mechelen and Antwerp (in French)"
+        url: https://fr.wikipedia.org/wiki/Ligne_25_(Infrabel)
+      - title: "Wikipedia, Le Belge, the first locomotive built in Belgium (in French)"
+        url: https://fr.wikipedia.org/wiki/Le_Belge_(locomotive)
+      - title: "Wikipedia, John Cockerill"
+        url: https://en.wikipedia.org/wiki/John_Cockerill_(industrialist)
+      - title: "Wikipedia, Antwerpen-Centraal railway station"
+        url: https://en.wikipedia.org/wiki/Antwerpen-Centraal_railway_station
+    exercises:
+      - type: story
+        title: 5 May 1835
+        body: >-
+          Five years after the revolution, the new kingdom wanted a way to move goods from the port of Antwerp to
+          Germany without paying the Dutch. Its answer was the railway. On 5 May 1835 three trains left the Allée
+          Verte in Brussels for Mechelen, the first passenger trains on the continent of Europe. Press play to see
+          the network grow.
+        visual: { kind: time-map, map: industry, year: 1835 }
+      - type: who
+        photo: cockerill
+        clues:
+          - I was born in Lancashire, England, in 1790, and came to Verviers as a boy with my father, who built machines for spinning wool.
+          - In 1817 I bought the old summer palace of the prince-bishops of Liège at Seraing, and filled it with furnaces.
+          - The Dutch king William I was my partner, and owned half the works.
+          - In 1835 my works built Le Belge, the first locomotive made in Belgium.
+        options: [John Cockerill, George Stephenson, Ernest Solvay, Henri De Gorge]
+        answer: 0
+        explain: >-
+          John Cockerill. Seraing grew into one of the biggest ironworks in Europe, making engines, rails, ships and
+          locomotives. He died in Warsaw in 1840, on a journey to sell his machines in Russia, and the company still
+          carries his name.
+      - type: choice
+        prompt: Why was the new kingdom in such a hurry to build a railway from Antwerp towards Germany?
+        visual: { kind: photo, photo: first-train-1835 }
+        answer: 1
+        options:
+          - label: The king wanted a fast way to his summer palace
+            why: The lines were planned for trade, not for the court.
+          - label: Its trade to the Rhine had to pass through the Netherlands
+            why: >-
+              Right. The Dutch held the mouth of the Scheldt and the rivers to Germany, and until 1839 they did not
+              even recognise Belgium. A railway from Antwerp over Liège to Prussia went around them.
+          - label: Canals were forbidden by the new constitution
+            why: Belgium kept digging canals too, such as the canal from Charleroi to Brussels.
+          - label: Britain paid for it
+            why: The state paid for its own lines, with money it borrowed.
+      - type: gap
+        prompt: The law of 1 May 1834 planned the state's network. Fill the gap in its first article.
+        quote: There shall be built in the kingdom a system of railways having as its central point ___, and running east to the border of Prussia by Leuven, Liège and Verviers; north to Antwerp; west to Ostend by Dendermonde, Ghent and Bruges; and south to Brussels and towards the borders of France through Hainaut.
+        source: The Belgian railway law of 1 May 1834, article 1 (translated from the French)
+        visual: { kind: photo, photo: rail-medal-1835 }
+        options: [Mechelen, Brussels, Antwerp, Leuven]
+        answer: 0
+        explain: >-
+          Mechelen lies almost halfway between Brussels and Antwerp, on flat land, so four lines could run out of it
+          to the four points of the compass. A medal was struck for the opening of the first line in 1835.
+      - type: pin
+        prompt: Pin Mechelen, the hub of the first state railway.
+        place: mechelen
+        explain: >-
+          Mechelen is between Brussels and Antwerp. The state set up its railway workshops there, and trains are still
+          repaired in Mechelen today.
+      - type: truemyth
+        statement: The engines that pulled the first trains in 1835 were built in Belgium.
+        visual: { kind: photo, photo: le-belge }
+        answer: false
+        explain: >-
+          Myth. The three engines, the Arrow, the Elephant and the Stephenson, were built in England, where the first
+          railways had run ten years before. Le Belge, in this picture, was the first to be built in Belgium, by Cockerill at
+          Seraing, at the end of 1835.
+      - type: scrub
+        prompt: Drag the slider to the first stage when a train could leave Belgium for Prussia.
+        map: industry
+        answer: [1843, 1869]
+        explain: >-
+          On 24 October 1843 the line from Liège over the hills by Verviers reached Aachen, one of the first railways
+          in the world to cross a border. Lines to France, beyond Mons and Kortrijk, had opened the year before.
+      - type: choice
+        prompt: Wipe from 1835 to 1870. Which of these had no railway in 1835, but was joined to Brussels by 1870?
+        visual: { kind: compare, map: industry, years: [1835, 1870] }
+        answer: 0
+        options:
+          - label: Luxembourg
+            why: >-
+              Right. A private company, the Grande Compagnie du Luxembourg, built the line from Brussels through Namur
+              and the Ardennes to Arlon and Luxembourg, finished in 1859.
+          - label: Mechelen
+            why: Mechelen was on the very first line, in 1835.
+          - label: Brussels
+            why: The first train left from Brussels.
+      - type: choice
+        prompt: Antwerp's Central Station opened in 1905, with a great dome over its hall. What is it often called?
+        visual: { kind: photo, photo: antwerp-central-hall }
+        answer: 2
+        options:
+          - label: The glass palace
+            why: That name belongs to other buildings.
+          - label: The king's gate
+            why: Leopold II pushed for the station, but that is not its nickname.
+          - label: The railway cathedral
+            why: >-
+              Right. The architect Louis Delacenserie built it from 1895 to 1905. Under it, tracks now run on three
+              levels, so trains to the Netherlands can pass straight through.
+          - label: The iron church
+            why: Close, but no.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: The railway law, year: 1834, when: '1834' }
+          - { label: The first train, Brussels to Mechelen, year: 1835, when: '1835' }
+          - { label: The line reaches Antwerp, year: 1836, when: '1836' }
+          - { label: The line from Liège reaches Prussia, year: 1843, when: '1843' }
+          - { label: Antwerp Central opens, year: 1905, when: '1905' }
+        explain: >-
+          By 1914 Belgium had one of the densest railway networks on earth, and light railways, the vicinal, ran out
+          to almost every village.
+
+  - id: u13-l2
+    title: Coal country
+    icon: pick
+    sources:
+      - title: "UNESCO, Major Mining Sites of Wallonia"
+        url: https://whc.unesco.org/en/list/1344/
+      - title: "Wikipedia, Grand-Hornu"
+        url: https://en.wikipedia.org/wiki/Grand-Hornu
+      - title: "Wikipedia, Belgian strike of 1886"
+        url: https://en.wikipedia.org/wiki/Belgian_strike_of_1886
+      - title: "Wikipedia, Belgian general strike of 1893"
+        url: https://en.wikipedia.org/wiki/Belgian_general_strike_of_1893
+      - title: "Van Gogh Museum, Van Gogh in the Borinage"
+        url: https://www.vangoghmuseum.nl/en/art-and-stories/vincents-life-1853-1890/early-years
+      - title: "Wikipedia, Constantin Meunier"
+        url: https://en.wikipedia.org/wiki/Constantin_Meunier
+      - title: "Wikipedia, Marcinelle mining disaster"
+        url: https://en.wikipedia.org/wiki/Marcinelle_mining_disaster
+      - title: "Wikipedia, Italian immigration to Belgium"
+        url: https://en.wikipedia.org/wiki/Italian_immigration_to_Belgium
+    exercises:
+      - type: story
+        title: The black country
+        body: >-
+          A seam of coal runs under the south of Belgium, from the Borinage near Mons through Charleroi to Liège.
+          Around it grew collieries, ironworks and glassworks, and by the middle of the 1800s Belgium was the most
+          industrial country on the continent. Men, women and children worked underground for long days and low
+          pay. This is Grand-Hornu, a colliery that came with a whole town for its miners.
+        visual: { kind: photo, photo: grand-hornu }
+      - type: pin
+        prompt: Pin Grand-Hornu, the colliery town near Mons.
+        place: grand-hornu
+        explain: >-
+          Grand-Hornu is in the Borinage, west of Mons. Henri De Gorge built its workshops and hundreds of workers'
+          houses from 1810 to 1830, with gardens, a school and a library. The pits closed in 1954.
+      - type: choice
+        prompt: Mining companies like Bois-du-Luc built whole villages for their workers, with a church, a school, shops and a hospital. What was in it for the company?
+        visual: { kind: photo, photo: bois-du-luc }
+        answer: 1
+        options:
+          - label: The houses were paid for by the state
+            why: The companies built them with their own money.
+          - label: Workers stayed close, stayed on, and could be watched
+            why: >-
+              Right. Skilled miners were hard to find. A house near the pit kept them from leaving, and a man who went
+              on strike could lose his home as well as his job.
+          - label: The law forbade miners to live in towns
+            why: There was no such law.
+          - label: The villages were built for visitors
+            why: They were built for the miners and their families.
+      - type: odd
+        prompt: All four are old collieries, on the UNESCO World Heritage list since 2012. Which is the odd one out, and why?
+        items:
+          - { label: Grand-Hornu, photo: grand-hornu }
+          - { label: Bois-du-Luc, photo: bois-du-luc }
+          - { label: Bois du Cazier, photo: bois-du-cazier }
+          - { label: Blegny, photo: blegny }
+        answer: 3
+        reasons:
+          - It is near Liège; the other three are in Hainaut
+          - It was never a coal mine
+          - It is in the Netherlands
+        reason: 0
+        explain: >-
+          Blegny, northeast of Liège, closed in 1980, the last colliery of its province, and visitors can still go
+          down. Grand-Hornu, Bois-du-Luc and the Bois du Cazier lie along the coal seam in Hainaut, from Mons to
+          Charleroi.
+      - type: truemyth
+        statement: Vincent van Gogh lived among the miners of the Borinage, and it was there that he decided to become an artist.
+        visual: { kind: photo, photo: van-gogh-miners }
+        answer: true
+        explain: >-
+          True. He came in 1879 as a lay preacher, gave away his clothes and slept on straw, and the church dismissed
+          him for it. At Cuesmes, in the summer of 1880, he decided to become an artist. His first drawings were of
+          the miners going to work.
+      - type: choice
+        prompt: The sculptor Constantin Meunier went down into the coal country in the 1880s, and from then on made statues like this hammerer. What was new about them?
+        visual: { kind: photo, photo: meunier-hammerer }
+        answer: 0
+        options:
+          - label: They made heroes of ordinary workers
+            why: >-
+              Right. Statues had shown kings, saints and gods. Meunier gave a puddler, a dock worker and a miner the
+              dignity of an ancient statue, and his works stand in parks and museums across Europe.
+          - label: They were the first statues cast in steel
+            why: They were cast in bronze, as statues had been for centuries.
+          - label: They were made by the miners themselves
+            why: Meunier made them, after drawing the workers he met.
+          - label: They were made for the mine owners' gardens
+            why: Many were bought by the state and by museums.
+      - type: scrub
+        prompt: Drag the slider to the stage when strikes and riots swept the coal country.
+        map: industry
+        answer: [1886, 1913]
+        explain: >-
+          In March 1886 a meeting in Liège turned into strikes that spread to Charleroi. Glassworks were burned, the
+          army fired on crowds, and several dozen people were killed. Parliament's inquiry led to the first laws on
+          child labour and wages.
+      - type: choice
+        prompt: In April 1893 some 200,000 workers went on strike across Belgium. What did they want?
+        visual: { kind: photo, photo: laermans-strike }
+        answer: 2
+        options:
+          - label: An eight-hour day
+            why: That came only in 1921.
+          - label: The end of child labour
+            why: The first limits on child labour had come in 1889.
+          - label: The vote for every man
+            why: >-
+              Right. Until then only about one man in ten could vote. On 18 April parliament gave the vote to every man
+              over 25, but with extra votes for owners and the educated. One man, one vote came in 1919, and women
+              could vote for parliament from 1948.
+          - label: Higher prices for coal
+            why: The strikers were workers, not mine owners.
+      - type: truemyth
+        statement: Most of the 262 miners who died in the fire at the Bois du Cazier, at Marcinelle in 1956, were Belgians.
+        visual: { kind: photo, photo: marcinelle-1956 }
+        answer: false
+        explain: >-
+          Myth. 136 of the dead were Italians, and 95 were Belgians. The others came from ten more countries. A coal
+          wagon sticking out of a lift cage tore through an oil pipe and power cables nearly a kilometre down, and
+          the mine caught fire, on 8 August 1956. King Baudouin,
+          in this picture, came to the pit. Only 13 men came up alive.
+      - type: choice
+        prompt: Why were so many Italians working in Belgian mines in 1956?
+        visual: { kind: photo, photo: marcinelle-memorial }
+        answer: 1
+        options:
+          - label: Belgian law forbade Belgians to work underground
+            why: There was no such law; many Belgians still worked down the mines.
+          - label: Italy sent workers, and Belgium paid in coal
+            why: >-
+              Right. In 1946 the two countries agreed that Italy would send 50,000 miners, and Belgium would sell Italy
+              cheap coal for each one. Many families stayed, and today some 450,000 Belgians have Italian roots.
+          - label: The mines belonged to Italian companies
+            why: They were Belgian companies.
+          - label: They had fled a war
+            why: They came for work, after the Second World War.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Coal lies close under Hainaut and Liège, Belgium becomes the first industrial country on the continent]
+          - [Wages are cut in the slump of the 1880s, The strikes and riots of March 1886]
+          - [The general strike of April 1893, Every man gets a vote]
+          - [Belgium is short of miners after the war, Italy sends workers in exchange for coal]
+        explain: >-
+          Coal made Wallonia rich for more than a century. The last colliery in Belgium closed in 1992, and the old
+          industrial towns are still recovering.
+
+  - id: u13-l3
+    title: Leopold's Congo
+    icon: chain
+    note: >-
+      This lesson tells how people in the Congo Free State were held hostage, mutilated and killed to force them to
+      gather rubber. It does not show the photographs of victims.
+    sources:
+      - title: "Wikipedia, Congo Free State"
+        url: https://en.wikipedia.org/wiki/Congo_Free_State
+      - title: "Wikipedia, Atrocities in the Congo Free State"
+        url: https://en.wikipedia.org/wiki/Atrocities_in_the_Congo_Free_State
+      - title: "Wikipedia, Leopold II of Belgium"
+        url: https://en.wikipedia.org/wiki/Leopold_II_of_Belgium
+      - title: "Wikipedia, Henry Morton Stanley"
+        url: https://en.wikipedia.org/wiki/Henry_Morton_Stanley
+      - title: "Wikipedia, Casement Report"
+        url: https://en.wikipedia.org/wiki/Casement_Report
+      - title: "Wikipedia, Alice Seeley Harris"
+        url: https://en.wikipedia.org/wiki/Alice_Seeley_Harris
+      - title: "Adam Hochschild, King Leopold's Ghost (1998)"
+        url: https://en.wikipedia.org/wiki/King_Leopold%27s_Ghost
+    exercises:
+      - type: story
+        title: A colony of his own
+        body: >-
+          The Congo basin, at the heart of Africa, was home to hundreds of peoples and to old kingdoms such as the
+          Kongo, the Kuba, the Luba and the Lunda. Belgium had no wish for a colony, but its king did. Press play to
+          see what Leopold II made of the Congo.
+        visual: { kind: time-map, map: congo, year: 1876 }
+      - type: who
+        photo: leopold-ii-bassano
+        clues:
+          - I was born in Brussels in 1835, and became king at thirty.
+          - In 1876 I invited explorers to my palace, and said I wanted to bring civilisation to Africa and end the slave trade there.
+          - The great powers let me have a land 76 times the size of my kingdom, as my own property. I never went there.
+          - Its profits paid for arches, parks and galleries in Brussels and Ostend.
+        options: [Leopold II, Leopold I, Albert I, Baudouin]
+        answer: 0
+        explain: >-
+          Leopold II, the second king of the Belgians, who reigned from 1865 to 1909. He called his colony the Congo
+          Free State. It was free only in name.
+      - type: choice
+        prompt: Wipe from 1877 to 1885. Who owns the new state on the map?
+        visual: { kind: compare, map: congo, years: [1877, 1885] }
+        answer: 1
+        options:
+          - label: Belgium
+            why: Belgium's parliament allowed its king to rule it, but it was not Belgium's.
+          - label: King Leopold II himself
+            why: >-
+              Right. From 1 July 1885 the Congo Free State was the king's personal property, accepted by the powers
+              that met in Berlin in 1884 and 1885. Its capital was Boma, near the mouth of the river.
+          - label: The kingdom of Kongo
+            why: The old kingdom's lands were split between the Free State and Portuguese Angola.
+          - label: Britain and France together
+            why: They held colonies around it, but let Leopold have the Congo, as a buffer between them.
+      - type: choice
+        prompt: From 1879 to 1884 the explorer Henry Morton Stanley worked for Leopold in the Congo. What did he do for him?
+        visual: { kind: photo, photo: stanley }
+        answer: 2
+        options:
+          - label: He mapped the river for the British navy
+            why: He was working for the king of the Belgians, not for Britain.
+          - label: He fought the slave traders of Zanzibar
+            why: That came later, and was done by the Free State's army.
+          - label: He built stations and a road, and got chiefs to sign away their land
+            why: >-
+              Right. Stanley built a road around the rapids and posts along the river, and collected hundreds of
+              treaties. Most of the chiefs could not read them, and could not have known that they were giving away
+              their land and their labour.
+          - label: He ran the first railway
+            why: The railway around the rapids opened in 1898.
+      - type: scrub
+        prompt: Drag the slider to a stage when the Free State forced villages to deliver rubber.
+        map: congo
+        answer: [1892, 1907]
+        explain: >-
+          From 1891 and 1892 the state claimed all "vacant" land and everything it produced, and gave huge areas to
+          companies such as ABIR. The bicycle and the car had made rubber precious, and each village had to bring in
+          its quota of wild rubber from the forest.
+      - type: choice
+        prompt: Soldiers of the Force Publique were ordered to account for every bullet they fired, so that none were wasted on hunting. What were they made to bring back?
+        visual: { kind: photo, photo: boma-1899 }
+        answer: 1
+        options:
+          - label: The empty cartridges
+            why: Cartridges were not what officers asked for.
+          - label: The hands of the people they had shot
+            why: >-
+              Right. Soldiers cut off hands as proof, and sometimes from the living too. Women and children were held
+              hostage until the men came back with enough rubber, and villages that fell short were burned.
+          - label: A written report signed by a chief
+            why: Few chiefs could write, and the officers wanted proof they could see.
+          - label: Ivory
+            why: Ivory was traded, but it was not the proof asked for.
+      - type: choice
+        prompt: Historians still argue about how many people died in the Free State, from killings, hunger, flight and disease. Why is it so hard to know?
+        visual: { kind: photo, photo: red-rubber }
+        answer: 0
+        options:
+          - label: No one had counted the people before, and the state's papers were burned
+            why: >-
+              Right. There was no census before 1885, and in 1908 Leopold had the Free State's archives burned. Some
+              historians think the population fell by millions, perhaps by as much as half; others argue for less.
+              Nobody doubts that it was a catastrophe.
+          - label: Belgium has never allowed historians into its archives
+            why: Belgian archives are open; the trouble is that the Free State's own papers were destroyed.
+          - label: The Congo was too big to visit
+            why: Missionaries, officials and traders travelled all over it.
+          - label: Nobody died, so there is nothing to count
+            why: The killings were confirmed by Leopold's own commission in 1905.
+      - type: truemyth
+        statement: Leopold's Congo was mocked in British cartoons while he was still king.
+        visual: { kind: photo, photo: punch-rubber-coils }
+        answer: true
+        explain: >-
+          True. This cartoon, "In the Rubber Coils", appeared in Punch in 1906. It shows a Congolese man caught by a
+          snake with Leopold's head. By then the Free State was a scandal around the world.
+      - type: odd
+        prompt: Three of these people exposed what was happening in the Free State. Which is the odd one out, and why?
+        items:
+          - { label: Roger Casement, photo: casement }
+          - { label: E. D. Morel, photo: morel }
+          - { label: Alice Seeley Harris, photo: alice-seeley-harris }
+          - { label: Henry Morton Stanley, photo: stanley }
+        answer: 3
+        reasons:
+          - He worked for Leopold; the other three campaigned against him
+          - He never went to Africa
+          - He was a Belgian minister
+        reason: 0
+        explain: >-
+          Roger Casement, the British consul, wrote the report of 1904 that confirmed the killings. E. D. Morel, a
+          shipping clerk who noticed that ships came from the Congo full of rubber and went back carrying guns,
+          founded the Congo Reform Association. Alice Seeley Harris photographed the victims, and her pictures were
+          shown at hundreds of meetings in Britain and America.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: Leopold's geographical conference in Brussels, year: 1876, when: '1876' }
+          - { label: The Congo Free State begins, year: 1885, when: '1885' }
+          - { label: The railway around the rapids opens, year: 1898, when: '1898' }
+          - { label: Casement's report, year: 1904, when: '1904' }
+          - { label: Belgium takes over the colony, year: 1908, when: '1908' }
+        explain: >-
+          Twenty-three years of the king's rule. Leopold died a year after he lost the colony, in December 1909,
+          and crowds booed his funeral procession.
+
+  - id: u13-l4
+    title: The Belgian Congo
+    icon: cross
+    note: >-
+      This lesson tells of forced labour in the Belgian Congo, and of Congolese people put on show in Belgium at
+      exhibitions in 1897 and 1958.
+    sources:
+      - title: "Wikipedia, Belgian Congo"
+        url: https://en.wikipedia.org/wiki/Belgian_Congo
+      - title: "Wikipedia, Ruanda-Urundi"
+        url: https://en.wikipedia.org/wiki/Ruanda-Urundi
+      - title: "Wikipedia, East African campaign (World War I)"
+        url: https://en.wikipedia.org/wiki/East_African_campaign_(World_War_I)
+      - title: "Wikipedia, Simon Kimbangu"
+        url: https://en.wikipedia.org/wiki/Simon_Kimbangu
+      - title: "Wikipedia, Shinkolobwe"
+        url: https://en.wikipedia.org/wiki/Shinkolobwe
+      - title: "Wikipedia, Expo 58"
+        url: https://en.wikipedia.org/wiki/Expo_58
+      - title: "Wikipedia, Human zoo"
+        url: https://en.wikipedia.org/wiki/Human_zoo
+      - title: "AfricaMuseum, the colonial exhibition of 1897"
+        url: https://www.africamuseum.be/en/about_us/history_renovation
+    exercises:
+      - type: story
+        title: From the king to the country
+        body: >-
+          In 1908, under pressure from abroad, Belgium took the Congo from its king. Forced rubber collecting was
+          wound down, but the Congolese still had no say in how they were ruled. For fifty years the colony was run
+          by the state, the Catholic missions and the big companies, the "colonial trinity".
+        visual: { kind: time-map, map: congo, year: 1908 }
+      - type: gap
+        prompt: Before he handed over the Congo, Leopold had the Free State's archives burned for eight days. Fill the gap in what he is said to have told an aide.
+        quote: I will give them my Congo, but they have no right to know what I ___ there.
+        source: Leopold II in 1908, as told by his aide Gustave Stinglhamber (translated from the French)
+        visual: { kind: photo, photo: leopold-statue-brussels }
+        options: [did, saw, spent, built]
+        answer: 0
+        explain: >-
+          The furnaces of the Free State offices in Brussels burned for days. Much of what we know comes from the
+          papers of missionaries, consuls and the king's own commission of inquiry.
+      - type: choice
+        prompt: Wipe from 1908 to 1923. What else is Belgium ruling by 1923?
+        visual: { kind: compare, map: congo, years: [1908, 1923] }
+        answer: 2
+        options:
+          - label: Angola
+            why: Angola, to the south, stayed Portuguese until 1975.
+          - label: The French Congo
+            why: The land north of the river stayed French.
+          - label: Ruanda-Urundi, today Rwanda and Burundi
+            why: >-
+              Right. Belgian troops took it from German East Africa in 1916, and the League of Nations gave it to
+              Belgium to run as a mandate. It became Rwanda and Burundi in 1962.
+          - label: Nothing; the map does not change
+            why: Look east of the great lakes.
+      - type: choice
+        prompt: In September 1916 Congolese soldiers of the Force Publique marched into Tabora, after a long campaign in the First World War. Where is Tabora?
+        visual: { kind: photo, photo: tabora-1916 }
+        answer: 1
+        options:
+          - label: In Belgium, near the Yser front
+            why: Congolese soldiers fought in Africa; a few Congolese volunteers fought in Belgium.
+          - label: In German East Africa, today Tanzania
+            why: >-
+              Right. While Belgium itself was occupied, its colonial army beat the Germans in East Africa. Tens of
+              thousands of Congolese carriers were forced to carry its supplies, and thousands of them died.
+          - label: In the Congo, on the river
+            why: It was outside the Congo, to the east of Lake Tanganyika.
+          - label: In South Africa
+            why: Much further north than that.
+      - type: who
+        photo: kimbangu
+        clues:
+          - I was born in the lower Congo in 1887 or 1889, and baptised by Baptist missionaries.
+          - In 1921 crowds came to my village of Nkamba, saying I healed the sick.
+          - The colonial authorities sentenced me to death. King Albert changed it to prison for life.
+          - I died in prison in Élisabethville in 1951. The church named after me now has millions of members.
+        options: [Simon Kimbangu, Patrice Lumumba, Joseph Kasa-Vubu, Paul Panda Farnana]
+        answer: 0
+        explain: >-
+          Simon Kimbangu. He preached for only a few months, but the colony saw an African prophet with a following
+          as a threat, and sent thousands of his followers into exile in other parts of the colony. The Kimbanguist Church is one of the largest
+          churches founded in Africa.
+      - type: sort
+        prompt: The colony was run by a "colonial trinity". Sort each into the state, the missions or the companies.
+        visual: { kind: photo, photo: congo-classroom }
+        groups: [The state, The missions, The companies]
+        items:
+          - { label: The governor-general in Léopoldville, group: 0 }
+          - { label: The Force Publique, group: 0 }
+          - { label: Most of the primary schools, group: 1 }
+          - { label: 'Lovanium, the first university, opened in 1954', group: 1 }
+          - { label: The Union Minière copper mines of Katanga, group: 2 }
+          - { label: The palm oil plantations of Lever, group: 2 }
+        explain: >-
+          The state left most schooling to the Catholic missions, which taught in local languages and kept
+          secondary school for the few. At independence in 1960 only a handful of Congolese had a university degree.
+      - type: choice
+        prompt: Copper made the Union Minière one of the richest companies in the world. In the early years, how did the mines of Katanga find their workers?
+        visual: { kind: photo, photo: kisanga-workers }
+        answer: 3
+        options:
+          - label: They paid more than any job in Europe
+            why: Wages were low, and many workers died of disease in the camps.
+          - label: Workers came from Belgium
+            why: Belgians ran the mines; the miners were Africans.
+          - label: The mines used machines and needed few workers
+            why: The mines needed tens of thousands of men.
+          - label: Recruiters brought in men from far away, often under pressure from chiefs and officials
+            why: >-
+              Right. Men were recruited from across the Congo and from Ruanda-Urundi, like the workers in this picture
+              of the late 1920s. Forced labour, for roads, crops and carrying, went on in the colony until the 1950s.
+      - type: truemyth
+        statement: Most of the uranium for the first American atomic bombs came from a mine in the Belgian Congo.
+        visual: { kind: photo, photo: shinkolobwe }
+        answer: true
+        explain: >-
+          True. The Shinkolobwe mine in Katanga had the richest uranium ore known. In 1940 the head of the Union
+          Minière, Edgar Sengier, had more than a thousand tonnes of it shipped to New York, out of the reach of the
+          Germans, and sold it to the Manhattan Project in 1942.
+      - type: truemyth
+        statement: In 1897 Congolese men, women and children were put on show in a park at Tervuren, near Brussels, and seven of them died there.
+        visual: { kind: photo, photo: tervuren-1897 }
+        answer: true
+        explain: >-
+          True. For the world's fair of 1897 a "Congolese village" was built in the park, and more than a million
+          visitors came to stare. Seven of the Congolese died of cold and illness, and are buried in the churchyard at
+          Tervuren. The exhibition grew into the Museum of the Belgian Congo.
+      - type: choice
+        prompt: At Expo 58 in Brussels the colony had grand pavilions, and again a "Congolese village" with people living in it on show. What happened in July 1958?
+        visual: { kind: photo, photo: expo58-congo }
+        answer: 0
+        options:
+          - label: The Congolese protested at being stared at and insulted, and went home
+            why: >-
+              Right. Visitors threw coins and bananas at them, and some shouted at them as if they were animals. The
+              village was closed. For many Congolese who came to the fair, it was the first time they met Congolese
+              from other regions, and some went home talking of independence.
+          - label: The village won a prize for its architecture
+            why: The village was not admired; it was a scandal.
+          - label: King Baudouin moved into it for a week
+            why: He did not.
+          - label: It was moved to the Congo
+            why: It was simply closed.
+
+  - id: u13-l5
+    title: Independence and Lumumba
+    icon: flag
+    note: >-
+      This lesson ends with the murder of Patrice Lumumba, the Congo's first prime minister, in January 1961.
+    sources:
+      - title: "Wikipedia, Patrice Lumumba"
+        url: https://en.wikipedia.org/wiki/Patrice_Lumumba
+      - title: "Wikipedia, Belgo-Congolese Round Table Conference"
+        url: https://en.wikipedia.org/wiki/Belgo-Congolese_Round_Table_Conference
+      - title: "Wikipedia, Congo Crisis"
+        url: https://en.wikipedia.org/wiki/Congo_Crisis
+      - title: "Wikipedia, Assassination of Patrice Lumumba"
+        url: https://en.wikipedia.org/wiki/Assassination_of_Patrice_Lumumba
+      - title: "Lumumba's speech of 30 June 1960, English translation (Marxists Internet Archive)"
+        url: https://www.marxists.org/subject/africa/lumumba/1960/06/independence.htm
+      - title: "Belgian Chamber of Representatives, the Lumumba inquiry, 2001 (in French and Dutch)"
+        url: https://www.lachambre.be/FLWB/PDF/50/0312/50K0312006.pdf
+    exercises:
+      - type: story
+        title: Dipenda
+        body: >-
+          On 4 January 1959 a banned meeting in Léopoldville turned into riots. The army fired, and officially 49
+          Africans were killed; others put the toll far higher. Nine days later King Baudouin promised independence,
+          "without fatal delay but also without thoughtless haste". It came much faster than anyone in Brussels had
+          planned.
+        visual: { kind: time-map, map: congo, year: 1959 }
+      - type: who
+        photo: lumumba-brussels
+        clues:
+          - I was born in Kasai in 1925, and worked as a postal clerk in Stanleyville.
+          - In 1958 I founded a party for the whole Congo, not for one people or region.
+          - Arrested after riots in 1959, I was let out of prison to fly to the talks in Brussels.
+          - On independence day I answered the king with a speech that shocked Belgium.
+        options: [Patrice Lumumba, Joseph Kasa-Vubu, Moïse Tshombe, Joseph-Désiré Mobutu]
+        answer: 0
+        explain: >-
+          Patrice Lumumba, leader of the Mouvement National Congolais. His party won the most seats in the elections
+          of May 1960, and he became the Congo's first prime minister at 34.
+      - type: choice
+        prompt: At the Round Table in Brussels in January 1960, Belgium and the Congolese leaders fixed the day of independence. How far off was it?
+        visual: { kind: photo, photo: round-table }
+        answer: 1
+        options:
+          - label: Five years
+            why: Belgium had hoped for a slow handover, but the Congolese leaders stood together and refused.
+          - label: Five months, on 30 June 1960
+            why: >-
+              Right. The date was agreed on 27 January 1960. A country of some 14 million people had to hold
+              elections, form a government and take over an army and a civil service run by Belgians, in five months.
+          - label: Five weeks
+            why: Not quite so fast.
+          - label: Thirty years
+            why: A Belgian professor had suggested thirty years in 1955, which now seemed far too long.
+      - type: voices
+        prompt: On 30 June 1960, in Léopoldville, King Baudouin and Patrice Lumumba spoke at the independence ceremony. Read them side by side. On what do they disagree most?
+        voices:
+          - who: King Baudouin
+            when: 30 June 1960, at the Palace of the Nation in Léopoldville (translated from the French)
+            text: >-
+              The independence of the Congo is the crowning of the work conceived by the genius of King Leopold II,
+              undertaken by him with tenacious courage and continued by Belgium with perseverance.
+            photo: baudouin-1960
+          - who: Patrice Lumumba, prime minister
+            when: 30 June 1960, at the same ceremony, unannounced (translated from the French)
+            text: >-
+              No Congolese worthy of the name will ever be able to forget that it was by fighting that it has been won,
+              a day-to-day fight, an ardent and idealistic fight, a fight in which we were spared neither privation nor
+              suffering, and for which we gave our strength and our blood.
+            photo: lumumba-signs
+        options:
+          - Whether independence was a gift from Belgium or won by the Congolese
+          - Whether the Congo should have a king
+          - Whether the capital should stay in Léopoldville
+          - Whether Belgium should keep its soldiers there
+        answer: 0
+        explain: >-
+          The king praised Leopold II and warned the Congolese not to spoil the future with hasty reforms. Lumumba,
+          who was not on the programme, spoke of "the humiliating slavery that was imposed on us by force". Belgian
+          ministers were furious.
+      - type: scrub
+        prompt: Drag the slider to the stage when the Congo became independent and Katanga broke away.
+        map: congo
+        answer: [1960, 1961]
+        explain: >-
+          Within a week of independence the army mutinied against its Belgian officers, and Belgium sent in
+          paratroopers. On 11 July Katanga, the copper province, declared itself independent.
+      - type: choice
+        prompt: Moïse Tshombe led Katanga's breakaway in July 1960. Who backed him?
+        visual: { kind: photo, photo: tshombe }
+        answer: 2
+        options:
+          - label: The United Nations
+            why: The UN sent troops to end the breakaway, which they did in January 1963.
+          - label: Lumumba's government
+            why: Lumumba's government fought to keep Katanga in the Congo.
+          - label: Belgian officers and the Union Minière
+            why: >-
+              Right. Belgian officers trained and led Katanga's army, and the copper company paid its taxes to
+              Tshombe instead of to the government in Léopoldville.
+          - label: The Soviet Union
+            why: Lumumba asked the Soviet Union for help, not Tshombe.
+      - type: choice
+        prompt: In September 1960 the army chief of staff, Joseph-Désiré Mobutu, announced he was "neutralising" the politicians. What became of him?
+        visual: { kind: photo, photo: mobutu-1960 }
+        answer: 1
+        options:
+          - label: He was killed in the fighting
+            why: He lived until 1997.
+          - label: He seized power in 1965 and ruled for 32 years
+            why: >-
+              Right. Backed by the United States and Belgium in the Cold War, Mobutu renamed the country Zaire in 1971
+              and grew immensely rich while it grew poor. He was overthrown in 1997.
+          - label: He went into exile in Belgium
+            why: Not until he was overthrown, decades later; he died in exile in Morocco.
+          - label: He gave power back to Lumumba
+            why: He had Lumumba arrested.
+      - type: truemyth
+        statement: Lumumba was shot in Katanga in January 1961, with Belgian officers present.
+        visual: { kind: time-map, map: congo, year: 1961 }
+        answer: true
+        explain: >-
+          True. Lumumba and two of his ministers, Maurice Mpolo and Joseph Okito, were flown to Katanga and shot on 17
+          January 1961 by a firing squad under a Belgian officer. A Belgian policeman later dug up the bodies and
+          dissolved them in acid. In 2001 an inquiry of the Belgian parliament found that Belgium bore a "moral
+          responsibility" for the murder.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: Lumumba founds the MNC, year: 1958, when: '1958' }
+          - { label: The riots in Léopoldville, year: 1959, when: '1959' }
+          - { label: Independence, year: 1960, when: '1960' }
+          - { label: Lumumba is murdered, year: 1961, when: '1961' }
+          - { label: Mobutu takes power, year: 1965, when: '1965' }
+        explain: >-
+          Seven years from the first national party to a dictatorship that lasted until 1997.
+
+  - id: u13-l6
+    title: Statues, museums and apologies
+    icon: candle
+    sources:
+      - title: "Wikipedia, Equestrian statue of Leopold II, Ostend"
+        url: https://en.wikipedia.org/wiki/Equestrian_statue_of_Leopold_II,_Ostend
+      - title: "Wikipedia, List of statues of Leopold II of Belgium"
+        url: https://en.wikipedia.org/wiki/List_of_statues_of_Leopold_II_of_Belgium
+      - title: "Wikipedia, Royal Museum for Central Africa"
+        url: https://en.wikipedia.org/wiki/Royal_Museum_for_Central_Africa
+      - title: "Brussels Times, Belgium acknowledges its role in the murder of Lumumba (5 February 2002)"
+        url: https://www.brusselstimes.com/belgium-unlocked/363758/today-in-history-belgium-acknowledges-role-in-assassinating-congolese-leader-lumumba
+      - title: "Belga, Lumumba's remains returned: De Croo apologises (20 June 2022)"
+        url: https://www.belganewsagency.eu/lumumbas-remains-returned-belgian-prime-minister-de-croo-apologises
+      - title: "VRT NWS, Belgium returns Mr Lumumba's tooth to Congo (20 June 2022)"
+        url: https://www.vrt.be/vrtnws/en/2022/06/20/belgium-returns-mr-lumumbas-tooth-to-congo/
+    exercises:
+      - type: story
+        title: Everything passes, except the past
+        body: >-
+          For a long time Belgian schoolbooks praised Leopold II as the builder king who brought civilisation to the
+          Congo. Since the 1990s, books, museums and protests have made the country face what happened there. These
+          words hang in the AfricaMuseum at Tervuren.
+        visual: { kind: photo, photo: africamuseum-past }
+      - type: truemyth
+        statement: In 2004 activists sawed off the hand of one of the African figures on Leopold II's statue in Ostend.
+        visual: { kind: photo, photo: leopold-statue-ostend }
+        answer: true
+        explain: >-
+          True. A group calling itself De Stoete Ostendenoare cut off the bronze hand of one of the kneeling Congolese,
+          as a reminder of the hands cut off for rubber. They offered to return it if a truthful sign was put up by the
+          statue. Years later the hand was handed over at the AfricaMuseum.
+      - type: choice
+        prompt: In June 2020 the town of Ekeren, near Antwerp, took down this statue of Leopold II after it was set on fire. What set off the wave of protests against his statues that summer?
+        visual: { kind: photo, photo: leopold-statue-ekeren }
+        answer: 1
+        options:
+          - label: The sixtieth anniversary of independence
+            why: That fell on 30 June 2020, but the protests had started weeks earlier.
+          - label: The murder of George Floyd in the United States, and the Black Lives Matter protests
+            why: >-
+              Right. About 10,000 people marched in Brussels on 7 June 2020. Statues of Leopold II were painted red in
+              Brussels, Ghent and Antwerp, and some were taken down. A petition to remove all of them gathered tens of
+              thousands of names.
+          - label: A new law banning colonial statues
+            why: No such law was passed; each town decided for itself.
+          - label: A visit by the Congolese president
+            why: The protests did not start with a visit.
+      - type: pin
+        prompt: Pin Tervuren, the home of the AfricaMuseum.
+        place: tervuren
+        explain: >-
+          Tervuren is just east of Brussels, where Leopold II built the Palace of the Colonies for the fair of 1897.
+          The museum that grew out of it opened in 1910.
+      - type: choice
+        prompt: The AfricaMuseum at Tervuren reopened in December 2018, after five years of work. What changed most?
+        visual: { kind: photo, photo: africamuseum }
+        answer: 3
+        options:
+          - label: It moved to Kinshasa
+            why: It is still at Tervuren.
+          - label: It now shows only the animals of Africa
+            why: It still shows the history and cultures of Central Africa, as well as its nature.
+          - label: It gave every object back to the Congo
+            why: Returning objects is being discussed, and a few have been returned, but most are still there.
+          - label: It tells the colony's story critically, with African voices
+            why: >-
+              Right. Africans living in Belgium helped make the new displays. The old statues praising the colony, of
+              Belgians bringing civilisation, were moved to a room of their own, with a comment beside them.
+      - type: gap
+        prompt: In 2001 an inquiry found that Belgium bore a moral responsibility for the murder of Lumumba. Fill the gap in what the foreign minister, Louis Michel, then told parliament.
+        quote: The government believes it should offer the family of Patrice Lumumba and the Congolese people its profound and sincere regrets and its ___ for the pain inflicted upon them.
+        source: Louis Michel, foreign minister, in the Chamber of Representatives, 5 February 2002 (translated from the French)
+        visual: { kind: photo, photo: lumumba-mausoleum }
+        options: [apologies, thanks, help, money]
+        answer: 0
+        explain: >-
+          The government went further than the inquiry, saying that members of the Belgian government of the time
+          bore "an irrefutable part of the responsibility". Lumumba's widow, Pauline Opango, watched it on television.
+      - type: voices
+        prompt: Read these side by side. Which of them says sorry?
+        voices:
+          - who: King Philippe
+            when: 30 June 2020, in a letter to the Congolese president, Félix Tshisekedi
+            text: >-
+              I wish to express my deepest regrets for these wounds of the past, the pain of which is today revived by
+              the discrimination still all too present in our societies.
+            photo: philippe
+          - who: King Philippe
+            when: 8 June 2022, in the parliament in Kinshasa
+            text: >-
+              This regime was one of unequal relations, unjustifiable in itself, marked by paternalism, discrimination
+              and racism. It led to violence and humiliation.
+          - who: Alexander De Croo, prime minister
+            when: 20 June 2022, at the Egmont Palace in Brussels, with Lumumba's family
+            text: >-
+              I would like, in the presence of his family, to present in my turn the apologies of the Belgian
+              government.
+        options:
+          - Only the prime minister, for the murder of Lumumba
+          - Only the king, for the whole colonial past
+          - All three of them
+          - None of them
+        answer: 0
+        explain: >-
+          The king expressed regret and condemned the colonial system, but he did not apologise; a formal apology
+          could open the way to claims for damages. De Croo apologised for the Belgian government's part in Lumumba's
+          death, as his own government had in 2002.
+      - type: choice
+        prompt: On 30 June 2022 something was buried in this memorial in Kinshasa, after Belgium handed it to Lumumba's family. What was it?
+        visual: { kind: photo, photo: lumumba-mausoleum }
+        answer: 2
+        options:
+          - label: The flag of independence day
+            why: It was something far more personal.
+          - label: The letter Lumumba wrote to his wife from prison
+            why: That letter is famous, but it was not what Belgium returned.
+          - label: A tooth, all that was left of him
+            why: >-
+              Right. The policeman who destroyed the bodies kept a tooth, and boasted of it decades later. Belgian
+              courts seized it from his daughter, and in 2022 it was handed to Lumumba's children at the Egmont
+              Palace in Brussels, and taken home.
+          - label: His statue from Brussels
+            why: Brussels named a square after him in 2018; nothing was moved from it.
+      - type: choice
+        prompt: In 2020 Belgium's parliament set up a special commission on the colonial past, with historians and witnesses. How did it end, in December 2022?
+        visual: { kind: photo, photo: leopold-statue-brussels }
+        answer: 1
+        options:
+          - label: With a national day of remembrance
+            why: That was proposed, but nothing was agreed.
+          - label: Without agreement, over whether to apologise
+            why: >-
+              Right. After two and a half years of hearings, the parties could not agree on its recommendations,
+              above all on a formal apology, and the commission ended without a report being adopted. The statue of
+              Leopold II on the Place du Trône in Brussels still stands.
+          - label: With all of Leopold's statues taken down
+            why: Most of them are still standing, some with a sign added beside them.
+          - label: With payments to every Congolese family
+            why: No reparations were agreed.
