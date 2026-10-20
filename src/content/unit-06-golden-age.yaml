@@ -140,6 +140,21 @@ lessons:
           - [Windmills saw timber into planks, Dutch shipyards build ships fast]
         explain: >-
           Refugees, trade and clever use of wind and water turned a fishing town into the warehouse of the world.
+      - type: choice
+        prompt: Drag the line to wipe from the walled town of about 1550 to the city of 1700. About how many people lived in the city on the right?
+        visual: { kind: compare, map: amsterdam, years: [1550, 1700] }
+        answer: 1
+        options:
+          - label: '20,000'
+            why: Far more. By 1700 Amsterdam was one of the biggest cities in Europe.
+          - label: '200,000'
+            why: >-
+              Right. Newcomers from Antwerp, Germany, France and Portugal filled the new rings of canals, and the city
+              grew far beyond its old walls.
+          - label: '2,000,000'
+            why: No city in Europe was that big in 1700.
+          - label: '2,000'
+            why: That is the size of a village.
       - type: order
         prompt: Put these in order, oldest first.
         items:

@@ -751,6 +751,21 @@ lessons:
           - [Utrecht and Overijssel, '1528']
           - [Groningen and Drenthe, '1536']
           - [Guelders, '1543']
+      - type: choice
+        prompt: Drag the line to wipe from 1384, when Burgundy held only Flanders, to the Seventeen Provinces of 1549. How did most of these lands come to Burgundy and the Habsburgs?
+        visual: { kind: compare, map: burgundy, years: [1384, 1549] }
+        answer: 0
+        options:
+          - label: By marriage, inheritance and purchase, more than by war
+            why: >-
+              Right. Philip the Good bought Namur, inherited Brabant and Limburg from a cousin, and made his cousin
+              Jacqueline hand over Holland, Zeeland and Hainaut. Charles V took the north-east last, partly by war.
+          - label: By great battles against France
+            why: The wars with France were fought over Burgundy itself and Artois, not most of these lands.
+          - label: By a vote of their towns
+            why: The towns had to swear to each new prince, but they did not choose him.
+          - label: As a gift from the pope
+            why: The pope gave no lands here.
       - type: odd
         prompt: Which painting is the odd one out?
         items:

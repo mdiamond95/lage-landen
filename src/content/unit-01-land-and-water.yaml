@@ -482,6 +482,21 @@ lessons:
         explain: >-
           The last one, the Markerwaard, was never built. The Houtribdijk of 1975 cut off its lake, the
           Markermeer, but the polder was put off and finally dropped. The lake is now a nature and water reserve.
+      - type: choice
+        prompt: Drag the line to wipe from 1916 to 1997. A whole new province has appeared, drained from the old Zuiderzee. Which?
+        visual: { kind: compare, map: water, years: [1916, 1997] }
+        answer: 0
+        options:
+          - label: Flevoland
+            why: >-
+              Right. Its polders were drained in 1957 and 1968, and in 1986 it became the twelfth province, on land
+              that had been sea bed.
+          - label: Zeeland
+            why: Zeeland is centuries old; the Delta Works guard it, in the south-west.
+          - label: Friesland
+            why: Friesland is old land on the north side of the IJsselmeer.
+          - label: North Holland
+            why: North Holland is old land, though the Wieringermeer polder was added to it.
       - type: odd
         prompt: Which of these is the odd one out?
         items:

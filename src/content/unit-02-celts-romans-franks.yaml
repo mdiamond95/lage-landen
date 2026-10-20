@@ -239,6 +239,21 @@ lessons:
         layer: countries
         answer: [DEU]
         explain: Germany. The site follows the Rhine for about 400 km, from the hills south of Bonn to the Dutch coast.
+      - type: choice
+        prompt: Drag the line to wipe from Caesar's war in 57 BCE to 47 CE. What now runs across the Low Countries?
+        visual: { kind: compare, map: roman, years: [-57, 47] }
+        answer: 1
+        options:
+          - label: A wall of stone, like Hadrian's in Britain
+            why: The frontier here was a river with forts along it, not a wall.
+          - label: The frontier of the empire, along the Rhine
+            why: >-
+              Right. In 47 the emperor Claudius ordered his troops back behind the Rhine. Forts and watchtowers lined
+              its south bank, and the Frisians to the north stayed outside the empire.
+          - label: A border along the Scheldt
+            why: The land on both sides of the Scheldt was inside the empire.
+          - label: Nothing; Rome had left
+            why: Rome stayed for another three and a half centuries.
       - type: truemyth
         statement: After their revolt failed, the Batavians never fought for Rome again.
         answer: false

@@ -733,7 +733,7 @@ lessons:
         start: 1810
         answer: [1815, 1815]
         explain: >-
-          1815. William I proclaimed himself king on 16 March 1815, and the Congress of Vienna confirmed it.
+          William I proclaimed himself king on 16 March 1815, and the Congress of Vienna confirmed it.
       - type: who
         photo: young-prince
         clues:
@@ -820,6 +820,21 @@ lessons:
         explain: >-
           In 143 years the Low Countries had gone from the Disaster Year to a single kingdom, and the next unit
           tells how it split again.
+      - type: choice
+        prompt: Drag the line to wipe from the Disaster Year of 1672 to 1815. Which country had lost the southern Netherlands along the way?
+        visual: { kind: compare, map: borders, years: [1672, 1815] }
+        answer: 2
+        options:
+          - label: France
+            why: France ruled the south from 1795 and lost it in 1814, but it had not held it in 1672.
+          - label: Britain
+            why: Britain never ruled the south.
+          - label: Spain
+            why: >-
+              Right. Spain held the south in 1672. It passed to Austria in 1714, to France in 1795, and in 1815 to the
+              new kingdom of William I.
+          - label: Prussia
+            why: Prussia gained only a small corner, around Geldern, in 1713. It fought at Waterloo as an ally.
       - type: order
         prompt: Put these in order, oldest first.
         items:

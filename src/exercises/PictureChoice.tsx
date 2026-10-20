@@ -6,6 +6,15 @@ import { shuffle } from '../lesson/shuffle'
 import type { ExerciseProps } from './types'
 import { VisualView } from './VisualView'
 
+// After a wrong pick the right option's note follows, so it starts with the answer
+// instead of its own "Right.", which would read as praise for the wrong pick.
+// Picture options without a label are marked on screen, so need no name.
+function afterWrong(label: string | undefined, why: string) {
+  const rest = why.replace(/^Right\b[.,:]?\s*/, '')
+  const sentence = `${rest.charAt(0).toUpperCase()}${rest.slice(1)}`
+  return label ? `The answer is "${label}". ${sentence}` : sentence
+}
+
 export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'choice'>>) {
   const order = useMemo(() => shuffle(exercise.options.map((_, i) => i)), [exercise])
   const [picked, setPicked] = useState<number | null>(null)
@@ -17,7 +26,7 @@ export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<Ex
     const correct = i === exercise.answer
     const why = exercise.options[i].why
     const right = exercise.options[exercise.answer]
-    setAnswer(() => ({ correct, detail: correct ? why : `${why} ${right.why}` }))
+    setAnswer(() => ({ correct, detail: correct ? why : `${why} ${afterWrong(right.label, right.why)}` }))
   }
 
   return (
