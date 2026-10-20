@@ -565,3 +565,13 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .key-camp { width: 9px; height: 9px; background: #1d1d1f; border-radius: 1px; }
 .hist-drop rect { fill: #fff; stroke: #2f4f8f; stroke-width: 2; }
 .key-drop { width: 9px; height: 9px; background: #fff; border: 2px solid #2f4f8f; border-radius: 1px; }
+
+/* Unit 12: the southwest delta close up. Land the sea flooded in 1953 is a deep sea
+   blue with a darker edge; dike breaches are small blue squares ringed in red. */
+.delta-map .delta-belgium { stroke: var(--land); stroke-width: 2.5; }
+.delta-map .delta-province { stroke-width: 0.9; }
+.hist-area-flooded { fill: #6f9fcb; fill-opacity: 0.85; stroke: #2f5f8f; stroke-width: 0.8; }
+.hist-area-flooded.hist-area-new { fill: #6f9fcb; stroke: #1f3f66; }
+.key-flooded { width: 12px; height: 10px; background: #6f9fcb; border: 1px solid #2f5f8f; border-radius: 2px; }
+.hist-breach rect { fill: #2f5f8f; stroke: #b3261e; stroke-width: 2; }
+.key-breach { width: 9px; height: 9px; background: #2f5f8f; border: 2px solid #b3261e; border-radius: 1px; }

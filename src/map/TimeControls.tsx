@@ -14,12 +14,15 @@ type Props = {
   note?: string
   // Years the slider snaps between, one notch per stage, instead of every year.
   stops?: number[]
+  // The slider counts months, not years.
+  months?: boolean
   // The map key, as <li> items.
   children: ReactNode
 }
 
 // The caption, year slider, play button and key under a time map.
-export function TimeControls({ event, year, min, max, format, playing, onScrub, onTogglePlay, hideCaption, note, stops, children }: Props) {
+export function TimeControls({ event, year, min, max, format, playing, onScrub, onTogglePlay, hideCaption, note, stops, months, children }: Props) {
+  const unit = months ? 'Month' : 'Year'
   // With stops, the slider's value is the number of the stage on screen.
   const stop = stops ? Math.max(0, stops.findLastIndex((s) => s <= year)) : 0
   return (
@@ -33,7 +36,7 @@ export function TimeControls({ event, year, min, max, format, playing, onScrub, 
         </div>
       )}
       <label className="slider-row">
-        <span>{stops ? `${stop + 1} of ${stops.length}` : 'Year'}</span>
+        <span>{stops ? `${stop + 1} of ${stops.length}` : unit}</span>
         <input
           type="range"
           min={stops ? 0 : min}
@@ -41,7 +44,7 @@ export function TimeControls({ event, year, min, max, format, playing, onScrub, 
           step={1}
           value={stops ? stop : year}
           onChange={(e) => onScrub(stops ? stops[Number(e.target.value)] : Number(e.target.value))}
-          aria-label="Year"
+          aria-label={unit}
           aria-valuetext={format(year)}
         />
         <span className="slider-value">{format(year)}</span>

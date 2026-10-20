@@ -1,7 +1,8 @@
 import { useId, useMemo, type ReactNode } from 'react'
 import { activeAt, eventAt, type FlowTone, type HistArea, type TimeStory } from '../data/timeline'
-import { CITY_H, countries, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, type Frame } from './geo'
+import { CITY_H, countries, DELTA_H, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, type Frame } from './geo'
 import { AmsterdamBase } from './AmsterdamBase'
+import { DeltaBase, deltaProvinces } from './DeltaBase'
 import { LowlandsMap } from './LowlandsMap'
 import { WorldBase } from './WorldBase'
 import { TimeControls } from './TimeControls'
@@ -15,14 +16,15 @@ const regionShapes = [...countries, ...provinces]
 const tones: FlowTone[] = ['asia', 'atlantic', 'enslaved']
 
 // `fresh` marks land that changed hands in the stage on screen, so it stands out.
-// Land split between two sides is hatched in both their colours.
-type AreaProps = { area: HistArea; frame: Frame; uid: string; fresh: false | 'fill' | 'outline' }
+// Land split between two sides is hatched in both their colours. On the delta's own
+// base, provinces come from its detailed coastline.
+type AreaProps = { area: HistArea; frame: Frame; uid: string; fresh: false | 'fill' | 'outline'; delta: boolean }
 
-function Area({ area, frame, uid, fresh }: AreaProps) {
+function Area({ area, frame, uid, fresh, delta }: AreaProps) {
   const cls = `hist-area hist-area-${area.kind ?? 'sea'}${fresh === 'fill' ? ' hist-area-new' : fresh === 'outline' ? ' hist-area-flash' : ''}`
   const style = area.kind === 'contested' ? { fill: `url(#${uid}-hatch)` } : undefined
   if (area.shape) return <path d={polygon(frame, area.shape)} className={cls} style={style} />
-  const shapes = regionShapes.filter((f) => area.regions?.includes(f.properties.id!))
+  const shapes = (delta ? deltaProvinces : regionShapes).filter((f) => area.regions?.includes(f.properties.id!))
   const clipId = `${uid}-${area.name.replace(/\W+/g, '-')}`
   return (
     <>
@@ -78,18 +80,25 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
       story.base === 'world'
         ? makeWorldFrame(story.bounds ?? [[-98, 8], [152, -5], [27, 64], [27, -46]])
         : story.bounds
-          ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : MAP_H)
+          ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : story.base === 'delta' ? DELTA_H : MAP_H)
           : lowlandsFrame,
     [story],
   )
   const { toXY, linePath } = frame
-  const Base = story.base === 'amsterdam' ? AmsterdamBase : story.base === 'world' ? WorldBase : LowlandsBase
+  const Base = story.base === 'amsterdam' ? AmsterdamBase : story.base === 'world' ? WorldBase : story.base === 'delta' ? DeltaBase : LowlandsBase
   const shown = (item: { end?: number }) => item.end === undefined || year <= item.end
   const fresh = highlightFresh && (event.fresh ?? story.fresh ?? 'fill')
   const areas = (story.areas ?? [])
     .filter((a) => activeAt(year, a))
     .map((a) => (
-      <Area key={a.name} area={a} frame={frame} uid={uid} fresh={a.kind !== 'sea' && a.from === event.from && a.from > story.min && fresh} />
+      <Area
+        key={a.name}
+        area={a}
+        frame={frame}
+        uid={uid}
+        delta={story.base === 'delta'}
+        fresh={(a.kind ?? 'sea') !== 'sea' && a.from === event.from && a.from > story.min && fresh}
+      />
     ))
 
   return (
@@ -163,8 +172,8 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
               ) : (
                 <rect x={-4.5} y={-4.5} width={9} height={9} />
               )}
-              {/* A battle's name goes once its stage is over; its grey mark stays. */}
-              {s.label && !(gone && s.kind === 'battle') && (
+              {/* A battle's or a breach's name goes once its stage is over; its grey mark stays. */}
+              {s.label && !(gone && (s.kind === 'battle' || s.kind === 'breach')) && (
                 <text x={s.label === 'left' ? -8 : 8} y={4} textAnchor={s.label === 'left' ? 'end' : 'start'} className="hist-site-label">
                   {s.name}
                 </text>
@@ -199,6 +208,7 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false,
         hideCaption={hideCaption}
         note={story.note}
         stops={snapshots ? starts : undefined}
+        months={story.months}
       >
         {(event.key ?? story.key).map((k) => (
           <li key={k.text}>

@@ -1,4 +1,4 @@
-const paths: Record<string, React.ReactNode> = {
+export const paths: Record<string, React.ReactNode> = {
   logo: <path d="M3 17h18M5 17l3-8 4 4 3-6 4 10" fill="none" strokeLinejoin="round" />,
   flame: <path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-3 2-4 2-7 2 1 3 2 3 4 1-2 0-5 0-7z" fill="currentColor" stroke="none" />,
   star: <path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" fill="currentColor" stroke="none" />,
@@ -42,6 +42,10 @@ const paths: Record<string, React.ReactNode> = {
   chain: <path d="M9.5 14.5 7 17a3 3 0 0 1-4-4l3-3a3 3 0 0 1 4 0M14.5 9.5 17 7a3 3 0 0 1 4 4l-3 3a3 3 0 0 1-4 0M11 6l1-3M13 18l-1 3M6 10.5 4 9M18 13.5l2 1.5" fill="none" strokeLinejoin="round" />,
   quill: <path d="M20 3c-7 1-12 6-13 13l-3 5M7 16c4 0 8-3 9-7M10 13l-3-1" fill="none" strokeLinejoin="round" />,
   lens: <path d="M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM15 15l6 6M7 8a3 3 0 0 1 3-2" fill="none" />,
+  // A candle, for remembrance; a lantern, for hiding in the dark; a flag, for liberation.
+  candle: <path d="M9 21h6M9 21V10h6v11M12 10V8M12 3c-1.5 2-1.5 3.5 0 5 1.5-1.5 1.5-3 0-5z" fill="none" strokeLinejoin="round" />,
+  lantern: <path d="M9 4h6M12 2v2M8 7h8l-1-3H9zM8 7v11h8V7M7 18h10l-1 3H8zM12 10c-1 1.5-1 3 0 4 1-1 1-2.5 0-4z" fill="none" strokeLinejoin="round" />,
+  flag: <path d="M5 21V3M5 4c4-2 7 2 14 0v9c-7 2-10-2-14 0" fill="none" strokeLinejoin="round" />,
 }
 
 export function Icon({ name }: { name: string }) {

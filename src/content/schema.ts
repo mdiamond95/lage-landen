@@ -37,6 +37,8 @@ const ArtVisual = z.object({ kind: z.literal('art'), art: z.enum(artIds) })
 // A real photo or historical map from Wikimedia Commons, credited in src/photos/credits.ts.
 const PhotoVisual = z.object({ kind: z.literal('photo'), photo: z.enum(photoIds) })
 const PolderVisual = z.object({ kind: z.literal('polder-slider') })
+// The Oosterschelde barrier in cross-section: raise the storm surge and the gates come down.
+const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // A map with a year slider, played as an animation: the Zuiderzee and Delta Works,
 // the Roman frontier and roads, the wool and cloth trade, the lands joining
 // Burgundy, the revolt splitting them, Amsterdam growing in the Golden Age, the
@@ -44,8 +46,9 @@ const PolderVisual = z.object({ kind: z.literal('polder-slider') })
 // world, the borders changing from the Disaster Year to Waterloo, or one kingdom
 // splitting in two from 1815 to 1839, or the railways and canals of the Netherlands from
 // 1839 to 1914, or the Low Countries occupied and liberated, May 1940 to May 1945, month
-// by month. `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation'] as const
+// by month, or the southwest delta from the flood of 1953 to the last of the Delta Works.
+// `year` opens it at a given year instead of the start.
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta'] as const
 // The occupation map counts in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
@@ -63,7 +66,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
@@ -78,7 +81,7 @@ const PillarsVisual = z.object({
   only: z.enum(rowIds).optional(),
 })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual])
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
