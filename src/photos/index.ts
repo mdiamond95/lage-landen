@@ -168,6 +168,45 @@ import rubenshuis from './rubenshuis.jpg'
 import schaghenLetter from './schaghen-letter.jpg'
 import secondExpedition from './second-expedition.jpg'
 import selden from './selden.jpg'
+import map1815 from './map-1815.jpg'
+import unificationMedal from './unification-medal.jpg'
+import palaceNation from './palace-nation.jpg'
+import huyCitadel from './huy-citadel.jpg'
+import ghentUniversity1817 from './ghent-university-1817.jpg'
+import cockerillKing from './cockerill-king.jpg'
+import banknote1826 from './banknote-1826.jpg'
+import dePotter from './de-potter.jpg'
+import dePotterPrison from './de-potter-prison.jpg'
+import monnaie1830 from './monnaie-1830.jpg'
+import vanMaanenRuin from './van-maanen-ruin.jpg'
+import dutchEnter1830 from './dutch-enter-1830.jpg'
+import wappersSeptember from './wappers-september.jpg'
+import liegeVolunteers from './liege-volunteers.jpg'
+import provisionalGovernment from './provisional-government.jpg'
+import jenneval from './jenneval.jpg'
+import constitution1831 from './constitution-1831.jpg'
+import congressColumn from './congress-column.jpg'
+import congressLouisPhilippe from './congress-louis-philippe.jpg'
+import surlet from './surlet.jpg'
+import leopoldI from './leopold-i.jpg'
+import charlotteWedding from './charlotte-wedding.jpg'
+import leopoldOath from './leopold-oath.jpg'
+import louiseMarie from './louise-marie.jpg'
+import chasse from './chasse.jpg'
+import boutersem1831 from './boutersem-1831.jpg'
+import vanSpeijk from './van-speijk.jpg'
+import vanSpeijkCabin from './van-speijk-cabin.jpg'
+import hasselt1831 from './hasselt-1831.jpg'
+import leidenJagers from './leiden-jagers.jpg'
+import antwerpBombardment from './antwerp-bombardment.jpg'
+import antwerp1832 from './antwerp-1832.jpg'
+import citadel1832 from './citadel-1832.jpg'
+import separationTreaty from './separation-treaty.jpg'
+import scrapOfPaper from './scrap-of-paper.jpg'
+import baarleBorder from './baarle-border.jpg'
+import moresnetMap from './moresnet-map.jpg'
+import conscience from './conscience.jpg'
+import williamLeaves1840 from './william-leaves-1840.jpg'
 import semperAugustus from './semper-augustus.jpg'
 import silverFleet from './silver-fleet.jpg'
 import slaveryMonument from './slavery-monument.jpg'
@@ -424,6 +463,45 @@ const files: Record<PhotoId, string> = {
   'wellington-goya': wellingtonGoya,
   blucher,
   selden,
+  'map-1815': map1815,
+  'unification-medal': unificationMedal,
+  'palace-nation': palaceNation,
+  'huy-citadel': huyCitadel,
+  'ghent-university-1817': ghentUniversity1817,
+  'cockerill-king': cockerillKing,
+  'banknote-1826': banknote1826,
+  'de-potter': dePotter,
+  'de-potter-prison': dePotterPrison,
+  'monnaie-1830': monnaie1830,
+  'van-maanen-ruin': vanMaanenRuin,
+  'dutch-enter-1830': dutchEnter1830,
+  'wappers-september': wappersSeptember,
+  'liege-volunteers': liegeVolunteers,
+  'provisional-government': provisionalGovernment,
+  jenneval,
+  'constitution-1831': constitution1831,
+  'congress-column': congressColumn,
+  'congress-louis-philippe': congressLouisPhilippe,
+  surlet,
+  'leopold-i': leopoldI,
+  'charlotte-wedding': charlotteWedding,
+  'leopold-oath': leopoldOath,
+  'louise-marie': louiseMarie,
+  chasse,
+  'boutersem-1831': boutersem1831,
+  'van-speijk': vanSpeijk,
+  'van-speijk-cabin': vanSpeijkCabin,
+  'hasselt-1831': hasselt1831,
+  'leiden-jagers': leidenJagers,
+  'antwerp-bombardment': antwerpBombardment,
+  'antwerp-1832': antwerp1832,
+  'citadel-1832': citadel1832,
+  'separation-treaty': separationTreaty,
+  'scrap-of-paper': scrapOfPaper,
+  'baarle-border': baarleBorder,
+  'moresnet-map': moresnetMap,
+  conscience,
+  'william-leaves-1840': williamLeaves1840,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

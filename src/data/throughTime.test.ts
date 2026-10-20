@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 20 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(20)
+  it('has 22 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(22)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -25,5 +25,9 @@ describe('time map through the eras', () => {
     expect(at(1678).some((x) => 'text' in x && x.text === 'KINGDOM OF THE NETHERLANDS')).toBe(false)
     expect(at(1714).some((x) => 'kind' in x && x.kind === 'austria')).toBe(true)
     expect(at(1714).some((x) => 'text' in x && x.text === 'SPANISH NETHERLANDS')).toBe(false)
+    // The kingdom map starts at its first snapshot, 1830, so 1815 is still the border map's.
+    expect(at(1815).some((x) => 'kind' in x && x.kind === 'belgium')).toBe(false)
+    expect(at(1830).some((x) => 'kind' in x && x.kind === 'belgium')).toBe(true)
+    expect(at(1839).some((x) => 'kind' in x && x.kind === 'duchy')).toBe(true)
   })
 })

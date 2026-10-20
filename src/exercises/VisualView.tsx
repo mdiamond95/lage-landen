@@ -7,10 +7,12 @@ import { amsterdamStory } from '../data/amsterdam'
 import { bordersStory } from '../data/borders'
 import { burgundyStory } from '../data/burgundy'
 import { empireStory } from '../data/empire'
+import { kingdomStory } from '../data/kingdom'
 import { revoltStory } from '../data/revolt'
 import { romanStory } from '../data/roman'
 import { spanishStory } from '../data/spanish'
 import { waterStory } from '../data/water'
+import { CompareMap } from '../map/CompareMap'
 import { LowlandsMap } from '../map/LowlandsMap'
 import { TimeMap } from '../map/TimeMap'
 import { TradeMap } from '../map/TradeMap'
@@ -25,6 +27,7 @@ const stories = {
   spanish: spanishStory,
   empire: empireStory,
   borders: bordersStory,
+  kingdom: kingdomStory,
 }
 
 type TimeMapProps = {
@@ -47,6 +50,7 @@ export function VisualView({ visual, label }: { visual: Visual; label: string })
   if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} />
   if (visual.kind === 'family-tree') return <FamilyTree tree={visual.tree} hide={visual.hide} />
   if (visual.kind === 'chart') return <LineChart chart={visual.chart} until={visual.until} />
+  if (visual.kind === 'compare') return <CompareMap story={stories[visual.map]} years={visual.years} />
   return (
     <div className="map-frame">
       <LowlandsMap

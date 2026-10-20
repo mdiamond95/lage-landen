@@ -67,9 +67,10 @@ function LowlandsBase({ areas, children, ...props }: { label: string; frame: Fra
   )
 }
 
-export function TimeMap({ story, start = story.min, onYear, hideCaption = false, snapshots = false }: Props) {
-  const starts = useMemo(() => story.events.map((e) => e.from), [story])
-  const { year, playing, togglePlay, scrub } = usePlayback(starts, story.min, start, onYear)
+// One year of a time map: the base map with the story's areas, labels, lines and
+// sites as they stood that year. `fresh` marks land that changed hands in the stage
+// on screen; a still picture (the before-and-after swipe) leaves it out.
+export function StoryMap({ story, year, highlightFresh = true }: { story: TimeStory; year: number; highlightFresh?: boolean }) {
   const event = eventAt(story.events, year)
   const uid = useId().replace(/:/g, '')
   const frame = useMemo(
@@ -84,7 +85,7 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false,
   const { toXY, linePath } = frame
   const Base = story.base === 'amsterdam' ? AmsterdamBase : story.base === 'world' ? WorldBase : LowlandsBase
   const shown = (item: { end?: number }) => item.end === undefined || year <= item.end
-  const fresh = event.fresh ?? story.fresh ?? 'fill'
+  const fresh = highlightFresh && (event.fresh ?? story.fresh ?? 'fill')
   const areas = (story.areas ?? [])
     .filter((a) => activeAt(year, a))
     .map((a) => (
@@ -92,89 +93,99 @@ export function TimeMap({ story, start = story.min, onYear, hideCaption = false,
     ))
 
   return (
-    <figure className="time-map">
-      <div className="map-frame">
-        <Base label={`Map of ${story.place} in ${story.format(year)}: ${event.title}`} frame={frame} areas={areas}>
-          <defs>
-            <pattern id={`${uid}-hatch`} width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-              <rect width="8" height="8" className="hatch-a" />
-              <rect width="4" height="8" className="hatch-b" />
-            </pattern>
-            <marker id={`${uid}-flow`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
-              <path d="M0 0 10 5 0 10z" className="hist-flow-head" />
+    <Base label={`Map of ${story.place} in ${story.format(year)}: ${event.title}`} frame={frame} areas={areas}>
+      <defs>
+        <pattern id={`${uid}-hatch`} width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="8" height="8" className="hatch-a" />
+          <rect width="4" height="8" className="hatch-b" />
+        </pattern>
+        <marker id={`${uid}-flow`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10z" className="hist-flow-head" />
+        </marker>
+        {story.base === 'world' &&
+          tones.map((t) => (
+            <marker key={t} id={`${uid}-${t}`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+              <path d="M0 0 10 5 0 10z" className={`hist-flow-head hist-head-${t}`} />
             </marker>
-            {story.base === 'world' &&
-              tones.map((t) => (
-                <marker key={t} id={`${uid}-${t}`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
-                  <path d="M0 0 10 5 0 10z" className={`hist-flow-head hist-head-${t}`} />
-                </marker>
-              ))}
-          </defs>
-          {story.labels
-            .filter((l) => activeAt(year, l))
-            .map((l) => {
-              const [x, y] = toXY(l.at)
-              return (
-                <text key={`${l.text}-${l.from}`} x={x} y={y} textAnchor="middle" className={`hist-${l.kind ?? 'people'}`}>
-                  {l.text}
-                </text>
-              )
-            })}
-          {story.lines.map((line) => {
-            if (line.from > year || !shown(line)) return null
-            if (line.kind === 'flow') {
-              if (!activeAt(year, line)) return null
-              const d = linePath(line.coords)
-              const tone = line.tone ? ` hist-flow-${line.tone}` : ''
-              return (
-                <g key={line.name} className="fade-in">
-                  <path d={d} className={`hist-line hist-flow${tone}`} markerEnd={`url(#${uid}-${line.tone ?? 'flow'})`} />
-                  <path d={d} className="trade-flow">
-                    <title>{line.name}</title>
-                  </path>
-                </g>
-              )
-            }
-            // Keyed by state so the draw-in animation replays when a line returns.
-            const gone = !activeAt(year, line)
-            const draw = !gone && line.kind !== 'road'
-            const effect = gone ? 'hist-gone' : draw ? 'draw-in' : 'fade-in'
-            return (
-              <path
-                key={`${line.name}-${effect}`}
-                d={linePath(line.coords)}
-                pathLength={draw ? 1 : undefined}
-                className={`hist-line hist-${line.kind} ${effect}`}
-              >
+          ))}
+      </defs>
+      {story.labels
+        .filter((l) => activeAt(year, l))
+        .map((l) => {
+          const [x, y] = toXY(l.at)
+          return (
+            <text key={`${l.text}-${l.from}`} x={x} y={y} textAnchor="middle" className={`hist-${l.kind ?? 'people'}`}>
+              {l.text}
+            </text>
+          )
+        })}
+      {story.lines.map((line) => {
+        if (line.from > year || !shown(line)) return null
+        if (line.kind === 'flow') {
+          if (!activeAt(year, line)) return null
+          const d = linePath(line.coords)
+          const tone = line.tone ? ` hist-flow-${line.tone}` : ''
+          return (
+            <g key={line.name} className="fade-in">
+              <path d={d} className={`hist-line hist-flow${tone}`} markerEnd={`url(#${uid}-${line.tone ?? 'flow'})`} />
+              <path d={d} className="trade-flow">
                 <title>{line.name}</title>
               </path>
-            )
-          })}
-          {story.sites
-            .filter((s) => s.from <= year && shown(s))
-            .map((s) => {
-              const [x, y] = toXY(s.at)
-              const gone = !activeAt(year, s)
-              return (
-                <g key={`${s.name}-${s.from}`} className={`hist-site hist-${s.kind}${gone ? ' hist-gone' : ''}`} transform={`translate(${x},${y})`}>
-                  {s.kind === 'town' ? (
-                    <circle r={5} />
-                  ) : s.kind === 'battle' ? (
-                    <path d="M0-7 2 -2 7 0 2 2 0 7-2 2-7 0-2-2z" />
-                  ) : (
-                    <rect x={-4.5} y={-4.5} width={9} height={9} />
-                  )}
-                  {/* A battle's name goes once its stage is over; its grey mark stays. */}
-                  {s.label && !(gone && s.kind === 'battle') && (
-                    <text x={s.label === 'left' ? -8 : 8} y={4} textAnchor={s.label === 'left' ? 'end' : 'start'} className="hist-site-label">
-                      {s.name}
-                    </text>
-                  )}
-                  <title>{s.note ? `${s.name} (${s.note})` : s.name}</title>
-                </g>
-              )
-            })}
-        </Base>
+            </g>
+          )
+        }
+        // Keyed by state so the draw-in animation replays when a line returns.
+        const gone = !activeAt(year, line)
+        const draw = !gone && line.kind !== 'road'
+        const effect = gone ? 'hist-gone' : draw ? 'draw-in' : 'fade-in'
+        return (
+          <path
+            key={`${line.name}-${effect}`}
+            d={linePath(line.coords)}
+            pathLength={draw ? 1 : undefined}
+            className={`hist-line hist-${line.kind} ${effect}`}
+          >
+            <title>{line.name}</title>
+          </path>
+        )
+      })}
+      {story.sites
+        .filter((s) => s.from <= year && shown(s))
+        .map((s) => {
+          const [x, y] = toXY(s.at)
+          const gone = !activeAt(year, s)
+          return (
+            <g key={`${s.name}-${s.from}`} className={`hist-site hist-${s.kind}${gone ? ' hist-gone' : ''}`} transform={`translate(${x},${y})`}>
+              {s.kind === 'town' ? (
+                <circle r={5} />
+              ) : s.kind === 'battle' ? (
+                <path d="M0-7 2 -2 7 0 2 2 0 7-2 2-7 0-2-2z" />
+              ) : (
+                <rect x={-4.5} y={-4.5} width={9} height={9} />
+              )}
+              {/* A battle's name goes once its stage is over; its grey mark stays. */}
+              {s.label && !(gone && s.kind === 'battle') && (
+                <text x={s.label === 'left' ? -8 : 8} y={4} textAnchor={s.label === 'left' ? 'end' : 'start'} className="hist-site-label">
+                  {s.name}
+                </text>
+              )}
+              <title>{s.note ? `${s.name} (${s.note})` : s.name}</title>
+            </g>
+          )
+        })}
+    </Base>
+  )
+}
+
+export function TimeMap({ story, start = story.min, onYear, hideCaption = false, snapshots = false }: Props) {
+  const starts = useMemo(() => story.events.map((e) => e.from), [story])
+  const { year, playing, togglePlay, scrub } = usePlayback(starts, story.min, start, onYear)
+  const event = eventAt(story.events, year)
+
+  return (
+    <figure className="time-map">
+      <div className="map-frame">
+        <StoryMap story={story} year={year} />
       </div>
       <TimeControls
         event={event}
