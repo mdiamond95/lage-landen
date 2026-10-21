@@ -23,3 +23,13 @@ export const feastGlyphs = {
   folk: 'M0-8 2-2.5h5.6L3.1 1l1.8 5.5L0 3.2-4.9 6.5-3.1 1-7.6-2.5H-2z',
 } as const
 export type FeastGlyph = keyof typeof feastGlyphs
+
+// The marks of the sports (Unit 23), on the sport time map: a wheel for cycling, a ball for football
+// and korfball, a skate for the ice and a flame for the Olympic Games.
+export const sportGlyphs = {
+  race: 'M0-7.5a7.5 7.5 0 1 0 .01 0zM0-5a5 5 0 1 1-.01 0zM-.9-4.9h1.8V4.9H-.9zM-4.9-.9h9.8V.9h-9.8z',
+  ball: 'M0-7.5a7.5 7.5 0 1 0 .01 0zM0-3.2 3 -1 1.9 2.6h-3.8L-3-1z',
+  ice: 'M-7.5 4.5h13c1.5 0 2.2-1.2 2.2-2.4h-1.8c0 .5-.3.7-.6.7H-7.5zM-5.5 2.6V-6.5h4.5l1.3 4.6 4.2 1.6v2.9z',
+  games: 'M0-8C1.5-4 5-2.5 5 2.2a5 5 0 0 1-10 0C-5-1-3-2.5-3-5c1.4 1 2 2.2 2 3.6C0-3.5.3-5.5 0-8z',
+} as const
+export type SportGlyph = keyof typeof sportGlyphs

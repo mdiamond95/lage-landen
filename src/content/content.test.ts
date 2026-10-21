@@ -36,6 +36,8 @@ import { tonguesStory } from '../data/tongues'
 import { foodStory } from '../data/food'
 import { foodIds, foods } from '../data/foods'
 import { feastStory } from '../data/feastMap'
+import { sportStory } from '../data/sport'
+import { routes as raceRoutes } from '../data/routes'
 import { DAYS, daysOff, feastIds, feasts, spanOf } from '../data/feasts'
 import { dialectIds, dialectPieces, dialects } from '../data/dialects'
 import { allPhrases, phraseSetIds, phraseSets } from '../data/phrases'
@@ -436,6 +438,61 @@ describe('feast time map', () => {
   })
 })
 
+describe('sport time map', () => {
+  const { min, max, events, sites, labels, lines } = sportStory
+  const inFrame = ([lon, lat]: [number, number]) => lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6
+
+  it('puts every mark and label in the frame, each named once', () => {
+    for (const s of sites) expect(inFrame(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+    expect(lines).toHaveLength(0)
+    expect(new Set(sites.map((s) => s.name)).size, 'site names are unique').toBe(sites.length)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
+  })
+})
+
+describe('route maps', () => {
+  it('draw every place and bend inside the frame, and every place is on the route', () => {
+    for (const [id, r] of Object.entries(raceRoutes)) {
+      const [[w, s], [e, n]] = r.bounds!
+      const inside = ([lon, lat]: [number, number]) => lon > w && lon < e && lat > s && lat < n
+      for (const p of Object.values(r.places)) expect(inside(p.at), `${id} ${p.name}`).toBe(true)
+      for (const l of r.labels) expect(inside(l.at), `${id} ${l.text}`).toBe(true)
+      for (const step of r.path) {
+        expect(r.places, `${id} ${step.place}`).toHaveProperty(step.place)
+        for (const v of step.via ?? []) expect(inside(v), `${id} via ${v}`).toBe(true)
+      }
+      expect(new Set(r.path.map((s) => s.place)), `${id} visits every place`).toEqual(new Set(Object.keys(r.places)))
+    }
+  })
+
+  it('count the km one way, in order, and climbs have real gradients', () => {
+    for (const [id, r] of Object.entries(raceRoutes)) {
+      const km = r.path.flatMap((s) => (s.km === undefined ? [] : [s.km]))
+      const sorted = [...km].sort((a, b) => (r.km === 'to-finish' ? b - a : a - b))
+      expect(km, id).toEqual(sorted)
+      for (const p of Object.values(r.places)) {
+        if (!p.climb) continue
+        expect(p.climb.avg, `${id} ${p.name}`).toBeLessThan(p.climb.max)
+        expect(p.climb.max, `${id} ${p.name}`).toBeLessThanOrEqual(25)
+        expect(p.climb.cobbles ?? 0, `${id} ${p.name}`).toBeLessThanOrEqual(p.climb.m)
+      }
+    }
+  })
+})
+
 describe('food time map', () => {
   const { min, max, events, sites, labels, lines } = foodStory
   const inFrame = ([lon, lat]: [number, number]) => lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6
@@ -567,6 +624,7 @@ describe('time maps in lessons', () => {
     tongues: tonguesStory,
     food: foodStory,
     feasts: feastStory,
+    sport: sportStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -594,6 +652,7 @@ describe('time maps in lessons', () => {
     tongues: [tonguesStory.min, tonguesStory.max],
     food: [foodStory.min, foodStory.max],
     feasts: [feastStory.min, feastStory.max],
+    sport: [sportStory.min, sportStory.max],
   }
 
   it('open at years inside their slider', () => {

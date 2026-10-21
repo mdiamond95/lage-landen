@@ -54,7 +54,8 @@ export type HistSite = Dated & {
   // a mark is a `cheese`, `fish`, `sweet` (sweets and baking), `dish` (a dish or vegetable),
   // `brewery` or `distillery`. On the feast map (Unit 22) a mark is a feast of the `church` year, a
   // `saint`'s day, a `carnival`, a `procession` with its giants, a feast of a king or a `nation`, a
-  // day of `memory` (remembrance and freedom), or a `folk` custom.
+  // day of `memory` (remembrance and freedom), or a `folk` custom. On the sport map (Unit 23) a mark is
+  // a cycling `race`, a `ball` game (football and korfball), the `ice` or the Olympic `games`.
   kind:
     | 'fort'
     | 'town'
@@ -92,6 +93,10 @@ export type HistSite = Dated & {
     | 'nation'
     | 'memory'
     | 'folk'
+    | 'race'
+    | 'ball'
+    | 'ice'
+    | 'games'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number

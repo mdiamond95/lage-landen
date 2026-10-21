@@ -439,6 +439,51 @@ export const tours = {
       },
     ],
   },
+  // Unit 23: sport on the ice, in Avercamp's winter of about 1608 (the fallen skater is left for
+  // Unit 17's hunt).
+  'avercamp-ice': {
+    photo: 'avercamp-winter',
+    intro:
+      'Hendrick Avercamp’s Winter Landscape with Ice Skaters, about 1608: a whole village out on the ice, at work and at play, in a hard winter of the Little Ice Age. Tap a number, or start the tour, and zoom in as far as you like.',
+    stops: [
+      {
+        id: 'kolf',
+        title: 'Kolf on the ice',
+        text: 'A man in black swings a club with a heavy head at a small ball: kolf. It was played on the ice and in the streets, aiming at a post or a target, and later on covered courts. Others watch with their clubs ready.',
+        box: [0.45, 0.78, 0.07, 0.085],
+      },
+      {
+        id: 'skates',
+        title: 'Strapping on skates',
+        text: 'At the bottom a skater bends down to tie his skates to his shoes with leather straps. Skates of the time were blocks of wood with an iron blade, curled up at the front.',
+        box: [0.425, 0.925, 0.07, 0.075],
+      },
+      {
+        id: 'sleigh',
+        title: 'A horse sleigh',
+        text: 'The rich glide by in a red sleigh drawn by a horse with plumes on its head, its driver standing behind with a whip. Most people skated, or were pushed on a chair or a sledge.',
+        box: [0.705, 0.73, 0.095, 0.105],
+      },
+      {
+        id: 'couple',
+        title: 'Hand in hand',
+        text: 'A couple skates hand in hand, the woman in a wide skirt, the man in a red doublet. On the ice the young could meet more freely than anywhere else.',
+        box: [0.825, 0.845, 0.07, 0.11],
+      },
+      {
+        id: 'reeds',
+        title: 'Work goes on',
+        text: 'A man carries a great bundle of reeds on his back. In a hard winter the ice was a road: goods went across it faster than by boat or on the muddy lanes.',
+        box: [0.735, 0.9, 0.07, 0.1],
+      },
+      {
+        id: 'hole',
+        title: 'A hole in the ice',
+        text: 'By the houses a man in red stands at a hole cut in the ice, to fetch water or to fish. Holes like this, and weak ice, were a danger to skaters.',
+        box: [0.205, 0.765, 0.07, 0.065],
+      },
+    ],
+  },
 } satisfies Record<string, Tour>
 
 export type TourId = keyof typeof tours

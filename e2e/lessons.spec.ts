@@ -56,6 +56,10 @@ async function answer(page: Page) {
     await page.keyboard.press('ArrowRight')
   } else if (await page.locator('.dialect-pick').count()) {
     await page.locator('.dialect-pick .dialect').first().dispatchEvent('click')
+  } else if (await page.locator('.route-pick').count()) {
+    const need = Number(await page.locator('.route-pick').getAttribute('data-need') ?? '1')
+    const places = page.locator('.route-pick .route-place:not(.is-end)')
+    for (let i = 0; i < need; i++) await places.nth(i).dispatchEvent('click')
   } else if (await page.locator('.chip-pool').count()) {
     while (await page.locator('.chip').count()) await page.locator('.chip').first().click()
   } else {
@@ -474,15 +478,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 43 snapshots from Caesar to the feasts of 2023', async ({ page }) => {
+test('the time map steps through 44 snapshots from Caesar to the feasts of 2023', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('43 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('44 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 43 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 44 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '42')
+  await expect(slider).toHaveAttribute('max', '43')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('About 1100: Hebban olla vogala')
@@ -586,25 +590,30 @@ test('the time map steps through 43 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-village', { hasText: 'Laren' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-workshop')).toHaveCount(1)
 
+  // Sport in 1928: the Games of Antwerp and Amsterdam beside the first races, the modern artists gone.
   await slider.fill('31')
+  await expect(map.locator('.time-map-title')).toHaveText('1928: Amsterdam’s Games')
+  await expect(map.locator('.hist-games')).toHaveCount(2)
+  await expect(map.locator('.hist-workshop')).toHaveCount(0)
+  await slider.fill('32')
   await expect(map.locator('.time-map-title')).toHaveText('May 1940: Five days of war')
   await expect(map.locator('.hist-rail')).toHaveCount(0)
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
 
-  await slider.fill('32')
+  await slider.fill('33')
   await expect(map.locator('.time-map-title')).toHaveText('November 1944: The Scheldt, and the Hunger Winter')
   await expect(map.locator('.hist-area-free').first()).toBeVisible()
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-free')).toHaveCount(1)
 
-  await slider.fill('33')
+  await slider.fill('34')
   await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
   await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(0)
   await expect(map.locator('.hist-grave')).toHaveCount(4)
 
-  await slider.fill('34')
+  await slider.fill('35')
   await expect(map.locator('.time-map-title')).toHaveText('1953: The great flood')
   await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
   await expect(map.locator('.hist-breach')).toHaveCount(4)
@@ -612,20 +621,20 @@ test('the time map steps through 43 snapshots from Caesar to the feasts of 2023'
 
   await expect(map.locator('.hist-area-dutch')).toHaveCount(0)
 
-  await slider.fill('35')
+  await slider.fill('36')
   await expect(map.locator('.time-map-title')).toHaveText('1958: Expo 58 and the Atomium')
   await expect(map.getByText('Atomium', { exact: true })).toBeVisible()
   await expect(map.locator('.key-swatch.key-nouveau')).toHaveCount(1)
   // The Delta Works carry on beside the buildings.
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
 
-  await slider.fill('36')
+  await slider.fill('37')
   await expect(map.locator('.time-map-title')).toHaveText('1963: The language border is fixed')
   await expect(map.locator('.hist-area-german')).toHaveCount(2)
   await expect(map.locator('.key-swatch.key-dutch')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-facility')).toHaveCount(0)
 
-  await slider.fill('37')
+  await slider.fill('38')
   await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
   await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
@@ -633,10 +642,10 @@ test('the time map steps through 43 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-area-bilingual')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-bilingual')).toHaveCount(1)
 
-  await slider.fill('38')
+  await slider.fill('39')
   await expect(map.locator('.time-map-title')).toHaveText('1993: A federal state')
 
-  await slider.fill('39')
+  await slider.fill('40')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
@@ -644,13 +653,13 @@ test('the time map steps through 43 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
 
-  await slider.fill('40')
+  await slider.fill('41')
   await expect(map.locator('.time-map-title')).toHaveText('2012: Brussels-Halle-Vilvoorde is split')
   await expect(map.locator('.hist-dam')).toHaveCount(0)
   await expect(map.locator('.hist-area-french').first()).toBeVisible()
 
   // The food map of Unit 21: every mark at once, unnamed, and the language areas gone.
-  await slider.fill('41')
+  await slider.fill('42')
   await expect(map.locator('.time-map-title')).toHaveText('2016: Belgian beer culture')
   await expect(map.locator('.hist-area-french')).toHaveCount(0)
   await expect(map.locator('.hist-site.hist-brewery')).toHaveCount(6)
@@ -660,7 +669,7 @@ test('the time map steps through 43 snapshots from Caesar to the feasts of 2023'
 
   // The last snapshot is the feast map of Unit 22: its marks unnamed, the food marks gone, the
   // two countries named and the Zwarte Piet debate still open.
-  await slider.fill('42')
+  await slider.fill('43')
   await expect(map.locator('.time-map-title')).toHaveText('2023: An apology on Keti Koti')
   await expect(map.locator('.hist-site.hist-brewery')).toHaveCount(0)
   await expect(map.locator('.hist-site.hist-procession').first()).toBeVisible()
@@ -1973,4 +1982,58 @@ test('a when-is-it question is answered by turning the wheel', async ({ page }) 
   await expect(foot).toContainText('It falls on Easter Sunday')
   await expect(when.locator('.wheel-mark.is-right[data-feast="easter-fires"] .wheel-span')).toHaveCount(1)
   await expect(when.locator('.wheel-hand.is-wrong')).toHaveCount(1)
+})
+
+test('plays all of unit 23 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of ['A country of bicycles', 'The Tour of Flanders', 'The Cannibal and the classics', 'Total Football', 'Two Games and a disaster', 'Ice and the Elfstedentocht']) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 23 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('a route map steps a rider over the climbs, and a ride-the-route question is answered on it', async ({ page }) => {
+  await unlock(page, ['u23-l1'])
+  await page.getByRole('button', { name: 'The Tour of Flanders', exact: true }).click()
+  const route = page.locator('.route-explore')
+  await expect(route.locator('.route-title')).toHaveText('Tour of Flanders, 2025: the last 92 km')
+  await expect(route.locator('.route-stop')).toContainText('Berendries')
+  await expect(route.locator('.route-stop')).toContainText('91.5 km to go')
+  await expect(route.locator('.route-ridden')).toHaveCount(0)
+  // Tap the Koppenberg: the rider jumps there, the route behind turns red, and its card gives the gradient.
+  await route.locator('.route-place[data-place="koppenberg"]').dispatchEvent('click')
+  await expect(route.locator('.route-stop')).toContainText('44.6 km to go')
+  await expect(route.locator('.climb-stats')).toContainText('22%')
+  await expect(route.locator('.route-ridden')).toHaveCount(6)
+  // The Kwaremont is climbed twice: a tap goes to its next ascent.
+  await route.locator('.route-place[data-place="kwaremont"]').dispatchEvent('click')
+  await expect(route.locator('.route-stop')).toContainText('16.7 km to go')
+  await page.getByRole('button', { name: 'On along the route' }).click()
+  await expect(route.locator('.route-stop')).toContainText('Paterberg')
+
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+  const ride = page.locator('.exercise-ride')
+  await expect(ride.locator('.eyebrow')).toHaveText('Ride the route')
+  // Only the finish is named before the answer.
+  await expect(ride.locator('.route-name')).toHaveText(['Oudenaarde'])
+  await ride.locator('.route-place[data-place="paterberg"]').dispatchEvent('click')
+  await ride.locator('.route-place[data-place="kwaremont"]').dispatchEvent('click')
+  await expect(ride.locator('.route-order')).toHaveText(['2', '1'])
+  // Take the Paterberg back, and the Kwaremont after it, then pick them the right way round.
+  await ride.locator('.route-place[data-place="paterberg"]').dispatchEvent('click')
+  await expect(ride.locator('.route-order')).toHaveCount(0)
+  await ride.locator('.route-place[data-place="kwaremont"]').dispatchEvent('click')
+  await ride.locator('.route-place[data-place="paterberg"]').dispatchEvent('click')
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
+  await expect(ride.locator('.route-place.is-right')).toHaveCount(2)
+  await expect(ride.locator('.route-place.is-right .route-name')).toHaveText(['Oude Kwaremont', 'Paterberg'])
 })
