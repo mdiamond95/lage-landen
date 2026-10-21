@@ -454,44 +454,52 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 36 snapshots from Caesar to the federal Belgium of 2012', async ({ page }) => {
+test('the time map steps through 37 snapshots from Caesar to the federal Belgium of 2012', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('36 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('37 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 36 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 37 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '35')
+  await expect(slider).toHaveAttribute('max', '36')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
   await expect(map.locator('.hist-battle')).toHaveCount(1)
   await expect(map.locator('.hist-frontier')).toHaveCount(0)
 
-  await slider.fill('7')
+  await slider.fill('6')
+  await expect(map.locator('.time-map-title')).toHaveText('1520: Dürer comes to see')
+  await expect(map.locator('.hist-flow')).toHaveCount(1)
+  await expect(map.locator('.hist-site.hist-workshop', { hasText: 'Quinten Metsys' })).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-workshop')).toHaveCount(1)
+  // Burgundy's lands stay on behind the painters, with their key.
+  await expect(map.locator('.key-swatch.key-ruled')).toHaveCount(1)
+
+  await slider.fill('8')
   await expect(map.locator('.time-map-title')).toHaveText('1579: Two unions')
   await expect(map.locator('.hist-area-rebel').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-rebel')).toHaveCount(1)
 
-  await slider.fill('10')
+  await slider.fill('11')
   await expect(map.locator('.time-map-title')).toHaveText('1621: Two trading companies')
   await expect(map.locator('.hist-voc')).toHaveCount(6)
   await expect(map.locator('.hist-wic')).toHaveCount(6)
   await expect(map.locator('.key-swatch.key-voc')).toHaveCount(1)
 
-  await slider.fill('14')
+  await slider.fill('15')
   await expect(map.locator('.time-map-title')).toHaveText('1678: The Peace of Nijmegen')
   await expect(map.locator('.hist-voc')).toHaveCount(0)
   await expect(map.locator('.hist-area-france')).not.toHaveCount(0)
   await expect(map.locator('.hist-area-austria')).toHaveCount(0)
 
-  await slider.fill('15')
+  await slider.fill('16')
   await expect(map.locator('.time-map-title')).toHaveText('1714: The Austrian Netherlands')
   await expect(map.locator('.hist-area-austria').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-austria')).toHaveCount(1)
 
-  await slider.fill('18')
+  await slider.fill('19')
   await expect(map.locator('.time-map-title')).toHaveText('1815: Waterloo and a new kingdom')
   await expect(map.locator('.hist-area-austria')).toHaveCount(0)
   await expect(map.locator('.hist-area-sister')).toHaveCount(0)
@@ -499,23 +507,23 @@ test('the time map steps through 36 snapshots from Caesar to the federal Belgium
 
   await expect(map.locator('.hist-area-belgium')).toHaveCount(0)
 
-  await slider.fill('19')
+  await slider.fill('20')
   await expect(map.locator('.time-map-title')).toHaveText('1830: Revolution in Brussels')
   await expect(map.locator('.hist-area-belgium').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-belgium')).toHaveCount(1)
 
-  await slider.fill('20')
+  await slider.fill('21')
   await expect(map.locator('.time-map-title')).toHaveText('1839: The Treaty of London')
   await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
 
-  await slider.fill('21')
+  await slider.fill('22')
   await expect(map.locator('.time-map-title')).toHaveText('1843: To France and Prussia')
   await expect(map.locator('.hist-area-coal')).toHaveCount(1)
   await expect(map.locator('.hist-mine').first()).toBeVisible()
   await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-coal')).toHaveCount(1)
 
-  await slider.fill('22')
+  await slider.fill('23')
   await expect(map.locator('.time-map-title')).toHaveText('1856: Trains to Germany')
   await expect(map.locator('.hist-area-coal')).toHaveCount(0)
   // Only Limburg's old Domaniale mine; Belgium's collieries belong to the 1843 map.
@@ -524,35 +532,35 @@ test('the time map steps through 36 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.key-swatch.key-rail')).toHaveCount(1)
   await expect(map.locator('.hist-fort', { hasText: 'Maastricht' })).toHaveCount(0)
 
-  await slider.fill('24')
+  await slider.fill('25')
   await expect(map.locator('.time-map-title')).toHaveText('1890: Luxembourg goes its own way')
   await expect(map.locator('.hist-area-duchy')).toHaveCount(0)
 
-  await slider.fill('26')
+  await slider.fill('27')
   await expect(map.locator('.time-map-title')).toHaveText('1915: An occupied country')
   await expect(map.locator('.hist-front')).toHaveCount(1)
   await expect(map.locator('.hist-line.hist-barrier')).toHaveCount(1)
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
 
-  await slider.fill('27')
+  await slider.fill('28')
   await expect(map.locator('.time-map-title')).toHaveText('May 1940: Five days of war')
   await expect(map.locator('.hist-rail')).toHaveCount(0)
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
 
-  await slider.fill('28')
+  await slider.fill('29')
   await expect(map.locator('.time-map-title')).toHaveText('November 1944: The Scheldt, and the Hunger Winter')
   await expect(map.locator('.hist-area-free').first()).toBeVisible()
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-free')).toHaveCount(1)
 
-  await slider.fill('29')
+  await slider.fill('30')
   await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
   await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(0)
   await expect(map.locator('.hist-grave')).toHaveCount(4)
 
-  await slider.fill('30')
+  await slider.fill('31')
   await expect(map.locator('.time-map-title')).toHaveText('1953: The great flood')
   await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
   await expect(map.locator('.hist-breach')).toHaveCount(4)
@@ -560,13 +568,13 @@ test('the time map steps through 36 snapshots from Caesar to the federal Belgium
 
   await expect(map.locator('.hist-area-dutch')).toHaveCount(0)
 
-  await slider.fill('31')
+  await slider.fill('32')
   await expect(map.locator('.time-map-title')).toHaveText('1963: The language border is fixed')
   await expect(map.locator('.hist-area-german')).toHaveCount(2)
   await expect(map.locator('.key-swatch.key-dutch')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-facility')).toHaveCount(0)
 
-  await slider.fill('32')
+  await slider.fill('33')
   await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
   await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
@@ -574,10 +582,10 @@ test('the time map steps through 36 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.hist-area-bilingual')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-bilingual')).toHaveCount(1)
 
-  await slider.fill('33')
+  await slider.fill('34')
   await expect(map.locator('.time-map-title')).toHaveText('1993: A federal state')
 
-  await slider.fill('34')
+  await slider.fill('35')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
@@ -585,7 +593,7 @@ test('the time map steps through 36 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
 
-  await slider.fill('35')
+  await slider.fill('36')
   await expect(map.locator('.time-map-title')).toHaveText('2012: Brussels-Halle-Vilvoorde is split')
   await expect(map.locator('.hist-dam')).toHaveCount(0)
   await expect(map.locator('.hist-area-french').first()).toBeVisible()
@@ -1306,4 +1314,83 @@ test('the diagram of regions and communities says who runs what, and shares Brus
   const regions = diagram.locator('.federal-panel').first()
   await regions.getByRole('button', { name: 'Walloon Region' }).click()
   await expect(regions.locator('.federal-runs')).toContainText('Parliament in Namur')
+})
+
+test('plays all of unit 16 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'The Ghent Altarpiece up close',
+    'Tournai, Brussels and Leuven',
+    'Bruges, market for masterpieces',
+    "Bosch's dreams and nightmares",
+    'Antwerp, the art market of Europe',
+    "Bruegel's world",
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 16 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('a painting tour glides from detail to detail, and a question opens on one detail', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'The Ghent Altarpiece up close', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  const panel = page.locator('.tour-panel')
+
+  await expect(page.locator('.tour-marker')).toHaveCount(7)
+  await expect(page.locator('.zoom-frame.is-zoomed')).toHaveCount(0)
+  await panel.getByRole('button', { name: 'Start the tour' }).click()
+  await expect(panel.locator('.tour-title')).toHaveText('1. The king of heaven')
+  await expect(page.locator('.zoom-frame.is-zoomed')).toBeVisible()
+  await panel.getByRole('button', { name: 'Back' }).click()
+  await expect(panel.locator('.tour-title')).toHaveCount(0)
+  await expect(page.locator('.zoom-frame.is-zoomed')).toHaveCount(0)
+
+  // A number tapped on the whole painting glides to its detail.
+  await page.getByRole('button', { name: 'Detail 5: The Lamb on the altar' }).click()
+  await expect(panel.locator('.tour-title')).toHaveText('5. The Lamb on the altar')
+  await panel.getByRole('button', { name: 'Next detail' }).click()
+  await panel.getByRole('button', { name: 'Next detail' }).click()
+  await expect(panel.locator('.tour-title')).toHaveText('7. The Just Judges, a copy')
+  await panel.getByRole('button', { name: 'Whole painting' }).click()
+  await expect(panel.locator('.tour-title')).toHaveCount(0)
+  await expect(page.locator('.zoom-frame.is-zoomed')).toHaveCount(0)
+  await foot.getByRole('button', { name: 'Continue' }).click()
+
+  // The question opens zoomed in on the lamb, without the numbers that would name it.
+  await expect(page.locator('.tour-marker')).toHaveCount(0)
+  await expect(page.locator('.zoom-frame.is-zoomed')).toBeVisible()
+  await expect(page.locator('.tour .hint')).toBeVisible()
+  await page.getByRole('button', { name: 'Whole picture' }).click()
+  await expect(page.locator('.zoom-frame.is-zoomed')).toHaveCount(0)
+})
+
+test("the painters' map follows the workshops from Bruges to Antwerp, and Dürer's journey", async ({ page }) => {
+  await unlock(page, ['u16-l1', 'u16-l2', 'u16-l3', 'u16-l4'])
+  await page.getByRole('button', { name: 'Antwerp, the art market of Europe', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.time-map-title')).toHaveText('1491: Metsys in Antwerp')
+  await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'Hans Memling' })).toHaveCount(1)
+
+  await year.fill('1520')
+  await expect(map.locator('.time-map-title')).toHaveText('1520: Dürer comes to see')
+  await expect(map.locator('.hist-flow')).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-flow')).toHaveCount(1)
+
+  await year.fill('1566')
+  await expect(map.locator('.time-map-title')).toHaveText('1566: The Iconoclastic Fury')
+  await expect(map.locator('.hist-alert', { hasText: 'ICONOCLASTIC FURY' })).toHaveCount(1)
+  await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'Pieter Bruegel' })).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-market')).toHaveCount(1)
 })

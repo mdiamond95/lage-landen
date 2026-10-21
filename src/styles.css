@@ -363,7 +363,7 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 
 /* Zoomable pictures: paintings and detail hunts */
 .zoom { display: grid; gap: 6px; }
-.zoom-frame { position: relative; border: 2px solid var(--line); border-radius: 16px; overflow: hidden; touch-action: pan-y; background: var(--card); }
+.zoom-frame { position: relative; border: 2px solid var(--line); border-radius: 16px; overflow: hidden; overflow: clip; touch-action: pan-y; background: var(--card); }
 .zoom-frame.is-zoomed { touch-action: none; cursor: grab; }
 .hunt-live .zoom-frame.is-zoomed { cursor: crosshair; }
 .zoom-inner { position: relative; transform-origin: 0 0; transition: transform 0.15s ease-out; }
@@ -596,6 +596,11 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .hist-memorial path { fill: #c8102e; stroke: #fff; stroke-width: 1.2; }
 .key-memorial { width: 8px; height: 10px; background: #c8102e; clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%); }
 .westhoek-map .hist-site-label { font-size: 12px; }
+/* Unit 16: painters' workshops (a palette) and art markets (a stall) */
+.hist-workshop path { fill: #2f5aa8; stroke: #fff; stroke-width: 1.4; }
+.key-workshop { width: 11px; height: 9px; background: #2f5aa8; border-radius: 50% 50% 45% 45%; }
+.hist-market path { fill: #c99a1e; stroke: #3b2a07; stroke-width: 1.2; }
+.key-market { width: 9px; height: 10px; background: #c99a1e; clip-path: polygon(50% 0, 100% 35%, 100% 100%, 0 100%, 0 35%); }
 
 /* Unit 15: Belgium's languages. Dutch is yellow, French red, German green and the
    bilingual capital blue; Dutch-speaking towns that must also serve French speakers
@@ -638,3 +643,14 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .federal-button.federal-german { background: #dcebd1; }
 .federal-button.federal-bilingual { background: #d4e1f4; }
 .federal-runs { margin: 0; font-size: 0.82rem; min-height: 2.6em; }
+/* Painting tours (Unit 16): numbered details that keep their size as the painting zooms */
+.tour-marker { position: absolute; width: 28px; height: 28px; margin: 0; padding: 0; border-radius: 50%; border: 2px solid #fff; background: var(--ink); color: #fff; font-weight: 900; font-size: 0.85rem; line-height: 1; cursor: pointer; box-shadow: 0 1px 4px rgb(0 0 0 / 0.45); transform: translate(-50%, -50%) scale(calc(1 / var(--zoom, 1))); }
+/* The detail on show is named in the panel below, so its number fades out once the
+   painting has glided there, rather than sit on top of it. */
+.tour-marker.is-active { background: var(--orange); opacity: 0; pointer-events: none; transition: opacity 0.3s 0.6s; }
+.zoom-frame .zoom-inner.is-flying { transition: transform 0.7s ease-in-out; }
+.tour-panel { display: grid; gap: 6px; border: 2px solid var(--line); border-radius: 12px; background: var(--card); padding: 10px 12px; }
+.tour-title { margin: 0; font-weight: 900; }
+.tour-text { margin: 0; font-size: 0.92rem; line-height: 1.4; }
+.tour-nav { display: flex; gap: 8px; justify-content: flex-end; }
+.tour-next { background: var(--ink); color: #fff; border-color: var(--ink); }

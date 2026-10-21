@@ -465,9 +465,9 @@ lessons:
         body: >-
           In the Republic, painters sold to merchants, guilds and town halls rather than to kings and bishops.
           Militia companies, Amsterdam's citizen guards, paid to be painted together. In 1642 Rembrandt finished the
-          biggest of these group portraits, for the company of Captain Frans Banninck Cocq. Zoom in with the + button,
-          or pinch, to look closer.
-        visual: { kind: photo, photo: night-watch }
+          biggest of these group portraits, for the company of Captain Frans Banninck Cocq. Take the tour, or zoom in
+          with the + button, or pinch, to look closer.
+        visual: { kind: painting, painting: night-watch }
       - type: hunt
         prompt: A girl in a golden dress glows among the militiamen, with a dead chicken hanging from her belt. Find her.
         photo: night-watch

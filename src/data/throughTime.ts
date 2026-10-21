@@ -1,14 +1,15 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 36 snapshots, from Caesar's conquest to the federal Belgium of 2012. Each era's lines,
-// sites, labels and areas come from the unit maps (Roman, Burgundy, revolt, the
+// through 37 snapshots, from Caesar's conquest to the federal Belgium of 2012. Each era's lines,
+// sites, labels and areas come from the unit maps (Roman, Burgundy, the painters' workshops, revolt, the
 // Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
 // Belgium's first railways and coal country, the railways and canals of 1839 to 1914,
 // Belgium's front of 1914 to 1918, the war of 1940 to 1945, water and the flood of 1953,
 // Belgium's language areas from 1963), and stay on the map only from the era's first
 // snapshot to its end, so one era never bleeds into another. The Delta Works and the
-// language areas share the years 1963 to 1997, so those snapshots show both keys.
+// language areas share the years 1963 to 1997, so those snapshots show both keys, and
+// so do Burgundy and the painters in 1520 and 1549.
 // The plan's full time map runs to today with about 40 snapshots; this is the first
-// 36, for Units 1 to 15.
+// 37, for Units 1 to 16.
 
 import { bordersStory } from './borders'
 import { burgundyStory } from './burgundy'
@@ -17,6 +18,7 @@ import { industryStory } from './industry'
 import { kingdomStory } from './kingdom'
 import { languageByYear } from './language'
 import { occupationByYear } from './occupation'
+import { paintersStory } from './painters'
 import { railsStory } from './rails'
 import { revoltStory } from './revolt'
 import { romanStory } from './roman'
@@ -126,7 +128,8 @@ const snapshots: Snapshot[] = [
   { story: medievalStory, from: 1302 },
   { story: burgundyStory, from: 1384 },
   { story: burgundyStory, from: 1477 },
-  { story: burgundyStory, from: 1549 },
+  { story: paintersStory, from: 1520, also: burgundyStory },
+  { story: burgundyStory, from: 1549, also: paintersStory },
   { story: revoltStory, from: 1579 },
   { story: revoltStory, from: 1585 },
   { story: revoltStory, from: 1609 },

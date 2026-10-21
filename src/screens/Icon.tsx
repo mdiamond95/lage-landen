@@ -62,6 +62,12 @@ export const paths: Record<string, React.ReactNode> = {
   signpost: <path d="M12 3v18M8 21h8M5 6h11l3 2.5-3 2.5H5zM19 13H8l-3 2.5L8 18h11z" fill="none" strokeLinejoin="round" />,
   megaphone: <path d="M3 10v4h3l9 5V5L6 10zM6 14l1.5 6h3L9 15M18 9c1.5 1 1.5 5 0 6M20 7c3 2.5 3 7.5 0 10" fill="none" strokeLinejoin="round" />,
   layers: <path d="m12 3 9 4.5-9 4.5-9-4.5zM3 12l9 4.5 9-4.5M3 16.5 12 21l9-4.5" fill="none" strokeLinejoin="round" />,
+  altarpiece: <path d="M4 7h5v13H4zM9 4h6v16H9zM15 7h5v13h-5zM12 8v5M10 10h4" fill="none" strokeLinejoin="round" />,
+  tear: <path d="M12 3c3 5 6 8 6 12a6 6 0 0 1-12 0c0-4 3-7 6-12zM9.5 15a2.5 2.5 0 0 0 2.5 2.5" fill="none" strokeLinejoin="round" />,
+  scales: <path d="M12 3v17M8 20h8M5 6h14M5 6l-3 7a3 3 0 0 0 6 0zM19 6l-3 7a3 3 0 0 0 6 0z" fill="none" strokeLinejoin="round" />,
+  owl: <path d="M6 4l2 3h8l2-3v10a6 6 0 0 1-12 0zM9.5 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM14.5 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM12 13v2M9 21l1-1.5M15 21l-1-1.5" fill="none" strokeLinejoin="round" />,
+  easel: <path d="M5 4h14v10H5zM12 2v2M8 14l-3 7M16 14l3 7M12 14v5" fill="none" strokeLinejoin="round" />,
+  skate: <path d="M6 4h5v8l7 2a2 2 0 0 1 1 2H6zM4 19h15a2 2 0 0 0 2-2M8 16v3M16 16v3" fill="none" strokeLinejoin="round" />,
   atom: (
     <>
       <circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none" />
