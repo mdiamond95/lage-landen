@@ -1,21 +1,22 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 43 snapshots, from Caesar's conquest to the feast map of 2023. Each era's lines,
+// through 44 snapshots, from Caesar's conquest to the feast map of 2023. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, the languages of about 1100, Burgundy, the painters' workshops, revolt,
 // the Golden Age painters, the Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
 // Belgium's first railways and coal country, the railways and canals of 1839 to 1914,
-// Belgium's front of 1914 to 1918, the modern artists, the war of 1940 to 1945, water and the flood of 1953,
+// Belgium's front of 1914 to 1918, the modern artists, the sport of 1928, the war of 1940 to 1945, water and the flood of 1953,
 // the buildings of Expo 58, Belgium's language areas from 1963, the food map of 2016, the feast map of 2023), and stay on the map only from the era's first
 // snapshot to its end, so one era never bleeds into another. The Delta Works and the
 // language areas share the years 1963 to 1997, so those snapshots show both keys, and
 // so do Burgundy and the painters in 1520 and 1549, and the revolt and the Golden Age painters
 // in 1642, and the buildings and the water works in 1958.
-// The plan's full time map runs to today with about 40 snapshots; these are the 43 of
-// Units 1 to 21.
+// The plan's full time map runs to today with about 40 snapshots; these are the 44 of
+// Units 1 to 23.
 
 import { bordersStory } from './borders'
 import { buildingsStory } from './buildings'
 import { foodStory } from './food'
 import { feastStory } from './feastMap'
+import { sportStory } from './sport'
 import { burgundyStory } from './burgundy'
 import { greatWarByYear } from './greatwar'
 import { industryStory } from './industry'
@@ -130,8 +131,13 @@ const earlyRailsStory: TimeStory = {
 const goldenAgeStory: TimeStory = { ...mastersStory, max: 1647, labels: mastersStory.labels.filter((l) => l.kind !== 'territory') }
 
 // The modern artists (Unit 18) in 1917, the year of De Stijl. Their map runs on to 1973,
-// but here it ends before the war of 1940, and keeps only the country names of its labels.
-const modernArtStory: TimeStory = { ...modernsStory, max: 1939, labels: modernsStory.labels.filter((l) => l.kind === 'territory') }
+// but here it ends before the Games of 1928, and keeps only the country names of its labels.
+const modernArtStory: TimeStory = { ...modernsStory, max: 1927, labels: modernsStory.labels.filter((l) => l.kind === 'territory') }
+
+// Sport (Unit 23) in 1928, the year of the Amsterdam Olympics: the first races, the Elfstedentocht,
+// korfball and the Games of Antwerp and Amsterdam, gone again before the war of 1940. The unit's
+// own map runs on to 2017.
+const sportThenStory: TimeStory = { ...sportStory, max: 1939, labels: sportStory.labels.filter((l) => l.kind === 'territory' || l.kind === 'water') }
 
 // The buildings of the century (Unit 19) in 1958, the year of Expo 58: Art Nouveau and modern
 // buildings from 1893 on, gone again before the language border of 1963. The older buildings
@@ -203,6 +209,7 @@ const snapshots: Snapshot[] = [
   { story: railsStory, from: 1914 },
   { story: greatWarByYear, from: 1915 },
   { story: modernArtStory, from: 1917 },
+  { story: sportThenStory, from: 1928 },
   { story: occupationByYear, from: 1940 },
   { story: occupationByYear, from: 1944 },
   { story: occupationByYear, from: 1945 },

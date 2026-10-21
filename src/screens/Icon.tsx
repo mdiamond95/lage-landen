@@ -129,6 +129,13 @@ export const paths: Record<string, React.ReactNode> = {
   calendar: <path d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5M8 14h2M14 14h2M8 17h2" fill="none" strokeLinejoin="round" />,
   mitre: <path d="M6 21h12V9l-6-6-6 6zM12 7v10M9 12h6M6 9l6 3 6-3" fill="none" strokeLinejoin="round" />,
   giant: <path d="M12 2.5a2.5 2.5 0 1 0 .01 0zM9 8h6l3 13H6zM9 8 5 13M15 8l4 5M10 21v-5M14 21v-5" fill="none" strokeLinejoin="round" />,
+  // Unit 23: a bicycle; cobbles on a hill, for the Tour of Flanders; a rider's jersey, for Merckx;
+  // a football; the Olympic torch. The ice lesson takes the skate.
+  bicycle: <path d="M6 13a4 4 0 1 0 .01 0zM18 13a4 4 0 1 0 .01 0zM6 17l4-7h6l2 7M10 10l2 7 4-7M14 6h3" fill="none" strokeLinejoin="round" />,
+  cobbles: <path d="M2 20 22 8M5 21h4v-2H5zM11 21h4v-2h-4zM17 21h4v-2h-4zM8 17h4v-2H8zM14 17h4v-2h-4zM17 13h4v-2h-4z" fill="none" strokeLinejoin="round" />,
+  jersey: <path d="M9 3 4 6l2 4 2-1v12h8V9l2 1 2-4-5-3a3 3 0 0 1-6 0z" fill="none" strokeLinejoin="round" />,
+  ball: <path d="M12 3a9 9 0 1 0 .01 0zM12 8l3.5 2.5-1.3 4h-4.4l-1.3-4zM12 3v5M15.5 10.5l5-1.5M14.2 14.5l3 4M9.8 14.5l-3 4M8.5 10.5l-5-1.5" fill="none" strokeLinejoin="round" />,
+  torch: <path d="M9 10h6l-2 11h-2zM12 2c1 2 3 3 3 5a3 3 0 0 1-6 0c0-1.5 1-2 1-3 1 .5 1.5 1.2 1.5 2 .5-1 .5-2.5.5-4z" fill="none" strokeLinejoin="round" />,
 }
 
 export function Icon({ name }: { name: string }) {

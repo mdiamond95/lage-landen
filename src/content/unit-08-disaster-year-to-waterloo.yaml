@@ -718,6 +718,8 @@ lessons:
         url: https://www.canonvannederland.nl/nl/koningwillem1
       - title: "Encyclopaedia Britannica, Battle of Waterloo"
         url: https://www.britannica.com/event/Battle-of-Waterloo
+      - title: "Wikipedia, Waterloo campaign"
+        url: https://en.wikipedia.org/wiki/Waterloo_campaign
     exercises:
       - type: story
         title: Orange on top
@@ -797,6 +799,21 @@ lessons:
         fullKm: 8
         explain: >-
           Nearly 20 kilometres south of Brussels, in Walloon Brabant. Napoleon had hoped to reach Brussels.
+      - type: story
+        title: Four days in June
+        body: >-
+          Napoleon's plan was to strike first: get between Wellington's army, spread out west of Brussels, and the
+          Prussians to the east, and beat them one at a time. Step along his road from the Sambre to Waterloo and
+          back.
+        visual: { kind: route, route: waterloo }
+      - type: ride
+        prompt: Napoleon crossed the Sambre at Charleroi on 15 June 1815. Tap the three places on his road in the order he came to them, up to the battle of 18 June.
+        route: waterloo
+        ask: [ligny, quatre-bras, belle-alliance]
+        explain: >-
+          First the Prussians, beaten but not broken, on the 16th; then on the 17th north through Quatre Bras after
+          Wellington; and on the 18th the battle, around the inn of La Belle Alliance. The Prussians he had beaten two
+          days earlier came back to decide it.
       - type: gap
         prompt: Soon after the battle, Wellington told the diarist Thomas Creevey in Brussels how it had gone. Fill the gap.
         quote: It has been a damned nice thing, the ___ run thing you ever saw in your life.

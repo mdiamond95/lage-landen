@@ -23,6 +23,8 @@ type Props = {
   label: string
   // The area to fit; the whole Low Countries unless a time map zooms in.
   frame?: Frame
+  // The height of a frame made lower or taller than the whole Low Countries (the route maps).
+  height?: number
 }
 
 const FOCUS = new Set(['NLD', 'BEL'])
@@ -41,6 +43,7 @@ export function LowlandsMap({
   children,
   label,
   frame = lowlandsFrame,
+  height = MAP_H,
 }: Props) {
   const { path, linePath, projection } = frame
   const svg = useRef<SVGSVGElement>(null)
@@ -79,12 +82,12 @@ export function LowlandsMap({
     <svg
       ref={svg}
       className={`lowlands-map mode-${mode}`}
-      viewBox={`0 0 ${MAP_W} ${MAP_H}`}
+      viewBox={`0 0 ${MAP_W} ${height}`}
       role="img"
       aria-label={label}
       onPointerDown={handlePin}
     >
-      <rect className="sea" width={MAP_W} height={MAP_H} />
+      <rect className="sea" width={MAP_W} height={height} />
       {shapes.map((f) => {
         const id = f.properties.id!
         const focus = FOCUS.has(id)

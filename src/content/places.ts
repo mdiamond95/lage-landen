@@ -117,4 +117,7 @@ export const places: Record<string, Place> = {
   ath: { name: 'Ath', lat: 50.63, lon: 3.778, note: 'The giants of the Ducasse' },
   nivelles: { name: 'Nivelles', lat: 50.598, lon: 4.324 },
   dendermonde: { name: 'Dendermonde', lat: 51.028, lon: 4.101, note: 'The Ros Beiaard' },
+  // Unit 23
+  oudenaarde: { name: 'Oudenaarde', lat: 50.845, lon: 3.604, note: 'Finish of the Tour of Flanders since 2012' },
+  heerenveen: { name: 'Heerenveen', lat: 52.96, lon: 5.92, note: 'Thialf ice stadium, 1967' },
 }

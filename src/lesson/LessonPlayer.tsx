@@ -16,6 +16,7 @@ import { ListenMap } from '../exercises/ListenMap'
 import { PickAll } from '../exercises/PickAll'
 import { TasteMap } from '../exercises/TasteMap'
 import { WhenWheel } from '../exercises/WhenWheel'
+import { RideRoute } from '../exercises/RideRoute'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
 import type { Evaluate, Result } from '../exercises/types'
@@ -137,6 +138,8 @@ export function LessonPlayer({ title, exercises, note, calm = false, onExit, onF
         return <PickAll exercise={exercise} {...props} />
       case 'when':
         return <WhenWheel exercise={exercise} {...props} />
+      case 'ride':
+        return <RideRoute exercise={exercise} {...props} />
     }
   })()
 

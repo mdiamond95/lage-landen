@@ -14,6 +14,7 @@ import { phraseSetIds } from '../data/phrases'
 import { soundIds } from '../sounds/ids'
 import { foodIds, foodKinds } from '../data/foods'
 import { feastIds, feastKinds } from '../data/feasts'
+import { routeIds, routes } from '../data/routes'
 
 // Everything a lesson can show or ask is described here. Lesson YAML is
 // parsed against these schemas, so a typo in content fails tests and the build.
@@ -66,9 +67,10 @@ const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // buildings of the Low Countries, from the first belfries to the World Heritage list of 2000,
 // or the languages of the Low Countries, from the Frisians, Saxons and Franks of 800 to 1997,
 // or the food and drink of the Low Countries, from juniper wine in about 1266 to 2016, or the
-// feasts and traditions, from the Holy Blood procession of Bruges in 1303 to Keti Koti in 2023.
+// feasts and traditions, from the Holy Blood procession of Bruges in 1303 to Keti Koti in 2023, or
+// sport, from Pim Mulier's tour past the eleven towns in 1890 to the women's European title of 2017.
 // `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts'] as const
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport'] as const
 // The maps of the two world wars count in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
@@ -86,7 +88,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
@@ -146,7 +148,11 @@ const FoodsVisual = z.object({ kind: z.literal('foods'), focus: z.enum(foodIds).
 // its own ring; tap one for its photo and story. `focus` opens it on one, `only` shows one kind.
 const WheelVisual = z.object({ kind: z.literal('wheel'), focus: z.enum(feastIds).optional(), only: z.enum(feastKinds).optional() })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual])
+// A route map of a classic race (Unit 23): the Tour of Flanders of 2025 over its climbs,
+// Liège–Bastogne–Liège or the Elfstedentocht, stepped along with a slider. `at` opens it at a step.
+const RouteVisual = z.object({ kind: z.literal('route'), route: z.enum(routeIds), at: z.number().int().nonnegative().optional() })
+
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -387,7 +393,22 @@ const WhenIsIt = z.object({
   explain: z.string(),
 })
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt])
+// Ride the route (Unit 23): tap places on a race's route map in the order the race passes them,
+// the last two climbs of the Tour of Flanders or the towns after Stavoren. The places are unnamed
+// but for the start, the finish and those in `show`.
+const Ride = z
+  .object({
+    type: z.literal('ride'),
+    prompt: z.string(),
+    route: z.enum(routeIds),
+    ask: z.array(z.string()).min(1).max(5),
+    show: z.array(z.string()).default([]),
+    explain: z.string(),
+  })
+  .refine((r) => [...r.ask, ...r.show].every((p) => p in routes[r.route].places), 'every place is on the route')
+  .refine((r) => new Set(r.ask).size === r.ask.length && r.ask.every((p) => !r.show.includes(p) && !routes[r.route].places[p].end), 'ask unnamed places, each once')
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt, Ride])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

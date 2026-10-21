@@ -1,0 +1,847 @@
+id: unit-23
+number: 23
+title: Sport
+era: 1890 to today
+summary: >-
+  A country with more bicycles than people, cobbled climbs where Flanders comes out to watch, Eddy Merckx the
+  Cannibal, Total Football and Johan Cruijff, two Olympic Games and the Flying Housewife, and the Elfstedentocht,
+  200 km on natural ice that freezes hard enough only now and then. Ride the routes of the classic races climb by
+  climb, follow sport on the map from 1890 to 2017, and skate through Avercamp's winter.
+note: >-
+  This checkpoint can ask about the Heysel stadium disaster of 1985, when 39 people died before a football final in
+  Brussels. It is asked plainly, without celebrations.
+lessons:
+  - id: u23-l1
+    title: A country of bicycles
+    icon: bicycle
+    sources:
+      - title: "Wikipedia, Cycling in the Netherlands"
+        url: https://en.wikipedia.org/wiki/Cycling_in_the_Netherlands
+      - title: "Wikipedia, Stop de Kindermoord"
+        url: https://en.wikipedia.org/wiki/Stop_de_Kindermoord
+      - title: "Wikipedia (Dutch), Autoloze zondag"
+        url: https://nl.wikipedia.org/wiki/Autoloze_zondag
+      - title: "Wikipedia, Hovenring"
+        url: https://en.wikipedia.org/wiki/Hovenring
+      - title: "Wikipedia, Jan Janssen"
+        url: https://en.wikipedia.org/wiki/Jan_Janssen
+      - title: "Wikipedia, Joop Zoetemelk"
+        url: https://en.wikipedia.org/wiki/Joop_Zoetemelk
+      - title: "Wikipedia, Olympic Stadium (Amsterdam)"
+        url: https://en.wikipedia.org/wiki/Olympic_Stadium_(Amsterdam)
+    exercises:
+      - type: story
+        title: More bicycles than people
+        body: >-
+          The Netherlands has about 18 million bicycles, some 1.3 for every person old enough to ride. More than a
+          quarter of all trips are made by bike, and about 35,000 km of cycle track run apart from the cars. Flat land
+          and towns close together help, but it was not always so: it took a fight to win back the streets.
+        visual: { kind: photo, photo: bike-parking }
+      - type: truemyth
+        statement: The bicycle was invented in the Netherlands.
+        visual: { kind: photo, photo: fietsstraat }
+        answer: false
+        explain: >-
+          Myth. The first two-wheeler, a running machine without pedals, was built by Karl Drais in Germany in 1817, and
+          pedals came in France in the 1860s. The Dutch took to it like no one else: by 1940 there were about 4 million
+          bicycles for 8 million people.
+      - type: choice
+        prompt: About 15,000 cyclists ride through Amsterdam against the car in May 1982. Rides like it began in the early 1970s. What were the first ones protesting against?
+        visual: { kind: photo, photo: bike-demo }
+        answer: 1
+        options:
+          - label: A tax on bicycles
+            why: There was no new tax. They were protesting against the deaths on the roads, children above all.
+          - label: The children killed by cars on the roads
+            why: >-
+              Right. In 1971 about 3,300 people died on Dutch roads, more than 400 of them children. In 1972 the
+              journalist Vic Langenhoff, whose six-year-old daughter had been killed, wrote an article headed "Stop de
+              Kindermoord", stop the child murder, and it became the name of a movement.
+          - label: Closing the canals of Amsterdam
+            why: They were protesting against the deaths on the roads, children above all.
+          - label: The end of the Tour de France in the Netherlands
+            why: They were protesting against the deaths on the roads, children above all.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [More than 400 children die on the roads in 1971, Parents and cyclists march as Stop de Kindermoord]
+          - [Arab oil states cut off oil to the Netherlands in 1973, Ten car-free Sundays from November 1973 to January 1974]
+          - [Towns build separate tracks and slow down cars, Road deaths fall by more than four-fifths from the peak of 1972]
+          - [The country is flat and its towns lie close together, A bike is the quickest way to make most short trips]
+        explain: >-
+          The protests came at the right time. The oil crisis of 1973 showed what streets without cars could be like,
+          and in the years after, towns began to build for bikes again. Road deaths fell from 3,267 in 1972 to 570 in
+          2013.
+      - type: truemyth
+        statement: On the car-free Sundays of 1973, crowds of cyclists rode on the empty motorways.
+        visual: { kind: photo, photo: hovenring }
+        answer: false
+        explain: >-
+          Mostly a myth. The pictures of empty motorways are real, and cyclists and roller skaters took over the
+          boulevards, but cycling on the motorways was banned too, and the police sent back the few who tried. This
+          ring over a crossroads near Eindhoven, opened in 2012, is a bridge only for bikes: the first suspended
+          cycle roundabout in the world.
+      - type: pin
+        prompt: On 8 July 1954 the Tour de France started outside France for the first time, from a city's Olympic Stadium. Pin the city.
+        place: amsterdam
+        explain: >-
+          Amsterdam. The riders set off from outside the stadium of the 1928 Olympics. The Tour has started in the
+          Netherlands several times since, most recently in Utrecht in 2015.
+      - type: who
+        photo: jan-janssen
+        clues:
+          - I was born in Nootdorp in 1940, five days after the Netherlands surrendered to Germany.
+          - I became world champion on the road in 1964, and you could spot me in the bunch by my glasses.
+          - In 1968 I took the lead only on the last day, in a time trial into Paris, and won the Tour de France by 38 seconds.
+        options: [Jan Janssen, Joop Zoetemelk, Eddy Merckx, Rik Van Looy]
+        answer: 0
+        explain: >-
+          Jan Janssen, the first Dutchman to win the Tour de France. His 38 seconds over Herman Van Springel stayed the
+          closest finish until 1989.
+      - type: choice
+        prompt: Joop Zoetemelk started the Tour de France 16 times and finished every one. How did he do?
+        visual: { kind: photo, photo: zoetemelk }
+        answer: 2
+        options:
+          - label: He never won it
+            why: He won it once, in 1980, and was second six times, a record.
+          - label: He won it five times, like Merckx
+            why: He won it once, in 1980. Merckx, his great rival, was the one who won five.
+          - label: He won it once and was second six times
+            why: >-
+              Right. He won in 1980 and was second in 1970, 1971, 1976, 1978, 1979 and 1982, often behind Merckx or Bernard
+              Hinault. In 1985, at 38, he became world champion.
+          - label: He won the climbers' jersey every year
+            why: He won the Tour itself once, in 1980, and was second six times.
+      - type: scrub
+        prompt: Drag the slider to the years when the Tour de France has started in Amsterdam, but the Amstel Gold Race has not yet been ridden.
+        map: sport
+        start: 1900
+        answer: [1954, 1965]
+        explain: >-
+          The Tour started in Amsterdam in 1954. The Amstel Gold Race, the great one-day race of the Netherlands, was
+          first ridden in 1966.
+
+  - id: u23-l2
+    title: The Tour of Flanders
+    icon: cobbles
+    sources:
+      - title: "Wikipedia, Tour of Flanders (men's race)"
+        url: https://en.wikipedia.org/wiki/Tour_of_Flanders_(men%27s_race)
+      - title: "Wikipedia (Dutch), Ronde van Vlaanderen 2025"
+        url: https://nl.wikipedia.org/wiki/Ronde_van_Vlaanderen_2025
+      - title: "Wikipedia, Paterberg"
+        url: https://en.wikipedia.org/wiki/Paterberg
+      - title: "Wikipedia, Koppenberg"
+        url: https://en.wikipedia.org/wiki/Koppenberg
+      - title: "Wikipedia, Paris–Roubaix"
+        url: https://en.wikipedia.org/wiki/Paris%E2%80%93Roubaix
+    exercises:
+      - type: story
+        title: Flanders' finest
+        body: >-
+          On 25 May 1913 the sports paper Sportwereld sent 37 riders out of Ghent on the first Tour of Flanders. Today
+          the race climbs the short, steep hills of the Flemish Ardennes, many of them cobbled, and the whole of Flanders
+          watches. Step along the last 92 km of the race of 2025.
+        visual: { kind: route, route: ronde }
+      - type: ride
+        prompt: Since the finish moved to Oudenaarde in 2012 the race has been decided on the same two climbs, one straight after the other. Tap the last two climbs of 2025, in order.
+        route: ronde
+        ask: [kwaremont, paterberg]
+        explain: >-
+          The Oude Kwaremont, 2.2 km with 1.5 km of cobbles, then the Paterberg, 360 m up to 20%. From its top it is
+          13 km to the finish. In 2025 Tadej Pogačar rode away on the last Kwaremont and won alone.
+      - type: choice
+        prompt: The Koppenberg rises 600 m at up to 22%, on cobbles. Why was it left out of the race for fifteen years after 1987?
+        visual: { kind: photo, photo: koppenberg-climb }
+        answer: 1
+        options:
+          - label: The village wanted the race to stop coming
+            why: It was a crash, not the village. A rider who fell was run over by an official's car.
+          - label: A rider who fell was run over by an official's car
+            why: >-
+              Right. The Danish rider Jesper Skibby slipped on the wet cobbles and a race car drove over his bicycle. The
+              climb was dropped and came back in 2002, with its cobbles relaid.
+          - label: The cobbles were taken up for a new road
+            why: The cobbles stayed. It was dropped after a crash in 1987, when an official's car ran over a fallen rider.
+          - label: It was found to be in Wallonia
+            why: The Koppenberg is in Oudenaarde, in Flanders. It was dropped after a crash in 1987.
+      - type: truemyth
+        statement: The Paterberg's cobbles were laid in the Middle Ages.
+        visual: { kind: photo, photo: paterberg }
+        answer: false
+        explain: >-
+          Myth. A local farmer had the lane cobbled in 1986, so the story goes, because he wanted the race to pass his
+          house. It did, that same year, and it has been one of the race's hardest climbs ever since.
+      - type: ride
+        prompt: After the Koppenberg, the race of 2025 crosses two more cobbled climbs before it turns back to Ronse. Tap them, in order.
+        route: ronde
+        show: [koppenberg]
+        ask: [steenbeekdries, taaienberg]
+        explain: >-
+          The Steenbeekdries, 1.1 km of gentle cobbles, then the Taaienberg, up to 15.8%. Tom Boonen made his move on it
+          so often that commentators began calling it Boonen's hill.
+      - type: odd
+        prompt: Which of these climbs is the odd one out?
+        items:
+          - { label: Koppenberg, photo: koppenberg }
+          - { label: Oude Kwaremont, photo: oude-kwaremont }
+          - { label: Paterberg, photo: paterberg }
+          - { label: Cauberg, photo: cauberg }
+        answer: 3
+        reasons:
+          - It is in the Netherlands, the great climb of the Amstel Gold Race
+          - It has no cobbles because it is in a town
+          - It is the only one climbed in the Tour of Flanders of 2025 more than once
+        reason: 0
+        explain: >-
+          The Cauberg is at Valkenburg in South Limburg, the hills of the Amstel Gold Race. The other three are cobbled
+          climbs of the Flemish Ardennes; the Kwaremont and the Paterberg were both climbed twice in the last 92 km of 2025.
+      - type: choice
+        prompt: This forest road of rough stones, the Trouée d'Arenberg, is just over the border in France. Which race crosses it, and is called the Hell of the North?
+        visual: { kind: photo, photo: arenberg }
+        answer: 0
+        options:
+          - label: Paris–Roubaix
+            why: >-
+              Right. Paris–Roubaix, first run in 1896, ends in the velodrome of Roubaix, near the Belgian border, after
+              more than 50 km of cobbles. Belgian riders have won it more than anyone else.
+          - label: Liège–Bastogne–Liège
+            why: That one runs through the Ardennes of Belgium, on steep tarmac hills. The cobbles of the Hell of the North belong to Paris–Roubaix.
+          - label: The Tour of Flanders
+            why: The Tour of Flanders stays in Belgium. The Hell of the North is Paris–Roubaix.
+          - label: The Amstel Gold Race
+            why: That one is in Dutch Limburg, on tarmac. The Hell of the North is Paris–Roubaix.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: The first Tour of Flanders starts in Ghent, year: 1913, when: '1913' }
+          - { label: Merckx wins the Tour of Flanders by 5 minutes 36 seconds, year: 1969, when: '1969' }
+          - { label: The Paterberg is cobbled and climbed for the first time, year: 1986, when: '1986' }
+          - { label: The Koppenberg comes back, year: 2002, when: '2002' }
+          - { label: The finish moves to Oudenaarde, year: 2012, when: '2012' }
+        explain: >-
+          Merckx's margin of 1969 is still the largest in the race's history. Since 1919 the race has been held every
+          year, through the Second World War too.
+      - type: pin
+        prompt: Since 2012 the race has finished in a town on the Schelde, home of the race museum. Pin Oudenaarde.
+        place: oudenaarde
+        explain: >-
+          Oudenaarde, in the hills of the Flemish Ardennes. The Centrum Ronde van Vlaanderen there tells the story of the
+          race.
+      - type: scrub
+        prompt: Drag the slider to the years when the Tour of Flanders is being ridden, but Belgium has not yet held the Olympic Games.
+        map: sport
+        start: 1890
+        answer: [1913, 1919]
+        explain: >-
+          The first Tour of Flanders was ridden in 1913. Antwerp held the Olympic Games in 1920.
+
+  - id: u23-l3
+    title: The Cannibal and the classics
+    icon: jersey
+    sources:
+      - title: "Wikipedia, Eddy Merckx"
+        url: https://en.wikipedia.org/wiki/Eddy_Merckx
+      - title: "Wikipedia, Hour record"
+        url: https://en.wikipedia.org/wiki/Hour_record
+      - title: "Wikipedia, Liège–Bastogne–Liège"
+        url: https://en.wikipedia.org/wiki/Li%C3%A8ge%E2%80%93Bastogne%E2%80%93Li%C3%A8ge
+      - title: "Wikipedia, Amstel Gold Race (men's race)"
+        url: https://en.wikipedia.org/wiki/Amstel_Gold_Race_(men%27s_race)
+      - title: "Wikipedia, Marianne Vos"
+        url: https://en.wikipedia.org/wiki/Marianne_Vos
+      - title: "Wikipedia, Leontien van Moorsel"
+        url: https://en.wikipedia.org/wiki/Leontien_van_Moorsel
+    exercises:
+      - type: story
+        title: The old lady
+        body: >-
+          Liège–Bastogne–Liège, first run in 1892, is the oldest of the five great one-day races, the Monuments: La
+          Doyenne, the old lady. It runs south through the Ardennes to Bastogne and back over one steep hill after
+          another. No one has won it more often than Eddy Merckx, five times.
+        visual: { kind: route, route: liege }
+      - type: ride
+        prompt: On the way back from Bastogne, after the Côte de Stockeu, the race crosses two famous climbs before the finish. Tap them, in order.
+        route: liege
+        show: [bastogne, stockeu]
+        ask: [redoute, faucons]
+        explain: >-
+          La Redoute, 2 km at 8.9% above Sougné-Remouchamps, then the Roche-aux-Faucons, about 13 km from the finish in
+          Liège.
+      - type: who
+        photo: merckx-1966
+        clues:
+          - I grew up above my parents' grocery shop in Woluwe-Saint-Pierre, near Brussels.
+          - In 1969 I won the Tour de France and every jersey there was to win, the first Belgian winner for 30 years.
+          - I won 525 races in 18 years as a professional.
+        options: [Eddy Merckx, Rik Van Looy, Roger De Vlaeminck, Freddy Maertens]
+        answer: 0
+        explain: >-
+          Eddy Merckx, the Cannibal: five Tours de France, five Giri d'Italia, three world titles and 19 Monuments, seven
+          of them Milan–San Remo.
+      - type: choice
+        prompt: On 25 October 1972 Merckx rode this bike alone round a track for one hour, 49.431 km, a world record. Why did he ride it in Mexico City?
+        visual: { kind: photo, photo: merckx-hour-bike }
+        answer: 1
+        options:
+          - label: Its track was the only one long enough
+            why: Its track was only 333 m round. Mexico City was chosen for its thin air.
+          - label: At about 2,300 m up, the thin air holds a rider back less
+            why: >-
+              Right. Thinner air means less drag. Merckx called it the hardest ride he ever did, and his record stood
+              until 1984, when Francesco Moser beat it on the same track.
+          - label: It never rains there in October
+            why: It was the height above the sea that counted, about 2,300 m, where the air is thin.
+          - label: He wanted to ride where Belgium had won the Olympics
+            why: It was the thin air at about 2,300 m above the sea that made Mexico City fast.
+      - type: truemyth
+        statement: A beaten rival gave Merckx his nickname, the Cannibal.
+        visual: { kind: photo, photo: merckx-molteni }
+        answer: false
+        explain: >-
+          Myth. The story is that the daughter of his teammate Christian Raymond came up with it, when her father told
+          her that Merckx would not let anyone else win anything.
+      - type: sort
+        prompt: Sort these riders by country.
+        groups: [Belgium, Netherlands]
+        items:
+          - { label: Rik Van Looy, group: 0, photo: van-looy }
+          - { label: Rik Van Steenbergen, group: 0, photo: van-steenbergen }
+          - { label: Eddy Merckx, group: 0, photo: merckx-stadium }
+          - { label: Joop Zoetemelk, group: 1, photo: zoetemelk }
+          - { label: Leontien van Moorsel, group: 1, photo: van-moorsel }
+          - { label: Marianne Vos, group: 1, photo: vos-cross }
+          - { label: Mathieu van der Poel, group: 1, photo: vdp-cross }
+        explain: >-
+          The two Riks and Merckx are Belgians, the greatest of the 1950s, 1960s and 1970s. Mathieu van der Poel was born
+          in Kapellen, in Belgium, but rides for the Netherlands, like his father Adri, winner of the Tour of Flanders in
+          1986.
+      - type: choice
+        prompt: Leontien van Moorsel had to stop racing in 1994, ill with anorexia. She came back. What did she win at the Olympics of Sydney in 2000?
+        visual: { kind: photo, photo: van-moorsel }
+        answer: 2
+        options:
+          - label: One bronze medal
+            why: She won three golds, and a silver, in Sydney.
+          - label: The road race only
+            why: She won the road race, the time trial and the individual pursuit on the track.
+          - label: Three gold medals and a silver
+            why: >-
+              Right. Gold in the road race, the time trial and the pursuit, and silver in the points race. In 2004 in
+              Athens she won the time trial again, and in 2003 she set the women's hour record in Mexico City.
+          - label: Nothing; she came back too late
+            why: She won three golds and a silver in Sydney.
+      - type: choice
+        prompt: Marianne Vos, born in 's-Hertogenbosch in 1987, won Olympic gold on the track in 2008 and on the road in 2012. In which other kind of racing, seen here, has she been world champion eight times?
+        visual: { kind: photo, photo: vos-cross }
+        answer: 0
+        options:
+          - label: Cyclo-cross, laps of mud, sand and grass in winter
+            why: >-
+              Right. Cyclo-cross is a winter sport of the Low Countries, ridden on short laps of fields and woods, with the
+              bike carried over the steepest bits. Like Merckx, Vos is called the Cannibal.
+          - label: Mountain biking down Alpine trails
+            why: These are the muddy winter laps of cyclo-cross, where Vos has won eight world titles.
+          - label: Six-day races on the track
+            why: This is cyclo-cross, ridden in winter on muddy laps.
+          - label: Speed skating
+            why: She is on a bike, in the mud of a cyclo-cross race.
+      - type: match
+        prompt: Match each classic to where it finishes.
+        pairs:
+          - [Tour of Flanders, Oudenaarde]
+          - [Liège–Bastogne–Liège, Liège]
+          - [Amstel Gold Race, Berg en Terblijt]
+          - [Paris–Roubaix, Roubaix]
+      - type: choice
+        prompt: Merckx crosses the line at the Amstel Gold Race of 1975. In which hills of the Netherlands is the race ridden?
+        visual: { kind: photo, photo: merckx-amstel }
+        answer: 3
+        options:
+          - label: The Veluwe
+            why: The Veluwe is wooded but flat. The Amstel Gold Race climbs the hills of South Limburg.
+          - label: The dunes of Holland
+            why: The dunes are too low and sandy. The race is in South Limburg, over the Cauberg.
+          - label: The Utrechtse Heuvelrug
+            why: The race is in South Limburg, the only real hills of the Netherlands.
+          - label: South Limburg, over the Cauberg
+            why: >-
+              Right. More than 30 short climbs, round Valkenburg and the Geul valley. Jan Raas won it five times, from
+              1977 to 1982.
+
+  - id: u23-l4
+    title: Total Football
+    icon: ball
+    sources:
+      - title: "Wikipedia, Total Football"
+        url: https://en.wikipedia.org/wiki/Total_Football
+      - title: "Wikipedia, Johan Cruyff"
+        url: https://en.wikipedia.org/wiki/Johan_Cruyff
+      - title: "Wikipedia, Cruyff turn"
+        url: https://en.wikipedia.org/wiki/Cruyff_turn
+      - title: "Wikipedia (Dutch), Cruijffiaans"
+        url: https://nl.wikipedia.org/wiki/Cruijffiaans
+      - title: "Wikipedia, Germany–Netherlands football rivalry"
+        url: https://en.wikipedia.org/wiki/Germany%E2%80%93Netherlands_football_rivalry
+      - title: "Wikiquote, Rinus Michels"
+        url: https://en.wikiquote.org/wiki/Rinus_Michels
+      - title: "Wikiquote, Johan Cruyff"
+        url: https://en.wikiquote.org/wiki/Johan_Cruyff
+      - title: "Wikipedia, Bosman ruling"
+        url: https://en.wikipedia.org/wiki/Bosman_ruling
+      - title: "Wikipedia, UEFA Women's Euro 2017"
+        url: https://en.wikipedia.org/wiki/UEFA_Women%27s_Euro_2017
+    exercises:
+      - type: story
+        title: Ajax, three times
+        body: >-
+          Feyenoord of Rotterdam won the European Cup in 1970, the first Dutch club to do it. Then Ajax of Amsterdam won
+          it three years running, 1971, 1972 and 1973, with a way of playing that had defenders attacking and attackers
+          defending, everyone swapping places: Total Football.
+        visual: { kind: photo, photo: ajax-inter-1972 }
+      - type: truemyth
+        statement: Total Football was invented at Ajax.
+        visual: { kind: photo, photo: golden-team }
+        answer: false
+        explain: >-
+          Myth. Rinus Michels made it famous at Ajax and with the Dutch team in the 1970s, but its roots go back further:
+          to Austria's Wunderteam of the 1930s, River Plate's La Máquina in the 1940s, and Hungary's Golden Team of the
+          1950s, seen here. At Ajax itself the English coach Jack Reynolds had played a similar game in the 1940s.
+      - type: who
+        photo: cruijff-1965
+        clues:
+          - I was born in Amsterdam in 1947 and grew up in Betondorp; after my father died my mother cleaned the dressing rooms at Ajax.
+          - I won the Ballon d'Or three times, in 1971, 1973 and 1974.
+          - Against Sweden at the 1974 World Cup I dragged the ball behind my standing leg and turned away, and the move is named after me.
+        options: [Johan Cruijff, Johan Neeskens, Marco van Basten, Ruud Gullit]
+        answer: 0
+        explain: >-
+          Johan Cruijff. He moved to Barcelona in 1973 for a world-record fee, and as its coach won the club's first
+          European Cup in 1992. He died in 2016.
+      - type: gap
+        prompt: Cruijff's sayings, in his own Amsterdam Dutch, are so well known they have a name, Cruijffiaans. Fill the gap in the most famous one.
+        quote: Elk nadeel heb zijn ___. (Every disadvantage has its …)
+        source: Johan Cruijff, a saying collected in Cruijffiaans
+        visual: { kind: photo, photo: cruijff-ballon }
+        options: [voordeel (advantage), nadeel (disadvantage), oplossing (answer), kans (chance)]
+        answer: 0
+        explain: >-
+          Voordeel, advantage. "Heb" for "heeft" is the Amsterdam grammar that makes it his. He also turned it round:
+          every advantage has its disadvantage.
+      - type: choice
+        prompt: Munich, 7 July 1974. In the second minute of the World Cup final the Netherlands scored from a penalty, before any West German had touched the ball. How did the final end?
+        visual: { kind: photo, photo: final-1974 }
+        answer: 1
+        options:
+          - label: The Netherlands won 1–0
+            why: Paul Breitner equalised from a penalty and Gerd Müller scored before half-time. West Germany won 2–1.
+          - label: West Germany won 2–1
+            why: >-
+              Right. Neeskens scored the penalty, then Breitner and Müller turned it round. The Dutch call it the mother of
+              all defeats. They lost the next final too, in 1978, to Argentina.
+          - label: A draw, then a replay
+            why: West Germany won 2–1 on the day, with goals by Breitner and Müller.
+          - label: The Netherlands won on penalties
+            why: West Germany won 2–1 in normal time.
+      - type: gap
+        prompt: In 1988 the Netherlands beat West Germany 2–1 in Hamburg in the semi-final of the European Championship, and went on to win the final. Back in Amsterdam their coach, Rinus Michels, told the crowd what everyone felt. Fill the gap.
+        quote: We won the tournament, but we all know that the ___ was the real final.
+        source: Rinus Michels, speaking in Amsterdam, June 1988
+        visual: { kind: photo, photo: euro-1988 }
+        options: [semi-final, quarter-final, first match, final]
+        answer: 0
+        explain: >-
+          The semi-final. Fourteen years after Munich, Marco van Basten scored the winner against West Germany two
+          minutes from the end. In the final the Dutch beat the Soviet Union 2–0, with a header by Ruud Gullit and a
+          volley by Van Basten: their only great title in men's football so far.
+      - type: voices
+        prompt: Two voices from Total Football, the coach and his pupil. Which of them puts the way you play above winning?
+        voices:
+          - who: Rinus Michels, coach of Ajax and the Netherlands
+            when: As quoted in NRC Handelsblad (translated from Dutch)
+            text: Professional football is something like war. Whoever behaves too properly, is lost.
+            photo: michels
+          - who: Johan Cruijff, his star player, and later coach of Barcelona
+            when: Quoted in David Winner, Brilliant Orange (2012 edition)
+            text: >-
+              There is no medal better than being acclaimed for your style. As a coach, my teams might have won more
+              games if we'd played in a less adventurous way. Maybe I'd have earned a little more and the bonuses would
+              have been bigger, but if people say that Barcelona were playing the nicest football in the world with me
+              as coach, what more can I ask for?
+            photo: cruijff-ado
+        options: [Michels, Cruijff, Both of them, Neither of them]
+        answer: 1
+        explain: >-
+          Cruijff. Michels, nicknamed the General, drove his players hard and wanted to win at all costs; his words
+          are often misquoted as "football is war". Cruijff learned from him, and called him the man who taught him
+          most, but as a coach he put style first. Both are part of the story of Total Football.
+      - type: odd
+        prompt: Which of these Dutch nights is the odd one out?
+        items:
+          - { label: Feyenoord, Milan 1970, photo: feyenoord-1970 }
+          - { label: Ajax, Rotterdam 1972, photo: ajax-inter-1972 }
+          - { label: The World Cup final, Munich 1974, photo: final-1974-b }
+          - { label: The European final, Munich 1988, photo: van-basten }
+        answer: 2
+        reasons:
+          - It ended in defeat
+          - It was played outside the Netherlands
+          - It was a final between two clubs
+        reason: 0
+        explain: >-
+          Munich 1974 was lost, 2–1 to West Germany. The other three were won: Feyenoord's and Ajax's European Cups, and
+          the European Championship of 1988. Two of the three wins were outside the Netherlands, so that cannot be it.
+      - type: choice
+        prompt: Swipe from 1913 to 1971. What kind of mark has appeared in Rotterdam and Amsterdam by 1971?
+        visual: { kind: compare, map: sport, years: [1913, 1971] }
+        answer: 2
+        options:
+          - label: Olympic Games held there
+            why: Amsterdam held the Games in 1928, but Rotterdam never has. The orange balls are the two European Cup clubs.
+          - label: New ice rinks
+            why: The new rink is Thialf in Heerenveen. The orange balls are Feyenoord and Ajax.
+          - label: Football clubs that won the European Cup
+            why: >-
+              Right. Feyenoord in 1970 and Ajax in 1971. In 1913 the only ball on the map is korfball, the game of 1902.
+          - label: Starts of the Tour de France
+            why: The Tour started in Amsterdam in 1954, but the orange balls are the two European Cup clubs.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Players swap places all over the pitch, Opponents cannot simply mark one man each]
+          - [Gangsters try to kidnap Cruijff at his home in Barcelona, He does not play at the World Cup of 1978]
+          - [Jean-Marc Bosman of RFC Liège wins his case at the European Court in 1995, Players in the EU can move clubs for free when their contracts end]
+        explain: >-
+          Bosman, a Belgian, wanted to move to Dunkerque in France, but Liège demanded a fee and held on to him. The
+          court's ruling of 15 December 1995 changed football across Europe.
+      - type: choice
+        prompt: In 2017 the Netherlands held the women's European Championship and won it, with the final in this stadium in Enschede. Whom did they beat 4–2?
+        visual: { kind: photo, photo: grolsch-veste }
+        answer: 3
+        options:
+          - label: Germany
+            why: Germany went out in the quarter-finals. The Dutch beat Denmark 4–2 in the final.
+          - label: England
+            why: The Dutch beat England 3–0 in the semi-final, then Denmark 4–2 in the final.
+          - label: Belgium
+            why: Belgium went out in the group stage, beaten by the Dutch. The final was against Denmark.
+          - label: Denmark
+            why: >-
+              Right. The final in Enschede on 6 August 2017 ended 4–2. Two years later the Dutch women reached the World
+              Cup final, and lost to the United States.
+
+  - id: u23-l5
+    title: Two Games and a disaster
+    icon: torch
+    note: >-
+      This lesson includes the Heysel stadium disaster of 1985, when 39 people died before a football final in
+      Brussels. It is told plainly, without celebrations.
+    sources:
+      - title: "Wikipedia, 1920 Summer Olympics"
+        url: https://en.wikipedia.org/wiki/1920_Summer_Olympics
+      - title: "Wikipedia, Olympic Oath"
+        url: https://en.wikipedia.org/wiki/Olympic_Oath
+      - title: "Wikipedia, Football at the 1920 Summer Olympics"
+        url: https://en.wikipedia.org/wiki/Football_at_the_1920_Summer_Olympics
+      - title: "Wikipedia, 1928 Summer Olympics"
+        url: https://en.wikipedia.org/wiki/1928_Summer_Olympics
+      - title: "Wikipedia, Olympic Stadium (Amsterdam)"
+        url: https://en.wikipedia.org/wiki/Olympic_Stadium_(Amsterdam)
+      - title: "Wikipedia, Fanny Blankers-Koen"
+        url: https://en.wikipedia.org/wiki/Fanny_Blankers-Koen
+      - title: "Wikipedia, Korfball"
+        url: https://en.wikipedia.org/wiki/Korfball
+      - title: "Wikipedia, Heysel Stadium disaster"
+        url: https://en.wikipedia.org/wiki/Heysel_Stadium_disaster
+      - title: "Wikipedia, Belgium at the FIFA World Cup"
+        url: https://en.wikipedia.org/wiki/Belgium_at_the_FIFA_World_Cup
+    exercises:
+      - type: story
+        title: The Games come to Antwerp
+        body: >-
+          In 1920, two years after the war, Antwerp held the Olympic Games, from 14 August to 12 September. Germany and
+          its wartime allies were not invited. For the first time the flag with five rings flew, doves were let go for
+          peace, and an athlete swore an oath for all the others.
+        visual: { kind: photo, photo: poster-1920 }
+      - type: gap
+        prompt: The oath was sworn by Victor Boin, a Belgian swimmer, water polo player and fencer, on behalf of all the athletes. Fill the gap.
+        quote: We swear. We will take part in the Olympic Games in a spirit of chivalry, for the honour of our country and for the ___ of sport.
+        source: The Olympic oath, sworn by Victor Boin at Antwerp, 1920
+        visual: { kind: photo, photo: victor-boin }
+        options: [glory, love, future, money]
+        answer: 0
+        explain: >-
+          The glory of sport. In 1961 "swear" became "promise", and "our country" became "our teams", to take out the
+          nationalism; since 2000 athletes also promise to compete without doping.
+      - type: choice
+        prompt: Belgium won the football gold in 1920, but the final against Czechoslovakia never finished. Why?
+        visual: { kind: photo, photo: belgium-1920 }
+        answer: 0
+        options:
+          - label: The Czechoslovaks walked off at 2–0, angry with the English referee
+            why: >-
+              Right. After 39 minutes, with Belgium 2–0 up and one of their players sent off, Czechoslovakia left the
+              pitch. They were thrown out of the tournament, Belgium got the gold, and Spain beat the Netherlands for
+              silver.
+          - label: A storm flooded the pitch
+            why: The weather held. Czechoslovakia walked off in protest at the referee, at 2–0 down.
+          - label: The crowd broke onto the pitch
+            why: The crowd stayed put. The Czechoslovak team walked off, at 2–0 down.
+          - label: The ball burst and there was no other
+            why: Czechoslovakia walked off, angry at the English referee and linesmen.
+      - type: choice
+        prompt: Beside Amsterdam's Olympic Stadium of 1928 stands this tower. What burned in the bowl at its top, for the first time at any Games?
+        visual: { kind: photo, photo: marathon-tower }
+        answer: 1
+        options:
+          - label: A beacon to guide the airships
+            why: It held a fire for the Games themselves, the first Olympic flame.
+          - label: The Olympic flame
+            why: >-
+              Right. A fire burned in the Marathon Tower all through the Games of 1928. Locals called its bowl the ashtray
+              of the KLM pilots. The torch relay from Greece came later, in 1936.
+          - label: Fireworks for the closing night
+            why: It held the first Olympic flame, burning all through the Games.
+          - label: A lighthouse lamp for the IJ
+            why: It held the first Olympic flame, burning all through the Games.
+      - type: truemyth
+        statement: The Olympic Stadium of Amsterdam itself won an Olympic gold medal.
+        visual: { kind: photo, photo: stadium-1928 }
+        answer: true
+        explain: >-
+          True. Until 1948 the Games also gave medals for art, and Jan Wils's stadium, in the brick of the Amsterdam
+          School, won the gold for architecture in 1928. In 1987 the city planned to pull it down; it was saved as a
+          national monument.
+      - type: hunt
+        prompt: The stadium from the air, full for the Games of 1928. Find the tower where the first Olympic flame burned.
+        photo: stadium-1928
+        targets: [[0.08, 0.36, 0.085, 0.32]]
+        explain: >-
+          On the left, on the long side by the main gate: the Marathon Tower, a tall brick column with its bowl on top.
+      - type: who
+        photo: blankers-koen
+        clues:
+          - I was born in Lage Vuursche in 1918, and at the Berlin Games of 1936 I got Jesse Owens's autograph.
+          - In London in 1948 I was 30 and the mother of two, and the papers said I was too old.
+          - I won the 100 m, the 200 m, the 80 m hurdles and the relay there, the first woman with four golds at one Games.
+        options: [Fanny Blankers-Koen, Foekje Dillema, Ireen Wüst, Marianne Vos]
+        answer: 0
+        explain: >-
+          Fanny Blankers-Koen, the Flying Housewife, coached by her husband Jan, seen with her here. She could have won
+          more: athletes could enter only three individual events. In 1999 she was named the female athlete of the
+          century.
+      - type: choice
+        prompt: Amsterdam welcomed her home with a carriage behind four white horses, and the city gave her a present, "so she need not run so much". What was it?
+        visual: { kind: photo, photo: blankers-home }
+        answer: 2
+        options:
+          - label: A car
+            why: It was a bicycle, the most Dutch of presents.
+          - label: A house in the Vondelpark
+            why: It was a bicycle, "to go through life at a slower pace".
+          - label: A bicycle
+            why: Right. A new bicycle, "to go through life at a slower pace".
+          - label: A horse
+            why: The horses only drew the carriage. The present was a bicycle.
+      - type: choice
+        prompt: Korfball, played here at the Games of 1928, was invented in Amsterdam in 1902 by a teacher, Nico Broekhuysen. What makes it unlike other ball games?
+        visual: { kind: photo, photo: korfball-1928 }
+        answer: 0
+        options:
+          - label: Each team has four men and four women, playing together
+            why: >-
+              Right. Broekhuysen took the idea from a Swedish game, ringboll, and used a basket on a pole 3.5 m high. Each
+              player guards an opponent of the same sex. It was shown at the Games of 1920 and 1928.
+          - label: It is played on ice
+            why: It is played on a field or in a hall, by teams of four men and four women.
+          - label: The ball may not touch the ground
+            why: What sets it apart is the teams, four men and four women together.
+          - label: There is no goal
+            why: There is a goal, a basket on a pole. The teams are four men and four women.
+      - type: story
+        title: Heysel, 29 May 1985
+        body: >-
+          Before the European Cup final between Juventus and Liverpool at the Heysel stadium in Brussels, Liverpool
+          fans charged at Juventus fans in a section meant for neutrals. People fleeing were crushed against an old
+          wall, which collapsed. Thirty-nine people died, 32 of them Italian, and about 600 were hurt. The match was
+          played all the same.
+        visual: { kind: photo, photo: heysel-monument }
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Fans fleeing the charge are pressed against an old wall, The wall collapses and 39 people die]
+          - [UEFA holds English fans responsible, English clubs are banned from European football for five years]
+          - [The old stadium is shown to be unsafe, It is rebuilt and opens in 1995 as the King Baudouin Stadium]
+        explain: >-
+          A Belgian police captain and 14 Liverpool fans were found guilty of manslaughter. Liverpool's own ban lasted six
+          years.
+      - type: choice
+        prompt: Diego Maradona takes on Belgium's defence in the semi-final of the 1986 World Cup in Mexico. Argentina won 2–0, and Belgium finished fourth, its best yet. When did a Belgian team do better?
+        visual: { kind: photo, photo: belgium-1986 }
+        answer: 2
+        options:
+          - label: In 2002 in Japan, as runners-up
+            why: Belgium went out to Brazil in the last 16 in 2002. Its best came in 2018, third in Russia.
+          - label: In 2014 in Brazil, as runners-up
+            why: Argentina beat Belgium again in 2014, 1–0 in the quarter-final. Its best came in 2018, third in Russia.
+          - label: In 2018 in Russia, third
+            why: >-
+              Right. A new golden generation, with Eden Hazard and Kevin De Bruyne, beat Brazil in the quarter-final
+              and England 2–0 for third place.
+          - label: Never, so far
+            why: In 2018 in Russia Belgium finished third, beating England 2–0 for the bronze.
+      - type: scrub
+        prompt: Drag the slider to the years when both Olympic Games in the Low Countries have been held, but the Tour de France has not yet started in Amsterdam.
+        map: sport
+        start: 1900
+        answer: [1928, 1953]
+        explain: >-
+          Antwerp held the Games in 1920 and Amsterdam in 1928. The Tour started from Amsterdam's Olympic Stadium in 1954.
+
+  - id: u23-l6
+    title: Ice and the Elfstedentocht
+    icon: skate
+    sources:
+      - title: "Wikipedia, Elfstedentocht"
+        url: https://en.wikipedia.org/wiki/Elfstedentocht
+      - title: "Wikipedia (Dutch), Elfstedentocht 1909"
+        url: https://nl.wikipedia.org/wiki/Elfstedentocht_1909
+      - title: "Wikipedia (Dutch), Elfstedentocht 1997"
+        url: https://nl.wikipedia.org/wiki/Elfstedentocht_1997
+      - title: "Wikipedia, Kolf"
+        url: https://en.wikipedia.org/wiki/Kolf
+      - title: "Wikipedia, Clap skate"
+        url: https://en.wikipedia.org/wiki/Clap_skate
+      - title: "Wikipedia, Thialf"
+        url: https://en.wikipedia.org/wiki/Thialf
+      - title: "Wikipedia, Ireen Wüst"
+        url: https://en.wikipedia.org/wiki/Ireen_W%C3%BCst
+    exercises:
+      - type: story
+        title: Everyone on the ice
+        body: >-
+          In the hard winters of the Little Ice Age the whole of Holland went out on the ice, rich and poor, to work and
+          to play. Tour Avercamp's winter of about 1608, and zoom in on the games.
+        visual: { kind: painting, painting: avercamp-ice }
+      - type: hunt
+        prompt: Hendrick Avercamp painted these kolf players on the ice around 1625. Find what the man in the tall hat is about to hit.
+        photo: avercamp-kolf
+        targets: [[0.65, 0.83, 0.06, 0.07]]
+        explain: >-
+          The ball, at the end of his club. Kolf players drove the ball across the ice, or along a court, towards a
+          post.
+      - type: truemyth
+        statement: Golf grew out of kolf, the Dutch game played on the ice.
+        visual: { kind: photo, photo: avercamp-kolf }
+        answer: false
+        explain: >-
+          Unproven, so treat it as a myth. Kolf and golf are both games of hitting a ball with a club, and Scottish
+          merchants traded with the Low Countries, so many believe they are linked. But kolf aims at a post, not a hole,
+          and no document shows one game turning into the other.
+      - type: story
+        title: The Tour of the Eleven Towns
+        body: >-
+          The Elfstedentocht is about 200 km on natural ice, past the eleven towns of Friesland. It can only be skated
+          when the ice is at least 15 cm thick all the way, so it has been held only 15 times since 1909. Step along
+          the route.
+        visual: { kind: route, route: elfsteden }
+      - type: ride
+        prompt: From Stavoren, the far southwest, the skaters turn north. Tap the next three towns, in order.
+        route: elfsteden
+        show: [stavoren]
+        ask: [hindeloopen, workum, bolsward]
+        explain: >-
+          Hindeloopen, Workum and Bolsward, then on to Harlingen on the Wadden Sea. Skaters collect a stamp in each town,
+          and at secret checkpoints, and must finish before midnight.
+      - type: ride
+        prompt: After Franeker the skaters head for the last town, in the far northeast, and back. Tap it.
+        route: elfsteden
+        show: [franeker]
+        ask: [dokkum]
+        explain: >-
+          Dokkum. On the way there and back the skaters pass Bartlehiem twice, a hamlet with a bridge where the crowds
+          gather.
+      - type: choice
+        prompt: The first Elfstedentocht, 2 January 1909. Only 23 of 48 who signed up came to the start, after a thaw. How long did the winner, Minne Hoekstra, take?
+        visual: { kind: photo, photo: elfsteden-1909 }
+        answer: 2
+        options:
+          - label: About 6 hours
+            why: Even the winners of 1985 and 1997, on better skates, needed nearly 7 hours. In 1909 it took 13 hours 50 minutes.
+          - label: Two days
+            why: He finished the same day, in 13 hours 50 minutes.
+          - label: 13 hours 50 minutes
+            why: >-
+              Right. Hoekstra, from Warga, beat the next man by three minutes. The idea of the tour came from Pim Mulier,
+              a Frisian who brought football and other English sports to the Netherlands.
+          - label: 30 minutes
+            why: That would be 400 km an hour. He took 13 hours 50 minutes.
+      - type: choice
+        prompt: The twelfth Elfstedentocht, in 1963, is remembered as the hell of '63. It was −18 °C, with drifting snow and an east wind. Of 10,000 skaters, how many finished?
+        visual: { kind: photo, photo: paping }
+        answer: 0
+        options:
+          - label: '69'
+            why: >-
+              Right. Reinier Paping, seen here, won in 10 hours 59 minutes. Then it did not freeze hard enough again for
+              22 years.
+          - label: About 2,000
+            why: Only 69 finished. Most gave up in the cold and snow.
+          - label: About 5,000
+            why: Only 69 finished.
+          - label: None
+            why: Sixty-nine did, led by Reinier Paping.
+      - type: pick
+        prompt: Which of these are among the eleven towns? Pick all that belong.
+        visual: { kind: photo, photo: elfsteden-monument }
+        items:
+          - { label: Sneek }
+          - { label: Heerenveen }
+          - { label: Harlingen }
+          - { label: Dokkum }
+          - { label: Drachten }
+          - { label: Franeker }
+          - { label: Joure }
+          - { label: Sloten }
+        answers: [0, 2, 3, 5, 7]
+        explain: >-
+          Sneek, Harlingen, Dokkum, Franeker and Sloten, the smallest town of Friesland. Heerenveen, Drachten and Joure are
+          bigger than some of the eleven, but never had town rights, so the route passes them by.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [In 1956 five skaters cross the line hand in hand, No winner is named and shared finishes are banned]
+          - [The ice must be 15 cm thick all the way, Mild winters have kept the race away since 1997]
+          - [The klapschaats lets the blade stay on the ice longer, World records tumble at the Olympics of Nagano in 1998]
+          - [Thialf in Heerenveen opens its artificial ice in 1967, Skaters can train without waiting for a hard winter]
+        explain: >-
+          The klapschaats, or clap skate, with its blade on a hinge at the front, was worked out at the Vrije Universiteit
+          in Amsterdam by Gerrit Jan van Ingen Schenau, from 1979. Dutch women won with it in 1996–97, and soon everyone
+          had to have one. Thialf got a roof in 1986.
+      - type: who
+        photo: wust
+        clues:
+          - I won my first Olympic gold at Turin in 2006, aged 19, then the youngest Dutch Olympic champion ever.
+          - I won gold at five Winter Olympics in a row, the first athlete to do that in events for one person.
+          - My 13 Olympic medals are more than any other speed skater's.
+        options: [Ireen Wüst, Sven Kramer, Ard Schenk, Marianne Vos]
+        answer: 0
+        explain: >-
+          Ireen Wüst, six times Olympic champion, from 2006 to 2022, when she stopped. Ard Schenk had won three golds at
+          one Games, Sapporo in 1972.
+      - type: choice
+        prompt: In 1986 a skater called W. A. van Buren finished the Elfstedentocht. Who was he?
+        visual: { kind: route, route: elfsteden, at: 13 }
+        answer: 3
+        options:
+          - label: The winner, skating under a false name
+            why: The winner was Evert van Benthem, for the second year running. Van Buren was the crown prince.
+          - label: A skater from Canada
+            why: Van Buren is an old name of the House of Orange. It was the crown prince.
+          - label: The organiser's son
+            why: It was the crown prince, Willem-Alexander, under a name the royal family uses.
+          - label: Crown Prince Willem-Alexander
+            why: >-
+              Right. He skated the tour as W. A. van Buren, a name the House of Orange has used before. He is king since
+              2013.

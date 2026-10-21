@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 43 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(43)
+  it('has 44 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(44)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -65,6 +65,11 @@ describe('time map through the eras', () => {
     expect(kinds(1953).has('occupied')).toBe(false)
     // Expo 58: the Atomium among the modern buildings, gone again by 1963; the older buildings stay off.
     const names = (year: number) => throughTimeStory.sites.filter((x) => activeAt(year, x) && x.from <= year && (x.end === undefined || year <= x.end)).map((x) => x.name)
+    // Sport in 1928: the Games of Antwerp and Amsterdam, after the modern artists and gone by 1940.
+    expect(names(1928)).toContain('Amsterdam 1928')
+    expect(names(1928)).not.toContain('Ajax')
+    expect(names(1928)).not.toContain('René Magritte')
+    expect(names(1940)).not.toContain('Amsterdam 1928')
     expect(names(1958)).toContain('Atomium')
     expect(names(1958)).not.toContain('Belfry of Bruges')
     expect(names(1953)).not.toContain('Atomium')

@@ -758,6 +758,55 @@ import ketiKotiStage from './keti-koti-stage.jpg'
 // Unit 10
 // Unit 11
 import { credits } from './credits'
+import ajaxInter1972 from './ajax-inter-1972.jpg'
+import arenberg from './arenberg.jpg'
+import avercampKolf from './avercamp-kolf.jpg'
+import belgium1920 from './belgium-1920.jpg'
+import belgium1986 from './belgium-1986.jpg'
+import bikeDemo from './bike-demo.jpg'
+import bikeParking from './bike-parking.jpg'
+import blankersHome from './blankers-home.jpg'
+import blankersKoen from './blankers-koen.jpg'
+import cauberg from './cauberg.jpg'
+import cruijff1965 from './cruijff-1965.jpg'
+import cruijffAdo from './cruijff-ado.jpg'
+import cruijffBallon from './cruijff-ballon.jpg'
+import elfsteden1909 from './elfsteden-1909.jpg'
+import elfstedenMonument from './elfsteden-monument.jpg'
+import euro1988 from './euro-1988.jpg'
+import feyenoord1970 from './feyenoord-1970.jpg'
+import fietsstraat from './fietsstraat.jpg'
+import final1974 from './final-1974.jpg'
+import final1974B from './final-1974-b.jpg'
+import goldenTeam from './golden-team.jpg'
+import grolschVeste from './grolsch-veste.jpg'
+import heyselMonument from './heysel-monument.jpg'
+import hovenring from './hovenring.jpg'
+import janJanssen from './jan-janssen.jpg'
+import koppenberg from './koppenberg.jpg'
+import koppenbergClimb from './koppenberg-climb.jpg'
+import korfball1928 from './korfball-1928.jpg'
+import marathonTower from './marathon-tower.jpg'
+import merckx1966 from './merckx-1966.jpg'
+import merckxAmstel from './merckx-amstel.jpg'
+import merckxHourBike from './merckx-hour-bike.jpg'
+import merckxMolteni from './merckx-molteni.jpg'
+import merckxStadium from './merckx-stadium.jpg'
+import michels from './michels.jpg'
+import oudeKwaremont from './oude-kwaremont.jpg'
+import paping from './paping.jpg'
+import paterberg from './paterberg.jpg'
+import poster1920 from './poster-1920.jpg'
+import stadium1928 from './stadium-1928.jpg'
+import vanBasten from './van-basten.jpg'
+import vanLooy from './van-looy.jpg'
+import vanMoorsel from './van-moorsel.jpg'
+import vanSteenbergen from './van-steenbergen.jpg'
+import vdpCross from './vdp-cross.jpg'
+import victorBoin from './victor-boin.jpg'
+import vosCross from './vos-cross.jpg'
+import wust from './wust.jpg'
+import zoetemelk from './zoetemelk.jpg'
 import type { PhotoId } from './ids'
 
 export type { PhotoId } from './ids'
@@ -1523,6 +1572,55 @@ const files: Record<PhotoId, string> = {
   'keti-koti-2018b': ketiKoti2018b,
   'keti-koti-cake': ketiKotiCake,
   'keti-koti-stage': ketiKotiStage,
+  'ajax-inter-1972': ajaxInter1972,
+  'arenberg': arenberg,
+  'avercamp-kolf': avercampKolf,
+  'belgium-1920': belgium1920,
+  'belgium-1986': belgium1986,
+  'bike-demo': bikeDemo,
+  'bike-parking': bikeParking,
+  'blankers-home': blankersHome,
+  'blankers-koen': blankersKoen,
+  'cauberg': cauberg,
+  'cruijff-1965': cruijff1965,
+  'cruijff-ado': cruijffAdo,
+  'cruijff-ballon': cruijffBallon,
+  'elfsteden-1909': elfsteden1909,
+  'elfsteden-monument': elfstedenMonument,
+  'euro-1988': euro1988,
+  'feyenoord-1970': feyenoord1970,
+  'fietsstraat': fietsstraat,
+  'final-1974': final1974,
+  'final-1974-b': final1974B,
+  'golden-team': goldenTeam,
+  'grolsch-veste': grolschVeste,
+  'heysel-monument': heyselMonument,
+  'hovenring': hovenring,
+  'jan-janssen': janJanssen,
+  'koppenberg': koppenberg,
+  'koppenberg-climb': koppenbergClimb,
+  'korfball-1928': korfball1928,
+  'marathon-tower': marathonTower,
+  'merckx-1966': merckx1966,
+  'merckx-amstel': merckxAmstel,
+  'merckx-hour-bike': merckxHourBike,
+  'merckx-molteni': merckxMolteni,
+  'merckx-stadium': merckxStadium,
+  'michels': michels,
+  'oude-kwaremont': oudeKwaremont,
+  'paping': paping,
+  'paterberg': paterberg,
+  'poster-1920': poster1920,
+  'stadium-1928': stadium1928,
+  'van-basten': vanBasten,
+  'van-looy': vanLooy,
+  'van-moorsel': vanMoorsel,
+  'van-steenbergen': vanSteenbergen,
+  'vdp-cross': vdpCross,
+  'victor-boin': victorBoin,
+  'vos-cross': vosCross,
+  'wust': wust,
+  'zoetemelk': zoetemelk,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

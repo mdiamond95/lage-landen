@@ -918,3 +918,61 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .wheel-key { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.8rem; font-weight: 700; }
 .wheel-key li { display: flex; align-items: center; gap: 6px; }
 .wheel-where { font-size: 0.85rem; color: var(--ink-soft); }
+
+/* Unit 23: sport. On the sport time map each sport has its own mark and colour: cycling a red wheel,
+   football and korfball an orange ball, skating a blue skate, the Olympic Games a gold flame. */
+.hist-race path { fill: #c8372d; stroke: #fff; stroke-width: 0.8; }
+.key-race { width: 11px; height: 11px; border-radius: 50%; border: 3px solid #c8372d; box-sizing: border-box; }
+.hist-ball path { fill: #f57c00; stroke: #fff; stroke-width: 0.8; }
+.key-ball { width: 11px; height: 11px; border-radius: 50%; background: #f57c00; }
+.hist-ice path { fill: #1f6fb8; stroke: #fff; stroke-width: 0.8; }
+.key-ice { width: 13px; height: 8px; background: #1f6fb8; clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%, 0 0, 45% 0, 55% 40%, 100% 55%, 100% 70%); }
+.hist-games path { fill: #d4a017; stroke: #5a4300; stroke-width: 0.8; }
+.key-games { width: 10px; height: 12px; background: #d4a017; clip-path: polygon(50% 0, 85% 45%, 100% 75%, 50% 100%, 0 75%, 15% 45%); }
+
+/* Unit 23: route maps of the classic races. The ridden part of the route is solid red, the road
+   ahead dashed; climbs are triangles, towns dots, and the start and finish bigger. */
+.route-map { margin: 0; display: grid; gap: 10px; }
+.route-title { margin: 0; font-weight: 900; font-size: 1.05rem; }
+.route-intro { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+.route-line { fill: none; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.route-ahead { stroke: #8a6d3b; stroke-width: 3; stroke-dasharray: 6 5; }
+.route-pick .route-ahead { stroke: #8a6d3b; stroke-dasharray: none; stroke-width: 3.5; opacity: 0.75; }
+.route-ridden { stroke: var(--red); stroke-width: 5; }
+.route-place { cursor: pointer; }
+.route-place .route-hit { fill: transparent; }
+.route-place:hover .route-hit, .route-place:focus-visible .route-hit { fill: rgb(29 36 51 / 0.12); }
+.route-place .route-mark { fill: #fff; stroke: var(--ink); stroke-width: 2.2; }
+.route-place.is-climb .route-mark { fill: #8a6d3b; stroke: #fff; stroke-width: 1.5; }
+.route-place.is-end .route-mark { fill: var(--ink); stroke: #fff; }
+.route-place.is-here .route-hit { fill: rgb(200 55 45 / 0.18); stroke: var(--red); stroke-width: 2; }
+.route-place.is-picked .route-hit { fill: var(--delft-soft); stroke: var(--delft); stroke-width: 2.5; }
+.route-place.is-right .route-hit { fill: var(--green-soft); stroke: var(--green-dark); stroke-width: 2.5; }
+.route-place.is-wrong .route-hit { fill: var(--red-soft); stroke: var(--red); stroke-width: 2.5; }
+.route-place.is-missed .route-hit { fill: none; stroke: var(--green-dark); stroke-width: 2.5; stroke-dasharray: 3 3; }
+.route-place.is-dim { opacity: 0.45; }
+.route-order { font-size: 13px; font-weight: 900; fill: var(--delft); paint-order: stroke; stroke: #fff; stroke-width: 3.5px; pointer-events: none; }
+.route-name { font-size: 12px; pointer-events: none; }
+.route-label { font-size: 12px; font-weight: 800; fill: var(--ink-soft); letter-spacing: 0.04em; pointer-events: none; paint-order: stroke; stroke: #fff; stroke-width: 3px; }
+.route-label-water { fill: var(--delft); font-style: italic; stroke: none; }
+.route-label-town { font-weight: 700; font-size: 11px; }
+.route-mover circle { fill: var(--red); stroke: #fff; stroke-width: 2; }
+.route-mover path { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.route-mover { transition: transform 0.4s ease-out; pointer-events: none; }
+.route-controls { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; }
+.route-controls input { width: 100%; accent-color: var(--red); }
+.route-controls button { border: 2px solid var(--line); background: var(--card); border-radius: 10px; width: 38px; height: 34px; font-size: 1.2rem; font-weight: 900; cursor: pointer; }
+.route-controls button:disabled { opacity: 0.4; cursor: default; }
+.route-card { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 12px 14px; display: grid; gap: 6px; }
+.route-card p { margin: 0; }
+.route-stop { font-weight: 900; font-size: 1.05rem; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.route-count { font-size: 0.75rem; font-weight: 800; color: var(--ink-soft); }
+.route-km { font-size: 0.8rem; font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: 0.05em; }
+.route-note { font-size: 0.75rem; color: var(--ink-soft); }
+.climb-stats { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0; }
+.climb-stats div { display: grid; }
+.climb-stats dt { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+.climb-stats dd { margin: 0; font-weight: 900; display: flex; align-items: center; gap: 6px; }
+.climb-wedge { width: 40px; height: 12px; }
+.climb-wedge path { fill: #8a6d3b; }
+@media (prefers-reduced-motion: reduce) { .route-mover { transition: none; } }

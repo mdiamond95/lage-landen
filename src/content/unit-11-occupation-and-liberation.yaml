@@ -514,6 +514,20 @@ lessons:
               Of about 10,000 men at Arnhem, fewer than 2,500 got back across the river.
           - label: The Afsluitdijk
             why: That stayed in German hands until May 1945.
+      - type: story
+        title: One road, many bridges
+        body: >-
+          The tanks had to cross canals and three great rivers, the Maas, the Waal and the Rhine, on one narrow road
+          raised above the fields. Step along it from the Belgian border to Arnhem.
+        visual: { kind: route, route: market-garden }
+      - type: ride
+        prompt: Tap the towns where the road crosses the three great rivers, in the order the tanks reached them.
+        route: market-garden
+        show: [eindhoven]
+        ask: [grave, nijmegen]
+        explain: >-
+          Grave on the Maas, then Nijmegen on the Waal, taken only on 20 September, after paratroopers rowed across under
+          fire. The third, the Rhine bridge at Arnhem, was never reached: it was the bridge too far.
       - type: voices
         prompt: Two men looked back on Market Garden. How do they disagree?
         voices:
