@@ -596,3 +596,45 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .hist-memorial path { fill: #c8102e; stroke: #fff; stroke-width: 1.2; }
 .key-memorial { width: 8px; height: 10px; background: #c8102e; clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%); }
 .westhoek-map .hist-site-label { font-size: 12px; }
+
+/* Unit 15: Belgium's languages. Dutch is yellow, French red, German green and the
+   bilingual capital blue; Dutch-speaking towns that must also serve French speakers
+   are striped in both, and the old electoral district of Brussels-Halle-Vilvoorde is
+   a purple dashed outline over the rest. Land still abroad is plain grey land. */
+.hist-area-dutch { fill: #f7dc6f; stroke: #a8841a; stroke-width: 0.6; transition: fill 0.4s; }
+.hist-area-french { fill: #f1aa9b; stroke: #a8392c; stroke-width: 0.6; transition: fill 0.4s; }
+.hist-area-german { fill: #b8d8a3; stroke: #3f7a3a; stroke-width: 0.6; transition: fill 0.4s; }
+.hist-area-bilingual { fill: #a9c4ea; stroke: #2f4f8f; stroke-width: 0.8; transition: fill 0.4s; }
+.hist-area-facility { stroke: #a8841a; stroke-width: 0.6; }
+.facility-a { fill: #f7dc6f; }
+.facility-b { fill: #f1aa9b; }
+.hist-area-abroad { fill: var(--land); stroke: #c9c1ae; stroke-width: 0.8; }
+.hist-area-bhv { fill: none; stroke: #6b3fa0; stroke-width: 2.4; stroke-dasharray: 6 3; }
+.hist-area-bhv.hist-area-flash { stroke: #6b3fa0; }
+.key-dutch { width: 12px; height: 10px; background: #f7dc6f; border: 1px solid #a8841a; border-radius: 2px; }
+.key-french { width: 12px; height: 10px; background: #f1aa9b; border: 1px solid #a8392c; border-radius: 2px; }
+.key-german { width: 12px; height: 10px; background: #b8d8a3; border: 1px solid #3f7a3a; border-radius: 2px; }
+.key-bilingual { width: 12px; height: 10px; background: #a9c4ea; border: 1px solid #2f4f8f; border-radius: 2px; }
+.key-facility { width: 12px; height: 10px; background: repeating-linear-gradient(45deg, #f7dc6f 0 3px, #f1aa9b 3px 5px); border: 1px solid #a8841a; border-radius: 2px; }
+.key-bhv { width: 12px; height: 10px; border: 2px dashed #6b3fa0; border-radius: 2px; }
+.belgium-map .hist-people { font-size: 13px; }
+.belgium-map .hist-territory { font-size: 12px; }
+.federal { margin: 0; border: 2px solid var(--line); border-radius: 16px; background: var(--card); padding: 12px; display: grid; gap: 8px; }
+.federal-roof { text-align: center; font-size: 0.78rem; font-weight: 800; color: var(--ink-soft); background: #e9e2d2; border-radius: 8px; padding: 8px 10px; }
+.federal-maps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.federal-panel { display: grid; gap: 4px; align-content: start; }
+.federal-title { margin: 0; font-size: 0.95rem; }
+.federal-intro { margin: 0; font-size: 0.8rem; color: var(--ink-soft); }
+.federal-map { width: 100%; height: auto; background: var(--sea); border-radius: 10px; }
+.federal-part { cursor: pointer; transition: opacity 0.3s; }
+.federal-dim { opacity: 0.25; }
+.federal-label { font-size: 17px; font-weight: 900; fill: #1d2433; pointer-events: none; paint-order: stroke; stroke: rgb(255 255 255 / 0.85); stroke-width: 4px; stroke-linejoin: round; }
+.federal-label-on { font-size: 19px; }
+.federal-buttons { display: flex; flex-wrap: wrap; gap: 4px; }
+.federal-button { font: inherit; font-size: 0.75rem; font-weight: 800; border-radius: 999px; padding: 4px 10px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; }
+.federal-button[aria-pressed='true'] { border-color: var(--ink); }
+.federal-button.federal-dutch { background: #fbecb0; }
+.federal-button.federal-french { background: #f8d2ca; }
+.federal-button.federal-german { background: #dcebd1; }
+.federal-button.federal-bilingual { background: #d4e1f4; }
+.federal-runs { margin: 0; font-size: 0.82rem; min-height: 2.6em; }

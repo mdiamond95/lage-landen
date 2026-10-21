@@ -26,6 +26,8 @@ export const DELTA_H = 470
 export const AFRICA_H = 600
 // The Westhoek, from the coast at Nieuwpoort down to Armentières, is taller than wide.
 export const WESTHOEK_H = 700
+// Belgium on its own is wider than tall.
+export const BELGIUM_H = 500
 // The world map is wide and low: from the Americas to Japan, Norway to Tasmania.
 export const WORLD_H = 340
 

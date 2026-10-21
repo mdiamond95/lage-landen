@@ -1,0 +1,826 @@
+id: unit-15
+number: 15
+title: Language and the federal state
+era: 1830 to today
+summary: Belgium began in 1830 as a state run in French, though most of its people spoke Dutch. The Flemish Movement won equal laws in 1898, a university in Dutch in 1930 and a language for each region in 1932. In the 1960s a line was drawn for good across the country, the university of Leuven split in two, and from 1970 six state reforms turned Belgium into a federal state of three regions and three communities, with Brussels, home of the Atomium, the European Commission and NATO, shared between them.
+lessons:
+  - id: u15-l1
+    title: A language of their own
+    icon: speech
+    sources:
+      - title: "Wikipedia, Flemish Movement"
+        url: https://en.wikipedia.org/wiki/Flemish_Movement
+      - title: "Wikipedia, Equality law (Belgium)"
+        url: https://en.wikipedia.org/wiki/Equality_law_(Belgium)
+      - title: "Wikipedia, Gelijkheidswet, with Coremans' speech of 18 November 1896 (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Gelijkheidswet
+      - title: "Wikipedia, Coucke and Goethals"
+        url: https://en.wikipedia.org/wiki/Coucke_and_Goethals
+      - title: "Wikipedia, Jules Destrée"
+        url: https://en.wikipedia.org/wiki/Jules_Destr%C3%A9e
+      - title: "Université Laval, L'aménagement linguistique dans le monde: Belgique, la Lettre au roi of 1912 (in French)"
+        url: https://www.axl.cefan.ulaval.ca/europe/belgiqueetat_histoire.htm
+      - title: "Wikipedia, Ghent University"
+        url: https://en.wikipedia.org/wiki/Ghent_University
+      - title: "Wikipedia, Eupen-Malmedy"
+        url: https://en.wikipedia.org/wiki/Eupen-Malmedy
+    exercises:
+      - type: story
+        title: One state, one language of power
+        body: >-
+          When Belgium broke away from the Netherlands in 1830, most Belgians spoke Flemish, the Dutch of the
+          north, at home. But the men who made the new country spoke French, and French was the language of its
+          laws, its courts, its army and its schools beyond the first years. Over the next hundred years the
+          Flemish Movement fought for Dutch to count as much as French. Press play to see the language laws redraw
+          the map of Belgium, from 1830 to 2012.
+        visual: { kind: time-map, map: language, year: 1830 }
+      - type: choice
+        prompt: Look at the map of 1830. Most Belgians lived in the north and spoke Flemish. In which language were the new country's laws written?
+        visual: { kind: time-map, map: language, year: 1830 }
+        answer: 1
+        options:
+          - label: Dutch, the language of most Belgians
+            why: Dutch was the language of the king Belgium had just thrown out.
+          - label: French
+            why: >-
+              Right. Only the French text of a law counted. The nobles, the rich and the educated spoke French all
+              over the country, in Flanders too, and Brussels was turning from Flemish to French.
+          - label: Latin
+            why: Latin was the language of the church, not of the laws.
+          - label: Both, from the start
+            why: That took until 1898.
+      - type: truemyth
+        statement: In 1860 two Flemish workers were beheaded for murder after a trial held in French, a language they did not understand, and a year later another man confessed to the crime.
+        visual: { kind: photo, photo: coucke-goethals }
+        answer: true
+        explain: >-
+          True. Jan Coucke and Pieter Goethals were tried in Mons and beheaded at Charleroi on 16 November 1860,
+          with a gendarme from Luxembourg, who spoke little French or Dutch, as their interpreter. In 1861 a member of a gang called the Black Band
+          confessed. Historians still argue over whether the two were innocent, but they became martyrs of the
+          Flemish Movement, and in 1873 a law let Flemings be tried in Dutch.
+      - type: who
+        photo: coremans
+        clues:
+          - I was born in Antwerp in 1835, and became a lawyer and a Catholic member of parliament.
+          - My law of 1873 let Flemings be tried in their own language.
+          - In 1896 I told parliament that Flemings had to obey laws they could not read.
+          - The law of 1898 that made Dutch and French equal carries my name.
+        options: [Edward Coremans, Hendrik Conscience, Jules Destrée, Guido Gezelle]
+        answer: 0
+        explain: >-
+          Edward Coremans. The Equality Law of 18 April 1898, the Coremans-De Vriendt law, said that every law must
+          be voted, published and signed in Dutch as well as French. It came after 1893, when far more men got the
+          vote, and Flemish voters could no longer be ignored.
+      - type: voices
+        prompt: A Flemish Catholic in 1896, and a Walloon socialist in 1912. Read them side by side. What do both of them say?
+        voices:
+          - who: Edward Coremans, member of parliament for Antwerp
+            when: In the Chamber, 18 November 1896 (translated from the French)
+            text: >-
+              Since 1830–1831 the Flemish people, who today number 2,700,000 people knowing only Flemish, have been in
+              the unjust and tyrannical position of having to obey laws that they can neither read nor understand!
+          - who: Jules Destrée, member of parliament for Charleroi
+            when: Letter to the King, in the Revue de Belgique, 15 August 1912 (translated from the French)
+            text: >-
+              Sire, you reign over two peoples. In Belgium there are Walloons and there are Flemings; there are no
+              Belgians.
+            photo: destree
+        options:
+          - Belgium is not one people with one language
+          - Belgium should join France
+          - French should be the only language of Belgium
+          - The king should rule without parliament
+        answer: 0
+        explain: >-
+          Coremans wanted Dutch to count as much as French in one Belgium. Destrée feared the opposite: that the
+          Flemish majority would outvote Wallonia, and asked the king to split the running of the country in two.
+          Both saw a state that did not fit the people living in it.
+      - type: choice
+        prompt: This painting by Nicaise De Keyser helped inspire The Lion of Flanders, the novel of 1838 that made Flemings proud of their past. Which battle does it show?
+        visual: { kind: photo, photo: golden-spurs-dekeyser }
+        answer: 2
+        options:
+          - label: Waterloo, 1815
+            why: Waterloo was fought by British, Dutch, Belgian and Prussian armies against Napoleon, with cannon.
+          - label: The Yser, 1914
+            why: That battle came long after both the painting and the novel.
+          - label: The Golden Spurs, 1302
+            why: >-
+              Right. At Kortrijk the craftsmen of Flanders beat the knights of the king of France. Hendrik Conscience
+              made the battle the heart of his novel, and the Flemish Community still keeps its holiday on its day,
+              11 July.
+          - label: Nieuwpoort, 1600
+            why: At Nieuwpoort the Dutch Republic fought Spain, centuries later.
+      - type: choice
+        prompt: In 1930 the university of Ghent changed for good. What happened?
+        visual: { kind: photo, photo: boekentoren }
+        answer: 0
+        options:
+          - label: It became the first university in Belgium to teach in Dutch
+            why: >-
+              Right. Until then Belgium's universities taught in French. A Dutch university had been opened in Ghent
+              by the German occupiers in 1916, and closed in 1918, so the Flemish Movement had to win it again in
+              parliament. Its library tower, by Henry van de Velde, rose in the years after.
+          - label: It moved to Brussels
+            why: It has stayed in Ghent since 1817.
+          - label: It split into two universities
+            why: That happened at Leuven, in 1968.
+          - label: It closed
+            why: It is one of the largest universities in Belgium.
+      - type: scrub
+        prompt: After the First World War Belgium took a strip of German land, with German-speaking towns. Drag the slider to the first stage where they are part of Belgium.
+        map: language
+        start: 1830
+        answer: [1920, 1931]
+        explain: >-
+          The Treaty of Versailles gave Eupen, Sankt Vith and Malmedy to Belgium. In 1920 their people were
+          "consulted": anyone against had to sign their name on a public list, and very few dared. Eupen and Sankt
+          Vith spoke German, and Malmedy mostly French.
+      - type: order
+        prompt: Put these steps of the Flemish Movement in order.
+        items:
+          - { label: Hendrik Conscience writes The Lion of Flanders, year: 1838, when: '1838' }
+          - { label: Coucke and Goethals are beheaded, year: 1860, when: '1860' }
+          - { label: Flemings may be tried in Dutch, year: 1873, when: '1873' }
+          - { label: The Equality Law makes Dutch and French equal, year: 1898, when: '1898' }
+          - { label: Jules Destrée writes to the king, year: 1912, when: '1912' }
+          - { label: Ghent University teaches in Dutch, year: 1930, when: '1930' }
+        explain: >-
+          First came pride in a past and a language, then laws for the courts, then equal laws, and then a
+          university. Each step made French-speaking Walloons more afraid of being outvoted.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Only the French text of a law counted, Flemings had to obey laws they could not read]
+          - [Two Flemings were tried in a language they did not understand, A law of 1873 let Flemings be tried in Dutch]
+          - [Far more men got the vote in 1893, Parliament made Dutch and French equal in 1898]
+          - [Walloons feared being outvoted by the Flemish majority, Destrée asked the king to split the running of the country]
+        explain: >-
+          Belgium's language quarrel grew out of a state that spoke one language and a people that mostly spoke
+          another. Every Flemish gain made the Walloon side ask for protection of its own.
+
+  - id: u15-l2
+    title: Drawing the line
+    icon: signpost
+    sources:
+      - title: "Wikipedia, Language legislation in Belgium"
+        url: https://en.wikipedia.org/wiki/Language_legislation_in_Belgium
+      - title: "Wikipedia, Talentelling, the language census (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Talentelling
+      - title: "Wikipedia, Belgian language border"
+        url: https://en.wikipedia.org/wiki/Belgian_language_border
+      - title: "Wikipedia, Marches on Brussels"
+        url: https://en.wikipedia.org/wiki/Marches_on_Brussels
+      - title: "Wikipedia, Voeren"
+        url: https://en.wikipedia.org/wiki/Voeren
+      - title: "Wikipedia, Municipalities with language facilities"
+        url: https://en.wikipedia.org/wiki/Municipalities_with_language_facilities
+      - title: "Wikipedia, Francization of Brussels"
+        url: https://en.wikipedia.org/wiki/Francization_of_Brussels
+    exercises:
+      - type: story
+        title: Each side its own language
+        body: >-
+          The laws of 1921 and 1932 split Belgium by place. Flanders would be run in Dutch, Wallonia in French, and
+          Brussels in both. But the line between them was left to the census: every ten years people were asked
+          which language they spoke, and a town could change sides. As Brussels spread and turned to French, the
+          Flemish towns around it feared they would be next. Here is the map of 1932.
+        visual: { kind: time-map, map: language, year: 1932 }
+      - type: truemyth
+        statement: Belgium still asks in its census which language people speak.
+        visual: { kind: photo, photo: census-form }
+        answer: false
+        explain: >-
+          Myth. From 1846 the census counted Belgium's languages, and from 1932 the count could move a town: if 30%
+          spoke the other language, the town had to serve them in it, and above 50% it changed sides. The count of
+          1947 was so disputed that it was published only in 1954. Flemish mayors refused to hold another, and in
+          1961 the language question was dropped for good.
+      - type: scrub
+        prompt: After the count of 1947, three Flemish towns were added to bilingual Brussels. Drag the slider to the stage when Brussels first grew to 19 municipalities.
+        map: language
+        start: 1932
+        answer: [1954, 1962]
+        explain: >-
+          In 1954 Evere, Ganshoren and Sint-Agatha-Berchem joined Brussels, and four towns on its edge got
+          "facilities": the right for French speakers to deal with the town hall in French. For many Flemings this
+          was the proof that the census would eat Flanders away town by town.
+      - type: choice
+        prompt: In October 1961 and again in October 1962 tens of thousands of Flemings marched through Brussels. What did they want?
+        visual: { kind: photo, photo: march-1962 }
+        answer: 1
+        options:
+          - label: Independence for Flanders
+            why: The marchers wanted a Belgium with a fixed line in it, not a new country.
+          - label: A language border fixed for good, and no more language census
+            why: >-
+              Right. About 63,000 marched in 1961 and about 41,000 in 1962. Within weeks of the second march
+              parliament voted the law that fixed the language border.
+          - label: The return of King Leopold III
+            why: That question was settled in 1950.
+          - label: Higher wages
+            why: The marches were about language, not pay.
+      - type: choice
+        prompt: Drag the divider between 1932 and 1963. Which piece of land moved from the province of Liège to Limburg, in Flanders?
+        visual: { kind: compare, map: language, years: [1932, 1963] }
+        answer: 0
+        options:
+          - label: Voeren, six villages between Liège and the Dutch border
+            why: >-
+              Right. Voeren went to Limburg, and Comines-Warneton and Mouscron went the other way, from Flanders to
+              Hainaut. Voeren is cut off from the rest of Flanders, and many of its people wanted to stay with Liège.
+          - label: Mouscron
+            why: Mouscron moved too, but the other way, from West Flanders to Hainaut.
+          - label: Eupen
+            why: Eupen stayed in the province of Liège, as the centre of the German-speaking area.
+          - label: Halle-Vilvoorde
+            why: Halle and Vilvoorde were already in Flanders, around Brussels.
+      - type: pin
+        prompt: Pin Voeren, the corner of Flanders that is cut off from the rest of it.
+        place: voeren
+        fullKm: 8
+        okKm: 20
+        explain: >-
+          Voeren lies between Wallonia and the Netherlands. In the 1980s it elected a French-speaking farmer, José
+          Happart, as its mayor. He refused to take a test in Dutch, and the quarrel over him brought down the
+          national government in October 1987.
+      - type: choice
+        prompt: Voeren is in Flanders, but in 1947 more than half its people spoke French. What did the law of 1963 give them?
+        visual: { kind: photo, photo: voeren-sign }
+        answer: 2
+        options:
+          - label: Their own French-speaking province
+            why: There is no such province.
+          - label: Nothing; the town hall speaks only Dutch
+            why: The law did give them something.
+          - label: Facilities, the right to deal with the town hall and get papers in French
+            why: >-
+              Right. Today 27 towns have facilities: six around Brussels, others along the language border, like Voeren,
+              Comines-Warneton and Mouscron, and the towns of the German-speaking east.
+          - label: A vote every ten years on which side to join
+            why: The point of 1963 was to stop the line moving.
+      - type: choice
+        prompt: Linkebeek is in Flanders, just outside Brussels, and most of its people speak French. Why has someone painted over the French words on these signs?
+        visual: { kind: photo, photo: linkebeek-signs }
+        answer: 1
+        options:
+          - label: The French was spelled wrong
+            why: The French words were right; that was not the problem.
+          - label: To say that Linkebeek is a Flemish town, where Dutch is the language
+            why: >-
+              Right. In the six towns with facilities around Brussels, many Flemings see a Flemish town that must
+              stay Flemish, and many French speakers see a suburb of Brussels where they are the majority. From 2007
+              the Flemish government refused for years to appoint Linkebeek's elected French-speaking mayor, for
+              sending voters their papers in French.
+          - label: The town is changing its name
+            why: Linkebeek has kept its name.
+          - label: The signs point the wrong way
+            why: It is about language, not direction.
+      - type: sort
+        prompt: Read the map of 2012 and sort these places by language.
+        visual: { kind: time-map, map: language, year: 2012 }
+        groups: [Dutch, French, German, Dutch and French]
+        items:
+          - { label: Ghent, group: 0 }
+          - { label: Leuven, group: 0 }
+          - { label: Voeren, group: 0 }
+          - { label: Liège, group: 1 }
+          - { label: Namur, group: 1 }
+          - { label: Eupen, group: 2 }
+          - { label: Brussels, group: 3 }
+        explain: >-
+          Since 1963 Belgium has four language areas: Dutch, French, German, and bilingual Brussels. The line does
+          not move any more, whoever moves in.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The census could move a town across the line, Flemish mayors refused to hold it]
+          - [Brussels was growing and turning to French, Flemings feared for the towns around it]
+          - [The marches of 1961 and 1962, The language border was fixed by law]
+          - [Voeren went from Liège to Limburg, A French-speaking mayor brought down a government in 1987]
+        explain: >-
+          The line of 1963 settled where each language was spoken, but it left French-speaking minorities on the
+          Flemish side, in Voeren and around Brussels, and their towns have been fought over ever since.
+
+  - id: u15-l3
+    title: Leuven Vlaams
+    icon: megaphone
+    sources:
+      - title: "Wikipedia, General strike of 1960–1961 (Belgium)"
+        url: https://en.wikipedia.org/wiki/General_strike_of_1960%E2%80%931961_(Belgium)
+      - title: "Wikipedia, Leuven Vlaams"
+        url: https://en.wikipedia.org/wiki/Leuven_Vlaams
+      - title: "Wikipedia, Splitsing van de Katholieke Universiteit Leuven (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Splitsing_van_de_Katholieke_Universiteit_Leuven
+      - title: "Wikipedia, Louvain-la-Neuve"
+        url: https://en.wikipedia.org/wiki/Louvain-la-Neuve
+      - title: "Wikipedia, Gaston Eyskens"
+        url: https://en.wikipedia.org/wiki/Gaston_Eyskens
+      - title: "Wikipedia, Free University of Brussels"
+        url: https://en.wikipedia.org/wiki/Free_University_of_Brussels
+    exercises:
+      - type: story
+        title: Walen buiten
+        body: >-
+          The Catholic University of Leuven was the oldest in the Low Countries, and taught in French and, from the
+          1930s, in Dutch too. By the 1960s most of its students were Flemish, but its French-speaking side kept
+          growing in a Flemish town. In 1966 the bishops said the university would stay one and stay in Leuven.
+          Flemish students took to the streets with a slogan that everyone in Belgium still knows.
+        visual: { kind: photo, photo: leuven-1968 }
+      - type: choice
+        prompt: In the winter of 1960–61 Belgium's workers struck for five weeks against a law of spending cuts. The strike was strongest in Wallonia. What did its leader, André Renard, ask for next?
+        visual: { kind: photo, photo: strike-1961 }
+        answer: 0
+        options:
+          - label: Self-rule for Wallonia, in a federal Belgium
+            why: >-
+              Right. Wallonia's coal and steel were in decline, and Flanders was growing richer and more numerous.
+              Renard's Walloon Popular Movement wanted Wallonia to run its own economy. Four people died in the
+              clashes of the strike.
+          - label: Union with France
+            why: A few Walloons wanted that, but not Renard's movement.
+          - label: A new king
+            why: The strike was about jobs and money.
+          - label: Leaving NATO
+            why: The strike was about the economy at home.
+      - type: gap
+        prompt: Fill the gap in the slogan of the Flemish students.
+        quote: Leuven Vlaams, Walen ___!
+        source: Slogan of the Flemish student protests in Leuven, 1966 to 1968
+        visual: { kind: photo, photo: leuven-1968 }
+        options: [buiten, binnen, welkom, thuis]
+        answer: 0
+        explain: >-
+          "Leuven Flemish, Walloons out!" In January 1968 the French-speaking side announced it would keep growing
+          in Leuven, and the protests grew so fierce that in February 1968 the government fell, over a
+          university.
+      - type: truemyth
+        statement: When the university split, even its library was shared out by shelf number, odd numbers to one university and even numbers to the other.
+        visual: { kind: photo, photo: leuven-library-today }
+        answer: true
+        explain: >-
+          True. The Dutch-speaking KU Leuven kept the town and the library building, and the French-speaking
+          university left with half the books, taken by alternate shelf numbers. The library had already been
+          burned twice, in 1914 and in 1940.
+      - type: who
+        photo: eyskens
+        clues:
+          - I was born in Lier in 1905, and taught economics at the university of Leuven.
+          - I was prime minister when the Congo became independent in 1960.
+          - My law of spending cuts set off the great strike that winter.
+          - I came back after the Leuven crisis of 1968, and began the first state reform.
+        options: [Gaston Eyskens, Jean-Luc Dehaene, Paul-Henri Spaak, Wilfried Martens]
+        answer: 0
+        explain: >-
+          Gaston Eyskens, a Flemish Christian Democrat, was prime minister three times, from 1949 to 1973. The
+          election called after the fall of the government over Leuven brought him back, and his government changed
+          the constitution in 1970.
+      - type: choice
+        prompt: Where did the French-speaking university go?
+        visual: { kind: photo, photo: louvain-la-neuve }
+        answer: 1
+        options:
+          - label: To Liège
+            why: Liège already had a university of its own.
+          - label: To a new town built for it in the fields of Walloon Brabant
+            why: >-
+              Right. Louvain-la-Neuve, "New Leuven", was begun in 1971, and its first students and residents came
+              in 1972. The medical school went to Woluwe, in Brussels.
+          - label: To Paris
+            why: It stayed in Belgium, on the French-speaking side of the line.
+          - label: Nowhere; it closed
+            why: It is still one of the biggest universities in Belgium.
+      - type: scrub
+        prompt: Drag the slider to the first stage when a new university town appears on the map, south of Leuven.
+        map: language
+        start: 1954
+        answer: [1970, 1979]
+        explain: >-
+          Louvain-la-Neuve lies about 20 km south of Leuven, just across the language border. The split of the
+          university was the first of many: Belgium's parties split along the same line in the years after.
+      - type: odd
+        prompt: All four are Belgian universities. Which is the odd one out, and why?
+        items:
+          - { label: KU Leuven, photo: leuven-library-today }
+          - { label: UCLouvain in Louvain-la-Neuve, photo: louvain-la-neuve }
+          - { label: The Free University of Brussels (ULB), photo: ulb }
+          - { label: Ghent University, photo: boekentoren }
+        answer: 3
+        reasons:
+          - It was never split in two
+          - It teaches in French
+          - It was founded after 1968
+        reason: 0
+        explain: >-
+          Ghent simply switched to Dutch in 1930. Leuven split into KU Leuven and UCLouvain in 1968, and the Free
+          University of Brussels split in 1969 into the French-speaking ULB and the Dutch-speaking VUB.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: The great strike against the law of spending cuts, year: 1960, when: 'Winter 1960–61' }
+          - { label: The language border is fixed, year: 1962, when: '1962' }
+          - { label: The university of Leuven is split, year: 1968, when: '1968' }
+          - { label: The Free University of Brussels splits into ULB and VUB, year: 1969, when: '1969' }
+          - { label: The first students arrive in Louvain-la-Neuve, year: 1972, when: '1972' }
+          - { label: The Socialist party splits into Flemish and French-speaking parties, year: 1978, when: '1978' }
+        explain: >-
+          By 1978 the Christian Democrats, the Liberals and the Socialists had each split in two. Since then no
+          party stands in all of Belgium, and Flemings and Walloons vote for different parties.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Wallonia's coal and steel were in decline, Walloon workers asked to run their own economy]
+          - [The French-speaking side of the university kept growing in Leuven, Flemish students marched with Walen buiten]
+          - [The government fell over Leuven in 1968, The university split and Louvain-la-Neuve was built]
+          - [The parties split along the language line, No party stands in all of Belgium]
+        explain: >-
+          Flemings wanted their own language on their own land; Walloons wanted their own economy. In the 1960s
+          both came to the same answer: a Belgium of parts that run themselves.
+
+  - id: u15-l4
+    title: Six state reforms
+    icon: layers
+    sources:
+      - title: "Wikipedia, State reform in Belgium"
+        url: https://en.wikipedia.org/wiki/State_reform_in_Belgium
+      - title: "Wikipedia, Communities, regions and language areas of Belgium"
+        url: https://en.wikipedia.org/wiki/Communities,_regions_and_language_areas_of_Belgium
+      - title: "Wikipedia, Saint Michael's Agreement"
+        url: https://en.wikipedia.org/wiki/Saint_Michael%27s_Agreement
+      - title: "Wikipedia, Jean-Luc Dehaene"
+        url: https://en.wikipedia.org/wiki/Jean-Luc_Dehaene
+      - title: "Wikipedia, 2010–2011 Belgian government formation"
+        url: https://en.wikipedia.org/wiki/2010%E2%80%932011_Belgian_government_formation
+      - title: "Wikipedia, Brussels-Capital Region"
+        url: https://en.wikipedia.org/wiki/Brussels-Capital_Region
+    exercises:
+      - type: story
+        title: One state, three regions, three communities
+        body: >-
+          From 1970 to 2011 Belgium changed its constitution six times, each time handing more to its parts. Flemings
+          wanted communities that look after people in their own language, and Walloons wanted regions that run
+          their own economy, so Belgium got both, and they overlap. Tap the maps to see who runs what.
+        visual: { kind: federal }
+      - type: gap
+        prompt: In February 1970 the prime minister told parliament why Belgium had to change. Fill the gap.
+        quote: The unitary state, as the laws still lay it down in its structures and its workings, has been overtaken by the ___.
+        source: Gaston Eyskens, prime minister, in the Chamber, 18 February 1970 (translated from the French)
+        visual: { kind: photo, photo: palace-nation }
+        options: [facts, Flemings, courts, king]
+        answer: 0
+        explain: >-
+          "Dépassé par les faits": the country had already split in its parties, its universities and its
+          politics, and the law had to catch up. The reform of 1970 set up cultural communities for Dutch, French and
+          German, and promised regions.
+      - type: order
+        prompt: Put the six state reforms in order.
+        items:
+          - { label: Cultural communities for Dutch, French and German, year: 1970, when: '1970' }
+          - { label: Flanders and Wallonia get regional governments, year: 1980, when: '1980' }
+          - { label: The Brussels-Capital Region, and schools go to the communities, year: 1988, when: '1988–89' }
+          - { label: Belgium becomes a federal state, year: 1993, when: '1993' }
+          - { label: The regions take over farming and foreign trade, year: 2001, when: '2001' }
+          - { label: Brussels-Halle-Vilvoorde is split, year: 2011, when: '2011–12' }
+        explain: >-
+          Each reform needed a two-thirds majority in parliament, and a majority on both sides of the language line,
+          so each one was a hard bargain between Flemish and French-speaking parties.
+      - type: sort
+        prompt: Who runs it? Sort them.
+        visual: { kind: federal }
+        groups: [The federal state, The regions, The communities]
+        items:
+          - { label: The army, group: 0 }
+          - { label: Pensions, group: 0 }
+          - { label: Justice and the police, group: 0 }
+          - { label: Roads and public transport, group: 1 }
+          - { label: Housing, group: 1 }
+          - { label: Schools, group: 2 }
+          - { label: Television and radio, group: 2 }
+        explain: >-
+          The regions look after land: the economy, roads, housing, the environment. The communities look after
+          people: schools, culture, the media in their language. The federal state keeps what has to be the same for
+          everyone.
+      - type: choice
+        prompt: On the map of communities, Brussels is striped in two colours. Why?
+        visual: { kind: federal, show: communities }
+        answer: 2
+        options:
+          - label: Nobody runs its schools
+            why: Brussels has plenty of schools, in both languages.
+          - label: It belongs to the German-speaking Community too
+            why: The German-speaking Community is only its nine towns in the east.
+          - label: Both the Flemish and the French Community run schools and culture there
+            why: >-
+              Right. A family in Brussels chooses a Dutch or a French school, and each is run by its community. As a
+              region, Brussels runs itself, since 1989.
+          - label: It is not part of Belgium
+            why: Brussels is Belgium's capital, and a region of its own.
+      - type: odd
+        prompt: Three of these parliaments make laws for a part of Belgium. Which is the odd one out, and why?
+        items:
+          - { label: The Flemish Parliament, photo: flemish-parliament }
+          - { label: The Walloon Parliament, photo: walloon-parliament }
+          - { label: The Parliament of the German-speaking Community, photo: german-parliament }
+          - { label: The European Parliament, photo: european-parliament }
+        answer: 3
+        reasons:
+          - It makes laws for the whole European Union, not for a part of Belgium
+          - It is outside Belgium
+          - It is the oldest of the four
+        reason: 0
+        explain: >-
+          The European Parliament meets in Brussels as well as Strasbourg. The Flemish Parliament sits in Brussels
+          too, the Walloon Parliament in Namur and the German-speaking one in Eupen. With the Brussels and French
+          Community parliaments, the national one and Europe's, a voter in Brussels lives under many parliaments.
+      - type: who
+        photo: dehaene
+        clues:
+          - I was born in Montpellier, in France, in 1940, as my parents fled the German invasion.
+          - I was a Flemish Christian Democrat, and they called me the Plumber, for fixing deals.
+          - In 1993 my government made Belgium a federal state.
+          - I was prime minister from 1992 to 1999.
+        options: [Jean-Luc Dehaene, Wilfried Martens, Guy Verhofstadt, Elio Di Rupo]
+        answer: 0
+        explain: >-
+          Jean-Luc Dehaene. The Saint Michael's Agreement of 1992 led to the reform of 1993, and since then the
+          first article of the constitution has read: "Belgium is a federal State composed of communities and regions." The province of
+          Brabant was split in two, and in 1995 Belgians voted directly for their regional parliaments for the first
+          time.
+      - type: truemyth
+        statement: After the election of June 2010 Belgium went 541 days without a new government.
+        visual: { kind: photo, photo: wetstraat }
+        answer: true
+        explain: >-
+          True. The Flemish nationalists of the N-VA came first in Flanders and the Socialists in Wallonia, and they
+          could not agree on how far the next reform should go. The old government ran the country as caretaker
+          until December 2011, when Elio Di Rupo formed a government, once the sixth reform had been agreed.
+      - type: scrub
+        prompt: Drag the slider to the stage when Brussels became a region of its own.
+        map: language
+        start: 1963
+        answer: [1989, 1992]
+        explain: >-
+          The Brussels-Capital Region was set up in 1989, with its own parliament and government for its 19
+          municipalities. Flemings had long feared a third region where they would be a small minority, and French
+          speakers had wanted one.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Flemings wanted to run their own schools and culture, Belgium got communities]
+          - [Walloons wanted to run their own economy, Belgium got regions]
+          - [Brussels was neither Flemish nor Walloon, It became a region of its own in 1989]
+          - [No party stood in all of Belgium any more, Every reform had to be bargained between the two sides]
+        explain: >-
+          Belgium did not choose between the Flemish and the Walloon plan; it built both, one on top of the other.
+          That is why it has six governments for under twelve million people.
+
+  - id: u15-l5
+    title: Brussels, capital of Europe
+    icon: atom
+    sources:
+      - title: "Wikipedia, Atomium"
+        url: https://en.wikipedia.org/wiki/Atomium
+      - title: "Wikipedia, Expo 58"
+        url: https://en.wikipedia.org/wiki/Expo_58
+      - title: "Wikipedia, Paul-Henri Spaak"
+        url: https://en.wikipedia.org/wiki/Paul-Henri_Spaak
+      - title: "Wikipedia, Berlaymont building"
+        url: https://en.wikipedia.org/wiki/Berlaymont_building
+      - title: "Wikipedia, Treaty of Rome"
+        url: https://en.wikipedia.org/wiki/Treaty_of_Rome
+      - title: "NATO, A short history of NATO"
+        url: https://www.nato.int/cps/en/natohq/declassified_139339.htm
+    exercises:
+      - type: story
+        title: The world comes to Brussels
+        body: >-
+          From April to October 1958 Brussels held the first world's fair since the Second World War. Expo 58 was
+          about science, peace and the future, and its centrepiece still stands on the Heysel plateau. The same year
+          Brussels became the home of the new European Economic Community, and in 1967 of NATO. A city split between
+          two languages became the capital of a continent.
+        visual: { kind: photo, photo: atomium }
+      - type: choice
+        prompt: The Atomium was built for Expo 58. What does it show?
+        visual: { kind: photo, photo: atomium-1957 }
+        answer: 3
+        options:
+          - label: The nine provinces of Belgium
+            why: Belgium did have nine provinces then, but that is not what the spheres stand for.
+          - label: A molecule of water
+            why: Water has only three atoms.
+          - label: The planets around the sun
+            why: The spheres are atoms, not planets.
+          - label: Nine atoms of an iron crystal, 165 billion times bigger than life
+            why: >-
+              Right. It is 102 m tall, and stairs, escalators and a lift run through its tubes. It was not meant to
+              outlast the fair, and became the symbol of Brussels.
+      - type: choice
+        prompt: The Philips Pavilion was designed in Le Corbusier's studio by the composer and architect Iannis Xenakis. What did visitors find inside?
+        visual: { kind: photo, photo: expo58-philips }
+        answer: 0
+        options:
+          - label: A show of light, pictures and electronic music, played through hundreds of loudspeakers
+            why: >-
+              Right. Edgard Varèse's Poème électronique came from 425 loudspeakers around the walls. Philips, the
+              Dutch electronics firm, pulled the pavilion down after the fair.
+          - label: A factory making radios
+            why: It was a show, not a factory.
+          - label: A cinema showing Hollywood films
+            why: What it showed was far stranger.
+          - label: A shop selling light bulbs
+            why: Philips was showing off, not selling.
+      - type: truemyth
+        statement: Expo 58 drew more visitors than any world's fair before it.
+        visual: { kind: photo, photo: expo58-congo }
+        answer: false
+        explain: >-
+          Myth, just. About 41.5 million visitors came, second only to the Paris fair of 1900, with about 48
+          million. Beside the Atomium and the pavilions of the world stood the grand pavilions of the Belgian Congo,
+          two years before its independence.
+      - type: who
+        photo: spaak
+        clues:
+          - I was born in Schaerbeek in 1899, and my mother was the first woman in the Belgian Senate.
+          - I was prime minister of Belgium three times, the first time in 1938.
+          - I chaired the first General Assembly of the United Nations, in 1946.
+          - A report with my name led to the Treaty of Rome, and I later led NATO.
+        options: [Paul-Henri Spaak, Robert Schuman, Gaston Eyskens, Jean Monnet]
+        answer: 0
+        explain: >-
+          Paul-Henri Spaak, a Socialist from Brussels, was called "Mr. Europe". In London during the war he helped
+          set up the Benelux, and in 1956 his committee wrote the plan for the common market that six countries
+          signed at Rome in 1957. He was NATO's secretary general from 1957 to 1961.
+      - type: gap
+        prompt: Fill the gap in the first line of the Treaty of Rome, signed by Belgium, France, West Germany, Italy, Luxembourg and the Netherlands.
+        quote: Determined to lay the foundations of an ever closer ___ among the peoples of Europe
+        source: Treaty establishing the European Economic Community, signed at Rome, 25 March 1957
+        options: [union, market, army, friendship]
+        answer: 0
+        explain: >-
+          "An ever closer union" has been in every European treaty since. The Commission of the new community set
+          up in Brussels in 1958, a city in a small country, between the big ones, where all could meet.
+      - type: choice
+        prompt: The European Commission moved into this building in 1967. Why did it have to move out again, from 1991 to 2004?
+        visual: { kind: photo, photo: berlaymont }
+        answer: 1
+        options:
+          - label: It was too small
+            why: It is one of the biggest office buildings in Brussels.
+          - label: It was full of asbestos, which had to be taken out
+            why: >-
+              Right. The Berlaymont, named after the convent that stood on its site, was stripped and rebuilt, and
+              the Commission came back in 2004. It is the heart of the European Quarter.
+          - label: It was hit by a bomb
+            why: It was emptied to be repaired, not after an attack.
+          - label: The Commission moved to Strasbourg
+            why: The Commission has always been in Brussels.
+      - type: choice
+        prompt: In 1966 France left NATO's joint military command and asked NATO's headquarters to leave Paris. Where did they go?
+        answer: 2
+        options:
+          - label: London
+            why: NATO chose a city on the continent.
+          - label: Bonn
+            why: It went to a smaller country.
+          - label: Brussels
+            why: >-
+              Right. NATO's headquarters opened in Evere, in Brussels, in October 1967, and its military command went
+              to Casteau, near Mons. Its new headquarters, across the road, opened in 2017.
+          - label: Luxembourg
+            why: Luxembourg was too small for it.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [Expo 58 needed a centrepiece, The Atomium was built]
+          - [Six countries signed the Treaty of Rome, The European Commission set up in Brussels]
+          - [France left NATO's military command, NATO moved to Brussels in 1967]
+          - [The Berlaymont was full of asbestos, The Commission moved out from 1991 to 2004]
+        explain: >-
+          Brussels is the capital of Belgium, of Flanders, of the French Community, of the European Union and of
+          NATO.
+
+  - id: u15-l6
+    title: One country, three languages
+    icon: flag
+    sources:
+      - title: "Wikipedia, German-speaking Community of Belgium"
+        url: https://en.wikipedia.org/wiki/German-speaking_Community_of_Belgium
+      - title: "Wikipedia, Brussels-Halle-Vilvoorde"
+        url: https://en.wikipedia.org/wiki/Brussels-Halle-Vilvoorde
+      - title: "Wikipedia, Bye Bye Belgium (in French)"
+        url: https://fr.wikipedia.org/wiki/Bye_Bye_Belgium
+      - title: "Wikipedia, Communities, regions and language areas of Belgium"
+        url: https://en.wikipedia.org/wiki/Communities,_regions_and_language_areas_of_Belgium
+      - title: "Wikipedia, De Vlaamse Leeuw"
+        url: https://en.wikipedia.org/wiki/De_Vlaamse_Leeuw
+    exercises:
+      - type: story
+        title: Belgium today
+        body: >-
+          About six in ten Belgians live in Flanders, three in ten in Wallonia and one in ten in Brussels, and some
+          80,000 in the German-speaking east. There is a king, a federal government in the Wetstraat, the Rue de la
+          Loi, and five more governments below it. Some Flemish parties want Flanders to go its own way; others want
+          Belgium to take powers back. Here is the map of 1993, when Belgium became a federal state.
+        visual: { kind: time-map, map: language, year: 1993 }
+      - type: choice
+        prompt: Eupen, near the German border, is the seat of the German-speaking Community. How did it become Belgian?
+        visual: { kind: photo, photo: eupen-town }
+        answer: 1
+        options:
+          - label: It joined Belgium in 1830, with the rest of the country
+            why: In 1830 it was in Prussia.
+          - label: The Treaty of Versailles took it from Germany and gave it to Belgium in 1920
+            why: >-
+              Right. Germany annexed it again in 1940, and many of its men were made to fight in the German army.
+              Since 1945 it has been Belgian, and since 1973 it has had its own council, now a parliament.
+          - label: Belgium bought it from Luxembourg
+            why: It was German land, not Luxembourg's.
+          - label: Its people voted in secret to join Belgium
+            why: The vote of 1920 was not secret, and few dared sign against.
+      - type: pin
+        prompt: Pin Eupen, the capital of Belgium's German-speaking Community.
+        place: eupen
+        fullKm: 10
+        okKm: 25
+        explain: >-
+          Eupen lies a few kilometres from the German border, south of Aachen. Its parliament governs the schools and
+          culture of nine municipalities, inside the Walloon Region.
+      - type: choice
+        prompt: Look at the map of regions. Which region do the German-speaking towns belong to?
+        visual: { kind: federal, show: regions }
+        answer: 1
+        options:
+          - label: A German region of their own
+            why: There are only three regions, and none is German.
+          - label: The Walloon Region
+            why: >-
+              Right. As a community they run their own schools and culture in German, but their roads, housing and
+              economy are run from Namur, by the Walloon Region, which has handed them a few of its powers.
+          - label: The Flemish Region
+            why: Flanders is on the other side of the country.
+          - label: The Brussels-Capital Region
+            why: Brussels is 120 km away.
+      - type: scrub
+        prompt: The electoral district of Brussels-Halle-Vilvoorde let French speakers in the Flemish towns around Brussels vote for French-speaking parties of Brussels. Drag the slider to the stage when it was finally split.
+        map: language
+        start: 1993
+        answer: [2012, 2012]
+        explain: >-
+          In 2003 the court ruled that the district broke the constitution, as every other district stayed on one
+          side of the line. It took nine years and the 541-day crisis to split it, in 2012, with special rights kept
+          for French speakers in the six towns with facilities.
+      - type: truemyth
+        statement: In December 2006 Belgium's French-language public television told viewers that Flanders had declared independence, and many believed it.
+        visual: { kind: photo, photo: royal-palace }
+        answer: true
+        explain: >-
+          True. On 13 December 2006 the RTBF broke into its evening programmes with a special news report: Flanders
+          had left Belgium, and the king had flown abroad. After half an hour a banner said "This is fiction".
+          Its phone lines and website were swamped, and the hoax, Bye Bye Belgium, was meant to start a debate on where the country was
+          heading.
+      - type: choice
+        prompt: Why are the street signs of Brussels in two languages?
+        visual: { kind: photo, photo: brussels-signs }
+        answer: 0
+        options:
+          - label: Brussels is officially bilingual, Dutch and French
+            why: >-
+              Right. Street names, town halls and public services in its 19 municipalities work in both languages.
+              Most people in Brussels speak French at home, and many speak neither language first.
+          - label: Half the street names are for tourists
+            why: Both names are official.
+          - label: The French names are older
+            why: Many street names were Flemish first.
+          - label: It is a law of the European Union
+            why: It is a Belgian law, from the language laws of 1932 and 1963.
+      - type: choice
+        prompt: Each community has its own holiday. The Flemish Community's is 11 July. What does it remember?
+        visual: { kind: photo, photo: breydel-statue }
+        answer: 2
+        options:
+          - label: The Belgian Revolution of 1830
+            why: The French Community remembers the fighting in Brussels of September 1830, on 27 September.
+          - label: The end of the First World War
+            why: That is 11 November, Armistice Day, a holiday for all Belgians.
+          - label: The Battle of the Golden Spurs, 1302
+            why: >-
+              Right. The statue of Jan Breydel and Pieter de Coninck, leaders of the Flemish craftsmen, stands in the
+              Markt of Bruges. The German-speaking Community keeps its holiday on 15 November, the King's Feast.
+          - label: The Equality Law of 1898
+            why: The holiday goes much further back.
+      - type: region
+        prompt: When the province of Brabant was split in 1995, Flanders got five provinces. Tap them.
+        layer: provinces
+        answer: [BE-VAN, BE-VLI, BE-VOV, BE-VWV, BE-VBR]
+        explain: >-
+          Antwerp, Limburg, East Flanders, West Flanders and Flemish Brabant. Wallonia has five too: Hainaut, Liège,
+          Luxembourg, Namur and Walloon Brabant. Brussels belongs to no province.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [The Treaty of Versailles gave Belgium the East Cantons, Belgium has a German-speaking Community]
+          - [Brussels-Halle-Vilvoorde crossed the language line, The court ruled it against the constitution]
+          - [Flemings and Walloons vote for different parties, Forming a government can take a very long time]
+          - [Brussels is bilingual, Its signs and town halls work in Dutch and French]
+        explain: >-
+          Belgium has survived its language quarrel by giving each side its own ground and its own governments, and
+          by sharing Brussels. Whether it goes further apart, or back together, is still argued over every election.

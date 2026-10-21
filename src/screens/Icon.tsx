@@ -56,6 +56,20 @@ export const paths: Record<string, React.ReactNode> = {
       <circle cx="12" cy="12.5" r="1.6" fill="currentColor" stroke="none" />
     </>
   ),
+  // Two speech bubbles, for the two languages; a signpost, for the language border; a
+  // megaphone, for the protests; three layers, for the state reforms; an atom, for Expo 58.
+  speech: <path d="M3 5h11v7H8l-3 3v-3H3zM14 9h7v7h-2v3l-3-3h-5v-4" fill="none" strokeLinejoin="round" />,
+  signpost: <path d="M12 3v18M8 21h8M5 6h11l3 2.5-3 2.5H5zM19 13H8l-3 2.5L8 18h11z" fill="none" strokeLinejoin="round" />,
+  megaphone: <path d="M3 10v4h3l9 5V5L6 10zM6 14l1.5 6h3L9 15M18 9c1.5 1 1.5 5 0 6M20 7c3 2.5 3 7.5 0 10" fill="none" strokeLinejoin="round" />,
+  layers: <path d="m12 3 9 4.5-9 4.5-9-4.5zM3 12l9 4.5 9-4.5M3 16.5 12 21l9-4.5" fill="none" strokeLinejoin="round" />,
+  atom: (
+    <>
+      <circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none" />
+      <ellipse cx="12" cy="12" rx="9.5" ry="3.8" fill="none" />
+      <ellipse cx="12" cy="12" rx="9.5" ry="3.8" fill="none" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="9.5" ry="3.8" fill="none" transform="rotate(120 12 12)" />
+    </>
+  ),
 }
 
 export function Icon({ name }: { name: string }) {

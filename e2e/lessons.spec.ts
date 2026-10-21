@@ -454,15 +454,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 33 snapshots from Caesar to the Delta Works', async ({ page }) => {
+test('the time map steps through 36 snapshots from Caesar to the federal Belgium of 2012', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('33 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('36 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 33 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 36 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '32')
+  await expect(slider).toHaveAttribute('max', '35')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -558,18 +558,37 @@ test('the time map steps through 33 snapshots from Caesar to the Delta Works', a
   await expect(map.locator('.hist-breach')).toHaveCount(4)
   await expect(map.locator('.key-swatch.key-flooded')).toHaveCount(1)
 
+  await expect(map.locator('.hist-area-dutch')).toHaveCount(0)
+
   await slider.fill('31')
+  await expect(map.locator('.time-map-title')).toHaveText('1963: The language border is fixed')
+  await expect(map.locator('.hist-area-german')).toHaveCount(2)
+  await expect(map.locator('.key-swatch.key-dutch')).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-facility')).toHaveCount(0)
+
+  await slider.fill('32')
   await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
   await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
+  // The language areas stay on beside the Delta Works, with their key.
+  await expect(map.locator('.hist-area-bilingual')).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-bilingual')).toHaveCount(1)
 
-  await slider.fill('32')
+  await slider.fill('33')
+  await expect(map.locator('.time-map-title')).toHaveText('1993: A federal state')
+
+  await slider.fill('34')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
   await expect(map.locator('.hist-area-belgium')).toHaveCount(0)
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
+
+  await slider.fill('35')
+  await expect(map.locator('.time-map-title')).toHaveText('2012: Brussels-Halle-Vilvoorde is split')
+  await expect(map.locator('.hist-dam')).toHaveCount(0)
+  await expect(map.locator('.hist-area-french').first()).toBeVisible()
 
   await page.getByRole('button', { name: 'Back to the course' }).click()
   await expect(page.locator('.review')).toBeVisible()
@@ -1214,4 +1233,77 @@ test('the Westhoek map holds the Yser, moves the salient and fills with war grav
   await expect(map.locator('.hist-grave')).toHaveCount(5)
   await expect(map.locator('.hist-memorial')).toHaveCount(5)
   await expect(map.locator('.hist-alert', { hasText: 'GAS' })).toHaveCount(0)
+})
+
+test('plays all of unit 15 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'A language of their own',
+    'Drawing the line',
+    'Leuven Vlaams',
+    'Six state reforms',
+    'Brussels, capital of Europe',
+    'One country, three languages',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 15 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the language map draws the line of 1963, facilities and Brussels-Halle-Vilvoorde', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'A language of their own', exact: true }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.belgium-map')).toBeVisible()
+  await expect(map.locator('.time-map-title')).toHaveText('1830: One state, one language of power')
+  await expect(map.locator('.hist-area-abroad')).toHaveCount(1)
+  await expect(map.locator('.hist-area-german')).toHaveCount(0)
+
+  await year.fill('1920')
+  await expect(map.locator('.time-map-title')).toHaveText('1920: The East Cantons join Belgium')
+  await expect(map.locator('.hist-area-abroad')).toHaveCount(0)
+  await expect(map.locator('.hist-area-german')).toHaveCount(1)
+
+  await year.fill('1963')
+  await expect(map.locator('.time-map-title')).toHaveText('1963: The language border is fixed')
+  await expect(map.locator('.hist-area-facility')).toHaveCount(2)
+  await expect(map.locator('.hist-area-bhv')).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-bhv')).toHaveCount(1)
+
+  await year.fill('2012')
+  await expect(map.locator('.time-map-title')).toHaveText('2012: Brussels-Halle-Vilvoorde is split')
+  await expect(map.locator('.hist-area-bhv')).toHaveCount(0)
+  await expect(map.locator('.hist-alert', { hasText: 'BHV SPLIT' })).toHaveCount(1)
+})
+
+test('the diagram of regions and communities says who runs what, and shares Brussels', async ({ page }) => {
+  await unlock(page, ['u15-l1', 'u15-l2', 'u15-l3'])
+  await page.getByRole('button', { name: 'Six state reforms', exact: true }).click()
+
+  const diagram = page.locator('.federal')
+  await expect(diagram.locator('.federal-panel')).toHaveCount(2)
+  const communities = diagram.locator('.federal-panel').nth(1)
+  await expect(communities.locator('.federal-runs')).toHaveText('Tap one to see what it runs.')
+  await communities.getByRole('button', { name: 'Flemish Community' }).click()
+  await expect(communities.getByRole('button', { name: 'Flemish Community' })).toHaveAttribute('aria-pressed', 'true')
+  await expect(communities.locator('.federal-runs')).toContainText('Schools')
+  await expect(communities.locator('.federal-runs')).toContainText('in Flanders and in Brussels')
+  // Brussels is striped, as it belongs to two communities, and not dimmed when one of them is picked.
+  await expect(communities.locator('.federal-part[style*="url"]')).toHaveCount(4)
+  await expect(communities.locator('.federal-dim')).not.toHaveCount(0)
+
+  const regions = diagram.locator('.federal-panel').first()
+  await regions.getByRole('button', { name: 'Walloon Region' }).click()
+  await expect(regions.locator('.federal-runs')).toContainText('Parliament in Namur')
 })

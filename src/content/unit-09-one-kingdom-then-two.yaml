@@ -460,6 +460,21 @@ lessons:
           law for government and the courts. In practice the state, the army and the courts ran in French for
           decades, and Dutch speakers had to fight for their rights, as Unit 15 tells.
       - type: choice
+        prompt: Look at the language map of 1830, the year Belgium broke away. About how many Belgians spoke Flemish?
+        visual: { kind: time-map, map: language, year: 1830 }
+        answer: 1
+        options:
+          - label: A few, along the coast
+            why: Flemish was spoken across the whole north of the country.
+          - label: More than half
+            why: >-
+              Right. The first count of languages, in 1846, found 57% of Belgians speaking Flemish and 42% French.
+              Yet the men who made Belgium spoke French, and so did its state.
+          - label: About a quarter
+            why: It was far more; the map's whole north spoke Flemish.
+          - label: None; Flemish had died out
+            why: Most people in the north spoke nothing else.
+      - type: choice
         prompt: In February 1831 the Congress chose the Duke of Nemours, a son of the French king Louis-Philippe, as king of the Belgians. Its delegates went to Paris to tell his father. What did Louis-Philippe say?
         visual: { kind: photo, photo: congress-louis-philippe }
         answer: 2

@@ -259,6 +259,35 @@ import brussels1944 from './brussels-1944.jpg'
 import bastogneSupply from './bastogne-supply.jpg'
 import leopoldReturn from './leopold-return.jpg'
 import referendumPosters from './referendum-posters.jpg'
+import coremans from './coremans.jpg'
+import goldenSpursDekeyser from './golden-spurs-dekeyser.jpg'
+import couckeGoethals from './coucke-goethals.jpg'
+import destree from './destree.jpg'
+import boekentoren from './boekentoren.jpg'
+import censusForm from './census-form.jpg'
+import march1962 from './march-1962.jpg'
+import voerenSign from './voeren-sign.jpg'
+import linkebeekSigns from './linkebeek-signs.jpg'
+import brusselsSigns from './brussels-signs.jpg'
+import strike1961 from './strike-1961.jpg'
+import leuven1968 from './leuven-1968.jpg'
+import louvainLaNeuve from './louvain-la-neuve.jpg'
+import leuvenLibraryToday from './leuven-library-today.jpg'
+import ulb from './ulb.jpg'
+import eyskens from './eyskens.jpg'
+import flemishParliament from './flemish-parliament.jpg'
+import walloonParliament from './walloon-parliament.jpg'
+import germanParliament from './german-parliament.jpg'
+import europeanParliament from './european-parliament.jpg'
+import dehaene from './dehaene.jpg'
+import wetstraat from './wetstraat.jpg'
+import atomium from './atomium.jpg'
+import atomium1957 from './atomium-1957.jpg'
+import expo58Philips from './expo58-philips.jpg'
+import spaak from './spaak.jpg'
+import berlaymont from './berlaymont.jpg'
+import eupenTown from './eupen-town.jpg'
+import royalPalace from './royal-palace.jpg'
 import lumumbaSigns from './lumumba-signs.jpg'
 import luttrellSheep from './luttrell-sheep.jpg'
 import maeslantkering from './maeslantkering.jpg'
@@ -870,6 +899,35 @@ const files: Record<PhotoId, string> = {
   'bastogne-supply': bastogneSupply,
   'leopold-return': leopoldReturn,
   'referendum-posters': referendumPosters,
+  'coremans': coremans,
+  'golden-spurs-dekeyser': goldenSpursDekeyser,
+  'coucke-goethals': couckeGoethals,
+  'destree': destree,
+  'boekentoren': boekentoren,
+  'census-form': censusForm,
+  'march-1962': march1962,
+  'voeren-sign': voerenSign,
+  'linkebeek-signs': linkebeekSigns,
+  'brussels-signs': brusselsSigns,
+  'strike-1961': strike1961,
+  'leuven-1968': leuven1968,
+  'louvain-la-neuve': louvainLaNeuve,
+  'leuven-library-today': leuvenLibraryToday,
+  'ulb': ulb,
+  'eyskens': eyskens,
+  'flemish-parliament': flemishParliament,
+  'walloon-parliament': walloonParliament,
+  'german-parliament': germanParliament,
+  'european-parliament': europeanParliament,
+  'dehaene': dehaene,
+  'wetstraat': wetstraat,
+  'atomium': atomium,
+  'atomium-1957': atomium1957,
+  'expo58-philips': expo58Philips,
+  'spaak': spaak,
+  'berlaymont': berlaymont,
+  'eupen-town': eupenTown,
+  'royal-palace': royalPalace,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

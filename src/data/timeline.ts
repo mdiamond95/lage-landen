@@ -59,7 +59,11 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // Vienna, or a state run under France; on the city map, a town inside its walls;
 // Belgium from 1830, and a grand duchy held by the Dutch king (Luxembourg); in the
 // Second World War, land under German occupation and land liberated; land the sea
-// flooded (1953); a coalfield.
+// flooded (1953); a coalfield. On the language map of Belgium: land where Dutch,
+// French or German is the language, the bilingual capital, Dutch-speaking towns that
+// must also serve their French speakers (facilities), land still abroad (the East
+// Cantons before 1920), and the electoral district of Brussels-Halle-Vilvoorde,
+// outlined over the rest.
 export type AreaKind =
   | 'sea'
   | 'ruled'
@@ -77,6 +81,13 @@ export type AreaKind =
   | 'free'
   | 'flooded'
   | 'coal'
+  | 'dutch'
+  | 'french'
+  | 'german'
+  | 'bilingual'
+  | 'facility'
+  | 'abroad'
+  | 'bhv'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind
@@ -91,8 +102,9 @@ export type TimeStory = {
   // What the map is drawn on: the Low Countries (the default), the canals of
   // Amsterdam, the world, a close-up of the southwest delta with its islands,
   // Central Africa, for the Congo, or the Westhoek, the corner of Flanders around
-  // Ypres where the front of 1914 to 1918 ran.
-  base?: 'lowlands' | 'amsterdam' | 'world' | 'delta' | 'africa' | 'westhoek'
+  // Ypres where the front of 1914 to 1918 ran, or Belgium on its own, drawn from its
+  // municipalities, for the language map.
+  base?: 'lowlands' | 'amsterdam' | 'world' | 'delta' | 'africa' | 'westhoek' | 'belgium'
   // Two corners, [lon, lat], to zoom the map to; the whole Low Countries if left out.
   bounds?: [[number, number], [number, number]]
   min: number

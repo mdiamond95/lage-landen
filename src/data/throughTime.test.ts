@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 33 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(33)
+  it('has 36 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(36)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -54,5 +54,14 @@ describe('time map through the eras', () => {
     expect(kinds(1953).has('flooded')).toBe(true)
     expect(kinds(1986).has('flooded')).toBe(false)
     expect(kinds(1953).has('occupied')).toBe(false)
+    // Belgium's language areas from 1963, beside the Delta Works until 1997, with both keys.
+    expect(kinds(1953).has('dutch')).toBe(false)
+    expect((['dutch', 'french', 'german', 'bilingual'] as const).every((k) => kinds(1963).has(k))).toBe(true)
+    expect(kinds(1986).has('german')).toBe(true)
+    const swatches = (year: number) => events.find((e) => e.from === year)!.key!.map((k) => k.swatch)
+    expect(swatches(1986)).toContain('key-dutch')
+    expect(swatches(1963)).toEqual(expect.arrayContaining(swatches(1953)))
+    expect(swatches(2012)).toContain('key-german')
+    expect(swatches(2012)).not.toContain('key-facility')
   })
 })

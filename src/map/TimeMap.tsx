@@ -1,8 +1,9 @@
 import { useId, useMemo, type ReactNode } from 'react'
 import { activeAt, eventAt, type FlowTone, type HistArea, type TimeStory } from '../data/timeline'
-import { AFRICA_H, CITY_H, countries, DELTA_H, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, WESTHOEK_H, type Frame, type GeoFeature } from './geo'
+import { AFRICA_H, BELGIUM_H, CITY_H, countries, DELTA_H, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, WESTHOEK_H, type Frame, type GeoFeature } from './geo'
 import { AfricaBase, africaCountries } from './AfricaBase'
 import { AmsterdamBase } from './AmsterdamBase'
+import { BelgiumBase, belgiumParts } from './BelgiumBase'
 import { DeltaBase, deltaProvinces } from './DeltaBase'
 import { LowlandsMap } from './LowlandsMap'
 import { WesthoekBase, westhoekCountries } from './WesthoekBase'
@@ -20,12 +21,13 @@ const tones: FlowTone[] = ['asia', 'atlantic', 'enslaved']
 // `fresh` marks land that changed hands in the stage on screen, so it stands out.
 // Land split between two sides is hatched in both their colours. `regions` name shapes
 // of the story's own base: the delta's detailed provinces, Africa's or the Westhoek's
-// countries, or the Low Countries' countries and provinces.
+// countries, Belgium's pieces on the language map, or the Low Countries' countries
+// and provinces. Dutch-speaking towns with facilities for French speakers are striped.
 type AreaProps = { area: HistArea; frame: Frame; uid: string; fresh: false | 'fill' | 'outline'; regionShapes: GeoFeature[] }
 
 function Area({ area, frame, uid, fresh, regionShapes }: AreaProps) {
   const cls = `hist-area hist-area-${area.kind ?? 'sea'}${fresh === 'fill' ? ' hist-area-new' : fresh === 'outline' ? ' hist-area-flash' : ''}`
-  const style = area.kind === 'contested' ? { fill: `url(#${uid}-hatch)` } : undefined
+  const style = area.kind === 'contested' ? { fill: `url(#${uid}-hatch)` } : area.kind === 'facility' ? { fill: `url(#${uid}-facility)` } : undefined
   if (area.shape) return <path d={polygon(frame, area.shape)} className={cls} style={style} />
   const shapes = regionShapes.filter((f) => area.regions?.includes(f.properties.id!))
   const clipId = `${uid}-${area.name.replace(/\W+/g, '-')}`
@@ -72,7 +74,7 @@ function LowlandsBase({ areas, children, ...props }: { label: string; frame: Fra
   )
 }
 
-const bases = { amsterdam: AmsterdamBase, world: WorldBase, delta: DeltaBase, africa: AfricaBase, westhoek: WesthoekBase, lowlands: LowlandsBase }
+const bases = { amsterdam: AmsterdamBase, world: WorldBase, delta: DeltaBase, africa: AfricaBase, westhoek: WesthoekBase, belgium: BelgiumBase, lowlands: LowlandsBase }
 
 // One year of a time map: the base map with the story's areas, labels, lines and
 // sites as they stood that year. `fresh` marks land that changed hands in the stage
@@ -85,13 +87,13 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
       story.base === 'world'
         ? makeWorldFrame(story.bounds ?? [[-98, 8], [152, -5], [27, 64], [27, -46]])
         : story.bounds
-          ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : story.base === 'delta' ? DELTA_H : story.base === 'africa' ? AFRICA_H : story.base === 'westhoek' ? WESTHOEK_H : MAP_H)
+          ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : story.base === 'delta' ? DELTA_H : story.base === 'africa' ? AFRICA_H : story.base === 'westhoek' ? WESTHOEK_H : story.base === 'belgium' ? BELGIUM_H : MAP_H)
           : lowlandsFrame,
     [story],
   )
   const { toXY, linePath } = frame
   const Base = bases[story.base ?? 'lowlands']
-  const regionShapes = story.base === 'delta' ? deltaProvinces : story.base === 'africa' ? africaCountries : story.base === 'westhoek' ? westhoekCountries : lowlandsShapes
+  const regionShapes = story.base === 'delta' ? deltaProvinces : story.base === 'africa' ? africaCountries : story.base === 'westhoek' ? westhoekCountries : story.base === 'belgium' ? belgiumParts : lowlandsShapes
   const shown = (item: { end?: number }) => item.end === undefined || year <= item.end
   const fresh = highlightFresh && (event.fresh ?? story.fresh ?? 'fill')
   const areas = (story.areas ?? [])
@@ -113,6 +115,10 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
         <pattern id={`${uid}-hatch`} width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
           <rect width="8" height="8" className="hatch-a" />
           <rect width="4" height="8" className="hatch-b" />
+        </pattern>
+        <pattern id={`${uid}-facility`} width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="7" height="7" className="facility-a" />
+          <rect width="2.5" height="7" className="facility-b" />
         </pattern>
         <marker id={`${uid}-flow`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
           <path d="M0 0 10 5 0 10z" className="hist-flow-head" />
@@ -141,7 +147,7 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
           const d = linePath(line.coords)
           const tone = line.tone ? ` hist-flow-${line.tone}` : ''
           return (
-            <g key={line.name} className="fade-in">
+            <g key={`${line.name}-${line.from}`} className="fade-in">
               <path d={d} className={`hist-line hist-flow${tone}`} markerEnd={`url(#${uid}-${line.tone ?? 'flow'})`} />
               <path d={d} className="trade-flow">
                 <title>{line.name}</title>
@@ -149,13 +155,14 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
             </g>
           )
         }
-        // Keyed by state so the draw-in animation replays when a line returns.
+        // Keyed by state so the draw-in animation replays when a line returns, and by year,
+        // as the time map can hold one line from several snapshots of the same era.
         const gone = !activeAt(year, line)
         const draw = !gone && line.kind !== 'road'
         const effect = gone ? 'hist-gone' : draw ? 'draw-in' : 'fade-in'
         return (
           <path
-            key={`${line.name}-${effect}`}
+            key={`${line.name}-${line.from}-${effect}`}
             d={linePath(line.coords)}
             pathLength={draw ? 1 : undefined}
             className={`hist-line hist-${line.kind} ${effect}`}

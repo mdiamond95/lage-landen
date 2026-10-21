@@ -102,5 +102,8 @@ export const places: Record<string, Place> = {
   diksmuide: { name: 'Diksmuide', lat: 51.033, lon: 2.864 },
   passendale: { name: 'Passendale', lat: 50.9, lon: 3.02, note: 'Passchendaele, in the English of 1917' },
   mons: { name: 'Mons', lat: 50.454, lon: 3.952 },
+  voeren: { name: 'Voeren', lat: 50.759, lon: 5.761, note: "'s-Gravenvoeren, where Voeren's town hall is" },
+  eupen: { name: 'Eupen', lat: 50.628, lon: 6.036 },
+  'louvain-la-neuve': { name: 'Louvain-la-Neuve', lat: 50.669, lon: 4.615 },
   bastogne: { name: 'Bastogne', lat: 50.0, lon: 5.716 },
 }
