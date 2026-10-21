@@ -1,0 +1,29 @@
+[
+ {
+  "searchinfo": {
+   "totalhits": 2,
+   "suggestion": "parlament deutschsprachigen gemeinschaft eugen",
+   "suggestionsnippet": "parlament <em>deutschsprachigen</em> gemeinschaft <em>eugen</em>"
+  },
+  "search": [
+   {
+    "ns": 6,
+    "title": "File:OJ C 71 of 2018 - MT Maltese.pdf",
+    "pageid": 168420162,
+    "size": 1732,
+    "wordcount": 57,
+    "snippet": "BELGIQUE/BELGIË\n<span class=\"searchmatch\">Deutschsprachige</span> <span class=\"searchmatch\">Gemeinschaft</span>\nMinisterium der Deutschsprachigen <span class=\"searchmatch\">Gemeinschaft</span>\nFachbereich Kultur und Jugend\nGospertstrasse 1\n4700 <span class=\"searchmatch\">Eupen</span>\nBELGIQUE/BELGIË",
+    "timestamp": "2026-08-21T11:12:12Z"
+   },
+   {
+    "ns": 6,
+    "title": "File:OJ C 48 of 2023 - DE German.pdf",
+    "pageid": 169257671,
+    "size": 1773,
+    "wordcount": 57,
+    "snippet": "BELGIQUE/BELGIË\n<span class=\"searchmatch\">Deutschsprachige</span> <span class=\"searchmatch\">Gemeinschaft</span>\nMinisterium der Deutschsprachigen <span class=\"searchmatch\">Gemeinschaft</span>\nFachbereich Kultur und Jugend\nGospertstrasse 1\n4700 <span class=\"searchmatch\">Eupen</span>\nBELGIQUE/BELGIË",
+    "timestamp": "2026-08-27T17:53:41Z"
+   }
+  ]
+ }
+]
