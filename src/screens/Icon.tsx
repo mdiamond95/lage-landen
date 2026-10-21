@@ -68,6 +68,15 @@ export const paths: Record<string, React.ReactNode> = {
   owl: <path d="M6 4l2 3h8l2-3v10a6 6 0 0 1-12 0zM9.5 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM14.5 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM12 13v2M9 21l1-1.5M15 21l-1-1.5" fill="none" strokeLinejoin="round" />,
   easel: <path d="M5 4h14v10H5zM12 2v2M8 14l-3 7M16 14l3 7M12 14v5" fill="none" strokeLinejoin="round" />,
   skate: <path d="M6 4h5v8l7 2a2 2 0 0 1 1 2H6zM4 19h15a2 2 0 0 0 2-2M8 16v3M16 16v3" fill="none" strokeLinejoin="round" />,
+  // Unit 17: a ladder, for Rubens's Descent from the Cross; a lute, for Utrecht's music
+  // and candlelight; a painter's beret, for Rembrandt; a window, for Vermeer's rooms; a
+  // goblet, for the still lifes; a cloud, for the skies of the landscape painters.
+  ladder: <path d="M8 3v18M16 3v18M8 7h8M8 11h8M8 15h8M8 19h8" fill="none" strokeLinejoin="round" />,
+  lute: <path d="M14 10a6 6 0 1 1-8.5 8.5A6 6 0 0 1 14 10zM12.5 11.5 20 4M18 3l3 3M9 15h.01M7.5 17.5l3-3" fill="none" strokeLinejoin="round" />,
+  beret: <path d="M3 12c0-4 4-6 9-6s9 2 9 6c0 1.5-2 2.5-5 2.5H8c-3 0-5-1-5-2.5zM6 14.5c0 3 2.5 5.5 6 5.5s6-2.5 6-5.5M12 6V4" fill="none" strokeLinejoin="round" />,
+  window: <path d="M5 3h14v18H5zM12 3v18M5 11h14M8 15l2 2M14 6l2 2" fill="none" strokeLinejoin="round" />,
+  goblet: <path d="M7 3h10c0 6-2 9-5 9s-5-3-5-9zM12 12v6M8 21h8M9 18h6M7.5 7h9" fill="none" strokeLinejoin="round" />,
+  cloud: <path d="M6 18a4 4 0 0 1-.5-8 6 6 0 0 1 11.5-1.5A4.5 4.5 0 0 1 17.5 18zM3 21h18" fill="none" strokeLinejoin="round" />,
   atom: (
     <>
       <circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none" />

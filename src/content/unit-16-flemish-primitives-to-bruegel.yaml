@@ -679,6 +679,8 @@ lessons:
         url: https://www.rct.uk/collection/405787/massacre-of-the-innocents
       - title: "Wikipedia, Landscape with the Fall of Icarus"
         url: https://en.wikipedia.org/wiki/Landscape_with_the_Fall_of_Icarus
+      - title: "Wikipedia, The Garden of Earthly Delights"
+        url: https://en.wikipedia.org/wiki/The_Garden_of_Earthly_Delights
       - title: "Wikipedia, Big Fish Eat Little Fish"
         url: https://en.wikipedia.org/wiki/Big_Fish_Eat_Little_Fish
       - title: "Karel van Mander, Schilder-boeck, 1604, life of Pieter Bruegel (DBNL, in Dutch)"
@@ -764,6 +766,22 @@ lessons:
         explain: >-
           Big Fish is the trick one. Bruegel drew it in 1556, but when Hieronymus Cock published the print in 1557 he
           put Bosch's name on it, because Bosch sold better. Bruegel was called "the second Bosch" in his day.
+      - type: choice
+        prompt: Put Bruegel's drawing next to Bosch's Garden of Earthly Delights. What did the young Bruegel borrow from Bosch?
+        visual: { kind: pair, pair: second-bosch, focus: creatures }
+        answer: 0
+        options:
+          - label: Strange, made-up creatures, like a fish walking on human legs
+            why: >-
+              Right. Bosch had filled his hell with such creatures, and buyers still wanted them decades after his
+              death in 1516. But Bruegel turns them into a plain proverb, which the father in the boat points out to his son: the big fish
+              eat the little ones, the powerful eat the poor.
+          - label: Bright reds, blues and pinks
+            why: Bruegel's is a drawing in pen and ink, made to be engraved. No colour at all.
+          - label: A paradise with Adam and Eve
+            why: There is no paradise in Bruegel's drawing, only a beach, a boat and a stranded fish.
+          - label: The look of a church altarpiece, in three panels
+            why: Bruegel's is a single sheet, made for a print.
       - type: choice
         prompt: Soldiers raid a Flemish village in the snow, as King Herod ordered in the Bible. Around 1600 the painting was changed. What was painted over?
         visual: { kind: photo, photo: massacre-innocents }

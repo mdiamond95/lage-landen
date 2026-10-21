@@ -2,6 +2,7 @@ import { Art } from '../art/Art'
 import { FamilyTree } from '../art/FamilyTree'
 import { FederalDiagram } from '../art/FederalDiagram'
 import { LineChart } from '../art/LineChart'
+import { PaintingPair } from '../art/PaintingPair'
 import { PaintingTour } from '../art/PaintingTour'
 import { PillarDiagram } from '../art/PillarDiagram'
 import { PolderSlider } from '../art/PolderSlider'
@@ -17,6 +18,7 @@ import { greatWarStory } from '../data/greatwar'
 import { industryStory } from '../data/industry'
 import { kingdomStory } from '../data/kingdom'
 import { languageStory } from '../data/language'
+import { mastersStory } from '../data/masters'
 import { occupationStory } from '../data/occupation'
 import { paintersStory } from '../data/painters'
 import { railsStory } from '../data/rails'
@@ -51,6 +53,7 @@ export const stories = {
   westhoek: westhoekStory,
   language: languageStory,
   painters: paintersStory,
+  masters: mastersStory,
 }
 
 type TimeMapProps = {
@@ -70,6 +73,7 @@ export function VisualView({ visual, label }: { visual: Visual; label: string })
   if (visual.kind === 'art') return <Art id={visual.art} className="art art-large" />
   if (visual.kind === 'photo') return <PhotoFigure id={visual.photo} />
   if (visual.kind === 'painting') return <PaintingTour painting={visual.painting} focus={visual.focus} />
+  if (visual.kind === 'pair') return <PaintingPair pair={visual.pair} focus={visual.focus} />
   if (visual.kind === 'polder-slider') return <PolderSlider />
   if (visual.kind === 'storm-barrier') return <StormBarrier />
   if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} />
