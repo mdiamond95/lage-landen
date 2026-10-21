@@ -1,4 +1,5 @@
 import type { Exercise } from '../content/schema'
+import { facades } from '../data/facades'
 import { pairs } from '../data/pairs'
 import { tours } from '../data/paintings'
 import { series } from '../data/series'
@@ -17,6 +18,8 @@ export const photosUsed = (exercises: Exercise[]): PhotoId[] => {
     ...('visual' in e && e.visual?.kind === 'series' ? series[e.visual.series].steps.map((s) => s.photo) : []),
     ...(e.type === 'sort' ? e.items.flatMap((i) => (i.photo ? [i.photo] : [])) : []),
     ...(e.type === 'style' ? e.items.map((i) => i.photo) : []),
+    ...('visual' in e && e.visual?.kind === 'facade' ? [facades[e.visual.facade].photo] : []),
+    ...(e.type === 'label' ? [e.photo] : []),
   ])
   return [...new Set(ids)]
 }

@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { chartIds } from '../data/charts'
+import { facadeIds } from '../data/facades'
 import { treeIds } from '../data/families'
 import { pairIds } from '../data/pairs'
 import { seriesIds } from '../data/series'
@@ -56,9 +57,10 @@ const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // or Belgium's languages and the lines the language laws drew, from 1830 to 2012, or where
 // the painters of the Low Countries worked, from 1420 to 1569, or where the painters of the
 // Golden Age worked, from the fall of Antwerp in 1585 to 1682, or where the modern artists
-// worked, from Van Gogh's first drawings in 1880 to the Van Gogh Museum in 1973.
+// worked, from Van Gogh's first drawings in 1880 to the Van Gogh Museum in 1973, or the
+// buildings of the Low Countries, from the first belfries to the World Heritage list of 2000.
 // `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns'] as const
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings'] as const
 // The maps of the two world wars count in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
@@ -76,7 +78,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
@@ -109,7 +111,12 @@ const PairVisual = z.object({ kind: z.literal('pair'), pair: z.enum(pairIds), fo
 // to watch the way of painting change. `at` opens it at one picture, by its index.
 const SeriesVisual = z.object({ kind: z.literal('series'), series: z.enum(seriesIds), at: z.number().int().nonnegative().optional() })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual])
+// A building's front from src/data/facades.ts, with its parts named on labelled hotspots: tap
+// one and the photo glides to it and says what it is and what style it belongs to. `focus`
+// opens it zoomed in on one hotspot, by its id, without the labels, as the picture for a question.
+const FacadeVisual = z.object({ kind: z.literal('facade'), facade: z.enum(facadeIds), focus: z.string().optional() })
+
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -275,10 +282,13 @@ const Sort = z
 
 // Style sorter: one painting at a time, name its style. After each pick the painting glides
 // to its `box`, the detail that gives the style away, and `tell` says what to look for.
+// `of: building` sorts building fronts instead of paintings (Unit 19).
 const StyleSort = z
   .object({
     type: z.literal('style'),
     prompt: z.string(),
+    // Optional rather than defaulted, so the review cards of earlier sorters keep their ids.
+    of: z.enum(['painting', 'building']).optional(),
     groups: z.array(z.string()).min(2).max(4),
     items: z.array(z.object({ photo: z.enum(photoIds), title: z.string(), group: z.number().int().nonnegative(), tell: z.string(), box: Box })).min(3).max(6),
     explain: z.string(),
@@ -286,7 +296,22 @@ const StyleSort = z
   .refine((s) => s.items.every((i) => i.group < s.groups.length), 'every painting needs a style that exists')
   .refine((s) => s.groups.every((_, g) => s.items.some((i) => i.group === g)), 'every style needs a painting')
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort])
+// Label the parts: put each label on its spot on a picture (the parts of a windmill, a
+// canal house, a belfry). Each spot is a point, [x, y] as fractions of the picture; `extra`
+// adds labels that belong nowhere. Every label has to land on its own spot.
+const Point = z.tuple([z.number(), z.number()])
+const Label = z
+  .object({
+    type: z.literal('label'),
+    prompt: z.string(),
+    photo: z.enum(photoIds),
+    spots: z.array(z.object({ label: z.string(), at: Point })).min(3).max(6),
+    extra: z.array(z.string()).max(2).default([]),
+    explain: z.string(),
+  })
+  .refine((l) => new Set([...l.spots.map((s) => s.label), ...l.extra]).size === l.spots.length + l.extra.length, 'every label differs')
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

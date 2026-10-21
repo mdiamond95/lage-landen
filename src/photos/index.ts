@@ -556,6 +556,51 @@ import vgSkull from './vg-skull.jpg'
 import vgSorrow from './vg-sorrow.jpg'
 import vgYellowHouse from './vg-yellow-house.jpg'
 import vgm1973 from './vgm-1973.jpg'
+import belfryBrugesHall from './belfry-bruges-hall.jpg'
+import ghentBelfry from './ghent-belfry.jpg'
+import dragonHoist from './dragon-hoist.jpg'
+import tournaiBelfry from './tournai-belfry.jpg'
+import brusselsHallFront from './brussels-hall-front.jpg'
+import ypres1860s from './ypres-1860s.jpg'
+import dom1660 from './dom-1660.jpg'
+import rumboldHollar from './rumbold-hollar.jpg'
+import rumboldTower from './rumbold-tower.jpg'
+import borromeoInterior from './borromeo-interior.jpg'
+import westerkerkInterior from './westerkerk-interior.jpg'
+import leuvenBeguinage from './leuven-beguinage.jpg'
+import houtenHuys from './houten-huys.jpg'
+import canalHouse from './canal-house.jpg'
+import stepGable from './step-gable.jpg'
+import stepGableHouse from './step-gable-house.jpg'
+import neckGable from './neck-gable.jpg'
+import corniceFront from './cornice-front.jpg'
+import spoutGables from './spout-gables.jpg'
+import huisHoofden from './huis-hoofden.jpg'
+import kinderdijkRow from './kinderdijk-row.jpg'
+import kinderdijkMill from './kinderdijk-mill.jpg'
+import scoopWheel from './scoop-wheel.jpg'
+import elizabethFlood from './elizabeth-flood.jpg'
+import millMourning from './mill-mourning.jpg'
+import paltrok1734 from './paltrok-1734.jpg'
+import woudagemaal from './woudagemaal.jpg'
+import leeghwater from './leeghwater.jpg'
+import tasselFront from './tassel-front.jpg'
+import tasselStair from './tassel-stair.jpg'
+import hortaPortrait from './horta-portrait.jpg'
+import maisonDuPeuple from './maison-du-peuple.jpg'
+import solvayFront from './solvay-front.jpg'
+import saintCyr from './saint-cyr.jpg'
+import cauchie from './cauchie.jpg'
+import beursBerlage from './beurs-berlage.jpg'
+import palaceJustice from './palace-justice.jpg'
+import stoclet from './stoclet.jpg'
+import schroderHouse from './schroder-house.jpg'
+import hetSchip from './het-schip.jpg'
+import vanNelle from './van-nelle.jpg'
+import hilversumHall from './hilversum-hall.jpg'
+import lijnbaan from './lijnbaan.jpg'
+import cubeHouses from './cube-houses.jpg'
+import erasmusBridge from './erasmus-bridge.jpg'
 import viewDelft from './view-delft.jpg'
 import vladslo from './vladslo.jpg'
 import vocShare from './voc-share.jpg'
@@ -1190,6 +1235,51 @@ const files: Record<PhotoId, string> = {
   'kroller-couple': krollerCouple,
   'kroller-entrance': krollerEntrance,
   'vgm-1973': vgm1973,
+  'belfry-bruges-hall': belfryBrugesHall,
+  'ghent-belfry': ghentBelfry,
+  'dragon-hoist': dragonHoist,
+  'tournai-belfry': tournaiBelfry,
+  'brussels-hall-front': brusselsHallFront,
+  'ypres-1860s': ypres1860s,
+  'dom-1660': dom1660,
+  'rumbold-hollar': rumboldHollar,
+  'rumbold-tower': rumboldTower,
+  'borromeo-interior': borromeoInterior,
+  'westerkerk-interior': westerkerkInterior,
+  'leuven-beguinage': leuvenBeguinage,
+  'houten-huys': houtenHuys,
+  'canal-house': canalHouse,
+  'step-gable': stepGable,
+  'step-gable-house': stepGableHouse,
+  'neck-gable': neckGable,
+  'cornice-front': corniceFront,
+  'spout-gables': spoutGables,
+  'huis-hoofden': huisHoofden,
+  'kinderdijk-row': kinderdijkRow,
+  'kinderdijk-mill': kinderdijkMill,
+  'scoop-wheel': scoopWheel,
+  'elizabeth-flood': elizabethFlood,
+  'mill-mourning': millMourning,
+  'paltrok-1734': paltrok1734,
+  'woudagemaal': woudagemaal,
+  'leeghwater': leeghwater,
+  'tassel-front': tasselFront,
+  'tassel-stair': tasselStair,
+  'horta-portrait': hortaPortrait,
+  'maison-du-peuple': maisonDuPeuple,
+  'solvay-front': solvayFront,
+  'saint-cyr': saintCyr,
+  'cauchie': cauchie,
+  'beurs-berlage': beursBerlage,
+  'palace-justice': palaceJustice,
+  'stoclet': stoclet,
+  'schroder-house': schroderHouse,
+  'het-schip': hetSchip,
+  'van-nelle': vanNelle,
+  'hilversum-hall': hilversumHall,
+  'lijnbaan': lijnbaan,
+  'cube-houses': cubeHouses,
+  'erasmus-bridge': erasmusBridge,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

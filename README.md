@@ -26,7 +26,7 @@ Phase 1 from the project plan (Units 1 to 5) is built, Phase 2 (Units 6 to 9) is
 Around the units:
 
 - A daily review: every question in a finished lesson comes back on a spaced schedule, missed ones sooner, ten at a time.
-- A time map of 39 snapshots, from Caesar's conquest in 57 BCE to the federal Belgium of 2012, built from the unit maps.
+- A time map of 40 snapshots, from Caesar's conquest in 57 BCE to the federal Belgium of 2012, built from the unit maps.
 - XP, a day streak with one free missed day a week, and a map of the places discovered.
 - Works offline once loaded, and installs on a phone's home screen.
 

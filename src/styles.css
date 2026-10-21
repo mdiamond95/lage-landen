@@ -690,3 +690,45 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .style-tell.is-right { border-color: #3c8d40; }
 .style-tell.is-wrong { border-color: #c0392b; }
 .style-next { justify-self: end; }
+
+/* Unit 19: a building front with labelled hotspots. Each hotspot is a dot with its name
+   on a tag beside it, keeping its size as the photo zooms; the part on show is named in
+   the panel below, so its tag fades once the photo has glided there. */
+.facade-spot { position: absolute; display: flex; align-items: center; gap: 4px; margin: 0; padding: 0; border: 0; background: none; cursor: pointer; transform: translate(-7px, -50%) scale(calc(1 / var(--zoom, 1))); transform-origin: 7px 50%; }
+.facade-spot-left { flex-direction: row-reverse; transform: translate(calc(-100% + 7px), -50%) scale(calc(1 / var(--zoom, 1))); transform-origin: calc(100% - 7px) 50%; }
+.facade-dot { flex: none; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; background: var(--orange); box-shadow: 0 1px 4px rgb(0 0 0 / 0.5); }
+.facade-label { white-space: nowrap; font-size: 0.72rem; font-weight: 800; color: #fff; background: rgb(29 36 51 / 0.82); border-radius: 6px; padding: 2px 6px; box-shadow: 0 1px 3px rgb(0 0 0 / 0.35); }
+.facade-spot.is-active { opacity: 0; pointer-events: none; transition: opacity 0.3s 0.6s; }
+/* Label the parts (Unit 19): numbered spots on the picture take the labels tapped onto them. */
+.label-spot { position: absolute; display: flex; align-items: center; gap: 4px; margin: 0; padding: 0; border: 0; background: none; cursor: pointer; transform: translate(-13px, -50%) scale(calc(1 / var(--zoom, 1))); transform-origin: 13px 50%; }
+.label-spot-left { flex-direction: row-reverse; transform: translate(calc(-100% + 13px), -50%) scale(calc(1 / var(--zoom, 1))); transform-origin: calc(100% - 13px) 50%; }
+.label-num { flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 2px solid #fff; background: var(--ink); color: #fff; font-weight: 900; font-size: 0.85rem; box-shadow: 0 1px 4px rgb(0 0 0 / 0.45); }
+.label-spot.picked .label-num { background: var(--delft); box-shadow: 0 0 0 4px var(--delft-soft); }
+.label-spot.right .label-num { background: var(--green); }
+.label-spot.wrong .label-num { background: var(--red); }
+.label-chip { white-space: nowrap; font-size: 0.78rem; font-weight: 800; color: var(--ink); background: #fff; border: 2px solid var(--delft); border-radius: 8px; padding: 2px 7px; box-shadow: 0 1px 3px rgb(0 0 0 / 0.3); }
+.label-spot.right .label-chip { border-color: var(--green); background: var(--green-soft); }
+.label-spot.wrong .label-chip { border-color: var(--red); background: var(--red-soft); }
+.label-chip s { color: var(--red); }
+.label-fix { color: var(--green-dark); }
+.label-spot:disabled { cursor: default; }
+.label-pool { display: flex; flex-wrap: wrap; gap: 8px; }
+.label-card { width: auto; padding: 8px 12px; font-size: 0.92rem; }
+/* Unit 19: buildings by style. Gothic is a spire, Renaissance and Baroque a round arch,
+   the revivals of the 1800s a diamond, Art Nouveau a drop, modern a square; a béguinage is a
+   walled court and a mill a cross of sails. A destroyed building turns grey. */
+.hist-gothic path { fill: #6d3b1f; stroke: #fff; stroke-width: 1.2; }
+.key-gothic { width: 9px; height: 12px; background: #6d3b1f; clip-path: polygon(50% 0, 100% 40%, 100% 100%, 0 100%, 0 40%); }
+.hist-classic path { fill: #c99a1e; stroke: #3b2a07; stroke-width: 1.1; }
+.key-classic { width: 11px; height: 11px; background: #c99a1e; border-radius: 6px 6px 0 0; }
+.hist-revival path { fill: #8a5a9e; stroke: #fff; stroke-width: 1.2; }
+.key-revival { width: 10px; height: 10px; background: #8a5a9e; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.hist-nouveau path { fill: #2e8540; stroke: #fff; stroke-width: 1.2; }
+.key-nouveau { width: 10px; height: 12px; background: #2e8540; border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%; }
+.hist-modern rect { fill: #c8102e; stroke: #fff; stroke-width: 1.4; }
+.key-modern { width: 10px; height: 10px; background: #c8102e; }
+.hist-beguinage path { fill: #f3efe4; stroke: #6b5a3e; stroke-width: 1.4; }
+.key-beguinage { width: 10px; height: 10px; border: 3px solid #6b5a3e; background: #f3efe4; }
+.hist-mill path { fill: #1f4e9c; stroke: #fff; stroke-width: 1; }
+.key-mill { width: 11px; height: 11px; background: #1f4e9c; clip-path: polygon(40% 0, 60% 0, 60% 40%, 100% 40%, 100% 60%, 60% 60%, 60% 100%, 40% 100%, 40% 60%, 0 60%, 0 40%, 40% 40%); transform: rotate(45deg); }
+.key-lost { width: 10px; height: 10px; background: #b9a9a4; border-radius: 2px; }

@@ -17,10 +17,11 @@ import unit15 from './unit-15-language-and-federal-state.yaml?raw'
 import unit16 from './unit-16-flemish-primitives-to-bruegel.yaml?raw'
 import unit17 from './unit-17-rembrandt-vermeer-rubens.yaml?raw'
 import unit18 from './unit-18-modern-art.yaml?raw'
+import unit19 from './unit-19-architecture.yaml?raw'
 import { buildCards } from './cards'
 import { Unit } from './schema'
 
-export const units: Unit[] = [unit01, unit02, unit03, unit04, unit05, unit06, unit07, unit08, unit09, unit10, unit11, unit12, unit13, unit14, unit15, unit16, unit17, unit18].map((text) => Unit.parse(parse(text)))
+export const units: Unit[] = [unit01, unit02, unit03, unit04, unit05, unit06, unit07, unit08, unit09, unit10, unit11, unit12, unit13, unit14, unit15, unit16, unit17, unit18, unit19].map((text) => Unit.parse(parse(text)))
 
 export const cards = buildCards(units)
 
