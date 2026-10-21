@@ -194,6 +194,18 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
                 <path d="M0-7 5 1H2.5L6 6H-6l3.5-5H-5z" />
               ) : s.kind === 'museum' ? (
                 <path d="M-7-2.5 0-7l7 4.5zM-6 6h12M-5-1.5h2v6.5h-2zM-1-1.5h2v6.5h-2zM3-1.5h2v6.5H3z" />
+              ) : s.kind === 'gothic' ? (
+                <path d="M0-8.5 4.5-1.5V6.5h-9v-8z" />
+              ) : s.kind === 'classic' ? (
+                <path d="M-6 6.5V-.5a6 6 0 0 1 12 0v7z" />
+              ) : s.kind === 'revival' ? (
+                <path d="M0-7 7 0 0 7-7 0z" />
+              ) : s.kind === 'nouveau' ? (
+                <path d="M0-8C4-4 6-1 6 1.5a6 6 0 0 1-12 0C-6-1-4-4 0-8z" />
+              ) : s.kind === 'beguinage' ? (
+                <path d="M-6-6h12v12h-12zM-2.5-2.5v5h5v-5z" fillRule="evenodd" />
+              ) : s.kind === 'mill' ? (
+                <path d="M-1.3-7.5h2.6v6.2h6.2v2.6H1.3v6.2h-2.6V1.3h-6.2v-2.6h6.2z" transform="rotate(45)" />
               ) : (
                 <rect x={-4.5} y={-4.5} width={9} height={9} />
               )}

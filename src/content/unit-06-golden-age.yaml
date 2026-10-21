@@ -67,6 +67,13 @@ lessons:
             why: The Lastage was the old shipbuilding quarter on the east side.
           - label: The Plantage
             why: The Plantage was a district of gardens east of the Amstel, laid out after 1663.
+      - type: story
+        title: The eighth wonder of the world
+        body: >-
+          In 1648, the year Spain recognised the Republic, Amsterdam laid the first stone of a new town hall on the
+          Dam, designed by Jacob van Campen. It opened in 1655, and admirers called it the eighth wonder of the
+          world. Gerrit Berckheyde painted it in 1672. Tap a part, or walk along the front.
+        visual: { kind: facade, facade: dam-town-hall }
       - type: truemyth
         statement: The town hall on the Dam, now the Royal Palace, stands on more than 13,000 wooden piles.
         visual: { kind: photo, photo: dam-town-hall }

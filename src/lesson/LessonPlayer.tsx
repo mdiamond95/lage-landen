@@ -11,6 +11,7 @@ import { ScrubMap } from '../exercises/ScrubMap'
 import { SortGroups } from '../exercises/SortGroups'
 import { StoryCard } from '../exercises/StoryCard'
 import { StyleSorter } from '../exercises/StyleSorter'
+import { LabelParts } from '../exercises/LabelParts'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
 import type { Evaluate, Result } from '../exercises/types'
@@ -120,6 +121,8 @@ export function LessonPlayer({ title, exercises, note, calm = false, onExit, onF
         return <SortGroups exercise={exercise} {...props} />
       case 'style':
         return <StyleSorter exercise={exercise} {...props} />
+      case 'label':
+        return <LabelParts exercise={exercise} {...props} />
     }
   })()
 

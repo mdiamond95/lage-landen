@@ -31,6 +31,8 @@ import belgiumTopology from '../data/belgium.topo.json'
 import { paintersStory } from '../data/painters'
 import { mastersStory } from '../data/masters'
 import { modernsStory } from '../data/moderns'
+import { buildingsStory } from '../data/buildings'
+import { facades } from '../data/facades'
 import { pairs } from '../data/pairs'
 import { charts } from '../data/charts'
 import { tours } from '../data/paintings'
@@ -65,7 +67,8 @@ const isVisual = (e: Exercise) =>
   (e.type === 'odd' && e.items.every((i) => i.photo)) ||
   (e.type === 'voices' && e.voices.some((v) => v.photo)) ||
   (e.type === 'sort' && (e.visual !== undefined || e.items.every((i) => i.photo))) ||
-  e.type === 'style'
+  e.type === 'style' ||
+  e.type === 'label'
 
 describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
@@ -119,8 +122,8 @@ describe.each(files)('%s', (file) => {
     expect(lessons.length).toBeGreaterThanOrEqual(2)
   })
 
-  // Unit 3's cloth map draws trade routes, not borders, so there is nothing to wipe between.
-  it.skipIf(unit.id === 'unit-03')('sets two years of its map side by side, before and after', () => {
+  // Unit 3's cloth map draws trade routes, not borders, so its compare uses the buildings map.
+  it('sets two years of its map side by side, before and after', () => {
     const shown = unit.lessons.flatMap((l) => l.exercises).map((e) => ('visual' in e ? e.visual : undefined))
     expect(shown.some((v) => v?.kind === 'compare')).toBe(true)
   })
@@ -146,6 +149,8 @@ describe.each(files)('%s', (file) => {
         }
         if (visual?.kind === 'painting' && visual.focus)
           expect(tours[visual.painting].stops.map((s) => s.id), visual.focus).toContain(visual.focus)
+        if (visual?.kind === 'facade' && visual.focus)
+          expect(facades[visual.facade].spots.map((s) => s.id), visual.focus).toContain(visual.focus)
         if (visual?.kind === 'pair' && visual.focus)
           expect(pairs[visual.pair].looks.map((l) => l.id), visual.focus).toContain(visual.focus)
         if (visual?.kind === 'family-tree' && visual.hide)
@@ -326,6 +331,7 @@ describe('time maps in lessons', () => {
     painters: paintersStory,
     masters: mastersStory,
     moderns: modernsStory,
+    buildings: buildingsStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -349,6 +355,7 @@ describe('time maps in lessons', () => {
     painters: [paintersStory.min, paintersStory.max],
     masters: [mastersStory.min, mastersStory.max],
     moderns: [modernsStory.min, modernsStory.max],
+    buildings: [buildingsStory.min, buildingsStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -721,6 +728,70 @@ describe("modern artists' map", () => {
     for (const { from } of events) {
       const at = sites.filter((st) => st.kind === 'workshop' && activeAt(from, st)).map((st) => st.name)
       expect(new Set(at).size, `${from}: ${at.join(', ')}`).toBe(at.length)
+    }
+  })
+})
+
+describe('buildings map', () => {
+  const { min, max, events, sites, labels } = buildingsStory
+  const [[w, s], [e, n]] = buildingsStory.bounds!
+  const inFrame = ([lon, lat]: [number, number]) => lon >= w && lon <= e && lat >= s && lat <= n
+
+  it('puts every building and label inside its frame', () => {
+    for (const site of sites) expect(inFrame(site.at), site.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((ev) => ev.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined && item.to < max) expect(starts, `${name} goes`).toContain(item.to + 1)
+      for (const [a, b] of item.off ?? []) {
+        expect(starts, `${name} leaves`).toContain(a)
+        expect(starts, `${name} returns`).toContain(b + 1)
+      }
+    }
+  })
+
+  it('names each building once', () => {
+    const names = sites.map((st) => st.name)
+    expect(new Set(names).size).toBe(names.length)
+  })
+})
+
+describe('building fronts', () => {
+  it('name their parts on hotspots inside the photo, each zooming to a box around it', () => {
+    for (const [id, f] of Object.entries(facades)) {
+      expect(photoIds, id).toContain(f.photo)
+      const ids = f.spots.map((s) => s.id)
+      expect(new Set(ids).size, `${id} spot ids`).toBe(ids.length)
+      expect(ids.length, `${id} spots`).toBeGreaterThanOrEqual(4)
+      for (const { id: spot, at: [px, py], box: [x, y, bw, bh] } of f.spots) {
+        expect(x >= 0 && y >= 0 && bw > 0 && bh > 0 && x + bw <= 1.0001 && y + bh <= 1.0001, `${id} ${spot} box inside the photo`).toBe(true)
+        expect(px >= x && px <= x + bw && py >= y && py <= y + bh, `${id} ${spot} hotspot inside its box`).toBe(true)
+      }
+    }
+  })
+})
+
+describe('label the parts', () => {
+  it('puts every spot inside the picture, apart from the others', () => {
+    for (const file of files) {
+      const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
+      for (const ex of unit.lessons.flatMap((l) => l.exercises)) {
+        if (ex.type !== 'label') continue
+        for (const { at: [x, y], label } of ex.spots) expect(x > 0 && x < 1 && y > 0 && y < 1, label).toBe(true)
+        // Spots closer than this are hard to tap apart.
+        for (const a of ex.spots)
+          for (const b of ex.spots)
+            if (a !== b) expect(Math.hypot(a.at[0] - b.at[0], a.at[1] - b.at[1]), `${a.label} and ${b.label}`).toBeGreaterThan(0.08)
+      }
     }
   })
 })

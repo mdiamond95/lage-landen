@@ -86,6 +86,15 @@ export const paths: Record<string, React.ReactNode> = {
   window: <path d="M5 3h14v18H5zM12 3v18M5 11h14M8 15l2 2M14 6l2 2" fill="none" strokeLinejoin="round" />,
   goblet: <path d="M7 3h10c0 6-2 9-5 9s-5-3-5-9zM12 12v6M8 21h8M9 18h6M7.5 7h9" fill="none" strokeLinejoin="round" />,
   cloud: <path d="M6 18a4 4 0 0 1-.5-8 6 6 0 0 1 11.5-1.5A4.5 4.5 0 0 1 17.5 18zM3 21h18" fill="none" strokeLinejoin="round" />,
+  // Unit 19: a belfry, for the towers of the towns; a pointed arch, for the churches; a
+  // stepped gable, for the canal houses; a windmill; a whiplash curve, for Art Nouveau;
+  // a cube, for the modern architects.
+  belfry: <path d="M8 21V10h8v11M7 10h10M9 10V6l3-4 3 4v4M10 6h4M10.5 14h3M12 17.5v3.5" fill="none" strokeLinejoin="round" />,
+  arch: <path d="M5 21V11c0-4 3-7 7-9 4 2 7 5 7 9v10M9 21v-8c0-1.5 1.5-3 3-4 1.5 1 3 2.5 3 4v8M3 21h18" fill="none" strokeLinejoin="round" />,
+  gable: <path d="M5 21V12h2V9h2V6h2V3h2v3h2v3h2v3h2v9zM10 21v-4h4v4M9 13h2M13 13h2" fill="none" strokeLinejoin="round" />,
+  mill: <path d="M10 21l1-9h2l1 9zM12 11 6 5M12 11l6-6M12 11l-6 6M12 11l6 6M8 21h8" fill="none" strokeLinejoin="round" />,
+  whiplash: <path d="M5 21c0-6 3-9 7-9s5-3 3-5-6 0-5 3 5 3 7 0M5 21h4" fill="none" strokeLinejoin="round" />,
+  cube: <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9" fill="none" strokeLinejoin="round" />,
   atom: (
     <>
       <circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none" />

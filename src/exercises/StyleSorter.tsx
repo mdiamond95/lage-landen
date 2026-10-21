@@ -8,7 +8,8 @@ import type { ExerciseProps } from './types'
 
 // Style sorter: one painting at a time, name its style. After each pick the painting
 // glides to the detail that gives the style away, with a word on what to look for, so
-// each card teaches the next. Every painting has to be named right.
+// each card teaches the next. Every painting has to be named right. Unit 19 sorts
+// building fronts the same way (`of: building`).
 export function StyleSorter({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'style'>>) {
   const order = useMemo(() => shuffle(exercise.items.map((_, i) => i)), [exercise])
   const [picks, setPicks] = useState<number[]>([])
@@ -19,6 +20,8 @@ export function StyleSorter({ exercise, checked, setAnswer }: ExerciseProps<Exer
   const answered = pick !== undefined
   const p = photo(item.photo)
   const done = picks.length === order.length
+  const building = exercise.of === 'building'
+  const noun = building ? 'Building' : 'Painting'
 
   const choose = (g: number) => {
     if (answered || checked) return
@@ -37,7 +40,7 @@ export function StyleSorter({ exercise, checked, setAnswer }: ExerciseProps<Exer
       <p className="eyebrow">Style sorter</p>
       <h2>{exercise.prompt}</h2>
       <p className="style-count muted" aria-live="polite">
-        Painting {at + 1} of {order.length} · {picks.filter((g, k) => g === exercise.items[order[k]].group).length} right so far
+        {noun} {at + 1} of {order.length} · {picks.filter((g, k) => g === exercise.items[order[k]].group).length} right so far
       </p>
       <figure className="photo-figure">
         <ZoomImage key={item.photo} src={p.src} alt={p.alt} max={6} focus={answered ? item.box : null} />
@@ -48,7 +51,7 @@ export function StyleSorter({ exercise, checked, setAnswer }: ExerciseProps<Exer
               {item.title} · <span className="photo-credit">Credit: <Credit id={item.photo} /></span>
             </>
           ) : (
-            'Who painted it, and when, shows once you have chosen.'
+            `Who ${building ? 'built' : 'painted'} it, and when, shows once you have chosen.`
           )}
         </figcaption>
       </figure>
@@ -68,7 +71,7 @@ export function StyleSorter({ exercise, checked, setAnswer }: ExerciseProps<Exer
           <p className="tour-text">{item.tell}</p>
           {!done && (
             <button type="button" className="zoom-btn zoom-reset tour-next style-next" onClick={() => setAt(at + 1)}>
-              Next painting
+              Next {noun.toLowerCase()}
             </button>
           )}
         </div>

@@ -1,0 +1,804 @@
+id: unit-19
+number: 19
+title: Architecture
+era: 1188 to 1996
+summary: Every town in Flanders wanted a belfry taller than its neighbour's, and every Amsterdam merchant a gable finer than the house next door. Walk along the fronts of the Low Countries, from the Gothic towers of the cloth towns to the stepped and bell gables of the canals, the windmills that keep the polders dry, the whiplash lines of Victor Horta's Brussels and the straight lines and flat planes of Rietveld, Dudok and the rebuilt Rotterdam. Learn to read a building, one part at a time.
+lessons:
+  - id: u19-l1
+    title: Towers of the towns
+    icon: belfry
+    sources:
+      - title: "UNESCO, Belfries of Belgium and France"
+        url: https://whc.unesco.org/en/list/943/
+      - title: "Wikipedia, Belfry of Bruges"
+        url: https://en.wikipedia.org/wiki/Belfry_of_Bruges
+      - title: "Wikipedia, Belfry of Ghent"
+        url: https://en.wikipedia.org/wiki/Belfry_of_Ghent
+      - title: "Wikipedia, Brussels Town Hall"
+        url: https://en.wikipedia.org/wiki/Brussels_Town_Hall
+      - title: "Wikipedia, Cloth Hall, Ypres"
+        url: https://en.wikipedia.org/wiki/Cloth_Hall,_Ypres
+      - title: "Wikipedia, Belfry of Tournai"
+        url: https://en.wikipedia.org/wiki/Belfry_of_Tournai
+    exercises:
+      - type: story
+        title: A tower for the town
+        body: >-
+          In the Middle Ages the church had its tower, the lord his castle, and the town wanted one too. A belfry held
+          the bells that called the townspeople to work, to the market and to arms, and a strongroom for the charters
+          that listed the town's rights. Bruges began its belfry around 1240, over its market hall. Tap a part of it,
+          or walk along the front.
+        visual: { kind: facade, facade: bruges-belfry }
+      - type: scrub
+        prompt: Drag the slider to the years when Ghent has just finished its belfry, with a dragon on top, but Amsterdam has no béguinage on the map yet.
+        map: buildings
+        start: 1240
+        answer: [1382, 1388]
+        explain: >-
+          Ghent's belfry rose from 1313 to 1380, and its gilded copper dragon was placed on top in 1377. At 91 metres it
+          was the town's answer to the towers of its churches, and to its rival Bruges. Amsterdam's béguinage is
+          first named in 1389.
+      - type: choice
+        prompt: The belfry of Bruges has 366 steps and 47 bells, which play tunes over the town. How are they played?
+        visual: { kind: photo, photo: belfry-bruges-hall }
+        answer: 0
+        options:
+          - label: By a carillonneur at a keyboard of wooden levers, or by a great drum with pins that turns by itself
+            why: >-
+              Right. A set of bells played like this is a carillon, an invention of the Low Countries. The town's
+              carillonneur plays concerts from a keyboard pressed with the fists, and between times a turning drum,
+              set with pins like a music box, plays the tunes that mark the quarter hours.
+          - label: By ringers pulling ropes, one for each bell
+            why: With 47 bells, that would take a crowd. They are played from a keyboard, or by a turning drum.
+          - label: By a recording through loudspeakers
+            why: The bells are real, and played from a keyboard or by a turning drum.
+          - label: By the wind
+            why: The bells are played from a keyboard, or by a turning drum.
+      - type: hunt
+        prompt: Find the gilded dragon that has guarded Ghent from the top of its belfry since 1377.
+        photo: ghent-belfry
+        targets:
+          - [0.44, 0.0, 0.1, 0.06]
+        explain: >-
+          The dragon sits on the very tip of the spire, turning in the wind. It stood for the town's strength, and
+          kept watch over the town and its rivals.
+      - type: truemyth
+        statement: Ghent's dragon was carried off from Bruges as a prize of war.
+        visual: { kind: photo, photo: dragon-hoist }
+        answer: false
+        explain: >-
+          Myth. The story that the people of Ghent stole the dragon from Bruges is told in both towns, and another
+          says it came back from a crusade. In fact it was made in Ghent and put on top of the belfry in 1377.
+          Jules De Bruycker etched it being hoisted back up in 1914, after the spire had been rebuilt.
+      - type: truemyth
+        statement: The tower of Brussels town hall stands off centre because its architect made a mistake, and he jumped from the top in shame.
+        visual: { kind: photo, photo: brussels-hall-front }
+        answer: false
+        explain: >-
+          Myth. The east wing, on the left, was built first, from 1401 to 1421, and the west wing on the
+          right was begun in 1444, so the tower, finished by Jan van Ruysbroek around 1455, ended up off centre. The building simply grew that
+          way, one wing at a time.
+      - type: hunt
+        prompt: Find the patron saint of Brussels, who has stood on the town hall spire since 1455.
+        photo: brussels-hall-front
+        targets:
+          - [0.47, 0.0, 0.06, 0.07]
+        explain: >-
+          Saint Michael, slaying a devil, made of gilded copper by Martin van Rode, turns on the tip of the 96-metre
+          spire. The one up there today is a copy, put up in the 1990s; the original is in the City Museum across the
+          Grand-Place.
+      - type: label
+        prompt: Ypres in the 1860s. Its Cloth Hall was 125 metres long, the largest in Flanders. Put each name on its part.
+        photo: ypres-1860s
+        spots:
+          - { label: Belfry, at: [0.36, 0.3] }
+          - { label: Cloth hall, at: [0.25, 0.72] }
+          - { label: Nieuwerck, at: [0.75, 0.68] }
+          - { label: "St Martin's tower", at: [0.83, 0.33] }
+        extra: [Town gate]
+        explain: >-
+          The cloth hall was built from about 1200 to 1304, with the belfry in its middle. The Nieuwerck, the new work,
+          was added at the east end in 1620 in the Renaissance style, and behind rises the tower of St Martin's.
+          Shells destroyed all of it in the First World War; it was rebuilt from 1933 to 1967.
+      - type: odd
+        prompt: Three of these were built in the Gothic style. Which one is the odd one out?
+        items:
+          - { label: Bruges belfry, photo: bruges-belfry }
+          - { label: Tournai belfry, photo: tournai-belfry }
+          - { label: Leuven town hall, photo: leuven-town-hall }
+          - { label: Antwerp city hall, photo: antwerp-town-hall }
+        answer: 3
+        reasons:
+          - It is built in the new Renaissance style, with columns and straight lines
+          - It is the only one in the Dutch Republic
+          - It has no windows on its front
+        reason: 0
+        explain: >-
+          Antwerp built its city hall from 1561 to 1565 to a design by Cornelis Floris, with rows of columns borrowed
+          from ancient Rome and Italy. Bruges, Tournai and Leuven are Gothic, all pointed arches, pinnacles and
+          spires.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Towns win charters of rights from the counts, They build belfries to guard them and ring their bells]
+          - [The cloth trade makes Ypres rich, It builds a cloth hall 125 metres long]
+          - [The French bombard Brussels in 1695, The town hall burns out and the guild houses are rebuilt in stone]
+          - [Shells fall on Ypres from 1914, The Cloth Hall is rebuilt slowly until 1967]
+        explain: >-
+          Belfries and halls were the pride of towns that ran their own affairs, and they were rebuilt again and
+          again after fire and war, as Brussels did after 1695 and Ypres after 1918.
+
+  - id: u19-l2
+    title: Churches and courts
+    icon: arch
+    sources:
+      - title: "Wikipedia, Dom Tower of Utrecht"
+        url: https://en.wikipedia.org/wiki/Dom_Tower_of_Utrecht
+      - title: "Wikipedia, St. Rumbold's Cathedral"
+        url: https://en.wikipedia.org/wiki/St._Rumbold%27s_Cathedral
+      - title: "Wikipedia, Westerkerk"
+        url: https://en.wikipedia.org/wiki/Westerkerk
+      - title: "Wikipedia, St. Charles Borromeo Church, Antwerp"
+        url: https://en.wikipedia.org/wiki/St._Charles_Borromeo_Church,_Antwerp
+      - title: "Wikipedia, Begijnhof, Amsterdam"
+        url: https://en.wikipedia.org/wiki/Begijnhof,_Amsterdam
+      - title: "Wikipedia, Groot Begijnhof, Leuven"
+        url: https://en.wikipedia.org/wiki/Groot_Begijnhof,_Leuven
+      - title: "UNESCO, Flemish Béguinages"
+        url: https://whc.unesco.org/en/list/855/
+    exercises:
+      - type: story
+        title: Towers to heaven
+        body: >-
+          Bishops and towns raised the tallest buildings of the Middle Ages. Utrecht's Dom tower, built from 1321 to
+          1382, is still the tallest church tower in the Netherlands, at 112 metres. Mechelen, Antwerp and Ghent
+          answered with towers of their own. Then came the Reformation, and the North and the South built their
+          churches in very different ways. Here is the Dom around 1660.
+        visual: { kind: photo, photo: dom-1660 }
+      - type: truemyth
+        statement: Look at the long church behind the Dom tower. A storm took most of it, and it was never rebuilt.
+        visual: { kind: photo, photo: dom-1660 }
+        answer: true
+        explain: >-
+          True. On the night of 1 August 1674 a tornado brought down the nave. The tower survived, and the money to
+          rebuild never came, so today a square, the Domplein, lies between the tower and what is left of the
+          church.
+      - type: choice
+        prompt: Wenceslaus Hollar etched St Rumbold's tower in Mechelen as it was meant to be finished, with a spire, about 167 metres tall. Why does the real tower stop at 97?
+        visual: { kind: photo, photo: rumbold-hollar }
+        answer: 0
+        options:
+          - label: The money ran out, and building stopped around 1520
+            why: >-
+              Right. The tower was begun in 1452, and its flat top was meant to carry a spire that would have made it the
+              tallest in the world. The town could not pay for it. Its stump is still 97 metres tall.
+          - label: The ground was too soft to carry more
+            why: The tower stands firm. The problem was money.
+          - label: Lightning knocked off the spire
+            why: The spire was never built.
+          - label: The emperor forbade a tower taller than his palace
+            why: No emperor stopped it. The town ran out of money.
+      - type: scrub
+        prompt: Drag the slider to the years when Antwerp Cathedral and St Rumbold's have just been finished, but Antwerp has not yet built its new city hall.
+        map: buildings
+        start: 1382
+        answer: [1521, 1564]
+        explain: >-
+          Antwerp's cathedral tower and St Rumbold's both stood by 1521. Antwerp's city hall, in the new Renaissance
+          style, followed from 1561 to 1565.
+      - type: choice
+        prompt: One of these churches was built in the 1610s and 1620s for Catholics in Antwerp, the other for Protestants in Amsterdam. Which was built for Protestants?
+        answer: 1
+        options:
+          - photo: borromeo-interior
+            why: >-
+              This is the Jesuit church of Antwerp, painted around 1630, full of marble, gold and paintings by Rubens,
+              to show the glory of the Catholic Church in the South.
+          - photo: westerkerk-interior
+            why: >-
+              Right. The Westerkerk, finished in 1631, is plain, white and full of light. The Reformed Church wanted
+              people to hear the sermon, so the pulpit, not an altar, is at the centre. It is still the largest church
+              in the Netherlands built for Protestants.
+      - type: sort
+        prompt: Was each tower built by a town, or by the church?
+        groups: [Town belfry, Church tower]
+        items:
+          - { label: Bruges, group: 0, photo: bruges-belfry }
+          - { label: Ghent, group: 0, photo: ghent-belfry }
+          - { label: Tournai, group: 0, photo: tournai-belfry }
+          - { label: Mechelen, group: 1, photo: rumbold-tower }
+          - { label: Antwerp, group: 1, photo: antwerp-cathedral }
+        explain: >-
+          Belfries rose over halls and markets and held the town's bells and charters. Church towers rose over a
+          cathedral or a church, like St Rumbold's in Mechelen and Our Lady's in Antwerp. Both said the same thing to
+          rivals: look how rich we are.
+      - type: choice
+        prompt: This is the Great Béguinage of Leuven. The last beguine there died in 1988. Who lives in its houses now?
+        visual: { kind: photo, photo: leuven-beguinage }
+        answer: 0
+        options:
+          - label: Academics and students of the university, which bought it in 1962
+            why: >-
+              Right. The University of Leuven bought the béguinage in 1962 and restored it. Beguines were single women
+              and widows who lived a pious life together without taking lifelong vows; their walled courts are on the
+              UNESCO list.
+          - label: Nuns of a closed order
+            why: Beguines were not nuns, and no order took over. The university did.
+          - label: Nobody; it is a museum
+            why: People live in all its houses.
+          - label: The royal family
+            why: It belongs to the university.
+      - type: choice
+        prompt: This house in Amsterdam's béguinage, from about 1420, is one of only two of its kind left in the centre of Amsterdam. What makes it rare?
+        visual: { kind: photo, photo: houten-huys }
+        answer: 0
+        options:
+          - label: Its front is made of wood
+            why: >-
+              Right. Medieval Amsterdam was a town of wooden houses, and fire after fire swept through them. This one,
+              the Houten Huys, and Zeedijk 1 are all that is left.
+          - label: It is the narrowest house in the city
+            why: It is not especially narrow. Look at what the front is made of.
+          - label: It has no windows on the ground floor
+            why: Look at what the front is made of.
+          - label: It was built by a woman
+            why: We do not know who built it. Look at what the front is made of.
+      - type: odd
+        prompt: Three of these are Gothic. Which one is the odd one out?
+        items:
+          - { label: Utrecht, photo: dom-1660 }
+          - { label: Mechelen, photo: rumbold-tower }
+          - { label: Antwerp, photo: borromeo-interior }
+          - { label: Brussels, photo: brussels-town-hall }
+        answer: 2
+        reasons:
+          - It is Baroque, built by the Jesuits in the 1610s and 1620s
+          - It is the only church
+          - It was destroyed in 1674
+        reason: 0
+        explain: >-
+          The Jesuit church in Antwerp is Baroque: curved, rich, theatrical. Utrecht's Dom, St Rumbold's and the
+          town hall of Brussels are Gothic, with pointed arches and soaring stone lace.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Mechelen runs out of money, "St Rumbold's tower stops at 97 metres"]
+          - [A tornado strikes Utrecht in 1674, The Dom tower stands apart from its church]
+          - [Protestants put the sermon at the centre, The Westerkerk is plain and bright]
+          - [The Counter-Reformation wants to dazzle, The Jesuits fill their Antwerp church with marble and gold]
+        explain: >-
+          Money, weather and faith shaped the churches of the Low Countries as much as any architect did.
+
+  - id: u19-l3
+    title: Gables on the canals
+    icon: gable
+    sources:
+      - title: "Wikipedia (Dutch), Trapgevel"
+        url: https://nl.wikipedia.org/wiki/Trapgevel
+      - title: "Wikipedia (Dutch), Halsgevel"
+        url: https://nl.wikipedia.org/wiki/Halsgevel
+      - title: "Wikipedia (Dutch), Klokgevel"
+        url: https://nl.wikipedia.org/wiki/Klokgevel
+      - title: "Wikipedia (Dutch), Tuitgevel"
+        url: https://nl.wikipedia.org/wiki/Tuitgevel
+      - title: "Wikipedia (Dutch), Lijstgevel"
+        url: https://nl.wikipedia.org/wiki/Lijstgevel
+      - title: "Wikipedia (Dutch), Huis met de Hoofden"
+        url: https://nl.wikipedia.org/wiki/Huis_met_de_Hoofden
+      - title: "UNESCO, Seventeenth-Century Canal Ring Area of Amsterdam"
+        url: https://whc.unesco.org/en/list/1349/
+    exercises:
+      - type: story
+        title: A gable for every taste
+        body: >-
+          From 1613 Amsterdam dug a ring of three canals and sold the plots beside them. Plots were narrow and deep,
+          so merchants built tall, narrow houses and showed off at the top, in the gable. The shape of a gable tells
+          you roughly when it was built. This one, on the Lindengracht, is a bell gable. Tap a part, or walk along
+          the front.
+        visual: { kind: facade, facade: canal-house }
+      - type: choice
+        prompt: Zoom out to see where this is on the house. What is it for?
+        visual: { kind: facade, facade: canal-house, focus: hoist }
+        answer: 0
+        options:
+          - label: Hoisting furniture and goods up the front, past the narrow stairs
+            why: >-
+              Right. A rope ran over a pulley on the hoisting beam, and goods went up to the attic, where merchants
+              stored them, or in through the big windows. Canal houses still use them on moving day.
+          - label: Hanging a flag on the king's birthday
+            why: Flags hang from poles by the windows. This beam carried a pulley.
+          - label: Holding up the roof
+            why: It sticks out from the gable; it holds a pulley, not the roof.
+          - label: A perch for storks
+            why: It held a pulley for hoisting goods.
+      - type: sort
+        prompt: Sort these fronts by the shape of their gable.
+        groups: [Stepped, Neck or bell, Spout, Flat cornice]
+        items:
+          - { label: Korte Prinsengracht, group: 0, photo: step-gable }
+          - { label: Herengracht, group: 0, photo: step-gable-house }
+          - { label: Keizersgracht, group: 1, photo: neck-gable }
+          - { label: Lindengracht, group: 1, photo: canal-house }
+          - { label: Brouwersgracht, group: 2, photo: spout-gables }
+          - { label: Singel, group: 3, photo: cornice-front }
+        explain: >-
+          Stepped gables were the fashion from about 1600 to 1665. Neck gables came in around 1640 and bell gables
+          around 1660, and both were built until late in the 1700s. Plain spout gables were mostly for warehouses.
+          A flat cornice hid the roof altogether: some were new, others replaced a worn-out gable cheaply.
+      - type: truemyth
+        statement: The six heads on this house on the Keizersgracht are those of burglars beheaded by the maid.
+        visual: { kind: photo, photo: huis-hoofden }
+        answer: false
+        explain: >-
+          Myth, though Amsterdam loves the story. The heads are six Roman gods: Apollo, Ceres, Mercury, Minerva,
+          Bacchus and Diana. The house was built in 1622 for a rich stocking merchant, with a stepped gable in the
+          style of Hendrick de Keyser.
+      - type: scrub
+        prompt: Drag the slider to the years when Amsterdam has started its canal ring, but the Westerkerk beside it is not yet finished.
+        map: buildings
+        start: 1565
+        answer: [1613, 1630]
+        explain: >-
+          The canal ring was begun in 1613, and the Westerkerk, at its western edge, was finished in 1631. Its tower,
+          at 87 metres, is still the tallest church tower in Amsterdam.
+      - type: odd
+        prompt: Three of these fronts are brick, from the 1600s and 1700s. Which is the odd one out?
+        items:
+          - { label: Lindengracht, photo: canal-house }
+          - { label: Keizersgracht, photo: neck-gable }
+          - { label: Begijnhof, photo: houten-huys }
+          - { label: Korte Prinsengracht, photo: step-gable }
+        answer: 2
+        reasons:
+          - Its front is wooden, from about 1420
+          - It is a warehouse
+          - It is in Belgium
+        reason: 0
+        explain: >-
+          The Houten Huys in the béguinage is a wooden front from the Middle Ages, one of two left in the centre. The
+          others are brick canal-side fronts from the age of the Republic.
+      - type: choice
+        prompt: Zoom out. This front on the Lindengracht ends at the top in a bell shape. When was this kind of gable built in Amsterdam?
+        visual: { kind: facade, facade: canal-house, focus: gable }
+        answer: 0
+        options:
+          - label: From about 1660 to 1790
+            why: >-
+              Right. In the 1700s more bell gables were built than neck gables. After that most new fronts ended in a
+              flat cornice.
+          - label: In the Middle Ages
+            why: Medieval Amsterdam had wooden houses with pointed gables. Bell gables came much later.
+          - label: Around 1900
+            why: By then most new fronts had a cornice or followed newer styles. Bell gables came earlier.
+          - label: From 1945
+            why: Bell gables belong to the 1600s and 1700s.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Amsterdam's population soars in the 1600s, The city digs the canal ring and sells plots]
+          - [Canal plots are narrow and deep, Houses are tall and narrow with steep stairs]
+          - [The stairs are too narrow for furniture, A hoisting beam lifts goods up the front]
+          - [Gables go out of fashion in the 1700s, Owners replace them with flat cornices]
+        explain: >-
+          The look of the canals comes from the shape of the plots, the needs of merchants and the fashions of each
+          century.
+
+  - id: u19-l4
+    title: Mills and pumps
+    icon: mill
+    sources:
+      - title: "UNESCO, Mill Network at Kinderdijk-Elshout"
+        url: https://whc.unesco.org/en/list/818/
+      - title: "Wikipedia, Kinderdijk"
+        url: https://en.wikipedia.org/wiki/Kinderdijk
+      - title: "Wikipedia, Cornelis Corneliszoon van Uitgeest"
+        url: https://en.wikipedia.org/wiki/Cornelis_Corneliszoon_van_Uitgeest
+      - title: "Wikipedia, Jan Leeghwater"
+        url: https://en.wikipedia.org/wiki/Jan_Leeghwater
+      - title: "Wikipedia, Ir.D.F. Woudagemaal"
+        url: https://en.wikipedia.org/wiki/Ir.D.F._Woudagemaal
+      - title: "UNESCO, Ir.D.F. Woudagemaal (D.F. Wouda Steam Pumping Station)"
+        url: https://whc.unesco.org/en/list/867/
+    exercises:
+      - type: story
+        title: Wind at work
+        body: >-
+          The polders lie below the rivers, and the water has to be lifted out, day and night. Around 1740 the water
+          boards of the Alblasserwaard built 19 mills at Kinderdijk to do it. They are the largest group of old mills
+          in the Netherlands, and on the UNESCO list since 1997. Other mills sawed wood, ground corn or pressed oil, and
+          made the Zaan region north of Amsterdam one of the world's first industrial areas.
+        visual: { kind: photo, photo: kinderdijk-row }
+      - type: label
+        prompt: Name the parts of this mill at Kinderdijk.
+        photo: kinderdijk-mill
+        spots:
+          - { label: Sails, at: [0.45, 0.44] }
+          - { label: Cap, at: [0.69, 0.35] }
+          - { label: Thatched body, at: [0.63, 0.6] }
+          - { label: Tail and winding wheel, at: [0.77, 0.69] }
+        extra: [Millstones]
+        explain: >-
+          The sails turn a shaft in the cap, and the miller turns the whole cap into the wind with the long tail and
+          its winding wheel. The body is thatched with reed. Out of sight, the shaft drives a scoop wheel that lifts
+          the water. A drainage mill has no millstones: it grinds nothing.
+      - type: choice
+        prompt: This wheel was taken out of a drainage mill for repair. What did it do in the mill?
+        visual: { kind: photo, photo: scoop-wheel }
+        answer: 0
+        options:
+          - label: It scoops water from the low polder ditch up into a higher canal
+            why: >-
+              Right. Driven by the sails, a scoop wheel lifts the water a little way. Where the polder lay too deep,
+              as at Kinderdijk, mills worked in two steps: the first row lifted water into a reservoir, the second
+              into the river when its level was low enough.
+          - label: It grinds corn
+            why: Corn is ground between millstones, not by a wheel in the water.
+          - label: It drives a boat
+            why: It stays in its mill. It lifts water.
+          - label: It makes electricity
+            why: It was built long before electricity. It lifts water.
+      - type: truemyth
+        statement: Kinderdijk, "children's dike", is named after a baby found floating in its cradle, balanced by a cat, after the St Elizabeth's flood of 1421.
+        visual: { kind: photo, photo: elizabeth-flood }
+        answer: false
+        explain: >-
+          Myth, or rather a legend nobody can prove. The flood of November 1421 was real, and drowned whole villages,
+          as this altarpiece of around 1490 shows. The story of the cradle and the cat is a folk tale told about it.
+      - type: scrub
+        prompt: Drag the slider to the years when Kinderdijk's mills stand on the map, before the great buildings of the 1880s appear.
+        map: buildings
+        start: 1655
+        answer: [1740, 1884]
+        explain: >-
+          The 19 mills of Kinderdijk were built around 1740. They had the polder to themselves on the map until the
+          Rijksmuseum and the Palace of Justice in Brussels went up in the 1880s.
+      - type: choice
+        prompt: At the end of November 1962 the miller of De Valk in Leiden stopped his sails like this, as millers did across the country. Why?
+        visual: { kind: photo, photo: mill-mourning }
+        answer: 0
+        options:
+          - label: In mourning, for Queen Wilhelmina
+            why: >-
+              Right. Mills speak with their sails. Stopped in one position they celebrate a birth or a wedding;
+              stopped just past it, they mourn a death until the funeral. Wilhelmina, queen from 1890 to 1948, died on 28 November 1962 and was buried in Delft on 8 December.
+          - label: To warn of a storm
+            why: The sails tell of joy and mourning. This was a queen's funeral.
+          - label: Because the mill was for sale
+            why: This position is a sign of mourning.
+          - label: To greet a ship
+            why: This position is a sign of mourning.
+      - type: choice
+        prompt: In 1594 Cornelis Corneliszoon of Uitgeest built a mill that sawed wood with the wind. How much faster than before could it turn logs into planks?
+        visual: { kind: photo, photo: paltrok-1734 }
+        answer: 0
+        options:
+          - label: About 30 times faster
+            why: >-
+              Right. His crankshaft turned the sails' circles into the up-and-down of saws. Planks became cheap, the Zaan
+              filled with sawmills and shipyards, and the Republic built the ships that carried its trade.
+          - label: Twice as fast
+            why: Much faster than that, about 30 times.
+          - label: No faster, but cheaper
+            why: It was very much faster, about 30 times.
+          - label: A thousand times faster
+            why: Not quite. About 30 times.
+      - type: choice
+        prompt: This pumping station in Friesland, opened by Queen Wilhelmina in 1920, still pumps when the water is high. What drives it?
+        visual: { kind: photo, photo: woudagemaal }
+        answer: 0
+        options:
+          - label: Steam
+            why: >-
+              Right. The Wouda pumping station is the largest steam pumping station still working in the world, and on
+              the UNESCO list since 1998. Its boilers burned coal until 1967, and oil since.
+          - label: Wind
+            why: It has no sails. It runs on steam.
+          - label: Electricity from the sun
+            why: It was built in 1920 and runs on steam.
+          - label: Horses
+            why: It runs on steam.
+      - type: choice
+        prompt: Jan Adriaanszoon, a millwright, took a new surname later in life. Which did he choose, and why?
+        visual: { kind: photo, photo: leeghwater }
+        answer: 0
+        options:
+          - label: Leeghwater, "low water", for the lakes he drained with mills
+            why: >-
+              Right. From 1607 he ran the mills that drained the Beemster, and the Purmer, Schermer and Heerhugowaard
+              followed. He was among the first to argue for draining the Haarlemmermeer, which was finally pumped dry
+              by steam in the 1840s.
+          - label: Windmolen, "windmill"
+            why: He chose a name about water.
+          - label: Van der Zee, "of the sea"
+            why: His name is about low water.
+          - label: Droogland, "dry land"
+            why: Close in spirit, but his name means "low water".
+      - type: sort
+        prompt: Does each of these lift water, or work for industry?
+        groups: [Lifts water, Works for industry]
+        items:
+          - { label: Kinderdijk, group: 0, photo: kinderdijk-mill }
+          - { label: Wouda pumping station, group: 0, photo: woudagemaal }
+          - { label: Paltrok, group: 1, photo: paltrok-1734 }
+          - { label: De Valk, Leiden, group: 1, photo: mill-mourning }
+        explain: >-
+          Drainage mills and pumping stations keep the polders dry. The paltrok is a sawmill, and De Valk in Leiden
+          ground grain.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Peat is dug and drained and the land sinks, The polders need mills to pump them dry]
+          - [One row of mills cannot lift the water high enough, Kinderdijk pumps in two steps through a reservoir]
+          - [Sawmills cut planks 30 times faster, The Zaan builds ships for the Republic's trade]
+          - [Steam engines grow strong enough, Pumping stations take over from rows of mills]
+        explain: >-
+          Wind turned the Low Countries into a land that could live below the sea. Steam, and later diesel and
+          electricity, took over the work, and the mills became monuments.
+
+  - id: u19-l5
+    title: Whiplash lines
+    icon: whiplash
+    sources:
+      - title: "UNESCO, Major Town Houses of the Architect Victor Horta (Brussels)"
+        url: https://whc.unesco.org/en/list/1005/
+      - title: "Wikipedia, Victor Horta"
+        url: https://en.wikipedia.org/wiki/Victor_Horta
+      - title: "Wikipedia, Hôtel Tassel"
+        url: https://en.wikipedia.org/wiki/H%C3%B4tel_Tassel
+      - title: "Wikipedia, Maison du Peuple"
+        url: https://en.wikipedia.org/wiki/Maison_du_Peuple
+      - title: "Wikipedia, Stoclet Palace"
+        url: https://en.wikipedia.org/wiki/Stoclet_Palace
+      - title: "Wikipedia, Palace of Justice, Brussels"
+        url: https://en.wikipedia.org/wiki/Palace_of_Justice,_Brussels
+      - title: "Wikipedia, Beurs van Berlage"
+        url: https://en.wikipedia.org/wiki/Beurs_van_Berlage
+    exercises:
+      - type: story
+        title: A house like a plant
+        body: >-
+          In 1892 the scientist and professor Émile Tassel asked a young architect for a house in Brussels. What he got,
+          finished in 1893, had iron columns where stone should be, rooms opening into each other around a stair
+          lit from above, and lines that curl like stems and tendrils. It is counted among the first buildings of a new
+          style: Art Nouveau. Tap a part of the front, or walk along it.
+        visual: { kind: facade, facade: tassel }
+      - type: who
+        photo: horta-portrait
+        clues:
+          - I was born in Ghent in 1861, and helped Alphonse Balat build the royal greenhouses at Laeken.
+          - I designed every detail of my houses, down to the carpets, lamps and doorbells.
+          - My own house and studio in Saint-Gilles is now a museum.
+          - King Albert made me a baron in 1932, and Brussels Central Station opened to my plans after my death.
+        options: [Victor Horta, Henry van de Velde, Paul Hankar, Hendrik Petrus Berlage]
+        answer: 0
+        explain: >-
+          Victor Horta. Four of his houses in Brussels, Tassel, Solvay, Van Eetvelde and his own, are on the UNESCO
+          list. He died in 1947.
+      - type: hunt
+        prompt: Inside the Hôtel Tassel, find where an iron column bursts into curling stems.
+        photo: tassel-stair
+        targets:
+          - [0.31, 0.0, 0.17, 0.24]
+          - [0.77, 0.0, 0.11, 0.1]
+        explain: >-
+          The cast-iron column splits at the top into curving branches that hold up the beams, and the same whiplash
+          lines run across the walls and the mosaic floor. Iron let Horta make the whole house flow.
+      - type: truemyth
+        statement: Horta's House of the People, built for the Belgian Workers' Party, still stands in Brussels.
+        visual: { kind: photo, photo: maison-du-peuple }
+        answer: false
+        explain: >-
+          Myth. The House of the People, built from 1896 to 1899 around a hall for more than 2,000 people, was
+          pulled down in 1965, although more than 700 architects from around the world protested. Some of its iron
+          went into a café in Antwerp. A tower block stands on the site.
+      - type: odd
+        prompt: Three of these are Art Nouveau houses in Brussels. Which is the odd one out?
+        items:
+          - { label: Hôtel Solvay, photo: solvay-front }
+          - { label: Maison Saint-Cyr, photo: saint-cyr }
+          - { label: Maison Cauchie, photo: cauchie }
+          - { label: Beurs, Amsterdam, photo: beurs-berlage }
+        answer: 3
+        reasons:
+          - It is plain brick with hardly any curves, the start of something new
+          - It is the oldest of the four
+          - It was built for a king
+        reason: 0
+        explain: >-
+          Hendrik Petrus Berlage's stock exchange in Amsterdam, built from 1898 to 1903, is plain brick, with the
+          iron and the walls left honest and bare. It points towards the modern architecture of the 1900s, while
+          the three Brussels houses curl and bloom.
+      - type: truemyth
+        statement: Scaffolding put up on the Palace of Justice in Brussels in the 1980s is still there.
+        visual: { kind: photo, photo: palace-justice }
+        answer: true
+        explain: >-
+          True. Repairs began in 1984, and the scaffolding has stayed so long that it rusted and needed repairs of
+          its own. It is now set to come down by 2035. The palace, built from 1866 to 1883 by Joseph Poelaert, was
+          said to be the largest building of the 1800s.
+      - type: choice
+        prompt: The Stoclet Palace in Brussels, built from 1905 to 1911 by the Viennese architect Josef Hoffmann, has never been open to the public. Whose mosaics cover its dining-room walls?
+        visual: { kind: photo, photo: stoclet }
+        answer: 0
+        options:
+          - label: Gustav Klimt's
+            why: >-
+              Right. Klimt designed the three mosaic friezes, with their golden tree of life, and they were set in place
+              by Leopold Forstner. The house is still owned by the family, and on the UNESCO list since 2009.
+          - label: "Victor Horta's"
+            why: Horta was an architect, and did not work on the Stoclet Palace.
+          - label: "James Ensor's"
+            why: Ensor painted in Ostend. The mosaics are Viennese.
+          - label: "Piet Mondrian's"
+            why: Mondrian painted grids. The mosaics are Viennese.
+      - type: scrub
+        prompt: Drag the slider to the years when Horta's Hôtel Tassel stands, but his House of the People is not yet finished.
+        map: buildings
+        start: 1885
+        answer: [1893, 1898]
+        explain: >-
+          The Hôtel Tassel was finished in 1893. Horta built the House of the People from 1896 to 1899.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Iron is strong and slender, Horta opens up a house around a stair lit from above]
+          - [The Workers' Party wants a home of its own, Horta builds the House of the People]
+          - [Ernest Solvay's chemical company makes a fortune, His son Armand can pay for a Horta mansion]
+          - [Horta designs every detail himself, His houses are works of art down to the doorbell]
+        explain: >-
+          Art Nouveau in Brussels was paid for by new money, from industry, science and the workers' movement, and
+          made possible by iron and glass.
+
+  - id: u19-l6
+    title: Lines and planes
+    icon: cube
+    sources:
+      - title: "UNESCO, Rietveld Schröderhuis (Rietveld Schröder House)"
+        url: https://whc.unesco.org/en/list/965/
+      - title: "Wikipedia, Rietveld Schröder House"
+        url: https://en.wikipedia.org/wiki/Rietveld_Schr%C3%B6der_House
+      - title: "Wikipedia, Het Schip"
+        url: https://en.wikipedia.org/wiki/Het_Schip
+      - title: "Wikipedia, Van Nelle Factory"
+        url: https://en.wikipedia.org/wiki/Van_Nelle_Factory
+      - title: "Wikipedia, Atomium"
+        url: https://en.wikipedia.org/wiki/Atomium
+      - title: "Wikipedia, Lijnbaan"
+        url: https://en.wikipedia.org/wiki/Lijnbaan
+      - title: "Wikipedia (Dutch), Kubuswoningen (Rotterdam)"
+        url: https://nl.wikipedia.org/wiki/Kubuswoningen_(Rotterdam)
+      - title: "Wikipedia, Erasmus Bridge"
+        url: https://en.wikipedia.org/wiki/Erasmus_Bridge
+    exercises:
+      - type: story
+        title: A house with no walls
+        body: >-
+          In 1924 Truus Schröder, a widow with three children, asked the furniture maker Gerrit Rietveld for a house
+          in Utrecht with as few fixed walls as possible. He built it out of lines and flat planes in grey, white and
+          the primary colours of De Stijl, like a Mondrian you can walk into. She lived in it until 1985. Tap a
+          part, or walk along the front.
+        visual: { kind: facade, facade: schroder }
+      - type: choice
+        prompt: Upstairs, the Schröder house is one open space. How do its people get rooms of their own at night?
+        visual: { kind: facade, facade: schroder, focus: upstairs }
+        answer: 0
+        options:
+          - label: They slide and swing panels across to make bedrooms
+            why: >-
+              Right. In the day the upper floor is one room full of light; at night sliding and revolving panels close
+              off bedrooms. The house is on the UNESCO list since 2000.
+          - label: They hang curtains from the ceiling
+            why: Rietveld built panels that slide and swing.
+          - label: They sleep downstairs
+            why: The bedrooms are upstairs, made with sliding panels.
+          - label: Each child had a cabin in the garden
+            why: The rooms are made with sliding panels upstairs.
+      - type: choice
+        prompt: Michel de Klerk built Het Schip in Amsterdam from 1917 to 1920, with a school and a post office inside. Who was it built for?
+        visual: { kind: photo, photo: het-schip }
+        answer: 0
+        options:
+          - label: Working families, by a socialist housing association, under the Housing Act of 1901
+            why: >-
+              Right. The Housing Act set higher standards, and associations like Eigen Haard built homes with light,
+              air and water for working people. Het Schip had 102 homes. Its rounded brick and playful towers are the
+              Amsterdam School.
+          - label: A shipping company's directors
+            why: The name comes from its shape. It was workers' housing.
+          - label: The navy
+            why: The name comes from its shape. It was workers' housing.
+          - label: Rich merchants on the canals
+            why: It is in a working-class district, the Spaarndammerbuurt.
+      - type: gap
+        prompt: In 1932 the Swiss-French architect Le Corbusier saw the Van Nelle factory in Rotterdam, where coffee, tea and tobacco were packed. Fill the gap in what he called it.
+        quote: the most beautiful spectacle of the modern ___
+        source: Le Corbusier, on the Van Nelle factory, 1932
+        visual: { kind: photo, photo: van-nelle }
+        options: [age, world, city, factory]
+        answer: 0
+        explain: >-
+          "The most beautiful spectacle of the modern age." Built from 1925 to 1931 by Brinkman and Van der Vlugt, of
+          concrete, steel and glass, the factory let in light everywhere. It is on the UNESCO list since 2014.
+      - type: truemyth
+        statement: The Atomium was built to stand for only six months.
+        visual: { kind: photo, photo: atomium-1957 }
+        answer: true
+        explain: >-
+          True. It was made for the World's Fair of 1958 in Brussels, an iron crystal blown up 165 billion times, and
+          was meant to come down afterwards. It stayed, and since 2006 its nine spheres shine in stainless steel.
+      - type: scrub
+        prompt: Drag the slider to the years after Rotterdam's old centre was bombed, before its new shopping street opened.
+        map: buildings
+        start: 1931
+        answer: [1940, 1952]
+        explain: >-
+          German bombers destroyed the centre of Rotterdam on 14 May 1940. The city chose to rebuild it as a modern
+          city, and the Lijnbaan opened in 1953.
+      - type: choice
+        prompt: The Lijnbaan opened in Rotterdam in 1953, in the city rebuilt after the bombing. What was new about it?
+        visual: { kind: photo, photo: lijnbaan }
+        answer: 0
+        options:
+          - label: It was a shopping street built for people on foot, with no cars
+            why: >-
+              Right. Jo van den Broek and Jaap Bakema designed it, low shops along a car-free street with homes behind.
+              It has been called the first purpose-built pedestrian street in Europe.
+          - label: It was the first street with electric lights
+            why: Streets had electric light long before 1953. It was built for walkers.
+          - label: It was the first covered market
+            why: It is an open street, without cars.
+          - label: It was built of wood
+            why: It is concrete, glass and brick. What was new was the lack of cars.
+      - type: choice
+        prompt: Wipe between 1885 and 1931. What has changed in the buildings on the map?
+        visual: { kind: compare, map: buildings, years: [1885, 1931] }
+        answer: 0
+        options:
+          - label: New styles have arrived, Art Nouveau around 1900 and then modern buildings of brick, concrete and glass
+            why: >-
+              Right. In 1885 the newest buildings, like the Rijksmuseum and the Palace of Justice, copied old styles. By
+              1931 Horta's houses, the Beurs, the Schröder house, Van Nelle and Hilversum town hall stand on the map.
+          - label: Nothing; architects still copy the past
+            why: Look at the new marks of 1931.
+          - label: The old towers have all been pulled down
+            why: The belfries and churches are still there.
+          - label: Only Belgium builds anything new
+            why: Look at Amsterdam, Utrecht, Rotterdam and Hilversum.
+      - type: style
+        of: building
+        prompt: One building at a time. Name its style.
+        groups: [Gothic, Renaissance or Baroque, Art Nouveau, Modern]
+        items:
+          - { photo: tournai-belfry, title: "Belfry of Tournai, begun around 1188", group: 0, tell: "Pointed windows, and a spire ringed by pointed turrets.", box: [0.49, 0.1, 0.22, 0.35] }
+          - { photo: leuven-town-hall, title: "Town hall of Leuven, 1439 to 1469", group: 0, tell: "Pointed arches, pinnacles and stone lace, with saints in niches.", box: [0.18, 0.2, 0.3, 0.42] }
+          - { photo: antwerp-town-hall, title: "City hall of Antwerp, 1561 to 1565", group: 1, tell: "Columns stacked storey on storey, as on a Roman arch, and straight lines.", box: [0.37, 0.15, 0.34, 0.5] }
+          - { photo: solvay-front, title: "Hôtel Solvay, Brussels, 1895 to 1900", group: 2, tell: "Stone and iron that bend and curl like stems and leaves.", box: [0.24, 0.48, 0.5, 0.25] }
+          - { photo: hilversum-hall, title: "Town hall of Hilversum, 1928 to 1931", group: 3, tell: "Flat roofs and plain blocks of brick, with no ornament at all.", box: [0.28, 0.08, 0.3, 0.5] }
+        explain: >-
+          Gothic points upwards; the Renaissance brings back columns from Rome; Art Nouveau curls like a plant;
+          modern architecture throws ornament away and builds with plain blocks and planes.
+      - type: choice
+        prompt: Piet Blom built these cube houses in Rotterdam from 1982 to 1984, each tipped on one corner on a pole. What did he want them to be?
+        visual: { kind: photo, photo: cube-houses }
+        answer: 0
+        options:
+          - label: A forest, with every house a tree
+            why: >-
+              Right. Blom called the complex het Blaakse Bos, the Blaak forest: 38 houses on poles, each a tree, with
+              space to walk underneath.
+          - label: A giant game of dice
+            why: They look like it, but Blom thought of trees.
+          - label: A copy of the Atomium
+            why: They have nothing to do with the Atomium. Blom thought of trees.
+          - label: Shipping containers
+            why: Blom thought of trees in a forest.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [The Housing Act of 1901, Associations build homes like Het Schip for workers]
+          - ["Rotterdam's centre is bombed in May 1940", It is rebuilt as a modern city]
+          - [Brussels hosts the World's Fair of 1958, The Atomium is built]
+          - [Truus Schröder wants a house without fixed walls, Rietveld gives it sliding panels]
+        explain: >-
+          New laws, war and world's fairs, and clients with new ideas, made the modern architecture of the Low
+          Countries.

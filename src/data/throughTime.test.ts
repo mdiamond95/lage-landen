@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 39 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(39)
+  it('has 40 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(40)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -60,6 +60,12 @@ describe('time map through the eras', () => {
     expect(kinds(1953).has('flooded')).toBe(true)
     expect(kinds(1986).has('flooded')).toBe(false)
     expect(kinds(1953).has('occupied')).toBe(false)
+    // Expo 58: the Atomium among the modern buildings, gone again by 1963; the older buildings stay off.
+    const names = (year: number) => throughTimeStory.sites.filter((x) => activeAt(year, x) && x.from <= year && (x.end === undefined || year <= x.end)).map((x) => x.name)
+    expect(names(1958)).toContain('Atomium')
+    expect(names(1958)).not.toContain('Belfry of Bruges')
+    expect(names(1953)).not.toContain('Atomium')
+    expect(names(1963)).not.toContain('Atomium')
     // Belgium's language areas from 1963, beside the Delta Works until 1997, with both keys.
     expect(kinds(1953).has('dutch')).toBe(false)
     expect((['dutch', 'french', 'german', 'bilingual'] as const).every((k) => kinds(1963).has(k))).toBe(true)

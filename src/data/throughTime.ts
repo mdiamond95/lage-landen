@@ -1,18 +1,19 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 39 snapshots, from Caesar's conquest to the federal Belgium of 2012. Each era's lines,
+// through 40 snapshots, from Caesar's conquest to the federal Belgium of 2012. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, Burgundy, the painters' workshops, revolt,
 // the Golden Age painters, the Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
 // Belgium's first railways and coal country, the railways and canals of 1839 to 1914,
 // Belgium's front of 1914 to 1918, the modern artists, the war of 1940 to 1945, water and the flood of 1953,
-// Belgium's language areas from 1963), and stay on the map only from the era's first
+// the buildings of Expo 58, Belgium's language areas from 1963), and stay on the map only from the era's first
 // snapshot to its end, so one era never bleeds into another. The Delta Works and the
 // language areas share the years 1963 to 1997, so those snapshots show both keys, and
 // so do Burgundy and the painters in 1520 and 1549, and the revolt and the Golden Age painters
-// in 1642.
-// The plan's full time map runs to today with about 40 snapshots; this is the first
-// 39, for Units 1 to 18.
+// in 1642, and the buildings and the water works in 1958.
+// The plan's full time map runs to today with about 40 snapshots; these are the 40 of
+// Units 1 to 19.
 
 import { bordersStory } from './borders'
+import { buildingsStory } from './buildings'
 import { burgundyStory } from './burgundy'
 import { greatWarByYear } from './greatwar'
 import { industryStory } from './industry'
@@ -129,6 +130,17 @@ const goldenAgeStory: TimeStory = { ...mastersStory, max: 1647, labels: mastersS
 // but here it ends before the war of 1940, and keeps only the country names of its labels.
 const modernArtStory: TimeStory = { ...modernsStory, max: 1939, labels: modernsStory.labels.filter((l) => l.kind === 'territory') }
 
+// The buildings of the century (Unit 19) in 1958, the year of Expo 58: Art Nouveau and modern
+// buildings from 1893 on, gone again before the language border of 1963. The older buildings
+// stay on the unit's own map, and only the Atomium is named, so the snapshot isn't crowded.
+const ARCHITECTURE_MAX = 1962
+const architectureStory: TimeStory = {
+  ...buildingsStory,
+  max: ARCHITECTURE_MAX,
+  sites: buildingsStory.sites.filter((s) => s.from >= 1893).map((s) => (s.name === 'Atomium' ? s : { ...s, label: undefined })),
+  labels: [],
+}
+
 // The stage each snapshot shows, taken from its era's own captions unless given here.
 // `also` is another era still on the map at that snapshot, whose key is shown too.
 type Snapshot = { story: TimeStory; from: number; event?: Omit<HistEvent, 'from'>; also?: TimeStory }
@@ -168,6 +180,7 @@ const snapshots: Snapshot[] = [
   { story: occupationByYear, from: 1944 },
   { story: occupationByYear, from: 1945 },
   { story: waterStory, from: 1953 },
+  { story: architectureStory, from: 1958, also: waterStory },
   { story: languageByYear, from: 1963, also: waterStory },
   { story: waterStory, from: 1986, also: languageByYear },
   { story: languageByYear, from: 1993, also: waterStory },

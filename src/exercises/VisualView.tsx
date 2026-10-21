@@ -1,4 +1,5 @@
 import { Art } from '../art/Art'
+import { FacadeTour } from '../art/FacadeTour'
 import { FamilyTree } from '../art/FamilyTree'
 import { FederalDiagram } from '../art/FederalDiagram'
 import { LineChart } from '../art/LineChart'
@@ -11,6 +12,7 @@ import { StormBarrier } from '../art/StormBarrier'
 import type { Visual } from '../content/schema'
 import { amsterdamStory } from '../data/amsterdam'
 import { bordersStory } from '../data/borders'
+import { buildingsStory } from '../data/buildings'
 import { burgundyStory } from '../data/burgundy'
 import { congoStory } from '../data/congo'
 import { deltaStory } from '../data/delta'
@@ -57,6 +59,7 @@ export const stories = {
   painters: paintersStory,
   masters: mastersStory,
   moderns: modernsStory,
+  buildings: buildingsStory,
 }
 
 type TimeMapProps = {
@@ -80,6 +83,7 @@ export function VisualView({ visual, label, hideCaption }: { visual: Visual; lab
   if (visual.kind === 'painting') return <PaintingTour painting={visual.painting} focus={visual.focus} />
   if (visual.kind === 'pair') return <PaintingPair pair={visual.pair} focus={visual.focus} />
   if (visual.kind === 'series') return <PainterRoad id={visual.series} at={visual.at} />
+  if (visual.kind === 'facade') return <FacadeTour facade={visual.facade} focus={visual.focus} />
   if (visual.kind === 'polder-slider') return <PolderSlider />
   if (visual.kind === 'storm-barrier') return <StormBarrier />
   if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} hideCaption={hideCaption} />

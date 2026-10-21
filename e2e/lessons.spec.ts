@@ -42,6 +42,13 @@ async function answer(page: Page) {
       if (!(await page.locator('.style-next').count())) break
       await page.locator('.style-next').click()
     }
+  } else if (await page.locator('.exercise-label').count()) {
+    const spots = page.locator('.label-spot')
+    const n = await spots.count()
+    for (let i = 0; i < n; i++) {
+      await page.locator('.label-pool .label-card').first().click()
+      await spots.nth(i).click()
+    }
   } else if (await page.locator('.chip-pool').count()) {
     while (await page.locator('.chip').count()) await page.locator('.chip').first().click()
   } else {
@@ -460,15 +467,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 39 snapshots from Caesar to the federal Belgium of 2012', async ({ page }) => {
+test('the time map steps through 40 snapshots from Caesar to the federal Belgium of 2012', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('39 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('40 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 39 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 40 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '38')
+  await expect(slider).toHaveAttribute('max', '39')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -593,12 +600,19 @@ test('the time map steps through 39 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.hist-area-dutch')).toHaveCount(0)
 
   await slider.fill('34')
+  await expect(map.locator('.time-map-title')).toHaveText('1958: Expo 58 and the Atomium')
+  await expect(map.getByText('Atomium', { exact: true })).toBeVisible()
+  await expect(map.locator('.key-swatch.key-nouveau')).toHaveCount(1)
+  // The Delta Works carry on beside the buildings.
+  await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
+
+  await slider.fill('35')
   await expect(map.locator('.time-map-title')).toHaveText('1963: The language border is fixed')
   await expect(map.locator('.hist-area-german')).toHaveCount(2)
   await expect(map.locator('.key-swatch.key-dutch')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-facility')).toHaveCount(0)
 
-  await slider.fill('35')
+  await slider.fill('36')
   await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
   await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
@@ -606,10 +620,10 @@ test('the time map steps through 39 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.hist-area-bilingual')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-bilingual')).toHaveCount(1)
 
-  await slider.fill('36')
+  await slider.fill('37')
   await expect(map.locator('.time-map-title')).toHaveText('1993: A federal state')
 
-  await slider.fill('37')
+  await slider.fill('38')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
@@ -617,7 +631,7 @@ test('the time map steps through 39 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
 
-  await slider.fill('38')
+  await slider.fill('39')
   await expect(map.locator('.time-map-title')).toHaveText('2012: Brussels-Halle-Vilvoorde is split')
   await expect(map.locator('.hist-dam')).toHaveCount(0)
   await expect(map.locator('.hist-area-french').first()).toBeVisible()
@@ -1580,4 +1594,100 @@ test('a style sorter names one painting at a time, then glides to what gives the
   await expect(sorter.locator('.style-next')).toHaveCount(0)
   await check.click()
   await expect(page.locator('.feedback')).toContainText('is Realism')
+})
+
+test('plays all of unit 19 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of ['Towers of the towns', 'Churches and courts', 'Gables on the canals', 'Mills and pumps', 'Whiplash lines', 'Lines and planes']) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 19 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('a building front names its parts and glides to each, and the buildings map grows tower by tower', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Towers of the towns', exact: true }).click()
+  const front = page.locator('.facade')
+  await expect(front.locator('.facade-spot')).toHaveCount(4)
+  await expect(front.getByRole('button', { name: '1: Market hall' })).toBeVisible()
+  await expect(front.locator('.zoom-frame.is-zoomed')).toHaveCount(0)
+  await front.getByRole('button', { name: 'Walk along the front' }).click()
+  await expect(front.locator('.tour-title')).toHaveText('Market hall')
+  await expect(front.locator('.zoom-frame.is-zoomed')).toHaveCount(1)
+  // Zoomed in on the hall, the other hotspots are out of view; Next part walks on to them.
+  for (const part of ['Gateway', 'Square tower', 'Eight-sided top']) {
+    await front.getByRole('button', { name: 'Next part' }).click()
+    await expect(front.locator('.tour-title')).toHaveText(part)
+  }
+  await expect(front.locator('.tour-text')).toContainText('87 centimetres')
+  await front.getByRole('button', { name: 'Whole front' }).click()
+  await expect(front.locator('.tour-title')).toHaveCount(0)
+  await expect(front.locator('.zoom-frame.is-zoomed')).toHaveCount(0)
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  await expect(map.getByRole('img', { name: /1240: The belfry of Bruges$/ })).toHaveCount(1)
+  await expect(map.locator('.hist-gothic', { hasText: 'Belfry of Ghent' })).toHaveCount(0)
+  await year.fill('1382')
+  await expect(map.locator('.hist-gothic', { hasText: 'Belfry of Ghent' })).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-gothic')).toHaveCount(1)
+  await year.fill('1920')
+  await expect(map.locator('.hist-gothic.hist-gone', { hasText: 'Cloth Hall of Ypres' })).toHaveCount(1)
+  await expect(map.locator('.hist-nouveau', { hasText: 'Hôtel Tassel' })).toHaveCount(1)
+})
+
+test('label the parts puts each name on its numbered spot, and a building front can open on one part', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Towers of the towns', exact: true }).click()
+  await skipTo(page, 'Label the parts')
+  const label = page.locator('.exercise-label')
+  const check = page.locator('.lesson-foot').getByRole('button', { name: 'Check' })
+  await expect(label.locator('.label-spot')).toHaveCount(4)
+  await expect(label.locator('.label-pool .label-card')).toHaveCount(5)
+  const names = ['Belfry', 'Cloth hall', 'Nieuwerck', "St Martin's tower"]
+  for (const [i, name] of names.entries()) {
+    await label.locator('.label-pool').getByRole('button', { name, exact: true }).click()
+    await label.getByRole('button', { name: `Spot ${i + 1}: empty` }).click()
+    await expect(label.getByRole('button', { name: `Spot ${i + 1}: ${name}` })).toBeVisible()
+    if (i < names.length - 1) await expect(check).toBeDisabled()
+  }
+  // A placed label comes off its spot again with a tap.
+  await label.getByRole('button', { name: 'Spot 4: St Martin' }).click()
+  await expect(label.getByRole('button', { name: 'Spot 4: empty' })).toBeVisible()
+  await expect(check).toBeDisabled()
+  await label.getByRole('button', { name: 'Spot 4: empty' }).click()
+  await label.locator('.label-pool').getByRole('button', { name: "St Martin's tower" }).click()
+  await check.click()
+  await expect(page.locator('.feedback')).toContainText('Every label in its place')
+  await expect(label.locator('.label-spot.right')).toHaveCount(4)
+
+  await unlock(page, ['u19-l1', 'u19-l2'])
+  await page.getByRole('button', { name: 'Gables on the canals', exact: true }).click()
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+  const front = page.locator('.facade')
+  await expect(front.locator('.facade-spot')).toHaveCount(0)
+  await expect(front.locator('.zoom-frame.is-zoomed')).toHaveCount(1)
+  await expect(front.locator('.hint')).toContainText('Zoomed in on one part')
+})
+
+test('a building style sorter names one front at a time', async ({ page }) => {
+  await unlock(page, ['u19-l1', 'u19-l2', 'u19-l3', 'u19-l4', 'u19-l5'])
+  await page.getByRole('button', { name: 'Lines and planes', exact: true }).click()
+  await skipTo(page, 'Style sorter')
+  const sorter = page.locator('.exercise-style')
+  const styles = sorter.getByRole('group', { name: 'Styles' })
+  await expect(sorter.locator('.style-count')).toContainText('Building 1 of 5')
+  await styles.getByRole('button', { name: 'Gothic' }).click()
+  await expect(sorter.locator('.style-tell')).toBeVisible()
+  await expect(sorter.locator('.style-next')).toHaveText(/Next building/)
 })

@@ -47,8 +47,34 @@ export type HistSite = Dated & {
   // A `grave` is a war cemetery; a `memorial` is a monument to the dead or the missing.
   // A `workshop` is a painter at work in a town, named after the painter; a `market` is
   // an art fair, a print shop or an exhibition society. A `village` is an artists' village;
-  // a `museum` is a museum of modern art.
-  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach' | 'mine' | 'grave' | 'memorial' | 'workshop' | 'market' | 'village' | 'museum'
+  // a `museum` is a museum of modern art. On the buildings map (Unit 19) a building is
+  // marked by its style, `gothic`, `classic` (Renaissance and Baroque), `revival` (the old
+  // styles built again in the 1800s), `nouveau` (Art Nouveau) or `modern`; a `beguinage` is
+  // a court of beguines, and a `mill` a windmill or pumping station.
+  kind:
+    | 'fort'
+    | 'town'
+    | 'barrier'
+    | 'battle'
+    | 'voc'
+    | 'wic'
+    | 'camp'
+    | 'drop'
+    | 'breach'
+    | 'mine'
+    | 'grave'
+    | 'memorial'
+    | 'workshop'
+    | 'market'
+    | 'village'
+    | 'museum'
+    | 'gothic'
+    | 'classic'
+    | 'revival'
+    | 'nouveau'
+    | 'modern'
+    | 'beguinage'
+    | 'mill'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number
