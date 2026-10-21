@@ -15,6 +15,7 @@ import { LabelParts } from '../exercises/LabelParts'
 import { ListenMap } from '../exercises/ListenMap'
 import { PickAll } from '../exercises/PickAll'
 import { TasteMap } from '../exercises/TasteMap'
+import { WhenWheel } from '../exercises/WhenWheel'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
 import type { Evaluate, Result } from '../exercises/types'
@@ -134,6 +135,8 @@ export function LessonPlayer({ title, exercises, note, calm = false, onExit, onF
         return <TasteMap exercise={exercise} {...props} />
       case 'pick':
         return <PickAll exercise={exercise} {...props} />
+      case 'when':
+        return <WhenWheel exercise={exercise} {...props} />
     }
   })()
 

@@ -545,6 +545,14 @@ lessons:
             why: Look at the date on the stone.
           - label: He was a general
             why: The stone says Private.
+      - type: when
+        prompt: Belgium takes this day off to remember the end of the war, and crowds fill the Menin Gate for the Last Post. Turn the wheel to it.
+        photo: menin-gate
+        answer: armistice
+        days: 1
+        explain: >-
+          Armistice Day, 11 November, the day the guns fell silent in 1918. It has been a public holiday in Belgium
+          since 1922; the Netherlands, neutral in the war, does not keep it.
 
   - id: u14-l5
     title: Eighteen days and four years

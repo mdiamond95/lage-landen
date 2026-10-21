@@ -35,6 +35,8 @@ import { buildingsStory } from '../data/buildings'
 import { tonguesStory } from '../data/tongues'
 import { foodStory } from '../data/food'
 import { foodIds, foods } from '../data/foods'
+import { feastStory } from '../data/feastMap'
+import { DAYS, daysOff, feastIds, feasts, spanOf } from '../data/feasts'
 import { dialectIds, dialectPieces, dialects } from '../data/dialects'
 import { allPhrases, phraseSetIds, phraseSets } from '../data/phrases'
 import { soundIds } from '../sounds/ids'
@@ -78,6 +80,7 @@ const isVisual = (e: Exercise) =>
   e.type === 'label' ||
   e.type === 'listen' ||
   e.type === 'taste' ||
+  e.type === 'when' ||
   (e.type === 'pick' && (e.visual !== undefined || e.items.every((i) => i.photo)))
 
 describe.each(files)('%s', (file) => {
@@ -377,6 +380,62 @@ describe('regional food map', () => {
   })
 })
 
+describe('calendar wheel', () => {
+  it('puts every feast on real days, each with something to read', () => {
+    for (const id of feastIds) {
+      const [a, b] = spanOf(feasts[id])
+      expect(a >= 1 && a <= b && b <= DAYS, id).toBe(true)
+      // A moving feast spans no more than about six weeks, or it would not be on a calendar.
+      expect(b - a, id).toBeLessThanOrEqual(45)
+      expect(feasts[id].about.length, id).toBeGreaterThan(40)
+    }
+    const photos = feastIds.flatMap((id) => (feasts[id].photo ? [feasts[id].photo] : []))
+    expect(new Set(photos).size, 'no photo on two feasts').toBe(photos.length)
+  })
+
+  it('counts days round the turn of the year', () => {
+    expect(daysOff(feasts['new-year-dive'], DAYS)).toBe(1)
+    expect(daysOff(feasts['new-years-eve'], 1)).toBe(1)
+    expect(daysOff(feasts['carnival-binche'], 40)).toBe(0)
+  })
+
+  it("asks when-is-it questions with a photo whose alt text doesn't give the date", () => {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    for (const file of files) {
+      const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
+      for (const ex of unit.lessons.flatMap((l) => l.exercises)) {
+        if (ex.type !== 'when') continue
+        for (const m of months) expect(`${credits[ex.photo].alt} ${ex.prompt}`, `${unit.id} ${ex.photo} names ${m}`).not.toContain(m)
+      }
+    }
+  })
+})
+
+describe('feast time map', () => {
+  const { min, max, events, sites, labels, lines } = feastStory
+  const inFrame = ([lon, lat]: [number, number]) => lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6
+
+  it('puts every mark and label in the frame, each named once', () => {
+    for (const s of sites) expect(inFrame(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+    expect(lines).toHaveLength(0)
+    expect(new Set(sites.map((s) => s.name)).size, 'site names are unique').toBe(sites.length)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
+  })
+})
+
 describe('food time map', () => {
   const { min, max, events, sites, labels, lines } = foodStory
   const inFrame = ([lon, lat]: [number, number]) => lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6
@@ -507,6 +566,7 @@ describe('time maps in lessons', () => {
     buildings: buildingsStory,
     tongues: tonguesStory,
     food: foodStory,
+    feasts: feastStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -533,6 +593,7 @@ describe('time maps in lessons', () => {
     buildings: [buildingsStory.min, buildingsStory.max],
     tongues: [tonguesStory.min, tonguesStory.max],
     food: [foodStory.min, foodStory.max],
+    feasts: [feastStory.min, feastStory.max],
   }
 
   it('open at years inside their slider', () => {

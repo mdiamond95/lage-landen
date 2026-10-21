@@ -858,3 +858,63 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .food-status { font-size: 0.85rem; color: var(--green-dark); font-weight: 700; }
 /* Pick all that belong: cards that belonged but weren't picked are outlined once checked. */
 .option.missed { border-color: var(--green); border-style: dashed; background: var(--card); box-shadow: none; }
+/* Unit 22: feasts and traditions. Each kind of feast has the same shape and colour on the calendar
+   wheel and the feast time map: the church year a purple cross, saints' days a red mitre, carnival a
+   magenta mask, processions a green giant, kings and nations an orange crown, remembrance and
+   freedom a slate flame, folk customs a gold star. */
+.hist-church path { fill: #6b4fa0; stroke: #fff; stroke-width: 1; }
+.key-church { width: 10px; height: 12px; background: #6b4fa0; clip-path: polygon(35% 0, 65% 0, 65% 30%, 100% 30%, 100% 55%, 65% 55%, 65% 100%, 35% 100%, 35% 55%, 0 55%, 0 30%, 35% 30%); }
+.hist-saint path { fill: #c0392b; stroke: #fff; stroke-width: 1; }
+.key-saint { width: 11px; height: 12px; background: #c0392b; clip-path: polygon(50% 0, 100% 40%, 100% 100%, 0 100%, 0 40%); }
+.hist-carnival path { fill: #c2338a; stroke: #fff; stroke-width: 1; }
+.key-carnival { width: 13px; height: 8px; background: #c2338a; border-radius: 6px 6px 50% 50%; }
+.hist-procession path { fill: #2e7d6b; stroke: #fff; stroke-width: 1; }
+.key-procession { width: 10px; height: 12px; background: #2e7d6b; clip-path: polygon(50% 0, 70% 15%, 65% 35%, 100% 100%, 0 100%, 35% 35%, 30% 15%); }
+.hist-nation path { fill: #f08a00; stroke: #5a3300; stroke-width: 1; }
+.key-nation { width: 13px; height: 10px; background: #f08a00; clip-path: polygon(0 0, 30% 40%, 50% 0, 70% 40%, 100% 0, 92% 100%, 8% 100%); }
+.hist-memory path { fill: #3b4a6b; stroke: #fff; stroke-width: 1; }
+.key-memory { width: 9px; height: 12px; background: #3b4a6b; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
+.hist-folk path { fill: #d4a017; stroke: #5a4300; stroke-width: 1; }
+.key-folk { width: 12px; height: 12px; background: #d4a017; clip-path: polygon(50% 0, 62% 35%, 100% 35%, 69% 57%, 81% 100%, 50% 72%, 19% 100%, 31% 57%, 0 35%, 38% 35%); }
+
+/* Unit 22: the calendar wheel. Months round the rim, shaded by season; each kind of feast on its own
+   ring; a feast that moves is drawn as the arc of days it can fall on. */
+.feast-wheel { margin: 0; display: grid; gap: 10px; }
+.wheel-face { width: 100%; max-width: 420px; margin: 0 auto; display: block; touch-action: none; user-select: none; }
+.wheel-month path { stroke: var(--card); stroke-width: 2; }
+.wheel-month text { font-size: 13px; font-weight: 800; fill: var(--ink); pointer-events: none; }
+.season-winter path { fill: #dbe6f3; }
+.season-spring path { fill: #dcefd6; }
+.season-summer path { fill: #f8e7b5; }
+.season-autumn path { fill: #f3d6bd; }
+.wheel-track { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+.wheel-mark { cursor: pointer; transition: opacity 0.25s; }
+.wheel-mark .wheel-hit { fill: var(--card); stroke: none; }
+.wheel-mark:hover .wheel-hit, .wheel-mark:focus-visible .wheel-hit { fill: var(--delft-soft); }
+.wheel-mark .wheel-span { fill: none; stroke-width: 5; stroke-linecap: round; opacity: 0.45; }
+.wheel-mark.hist-church .wheel-span { stroke: #6b4fa0; }
+.wheel-mark.hist-saint .wheel-span { stroke: #c0392b; }
+.wheel-mark.hist-carnival .wheel-span { stroke: #c2338a; }
+.wheel-mark.hist-procession .wheel-span { stroke: #2e7d6b; }
+.wheel-mark.hist-nation .wheel-span { stroke: #f08a00; }
+.wheel-mark.hist-memory .wheel-span { stroke: #3b4a6b; }
+.wheel-mark.hist-folk .wheel-span { stroke: #d4a017; }
+.wheel-mark.is-dim { opacity: 0.3; }
+.wheel-mark.is-selected .wheel-hit { fill: var(--delft-soft); stroke: var(--ink); stroke-width: 2; }
+.wheel-mark.is-right .wheel-hit { fill: var(--green-soft); stroke: var(--green-dark); stroke-width: 2.5; }
+.wheel-mark.is-right .wheel-span { opacity: 0.8; }
+.wheel-hub { fill: var(--card); stroke: var(--line); stroke-width: 2; }
+.wheel-date { font-size: 13px; font-weight: 900; fill: var(--ink); pointer-events: none; }
+.wheel-hand line { stroke: var(--delft); stroke-width: 3; stroke-linecap: round; }
+.wheel-hand circle { fill: var(--delft); stroke: var(--card); stroke-width: 2; }
+.wheel-hand.is-right line { stroke: var(--green-dark); }
+.wheel-hand.is-right circle { fill: var(--green-dark); }
+.wheel-hand.is-wrong line { stroke: var(--red); }
+.wheel-hand.is-wrong circle { fill: var(--red); }
+.wheel-pick .wheel-face { cursor: grab; }
+.wheel-controls { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.wheel-slider { min-width: 9em; text-align: center; font-weight: 800; padding: 6px 10px; border: 2px solid var(--line); border-radius: 10px; background: var(--card); }
+.wheel-slider:focus-visible { outline: 3px solid var(--delft); outline-offset: 2px; }
+.wheel-key { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.8rem; font-weight: 700; }
+.wheel-key li { display: flex; align-items: center; gap: 6px; }
+.wheel-where { font-size: 0.85rem; color: var(--ink-soft); }

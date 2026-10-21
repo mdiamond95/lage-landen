@@ -376,6 +376,14 @@ lessons:
           - { label: Leiden University is founded, year: 1575, when: '1575' }
           - { label: William is shot in Delft, year: 1584, when: July 1584 }
         explain: Holland held out, and Leiden's university trained the ministers and lawyers of the new state.
+      - type: when
+        prompt: Leiden still celebrates the end of its siege every year with herring, white bread and a pot of hutspot. Turn the wheel to the day.
+        photo: hutspot
+        answer: leiden-relief
+        days: 1
+        explain: >-
+          3 October, the day in 1574 the Sea Beggars' fleet reached the town. Leiden keeps it with a parade, a fair and
+          fireworks. Unit 22 puts it on the calendar wheel with the other feasts of the Low Countries.
 
   - id: u5-l4
     title: Two unions

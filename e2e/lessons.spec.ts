@@ -51,6 +51,9 @@ async function answer(page: Page) {
     }
   } else if (await page.locator('.food-pick').count()) {
     await page.locator('.food-pick .food-mark').first().dispatchEvent('click')
+  } else if (await page.locator('.wheel-pick').count()) {
+    await page.locator('.wheel-pick [role="slider"]').focus()
+    await page.keyboard.press('ArrowRight')
   } else if (await page.locator('.dialect-pick').count()) {
     await page.locator('.dialect-pick .dialect').first().dispatchEvent('click')
   } else if (await page.locator('.chip-pool').count()) {
@@ -471,15 +474,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 42 snapshots from Caesar to the food map of 2016', async ({ page }) => {
+test('the time map steps through 43 snapshots from Caesar to the feasts of 2023', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('42 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('43 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 42 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 43 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '41')
+  await expect(slider).toHaveAttribute('max', '42')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('About 1100: Hebban olla vogala')
@@ -646,7 +649,7 @@ test('the time map steps through 42 snapshots from Caesar to the food map of 201
   await expect(map.locator('.hist-dam')).toHaveCount(0)
   await expect(map.locator('.hist-area-french').first()).toBeVisible()
 
-  // The last snapshot is the food map of Unit 21: every mark at once, unnamed, and the language areas gone.
+  // The food map of Unit 21: every mark at once, unnamed, and the language areas gone.
   await slider.fill('41')
   await expect(map.locator('.time-map-title')).toHaveText('2016: Belgian beer culture')
   await expect(map.locator('.hist-area-french')).toHaveCount(0)
@@ -654,6 +657,17 @@ test('the time map steps through 42 snapshots from Caesar to the food map of 201
   await expect(map.locator('.hist-site.hist-cheese').first()).toBeVisible()
   await expect(map.locator('.hist-site-label')).toHaveCount(0)
   await expect(map.locator('.key-swatch.key-distillery')).toHaveCount(1)
+
+  // The last snapshot is the feast map of Unit 22: its marks unnamed, the food marks gone, the
+  // two countries named and the Zwarte Piet debate still open.
+  await slider.fill('42')
+  await expect(map.locator('.time-map-title')).toHaveText('2023: An apology on Keti Koti')
+  await expect(map.locator('.hist-site.hist-brewery')).toHaveCount(0)
+  await expect(map.locator('.hist-site.hist-procession').first()).toBeVisible()
+  await expect(map.locator('.hist-site.hist-memory').first()).toBeVisible()
+  await expect(map.locator('.hist-site-label')).toHaveCount(0)
+  await expect(map.locator('.hist-alert', { hasText: 'ZWARTE PIET DEBATE' })).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-procession')).toHaveCount(1)
 
   await page.getByRole('button', { name: 'Back to the course' }).click()
   await expect(page.locator('.review')).toBeVisible()
@@ -1873,4 +1887,90 @@ test('pick all that belong marks the right, the wrong and the missed', async ({ 
   await expect(pick.locator('.option.wrong')).toHaveCount(1)
   await expect(pick.locator('.option.missed')).toHaveCount(3)
   await expect(pick.locator('.hint')).toHaveText('4 of the 6 belong.')
+})
+
+test('plays all of unit 22 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of ['A year of feasts', 'Sinterklaas', 'Carnival', 'Processions and giants', "King's Day and national days", 'Keti Koti and the days of freedom']) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 22 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the calendar wheel filters by country and opens a card', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'A year of feasts', exact: true }).click()
+  const wheel = page.locator('.feast-wheel')
+  await expect(wheel.locator('.wheel-mark')).toHaveCount(27)
+  await expect(wheel.locator('.food-card .food-title')).toHaveCount(0)
+  await wheel.getByRole('button', { name: 'Netherlands', exact: true }).click()
+  const dutch = await wheel.locator('.wheel-mark').count()
+  expect(dutch).toBeLessThan(27)
+  await expect(wheel.locator('.wheel-mark[data-feast="kings-day"]')).toHaveCount(1)
+  await expect(wheel.locator('.wheel-mark[data-feast="national-day"]')).toHaveCount(0)
+  await wheel.getByRole('button', { name: 'Belgium', exact: true }).click()
+  await expect(wheel.locator('.wheel-mark[data-feast="kings-day"]')).toHaveCount(0)
+  await wheel.locator('.wheel-mark[data-feast="national-day"]').dispatchEvent('click')
+  const card = wheel.locator('.food-card')
+  await expect(card.locator('.food-title')).toContainText('National Day')
+  await expect(card.locator('.food-place')).toContainText('21 July')
+  await expect(wheel.locator('.wheel-mark.is-selected')).toHaveCount(1)
+  // A feast that moves with Easter is drawn as the span of days it can fall on.
+  await wheel.getByRole('button', { name: 'Both countries', exact: true }).click()
+  await expect(wheel.locator('.wheel-mark[data-feast="easter-fires"] .wheel-span')).toHaveCount(1)
+  await expect(wheel.locator('.wheel-mark[data-feast="new-year-dive"] .wheel-span')).toHaveCount(0)
+})
+
+test('a when-is-it question is answered by turning the wheel', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'A year of feasts', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  await foot.getByRole('button', { name: 'Continue' }).click()
+  const when = page.locator('.exercise-when')
+  await expect(when.locator('.eyebrow')).toHaveText('When is it?')
+  await expect(when.locator('figcaption')).toHaveText('Caption and credit shown once you answer')
+  // No feast is marked until the answer is checked.
+  await expect(when.locator('.wheel-mark')).toHaveCount(0)
+  await expect(when.locator('.wheel-date')).toHaveText('Drag')
+  // Turn the hand with the pointer to 11 November, the day of Saint Martin.
+  const box = (await when.locator('.wheel-face').boundingBox())!
+  const day = 315
+  const a = ((day - 0.5) / 365) * 2 * Math.PI - Math.PI / 2
+  const at = (r: number) => [box.x + box.width * (0.5 + (r / 400) * Math.cos(a)), box.y + box.height * (0.5 + (r / 400) * Math.sin(a))]
+  const [x, y] = at(120)
+  await page.mouse.move(x, y)
+  await page.mouse.down()
+  await page.mouse.up()
+  await expect(when.locator('.wheel-date')).toHaveText('11 November')
+  // A day either side still counts; the buttons step it.
+  await when.getByRole('button', { name: 'A day earlier' }).click()
+  await expect(when.getByRole('slider', { name: 'Date' })).toHaveAttribute('aria-valuetext', '10 November')
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(foot).toHaveClass(/is-right/)
+  await expect(when.locator('.wheel-mark.is-right[data-feast="st-martin"]')).toHaveCount(1)
+  await expect(when.locator('.wheel-hand.is-right')).toHaveCount(1)
+  await expect(when.locator('figcaption')).not.toHaveText('Caption and credit shown once you answer')
+
+  // The next when-question is answered wrong with the keyboard: one step back from the start is 31 December.
+  await foot.getByRole('button', { name: 'Continue' }).click()
+  await answer(page).catch(() => {})
+  await foot.getByRole('button', { name: 'Continue' }).click()
+  await expect(when.locator('.eyebrow')).toHaveText('When is it?')
+  await when.getByRole('slider', { name: 'Date' }).focus()
+  await page.keyboard.press('ArrowLeft')
+  await expect(when.locator('.wheel-date')).toHaveText('31 December')
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(foot).toHaveClass(/is-wrong/)
+  await expect(foot).toContainText('It falls on Easter Sunday')
+  await expect(when.locator('.wheel-mark.is-right[data-feast="easter-fires"] .wheel-span')).toHaveCount(1)
+  await expect(when.locator('.wheel-hand.is-wrong')).toHaveCount(1)
 })

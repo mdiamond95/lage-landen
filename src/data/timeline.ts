@@ -52,7 +52,9 @@ export type HistSite = Dated & {
   // styles built again in the 1800s), `nouveau` (Art Nouveau) or `modern`; a `beguinage` is
   // a court of beguines, and a `mill` a windmill or pumping station. On the food map (Unit 21)
   // a mark is a `cheese`, `fish`, `sweet` (sweets and baking), `dish` (a dish or vegetable),
-  // `brewery` or `distillery`.
+  // `brewery` or `distillery`. On the feast map (Unit 22) a mark is a feast of the `church` year, a
+  // `saint`'s day, a `carnival`, a `procession` with its giants, a feast of a king or a `nation`, a
+  // day of `memory` (remembrance and freedom), or a `folk` custom.
   kind:
     | 'fort'
     | 'town'
@@ -83,6 +85,13 @@ export type HistSite = Dated & {
     | 'dish'
     | 'brewery'
     | 'distillery'
+    | 'church'
+    | 'saint'
+    | 'carnival'
+    | 'procession'
+    | 'nation'
+    | 'memory'
+    | 'folk'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number

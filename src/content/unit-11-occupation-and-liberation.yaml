@@ -604,6 +604,14 @@ lessons:
           True. Princess Juliana spent the war in Ottawa, and her daughter Margriet was born there in 1943. In 1945
           she sent 100,000 tulip bulbs to thank Canada, and more have come every year since. They bloom each May at
           the Canadian Tulip Festival.
+      - type: when
+        prompt: Ten years after the war, crowds filled the Damrak in Amsterdam to celebrate their freedom, as the Dutch do every year on this day. Turn the wheel to it.
+        photo: liberation-1955
+        answer: liberation
+        days: 1
+        explain: >-
+          Liberation Day, 5 May, the day the surrender was agreed at Wageningen in 1945. It follows the Remembrance of
+          the Dead on the evening of 4 May. Unit 22 has both on its calendar wheel.
 
   - id: u11-l6
     title: Indonesia's war of independence

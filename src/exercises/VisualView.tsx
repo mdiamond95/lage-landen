@@ -32,10 +32,12 @@ import { spanishStory } from '../data/spanish'
 import { waterStory } from '../data/water'
 import { tonguesStory } from '../data/tongues'
 import { foodStory } from '../data/food'
+import { feastStory } from '../data/feastMap'
 import { westhoekStory } from '../data/westhoek'
 import { CompareMap } from '../map/CompareMap'
 import { DialectMap } from '../map/DialectMap'
 import { FoodMap } from '../map/FoodMap'
+import { FeastWheel } from '../map/FeastWheel'
 import { LowlandsMap } from '../map/LowlandsMap'
 import { TimeMap } from '../map/TimeMap'
 import { TradeMap } from '../map/TradeMap'
@@ -68,6 +70,7 @@ export const stories = {
   buildings: buildingsStory,
   tongues: tonguesStory,
   food: foodStory,
+  feasts: feastStory,
 }
 
 type TimeMapProps = {
@@ -104,6 +107,7 @@ export function VisualView({ visual, label, hideCaption }: { visual: Visual; lab
   if (visual.kind === 'dialects') return <DialectMap focus={visual.focus} />
   if (visual.kind === 'phrases') return <PhraseCards set={visual.set} />
   if (visual.kind === 'foods') return <FoodMap focus={visual.focus} only={visual.only} />
+  if (visual.kind === 'wheel') return <FeastWheel focus={visual.focus} only={visual.only} />
   return (
     <div className="map-frame">
       <LowlandsMap

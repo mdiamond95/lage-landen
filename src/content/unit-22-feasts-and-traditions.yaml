@@ -1,0 +1,726 @@
+id: unit-22
+number: 22
+title: Feasts and traditions
+era: 1303 to today
+summary: >-
+  A year of feasts round the calendar wheel, from the New Year's dive to oliebollen on the last night. Sinterklaas
+  and his steamboat from Spain, and the debate over Zwarte Piet; the Gilles of Binche and the carnival of the south;
+  the Holy Blood of Bruges, the Ommegang of Brussels and the giants of Ath and Mons; King's Day and the national days
+  of both countries; and Keti Koti, the day the chain was cut. Turn the wheel to the date of a feast, and follow the
+  feasts on the map from 1303 to the king's apology for slavery in 2023.
+note: >-
+  This checkpoint can ask about the debate over Zwarte Piet, the saint's helper long played in blackface, and about
+  slavery in Suriname and the Caribbean and how it is remembered. They are asked plainly.
+lessons:
+  - id: u22-l1
+    title: A year of feasts
+    icon: calendar
+    sources:
+      - title: "Wikipedia, Public holidays in the Netherlands"
+        url: https://en.wikipedia.org/wiki/Public_holidays_in_the_Netherlands
+      - title: "Wikipedia, Public holidays in Belgium"
+        url: https://en.wikipedia.org/wiki/Public_holidays_in_Belgium
+      - title: "Wikipedia, St. Martin's Day"
+        url: https://en.wikipedia.org/wiki/St._Martin%27s_Day
+      - title: "Wikipedia (Dutch), Paasvuur"
+        url: https://nl.wikipedia.org/wiki/Paasvuur
+      - title: "Royal Collection Trust, Jan Steen, A Twelfth Night Feast"
+        url: https://www.rct.uk/collection/405535/a-twelfth-night-feast
+      - title: "Wikipedia, Remembrance of the Dead"
+        url: https://en.wikipedia.org/wiki/Remembrance_of_the_Dead
+      - title: "Wikipedia, 3 October Festival"
+        url: https://en.wikipedia.org/wiki/3_October_Festival
+    exercises:
+      - type: story
+        title: The year turns
+        body: >-
+          The feasts of the Low Countries come from the church, from the saints, from kings and battles and from the
+          end of a war. Some fall on the same date every year. Others move with Easter, which follows the moon, and
+          their curved lines show how far they can move. Tap the feasts on the wheel, and filter them by country.
+        visual: { kind: wheel }
+      - type: when
+        prompt: Children carry paper lanterns from door to door on this saint's evening and sing for sweets. Turn the wheel to it.
+        photo: sint-maarten-b
+        answer: st-martin
+        days: 1
+        explain: >-
+          Saint Martin was a Roman soldier who cut his cloak in two for a beggar, and became a bishop. He is the patron
+          saint of Utrecht. In West Flanders and Ypres the children get their presents on the evening before.
+      - type: sort
+        prompt: Which of these days do people have off work? Sort each one.
+        visual: { kind: photo, photo: verhas-21-july }
+        groups: [Belgium only, Netherlands only, Both]
+        items:
+          - { label: "21 July, the national day", group: 0 }
+          - { label: "15 August, the Assumption of Mary", group: 0 }
+          - { label: "11 November, Armistice Day", group: 0 }
+          - { label: "1 May, Labour Day", group: 0 }
+          - { label: "27 April, King's Day", group: 1 }
+          - { label: "26 December, the second day of Christmas", group: 1 }
+          - { label: Easter Monday, group: 2 }
+          - { label: Ascension Day, group: 2 }
+        explain: >-
+          Belgium has the national day, the Assumption of Mary, the Armistice of 1918 and Labour Day off. The
+          Netherlands has the king's birthday and a second day of Christmas. Both have Easter Monday, Ascension and
+          Whit Monday.
+      - type: when
+        prompt: In the east of the Netherlands, villages pile up wood for weeks and light huge bonfires on this feast. Turn the wheel to when it can fall.
+        photo: paasvuur
+        answer: easter-fires
+        explain: >-
+          Easter. The Easter fires burn on Easter Sunday, roughly where Low Saxon is spoken, in Twente, the Achterhoek
+          and Drenthe. Easter falls on the Sunday after the first full moon of spring, between 22 March and 25 April.
+      - type: choice
+        prompt: Jan Steen painted families on Twelfth Night, 6 January, the feast of the Three Kings. Why does a child wear a paper crown?
+        visual: { kind: photo, photo: twelfth-night }
+        answer: 1
+        options:
+          - label: He is the youngest, so he is king
+            why: The crown goes to whoever finds the bean in the cake, the bean king, whatever their age.
+          - label: He found the bean baked into the cake, so he is king for the night
+            why: >-
+              Right. Whoever found the bean was the bean king, and the table drank to him. The feast is of Catholic
+              origin, but families in Protestant Holland kept it at home, and Steen painted it more than once.
+          - label: He is dressed as one of the Three Kings for church
+            why: The crown goes to whoever finds the bean in the cake, the bean king.
+          - label: It is his birthday
+            why: The crown goes to whoever finds the bean in the cake, the bean king.
+      - type: scrub
+        prompt: Drag the slider to the years when Bruges carries its Holy Blood round the town walls, but there is no record yet of a carnival at Binche.
+        map: feasts
+        start: 1500
+        answer: [1303, 1393]
+        explain: >-
+          The Holy Blood went round the new walls of Bruges by 1303. The carnival of Binche is first recorded in 1394.
+      - type: choice
+        prompt: Every 4 May at eight in the evening, trains and trams stop and the Netherlands falls silent. Why?
+        visual: { kind: photo, photo: dam-4-mei }
+        answer: 0
+        options:
+          - label: Two minutes of silence for the war dead
+            why: >-
+              Right. On the Remembrance of the Dead the king lays a wreath at the National Monument on the Dam in
+              Amsterdam. The next day, 5 May, is Liberation Day, for the German surrender of 1945, with festivals all
+              over the country.
+          - label: To mark the end of the Eighty Years' War
+            why: It is two minutes of silence for the dead of the Second World War and later wars.
+          - label: To hear the king's birthday speech
+            why: It is two minutes of silence for the dead of the Second World War and later wars.
+          - label: To wait for the first herring of the year
+            why: It is two minutes of silence for the dead of the Second World War and later wars.
+      - type: pin
+        prompt: Every 3 October one Dutch town eats herring, white bread and hutspot, for the end of a Spanish siege in 1574. Pin the town.
+        place: leiden
+        explain: >-
+          Leiden. The Sea Beggars broke the siege on 3 October 1574 by flooding the land (Unit 5), and the starving
+          town was given herring and white bread. Leiden still keeps the day with a parade, a fair and hutspot.
+      - type: cause
+        prompt: Link each cause to the feast it led to.
+        pairs:
+          - [Flemish townsmen beat the French knights at Kortrijk on 11 July 1302, The Flemish Community keeps 11 July as its day]
+          - [Leopold I swears the oath as king on 21 July 1831, Belgium's national day falls on 21 July]
+          - [The Reformation takes the saints out of the churches of the north, The Dutch keep Sinterklaas at home]
+          - [Easter follows the first full moon of spring, Carnival and Ascension move from year to year]
+        explain: >-
+          The Battle of the Golden Spurs is Unit 3 and the first King of the Belgians Unit 9. Carnival ends seven weeks before Easter, and Ascension is 39 days after it.
+
+  - id: u22-l2
+    title: Sinterklaas
+    icon: mitre
+    note: >-
+      This lesson includes the debate over Zwarte Piet, the saint's helper long played by people in blackface, and
+      what people of African descent have said about it. It is told plainly.
+    sources:
+      - title: "Wikipedia, Sinterklaas"
+        url: https://en.wikipedia.org/wiki/Sinterklaas
+      - title: "Wikipedia, Saint Nicholas"
+        url: https://en.wikipedia.org/wiki/Saint_Nicholas
+      - title: "Wikipedia (Dutch), Jan Schenkman"
+        url: https://nl.wikipedia.org/wiki/Jan_Schenkman
+      - title: "Wikipedia, Zwarte Piet"
+        url: https://en.wikipedia.org/wiki/Zwarte_Piet
+      - title: "NOS, Rutte: ik ben anders gaan denken over Zwarte Piet (4 June 2020)"
+        url: https://nos.nl/l/2336254
+      - title: "Rijksmuseum, Jan Steen, The Feast of St Nicholas"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-385
+    exercises:
+      - type: story
+        title: A bishop from Myra
+        body: >-
+          Saint Nicholas was a bishop of Myra, on the south coast of what is now Turkey, in the 300s. Stories tell of
+          him secretly giving gold to three poor girls, and he became the saint of children, of sailors and of
+          Amsterdam. On his feast children found presents in their shoes. The Reformation took the saints out of the
+          churches of the north, but the Dutch kept Sinterklaas at home.
+        visual: { kind: photo, photo: myra-icon }
+      - type: hunt
+        prompt: In Jan Steen's Feast of Saint Nicholas, of about 1665, one boy is in tears. Find what he got in his shoe instead of sweets.
+        photo: steen-nicholas
+        targets:
+          - [0.29, 0.42, 0.15, 0.12]
+        explain: >-
+          A birch rod, for a child who has been naughty. His sister holds up his shoe and laughs. But look at the back:
+          his grandmother beckons him to the bed curtain, where she has hidden a present for him after all.
+      - type: who
+        photo: schenkman
+        clues:
+          - I was born in Amsterdam in 1806 and taught at a school there.
+          - I wrote a picture book in verse about the saint, printed in 1850.
+          - My book was the first to give the saint a black servant.
+          - It stayed in print for a hundred years, and children still sing a song from it every November.
+        options: [Jan Schenkman, Nicolaas Beets, Hieronymus van Alphen, Hendrik Tollens]
+        answer: 0
+        explain: >-
+          Jan Schenkman. His book, Sint Nikolaas en zijn knecht, Saint Nicholas and his servant, shaped the feast the
+          Dutch know: the saint comes from Spain, with his servant, and rides over the roofs on his horse.
+      - type: gap
+        prompt: Schenkman's book begins with the saint's arrival, in lines children still sing. "See, over there comes the ... from Spain again." Fill the gap.
+        quote: Zie, ginds komt de ___ / Uit Spanje weêr aan.
+        source: Jan Schenkman, Sint Nikolaas en zijn knecht, Amsterdam, 1850
+        visual: { kind: photo, photo: schenkman-front }
+        options: [Stoomboot (steamboat), Schimmel (white horse), Trekschuit (canal barge), Postkoets (stagecoach)]
+        answer: 0
+        explain: >-
+          The steamboat, the newest way to travel in 1850. The verse goes on: "He brings us Saint Nicholas, I see him
+          standing there." The arrival by steamboat is now acted out every November, in a different Dutch town, on live
+          television.
+      - type: story
+        title: Zie ginds komt de stoomboot
+        body: >-
+          A recording of the song, with the words of 1850. The saint's helper waves from the deck, and the horse comes
+          too, in this picture from an edition of 1905.
+        visual: { kind: sound, sound: nl-sinterklaas-song, photo: schenkman-1905 }
+      - type: truemyth
+        statement: Sinterklaas comes from Spain because Saint Nicholas lived there.
+        visual: { kind: photo, photo: steamboat-spanje }
+        answer: false
+        explain: >-
+          Myth. Nicholas lived and died in Myra, in Asia Minor, and in 1087 sailors took his bones to Bari, in Italy.
+          No one is sure where Spain comes from. One guess is the oranges and sweets that came from Spain; another is
+          that Bari later belonged to the Spanish crown.
+      - type: when
+        prompt: Dutch families open their presents on this evening, pakjesavond, each present with a poem. Turn the wheel to it.
+        photo: choc-letter
+        answer: gift-evening
+        days: 0
+        explain: >-
+          Pakjesavond, the evening of presents, is the eve of the saint's feast. Each present comes with a teasing poem,
+          and often a chocolate letter, the first letter of your name.
+      - type: choice
+        prompt: Children in Belgium put out a shoe by the stove too, with a carrot or hay for the saint's horse. When do they find their presents?
+        visual: { kind: photo, photo: schoen-zetten }
+        answer: 1
+        options:
+          - label: On the evening of 5 December, like the Dutch
+            why: In Belgium the presents come on the morning of the saint's feast, 6 December.
+          - label: On the morning of 6 December, the saint's feast
+            why: >-
+              Right. In Belgium the saint comes in the night, and the presents are there in the morning. In the
+              Netherlands families celebrate on the evening before.
+          - label: On Christmas morning
+            why: In Belgium the presents come on the morning of the saint's feast, 6 December.
+          - label: On Twelfth Night
+            why: In Belgium the presents come on the morning of the saint's feast, 6 December.
+      - type: pick
+        prompt: Which of these belong to the Dutch feast of Sinterklaas? Pick all that belong.
+        visual: { kind: photo, photo: sinterklaasdag-print }
+        items:
+          - { label: A chocolate letter }
+          - { label: Pepernoten, little spiced biscuits }
+          - { label: A shoe by the stove, with a carrot for the horse }
+          - { label: A steamboat from Spain }
+          - { label: A poem with each present }
+          - { label: A decorated tree }
+          - { label: Painted eggs }
+          - { label: Oliebollen }
+        answers: [0, 1, 2, 3, 4]
+        explain: >-
+          The tree is for Christmas, the eggs for Easter and oliebollen for the last night of the year. The saint rides
+          a white horse over the roofs, and the presents come down the chimney.
+      - type: voices
+        prompt: Two voices on Zwarte Piet. What did the prime minister say the government would not do?
+        voices:
+          - who: The UN Committee on the Elimination of Racial Discrimination
+            when: Geneva, August 2015
+            text: >-
+              The Committee urges the State party to actively promote the elimination of those features of the character
+              of Black Pete which reflect negative stereotypes and are experienced by many people of African descent as
+              a vestige of slavery.
+          - who: Mark Rutte, prime minister of the Netherlands
+            when: In a debate in parliament, 4 June 2020 (translated from Dutch)
+            text: >-
+              When I met people who said they felt discriminated against because that Piet is black, I thought: that is
+              the last thing you want at a Sinterklaas party. There is no point in forcing people to let go of the
+              symbol. In a few years' time there will hardly be any black Pieten left.
+            photo: roetveegpiet
+        options:
+          - Ban Zwarte Piet by law
+          - Talk about racism
+          - Keep the feast of Sinterklaas
+          - Listen to people who feel discriminated against
+        answer: 0
+        explain: >-
+          He would not force it by law, and expected the feast to change on its own. It has: from 2016 the children's
+          television news showed Pieten with soot smudges from the chimney, as in this parade, and many towns and shops
+          followed. Some people defend the old Piet as a children's tradition; others have protested against it for
+          years, and in 2019 a meeting of protesters in The Hague was attacked.
+      - type: scrub
+        prompt: Drag the slider to the years when Schenkman's saint comes by steamboat with a black servant, while the Netherlands still holds people in slavery.
+        map: feasts
+        start: 1700
+        answer: [1850, 1862]
+        explain: >-
+          Schenkman's book was printed in 1850. Slavery in Suriname and the Dutch Caribbean was abolished on 1 July
+          1863 (Unit 7).
+
+  - id: u22-l3
+    title: Carnival
+    icon: mask
+    sources:
+      - title: "UNESCO, Carnival of Binche"
+        url: https://ich.unesco.org/en/RL/carnival-of-binche-00033
+      - title: "Wikipedia, Carnival of Binche"
+        url: https://en.wikipedia.org/wiki/Carnival_of_Binche
+      - title: "Wikipedia (French), Gille (Binche)"
+        url: https://fr.wikipedia.org/wiki/Gille_(Binche)
+      - title: "Wikipedia, Carnival of Aalst"
+        url: https://en.wikipedia.org/wiki/Aalst_Carnival
+      - title: "Wikipedia, Carnival in the Netherlands"
+        url: https://en.wikipedia.org/wiki/Carnival_in_the_Netherlands
+    exercises:
+      - type: story
+        title: The feast before the fast
+        body: >-
+          Carnival is the feast before Lent, the forty days of fasting before Easter, so it moves with Easter. It is kept
+          in the Catholic south: in Limburg and Brabant, where 's-Hertogenbosch becomes Oeteldonk for three days, and all
+          over Belgium, from Aalst to Binche and the White Monks of Stavelot. Tap the carnivals on the wheel.
+        visual: { kind: wheel, only: carnival }
+      - type: choice
+        prompt: On Shrove Tuesday the Gilles of Binche dance through the town in wax masks and feathered hats. What do they hand out to the crowd from their baskets?
+        visual: { kind: photo, photo: gille-mask }
+        answer: 2
+        options:
+          - label: Sweets
+            why: The Gilles hand out, and throw, oranges, tonnes of them.
+          - label: Flowers
+            why: The Gilles hand out, and throw, oranges, tonnes of them.
+          - label: Oranges
+            why: >-
+              Right. Blood oranges, given to the crowd or thrown, a gift to be taken, never thrown back. Up to a thousand
+              Gilles dance from early morning to night, to the sound of drums and the bells on their belts.
+          - label: Bread rolls
+            why: The Gilles hand out, and throw, oranges, tonnes of them.
+      - type: truemyth
+        statement: The Gilles dress like the Incas, as they did at a feast for Emperor Charles V at Binche in 1549.
+        visual: { kind: photo, photo: gille-hat }
+        answer: false
+        explain: >-
+          Myth. Mary of Hungary held a famous feast at Binche in 1549 for her brother Charles V and his son Philip, and
+          a story says the townspeople dressed as Incas to mark the conquest of Peru. No source of the time says so, and
+          the Gilles are first named in 1795. The hat of ostrich feathers weighs about three kilograms.
+      - type: label
+        prompt: An old print of a Gille. Put each label on its part of the costume.
+        photo: gilles-old
+        spots:
+          - { label: A hat of ostrich feathers, at: [0.45, 0.1] }
+          - { label: An orange, at: [0.12, 0.32] }
+          - { label: Lions on the linen, at: [0.3, 0.62] }
+          - { label: A belt of bells, at: [0.5, 0.56] }
+          - { label: A basket for the oranges, at: [0.69, 0.76] }
+          - { label: Wooden clogs, at: [0.37, 0.92] }
+        extra: [A sword]
+        explain: >-
+          The Gille wears the feathered hat only on Shrove Tuesday afternoon; in the morning he wears a wax mask with
+          green glasses. His bells and his clogs beat time to the drums as he dances.
+      - type: when
+        prompt: In Maastricht people dress up and fill the streets for three days, ending on a Tuesday. Turn the wheel to when it can fall.
+        photo: maastricht-2023
+        answer: carnival-south
+        explain: >-
+          Carnival ends on Shrove Tuesday, the day before Ash Wednesday and the start of Lent. As Easter moves, it
+          falls somewhere between early February and early March.
+      - type: odd
+        prompt: Which of these is the odd one out?
+        items:
+          - { label: The Gilles of Binche, photo: binche-gilles-b }
+          - { label: The White Monks of Stavelot, photo: blancs-moussis }
+          - { label: The carnival parade of Aalst, photo: aalst-stoet }
+          - { label: Saint George and the dragon at Mons, photo: lumecon-dragon }
+        answer: 3
+        reasons:
+          - It is not at carnival, but on Trinity Sunday
+          - It is in Flanders
+          - Its players wear masks
+        reason: 0
+        explain: >-
+          The fight of Saint George and the dragon, the Lumeçon, closes the Doudou of Mons on Trinity Sunday, eight
+          weeks after Easter. The other three are carnivals, held in the days before Lent.
+      - type: choice
+        prompt: In 2019 something happened to the carnival of Aalst that had never happened to any tradition before. What?
+        visual: { kind: photo, photo: aalst-float }
+        answer: 1
+        options:
+          - label: It was banned by Belgian law
+            why: It was not banned. UNESCO took it off its list of intangible heritage, the first removal ever.
+          - label: UNESCO took it off its list of intangible heritage
+            why: >-
+              Right. Aalst's parade mocks everyone and everything, and in 2019 it included floats with antisemitic
+              caricatures of Jews. UNESCO and others protested, the town asked to be taken off the list, and in December
+              2019 UNESCO removed it.
+          - label: It moved to the summer
+            why: It is still held before Lent. UNESCO took it off its list of intangible heritage.
+          - label: It became a public holiday
+            why: UNESCO took it off its list of intangible heritage, the first removal ever.
+      - type: scrub
+        prompt: Drag the slider to the years when Binche's carnival is on record but its Gilles are not yet named in writing.
+        map: feasts
+        start: 1303
+        answer: [1394, 1794]
+        explain: >-
+          The carnival of Binche is first recorded in 1394. The Gilles are first named in 1795, when the French
+          authorities tried to ban masks.
+      - type: choice
+        prompt: Compare the feast map in 2015 and in 2023. Which carnival mark has gone?
+        visual: { kind: compare, map: feasts, years: [2015, 2023] }
+        answer: 2
+        options:
+          - label: Binche
+            why: Binche's carnival has been on the map since 1394, and is still there. The mark for Aalst on UNESCO's list is gone.
+          - label: The Gilles
+            why: The Gilles have been on the map since 1795, and are still there. The mark for Aalst on UNESCO's list is gone.
+          - label: Aalst on UNESCO's list
+            why: >-
+              Right. Aalst was on UNESCO's list from 2010 until December 2019. The carnival itself goes on without it,
+              every year before Lent, ending with the burning of a straw doll.
+          - label: Bruegel's Carnival and Lent
+            why: Bruegel's painting of 1559 is still on the map. The mark for Aalst on UNESCO's list is gone.
+
+  - id: u22-l4
+    title: Processions and giants
+    icon: giant
+    sources:
+      - title: "Victoria and Albert Museum, Denis van Alsloot, The Ommegang in Brussels on 31 May 1615"
+        url: https://collections.vam.ac.uk/item/O18727/the-ommegang-in-brussels-on-oil-painting-van-alsloot-denis/
+      - title: "Wikipedia, Ommegang of Brussels"
+        url: https://en.wikipedia.org/wiki/Ommegang_of_Brussels
+      - title: "Albrecht Dürer, Literary Remains, translated by William Martin Conway (1889), on archive.org"
+        url: https://archive.org/details/literaryremainso00conw
+      - title: "UNESCO, Procession of the Holy Blood in Bruges"
+        url: https://ich.unesco.org/en/RL/procession-of-the-holy-blood-in-bruges-00273
+      - title: "Wikipedia, Ducasse de Mons"
+        url: https://en.wikipedia.org/wiki/Ducasse_de_Mons
+      - title: "Wikipedia (French), Ducasse d'Ath"
+        url: https://fr.wikipedia.org/wiki/Ducasse_d%27Ath
+      - title: "UNESCO, Processional giants and dragons in Belgium and France"
+        url: https://ich.unesco.org/en/RL/processional-giants-and-dragons-in-belgium-and-france-00153
+      - title: "Wikipedia, Meyboom"
+        url: https://en.wikipedia.org/wiki/Meyboom
+    exercises:
+      - type: story
+        title: Giants and dragons
+        body: >-
+          The towns of the south walk their saints, their guilds and their giants through the streets: figures of wood
+          and wicker several metres tall, carried by men hidden inside. Belgium has nearly 1,500 of them, and dragons
+          too. Many of the processions move with Easter. Tap them on the wheel.
+        visual: { kind: wheel, only: procession }
+      - type: who
+        photo: sallaert-bird
+        clues:
+          - I was born a Spanish princess in 1566, the daughter of King Philip II.
+          - With my husband Albert I ruled the Southern Netherlands from 1598.
+          - In 1615 I shot down the wooden bird from the spire of the Sablon church with a crossbow.
+          - The crossbowmen made me their queen, and the Ommegang of that year was held in my honour.
+        options: [Isabella, Mary of Hungary, Margaret of Parma, Margaret of Austria]
+        answer: 0
+        explain: >-
+          The Archduchess Isabella. The contest of the crossbowmen's guild was held each May at the Sablon, and
+          whoever shot down the bird was its king, or queen, for a year.
+      - type: story
+        title: Isabella's Ommegang
+        body: >-
+          On 31 May 1615 Brussels held its Ommegang, its great procession, in Isabella's honour, and she had Denis van
+          Alsloot paint it. Tap the numbers to walk along with the wagons, or start the tour.
+        visual: { kind: painting, painting: alsloot-isabella }
+      - type: hunt
+        prompt: At the front of Isabella's procession ride animals from far away. Find the camels.
+        photo: alsloot-isabella
+        targets:
+          - [0.0, 0.66, 0.12, 0.29]
+        explain: >-
+          Real camels lead the parade on the lower left, ridden by men dressed as people of distant lands. Further back
+          the guilds carried a unicorn and a fantastic bird, made of wood and cloth.
+      - type: gap
+        prompt: Albrecht Dürer watched the great procession of Antwerp go by for more than two hours on 19 August 1520. Fill the gap at its end.
+        quote: At the end came a great ___ which St Margaret and her maidens led by a girdle.
+        source: Albrecht Dürer, diary of his journey to the Netherlands, 1520 (translated by W. M. Conway, 1889)
+        visual: { kind: photo, photo: leys-durer }
+        options: [Dragon, Bear, Giant, Ship]
+        answer: 0
+        explain: >-
+          A dragon. Saint Margaret tamed one, in the legend. Before it Dürer saw every guild with its sign, the clergy,
+          and wagons with scenes from the Bible: "From beginning to end the procession lasted more than two hours
+          before it was gone past our house." Henri Leys painted Dürer's visit in 1855.
+      - type: when
+        prompt: In Bruges a relic said to hold drops of Christ's blood is carried through the streets each year on a feast forty days after Easter. Turn the wheel to when it can fall.
+        photo: holy-blood-relic
+        answer: holy-blood
+        explain: >-
+          Ascension Day, a Thursday 39 days after Easter Sunday. More than 3,000 people take part, playing scenes from
+          the Bible and the story of the relic. UNESCO listed it in 2009.
+      - type: truemyth
+        statement: The Doudou of Mons began in 1349, when Saint Waltrude's relics were carried round the town to end the plague.
+        visual: { kind: photo, photo: car-dor }
+        answer: false
+        explain: >-
+          Myth, though often told. The procession of Saint Waltrude is first mentioned in 1248, a century before the
+          Black Death. Every Trinity Sunday her golden car must be pushed up the steep street to her church in one go,
+          or bad luck follows.
+      - type: choice
+        prompt: At noon Saint George fights the dragon on the Grand-Place of Mons, in the combat called the Lumeçon. What does the crowd try to grab?
+        visual: { kind: photo, photo: lumecon }
+        answer: 0
+        options:
+          - label: Hairs from the dragon's tail, for luck
+            why: >-
+              Right. The dragon swings its long tail over the crowd, and whoever pulls out a hair keeps it for a year of
+              luck. Saint George wins in the end with a pistol shot.
+          - label: Coins thrown by Saint George
+            why: The crowd grabs at the dragon's tail for its hairs, which bring luck.
+          - label: The saint's sword
+            why: The crowd grabs at the dragon's tail for its hairs, which bring luck.
+          - label: Flowers from the golden car
+            why: The crowd grabs at the dragon's tail for its hairs, which bring luck.
+      - type: pin
+        prompt: Every August the giant Goliath marries his bride on a Saturday afternoon and then fights David, in a small town of Hainaut. Pin it.
+        place: ath
+        explain: >-
+          Ath. Its procession is recorded from 1399, Goliath from 1481, and his fight with David from 1487. Ath's
+          giants were on UNESCO's list until 2022, when they were removed over a figure played in blackface.
+      - type: when
+        prompt: Brussels plants a may tree on this day, before five in the afternoon, or the town of Leuven may take its place. Turn the wheel to it.
+        photo: meyboom-giants
+        answer: meyboom
+        days: 1
+        explain: >-
+          The Meyboom, on 9 August, the eve of Saint Lawrence. A story says Brussels won the right in a quarrel with
+          Leuven, and if the tree is not up by five, Leuven may plant it instead. Giants dance along.
+      - type: scrub
+        prompt: Drag the slider to the years when Nivelles has its giant Goliath, but Ath does not have its own yet.
+        map: feasts
+        start: 1303
+        answer: [1457, 1480]
+        explain: >-
+          Goliath of Nivelles is on record in 1457, the oldest giant in Belgium; Ath's Goliath follows in 1481.
+
+  - id: u22-l5
+    title: King's Day and national days
+    icon: crown
+    sources:
+      - title: "Wikipedia, Koningsdag"
+        url: https://en.wikipedia.org/wiki/Koningsdag
+      - title: "Wikipedia, Belgian National Day"
+        url: https://en.wikipedia.org/wiki/Belgian_National_Day
+      - title: "Wikipedia, King's Feast"
+        url: https://en.wikipedia.org/wiki/King%27s_Feast
+      - title: "Rijksmuseum, Jan Steen, The Prince's Day"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-384
+    exercises:
+      - type: story
+        title: Orange fever
+        body: >-
+          On the king's birthday the Netherlands turns orange, the colour of the House of Orange. Canals fill with
+          boats, streets with flea markets, music and orange cakes, and people call it oranjegekte, orange madness. It
+          began in Utrecht on 31 August 1885, the fifth birthday of Princess Wilhelmina, as Princess's Day: the idea of
+          a newspaper editor, J. W. R. Gerlach.
+        visual: { kind: photo, photo: koningsdag-boats }
+      - type: who
+        photo: defile-1966
+        clues:
+          - I was born on 30 April 1909, the only child of a queen.
+          - In the Second World War I lived in Ottawa with my daughters, and my third was born there.
+          - From 1949, on my birthday, thousands of people filed past the steps of my palace at Soestdijk.
+          - I gave up the throne to my eldest daughter in 1980.
+        options: [Juliana, Wilhelmina, Beatrix, Emma]
+        answer: 0
+        explain: >-
+          Queen Juliana. When she became queen in 1948, Queen's Day moved from her mother Wilhelmina's birthday, 31
+          August, to hers. The march past at Soestdijk, the defilé, was shown on television for years.
+      - type: scrub
+        prompt: Drag the slider to the years when Queen's Day falls on 30 April.
+        map: feasts
+        start: 1900
+        answer: [1949, 2013]
+        explain: >-
+          Juliana's birthday was 30 April, and from 1949 Queen's Day moved to it. Her daughter Beatrix, born on
+          31 January, kept 30 April from 1980 to 2013, rather than hold the feast in winter.
+      - type: hunt
+        prompt: In Jan Steen's Prince's Day, an inn celebrates the birthday of the young William III. Find the prince himself.
+        photo: steen-prinsjesdag
+        targets:
+          - [0.42, 0.03, 0.12, 0.21]
+        explain: >-
+          His portrait hangs on the wall above the box bed, and a crown hangs from the ceiling. A paper on the floor carries a toast to the "Nassau
+          laddie, in one hand a rapier, and in the other a glass". William III was born on 14 November 1650.
+      - type: choice
+        prompt: On King's Day anyone may sell on the street, without a permit or tax. What is the street sale called?
+        visual: { kind: photo, photo: vrijmarkt-1986 }
+        answer: 0
+        options:
+          - label: The vrijmarkt, the free market
+            why: >-
+              Right. Children sell old toys and play music for coins, and the streets of Amsterdam are covered with
+              blankets from the night before.
+          - label: The braderie
+            why: A braderie is a street market held by the shops. On King's Day it is the vrijmarkt, open to anyone.
+          - label: The jaarmarkt
+            why: A jaarmarkt is a town's yearly fair. On King's Day it is the vrijmarkt, open to anyone.
+          - label: The kermis
+            why: A kermis is a funfair. On King's Day the street sale is the vrijmarkt, open to anyone.
+      - type: truemyth
+        statement: Belgium's national day, 21 July, marks the start of the revolution of 1830.
+        visual: { kind: photo, photo: defile-2016 }
+        answer: false
+        explain: >-
+          Myth. On 21 July 1831 Leopold I swore the oath as the first King of the Belgians (Unit 9). Belgium first
+          kept the days of the revolution in September; a law of 1890 moved the national day to 21 July. Brussels
+          holds a military parade before the king.
+      - type: when
+        prompt: On this day a Te Deum is sung in the cathedral of Brussels and parliament honours the royal family, though most Belgians go to work. Turn the wheel to it.
+        photo: royal-palace
+        answer: kings-feast
+        days: 1
+        explain: >-
+          The King's Feast, 15 November, kept since 1866. It is not a public holiday, but federal offices close.
+      - type: cause
+        prompt: Link each cause to the day it led to.
+        pairs:
+          - [Wilhelmina was born on 31 August, The first Princess's Day falls at the end of summer]
+          - [Juliana was born on 30 April, Queen's Day moves to 30 April in 1949]
+          - [Beatrix was born in the cold of January, She keeps 30 April for Queen's Day]
+          - [Willem-Alexander was born on 27 April, King's Day moves to 27 April in 2014]
+        explain: >-
+          The Dutch feast follows the monarch's birthday, unless it falls in winter. When 27 April is a Sunday, King's
+          Day is kept on Saturday the 26th.
+      - type: choice
+        prompt: Compare the feast map in 1800 and in 1900. What kind of feast is new?
+        visual: { kind: compare, map: feasts, years: [1800, 1900] }
+        answer: 1
+        options:
+          - label: Carnivals
+            why: Binche's carnival was there long before. The new marks are feasts of the king and the nation.
+          - label: Feasts of the king and the nation
+            why: >-
+              Right. Belgium's 21 July and King's Feast, and the Dutch Princess's Day: two new kingdoms, with feasts for
+              their kings and queens.
+          - label: Processions with giants
+            why: The giants of Nivelles and Ath were there long before. The new marks are feasts of the king and the nation.
+          - label: Days of remembrance
+            why: Leiden's 3 October was there long before. The new marks are feasts of the king and the nation.
+
+  - id: u22-l6
+    title: Keti Koti and the days of freedom
+    icon: chain
+    note: >-
+      This lesson is about how slavery and the war dead are remembered in the Netherlands and Suriname. It is told
+      plainly.
+    sources:
+      - title: "Wikipedia, Keti Koti"
+        url: https://en.wikipedia.org/wiki/Keti_Koti
+      - title: "Wikipedia (Dutch), Keti Koti"
+        url: https://nl.wikipedia.org/wiki/Keti_Koti
+      - title: "DutchNews, Breaking bread, breaking the chains: ritual meals open dialogue (June 2023)"
+        url: https://dutchnews.nl/2023/06/breaking-bread-breaking-the-chains-ritual-meals-open-dialogue
+      - title: "IamExpat, Dutch cities ask government to recognise abolition of slavery with national holiday"
+        url: https://www.iamexpat.nl/expat-info/dutch-news/dutch-cities-ask-government-recognise-abolition-slavery-national-holiday
+      - title: "Wikipedia (Dutch), Bevrijdingsvuur"
+        url: https://nl.wikipedia.org/wiki/Bevrijdingsvuur
+      - title: "Wikipedia, National Slavery Monument"
+        url: https://en.wikipedia.org/wiki/National_Slavery_Monument
+    exercises:
+      - type: story
+        title: The chain is cut
+        body: >-
+          Slavery in Suriname and the Dutch Caribbean was abolished on 1 July 1863 (Unit 7). Keti Koti, the day the
+          chain was cut, has been a public holiday in Suriname since 1955. In Paramaribo people parade in their best
+          clothes; in Amsterdam they gather at the monument in the Oosterpark and in many towns, to remember the
+          enslaved and to celebrate freedom, with music, food and dance.
+        visual: { kind: photo, photo: keti-koti-2018b }
+      - type: when
+        prompt: Women in koto, the Afro-Surinamese dress, dance in the Oosterpark to remember the end of slavery. Turn the wheel to the day.
+        photo: keti-koti-2013
+        answer: keti-koti
+        days: 1
+        explain: >-
+          Keti Koti, 1 July, called the Day of Freedoms in Suriname. Many women wear the koto on this day to remember
+          their ancestors.
+      - type: choice
+        prompt: People eat herheri on Keti Koti, a one-pot dish that recalls the food of the plantations. What is in it?
+        visual: { kind: photo, photo: keti-koti-cake }
+        answer: 0
+        options:
+          - label: Cassava, sweet potato, plantain, egg and salt cod
+            why: >-
+              Right. Filling roots and dried fish: a dish that goes back to the time of slavery. Eating it on Keti Koti
+              is a way to remember the enslaved.
+          - label: Rice, chicken and peanut sauce
+            why: Herheri is a dish of roots and salt cod, cassava, sweet potato, plantain and egg.
+          - label: Potatoes, kale and smoked sausage
+            why: That is Dutch stamppot. Herheri is cassava, sweet potato, plantain, egg and salt cod.
+          - label: Mussels and fries
+            why: That is Belgian. Herheri is cassava, sweet potato, plantain, egg and salt cod.
+      - type: choice
+        prompt: Around Keti Koti, people sit at dialogue tables to talk about slavery and what it left behind. At the start they chew a piece of very bitter wood. Why?
+        visual: { kind: photo, photo: keti-koti-stage }
+        answer: 1
+        options:
+          - label: It is a cure for a sore throat
+            why: The bitter wood stands for the bitter taste of the history of slavery.
+          - label: For the bitter taste of the history of slavery
+            why: >-
+              Right. The Keti Koti Table was begun by Mercedes Zandwijken, inspired by the Jewish Passover meal. People of
+              colour and white people sit facing each other, rub coconut oil into each other's wrists, and take turns to
+              speak and listen, for exactly the same time.
+          - label: To keep awake until midnight
+            why: The bitter wood stands for the bitter taste of the history of slavery.
+          - label: It was the plantation workers' only food
+            why: The bitter wood stands for the bitter taste of the history of slavery.
+      - type: truemyth
+        statement: Keti Koti is a day off for everyone in the Netherlands.
+        visual: { kind: photo, photo: slavery-monument }
+        answer: false
+        explain: >-
+          Myth, so far. It is a public holiday in Suriname, and in the Netherlands a national day of remembrance, but
+          not a day off. In 2021 an advisory group called for one, Amsterdam, Rotterdam, The Hague and Utrecht asked
+          parliament for it, and some employers give their staff the day.
+      - type: scrub
+        prompt: Drag the slider to the years when slavery has been abolished, but there is no national monument to it yet in Amsterdam.
+        map: feasts
+        start: 1700
+        answer: [1863, 2001]
+        explain: >-
+          Slavery was abolished on 1 July 1863. The National Slavery Monument in the Oosterpark was unveiled on 1 July
+          2002, after years of calls by Surinamese and Antillean Dutch for a place to remember.
+      - type: choice
+        prompt: At midnight on Liberation Day a fire is lit in Wageningen, where the German surrender was agreed in 1945. What happens to it?
+        visual: { kind: photo, photo: hotel-de-wereld }
+        answer: 0
+        options:
+          - label: Runners carry it in relays to about 70 places across the country
+            why: >-
+              Right. Some 2,000 runners take the Liberation Fire to the towns where festivals open the day. It has been
+              lit since 1948.
+          - label: It burns in Wageningen for a year
+            why: Runners carry it in relays to about 70 places across the country.
+          - label: It lights the fireworks on the Dam
+            why: Runners carry it in relays to about 70 places across the country.
+          - label: It is carried by boat to London
+            why: Runners carry it in relays to about 70 places across the country.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Slavery is abolished on 1 July 1863, Suriname keeps 1 July as Keti Koti]
+          - [Descendants of the enslaved ask for a place to remember, A national monument opens in the Oosterpark in 2002]
+          - [The German army in the Netherlands surrenders in May 1945, A Liberation Fire is lit every 5 May]
+          - [A Passover meal inspires Mercedes Zandwijken, People talk about slavery at Keti Koti Tables]
+        explain: >-
+          Feasts of freedom are also days of remembrance. The year from 1 July 2023 to 1 July 2024 was a memorial year
+          for slavery: 160 years after abolition and 150 years after the end of forced work in 1873.

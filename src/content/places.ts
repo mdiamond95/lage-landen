@@ -113,4 +113,8 @@ export const places: Record<string, Place> = {
   lessines: { name: 'Lessines', lat: 50.712, lon: 3.836 },
   leeuwarden: { name: 'Leeuwarden', lat: 53.201, lon: 5.799 },
   otterlo: { name: 'Otterlo', lat: 52.1, lon: 5.772, note: 'The village by the Kröller-Müller Museum' },
+  binche: { name: 'Binche', lat: 50.411, lon: 4.165, note: 'The carnival of the Gilles' },
+  ath: { name: 'Ath', lat: 50.63, lon: 3.778, note: 'The giants of the Ducasse' },
+  nivelles: { name: 'Nivelles', lat: 50.598, lon: 4.324 },
+  dendermonde: { name: 'Dendermonde', lat: 51.028, lon: 4.101, note: 'The Ros Beiaard' },
 }
