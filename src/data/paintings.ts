@@ -337,7 +337,7 @@ export const tours = {
         id: 'banner',
         title: 'The red banner',
         text: 'A huge red banner stretches over the street. Read it, and you will see what the crowd is cheering for.',
-        box: [0.1, 0, 0.64, 0.14],
+        box: [0.1, 0, 0.55, 0.32],
       },
       {
         id: 'band',

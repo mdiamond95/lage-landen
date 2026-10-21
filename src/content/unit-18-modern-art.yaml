@@ -168,7 +168,7 @@ lessons:
           - [Antwerp, A few weeks at the academy]
           - [Paris, Japanese prints and bright colour]
       - type: odd
-        prompt: Three of these Van Gogh painted in the Netherlands. Which is the odd one out, and why?
+        prompt: Three of these Van Gogh made in the Netherlands. Which is the odd one out, and why?
         items:
           - { label: Sorrow, photo: vg-sorrow }
           - { label: Still life with Bible, photo: vg-bible }
@@ -823,7 +823,7 @@ lessons:
           "This is not a pipe." And it isn't: it is a picture of a pipe. You cannot fill it or smoke it. Magritte spent
           his life on the gap between things, their pictures and their names.
       - type: choice
-        prompt: From 1930 to 1954 Magritte and his wife Georgette lived on the ground floor of this house in Jette, in Brussels. What is it today?
+        prompt: From 1930 to 1954 Magritte and his wife Georgette lived on the ground floor of a house on this street in Jette, in Brussels. What is the house today?
         visual: { kind: photo, photo: magritte-house }
         answer: 0
         options:
@@ -887,18 +887,18 @@ lessons:
           - label: How to mix bright paint
             why: Most of his prints are black and white.
       - type: choice
-        prompt: Each of these tiles began as a square. Its top edge was pushed up in a curve. What has to happen to the bottom edge, so the tiles still lock together?
+        prompt: Each of these tiles began as a square. Its top edge was bent into a wavy curve, up on one side and down on the other. What has to happen to the bottom edge, so the tiles still lock together?
         visual: { kind: art, art: tessellation }
         answer: 0
         options:
-          - label: The same curve is cut into it, so the tile below fits like a jigsaw
+          - label: It gets exactly the same curve, so the tile below fits into it like a jigsaw
             why: >-
-              Right. What bulges out on one side is cut out of the opposite side, and the same on the left and right.
-              Every tile then fits its neighbours exactly. Escher worked his lizards out this way, on squared paper.
+              Right. Whatever bulges out of one edge is cut out of the opposite edge, and the same on the left and
+              right. Every tile then fits its neighbours exactly. Escher worked out his lizards this way, on squared paper.
           - label: It stays straight
-            why: Then a gap would open under every bulge.
-          - label: It bulges out as well
-            why: Then the tiles would overlap.
+            why: Then a gap would open under every bulge, and the tiles would overlap under every dip.
+          - label: It gets the curve turned upside down
+            why: Then the bumps of one tile would run into the bumps of the tile below.
           - label: The tile is turned upside down
             why: These tiles are only moved, never turned.
       - type: who

@@ -4211,8 +4211,8 @@ export const credits: Record<PhotoId, Credit> = {
     source: commons("Theo van Doesburg in military service.JPG"),
   },
   'stijl-manifesto': {
-    alt: "A printed page in Dutch, French, German and English, numbered points under the title Manifest I",
-    caption: "Manifest I of De Stijl, in the magazine De Stijl, November 1918",
+    alt: "The printed title of the manifesto and the names of its signers, Van Doesburg, Mondriaan, Vantongerloo and others",
+    caption: "Manifest I of De Stijl, the English version, in the magazine De Stijl, November 1918: its title and its signers",
     author: "Theo van Doesburg and others",
     ...PD,
     source: commons("Manifest I of De Stijl.JPG"),
@@ -4239,8 +4239,8 @@ export const credits: Record<PhotoId, Credit> = {
     source: commons("René Magritte in 1961.jpg"),
   },
   'magritte-house': {
-    alt: "A narrow brick terraced house with a white door and window frames, on a Brussels street",
-    caption: "The house in Jette, Brussels, now the René Magritte Museum",
+    alt: "Tall red and yellow brick town houses with bay windows and a carved wooden balcony, on a Brussels street",
+    caption: "The René Magritte Museum, Jette, Brussels",
     author: "Victoria Berreau",
     ...BY_SA_4,
     source: commons("Museum voor Abstracte Kunst-René Magritte Museum.jpg"),
