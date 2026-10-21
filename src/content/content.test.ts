@@ -233,6 +233,15 @@ describe('photos', () => {
       expect(c.licenceUrl, id).toMatch(/^https:\/\/(creativecommons\.org\/|commons\.wikimedia\.org\/wiki\/Template:Attribution$)/)
     }
   })
+
+  it('no picture is saved twice under two ids: reuse the first id instead', () => {
+    const seen = new Map<string, string>()
+    for (const id of photoIds) {
+      const bytes = readFileSync(join(dir, '../photos', `${id}.jpg`)).toString('base64')
+      expect(seen.get(bytes), id).toBeUndefined()
+      seen.set(bytes, id)
+    }
+  })
 })
 
 describe('recordings', () => {

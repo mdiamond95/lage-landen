@@ -586,7 +586,7 @@ lessons:
           - [coleslaw, koolsla]
       - type: choice
         prompt: Many Dutch families left for Canada after the Second World War. How many Canadians told the census of 2021 they have Dutch roots?
-        visual: { kind: photo, photo: emigrants-canada }
+        visual: { kind: photo, photo: emigrants-plane }
         answer: 0
         options:
           - label: Nearly a million

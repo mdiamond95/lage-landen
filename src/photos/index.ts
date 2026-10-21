@@ -176,7 +176,6 @@ import elmina1665 from './elmina-1665.jpg'
 import elminaCastle from './elmina-castle.jpg'
 import elminaGate from './elmina-gate.jpg'
 import elsBorst from './els-borst.jpg'
-import emigrantsCanada from './emigrants-canada.jpg'
 import emigrantsPlane from './emigrants-plane.jpg'
 import emmausForgery from './emmaus-forgery.jpg'
 import ensorEasel from './ensor-easel.jpg'
@@ -1316,7 +1315,6 @@ const files: Record<PhotoId, string> = {
   'koekjes': koekjes,
   'states-yacht': statesYacht,
   'croissants': croissants,
-  'emigrants-canada': emigrantsCanada,
   'paramaribo': paramaribo,
 }
 

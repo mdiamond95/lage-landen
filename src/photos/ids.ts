@@ -670,7 +670,6 @@ export const photoIds = [
   'koekjes',
   'states-yacht',
   'croissants',
-  'emigrants-canada',
   'paramaribo',
 ] as const
 export type PhotoId = (typeof photoIds)[number]

@@ -4741,13 +4741,6 @@ export const credits: Record<PhotoId, Credit> = {
     ...CC0,
     source: commons("Croissants au beurre (18953292873).jpg"),
   },
-  'emigrants-canada': {
-    alt: "People in winter coats climbing the steps into a propeller plane",
-    caption: "Emigrants board a plane for Canada at Schiphol, 17 December 1950",
-    author: "Carel L. de Vogel, Anefo",
-    ...CC0,
-    source: commons("Emigranten 67 per Constallation naar Canada klompen mee, Bestanddeelnr 904-3527.jpg"),
-  },
   'paramaribo': {
     alt: "A group of people under big trees in a square with white wooden buildings",
     caption: "A walking tour in the historic inner city of Paramaribo, Suriname, 2024",
