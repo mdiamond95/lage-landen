@@ -3,6 +3,7 @@ import { FamilyTree } from '../art/FamilyTree'
 import { FederalDiagram } from '../art/FederalDiagram'
 import { LineChart } from '../art/LineChart'
 import { PaintingPair } from '../art/PaintingPair'
+import { PainterRoad } from '../art/PainterRoad'
 import { PaintingTour } from '../art/PaintingTour'
 import { PillarDiagram } from '../art/PillarDiagram'
 import { PolderSlider } from '../art/PolderSlider'
@@ -19,6 +20,7 @@ import { industryStory } from '../data/industry'
 import { kingdomStory } from '../data/kingdom'
 import { languageStory } from '../data/language'
 import { mastersStory } from '../data/masters'
+import { modernsStory } from '../data/moderns'
 import { occupationStory } from '../data/occupation'
 import { paintersStory } from '../data/painters'
 import { railsStory } from '../data/rails'
@@ -54,6 +56,7 @@ export const stories = {
   language: languageStory,
   painters: paintersStory,
   masters: mastersStory,
+  moderns: modernsStory,
 }
 
 type TimeMapProps = {
@@ -69,14 +72,17 @@ export function AnyTimeMap({ map, year, onYear, hideCaption }: TimeMapProps) {
   return <TimeMap story={stories[map]} start={year} onYear={onYear} hideCaption={hideCaption} />
 }
 
-export function VisualView({ visual, label }: { visual: Visual; label: string }) {
+// `hideCaption` keeps a time map's stage captions back until the question is checked, as
+// they often say what the question asks; the map alone has to answer it.
+export function VisualView({ visual, label, hideCaption }: { visual: Visual; label: string; hideCaption?: boolean }) {
   if (visual.kind === 'art') return <Art id={visual.art} className="art art-large" />
   if (visual.kind === 'photo') return <PhotoFigure id={visual.photo} />
   if (visual.kind === 'painting') return <PaintingTour painting={visual.painting} focus={visual.focus} />
   if (visual.kind === 'pair') return <PaintingPair pair={visual.pair} focus={visual.focus} />
+  if (visual.kind === 'series') return <PainterRoad id={visual.series} at={visual.at} />
   if (visual.kind === 'polder-slider') return <PolderSlider />
   if (visual.kind === 'storm-barrier') return <StormBarrier />
-  if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} />
+  if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} hideCaption={hideCaption} />
   if (visual.kind === 'family-tree') return <FamilyTree tree={visual.tree} hide={visual.hide} />
   if (visual.kind === 'chart') return <LineChart chart={visual.chart} until={visual.until} />
   if (visual.kind === 'federal') return <FederalDiagram show={visual.show} />

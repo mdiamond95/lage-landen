@@ -5,12 +5,13 @@ import abolitionLaw from './abolition-law.jpg'
 import acehKraton from './aceh-kraton.jpg'
 import achterhuis from './achterhuis.jpg'
 import adegem from './adegem.jpg'
-import africamuseum from './africamuseum.jpg'
 import africamuseumPast from './africamuseum-past.jpg'
+import africamuseum from './africamuseum.jpg'
 import afsluitdijk from './afsluitdijk.jpg'
 import alba from './alba.jpg'
 import albertSpeaight from './albert-speaight.jpg'
 import alettaJacobs from './aletta-jacobs.jpg'
+import alhambraTiles from './alhambra-tiles.jpg'
 import aliceSeeleyHarris from './alice-seeley-harris.jpg'
 import ambiorixStatue from './ambiorix-statue.jpg'
 import amsterdam1538 from './amsterdam-1538.jpg'
@@ -18,6 +19,7 @@ import amsterdam1649 from './amsterdam-1649.jpg'
 import amsterdamseBos from './amsterdamse-bos.jpg'
 import anatomyLesson from './anatomy-lesson.jpg'
 import andreeDeJongh from './andree-de-jongh.jpg'
+import annaBoch from './anna-boch.jpg'
 import anneFrankHouse from './anne-frank-house.jpg'
 import antwerp1832 from './antwerp-1832.jpg'
 import antwerpBombardment from './antwerp-bombardment.jpg'
@@ -34,8 +36,8 @@ import arnolfini from './arnolfini.jpg'
 import arron from './arron.jpg'
 import artOfPainting from './art-of-painting.jpg'
 import arteveldeStatue from './artevelde-statue.jpg'
-import atomium from './atomium.jpg'
 import atomium1957 from './atomium-1957.jpg'
+import atomium from './atomium.jpg'
 import atticChurch from './attic-church.jpg'
 import avercampWinter from './avercamp-winter.jpg'
 import baarleBorder from './baarle-border.jpg'
@@ -108,8 +110,8 @@ import citadel1832 from './citadel-1832.jpg'
 import claeszVanitas from './claesz-vanitas.jpg'
 import claudiusCivilis from './claudius-civilis.jpg'
 import clovisBaptism from './clovis-baptism.jpg'
-import cockerill from './cockerill.jpg'
 import cockerillKing from './cockerill-king.jpg'
+import cockerill from './cockerill.jpg'
 import coen from './coen.jpg'
 import coffeeshop from './coffeeshop.jpg'
 import cohen from './cohen.jpg'
@@ -132,8 +134,8 @@ import damTownHall from './dam-town-hall.jpg'
 import dartagnanStatue from './dartagnan-statue.jpg'
 import deKomStatue from './de-kom-statue.jpg'
 import dePanneVilla from './de-panne-villa.jpg'
-import dePotter from './de-potter.jpg'
 import dePotterPrison from './de-potter-prison.jpg'
+import dePotter from './de-potter.jpg'
 import deWitt from './de-witt.jpg'
 import degrelle from './degrelle.jpg'
 import dehaene from './dehaene.jpg'
@@ -148,6 +150,8 @@ import destree from './destree.jpg'
 import deurneHelmet from './deurne-helmet.jpg'
 import dodendraad from './dodendraad.jpg'
 import dodengang from './dodengang.jpg'
+import doesburgCounter from './doesburg-counter.jpg'
+import doesburgSoldier from './doesburg-soldier.jpg'
 import dokwerker from './dokwerker.jpg'
 import dolleMina from './dolle-mina.jpg'
 import domela from './domela.jpg'
@@ -171,7 +175,13 @@ import elminaGate from './elmina-gate.jpg'
 import elsBorst from './els-borst.jpg'
 import emigrantsPlane from './emigrants-plane.jpg'
 import emmausForgery from './emmaus-forgery.jpg'
+import ensorEasel from './ensor-easel.jpg'
+import ensorEntry from './ensor-entry.jpg'
+import ensorMasks from './ensor-masks.jpg'
+import ensorOyster from './ensor-oyster.jpg'
 import erasmus from './erasmus.jpg'
+import escher1971 from './escher-1971.jpg'
+import escherPaleis from './escher-paleis.jpg'
 import essexFarm from './essex-farm.jpg'
 import eupenTown from './eupen-town.jpg'
 import europeanParliament from './european-parliament.jpg'
@@ -202,6 +212,8 @@ import galenGroningen from './galen-groningen.jpg'
 import gardenClosed from './garden-closed.jpg'
 import gardenDelights from './garden-delights.jpg'
 import gasAttackRoberts from './gas-attack-roberts.jpg'
+import gauguinChair from './gauguin-chair.jpg'
+import gauguinVincent from './gauguin-vincent.jpg'
 import germanParliament from './german-parliament.jpg'
 import germansArrive from './germans-arrive.jpg'
 import gevangenpoort from './gevangenpoort.jpg'
@@ -240,6 +252,7 @@ import hemessenSelf from './hemessen-self.jpg'
 import hetLoo1690 from './het-loo-1690.jpg'
 import hetPelsken from './het-pelsken.jpg'
 import hill62 from './hill-62.jpg'
+import hiroshigePlum from './hiroshige-plum.jpg'
 import hobbemaAvenue from './hobbema-avenue.jpg'
 import honthorstShepherds from './honthorst-shepherds.jpg'
 import hoochCourtyard from './hooch-courtyard.jpg'
@@ -260,11 +273,14 @@ import kaiserExile from './kaiser-exile.jpg'
 import kalfPronk from './kalf-pronk.jpg'
 import kamerlinghOnnes from './kamerlingh-onnes.jpg'
 import kartini from './kartini.jpg'
+import khnopffCaresses from './khnopff-caresses.jpg'
 import kimbangu from './kimbangu.jpg'
 import kinderdijk from './kinderdijk.jpg'
 import kingDrinks from './king-drinks.jpg'
 import kisangaWorkers from './kisanga-workers.jpg'
 import kok from './kok.jpg'
+import krollerCouple from './kroller-couple.jpg'
+import krollerEntrance from './kroller-entrance.jpg'
 import kuyper from './kuyper.jpg'
 import kwakoe from './kwakoe.jpg'
 import laermansStrike from './laermans-strike.jpg'
@@ -287,8 +303,8 @@ import leopoldStatueOstend from './leopold-statue-ostend.jpg'
 import letterAfter from './letter-after.jpg'
 import letterBefore from './letter-before.jpg'
 import leuven1968 from './leuven-1968.jpg'
-import leuvenLibrary from './leuven-library.jpg'
 import leuvenLibraryToday from './leuven-library-today.jpg'
+import leuvenLibrary from './leuven-library.jpg'
 import leuvenTownHall from './leuven-town-hall.jpg'
 import leyster from './leyster.jpg'
 import libertyTree from './liberty-tree.jpg'
@@ -301,8 +317,8 @@ import lionMound from './lion-mound.jpg'
 import littleStreet from './little-street.jpg'
 import loevestein from './loevestein.jpg'
 import loneTreeCrater from './lone-tree-crater.jpg'
-import lorentz from './lorentz.jpg'
 import lorentzNobel from './lorentz-nobel.jpg'
+import lorentz from './lorentz.jpg'
 import louisBonaparte from './louis-bonaparte.jpg'
 import louiseMarie from './louise-marie.jpg'
 import louvainLaNeuve from './louvain-la-neuve.jpg'
@@ -311,6 +327,9 @@ import lumumbaMausoleum from './lumumba-mausoleum.jpg'
 import lumumbaSigns from './lumumba-signs.jpg'
 import luttrellSheep from './luttrell-sheep.jpg'
 import maeslantkering from './maeslantkering.jpg'
+import magritte1961 from './magritte-1961.jpg'
+import magritteChatelet from './magritte-chatelet.jpg'
+import magritteHouse from './magritte-house.jpg'
 import malacca from './malacca.jpg'
 import malplaquet from './malplaquet.jpg'
 import mannaDrop from './manna-drop.jpg'
@@ -328,9 +347,10 @@ import maryTomb from './mary-tomb.jpg'
 import massacreInnocents from './massacre-innocents.jpg'
 import maurice from './maurice.jpg'
 import mauritshuis1825 from './mauritshuis-1825.jpg'
+import mauveRide from './mauve-ride.jpg'
 import mccShips from './mcc-ships.jpg'
-import mccrae from './mccrae.jpg'
 import mccraeMemorial from './mccrae-memorial.jpg'
+import mccrae from './mccrae.jpg'
 import meagreCompany from './meagre-company.jpg'
 import meegerenTrial from './meegeren-trial.jpg'
 import memlingJudgment from './memling-judgment.jpg'
@@ -339,6 +359,7 @@ import meninGate from './menin-gate.jpg'
 import merdeka1945 from './merdeka-1945.jpg'
 import merode from './merode.jpg'
 import merryDrinker from './merry-drinker.jpg'
+import mesquitaSelf from './mesquita-self.jpg'
 import meunierHammerer from './meunier-hammerer.jpg'
 import milkmaid from './milkmaid.jpg'
 import mobilisation1914 from './mobilisation-1914.jpg'
@@ -346,6 +367,15 @@ import mobutu1960 from './mobutu-1960.jpg'
 import moerdijkBridge from './moerdijk-bridge.jpg'
 import monaLisa from './mona-lisa.jpg'
 import monasteriesClosed from './monasteries-closed.jpg'
+import mondrian1921 from './mondrian-1921.jpg'
+import mondrian1922 from './mondrian-1922.jpg'
+import mondrian1930 from './mondrian-1930.jpg'
+import mondrianApple from './mondrian-apple.jpg'
+import mondrianBroadway from './mondrian-broadway.jpg'
+import mondrianGreyTree from './mondrian-grey-tree.jpg'
+import mondrianPier from './mondrian-pier.jpg'
+import mondrianRedTree from './mondrian-red-tree.jpg'
+import mondrianVictory from './mondrian-victory.jpg'
 import moneylender from './moneylender.jpg'
 import monnaie1830 from './monnaie-1830.jpg'
 import morel from './morel.jpg'
@@ -432,6 +462,7 @@ import secondExpedition from './second-expedition.jpg'
 import selden from './selden.jpg'
 import semperAugustus from './semper-augustus.jpg'
 import separationTreaty from './separation-treaty.jpg'
+import seuratJatte from './seurat-jatte.jpg'
 import seyssInquart from './seyss-inquart.jpg'
 import shinkolobwe from './shinkolobwe.jpg'
 import shipFools from './ship-fools.jpg'
@@ -444,6 +475,7 @@ import sovereignty1949 from './sovereignty-1949.jpg'
 import spaak from './spaak.jpg'
 import spanishFury from './spanish-fury.jpg'
 import sphinx1910 from './sphinx-1910.jpg'
+import spilliaertSelf from './spilliaert-self.jpg'
 import spinoza from './spinoza.jpg'
 import stAnthony from './st-anthony.jpg'
 import stSymphorien from './st-symphorien.jpg'
@@ -451,6 +483,8 @@ import stanley from './stanley.jpg'
 import starryNight from './starry-night.jpg'
 import steenNicholas from './steen-nicholas.jpg'
 import steenSelf from './steen-self.jpg'
+import stijlInterior from './stijl-interior.jpg'
+import stijlManifesto from './stijl-manifesto.jpg'
 import strike1961 from './strike-1961.jpg'
 import stuyvesant from './stuyvesant.jpg'
 import sukarno from './sukarno.jpg'
@@ -471,6 +505,7 @@ import thorbecke from './thorbecke.jpg'
 import tobaccoJava from './tobacco-java.jpg'
 import tommasoPortinari from './tommaso-portinari.jpg'
 import tongerenWall from './tongeren-wall.jpg'
+import tooropBrides from './toorop-brides.jpg'
 import torbayLanding from './torbay-landing.jpg'
 import triumvirate1813 from './triumvirate-1813.jpg'
 import troelstra from './troelstra.jpg'
@@ -496,12 +531,31 @@ import vanGoghMiners from './van-gogh-miners.jpg'
 import vanGoghSelf from './van-gogh-self.jpg'
 import vanHeutsz from './van-heutsz.jpg'
 import vanMaanenRuin from './van-maanen-ruin.jpg'
-import vanSpeijk from './van-speijk.jpg'
 import vanSpeijkCabin from './van-speijk-cabin.jpg'
+import vanSpeijk from './van-speijk.jpg'
 import vanTHoff from './van-t-hoff.jpg'
 import vanVeen from './van-veen.jpg'
 import vermeerConcert from './vermeer-concert.jpg'
 import vermeerVirginal from './vermeer-virginal.jpg'
+import vgAlmond from './vg-almond.jpg'
+import vgAuversChurch from './vg-auvers-church.jpg'
+import vgBandaged from './vg-bandaged.jpg'
+import vgBedroom from './vg-bedroom.jpg'
+import vgBible from './vg-bible.jpg'
+import vgCafeTerrace from './vg-cafe-terrace.jpg'
+import vgChair from './vg-chair.jpg'
+import vgCourtesan from './vg-courtesan.jpg'
+import vgGachet from './vg-gachet.jpg'
+import vgIrises from './vg-irises.jpg'
+import vgNightCafe from './vg-night-cafe.jpg'
+import vgNuenenChurch from './vg-nuenen-church.jpg'
+import vgPipe from './vg-pipe.jpg'
+import vgPlum from './vg-plum.jpg'
+import vgSea1882 from './vg-sea-1882.jpg'
+import vgSkull from './vg-skull.jpg'
+import vgSorrow from './vg-sorrow.jpg'
+import vgYellowHouse from './vg-yellow-house.jpg'
+import vgm1973 from './vgm-1973.jpg'
 import viewDelft from './view-delft.jpg'
 import vladslo from './vladslo.jpg'
 import vocShare from './voc-share.jpg'
@@ -517,21 +571,23 @@ import westerkerk1660 from './westerkerk-1660.jpg'
 import wetstraat from './wetstraat.jpg'
 import wheatfieldCrows from './wheatfield-crows.jpg'
 import whiteBicycle from './white-bicycle.jpg'
-import wilhelmina from './wilhelmina.jpg'
 import wilhelmina1885 from './wilhelmina-1885.jpg'
 import wilhelminaRadio from './wilhelmina-radio.jpg'
+import wilhelmina from './wilhelmina.jpg'
 import willemstad from './willemstad.jpg'
 import williamI from './william-i.jpg'
 import williamIiKing from './william-ii-king.jpg'
-import williamIii from './william-iii.jpg'
 import williamIiiKing from './william-iii-king.jpg'
+import williamIii from './william-iii.jpg'
 import williamLeaves1840 from './william-leaves-1840.jpg'
 import williamOrange from './william-orange.jpg'
+import woutersEyepatch from './wouters-eyepatch.jpg'
 import youngPrince from './young-prince.jpg'
 import ypres1919 from './ypres-1919.jpg'
 import ypresClothHall from './ypres-cloth-hall.jpg'
 import yserFloodMap from './yser-flood-map.jpg'
 import yserTower from './yser-tower.jpg'
+import yslMondrian from './ysl-mondrian.jpg'
 import zadkine from './zadkine.jpg'
 // Unit 10
 // Unit 11
@@ -1078,6 +1134,62 @@ const files: Record<PhotoId, string> = {
   'ruisdael-mill': ruisdaelMill,
   'hobbema-avenue': hobbemaAvenue,
   'cannon-shot': cannonShot,
+  'vg-sorrow': vgSorrow,
+  'vg-sea-1882': vgSea1882,
+  'vg-bible': vgBible,
+  'vg-skull': vgSkull,
+  'mauve-ride': mauveRide,
+  'vg-nuenen-church': vgNuenenChurch,
+  'vg-pipe': vgPipe,
+  'hiroshige-plum': hiroshigePlum,
+  'vg-plum': vgPlum,
+  'vg-courtesan': vgCourtesan,
+  'vg-yellow-house': vgYellowHouse,
+  'vg-bedroom': vgBedroom,
+  'vg-night-cafe': vgNightCafe,
+  'vg-cafe-terrace': vgCafeTerrace,
+  'vg-chair': vgChair,
+  'gauguin-chair': gauguinChair,
+  'gauguin-vincent': gauguinVincent,
+  'vg-bandaged': vgBandaged,
+  'vg-irises': vgIrises,
+  'vg-almond': vgAlmond,
+  'vg-auvers-church': vgAuversChurch,
+  'vg-gachet': vgGachet,
+  'ensor-entry': ensorEntry,
+  'ensor-masks': ensorMasks,
+  'ensor-oyster': ensorOyster,
+  'ensor-easel': ensorEasel,
+  'khnopff-caresses': khnopffCaresses,
+  'toorop-brides': tooropBrides,
+  'seurat-jatte': seuratJatte,
+  'anna-boch': annaBoch,
+  'spilliaert-self': spilliaertSelf,
+  'wouters-eyepatch': woutersEyepatch,
+  'mondrian-red-tree': mondrianRedTree,
+  'mondrian-grey-tree': mondrianGreyTree,
+  'mondrian-apple': mondrianApple,
+  'mondrian-pier': mondrianPier,
+  'mondrian-1921': mondrian1921,
+  'mondrian-1930': mondrian1930,
+  'mondrian-broadway': mondrianBroadway,
+  'mondrian-victory': mondrianVictory,
+  'mondrian-1922': mondrian1922,
+  'doesburg-counter': doesburgCounter,
+  'doesburg-soldier': doesburgSoldier,
+  'stijl-manifesto': stijlManifesto,
+  'stijl-interior': stijlInterior,
+  'ysl-mondrian': yslMondrian,
+  'magritte-1961': magritte1961,
+  'magritte-house': magritteHouse,
+  'magritte-chatelet': magritteChatelet,
+  'escher-1971': escher1971,
+  'escher-paleis': escherPaleis,
+  'alhambra-tiles': alhambraTiles,
+  'mesquita-self': mesquitaSelf,
+  'kroller-couple': krollerCouple,
+  'kroller-entrance': krollerEntrance,
+  'vgm-1973': vgm1973,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

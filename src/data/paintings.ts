@@ -1,7 +1,7 @@
 // Painting tours (`{ kind: painting }`): a big painting saved large enough to zoom deep
 // into, and the details on it worth stopping at. Unit 16 brought them in; the Ghent
 // Altarpiece is toured in Unit 4 too, the Night Watch in Unit 6, and Unit 17 tours a
-// Rubens and a Vermeer. Each stop's box is
+// Rubens and a Vermeer, Unit 18 an Ensor. Each stop's box is
 // [left, top, width, height] as fractions of the picture, the same as a detail hunt's
 // targets; the tour glides to it and fills the frame with it. A question can open a
 // painting at one stop with `focus`.
@@ -319,6 +319,49 @@ export const tours = {
         title: 'The chandelier',
         text: 'A brass chandelier without candles, crowned with a double-headed eagle, the badge of the Habsburgs who once ruled the Low Countries. Possibly another sign of the past.',
         box: [0.5, 0.05, 0.28, 0.2],
+      },
+    ],
+  },
+  'ensor-entry': {
+    photo: 'ensor-entry',
+    intro:
+      'Christ’s Entry into Brussels in 1889: a crowd of masks marching straight at you, on a canvas more than four metres wide. Ensor painted it in 1888, at home in Ostend. Tap a number, or start the tour.',
+    stops: [
+      {
+        id: 'christ',
+        title: 'A small figure in the middle',
+        text: 'Christ rides a donkey far back in the crowd, his hand raised in blessing, under a yellow halo. Nobody is looking at him. Some think he has Ensor’s own face.',
+        box: [0.38, 0.22, 0.16, 0.24],
+      },
+      {
+        id: 'banner',
+        title: 'The red banner',
+        text: 'A huge red banner stretches over the street. Read it, and you will see what the crowd is cheering for.',
+        box: [0.1, 0, 0.55, 0.32],
+      },
+      {
+        id: 'band',
+        title: 'The band',
+        text: 'A brass band in uniform marches ahead of Christ, under a sign that reads “Fanfares doctrinaires, toujours réussi”, the band of the doctrinaires, always a success. The doctrinaires were the moderate liberals of Belgian politics.',
+        box: [0.2, 0.28, 0.2, 0.3],
+      },
+      {
+        id: 'masks',
+        title: 'The masks',
+        text: 'In front, the crowd presses so close it seems to spill out of the picture: carnival masks, grinning clowns and blank faces, like the masks sold in his mother’s shop. Some are portraits of real people, members of his family among them.',
+        box: [0.25, 0.6, 0.4, 0.4],
+      },
+      {
+        id: 'death',
+        title: 'Death',
+        text: 'At the lower left a skeleton in a top hat walks with the crowd. Ensor painted skeletons all his life. This corner was damaged by shrapnel in the Second World War.',
+        box: [0.05, 0.75, 0.17, 0.25],
+      },
+      {
+        id: 'king',
+        title: 'Long live Jesus',
+        text: 'On the right, a sign reads “Vive Jésus roi de Bruxelles”, long live Jesus, king of Brussels. Below it Ensor signed and dated the painting 1888.',
+        box: [0.82, 0.52, 0.18, 0.3],
       },
     ],
   },

@@ -68,6 +68,15 @@ export const paths: Record<string, React.ReactNode> = {
   owl: <path d="M6 4l2 3h8l2-3v10a6 6 0 0 1-12 0zM9.5 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM14.5 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM12 13v2M9 21l1-1.5M15 21l-1-1.5" fill="none" strokeLinejoin="round" />,
   easel: <path d="M5 4h14v10H5zM12 2v2M8 14l-3 7M16 14l3 7M12 14v5" fill="none" strokeLinejoin="round" />,
   skate: <path d="M6 4h5v8l7 2a2 2 0 0 1 1 2H6zM4 19h15a2 2 0 0 0 2-2M8 16v3M16 16v3" fill="none" strokeLinejoin="round" />,
+  // Unit 18: a pencil, for Van Gogh's years of drawing; a sunflower, for Arles; a mask,
+  // for Ensor; a grid, for Mondrian; a bowler hat, for Magritte; a picture frame, for
+  // the collectors and museums.
+  pencil: <path d="M15 4l5 5L9 20H4v-5zM13 6l5 5M4 15l5 5" fill="none" strokeLinejoin="round" />,
+  sunflower: <path d="M12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 2v3M12 15v7M7 5l2 2.5M17 5l-2 2.5M5 10h3M16 10h3M8 19c2-1 3-2 4-4M16 19c-2-1-3-2-4-4" fill="none" strokeLinejoin="round" />,
+  mask: <path d="M4 5c5 2 11 2 16 0 0 8-3 14-8 14S4 13 4 5zM8 10c1-1 2-1 3 0M13 10c1-1 2-1 3 0M9 14.5c2 1.5 4 1.5 6 0" fill="none" strokeLinejoin="round" />,
+  grid: <path d="M4 4h16v16H4zM10 4v16M4 10h16M15 10v10M10 15h5" fill="none" strokeLinejoin="round" />,
+  bowler: <path d="M3 17c3 1.5 15 1.5 18 0M6 16.5V12a6 6 0 0 1 12 0v4.5M6 13.5c4 1 8 1 12 0" fill="none" strokeLinejoin="round" />,
+  frame: <path d="M3 4h18v16H3zM6 7h12v10H6zM6 17l4-5 3 3 2-2 3 4" fill="none" strokeLinejoin="round" />,
   // Unit 17: a ladder, for Rubens's Descent from the Cross; a lute, for Utrecht's music
   // and candlelight; a painter's beret, for Rembrandt; a window, for Vermeer's rooms; a
   // goblet, for the still lifes; a cloud, for the skies of the landscape painters.

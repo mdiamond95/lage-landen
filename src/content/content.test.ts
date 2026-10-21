@@ -30,9 +30,11 @@ import { languageStory } from '../data/language'
 import belgiumTopology from '../data/belgium.topo.json'
 import { paintersStory } from '../data/painters'
 import { mastersStory } from '../data/masters'
+import { modernsStory } from '../data/moderns'
 import { pairs } from '../data/pairs'
 import { charts } from '../data/charts'
 import { tours } from '../data/paintings'
+import { series } from '../data/series'
 import { activeAt, eventAt } from '../data/timeline'
 import { peopleIn, trees } from '../data/families'
 import { places } from './places'
@@ -62,7 +64,8 @@ const isVisual = (e: Exercise) =>
   (e.type === 'choice' && (e.visual !== undefined || e.options.some((o) => o.art || o.photo))) ||
   (e.type === 'odd' && e.items.every((i) => i.photo)) ||
   (e.type === 'voices' && e.voices.some((v) => v.photo)) ||
-  (e.type === 'sort' && (e.visual !== undefined || e.items.every((i) => i.photo)))
+  (e.type === 'sort' && (e.visual !== undefined || e.items.every((i) => i.photo))) ||
+  e.type === 'style'
 
 describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
@@ -322,6 +325,7 @@ describe('time maps in lessons', () => {
     language: languageStory,
     painters: paintersStory,
     masters: mastersStory,
+    moderns: modernsStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -344,6 +348,7 @@ describe('time maps in lessons', () => {
     language: [languageStory.min, languageStory.max],
     painters: [paintersStory.min, paintersStory.max],
     masters: [mastersStory.min, mastersStory.max],
+    moderns: [modernsStory.min, modernsStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -680,6 +685,67 @@ describe("Golden Age painters' map", () => {
     for (const { from } of events) {
       const at = sites.filter((st) => st.kind === 'workshop' && activeAt(from, st)).map((st) => st.name)
       expect(new Set(at).size, `${from}: ${at.join(', ')}`).toBe(at.length)
+    }
+  })
+})
+
+describe("modern artists' map", () => {
+  const { min, max, events, sites, labels, lines } = modernsStory
+  const [[w, s], [e, n]] = modernsStory.bounds!
+  const inFrame = ([lon, lat]: [number, number]) => lon >= w && lon <= e && lat >= s && lat <= n
+
+  it('puts every workshop, society, village, museum, route and label inside its frame', () => {
+    for (const site of sites) expect(inFrame(site.at), site.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+    for (const l of lines) for (const c of l.coords) expect(inFrame(c), `${l.name} ${c}`).toBe(true)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((ev) => ev.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels, ...lines]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined && item.to < max) expect(starts, `${name} goes`).toContain(item.to + 1)
+      for (const [a, b] of item.off ?? []) {
+        expect(starts, `${name} leaves`).toContain(a)
+        expect(starts, `${name} returns`).toContain(b + 1)
+      }
+    }
+  })
+
+  it('never has one artist in two towns at once', () => {
+    for (const { from } of events) {
+      const at = sites.filter((st) => st.kind === 'workshop' && activeAt(from, st)).map((st) => st.name)
+      expect(new Set(at).size, `${from}: ${at.join(', ')}`).toBe(at.length)
+    }
+  })
+})
+
+describe("painters' roads", () => {
+  it("step through a painter's pictures with a year and a word on each", () => {
+    for (const [id, s] of Object.entries(series)) {
+      expect(s.steps.length, id).toBeGreaterThanOrEqual(4)
+      expect(new Set(s.steps.map((st) => st.photo)).size, id).toBe(s.steps.length)
+      for (const st of s.steps) expect(st.year && st.title && st.text, `${id} ${st.photo}`).toBeTruthy()
+    }
+  })
+})
+
+describe('style sorters', () => {
+  it('zoom to a tell inside each painting, and use each painting once', () => {
+    for (const file of files) {
+      const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
+      for (const ex of unit.lessons.flatMap((l) => l.exercises)) {
+        if (ex.type !== 'style') continue
+        expect(new Set(ex.items.map((i) => i.photo)).size, ex.prompt).toBe(ex.items.length)
+        for (const { box: [x, y, w, h], title } of ex.items) {
+          expect(x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= 1.0001 && y + h <= 1.0001, title).toBe(true)
+        }
+      }
     }
   })
 })

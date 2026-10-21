@@ -36,6 +36,12 @@ async function answer(page: Page) {
       await page.locator('.sort-pool .sort-card').first().click()
       await page.locator('.sort-group-head').first().click()
     }
+  } else if (await page.locator('.exercise-style').count()) {
+    for (;;) {
+      await page.locator('.style-group:not([disabled])').first().click()
+      if (!(await page.locator('.style-next').count())) break
+      await page.locator('.style-next').click()
+    }
   } else if (await page.locator('.chip-pool').count()) {
     while (await page.locator('.chip').count()) await page.locator('.chip').first().click()
   } else {
@@ -454,15 +460,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 38 snapshots from Caesar to the federal Belgium of 2012', async ({ page }) => {
+test('the time map steps through 39 snapshots from Caesar to the federal Belgium of 2012', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('38 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('39 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 38 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 39 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '37')
+  await expect(slider).toHaveAttribute('max', '38')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('1302: A patchwork of lands')
@@ -553,24 +559,32 @@ test('the time map steps through 38 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
 
   await slider.fill('29')
+  await expect(map.locator('.time-map-title')).toHaveText('1917: De Stijl')
+  await expect(map.locator('.hist-front')).toHaveCount(0)
+  await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'Theo van Doesburg' })).toHaveCount(1)
+  await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'Piet Mondrian' })).toHaveCount(1)
+  await expect(map.locator('.hist-village', { hasText: 'Laren' })).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-workshop')).toHaveCount(1)
+
+  await slider.fill('30')
   await expect(map.locator('.time-map-title')).toHaveText('May 1940: Five days of war')
   await expect(map.locator('.hist-rail')).toHaveCount(0)
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
 
-  await slider.fill('30')
+  await slider.fill('31')
   await expect(map.locator('.time-map-title')).toHaveText('November 1944: The Scheldt, and the Hunger Winter')
   await expect(map.locator('.hist-area-free').first()).toBeVisible()
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-free')).toHaveCount(1)
 
-  await slider.fill('31')
+  await slider.fill('32')
   await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
   await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(0)
   await expect(map.locator('.hist-grave')).toHaveCount(4)
 
-  await slider.fill('32')
+  await slider.fill('33')
   await expect(map.locator('.time-map-title')).toHaveText('1953: The great flood')
   await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
   await expect(map.locator('.hist-breach')).toHaveCount(4)
@@ -578,13 +592,13 @@ test('the time map steps through 38 snapshots from Caesar to the federal Belgium
 
   await expect(map.locator('.hist-area-dutch')).toHaveCount(0)
 
-  await slider.fill('33')
+  await slider.fill('34')
   await expect(map.locator('.time-map-title')).toHaveText('1963: The language border is fixed')
   await expect(map.locator('.hist-area-german')).toHaveCount(2)
   await expect(map.locator('.key-swatch.key-dutch')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-facility')).toHaveCount(0)
 
-  await slider.fill('34')
+  await slider.fill('35')
   await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
   await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
@@ -592,10 +606,10 @@ test('the time map steps through 38 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.hist-area-bilingual')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-bilingual')).toHaveCount(1)
 
-  await slider.fill('35')
+  await slider.fill('36')
   await expect(map.locator('.time-map-title')).toHaveText('1993: A federal state')
 
-  await slider.fill('36')
+  await slider.fill('37')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
@@ -603,7 +617,7 @@ test('the time map steps through 38 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
 
-  await slider.fill('37')
+  await slider.fill('38')
   await expect(map.locator('.time-map-title')).toHaveText('2012: Brussels-Halle-Vilvoorde is split')
   await expect(map.locator('.hist-dam')).toHaveCount(0)
   await expect(map.locator('.hist-area-french').first()).toBeVisible()
@@ -1460,22 +1474,110 @@ test("the Golden Age painters' map follows the painters north, and Rembrandt to 
 
   const map = page.locator('.time-map')
   const year = map.getByRole('slider', { name: 'Year' })
-  await expect(map.locator('.time-map-title')).toHaveText('1641: Pictures at the fair')
+  await expect(map.getByRole('img', { name: /1641: Pictures at the fair$/ })).toHaveCount(1)
   await expect(map.locator('.hist-market:not(.hist-gone)', { hasText: 'Rotterdam fair' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-market')).toHaveCount(1)
 
   await year.fill('1585')
-  await expect(map.locator('.time-map-title')).toHaveText('1585: Antwerp falls')
+  await expect(map.getByRole('img', { name: /1585: Antwerp falls$/ })).toHaveCount(1)
   await expect(map.locator('.hist-flow')).toHaveCount(3)
   await expect(map.locator('.hist-alert', { hasText: 'FALL OF ANTWERP' })).toHaveCount(1)
 
   await year.fill('1632')
-  await expect(map.locator('.time-map-title')).toHaveText('1632: To Amsterdam and London')
+  await expect(map.getByRole('img', { name: /1632: To Amsterdam and London$/ })).toHaveCount(1)
   await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'Rembrandt' })).toHaveCount(1)
   await expect(map.locator('.hist-flow')).toHaveCount(2)
 
   await year.fill('1672')
-  await expect(map.locator('.time-map-title')).toHaveText('1672: The Disaster Year')
+  await expect(map.getByRole('img', { name: /1672: The Disaster Year$/ })).toHaveCount(1)
   await expect(map.locator('.hist-alert', { hasText: 'THE DISASTER YEAR' })).toHaveCount(1)
   await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'Johannes Vermeer' })).toHaveCount(1)
+})
+
+test('plays all of unit 18 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of [
+    'Learning to paint',
+    'Colour in the south',
+    'Masks and the Twenty',
+    'From a tree to a grid',
+    'Pictures that play tricks',
+    'Collectors and museums',
+  ]) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 18 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test("a painter's road steps through his pictures, and the modern artists' map follows Van Gogh", async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Learning to paint', exact: true }).click()
+  const road = page.locator('.road')
+  const slider = road.getByRole('slider', { name: 'Vincent van Gogh, picture by picture' })
+  await expect(road.locator('.road-year')).toHaveText('1882: Sorrow, The Hague')
+  await expect(slider).toHaveAttribute('max', '7')
+  await slider.fill('4')
+  await expect(road.locator('.road-year')).toHaveText('1887: Flowering plum orchard, after Hiroshige, Paris')
+  await expect(road.locator('.road-ticks .is-active')).toHaveCount(1)
+  await expect(road.locator('figcaption')).toContainText('Hiroshige')
+  await slider.fill('7')
+  await expect(road.locator('.road-year')).toHaveText('1890: The church at Auvers')
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+
+  const map = page.locator('.time-map')
+  const year = map.getByRole('slider', { name: 'Year' })
+  // The scrub hides the captions; the map's label still names the stage.
+  await expect(map.getByRole('img', { name: /1880: Van Gogh begins to draw$/ })).toHaveCount(1)
+  await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'James Ensor' })).toHaveCount(1)
+  await year.fill('1886')
+  await expect(map.getByRole('img', { name: /1886: To Antwerp and Paris$/ })).toHaveCount(1)
+  await expect(map.locator('.hist-flow')).toHaveCount(1)
+  await expect(map.locator('.hist-market:not(.hist-gone)', { hasText: 'Les XX' })).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-flow')).toHaveCount(1)
+  await year.fill('1898')
+  await expect(map.getByRole('img', { name: /1898: Two boys born$/ })).toHaveCount(1)
+  await expect(map.locator('.hist-museum', { hasText: 'Stedelijk Museum' })).toHaveCount(1)
+  await expect(map.locator('.hist-village', { hasText: 'Sint-Martens-Latem' })).toHaveCount(1)
+  await expect(map.locator('.hist-market:not(.hist-gone)', { hasText: /^Les XX/ })).toHaveCount(0)
+})
+
+test('a style sorter names one painting at a time, then glides to what gives the style away', async ({ page }) => {
+  await unlock(page, ['u18-l1', 'u18-l2'])
+  await page.getByRole('button', { name: 'Masks and the Twenty', exact: true }).click()
+  await skipTo(page, 'Style sorter')
+  const sorter = page.locator('.exercise-style')
+  const styles = sorter.getByRole('group', { name: 'Styles' })
+  const check = page.locator('.lesson-foot').getByRole('button', { name: 'Check' })
+
+  await expect(sorter.locator('.style-count')).toContainText('Painting 1 of 6')
+  // The title and credit would name the painter, so they wait for the pick.
+  await expect(sorter.locator('figcaption')).toContainText('shows once you have chosen')
+  await expect(sorter.locator('.zoom-frame.is-zoomed')).toHaveCount(0)
+  await expect(check).toBeDisabled()
+
+  await styles.getByRole('button', { name: 'Pointillism' }).click()
+  await expect(sorter.locator('.style-tell')).toBeVisible()
+  await expect(sorter.locator('.style-group.right')).toHaveCount(1)
+  await expect(sorter.locator('.zoom-frame.is-zoomed')).toHaveCount(1)
+  await expect(sorter.locator('figcaption .photo-credit')).toBeVisible()
+  await expect(styles.getByRole('button', { name: 'Realism' })).toBeDisabled()
+
+  for (let i = 2; i <= 6; i++) {
+    await sorter.locator('.style-next').click()
+    await expect(sorter.locator('.style-count')).toContainText(`Painting ${i} of 6`)
+    await expect(sorter.locator('.zoom-frame.is-zoomed')).toHaveCount(0)
+    await styles.getByRole('button', { name: 'Symbolism' }).click()
+  }
+  await expect(sorter.locator('.style-next')).toHaveCount(0)
+  await check.click()
+  await expect(page.locator('.feedback')).toContainText('is Realism')
 })

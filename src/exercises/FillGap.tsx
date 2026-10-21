@@ -24,7 +24,7 @@ export function FillGap({ exercise, checked, setAnswer }: ExerciseProps<Exercise
     <div className="exercise">
       <p className="eyebrow">Fill the gap</p>
       <h2>{exercise.prompt}</h2>
-      {exercise.visual && <VisualView visual={exercise.visual} label={exercise.source} />}
+      {exercise.visual && <VisualView visual={exercise.visual} label={exercise.source} hideCaption={!checked} />}
       <blockquote className="source-quote">
         “{before}
         <span className={`gap ${gapState}`}>{shown === null ? ' ' : exercise.options[shown]}</span>

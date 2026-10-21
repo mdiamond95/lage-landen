@@ -208,7 +208,7 @@ lessons:
         prompt: Max Havelaar opens with a smug Amsterdam merchant, Batavus Droogstoppel, who cares only for profit. Fill the gap in the book's famous first line.
         quote: I am a ___-broker, and live at No. 37 Laurier Canal, Amsterdam.
         source: Multatuli, Max Havelaar, 1860, translated by Alphonse Nahuys, 1868
-        visual: { kind: photo, photo: havelaar-1860 }
+        visual: { kind: photo, photo: multatuli }
         options: [coffee, sugar, tea, tobacco]
         answer: 0
         explain: >-
@@ -779,8 +779,9 @@ lessons:
         body: >-
           Vincent van Gogh was born in 1853 in Zundert, in Brabant, the son of a preacher. He was an art dealer,
           a teacher and a lay preacher before he began to paint, at 27. He painted for only ten years, and sold
-          almost nothing. Today he is the most famous Dutch painter after Rembrandt.
-        visual: { kind: photo, photo: potato-eaters }
+          almost nothing. Today he is the most famous Dutch painter after Rembrandt. Drag the slider through his ten
+          years, from dark Brabant to the bright south. Unit 18 follows him all the way.
+        visual: { kind: series, series: van-gogh }
       - type: who
         photo: van-gogh-self
         clues:

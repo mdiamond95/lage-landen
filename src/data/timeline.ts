@@ -46,8 +46,9 @@ export type HistSite = Dated & {
   // A `breach` is a gap the sea broke in a dike. A `mine` is a colliery, ironworks or mine.
   // A `grave` is a war cemetery; a `memorial` is a monument to the dead or the missing.
   // A `workshop` is a painter at work in a town, named after the painter; a `market` is
-  // an art fair or a print shop.
-  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach' | 'mine' | 'grave' | 'memorial' | 'workshop' | 'market'
+  // an art fair, a print shop or an exhibition society. A `village` is an artists' village;
+  // a `museum` is a museum of modern art.
+  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach' | 'mine' | 'grave' | 'memorial' | 'workshop' | 'market' | 'village' | 'museum'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number
