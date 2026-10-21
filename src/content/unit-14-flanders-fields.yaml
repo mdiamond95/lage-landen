@@ -185,6 +185,22 @@ lessons:
           sergeants spoke the soldiers' language. But the grievance behind it was real. The army was run in French,
           while most of its soldiers spoke Flemish, and in 1917 Flemish soldiers formed the Front Movement and wrote
           an open letter to the king.
+      - type: choice
+        prompt: After the war the Flemish Movement won much of what the soldiers had asked for. Drag the divider between 1920 and 1932. What changed?
+        visual: { kind: compare, map: language, years: [1920, 1932] }
+        answer: 1
+        options:
+          - label: Flanders became a country of its own
+            why: Flanders stayed in Belgium; what changed was the language it was run in.
+          - label: Flanders would be run in Dutch, and Wallonia in French
+            why: >-
+              Right. The language laws of 1921 and 1932 gave each side its own language for its town halls and
+              schools, with Brussels in both, and from 1930 Ghent University taught in Dutch. Unit 15 tells the
+              rest.
+          - label: The German-speaking East Cantons went back to Germany
+            why: They stayed Belgian, though Germany annexed them during the occupation, from 1940 to 1944.
+          - label: Brussels became part of Flanders
+            why: Brussels was to be run in both languages.
       - type: gap
         prompt: The Flemish soldiers' graves, and later this tower at Diksmuide, carried the letters AVV-VVK. Fill the gap in the motto they stand for.
         quote: Alles voor Vlaanderen, Vlaanderen voor ___
@@ -806,5 +822,5 @@ lessons:
           - [The Germans still held the banks of the Scheldt, Canadians fought through flooded polders in the autumn of 1944]
           - [Fog and snow kept Allied planes on the ground, The German attack in the Ardennes broke through at first]
         explain: >-
-          The Royal Question showed how far Flanders and Wallonia had drifted apart. The next units follow how
+          The Royal Question showed how far Flanders and Wallonia had drifted apart. Unit 15 follows how
           Belgium answered: by splitting itself into regions and language communities.

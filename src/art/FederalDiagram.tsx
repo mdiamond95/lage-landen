@@ -31,10 +31,10 @@ const communities: Part[] = [
 const labelAt: Record<string, [number, number]> = {
   'flemish-region': [4.0, 51.08],
   'walloon-region': [4.85, 50.2],
-  'brussels-region': [4.36, 50.72],
+  'brussels-region': [4.36, 50.7],
   'flemish-community': [4.0, 51.08],
   'french-community': [4.85, 50.2],
-  'german-community': [6.2, 50.08],
+  'german-community': [5.98, 50.1],
 }
 
 const frame = makeFrame({ type: 'MultiPoint', coordinates: [[2.5, 49.45], [6.45, 51.55]] }, BELGIUM_H)
@@ -75,9 +75,16 @@ function FederalMap({ title, intro, groups }: { title: string; intro: string; gr
         ))}
         {groups.map((g) => {
           const [x, y] = frame.toXY(labelAt[g.id])
+          // Long names go on two lines, so the German-speaking Community fits at the edge.
+          const cut = g.name.lastIndexOf(' ')
+          const lines = g.name.length > 20 ? [g.name.slice(0, cut), g.name.slice(cut + 1)] : [g.name]
           return (
             <text key={g.id} x={x} y={y} textAnchor="middle" className={`federal-label${picked === g.id ? ' federal-label-on' : ''}`}>
-              {g.name}
+              {lines.map((line, i) => (
+                <tspan key={line} x={x} dy={i ? '1.1em' : 0}>
+                  {line}
+                </tspan>
+              ))}
             </text>
           )
         })}
