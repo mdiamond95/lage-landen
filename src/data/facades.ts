@@ -186,6 +186,50 @@ export const facades = {
       },
     ],
   },
+  'dam-town-hall': {
+    photo: 'dam-town-hall',
+    intro:
+      'The new town hall on the Dam, as Gerrit Berckheyde painted it in 1672: a palace of stone for a city of merchants, now the Royal Palace. Tap a part, or walk along the front.',
+    spots: [
+      {
+        id: 'arches',
+        label: 'Seven arches',
+        text: 'There is no grand doorway, only seven small arches. They are often said to stand for the seven provinces of the Republic, but nothing from the time it was built says so.',
+        at: [0.45, 0.74],
+        box: [0.32, 0.67, 0.27, 0.11],
+      },
+      {
+        id: 'orders',
+        label: 'Flat columns',
+        text: 'Two rows of pilasters, columns flat against the wall, stand one above the other, as on the buildings of ancient Rome. This calm, regular style is called Dutch classicism.',
+        at: [0.2, 0.56],
+        box: [0.04, 0.46, 0.3, 0.3],
+        side: 'left',
+      },
+      {
+        id: 'pediment',
+        label: 'Pediment',
+        text: 'The triangle over the middle is filled with sculpture by Artus Quellinus and his workshop, who also carved the marble halls inside.',
+        at: [0.56, 0.44],
+        box: [0.32, 0.37, 0.28, 0.11],
+      },
+      {
+        id: 'dome',
+        label: 'Domed tower',
+        text: 'A high dome rises over the middle. From up there a lookout could see far over the city and the IJ.',
+        at: [0.48, 0.27],
+        box: [0.34, 0.18, 0.16, 0.22],
+      },
+      {
+        id: 'church',
+        label: 'Nieuwe Kerk',
+        text: 'Next door stands the Gothic Nieuwe Kerk, begun around 1400. Side by side, the two show how far taste had moved in 250 years.',
+        at: [0.86, 0.5],
+        box: [0.74, 0.25, 0.26, 0.5],
+        side: 'left',
+      },
+    ],
+  },
 } satisfies Record<string, Facade>
 
 export type FacadeId = keyof typeof facades

@@ -122,8 +122,8 @@ describe.each(files)('%s', (file) => {
     expect(lessons.length).toBeGreaterThanOrEqual(2)
   })
 
-  // Unit 3's cloth map draws trade routes, not borders, so there is nothing to wipe between.
-  it.skipIf(unit.id === 'unit-03')('sets two years of its map side by side, before and after', () => {
+  // Unit 3's cloth map draws trade routes, not borders, so its compare uses the buildings map.
+  it('sets two years of its map side by side, before and after', () => {
     const shown = unit.lessons.flatMap((l) => l.exercises).map((e) => ('visual' in e ? e.visual : undefined))
     expect(shown.some((v) => v?.kind === 'compare')).toBe(true)
   })

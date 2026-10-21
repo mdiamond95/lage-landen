@@ -159,6 +159,21 @@ lessons:
             why: Relics were kept in churches. The belfry was the town's own, non-church tower.
           - label: Bales of wool for sale
             why: Wool and cloth were sold in the cloth hall, often built right beside the belfry.
+      - type: choice
+        prompt: Wipe between 1240 and 1382 on the map of buildings. What have the towns added in those years?
+        visual: { kind: compare, map: buildings, years: [1240, 1382] }
+        answer: 0
+        options:
+          - label: The Cloth Hall of Ypres, a belfry in Ghent and the Dom tower in Utrecht
+            why: >-
+              Right. In 1240 only Tournai and Bruges had begun their belfries. By 1382 Ypres had finished its cloth hall,
+              125 metres long, Ghent had its belfry with a gilded dragon on top, and Utrecht's bishops their Dom tower.
+          - label: Nothing; the towns were too poor to build
+            why: Look at the new marks of 1382. The towns were rich from cloth.
+          - label: Royal palaces for the king of Belgium
+            why: Belgium did not exist yet. The new buildings belong to the towns and the church.
+          - label: Canal houses in Amsterdam
+            why: Amsterdam's canal ring came in the 1600s. Look at the towers and halls of Flanders.
       - type: pin
         prompt: In 1220 the count gave town rights to Dordrecht, usually called the oldest town of Holland. Pin it.
         place: dordrecht

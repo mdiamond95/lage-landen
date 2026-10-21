@@ -313,6 +313,21 @@ lessons:
         explain: >-
           Above the mirror he wrote "Johannes de eyck fuit hic 1434": Jan van Eyck was here, 1434. The man is
           probably Giovanni Arnolfini, a merchant from Lucca who lived in Bruges.
+      - type: label
+        prompt: Van Eyck filled the room with costly and telling things. Put each name on its spot.
+        photo: arnolfini
+        spots:
+          - { label: Chandelier with one candle, at: [0.52, 0.15] }
+          - { label: Mirror, at: [0.5, 0.29] }
+          - { label: Oranges, at: [0.1, 0.53] }
+          - { label: Wooden overshoes, at: [0.08, 0.89] }
+          - { label: Little dog, at: [0.53, 0.88] }
+        extra: [Cat]
+        explain: >-
+          A single candle burns in the brass chandelier in broad daylight. Oranges, shipped from the south, were a
+          luxury in Bruges. The couple have taken off their wooden overshoes, as if the floor were special, and a
+          little dog, perhaps a sign of loyalty, stands between them. Every one of these details has been read as a
+          symbol, and historians still argue about what they mean.
       - type: truemyth
         statement: One panel of the Ghent Altarpiece was stolen in 1934 and has never been found.
         visual: { kind: painting, painting: ghent-altarpiece, focus: judges }
