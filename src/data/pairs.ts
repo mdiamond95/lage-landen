@@ -257,6 +257,85 @@ export const pairs = {
       },
     ],
   },
+  plum: {
+    left: { photo: 'hiroshige-plum', title: 'Hiroshige, Edo, 1857' },
+    right: { photo: 'vg-plum', title: 'Van Gogh, Paris, 1887' },
+    intro:
+      'Van Gogh bought hundreds of cheap Japanese prints in Paris and copied a few in oil. On the left, Hiroshige’s woodcut of a plum orchard in Edo, now Tokyo; on the right, Van Gogh’s copy. Pick a way of looking.',
+    looks: [
+      {
+        id: 'trunk',
+        title: 'The trunk',
+        text: 'Both cut the picture in two with a dark, twisting trunk right in front of you, so close that its top and bottom run off the edges. Western painters had never framed a scene like that.',
+        boxes: [
+          [0.3, 0.3, 0.65, 0.55],
+          [0.15, 0.3, 0.7, 0.6],
+        ],
+      },
+      {
+        id: 'colour',
+        title: 'The colour',
+        text: 'Hiroshige’s sky fades from red to pale cream, printed from inked wood blocks. Van Gogh turns it up: a hard red sky, a yellow band of blossom, and green grass in flat patches, the colours side by side at full strength.',
+        boxes: [
+          [0.05, 0.03, 0.9, 0.5],
+          [0.12, 0, 0.76, 0.55],
+        ],
+      },
+      {
+        id: 'people',
+        title: 'The visitors',
+        text: 'Behind a fence, little figures stroll through the orchard to look at the blossom, an outing loved in Japan. Van Gogh copies them, as small dabs of colour.',
+        boxes: [
+          [0.05, 0.53, 0.9, 0.12],
+          [0.15, 0.52, 0.72, 0.1],
+        ],
+      },
+      {
+        id: 'edges',
+        title: 'The edges',
+        text: 'Hiroshige’s print has a plain margin. Look at what Van Gogh painted around his.',
+        boxes: [
+          [0, 0, 0.12, 1],
+          [0, 0, 0.13, 1],
+        ],
+      },
+    ],
+  },
+  chairs: {
+    left: { photo: 'vg-chair', title: 'Van Gogh’s chair, Arles, 1888' },
+    right: { photo: 'gauguin-chair', title: 'Gauguin’s chair, Arles, 1888' },
+    intro:
+      'In November 1888, with Gauguin living in the Yellow House, Van Gogh painted two empty chairs: his own and his friend’s. Pick a way of looking.',
+    looks: [
+      {
+        id: 'chair',
+        title: 'The chairs',
+        text: 'Van Gogh’s own is a plain kitchen chair of pale wood with a rush seat, the kind every farmhouse had. Gauguin’s is an armchair with curving arms, grander and darker.',
+        boxes: [
+          [0.15, 0.03, 0.7, 0.95],
+          [0.18, 0.02, 0.8, 0.95],
+        ],
+      },
+      {
+        id: 'light',
+        title: 'Day and night',
+        text: 'His own chair stands in daylight on a tiled floor, with a box of onions sprouting behind it. Gauguin’s stands at night: a gas lamp burns on the green wall behind it.',
+        boxes: [
+          [0, 0, 0.75, 0.45],
+          [0, 0, 0.3, 0.22],
+        ],
+      },
+      {
+        id: 'seat',
+        title: 'On the seat',
+        text: 'Each chair holds a few things that stand for its owner, as if he had just got up and left the room.',
+        boxes: [
+          [0.25, 0.38, 0.5, 0.2],
+          [0.18, 0.38, 0.4, 0.26],
+        ],
+      },
+    ],
+  },
 } satisfies Record<string, Pair>
 
 export type PairId = keyof typeof pairs

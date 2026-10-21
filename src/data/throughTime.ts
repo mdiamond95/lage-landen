@@ -1,16 +1,16 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 38 snapshots, from Caesar's conquest to the federal Belgium of 2012. Each era's lines,
+// through 39 snapshots, from Caesar's conquest to the federal Belgium of 2012. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, Burgundy, the painters' workshops, revolt,
 // the Golden Age painters, the Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
 // Belgium's first railways and coal country, the railways and canals of 1839 to 1914,
-// Belgium's front of 1914 to 1918, the war of 1940 to 1945, water and the flood of 1953,
+// Belgium's front of 1914 to 1918, the modern artists, the war of 1940 to 1945, water and the flood of 1953,
 // Belgium's language areas from 1963), and stay on the map only from the era's first
 // snapshot to its end, so one era never bleeds into another. The Delta Works and the
 // language areas share the years 1963 to 1997, so those snapshots show both keys, and
 // so do Burgundy and the painters in 1520 and 1549, and the revolt and the Golden Age painters
 // in 1642.
 // The plan's full time map runs to today with about 40 snapshots; this is the first
-// 38, for Units 1 to 17.
+// 39, for Units 1 to 18.
 
 import { bordersStory } from './borders'
 import { burgundyStory } from './burgundy'
@@ -19,6 +19,7 @@ import { industryStory } from './industry'
 import { kingdomStory } from './kingdom'
 import { languageByYear } from './language'
 import { mastersStory } from './masters'
+import { modernsStory } from './moderns'
 import { occupationByYear } from './occupation'
 import { paintersStory } from './painters'
 import { railsStory } from './rails'
@@ -124,6 +125,10 @@ const earlyRailsStory: TimeStory = {
 // the Spanish Netherlands that follow. The revolt map already names the two countries.
 const goldenAgeStory: TimeStory = { ...mastersStory, max: 1647, labels: mastersStory.labels.filter((l) => l.kind !== 'territory') }
 
+// The modern artists (Unit 18) in 1917, the year of De Stijl. Their map runs on to 1973,
+// but here it ends before the war of 1940, and keeps only the country names of its labels.
+const modernArtStory: TimeStory = { ...modernsStory, max: 1939, labels: modernsStory.labels.filter((l) => l.kind === 'territory') }
+
 // The stage each snapshot shows, taken from its era's own captions unless given here.
 // `also` is another era still on the map at that snapshot, whose key is shown too.
 type Snapshot = { story: TimeStory; from: number; event?: Omit<HistEvent, 'from'>; also?: TimeStory }
@@ -158,6 +163,7 @@ const snapshots: Snapshot[] = [
   { story: railsStory, from: 1890 },
   { story: railsStory, from: 1914 },
   { story: greatWarByYear, from: 1915 },
+  { story: modernArtStory, from: 1917 },
   { story: occupationByYear, from: 1940 },
   { story: occupationByYear, from: 1944 },
   { story: occupationByYear, from: 1945 },

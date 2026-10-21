@@ -116,6 +116,31 @@ function FlagV({ colours }: { colours: [string, string, string] }) {
   )
 }
 
+// One tile that fills the plane, the trick Escher learned from the Alhambra: what bulges
+// out of one side is cut out of the opposite side, so the tiles lock together.
+const TILE = 'M0 0C10-10 30 10 40 0C30 10 50 30 40 40C30 50 10 30 0 40C10 30-10 10 0 0Z'
+function Tessellation() {
+  const tiles = []
+  for (let row = 0; row < 5; row++)
+    for (let col = 0; col < 6; col++)
+      tiles.push(
+        <path
+          key={`${row}-${col}`}
+          d={TILE}
+          transform={`translate(${col * 40 - 20} ${row * 40 - 25})`}
+          fill={(row + col) % 2 ? 'var(--art-water)' : 'var(--art-thatch)'}
+          stroke="var(--art-ink)"
+          strokeWidth="1.2"
+        />,
+      )
+  return (
+    <g>
+      <rect width="200" height="150" fill="var(--art-sail)" />
+      {tiles}
+    </g>
+  )
+}
+
 const pieces: Record<ArtId, { draw: () => React.ReactElement; alt: string }> = {
   windmill: { draw: Windmill, alt: 'A drainage windmill beside a ditch' },
   terp: { draw: Terp, alt: 'A farmhouse on a raised mound surrounded by water' },
@@ -126,6 +151,7 @@ const pieces: Record<ArtId, { draw: () => React.ReactElement; alt: string }> = {
   'flag-lu': { draw: () => <FlagH colours={['#EA141D', '#FFFFFF', '#51ADDA']} />, alt: 'Red, white and light blue horizontal stripes' },
   'flag-de': { draw: () => <FlagH colours={['#000000', '#DD0000', '#FFCC00']} />, alt: 'Black, red and gold horizontal stripes' },
   'flag-be': { draw: () => <FlagV colours={['#000000', '#FDDA24', '#EF3340']} />, alt: 'Black, yellow and red vertical stripes' },
+  tessellation: { draw: Tessellation, alt: 'Interlocking tiles of one curved shape in two colours, filling the whole picture without gaps' },
 }
 
 export function Art({ id, className }: { id: ArtId; className?: string }) {

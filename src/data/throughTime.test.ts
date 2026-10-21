@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 38 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(38)
+  it('has 39 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(39)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -46,6 +46,10 @@ describe('time map through the eras', () => {
     // The front of 1915: Belgium occupied but for the corner behind the Yser, gone by 1940.
     expect(kinds(1915).has('occupied') && kinds(1915).has('belgium')).toBe(true)
     expect(kinds(1915).has('coal')).toBe(false)
+    // The modern artists of 1917 stand on a map without the front, and are gone by 1940.
+    expect(kinds(1917).has('occupied')).toBe(false)
+    expect(at(1917).some((x) => 'text' in x && x.text === 'NETHERLANDS')).toBe(true)
+    expect(at(1940).some((x) => 'text' in x && x.text === 'NETHERLANDS')).toBe(false)
     expect(kinds(1940).has('occupied')).toBe(true)
     expect(kinds(1940).has('free')).toBe(false)
     expect(kinds(1944).has('occupied') && kinds(1944).has('free')).toBe(true)

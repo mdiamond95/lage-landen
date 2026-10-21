@@ -1,0 +1,1105 @@
+id: unit-18
+number: 18
+title: Modern art
+era: 1880 to 1973
+summary: In 1880 a failed preacher in the Borinage decided to become an artist. Within ten years Vincent van Gogh had turned the dark colours of the Hague School into the blazing yellows of Arles. In Ostend, James Ensor filled his paintings with masks; in Brussels, Les XX showed the newest art in Europe. Piet Mondrian turned a tree into a grid of lines and colour, René Magritte painted a pipe and wrote that it was not one, and M. C. Escher drew stairs that climb for ever. Learn to tell their styles apart, one painting at a time.
+note: Two lessons in this unit touch on mental illness, self-harm and suicide, and on the murder of a Jewish artist and his family in the Holocaust.
+lessons:
+  - id: u18-l1
+    title: Learning to paint
+    icon: pencil
+    sources:
+      - title: "Van Gogh Museum, Van Gogh's life"
+        url: https://www.vangoghmuseum.nl/en/art-and-stories/vincent-van-gogh-faq
+      - title: "Vincent van Gogh, The Letters, letter 497 to Theo, 30 April 1885"
+        url: https://vangoghletters.org/vg/letters/let497/letter.html
+      - title: "Vincent van Gogh, The Letters, letter 503 from Anthon van Rappard, 24 May 1885"
+        url: https://vangoghletters.org/vg/letters/let503/letter.html
+      - title: "Wikipedia, Sorrow (Van Gogh)"
+        url: https://en.wikipedia.org/wiki/Sorrow_(Van_Gogh)
+      - title: "Wikipedia, Anton Mauve"
+        url: https://en.wikipedia.org/wiki/Anton_Mauve
+      - title: "Wikipedia, Van Gogh Museum (the thefts of 1991 and 2002)"
+        url: https://en.wikipedia.org/wiki/Van_Gogh_Museum
+      - title: "Wikipedia, Still Life with Bible"
+        url: https://en.wikipedia.org/wiki/Still_Life_with_Bible
+      - title: "Van Gogh Museum, Flowering Plum Orchard (after Hiroshige)"
+        url: https://www.vangoghmuseum.nl/en/collection/s0115V1962
+      - title: "Van Gogh Museum, Courtesan (after Eisen)"
+        url: https://www.vangoghmuseum.nl/en/collection/s0116V1962
+    exercises:
+      - type: story
+        title: A late start
+        body: >-
+          Vincent van Gogh had been an art dealer, a teacher and a preacher among the coal miners of the Borinage
+          when, in 1880, at 27, he decided to become an artist. He had almost no training. He taught himself by
+          drawing, then painting, and in ten years he went from the dark browns of Brabant to the blazing colours of
+          the south of France. Drag the slider along his road.
+        visual: { kind: series, series: van-gogh }
+      - type: scrub
+        prompt: Drag the slider to a stage when Van Gogh is living in The Hague and taking lessons from the painter Anton Mauve.
+        map: moderns
+        start: 1880
+        answer: [1882, 1883]
+        explain: >-
+          Van Gogh moved to The Hague at the end of 1881 and stayed until September 1883. Mauve, a painter of the
+          Hague School married to a cousin of Van Gogh's mother, gave him his first lessons in painting.
+      - type: choice
+        prompt: Van Gogh drew Sorrow in The Hague in April 1882. Who was his model?
+        visual: { kind: photo, photo: vg-sorrow }
+        answer: 0
+        options:
+          - label: Sien Hoornik, a pregnant woman he had taken in with her little daughter
+            why: >-
+              Right. Sien had worked as a prostitute and was expecting a child. Van Gogh took her in, drew her again
+              and again, and wanted to marry her. His family, and Mauve, turned against him for it, and he left her
+              in 1883.
+          - label: His sister Willemien
+            why: His sister lived with their parents in Brabant. The model was a woman he met in The Hague.
+          - label: A model from the art academy
+            why: Van Gogh could hardly pay models. This was someone who shared his life.
+          - label: His mother
+            why: His mother lived in Brabant, and was in her sixties.
+      - type: choice
+        prompt: Anton Mauve, who painted this beach at Scheveningen, gave Van Gogh lessons in 1881 and 1882. How did it end?
+        visual: { kind: photo, photo: mauve-ride }
+        answer: 0
+        options:
+          - label: They fell out within months, over Sien and over drawing from plaster casts
+            why: >-
+              Right. Mauve wanted him to draw from plaster casts, and Van Gogh smashed them. When Mauve heard about Sien
+              he broke with him. Still, when Mauve died in 1888, Van Gogh wrote "Souvenir de Mauve" on a painting of
+              blossoming peach trees and sent it to his widow.
+          - label: Mauve made him his partner
+            why: There was no partnership. They quarrelled.
+          - label: Van Gogh became famous as Mauve's best pupil
+            why: Nobody knew Van Gogh's work while Mauve was alive.
+          - label: Mauve sent him to the Paris academy
+            why: Van Gogh only went to an academy once, in Antwerp, years later.
+      - type: truemyth
+        statement: This seascape was stolen from the Van Gogh Museum in 2002 and has never been seen since.
+        visual: { kind: photo, photo: vg-sea-1882 }
+        answer: false
+        explain: >-
+          Myth. Thieves did take it, with a painting of churchgoers in Nuenen, in December 2002. In September 2016 the
+          Italian police found both in a villa near Naples that belonged to a drug trafficker of the Camorra, and they
+          went back to Amsterdam. Van Gogh painted it on the beach at Scheveningen in a storm in August 1882; grains
+          of sand blown into the wet paint are still in it.
+      - type: voices
+        prompt: Van Gogh sent a print of his Potato Eaters to his friend, the painter Anthon van Rappard. Read what each wrote. What divides them?
+        voices:
+          - who: Vincent van Gogh, to his brother Theo
+            when: Nuenen, 30 April 1885
+            text: "…these folk, who are eating their potatoes by the light of their little lamp, have tilled the earth themselves … and have thus honestly earned their food."
+            photo: potato-eaters
+          - who: Anthon van Rappard, to Van Gogh
+            when: Utrecht, 24 May 1885
+            text: "You'll agree with me that such work isn't intended seriously. … That coquettish little hand of that woman at the back, how untrue! … And why must his arm be a metre too short?"
+        answer: 0
+        options:
+          - Van Gogh cares about what the picture says about peasant life; Rappard judges it by how correctly it is drawn
+          - Both think the drawing is too careless
+          - They argue about the price of the print
+          - Rappard thinks the peasants are too poor to be painted
+        explain: >-
+          Van Gogh wanted people to feel the hard work in those hands; Rappard saw clumsy, untrue drawing. Van Gogh
+          sent the letter back, and their five-year friendship never recovered. The Potato Eaters is now one of the
+          most famous paintings in the Van Gogh Museum.
+      - type: hunt
+        prompt: Van Gogh painted his late father's Bible in October 1885, some months after his father died. Find the book that is not a Bible.
+        photo: vg-bible
+        targets:
+          - [0.64, 0.6, 0.28, 0.25]
+        explain: >-
+          The battered yellow paperback is La joie de vivre, "The joy of living", a novel by Émile Zola, the kind of
+          modern book his father, a preacher, disliked. The Bible lies open at the book of Isaiah, and a snuffed-out
+          candle stands beside it.
+      - type: choice
+        prompt: Van Gogh painted this in Antwerp, early in 1886, while he was a student at the art academy. What is it?
+        visual: { kind: photo, photo: vg-skull }
+        answer: 0
+        options:
+          - label: A joke about the anatomy drawing he was made to do
+            why: >-
+              Right. At the academy he had to draw skeletons and plaster casts. A skeleton with a lit cigarette between
+              its teeth looks like a student prank. He soon left Antwerp for Paris.
+          - label: A warning against smoking, painted for a doctor
+            why: Nobody ordered it. It is a student's joke.
+          - label: A portrait of his father after his death
+            why: It is a skeleton from the academy's drawing class.
+          - label: A study for a church altar
+            why: Nothing about it is religious.
+      - type: choice
+        prompt: In Paris in 1887 Van Gogh painted a copy of a Japanese print by Hiroshige. Look at both. What did he add that is not in the print?
+        visual: { kind: pair, pair: plum }
+        answer: 0
+        options:
+          - label: A border of Japanese characters, copied from other prints
+            why: >-
+              Right. He painted a red and orange border and filled it with Japanese characters taken from other prints.
+              He could not read them; he liked the way they looked.
+          - label: The black tree trunk across the front
+            why: That trunk is in Hiroshige's print too. Look at the edges.
+          - label: The people behind the fence
+            why: Hiroshige's print has the little figures too.
+          - label: The red sky
+            why: Hiroshige's sky turns red as well. Look at the edges.
+      - type: choice
+        prompt: Van Gogh copied this Japanese courtesan from the cover of a Paris magazine and set her in a pond with frogs and cranes. Why frogs and cranes?
+        visual: { kind: photo, photo: vg-courtesan }
+        answer: 0
+        options:
+          - label: In French slang, both words meant a prostitute
+            why: >-
+              Right. "Grue", a crane, and "grenouille", a frog, were slang for a prostitute. He copied her from a woodcut
+              by Keisai Eisen on the cover of Paris Illustré, in an issue about Japan from May 1886.
+          - label: They were Theo's favourite animals
+            why: There is no sign of that. It is a joke in French.
+          - label: They were in the magazine's picture
+            why: The magazine showed only the woman. He added the pond.
+          - label: Frogs and cranes stand for Holland
+            why: They stand for something else, in Paris slang.
+      - type: match
+        prompt: Match each place on Van Gogh's road to what he did there.
+        pairs:
+          - [The Borinage, Preached to the miners and began drawing them]
+          - [The Hague, Lessons from Mauve; lived with Sien]
+          - [Nuenen, Painted weavers and The Potato Eaters]
+          - [Antwerp, A few weeks at the academy]
+          - [Paris, Japanese prints and bright colour]
+      - type: odd
+        prompt: Three of these Van Gogh painted in the Netherlands. Which is the odd one out, and why?
+        items:
+          - { label: Sorrow, photo: vg-sorrow }
+          - { label: Still life with Bible, photo: vg-bible }
+          - { label: The Potato Eaters, photo: potato-eaters }
+          - { label: Flowering plum orchard, photo: vg-plum }
+        answer: 3
+        reasons:
+          - It was painted in Paris, after Japanese prints, in bright flat colour
+          - It is a drawing, not a painting
+          - It is not by Van Gogh
+        reason: 0
+        explain: >-
+          Sorrow (The Hague, 1882), the Bible (Nuenen, 1885) and The Potato Eaters (Nuenen, 1885) belong to his dark
+          Dutch years. In Paris, in 1887, Japanese prints and the young painters around him brought the colour in.
+
+  - id: u18-l2
+    title: Colour in the south
+    icon: sunflower
+    note: This lesson mentions mental illness, self-harm and Van Gogh's death by a gunshot wound, probably by his own hand.
+    sources:
+      - title: "Van Gogh Museum, Van Gogh's life"
+        url: https://www.vangoghmuseum.nl/en/art-and-stories/vincent-van-gogh-faq
+      - title: "Vincent van Gogh, The Letters, letter 676 to Theo, 8 September 1888"
+        url: https://vangoghletters.org/vg/letters/let676/letter.html
+      - title: "Wikipedia, The Yellow House"
+        url: https://en.wikipedia.org/wiki/The_Yellow_House
+      - title: "Wikipedia, Van Gogh's Chair"
+        url: https://en.wikipedia.org/wiki/Van_Gogh%27s_Chair
+      - title: "Wikipedia, Bedroom in Arles"
+        url: https://en.wikipedia.org/wiki/Bedroom_in_Arles
+      - title: "Wikipedia, Self-Portrait with Bandaged Ear"
+        url: https://en.wikipedia.org/wiki/Self-Portrait_with_Bandaged_Ear
+      - title: "The Guardian, Van Gogh's ear: the true story (Bernadette Murphy and Dr Rey's drawing), 2016"
+        url: https://www.theguardian.com/artanddesign/2016/jul/12/van-gogh-ear-mystery-solved-new-evidence-shows-he-cut-off-the-whole-ear
+      - title: "Wikipedia, Irises (painting)"
+        url: https://en.wikipedia.org/wiki/Irises_(painting)
+      - title: "Wikipedia, Almond Blossoms"
+        url: https://en.wikipedia.org/wiki/Almond_Blossoms
+      - title: "Wikipedia, Portrait of Dr. Gachet"
+        url: https://en.wikipedia.org/wiki/Portrait_of_Dr._Gachet
+      - title: "Wikipedia, Death of Vincent van Gogh"
+        url: https://en.wikipedia.org/wiki/Death_of_Vincent_van_Gogh
+    exercises:
+      - type: story
+        title: The studio of the south
+        body: >-
+          In February 1888 Van Gogh left Paris for Arles, in Provence, chasing the light of the south. In May he
+          rented four rooms in a yellow house on a square and dreamed of a studio where painters would live and work
+          together. Only one came: Paul Gauguin, in October. In the two and a half years he had left, Van Gogh painted
+          the pictures the world now knows best.
+        visual: { kind: photo, photo: vg-yellow-house }
+      - type: scrub
+        prompt: Drag the slider to a stage when Van Gogh is in the south of France.
+        map: moderns
+        start: 1880
+        answer: [1888, 1889]
+        explain: >-
+          Arles from February 1888, then a year in the asylum at Saint-Rémy from May 1889. In May 1890 he moved north
+          to Auvers-sur-Oise, near Paris, where he died that July.
+      - type: choice
+        prompt: With Gauguin living in the Yellow House, Van Gogh painted his own chair and Gauguin's. Look at what lies on Gauguin's seat. What is it?
+        visual: { kind: pair, pair: chairs, focus: seat }
+        answer: 0
+        options:
+          - label: A lit candle and two novels
+            why: >-
+              Right. Van Gogh's own plain rush chair holds his pipe and tobacco, in daylight. Gauguin's armchair stands
+              in the night, under a gas lamp, with a candle and modern novels: a portrait of the man of books and
+              imagination, without the man.
+          - label: A pipe and tobacco
+            why: Those lie on Van Gogh's own chair.
+          - label: A palette and brushes
+            why: Look again. The light on the seat comes from something burning.
+          - label: Sunflowers
+            why: No flowers on the seat. Look at the flame.
+      - type: gap
+        prompt: Van Gogh painted the night café near his house, where people slept off their drink. He told Theo what he was after. Fill the gap.
+        quote: "I've tried to express the terrible human passions with the red and the ___."
+        source: Vincent van Gogh to his brother Theo, Arles, 8 September 1888
+        visual: { kind: photo, photo: vg-night-cafe }
+        options: [green, blue, yellow, black]
+        answer: 0
+        explain: >-
+          Red walls against a green billiard table and green ceiling: colours that clash on purpose. "The room is
+          blood-red and dull yellow, a green billiard table in the centre," he wrote. He painted it over three nights.
+      - type: hunt
+        prompt: In his bedroom in the Yellow House, Van Gogh hung portraits of two friends above the bed. Find them.
+        photo: vg-bedroom
+        targets:
+          - [0.62, 0, 0.22, 0.15]
+        explain: >-
+          One is the Belgian painter Eugène Boch, whose sister Anna Boch would buy The Red Vineyard; the other is the
+          soldier Paul-Eugène Milliet. Van Gogh painted the bedroom in October 1888 to show rest, in flat, bright colour.
+      - type: choice
+        prompt: In December 1888 Gauguin painted his friend at work. Why can't this scene have happened as it looks?
+        visual: { kind: photo, photo: gauguin-vincent }
+        answer: 0
+        options:
+          - label: Sunflowers don't flower in December
+            why: >-
+              Right. Van Gogh had painted his sunflowers in August, to decorate Gauguin's room. Gauguin painted him from
+              memory and imagination.
+          - label: Van Gogh never painted outdoors
+            why: He painted outdoors all the time. The problem is the flowers.
+          - label: Van Gogh painted left-handed
+            why: There is no sign of that. Think about the season.
+          - label: Gauguin had already left Arles
+            why: Gauguin was still there in December. Think about the flowers.
+      - type: truemyth
+        statement: On 23 December 1888, after a quarrel with Gauguin, Van Gogh cut off only a small piece of his ear lobe.
+        visual: { kind: photo, photo: vg-bandaged }
+        answer: false
+        explain: >-
+          Myth, it seems. For more than a century many believed he cut off only part of the lobe. In 2016 the
+          historian Bernadette Murphy found a drawing by Dr Félix Rey, who treated him in Arles, showing that almost
+          the whole left ear was cut off. Here the bandage is on his right side because he painted himself in a
+          mirror. Gauguin left for Paris, and the two never met again.
+      - type: choice
+        prompt: In May 1889 Van Gogh asked to be taken into the asylum at Saint-Rémy, near Arles. What did he paint in his first week there?
+        visual: { kind: photo, photo: vg-irises }
+        answer: 0
+        options:
+          - label: Irises in the asylum garden
+            why: >-
+              Right. He called painting "the lightning conductor for my illness". In a year at Saint-Rémy he painted
+              about 150 pictures, among them The Starry Night, the view from his window before sunrise.
+          - label: A portrait of the director
+            why: That came later, if at all. Look at the garden.
+          - label: The sea at Saintes-Maries
+            why: He painted the sea in 1888, before the asylum.
+          - label: Sunflowers in a vase
+            why: These are not sunflowers.
+      - type: choice
+        prompt: In February 1890 Theo and his wife Jo had a son, and named him Vincent. What did the painter make for the baby?
+        visual: { kind: photo, photo: vg-almond }
+        answer: 0
+        options:
+          - label: Branches of almond blossom against a blue sky, to hang above the parents' bed
+            why: >-
+              Right. Almond trees flower early in Provence, a sign of new life. The baby, Vincent Willem van Gogh,
+              grew up to found the Van Gogh Museum.
+          - label: A cradle he carved himself
+            why: He painted something for the baby's room.
+          - label: A portrait of the baby
+            why: He had not seen the baby yet. He painted a tree in flower.
+          - label: A copy of a Japanese print of cranes
+            why: It looks Japanese, but it is a branch of blossom.
+      - type: choice
+        prompt: Dr Paul Gachet looked after Van Gogh in Auvers-sur-Oise in his last weeks. In 1990 a version of this portrait set a record. What was it?
+        visual: { kind: photo, photo: vg-gachet }
+        answer: 0
+        options:
+          - label: It sold for $82.5 million, then the highest price ever paid for a painting
+            why: >-
+              Right. A Japanese businessman, Ryoei Saito, bought it at Christie's in New York in May 1990. The doctor
+              holds a sprig of foxglove, the plant that gives the heart drug digitalis.
+          - label: It was the first painting sent into space
+            why: No painting has been sent into space. It made money history.
+          - label: It drew the biggest crowd ever seen at a museum
+            why: It was sold, not shown.
+          - label: It was the first Van Gogh to go to a museum
+            why: Museums had bought Van Goghs long before 1990.
+      - type: truemyth
+        statement: Everyone agrees on how Van Gogh died.
+        visual: { kind: photo, photo: vg-auvers-church }
+        answer: false
+        explain: >-
+          Myth. On 27 July 1890 Van Gogh was wounded by a gunshot in the chest, and he died two days later with Theo
+          beside him. He said he had shot himself, and most historians, including the researchers of the Van Gogh
+          Museum, accept that. In 2011 two biographers, Steven Naifeh and Gregory White Smith, argued it may have been
+          an accident or someone else's doing; the museum's researchers answered them in 2013. Theo died six months
+          after his brother.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Japanese prints in Paris, Flat bright colour and strong outlines]
+          - [Theo sent him money every month, He could paint full-time without selling]
+          - [Gauguin threatened to leave Arles, The night of the ear in December 1888]
+          - [Jo van Gogh-Bonger kept the paintings and letters, The world came to know him after his death]
+        explain: >-
+          Van Gogh sold hardly anything in his life. Theo's money kept him painting, and Theo's widow Jo made him famous,
+          lending his paintings to exhibitions and publishing his letters in 1914.
+
+  - id: u18-l3
+    title: Masks and the Twenty
+    icon: mask
+    sources:
+      - title: "Wikipedia, James Ensor"
+        url: https://en.wikipedia.org/wiki/James_Ensor
+      - title: "Wikipedia, Christ's Entry Into Brussels in 1889"
+        url: https://en.wikipedia.org/wiki/Christ%27s_Entry_Into_Brussels_in_1889
+      - title: "J. Paul Getty Museum, Christ's Entry into Brussels in 1889"
+        url: https://www.getty.edu/art/collection/object/103RBA
+      - title: "Wikipedia, Les XX"
+        url: https://en.wikipedia.org/wiki/Les_XX
+      - title: "Wikipedia (Dutch), De oestereetster"
+        url: https://nl.wikipedia.org/wiki/De_oestereetster
+      - title: "Wikipedia, Henry de Groux"
+        url: https://en.wikipedia.org/wiki/Henry_de_Groux
+      - title: "Wikipedia, Anna Boch"
+        url: https://en.wikipedia.org/wiki/Anna_Boch
+      - title: "Royal Museums of Fine Arts of Belgium, Fernand Khnopff, Caresses"
+        url: https://fine-arts-museum.be/en/the-collection/artist/khnopff-fernand-1/artwork/caresses
+      - title: "Wikipedia, Rik Wouters"
+        url: https://en.wikipedia.org/wiki/Rik_Wouters
+      - title: "Wikipedia, Léon Spilliaert"
+        url: https://en.wikipedia.org/wiki/L%C3%A9on_Spilliaert
+    exercises:
+      - type: story
+        title: A shop full of masks
+        body: >-
+          James Ensor grew up in Ostend above his parents' souvenir shop, among seashells, Chinese porcelain and the
+          masks sold for the town's carnival. Masks never left his paintings. In 1883 he and other young artists who
+          were tired of being turned down by the official exhibitions founded their own society in Brussels: Les XX,
+          the Twenty. For ten years it showed the newest art in Europe.
+        visual: { kind: photo, photo: ensor-masks }
+      - type: hunt
+        prompt: In 1888 Ensor painted a crowd of thousands marching into Brussels behind a band. The painting is named after one small figure. Find Christ.
+        photo: ensor-entry
+        targets:
+          - [0.41, 0.27, 0.1, 0.19]
+        explain: >-
+          Christ rides a donkey near the middle, a small figure with a yellow halo, raising a hand in blessing. Nobody
+          in the crowd is looking at him. Some say he has Ensor's own face.
+      - type: story
+        title: Christ's Entry into Brussels in 1889
+        body: >-
+          Ensor painted it in 1888, on a canvas more than four metres wide, and set the scene a year in the future.
+          Since 1987 it has hung in the Getty Museum in Los Angeles. Take the tour.
+        visual: { kind: painting, painting: ensor-entry }
+      - type: choice
+        prompt: What does the big red banner over the crowd say?
+        visual: { kind: painting, painting: ensor-entry, focus: banner }
+        answer: 0
+        options:
+          - label: "Vive la sociale: long live the social revolution"
+            why: >-
+              Right. In the 1880s Belgian workers were striking and marching for the vote. Ensor's Christ arrives not to
+              a pious welcome but to a carnival of politics, brass bands and masks.
+          - label: Welcome to Brussels
+            why: Look at the words again. They are a political slogan.
+          - label: Long live the King
+            why: The banner cheers on something else.
+          - label: Les XX
+            why: The banner is a political slogan, not the name of his society.
+      - type: truemyth
+        statement: Les XX hung Christ's Entry into Brussels in their exhibition of 1889.
+        visual: { kind: painting, painting: ensor-entry, focus: masks }
+        answer: false
+        explain: >-
+          Myth. Even his own society turned it down. It was first shown in public in 1929, the year King Albert made
+          Ensor a baron. Today it is seen as one of the first great Expressionist paintings.
+      - type: who
+        photo: ensor-easel
+        clues:
+          - I was born in Ostend in 1860, to an English father and a Flemish mother who kept a souvenir shop.
+          - The carnival masks in that shop fill my paintings.
+          - I was a founder of Les XX in 1883, but they would not show my biggest painting.
+          - The king made me a baron in 1929, and I died in Ostend in 1949, aged 89.
+        options: [James Ensor, Fernand Khnopff, Léon Spilliaert, Rik Wouters]
+        answer: 0
+        explain: >-
+          James Ensor, painting himself at his easel. He spent almost his whole life in Ostend; his house above the shop
+          is now a museum.
+      - type: choice
+        prompt: In 1882 Ensor painted a young woman eating oysters alone at a table laid for a feast. A Brussels exhibition society, L'Essor, turned the painting down. Who was she?
+        visual: { kind: photo, photo: ensor-oyster }
+        answer: 0
+        options:
+          - label: His sister Mitche
+            why: >-
+              Right, his younger sister Mariette, called Mitche. After L'Essor said no, in October 1883 Ensor, Fernand Khnopff,
+              Théo van Rysselberghe and other young artists founded Les XX, and each year they invited foreign artists to
+              show with them in Brussels. The painting hangs in Antwerp.
+          - label: The queen of the Belgians
+            why: A queen would not eat alone in a plain dining room. It is someone from his family.
+          - label: A model from the Brussels academy
+            why: He painted at home in Ostend, and the model was family.
+          - label: His mother
+            why: His mother ran the shop downstairs. The woman at the table is younger.
+      - type: choice
+        prompt: In 1887 Les XX showed this huge painting by Georges Seurat, made of tiny dots of pure colour. Which Les XX painter took up the dots?
+        visual: { kind: photo, photo: seurat-jatte }
+        answer: 0
+        options:
+          - label: Théo van Rysselberghe
+            why: >-
+              Right. Van Rysselberghe had met Seurat's friends in Paris and became the leading Belgian painter of dots,
+              pointillism, for the next ten years.
+          - label: James Ensor
+            why: Ensor went his own way, with thick paint and masks.
+          - label: Fernand Khnopff
+            why: Khnopff painted smooth, dreamlike pictures.
+          - label: Vincent van Gogh
+            why: Van Gogh tried dots in Paris, but he was not a member of Les XX.
+      - type: choice
+        prompt: Van Rysselberghe painted Anna Boch, the only woman among Les XX. At their show of 1890 she bought something hardly anyone wanted. What?
+        visual: { kind: photo, photo: anna-boch }
+        answer: 0
+        options:
+          - label: The Red Vineyard by Van Gogh
+            why: >-
+              Right. Six Van Goghs hung at Les XX in 1890. Another member, Henry de Groux, refused to have his work in the
+              same room as Van Gogh's and was thrown out of the group. Anna Boch, whose brother Eugène was Van Gogh's
+              friend, bought The Red Vineyard.
+          - label: The whole exhibition
+            why: She bought one painting, by a painter few liked.
+          - label: Ensor's Christ's Entry into Brussels
+            why: That stayed in Ensor's house for decades.
+          - label: A Japanese print collection
+            why: She bought a painting by a Dutchman in France.
+      - type: choice
+        prompt: Fernand Khnopff, a founder of Les XX, painted Caresses in 1896. Who leans her head against the young man?
+        visual: { kind: photo, photo: khnopff-caresses }
+        answer: 0
+        options:
+          - label: A sphinx, with a woman's face on the body of a spotted big cat
+            why: >-
+              Right. Khnopff was a Symbolist: he painted dreams, myths and mysteries. The face is that of his sister
+              Marguerite, who appears in many of his pictures.
+          - label: His dog
+            why: Look at the face. It is a woman's.
+          - label: A leopard from the zoo
+            why: Look at the face. It is a creature of myth.
+          - label: A carnival dancer in a costume
+            why: She is not in costume. She is a creature from a Greek myth.
+      - type: style
+        prompt: Symbolism, pointillism or realism? Name the style of each painting.
+        groups: [Symbolism, Pointillism, Realism]
+        items:
+          - photo: toorop-brides
+            title: Jan Toorop, The Three Brides, 1893
+            group: 0
+            tell: "Long, flowing lines, ghostly figures and bells: a dream of good and evil, not a scene you could see."
+            box: [0.25, 0.15, 0.5, 0.55]
+          - photo: khnopff-caresses
+            title: Fernand Khnopff, Caresses, 1896
+            group: 0
+            tell: A sphinx from a Greek myth and a young man with half-closed eyes, in still, smooth paint.
+            box: [0.1, 0, 0.3, 0.6]
+          - photo: anna-boch
+            title: Théo van Rysselberghe, Anna Boch, about 1889
+            group: 1
+            tell: Look closely at the background. It is built of small separate dots of colour, set side by side.
+            box: [0.03, 0.03, 0.35, 0.3]
+          - photo: seurat-jatte
+            title: Georges Seurat, A Sunday on La Grande Jatte, 1884 to 1886
+            group: 1
+            tell: Zoom in on the grass. Thousands of dots of pure colour mix in your eye from a distance.
+            box: [0.35, 0.65, 0.25, 0.25]
+          - photo: potato-eaters
+            title: Vincent van Gogh, The Potato Eaters, 1885
+            group: 2
+            tell: Real peasants at a real table, in the earthy browns of the Hague School. Nothing is dreamt.
+            box: [0.1, 0.15, 0.8, 0.6]
+          - photo: mauve-ride
+            title: Anton Mauve, Morning Ride on the Beach, 1876
+            group: 2
+            tell: An everyday scene on the beach at Scheveningen, painted as he saw it, in soft grey light.
+            box: [0.3, 0.2, 0.45, 0.55]
+        explain: >-
+          Symbolists such as Khnopff and Toorop painted ideas and dreams; pointillists such as Seurat and Van
+          Rysselberghe built pictures from dots; the realists of the Hague School painted what was in front of them.
+      - type: choice
+        prompt: Léon Spilliaert, from Ostend like Ensor, drew himself in 1907, at 26. What fills his pictures?
+        visual: { kind: photo, photo: spilliaert-self }
+        answer: 0
+        options:
+          - label: Night, the empty promenade and the sea, lonely figures
+            why: >-
+              Right. Spilliaert worked in dark washes of ink: empty halls, the promenade at night, women waiting by the
+              sea. He could not sleep, and walked Ostend at night.
+          - label: Bright beach crowds in summer
+            why: His Ostend is empty and dark.
+          - label: Masks and skeletons, like Ensor's
+            why: That is Ensor. Spilliaert's world is quiet and empty.
+          - label: Battles of the Great War
+            why: He drew the town and the sea, not battles.
+      - type: choice
+        prompt: Rik Wouters, the leading young painter in Belgium, painted himself with a black patch over one eye in 1915. Why the patch?
+        visual: { kind: photo, photo: wouters-eyepatch }
+        answer: 0
+        options:
+          - label: He had cancer and had lost an eye
+            why: >-
+              Right. Wouters was a soldier in 1914; after the fall of Antwerp he was held in camps in the neutral
+              Netherlands, at Amersfoort and Zeist. Cancer took his eye, and he died in Amsterdam in July 1916, at 33.
+          - label: He was wounded in battle at the Yser
+            why: He was interned in the Netherlands, far from the Yser. It was an illness.
+          - label: It was a pirate costume for the carnival
+            why: There was nothing to celebrate. He was ill.
+          - label: He was copying a portrait by Ensor
+            why: It is his own face, and his own illness.
+      - type: cause
+        prompt: Link each event in the story of Les XX to what followed.
+        pairs:
+          - [L'Essor turned down The Oyster Eater, Ensor and his friends founded Les XX]
+          - [Seurat's Grande Jatte was shown in Brussels in 1887, Van Rysselberghe took up painting in dots]
+          - [Six Van Goghs hung at Les XX in 1890, Anna Boch bought The Red Vineyard]
+          - [Henry de Groux refused to hang beside Van Gogh, He was thrown out of Les XX]
+        explain: >-
+          Les XX turned Brussels into one of the capitals of new art. After ten shows the group broke up in 1893 and
+          its secretary, Octave Maus, started La Libre Esthétique.
+
+  - id: u18-l4
+    title: From a tree to a grid
+    icon: grid
+    sources:
+      - title: "Wikipedia, Piet Mondrian"
+        url: https://en.wikipedia.org/wiki/Piet_Mondrian
+      - title: "Kunstmuseum Den Haag, Mondrian"
+        url: https://www.kunstmuseum.nl/en/collection/highlights/piet-mondriaan
+      - title: "Wikipedia, De Stijl"
+        url: https://en.wikipedia.org/wiki/De_Stijl
+      - title: "Wikisource, Manifest I of The Style, 1918"
+        url: https://en.wikisource.org/wiki/Manifest_I_of_The_Style_1918
+      - title: "Wikipedia, Theo van Doesburg"
+        url: https://en.wikipedia.org/wiki/Theo_van_Doesburg
+      - title: "Wikipedia, Red and Blue Chair"
+        url: https://en.wikipedia.org/wiki/Red_and_Blue_Chair
+      - title: "Wikipedia, Broadway Boogie Woogie"
+        url: https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie
+      - title: "Wikipedia, Victory Boogie Woogie"
+        url: https://en.wikipedia.org/wiki/Victory_Boogie_Woogie
+      - title: "Wikipedia, Mondrian dress (Yves Saint Laurent, 1965)"
+        url: https://en.wikipedia.org/wiki/Mondrian_dress
+    exercises:
+      - type: story
+        title: A tree turns into lines
+        body: >-
+          Piet Mondriaan, from Amersfoort, began as a painter of polders, windmills and trees in the manner of the
+          Hague School. Over thirty-five years he took away everything but straight lines and pure colour, and his
+          grids of red, yellow and blue became some of the best-known pictures of the twentieth century. Drag the
+          slider and watch the tree disappear.
+        visual: { kind: series, series: mondrian }
+      - type: scrub
+        prompt: Mondrian came home on a visit in 1914 and could not get back to Paris. Drag the slider to a stage when he is stuck in Laren.
+        map: moderns
+        start: 1908
+        answer: [1914, 1918]
+        explain: >-
+          The First World War kept him in the neutral Netherlands, in the artists' village of Laren, from 1914 to 1919.
+          There he met Theo van Doesburg and Bart van der Leck, and his painting turned to flat planes of colour.
+      - type: choice
+        prompt: Mondrian painted Composition 10 in 1915, out of short black lines like plus and minus signs. What did they start out as?
+        visual: { kind: photo, photo: mondrian-pier }
+        answer: 0
+        options:
+          - label: A pier running out into the sea, and the waves around it
+            why: >-
+              Right. From sketches of the sea and a pier, he kept only the rhythm of upright and flat strokes, inside an
+              oval. Its full name is Pier and Ocean. It hangs in the Kröller-Müller Museum.
+          - label: A city map of Amsterdam
+            why: No streets here. Think of the coast.
+          - label: Musical notes
+            why: The music came later, in New York. This is the sea.
+          - label: A field of tulips
+            why: There are no flowers. It is the sea.
+      - type: gap
+        prompt: In November 1918 the artists of De Stijl published a manifesto, signed by Mondriaan, Van Doesburg and five others. Fill the gap in its first point.
+        quote: "There is an old and a new consciousness of time. The old is connected with the ___. The new is connected with the universal."
+        source: Manifest I of De Stijl, in De Stijl, November 1918
+        visual: { kind: photo, photo: stijl-manifesto }
+        options: [individual, nation, church, machine]
+        answer: 0
+        explain: >-
+          The individual against the universal: after the slaughter of the world war, they wanted an art without
+          personal feelings, made of the simplest things, straight lines and pure colours. Among the signers was a
+          Belgian sculptor, Georges Vantongerloo.
+      - type: choice
+        prompt: Theo van Doesburg, here as a soldier during the mobilisation of the First World War, founded De Stijl in Leiden in 1917. What did it stand for?
+        visual: { kind: photo, photo: doesburg-soldier }
+        answer: 0
+        options:
+          - label: One style for everything, paintings, buildings and furniture, made of straight lines and flat colour
+            why: >-
+              Right. De Stijl means The Style. Painters, architects and a furniture maker worked together; Van Doesburg
+              edited the magazine, and spread its ideas in Germany, until his death in 1931.
+          - label: A return to Golden Age painting
+            why: "They wanted the opposite: an art for the new age."
+          - label: Painting only landscapes of Holland
+            why: They gave up landscapes for lines and colour.
+          - label: Art for the army
+            why: He was a conscript, not an army painter.
+      - type: choice
+        prompt: In this room of about 1919 stands an armchair made by Gerrit Rietveld, a furniture maker from Utrecht. Later painted red and blue, it became famous. What was new about it?
+        visual: { kind: photo, photo: stijl-interior }
+        answer: 0
+        options:
+          - label: It was put together from plain, standard lengths of wood, so it could be made in numbers
+            why: >-
+              Right. Rietveld wanted furniture anyone could make from standard timber. He painted it red, blue, yellow
+              and black in 1923, and the Red and Blue Chair became the best-known object of De Stijl.
+          - label: It was carved from a single tree trunk
+            why: It is made of many straight boards and rails.
+          - label: It was the first chair made of steel
+            why: It is wood.
+          - label: It was covered in gold leaf
+            why: Plain wood, later painted in flat colours.
+      - type: who
+        photo: mondrian-1922
+        clues:
+          - I was born in Amersfoort in 1872 and painted windmills and trees in the manner of the Hague School.
+          - When I moved to Paris in 1912 I dropped a letter from my name.
+          - I helped found De Stijl, and painted only straight black lines and red, yellow and blue.
+          - I died in New York in 1944, with my last painting unfinished.
+        options: [Piet Mondrian, Theo van Doesburg, Gerrit Rietveld, Bart van der Leck]
+        answer: 0
+        explain: Piet Mondrian, photographed in 1922 for the magazine De Stijl.
+      - type: truemyth
+        statement: Mondrian and Van Doesburg fell out over a diagonal line.
+        visual: { kind: photo, photo: doesburg-counter }
+        answer: true
+        explain: >-
+          True. From 1924 Van Doesburg tilted his lines at 45 degrees in what he called counter-compositions, like this
+          one. For Mondrian only upright and level lines would do, and he broke with De Stijl. He did paint canvases
+          turned on their point, but even in those his lines stayed upright and level.
+      - type: odd
+        prompt: Three of these are by Mondrian. Which is the odd one out, and why?
+        items:
+          - { label: Tableau I, 1921, photo: mondrian-1921 }
+          - { label: Composition with red, blue and yellow, 1930, photo: mondrian-1930 }
+          - { label: Counter-composition V, 1924, photo: doesburg-counter }
+          - { label: Broadway Boogie Woogie, 1942 to 1943, photo: mondrian-broadway }
+        answer: 2
+        reasons:
+          - Its lines run on the diagonal; it is by Van Doesburg
+          - It is the only one with red in it
+          - It was painted in New York
+        reason: 0
+        explain: >-
+          Van Doesburg's counter-compositions tilt the grid; Mondrian's lines stay upright and level, even in New York,
+          where they turned into rows of little coloured blocks.
+      - type: choice
+        prompt: Mondrian painted Broadway Boogie Woogie in New York in 1942 and 1943. What is it named after?
+        visual: { kind: photo, photo: mondrian-broadway }
+        answer: 0
+        options:
+          - label: A New York street and the fast piano jazz he loved
+            why: >-
+              Right. Mondrian loved jazz and dancing. The grid of Manhattan's streets and the beat of boogie-woogie piano
+              turned his black lines into rows of small coloured blocks. It hangs in the Museum of Modern Art in New York.
+          - label: A ship he sailed to America on
+            why: Broadway is a street. Think of music.
+          - label: A Dutch folk dance
+            why: Boogie-woogie is American jazz.
+          - label: A musical in a Broadway theatre
+            why: It is the street and the music, not a show.
+      - type: choice
+        prompt: Mondrian died in 1944 with Victory Boogie Woogie unfinished. In the late 1990s it was bought for the Netherlands. What was unusual about the purchase?
+        visual: { kind: photo, photo: mondrian-victory }
+        answer: 0
+        options:
+          - label: It cost 80 million guilders, paid by the central bank to mark the coming of the euro
+            why: >-
+              Right. About €35 million, then the most a Dutch museum had ever paid for a work of art. The price was
+              questioned in parliament. It has hung in the museum in The Hague since 1998.
+          - label: It was swapped for a Rembrandt
+            why: Money changed hands, a great deal of it.
+          - label: It was found in a farmhouse attic
+            why: It came from an American collector.
+          - label: It was bought by a football club
+            why: The money came from a bank.
+      - type: choice
+        prompt: In January 1966 these dresses were shown in the Netherlands. Who designed them, after Mondrian's paintings?
+        visual: { kind: photo, photo: ysl-mondrian }
+        answer: 0
+        options:
+          - label: Yves Saint Laurent, in Paris
+            why: >-
+              Right. His Mondrian dresses of 1965 were knitted in blocks of colour with black lines. Mondrian's grid has
+              been on everything since, from cans to trainers.
+          - label: Mondrian himself
+            why: He had died twenty years before.
+          - label: Gerrit Rietveld
+            why: Rietveld made furniture and houses, not dresses.
+          - label: Coco Chanel
+            why: It was a younger Paris designer.
+      - type: choice
+        prompt: Wipe between 1908 and 1917. In 1917, where are the artists of De Stijl working?
+        visual: { kind: compare, map: moderns, years: [1908, 1917] }
+        answer: 0
+        options:
+          - label: In Leiden, Laren and Utrecht
+            why: >-
+              Right. Van Doesburg in Leiden, Mondrian in Laren, Rietveld in Utrecht: all in the neutral Netherlands,
+              while Belgium was occupied. In 1908 Mondriaan was still an Amsterdam painter, spending summers in Domburg.
+          - label: In Paris
+            why: The war kept them at home. Look at the map of 1917.
+          - label: In Brussels and Antwerp
+            why: Belgium was at war and occupied. They were in the north.
+          - label: In Domburg only
+            why: Domburg was a summer place. Look at 1917.
+
+  - id: u18-l5
+    title: Pictures that play tricks
+    icon: bowler
+    note: This lesson mentions the murder of Escher's teacher and his family in the Holocaust.
+    sources:
+      - title: "Wikipedia, René Magritte"
+        url: https://en.wikipedia.org/wiki/Ren%C3%A9_Magritte
+      - title: "Wikipedia, The Treachery of Images"
+        url: https://en.wikipedia.org/wiki/The_Treachery_of_Images
+      - title: "Wikipedia, René Magritte Museum (Jette)"
+        url: https://en.wikipedia.org/wiki/Ren%C3%A9_Magritte_Museum
+      - title: "Wikipedia, M. C. Escher"
+        url: https://en.wikipedia.org/wiki/M._C._Escher
+      - title: "Wikipedia, Samuel Jessurun de Mesquita"
+        url: https://en.wikipedia.org/wiki/Samuel_Jessurun_de_Mesquita
+      - title: "Escher in Het Paleis, Samuel Jessurun de Mesquita, 1944"
+        url: https://escherinhetpaleis.nl/escher-today/samuel-jessurun-de-mesquita-1944/?lang=en
+      - title: "Wikipedia, Penrose stairs"
+        url: https://en.wikipedia.org/wiki/Penrose_stairs
+      - title: "Wikipedia, Tessellation"
+        url: https://en.wikipedia.org/wiki/Tessellation
+    exercises:
+      - type: story
+        title: Two boys born in 1898
+        body: >-
+          In 1898 René Magritte was born in Lessines, in Hainaut, and Maurits Cornelis Escher in Leeuwarden, in
+          Friesland. Both grew up to make pictures that play tricks: Magritte painted ordinary things, a pipe, an
+          apple, a bowler hat, in impossible places; Escher drew worlds where water flows uphill. Their works are
+          still under copyright, so this lesson shows the men and their places.
+        visual: { kind: time-map, map: moderns, year: 1898 }
+      - type: who
+        photo: magritte-1961
+        clues:
+          - I was born in Lessines, in Hainaut, in 1898, and drew wallpaper and posters for a living.
+          - In 1927 I moved to Paris to be near the Surrealist poets, but I came home to Brussels in 1930.
+          - I painted a pipe and wrote under it that it is not a pipe.
+          - Men in bowler hats fill my paintings, and I died in Brussels in 1967.
+        options: [René Magritte, Paul Delvaux, James Ensor, M. C. Escher]
+        answer: 0
+        explain: >-
+          René Magritte in 1961. He dressed like a bank clerk, in a suit and bowler hat, and painted at home, not in
+          a bohemian studio.
+      - type: pin
+        prompt: Pin Lessines, the town in Hainaut where Magritte was born.
+        place: lessines
+        fullKm: 10
+        okKm: 25
+        explain: >-
+          Lessines, on the Dender, a town of stone quarries. The family moved to Châtelet, near Charleroi, and then to
+          Charleroi itself, before Magritte went to the academy in Brussels in 1916.
+      - type: gap
+        prompt: In 1929, in Paris, Magritte painted a pipe so real you could pick it up, and painted these words under it. Fill the gap.
+        quote: "Ceci n'est pas une ___."
+        source: René Magritte, The Treachery of Images, 1929, words painted under the picture
+        options: [pipe, pomme, porte, photo]
+        answer: 0
+        explain: >-
+          "This is not a pipe." And it isn't: it is a picture of a pipe. You cannot fill it or smoke it. Magritte spent
+          his life on the gap between things, their pictures and their names.
+      - type: choice
+        prompt: From 1930 to 1954 Magritte and his wife Georgette lived on the ground floor of this house in Jette, in Brussels. What is it today?
+        visual: { kind: photo, photo: magritte-house }
+        answer: 0
+        options:
+          - label: A museum of his life and work
+            why: >-
+              Right. The René Magritte Museum opened in the house in 1999. A bigger Magritte Museum, with some 200 of
+              his works, opened on the Place Royale in central Brussels in 2009.
+          - label: The headquarters of the Surrealists
+            why: The Surrealists met there, but today it is a museum.
+          - label: A bowler hat shop
+            why: He wore bowler hats, but the house is a museum.
+          - label: Torn down for a motorway
+            why: It is still standing.
+      - type: truemyth
+        statement: After the war, short of money, Magritte painted fake Picassos.
+        visual: { kind: photo, photo: magritte-chatelet }
+        answer: true
+        explain: >-
+          True, it seems, though the evidence is one man's word. In 1988 his old friend Marcel Mariën wrote that in
+          1947 and 1948 Magritte painted fakes in the manner of Picasso, Braque and De Chirico, and printed false
+          banknotes with his brother Paul; Mariën sold them. This house in Châtelet is where the young Magritte
+          lived with his family.
+      - type: pin
+        prompt: Pin Leeuwarden, the Frisian town where Escher was born.
+        place: leeuwarden
+        fullKm: 10
+        okKm: 30
+        explain: >-
+          Leeuwarden, the capital of Friesland. Escher was born in a house that is now part of the Princessehof, a
+          museum of ceramics. His family moved to Arnhem when he was five.
+      - type: choice
+        prompt: Samuel Jessurun de Mesquita, here in a self-portrait of 1917, taught Escher at the school in Haarlem. What did he do for him?
+        visual: { kind: photo, photo: mesquita-self }
+        answer: 0
+        options:
+          - label: He talked him into giving up architecture for graphic art
+            why: >-
+              Right. Escher had come to Haarlem in 1919 to study architecture. Mesquita saw his woodcuts and steered him to
+              graphic art. In February 1944 Mesquita, his wife and their son were arrested in Amsterdam; he and his wife
+              were murdered in Auschwitz, their son in Theresienstadt. Escher went to the ransacked house, saved what
+              prints he could, and later helped show them at the Stedelijk Museum.
+          - label: He taught him to paint in oils
+            why: Mesquita was a printmaker, and Escher made prints all his life.
+          - label: He took him to the Alhambra
+            why: Escher went to Spain after school, without him.
+          - label: He sold his prints in America
+            why: Escher's fame in America came much later.
+      - type: choice
+        prompt: In 1922 and again in 1936 Escher spent days copying the tiled walls of the Alhambra in Granada. What did he learn from them?
+        visual: { kind: photo, photo: alhambra-tiles }
+        answer: 0
+        options:
+          - label: How a few shapes can cover a flat surface with no gaps and no overlaps
+            why: >-
+              Right. Mathematicians call it a tessellation. The Moorish tiles used patterns; Escher filled the plane
+              with lizards, fish and birds that lock together.
+          - label: How to carve marble
+            why: Escher made woodcuts and lithographs. He was after the patterns.
+          - label: How to draw in perspective
+            why: The tiles are flat patterns. He learned about filling a surface.
+          - label: How to mix bright paint
+            why: Most of his prints are black and white.
+      - type: choice
+        prompt: Each of these tiles began as a square. Its top edge was pushed up in a curve. What has to happen to the bottom edge, so the tiles still lock together?
+        visual: { kind: art, art: tessellation }
+        answer: 0
+        options:
+          - label: The same curve is cut into it, so the tile below fits like a jigsaw
+            why: >-
+              Right. What bulges out on one side is cut out of the opposite side, and the same on the left and right.
+              Every tile then fits its neighbours exactly. Escher worked his lizards out this way, on squared paper.
+          - label: It stays straight
+            why: Then a gap would open under every bulge.
+          - label: It bulges out as well
+            why: Then the tiles would overlap.
+          - label: The tile is turned upside down
+            why: These tiles are only moved, never turned.
+      - type: who
+        photo: escher-1971
+        clues:
+          - I was born in Leeuwarden in 1898, in a house that is now a museum of ceramics.
+          - I lived in Rome until 1935, and left when my son had to wear a fascist uniform at school.
+          - I filled the plane with interlocking lizards, fish and birds.
+          - I drew stairs that climb for ever and water that flows uphill, and died in 1972.
+        options: [M. C. Escher, Samuel Jessurun de Mesquita, René Magritte, Piet Mondrian]
+        answer: 0
+        explain: >-
+          M. C. Escher in November 1971, a few months before his death. Mathematicians loved his work long before
+          the art world did: in 1954 the Stedelijk Museum showed his prints to a congress of mathematicians.
+      - type: truemyth
+        statement: Escher drew his staircase that climbs for ever after a drawing sent to him by two British scientists.
+        visual: { kind: photo, photo: escher-paleis }
+        answer: true
+        explain: >-
+          True. Lionel Penrose and his son Roger, who had seen Escher's prints in Amsterdam in 1954, published an
+          impossible triangle and an endless staircase in 1958 and sent Escher a copy. He drew monks climbing the
+          stairs in Ascending and Descending (1960) and used the triangle in Waterfall (1961). Both hang in Escher in
+          Het Paleis, a museum in a royal palace in The Hague, opened in 2002.
+      - type: sort
+        prompt: In 1937 both men lived in Brussels. Magritte or Escher? Sort the facts.
+        visual: { kind: time-map, map: moderns, year: 1937 }
+        groups: [Magritte, Escher]
+        items:
+          - { label: Born in Lessines, group: 0 }
+          - { label: Born in Leeuwarden, group: 1 }
+          - { label: Lived near Paris from 1927 to 1930, group: 0 }
+          - { label: Lived in Rome from 1923 to 1935, group: 1 }
+          - { label: Painted words under a picture of a pipe, group: 0 }
+          - { label: Woodcuts of interlocking animals, group: 1 }
+          - { label: Lived in Uccle, Brussels, from 1937 to 1941, group: 1 }
+          - { label: Died in Brussels in 1967, group: 0 }
+        explain: >-
+          Magritte painted in his flat in Jette from 1930; Escher lived in Uccle, at the other end of Brussels, until
+          he moved to Baarn in January 1941. There is no sign that they ever met.
+
+  - id: u18-l6
+    title: Collectors and museums
+    icon: frame
+    sources:
+      - title: "Wikipedia, Helene Kröller-Müller"
+        url: https://en.wikipedia.org/wiki/Helene_Kr%C3%B6ller-M%C3%BCller
+      - title: "Wikipedia, Kröller-Müller Museum"
+        url: https://en.wikipedia.org/wiki/Kr%C3%B6ller-M%C3%BCller_Museum
+      - title: "Wikipedia, Van Gogh Museum"
+        url: https://en.wikipedia.org/wiki/Van_Gogh_Museum
+      - title: "Nationaal Archief, Anefo photos of the opening of the Van Gogh Museum, 2 June 1973"
+        url: https://commons.wikimedia.org/wiki/File:Koningin_Juliana_wordt_begroet_door_ir._dr._V._W._van_Gogh_(rechts),_Bestanddeelnr_926-4519.jpg
+      - title: "Wikipedia, Café Terrace at Night"
+        url: https://en.wikipedia.org/wiki/Caf%C3%A9_Terrace_at_Night
+      - title: "Wikipedia, George Hendrik Breitner"
+        url: https://en.wikipedia.org/wiki/George_Hendrik_Breitner
+    exercises:
+      - type: story
+        title: A collector and her painter
+        body: >-
+          Helene Müller, the daughter of a German industrialist, married the Dutch businessman Anton Kröller. In 1907
+          her art teacher, Henk Bremmer, suggested she start a collection. She bought Van Gogh when he was still
+          cheap and little known, and modern art from Seurat to Mondrian. Her collection, and the one Theo's family
+          kept, are why so many Van Goghs are in the Netherlands today.
+        visual: { kind: photo, photo: kroller-couple }
+      - type: choice
+        prompt: How many Van Gogh paintings did Helene Kröller-Müller buy?
+        visual: { kind: photo, photo: vg-cafe-terrace }
+        answer: 0
+        options:
+          - label: More than 90, and about 185 drawings
+            why: >-
+              Right. For a time it was the largest Van Gogh collection in the world. This café terrace in Arles, from
+              September 1888, is one of them.
+          - label: Three
+            why: Many more. She bought them by the dozen.
+          - label: Every one he ever painted
+            why: He painted about 850. Theo's family kept the largest share.
+          - label: None; she bought only drawings
+            why: She bought paintings and drawings.
+      - type: choice
+        prompt: Van Gogh was proud of this café terrace. What did he tell his sister about it?
+        visual: { kind: photo, photo: vg-cafe-terrace }
+        answer: 0
+        options:
+          - label: '"Now there''s a painting of night without black"'
+            why: >-
+              Right. He wrote it to his sister Willemien in September 1888. The night sky is deep blue and violet, with
+              stars, and the terrace glows yellow under a gas lamp.
+          - label: That he painted it in one hour
+            why: He wrote about the colour, not the speed.
+          - label: That Gauguin painted the sky
+            why: Gauguin only arrived in October. It is all Van Gogh's.
+          - label: That he had sold it for a good price
+            why: He sold almost nothing. He wrote about the colour of the night.
+      - type: choice
+        prompt: In 1935 the Kröllers gave their whole collection to the nation, on one condition. What was it?
+        visual: { kind: photo, photo: kroller-entrance }
+        answer: 0
+        options:
+          - label: That a museum be built for it on their estate on the Veluwe
+            why: >-
+              Right. The Kröller-Müller Museum opened in 1938 at Otterlo, in what is now the Hoge Veluwe National Park,
+              in a building by the Belgian architect Henry van de Velde. Helene ran it until her death in 1939.
+          - label: That it be shown in the Rijksmuseum
+            why: She wanted a museum of its own.
+          - label: That it never be lent abroad
+            why: The collection has travelled. The condition was a building.
+          - label: That their name be painted on every frame
+            why: Their name is on the museum.
+      - type: pin
+        prompt: Pin Otterlo, the village on the Veluwe where the Kröller-Müller Museum stands.
+        place: otterlo
+        fullKm: 10
+        okKm: 25
+        explain: >-
+          Otterlo, between Arnhem and Apeldoorn, in the woods and sand drifts of the Hoge Veluwe National Park.
+      - type: choice
+        prompt: On 2 June 1973 Queen Juliana came to open the Van Gogh Museum in Amsterdam. Who is welcoming her?
+        visual: { kind: photo, photo: vgm-1973 }
+        answer: 0
+        options:
+          - label: Vincent Willem van Gogh, Theo's son, the baby of the Almond Blossom
+            why: >-
+              Right. He inherited the family collection in 1925 and placed it in a foundation in 1962, so the state
+              could build a museum for it. The building was designed by Gerrit Rietveld.
+          - label: The painter's grandson
+            why: Vincent had no children. This is his nephew.
+          - label: Gerrit Rietveld, the architect
+            why: Rietveld died in 1964, before it was built.
+          - label: The mayor of Arles
+            why: It is a Van Gogh, but not from Arles.
+      - type: truemyth
+        statement: In 1991 thieves took 20 paintings from the Van Gogh Museum, among them The Potato Eaters, and they were never found.
+        visual: { kind: photo, photo: potato-eaters }
+        answer: false
+        explain: >-
+          Myth. The thieves got away, but all twenty paintings were found in an abandoned car about 35 minutes
+          later, some of them damaged. Two others, stolen in 2002, took fourteen years to come back.
+      - type: style
+        prompt: Hague School, Impressionism, Symbolism or De Stijl? Name the style of each painting.
+        groups: [Hague School, Impressionism, Symbolism, De Stijl]
+        items:
+          - photo: vg-nuenen-church
+            title: Vincent van Gogh, Leaving church in Nuenen, 1884 to 1885
+            group: 0
+            tell: The browns, greys and soft light of the Hague School, which Van Gogh learned from Mauve.
+            box: [0.05, 0.3, 0.9, 0.6]
+          - photo: breitner-kimono
+            title: George Hendrik Breitner, Girl in a White Kimono, 1894
+            group: 1
+            tell: "Loose, quick brushstrokes, a model caught in a passing moment: Amsterdam's answer to the Paris Impressionists."
+            box: [0.25, 0.1, 0.55, 0.6]
+          - photo: spilliaert-self
+            title: Léon Spilliaert, Self-portrait, 1907
+            group: 2
+            tell: "A pale, staring face in a cold, grey-blue room: a mood of unease more than a likeness, the world of the Symbolists."
+            box: [0.38, 0.45, 0.28, 0.22]
+          - photo: mondrian-1930
+            title: Piet Mondrian, Composition II with red, blue and yellow, 1930
+            group: 3
+            tell: Only upright and level black lines, white, and red, yellow and blue.
+            box: [0.0, 0.0, 0.7, 0.7]
+          - photo: doesburg-counter
+            title: Theo van Doesburg, Counter-composition V, 1924
+            group: 3
+            tell: The lines and flat colour planes of De Stijl, with Van Doesburg's twist, the diagonal.
+            box: [0.05, 0.05, 0.9, 0.85]
+        explain: >-
+          In forty years painting in the Low Countries went from the grey light of the Hague School, through the
+          quick brush of the Impressionists and the dreams of the Symbolists, to the pure lines of De Stijl.
+      - type: match
+        prompt: Match each painting to where you can see it today.
+        pairs:
+          - [Café Terrace at Night, "Kröller-Müller Museum, Otterlo"]
+          - [Victory Boogie Woogie, Kunstmuseum Den Haag]
+          - ["Christ's Entry into Brussels in 1889", "Getty Museum, Los Angeles"]
+          - [The Intrigue by Ensor, "Royal Museum of Fine Arts, Antwerp"]
+          - [Almond Blossom, "Van Gogh Museum, Amsterdam"]
+      - type: order
+        prompt: Put these in order, earliest first.
+        items:
+          - { label: Les XX founded in Brussels, year: 1883, when: '1883' }
+          - { label: Van Gogh dies at Auvers, year: 1890, when: '1890' }
+          - { label: De Stijl founded in Leiden, year: 1917, when: '1917' }
+          - { label: Magritte paints This is not a pipe, year: 1929, when: '1929' }
+          - { label: The Kröller-Müller Museum opens, year: 1938, when: '1938' }
+          - { label: The Van Gogh Museum opens, year: 1973, when: '1973' }
+        explain: Ninety years of modern art in the Low Countries, from the first show of the Twenty to a museum for Van Gogh.
+      - type: choice
+        prompt: Wipe between 1890 and 1973 on the map. By 1973, which museums hold the modern art of the Low Countries?
+        visual: { kind: compare, map: moderns, years: [1890, 1973] }
+        answer: 0
+        options:
+          - label: The Stedelijk and the Van Gogh Museum in Amsterdam, the Gemeentemuseum in The Hague and the Kröller-Müller
+            why: >-
+              Right. In 1890 the new art had only a yearly show in Brussels, Les XX. By 1973 four museums in the
+              Netherlands showed it, and Belgium's great museums in Antwerp, Brussels and Ghent had their Ensors and Khnopffs.
+          - label: Only the Rijksmuseum
+            why: Look again at the museum marks of 1973.
+          - label: Only museums in Paris
+            why: The marks are in the Netherlands.
+          - label: None yet
+            why: Look at the museum marks on the map of 1973.

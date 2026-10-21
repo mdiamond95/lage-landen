@@ -190,6 +190,10 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
                 <path d="M0-6.5c4 0 7 2.6 7 5.8 0 2-1.6 2.6-3 2.4-1.3-.2-2 .6-1.7 1.7.4 1.6-.6 3.1-2.6 3.1-4 0-6.7-3-6.7-6.5S-4-6.5 0-6.5z" />
               ) : s.kind === 'market' ? (
                 <path d="M-6 6V-1.5L0-6.5 6-1.5V6z" />
+              ) : s.kind === 'village' ? (
+                <path d="M0-7 5 1H2.5L6 6H-6l3.5-5H-5z" />
+              ) : s.kind === 'museum' ? (
+                <path d="M-7-2.5 0-7l7 4.5zM-6 6h12M-5-1.5h2v6.5h-2zM-1-1.5h2v6.5h-2zM3-1.5h2v6.5H3z" />
               ) : (
                 <rect x={-4.5} y={-4.5} width={9} height={9} />
               )}
