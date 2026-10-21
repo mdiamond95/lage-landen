@@ -12,6 +12,7 @@ import { photoIds } from '../photos/ids'
 import { dialectIds } from '../data/dialects'
 import { phraseSetIds } from '../data/phrases'
 import { soundIds } from '../sounds/ids'
+import { foodIds, foodKinds } from '../data/foods'
 
 // Everything a lesson can show or ask is described here. Lesson YAML is
 // parsed against these schemas, so a typo in content fails tests and the build.
@@ -62,9 +63,10 @@ const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // Golden Age worked, from the fall of Antwerp in 1585 to 1682, or where the modern artists
 // worked, from Van Gogh's first drawings in 1880 to the Van Gogh Museum in 1973, or the
 // buildings of the Low Countries, from the first belfries to the World Heritage list of 2000,
-// or the languages of the Low Countries, from the Frisians, Saxons and Franks of 800 to 1997.
+// or the languages of the Low Countries, from the Frisians, Saxons and Franks of 800 to 1997,
+// or the food and drink of the Low Countries, from juniper wine in about 1266 to 2016.
 // `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues'] as const
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food'] as const
 // The maps of the two world wars count in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
@@ -82,7 +84,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
@@ -133,7 +135,12 @@ const DialectsVisual = z.object({ kind: z.literal('dialects'), focus: z.enum(dia
 // when to say them, each with a recording or, failing that, the device's own voice.
 const PhrasesVisual = z.object({ kind: z.literal('phrases'), set: z.enum(phraseSetIds) })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual])
+// The regional food map (Unit 21): the cheeses, fish, sweets, dishes, beers and jenevers of the
+// Low Countries where they come from; tap one for its photo and story. `focus` opens it on one,
+// `only` on one kind.
+const FoodsVisual = z.object({ kind: z.literal('foods'), focus: z.enum(foodIds).optional(), only: z.enum(foodKinds).optional() })
+
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -339,7 +346,31 @@ const Listen = z.object({
   explain: z.string(),
 })
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen])
+// Taste and find: a photo of something to eat or drink, then a tap on where it comes from on
+// the food map, which shows only the marks of the answer's kind, unnamed.
+const Taste = z.object({
+  type: z.literal('taste'),
+  prompt: z.string(),
+  photo: z.enum(photoIds),
+  answer: z.enum(foodIds),
+  explain: z.string(),
+})
+
+// Pick all that belong: tap every card that fits and none that doesn't (the spices in
+// speculaas, the Trappist beers). `answers` are the indexes of the cards that belong.
+const Pick = z
+  .object({
+    type: z.literal('pick'),
+    prompt: z.string(),
+    visual: Visual.optional(),
+    items: z.array(z.object({ label: z.string(), photo: z.enum(photoIds).optional() })).min(4).max(8),
+    answers: z.array(z.number().int().nonnegative()).min(2),
+    explain: z.string(),
+  })
+  .refine((p) => p.answers.every((a) => a < p.items.length), 'every answer is a card')
+  .refine((p) => new Set(p.answers).size === p.answers.length && p.answers.length < p.items.length, 'some cards, not all, belong')
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

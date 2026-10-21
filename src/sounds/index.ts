@@ -55,6 +55,15 @@ import waSeptante from './wa-septante.mp3'
 import wilhelmina1940 from './wilhelmina-1940.mp3'
 import wilhelmus1899 from './wilhelmus-1899.mp3'
 import wilhelmusCarillon from './wilhelmus-carillon.mp3'
+import nlGouda from './nl-gouda.mp3'
+import nlEdammer from './nl-edammer.mp3'
+import nlHutspot from './nl-hutspot.mp3'
+import nlOliebol from './nl-oliebol.mp3'
+import nlJenever from './nl-jenever.mp3'
+import nlWaterzooi from './nl-waterzooi.mp3'
+import nlLambiek from './nl-lambiek.mp3'
+import nlRijsttafel from './nl-rijsttafel.mp3'
+import nlSpeculaas from './nl-speculaas.mp3'
 import { soundCredits } from './credits'
 import type { SoundId } from './ids'
 
@@ -119,6 +128,15 @@ const files: Record<SoundId, string> = {
   brabanconne: brabanconne,
   'wilhelmina-1940': wilhelmina1940,
   'kiek-1944': kiek1944,
+  'nl-gouda': nlGouda,
+  'nl-edammer': nlEdammer,
+  'nl-hutspot': nlHutspot,
+  'nl-oliebol': nlOliebol,
+  'nl-jenever': nlJenever,
+  'nl-waterzooi': nlWaterzooi,
+  'nl-lambiek': nlLambiek,
+  'nl-rijsttafel': nlRijsttafel,
+  'nl-speculaas': nlSpeculaas,
 }
 
 export const sound = (id: SoundId) => ({ src: files[id], ...soundCredits[id] })

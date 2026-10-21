@@ -732,6 +732,20 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .hist-mill path { fill: #1f4e9c; stroke: #fff; stroke-width: 1; }
 .key-mill { width: 11px; height: 11px; background: #1f4e9c; clip-path: polygon(40% 0, 60% 0, 60% 40%, 100% 40%, 100% 60%, 60% 60%, 60% 100%, 40% 100%, 40% 60%, 0 60%, 0 40%, 40% 40%); transform: rotate(45deg); }
 .key-lost { width: 10px; height: 10px; background: #b9a9a4; border-radius: 2px; }
+/* Unit 21: food and drink. Cheese is a yellow wedge, fish a blue fish, sweets and baking a
+   waffle, a dish a green bowl, a brewery an amber glass and a distillery a purple bottle. */
+.hist-cheese path { fill: #e8b923; stroke: #5a4300; stroke-width: 1; }
+.key-cheese { width: 12px; height: 9px; background: #e8b923; clip-path: polygon(0 100%, 100% 100%, 100% 0); }
+.hist-fish path { fill: #2f6fb5; stroke: #fff; stroke-width: 1; }
+.key-fish { width: 13px; height: 8px; background: #2f6fb5; border-radius: 50% 20% 20% 50%; }
+.hist-sweet path { fill: #c98a3a; stroke: #5b3410; stroke-width: 1; }
+.key-sweet { width: 10px; height: 10px; background: #c98a3a; border: 1px solid #5b3410; }
+.hist-dish path { fill: #6f8f2f; stroke: #fff; stroke-width: 1.2; }
+.key-dish { width: 12px; height: 7px; background: #6f8f2f; border-radius: 0 0 7px 7px; }
+.hist-brewery path { fill: #d98c1e; stroke: #4a2c00; stroke-width: 1; }
+.key-brewery { width: 9px; height: 12px; background: #d98c1e; clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%); }
+.hist-distillery path { fill: #6b4b8c; stroke: #fff; stroke-width: 1; }
+.key-distillery { width: 8px; height: 12px; background: #6b4b8c; clip-path: polygon(35% 0, 65% 0, 65% 25%, 100% 40%, 100% 100%, 0 100%, 0 40%, 35% 25%); }
 /* Unit 20: languages. The dialect map colours each area by family: Frisian blue, Saxon
    teal, the Dutch (Low Franconian) dialects in warm yellows and oranges, Romance in reds
    and pinks, German in greens. The same family colours shade the language time map. */
@@ -818,3 +832,29 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .phrase-note { font-size: 0.82rem; color: var(--ink-soft); }
 .phrase-cards { margin: 0; display: grid; gap: 8px; }
 .phrase-set-title { margin: 0; font-weight: 900; color: var(--delft); }
+/* Unit 21: the regional food map. Marks take their kind's shape and colour from the food time
+   map; a wide invisible circle makes each easy to tap. */
+.food-map { margin: 0; display: grid; gap: 10px; }
+.food-kinds { display: flex; flex-wrap: wrap; gap: 6px; }
+.food-kinds button { display: flex; align-items: center; gap: 6px; border: 2px solid var(--line); background: var(--card); border-radius: 10px; padding: 4px 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+.food-kinds button.is-on { border-color: var(--ink); background: var(--delft-soft); }
+.food-mark { cursor: pointer; transition: opacity 0.25s; }
+.food-mark .food-hit { fill: transparent; stroke: none; }
+.food-mark:hover .food-hit, .food-mark:focus-visible .food-hit { fill: rgb(29 36 51 / 0.12); }
+.food-mark path { transform: scale(1.25); }
+.food-mark.is-dim { opacity: 0.35; }
+.food-mark.is-selected .food-hit { fill: rgb(29 36 51 / 0.16); stroke: var(--ink); stroke-width: 2; }
+.food-mark.is-right .food-hit { fill: var(--green-soft); stroke: var(--green-dark); stroke-width: 2.5; }
+.food-mark.is-wrong .food-hit { fill: var(--red-soft); stroke: var(--red); stroke-width: 2.5; }
+.food-pick .food-mark.is-selected .food-hit { fill: var(--delft-soft); stroke: var(--delft); stroke-width: 2.5; }
+.food-label { font-size: 12px; pointer-events: none; }
+.food-card { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 12px 14px; display: grid; gap: 4px; }
+.food-card p { margin: 0; }
+.food-photo { width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px; }
+.food-title { font-weight: 900; font-size: 1.05rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.food-own { font-weight: 600; color: var(--ink-soft); font-style: italic; }
+.food-place { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--delft); }
+.food-about { font-size: 0.92rem; }
+.food-status { font-size: 0.85rem; color: var(--green-dark); font-weight: 700; }
+/* Pick all that belong: cards that belonged but weren't picked are outlined once checked. */
+.option.missed { border-color: var(--green); border-style: dashed; background: var(--card); box-shadow: none; }

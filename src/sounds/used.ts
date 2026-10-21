@@ -1,5 +1,6 @@
 import type { Exercise } from '../content/schema'
 import { dialects } from '../data/dialects'
+import { foodIds, foods } from '../data/foods'
 import { phraseSets } from '../data/phrases'
 import type { SoundId } from './ids'
 
@@ -11,6 +12,7 @@ export const soundsUsed = (exercises: Exercise[]): SoundId[] => {
     ...('visual' in e && e.visual?.kind === 'phrases' ? phraseSets[e.visual.set].phrases.flatMap((p) => (p.sound ? [p.sound] : [])) : []),
     ...(e.type === 'choice' ? e.options.flatMap((o) => (o.sound ? [o.sound] : [])) : []),
     ...(e.type === 'listen' ? [e.sound, ...Object.values(dialects).flatMap((d) => d.sounds)] : []),
+    ...('visual' in e && e.visual?.kind === 'foods' ? foodIds.flatMap((f) => (foods[f].sound ? [foods[f].sound] : [])) : []),
   ])
   return [...new Set(ids)]
 }

@@ -86,6 +86,24 @@ lessons:
           The long grey walls behind the market. Inside the castle sat the governor-general and his council, and
           the warehouses of the company. Look at the market too: Javanese, Chinese, Indian and European traders,
           and enslaved servants, some holding parasols over their masters.
+      - type: pick
+        prompt: VOC ships came home to Amsterdam from Asia with their holds full. Which of these did they carry? Pick all that belong.
+        visual: { kind: time-map, map: food, year: 1602 }
+        items:
+          - { label: Pepper }
+          - { label: Nutmeg }
+          - { label: Tea }
+          - { label: Chinese porcelain }
+          - { label: Silk }
+          - { label: Cocoa }
+          - { label: Beaver furs }
+          - { label: Potatoes }
+        answers: [0, 1, 2, 3, 4]
+        explain: >-
+          Pepper and nutmeg from the spice islands, tea and porcelain from China, and silk from China and Bengal.
+          Cocoa came from the Americas and beaver furs from New Netherland, both in the West India Company's world.
+          Potatoes came from the Americas too, and Europe soon grew its own. The spices still flavour
+          Dutch speculaas (Unit 21).
       - type: choice
         prompt: This is a replica of the Batavia, a VOC ship launched in 1628. On her first voyage, in 1629, she struck a reef. Where?
         visual: { kind: photo, photo: batavia-replica }

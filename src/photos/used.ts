@@ -1,5 +1,6 @@
 import type { Exercise } from '../content/schema'
 import { facades } from '../data/facades'
+import { foodIds, foods } from '../data/foods'
 import { pairs } from '../data/pairs'
 import { tours } from '../data/paintings'
 import { series } from '../data/series'
@@ -21,6 +22,9 @@ export const photosUsed = (exercises: Exercise[]): PhotoId[] => {
     ...('visual' in e && e.visual?.kind === 'facade' ? [facades[e.visual.facade].photo] : []),
     ...(e.type === 'label' ? [e.photo] : []),
     ...('visual' in e && e.visual?.kind === 'sound' && e.visual.photo ? [e.visual.photo] : []),
+    ...('visual' in e && e.visual?.kind === 'foods' ? foodIds.flatMap((f) => (foods[f].photo ? [foods[f].photo] : [])) : []),
+    ...(e.type === 'taste' ? [e.photo] : []),
+    ...(e.type === 'pick' ? e.items.flatMap((i) => (i.photo ? [i.photo] : [])) : []),
   ])
   return [...new Set(ids)]
 }

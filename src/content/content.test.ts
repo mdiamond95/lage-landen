@@ -33,6 +33,8 @@ import { mastersStory } from '../data/masters'
 import { modernsStory } from '../data/moderns'
 import { buildingsStory } from '../data/buildings'
 import { tonguesStory } from '../data/tongues'
+import { foodStory } from '../data/food'
+import { foodIds, foods } from '../data/foods'
 import { dialectIds, dialectPieces, dialects } from '../data/dialects'
 import { allPhrases, phraseSetIds, phraseSets } from '../data/phrases'
 import { soundIds } from '../sounds/ids'
@@ -74,7 +76,9 @@ const isVisual = (e: Exercise) =>
   (e.type === 'sort' && (e.visual !== undefined || e.items.every((i) => i.photo))) ||
   e.type === 'style' ||
   e.type === 'label' ||
-  e.type === 'listen'
+  e.type === 'listen' ||
+  e.type === 'taste' ||
+  (e.type === 'pick' && (e.visual !== undefined || e.items.every((i) => i.photo)))
 
 describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
@@ -257,7 +261,11 @@ describe('recordings', () => {
 
   it('are all used somewhere', () => {
     const lessons = files.map((f) => readFileSync(join(dir, f), 'utf8')).join('\n')
-    const elsewhere = [...Object.values(dialects).flatMap((d) => d.sounds), ...allPhrases.flatMap((p) => (p.sound ? [p.sound] : []))]
+    const elsewhere = [
+      ...Object.values(dialects).flatMap((d) => d.sounds),
+      ...allPhrases.flatMap((p) => (p.sound ? [p.sound] : [])),
+      ...foodIds.flatMap((f) => (foods[f].sound ? [foods[f].sound] : [])),
+    ]
     for (const id of soundIds) expect(elsewhere.includes(id) || lessons.includes(id), id).toBe(true)
   })
 })
@@ -332,6 +340,65 @@ describe('language time map', () => {
         const on = areas.filter((a) => a.regions?.includes(piece) && a.from <= from && (a.to === undefined || from <= a.to))
         expect(on.length, `${piece} in ${from}`).toBe(piece === 'flevoland' ? 0 : 1)
       }
+  })
+})
+
+describe('regional food map', () => {
+  it('puts every food in the frame, with a photo of its own', () => {
+    const photos = foodIds.flatMap((id) => (foods[id].photo ? [foods[id].photo] : []))
+    expect(new Set(photos).size, 'no photo on two foods').toBe(photos.length)
+    for (const id of foodIds) {
+      const [lon, lat] = foods[id].at
+      expect(lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6, id).toBe(true)
+      expect(foods[id].about.length, id).toBeGreaterThan(40)
+    }
+    // Marks of one kind closer than this are hard to tell apart on a phone.
+    for (const a of foodIds)
+      for (const b of foodIds)
+        if (a < b && foods[a].kind === foods[b].kind) {
+          const [x1, y1] = foods[a].at
+          const [x2, y2] = foods[b].at
+          expect(Math.hypot(x1 - x2, y1 - y2), `${a} and ${b} overlap`).toBeGreaterThan(0.08)
+        }
+  })
+
+  it("asks taste-and-find questions with a photo that is the answer's, or no food's", () => {
+    for (const file of files) {
+      const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
+      for (const ex of unit.lessons.flatMap((l) => l.exercises)) {
+        if (ex.type !== 'taste') continue
+        const owner = foodIds.find((id) => foods[id].photo === ex.photo)
+        if (owner) expect(owner, `${unit.id} ${ex.photo}`).toBe(ex.answer)
+        // The caption waits until the answer is checked, but the alt text is read out at once.
+        const names = foods[ex.answer].place.split(/[ ,]+/).filter((w) => /^[A-Z’']/.test(w) && w.length > 3 && !['The', 'Every', 'Around'].includes(w))
+        for (const n of names) expect(credits[ex.photo].alt, `${unit.id} ${ex.photo} alt names ${n}`).not.toContain(n)
+      }
+    }
+  })
+})
+
+describe('food time map', () => {
+  const { min, max, events, sites, labels, lines } = foodStory
+  const inFrame = ([lon, lat]: [number, number]) => lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6
+
+  it('puts every mark and label in the frame, each named once', () => {
+    for (const s of sites) expect(inFrame(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+    expect(lines).toHaveLength(0)
+    expect(new Set(sites.map((s) => s.name)).size, 'site names are unique').toBe(sites.length)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
   })
 })
 
@@ -439,6 +506,7 @@ describe('time maps in lessons', () => {
     moderns: modernsStory,
     buildings: buildingsStory,
     tongues: tonguesStory,
+    food: foodStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -464,6 +532,7 @@ describe('time maps in lessons', () => {
     moderns: [modernsStory.min, modernsStory.max],
     buildings: [buildingsStory.min, buildingsStory.max],
     tongues: [tonguesStory.min, tonguesStory.max],
+    food: [foodStory.min, foodStory.max],
   }
 
   it('open at years inside their slider', () => {

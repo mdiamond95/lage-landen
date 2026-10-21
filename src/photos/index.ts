@@ -410,6 +410,62 @@ import palaceNation from './palace-nation.jpg'
 import panoramaMesdag from './panorama-mesdag.jpg'
 import paradise from './paradise.jpg'
 import paramaribo from './paramaribo.jpg'
+import alkmaarCarriers from './alkmaar-carriers.jpg'
+import goudaWheels from './gouda-wheels.jpg'
+import edamMarket from './edam-market.jpg'
+import herveCheese from './herve-cheese.jpg'
+import leidenCheese from './leiden-cheese.jpg'
+import goudaWaag from './gouda-waag.jpg'
+import peetersCheese from './peeters-cheese.jpg'
+import vanDijckCheese from './van-dijck-cheese.jpg'
+import herringEater from './herring-eater.jpg'
+import herringStall from './herring-stall.jpg'
+import herringBuss from './herring-buss.jpg'
+import herringBussB from './herring-buss-b.jpg'
+import beukelszoon from './beukelszoon.jpg'
+import shrimpHorse from './shrimp-horse.jpg'
+import mussels1916 from './mussels-1916.jpg'
+import moulesFrites from './moules-frites.jpg'
+import stroopwafels from './stroopwafels.jpg'
+import speculaasPlank from './speculaas-plank.jpg'
+import speculaas from './speculaas.jpg'
+import liegeWaffle from './liege-waffle.jpg'
+import liegeWaffleB from './liege-waffle-b.jpg'
+import brusselsWaffle from './brussels-waffle.jpg'
+import pralines from './pralines.jpg'
+import galerieReine from './galerie-reine.jpg'
+import vanHouten from './van-houten.jpg'
+import vanHoutenPoster from './van-houten-poster.jpg'
+import cuberdons from './cuberdons.jpg'
+import hagelslag from './hagelslag.jpg'
+import bosscheBol from './bossche-bol.jpg'
+import vlaai from './vlaai.jpg'
+import poffertjes from './poffertjes.jpg'
+import cuypOliebollen from './cuyp-oliebollen.jpg'
+import stamppot from './stamppot.jpg'
+import hutspot from './hutspot.jpg'
+import waterzooi from './waterzooi.jpg'
+import bitterballen from './bitterballen.jpg'
+import febo from './febo.jpg'
+import rijsttafel from './rijsttafel.jpg'
+import rijsttafel1880s from './rijsttafel-1880s.jpg'
+import frietkot from './frietkot.jpg'
+import witloof from './witloof.jpg'
+import westvleteren from './westvleteren.jpg'
+import westmalle from './westmalle.jpg'
+import chimayAbbey from './chimay-abbey.jpg'
+import chimayBeers from './chimay-beers.jpg'
+import orval from './orval.jpg'
+import duvel from './duvel.jpg'
+import coolship from './coolship.jpg'
+import lambicBeers from './lambic-beers.jpg'
+import heineken from './heineken.jpg'
+import hasseltJenever from './hasselt-jenever.jpg'
+import graanjenever from './graanjenever.jpg'
+import sylvius from './sylvius.jpg'
+import schiedamMill from './schiedam-mill.jpg'
+import carnivalLent from './carnival-lent.jpg'
+import cockaigne from './cockaigne.jpg'
 import parma from './parma.jpg'
 import passchendaeleAerial from './passchendaele-aerial.jpg'
 import passchendaeleMud from './passchendaele-mud.jpg'
@@ -1316,6 +1372,62 @@ const files: Record<PhotoId, string> = {
   'states-yacht': statesYacht,
   'croissants': croissants,
   'paramaribo': paramaribo,
+  'alkmaar-carriers': alkmaarCarriers,
+  'gouda-wheels': goudaWheels,
+  'edam-market': edamMarket,
+  'herve-cheese': herveCheese,
+  'leiden-cheese': leidenCheese,
+  'gouda-waag': goudaWaag,
+  'peeters-cheese': peetersCheese,
+  'van-dijck-cheese': vanDijckCheese,
+  'herring-eater': herringEater,
+  'herring-stall': herringStall,
+  'herring-buss': herringBuss,
+  'herring-buss-b': herringBussB,
+  'beukelszoon': beukelszoon,
+  'shrimp-horse': shrimpHorse,
+  'mussels-1916': mussels1916,
+  'moules-frites': moulesFrites,
+  'stroopwafels': stroopwafels,
+  'speculaas-plank': speculaasPlank,
+  'speculaas': speculaas,
+  'liege-waffle': liegeWaffle,
+  'liege-waffle-b': liegeWaffleB,
+  'brussels-waffle': brusselsWaffle,
+  'pralines': pralines,
+  'galerie-reine': galerieReine,
+  'van-houten': vanHouten,
+  'van-houten-poster': vanHoutenPoster,
+  'cuberdons': cuberdons,
+  'hagelslag': hagelslag,
+  'bossche-bol': bosscheBol,
+  'vlaai': vlaai,
+  'poffertjes': poffertjes,
+  'cuyp-oliebollen': cuypOliebollen,
+  'stamppot': stamppot,
+  'hutspot': hutspot,
+  'waterzooi': waterzooi,
+  'bitterballen': bitterballen,
+  'febo': febo,
+  'rijsttafel': rijsttafel,
+  'rijsttafel-1880s': rijsttafel1880s,
+  'frietkot': frietkot,
+  'witloof': witloof,
+  'westvleteren': westvleteren,
+  'westmalle': westmalle,
+  'chimay-abbey': chimayAbbey,
+  'chimay-beers': chimayBeers,
+  'orval': orval,
+  'duvel': duvel,
+  'coolship': coolship,
+  'lambic-beers': lambicBeers,
+  'heineken': heineken,
+  'hasselt-jenever': hasseltJenever,
+  'graanjenever': graanjenever,
+  'sylvius': sylvius,
+  'schiedam-mill': schiedamMill,
+  'carnival-lent': carnivalLent,
+  'cockaigne': cockaigne,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

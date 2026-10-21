@@ -1,10 +1,10 @@
 // Painting tours (`{ kind: painting }`): a big painting saved large enough to zoom deep
 // into, and the details on it worth stopping at. Unit 16 brought them in; the Ghent
 // Altarpiece is toured in Unit 4 too, the Night Watch in Unit 6, and Unit 17 tours a
-// Rubens and a Vermeer, Unit 18 an Ensor. Each stop's box is
-// [left, top, width, height] as fractions of the picture, the same as a detail hunt's
-// targets; the tour glides to it and fills the frame with it. A question can open a
-// painting at one stop with `focus`.
+// Rubens and a Vermeer, Unit 18 an Ensor and Unit 21 Bruegel's Carnival and Lent. Each
+// stop's box is [left, top, width, height] as fractions of the picture, the same as a
+// detail hunt's targets; the tour glides to it and fills the frame with it. A question
+// can open a painting at one stop with `focus`.
 
 import type { PhotoId } from '../photos/ids'
 
@@ -362,6 +362,43 @@ export const tours = {
         title: 'Long live Jesus',
         text: 'On the right, a sign reads “Vive Jésus roi de Bruxelles”, long live Jesus, king of Brussels. Below it Ensor signed and dated the painting 1888.',
         box: [0.82, 0.52, 0.18, 0.3],
+      },
+    ],
+  },
+  'carnival-lent': {
+    photo: 'carnival-lent',
+    intro:
+      'Pieter Bruegel’s Fight Between Carnival and Lent, 1559: the feast before Easter’s forty days of fasting against the fast itself, in a town square of the Low Countries. The inn is on the left, the church on the right. Tap a number, or start the tour.',
+    stops: [
+      {
+        id: 'carnival',
+        title: 'Carnival',
+        text: 'A fat butcher rides a beer barrel, with a pie on his head and a cooking pot for a stirrup. His lance is a roasting spit with a suckling pig’s head, a chicken and sausages: the last feast before the fast.',
+        box: [0.3, 0.62, 0.17, 0.3],
+      },
+      {
+        id: 'waffles',
+        title: 'Waffles on the fire',
+        text: 'Behind him a woman bakes waffles over a fire, with the batter in a bowl at her side, and a man goes by with a table on his head loaded with waffles and pancakes. Waffles were Carnival food.',
+        box: [0.18, 0.56, 0.22, 0.17],
+      },
+      {
+        id: 'lent',
+        title: 'Lent',
+        text: 'Lent is a thin woman on a hard three-legged chair, with a beehive, a symbol of the church, for a hat. A monk and a nun pull her cart. Her lance is a baker’s peel with two herrings on it, and at her feet lie pretzels, buns and a bowl of mussels.',
+        box: [0.57, 0.67, 0.17, 0.29],
+      },
+      {
+        id: 'fish',
+        title: 'Fish for the fast',
+        text: 'Around the well, women gut fish and sell it from a stall, and a basket holds big white fish. In Lent no meat was eaten for forty days, and fish took its place.',
+        box: [0.52, 0.45, 0.18, 0.19],
+      },
+      {
+        id: 'inn',
+        title: 'The Blue Barge',
+        text: 'The inn on Carnival’s side is the Blue Barge, de Blauwe Schuit, named after a Middle Dutch poem in which the world is turned upside down. Look for the lovers at the upper window.',
+        box: [0.09, 0.13, 0.12, 0.1],
       },
     ],
   },

@@ -1,0 +1,665 @@
+id: unit-21
+number: 21
+title: Food and drink
+era: About 1266 to today
+summary: >-
+  Cheese weighed at Gouda and carried at Alkmaar, herring gibbed at sea, speculaas spiced with the cargo of the
+  East India Company, stroopwafels, frites, waffles and pralines, Trappist beer, lambic and jenever. Taste your way
+  across the regional food map, follow the food of the Low Countries from a book of nature of about 1266 to
+  Belgian beer culture on UNESCO's list, and find the waffles, herring and pies hidden in old paintings.
+note: >-
+  This checkpoint can ask about how the East India Company took the spice islands by force, the conquest of the
+  Banda Islands in 1621. It is asked plainly, without celebrations.
+lessons:
+  - id: u21-l1
+    title: Cheese country
+    icon: cheese
+    sources:
+      - title: "Wikipedia, Gouda cheese"
+        url: https://en.wikipedia.org/wiki/Gouda_cheese
+      - title: "Wikipedia (Dutch), Waag (Gouda)"
+        url: https://nl.wikipedia.org/wiki/Waag_(Gouda)
+      - title: "Wikipedia (Dutch), Kaasmarkt (Alkmaar)"
+        url: https://nl.wikipedia.org/wiki/Kaasmarkt_(Alkmaar)
+      - title: "Wikipedia, Herve cheese"
+        url: https://en.wikipedia.org/wiki/Herve_cheese
+      - title: "Wikipedia, Leyden cheese"
+        url: https://en.wikipedia.org/wiki/Leyden_cheese
+      - title: "Wikisource, William Temple, Observations upon the United Provinces of the Netherlands (1673), chapter VI"
+        url: https://en.wikisource.org/wiki/Observations_upon_the_United_Provinces_of_the_Netherlands/Chapter_VI
+      - title: "Wikipedia, Still Life with Cheeses, Almonds and Pretzels"
+        url: https://en.wikipedia.org/wiki/Still_Life_with_Cheeses,_Almonds_and_Pretzels
+    exercises:
+      - type: story
+        title: Grass, cows and cheese
+        body: >-
+          The wet green polders of Holland grow grass better than grain, and grass feeds cows. Milk does not keep, but
+          cheese and butter do, so for centuries farmers have turned their milk into cheese to sell. Tap the cheeses on
+          the map, from Edam in the north to Herve in the hills east of Liège.
+        visual: { kind: foods, only: cheese }
+      - type: choice
+        prompt: At the cheese market of Alkmaar, carriers in white trot the cheeses to the weigh house. Their straw hats have ribbons in one of four colours. What do the colours mark?
+        visual: { kind: photo, photo: alkmaar-carriers }
+        answer: 0
+        options:
+          - label: Which of the guild's four companies a carrier belongs to
+            why: >-
+              Right. The guild, founded on 17 June 1593, has four companies, or vemen, in yellow, red, blue and green. Two
+              carriers share a barrow of about eight cheeses, some 160 kg, and the oldest carrier, the tasman, wears a
+              black leather bag and sets the weights on the scale.
+          - label: How long each man has carried cheese
+            why: The colours mark the guild's four companies, the vemen, not a carrier's years.
+          - label: Which farm the cheese comes from
+            why: The colours mark the guild's four companies, the vemen, not the farms.
+          - label: The day of the week
+            why: The colours mark the guild's four companies, the vemen. All four carry on market day.
+      - type: truemyth
+        statement: Only cheese made in the town of Gouda may be sold as Gouda.
+        visual: { kind: photo, photo: gouda-wheels }
+        answer: false
+        explain: >-
+          Myth. Gouda is named after the town, where farmers brought their cheese to be weighed and sold, but the name
+          on its own is used for cheese of its kind all over the world. Only "Gouda Holland", protected by the EU since
+          2010, must be made in the Netherlands, from Dutch milk.
+      - type: hunt
+        prompt: Clara Peeters, one of the few women painters of her time, painted this still life in Antwerp in about 1615. She signed it in an unusual place. Find her name.
+        photo: peeters-cheese
+        targets:
+          - [0.44, 0.86, 0.25, 0.11]
+        explain: >-
+          On the handle of the silver knife. Peeters painted her name into it, and her own face, tiny, in the lid of the
+          jug behind the cheeses: she made at least seven such hidden self-portraits.
+      - type: gap
+        prompt: An English ambassador who lived in The Hague found the Dutch a puzzle. They grew rich on trade but lived plainly. Fill the gap.
+        quote: They send abroad the best of their own ___, into all parts, and buy the cheapest out of Ireland, or the North of England, for their own use.
+        source: William Temple, Observations upon the United Provinces of the Netherlands, 1673
+        visual: { kind: photo, photo: van-dijck-cheese }
+        options: [Butter, Herring, Tulips, Beer]
+        answer: 0
+        explain: >-
+          Butter. Temple adds that they sell the finest of their own cloth to France and buy coarse cloth from England
+          to wear: "they furnish infinite Luxury, which they never practise". Butter and cheese were among the Republic's
+          great exports.
+      - type: scrub
+        prompt: Drag the slider to the years when Alkmaar's cheese carriers have their guild, but Gouda has not yet built its weigh house.
+        map: food
+        start: 1400
+        answer: [1593, 1667]
+        explain: >-
+          The cheese carriers of Alkmaar formed their guild on 17 June 1593. Gouda's weigh house on the Markt, designed
+          by Pieter Post, was built in 1668.
+      - type: story
+        title: The weigh house of Gouda
+        body: >-
+          Tap the parts of the Waag of 1668, or step along them with Next. Its front is a picture of what happened
+          inside.
+        visual: { kind: facade, facade: gouda-waag }
+      - type: odd
+        prompt: Which of these cheeses is the odd one out?
+        items:
+          - { label: Gouda, photo: gouda-wheels }
+          - { label: Edam, photo: edam-market }
+          - { label: Leiden cheese, photo: leiden-cheese }
+          - { label: Herve, photo: herve-cheese }
+        answer: 3
+        reasons:
+          - It is a soft cheese with a sticky, strong-smelling rind, from Belgium
+          - It is made from goat's milk
+          - It has no protected name
+        reason: 0
+        explain: >-
+          Herve, from the hills east of Liège, is soft, with a washed orange rind and a famous smell. Gouda, Edam and
+          Leiden cheese are firm cheeses of cow's milk from Holland. All four have names protected by the EU.
+      - type: taste
+        prompt: This cheese is spiced with cumin seeds, and the farm-made kind is stamped with two crossed keys. Tap where it comes from.
+        photo: leiden-cheese
+        answer: leiden
+        explain: >-
+          Leiden. The keys come from the city's coat of arms. The farm cheese, Boeren-Leidse met sleutels, has been a
+          protected designation of origin since 1997.
+
+  - id: u21-l2
+    title: Herring and the sea
+    icon: fish
+    sources:
+      - title: "Wikipedia (Dutch), Hollandse Nieuwe"
+        url: https://nl.wikipedia.org/wiki/Hollandse_Nieuwe
+      - title: "Wikipedia (Dutch), Willem Beukelszoon"
+        url: https://nl.wikipedia.org/wiki/Willem_Beukelszoon
+      - title: "Wikipedia, Herring buss"
+        url: https://en.wikipedia.org/wiki/Herring_buss
+      - title: "Wikisource, William Temple, Observations upon the United Provinces of the Netherlands (1673), chapter VI"
+        url: https://en.wikisource.org/wiki/Observations_upon_the_United_Provinces_of_the_Netherlands/Chapter_VI
+      - title: "UNESCO, Shrimp fishing on horseback in Oostduinkerke"
+        url: https://ich.unesco.org/en/RL/shrimp-fishing-on-horseback-in-oostduinkerke-00673
+    exercises:
+      - type: story
+        title: The great fishery
+        body: >-
+          From the 1400s fishing boats called busses sailed from Holland and Zeeland to the herring grounds of the North
+          Sea for weeks at a time. The crew cleaned and salted the herring on board and packed it in barrels. The Dutch
+          called it the Groote Visscherij, the great fishery, and its barrels went all over Europe.
+        visual: { kind: photo, photo: herring-buss }
+      - type: truemyth
+        statement: A fisherman from Biervliet, Willem Beukelszoon, invented the gibbing of herring.
+        visual: { kind: photo, photo: beukelszoon }
+        answer: false
+        explain: >-
+          Myth, or at least unproven. Gibbing means cutting out the gills and guts at sea, then salting the fish, so it
+          keeps for months. A Willem Beukelszoon was an alderman of Biervliet in 1312, and old prints like this one
+          call him its inventor, but no one knows what part he played. Flemings and Scandinavians claim the method too,
+          and it may have been found by several people at once.
+      - type: gap
+        prompt: Temple, the English ambassador, explained why Dutch goods were trusted abroad. Fill the gap.
+        quote: Thus there have been above Thirty several Placarts about the manner of curing, pickling, and barrelling, ___.
+        source: William Temple, Observations upon the United Provinces of the Netherlands, 1673
+        visual: { kind: photo, photo: herring-buss-b }
+        options: [Herrings, Cheeses, Tulips, Spices]
+        answer: 0
+        explain: >-
+          Herrings. A placard was a law. Before it, Temple writes of the Dutch "Order and Exactness in managing their
+          Trade", first forced by "severe Laws and Penalties, but is since grown into Custom". A barrel with the right
+          brand could be sold unopened.
+      - type: choice
+        prompt: A man at a fish stall in Amsterdam tips his head back and lowers something into his mouth by the tail. What is it?
+        visual: { kind: photo, photo: herring-eater }
+        answer: 0
+        options:
+          - label: A raw, lightly salted herring
+            why: >-
+              Right. Hollandse Nieuwe, the new season's herring, caught from May when the fish are fat. It is eaten raw,
+              often with chopped onion. Since 1968 the law has said it must be frozen first, to kill any worms.
+          - label: A smoked eel
+            why: Eel is eaten smoked, in pieces. This is a raw herring, eaten by the tail.
+          - label: A pickled cucumber
+            why: It is a raw herring, Hollandse Nieuwe, eaten by the tail.
+          - label: A fried sole
+            why: It is a raw herring, Hollandse Nieuwe, eaten by the tail.
+      - type: taste
+        prompt: These fishers ride big horses into the surf, dragging nets for shrimp. Tap where.
+        photo: shrimp-horse
+        answer: shrimp
+        explain: >-
+          Oostduinkerke, on the Belgian coast, the only place where shrimp are still fished on horseback. UNESCO listed
+          it as intangible heritage in 2013; a dozen households keep it going, fishing twice a week except in winter.
+      - type: choice
+        prompt: Women in Zeeland costume sort mussels in 1916. Where are Dutch mussels farmed and sold to this day?
+        visual: { kind: photo, photo: mussels-1916 }
+        answer: 1
+        options:
+          - label: In the IJsselmeer, behind the Afsluitdijk
+            why: The IJsselmeer became fresh water after 1932. Mussels need the salt water of the Oosterschelde.
+          - label: In the Oosterschelde, with the auction at Yerseke
+            why: >-
+              Right. Mussels grow on beds in the salty Oosterschelde, and are sold at Yerseke. In Belgium they become
+              moules-frites.
+          - label: In the rivers around Rotterdam
+            why: Mussels need clean salt water. They are farmed in the Oosterschelde and sold at Yerseke.
+          - label: Off the coast of Friesland, in the open sea
+            why: The Dutch mussel beds are in the Oosterschelde, with the auction at Yerseke.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Herring is gibbed and salted at sea, Busses can stay out on the fishing grounds for weeks]
+          - [More than thirty laws set how herring is cured and barrelled, Dutch herring is bought abroad unopened]
+          - [Raw fish can carry worms, Since 1968 raw herring must be frozen before it is sold]
+          - [Shellfish need the tides of the Oosterschelde, Its storm barrier is built with gates that stay open]
+        explain: >-
+          Salt let the fleet fish far from home, and rules made its barrels a trusted brand. Mussels and oysters were one
+          reason the Oosterschelde was not dammed shut in the Delta Works (Unit 12): its barrier of 1986 closes only in
+          a storm.
+      - type: pin
+        prompt: Every June the first herring is greeted with Vlaggetjesdag, the day of the little flags, in a seaside quarter of The Hague. Pin The Hague.
+        place: the-hague
+        explain: >-
+          Scheveningen, the fishing harbour of The Hague. Vlaggetjesdag began as the day the herring fleet lay in harbour,
+          dressed with flags, before it sailed.
+
+  - id: u21-l3
+    title: Spices, syrup and sprinkles
+    icon: waffle
+    note: >-
+      This lesson includes the conquest of the Banda Islands in 1621 by the East India Company, when most of the
+      islanders were killed, enslaved or driven away. It is told plainly, without celebrations.
+    sources:
+      - title: "Wikipedia, Speculaas"
+        url: https://en.wikipedia.org/wiki/Speculaas
+      - title: "Wikipedia, Stroopwafel"
+        url: https://en.wikipedia.org/wiki/Stroopwafel
+      - title: "Wikipedia, Hagelslag"
+        url: https://en.wikipedia.org/wiki/Hagelslag
+      - title: "Encyclopaedia Britannica, Banda Islands"
+        url: https://www.britannica.com/place/Banda-Islands
+      - title: "Wikipedia, Rijsttafel"
+        url: https://en.wikipedia.org/wiki/Rijsttafel
+    exercises:
+      - type: story
+        title: Spice ships
+        body: >-
+          From 1602 the ships of the East India Company bring pepper, nutmeg, cloves and cinnamon to Amsterdam. Spices
+          that once only the rich could buy turn up in biscuits and cakes, baked in carved wooden moulds for the feast of
+          Saint Nicholas.
+        visual: { kind: time-map, map: food, year: 1602 }
+      - type: pick
+        prompt: Which spices go into Dutch speculaas? Pick all that belong.
+        visual: { kind: photo, photo: speculaas-plank }
+        items:
+          - { label: Cinnamon }
+          - { label: Nutmeg }
+          - { label: Cloves }
+          - { label: Ginger }
+          - { label: Cardamom }
+          - { label: Paprika }
+          - { label: Saffron }
+          - { label: Chilli }
+        answers: [0, 1, 2, 3, 4]
+        explain: >-
+          Cinnamon above all, then nutmeg, cloves, ginger and cardamom, most of them brought by the Company from Asia.
+          Belgian speculoos leaves the spices out and tastes of caramelised sugar instead.
+      - type: choice
+        prompt: In the 1600s nutmeg grew in only one place in the world, the tiny Banda Islands. How did the Company get it for itself?
+        visual: { kind: photo, photo: banda-1724 }
+        answer: 1
+        options:
+          - label: By buying the islands from their sultan
+            why: There was no sale. In 1621 the Company took the islands by force.
+          - label: By conquering the islands in 1621, killing, enslaving or driving out most of the people
+            why: >-
+              Yes. Under Jan Pieterszoon Coen, of perhaps 15,000 Bandanese only about 1,000 were left on the islands.
+              Their nutmeg groves were worked by enslaved people for the Company (Unit 7).
+          - label: By smuggling seedlings to Java
+            why: The Company wanted nutmeg to grow nowhere else. In 1621 it took the Banda Islands by force.
+          - label: By marrying into the islands' ruling family
+            why: In 1621 the Company took the Banda Islands by force.
+      - type: hunt
+        prompt: Jan Steen's Feast of Saint Nicholas, of about 1665, is full of treats. Find the waffles.
+        photo: steen-nicholas
+        targets:
+          - [0.13, 0.775, 0.13, 0.07]
+        explain: >-
+          In the basket, bottom left, beside the long loaf and the rolls. Waffles were a feast-day treat long before
+          the Belgian waffle; the big diamond-shaped bread on the right is a duivekater, baked for the holidays.
+      - type: taste
+        prompt: Two thin waffles stuck together with syrup. Bakers in one town were making them by the early 1800s. Tap where.
+        photo: stroopwafels
+        answer: stroopwafel
+        explain: >-
+          Gouda. One story credits the baker Gerard Kamphuisen, who opened his shop in 1810. After 1870 stroopwafels
+          spread to other towns, and by 1960 Gouda had 17 factories making them.
+      - type: truemyth
+        statement: Chocolate sprinkles on buttered bread are a Dutch breakfast of the 1900s.
+        visual: { kind: photo, photo: hagelslag }
+        answer: true
+        explain: >-
+          True. Hagelslag, hailstorm, was first made by the liquorice maker Venco in 1919. Venz has made chocolate
+          sprinkles since 1936, and the Dutch now eat more than 14 million kg a year.
+      - type: scrub
+        prompt: Drag the slider to the years when the Company's spice ships are sailing, but no one has yet written down the word speculaas.
+        map: food
+        answer: [1602, 1748]
+        explain: >-
+          The Company was founded in 1602. The oldest known mention of speculaas, as speculatie, is in the bakers' rules
+          of Haarlem in 1749.
+      - type: choice
+        prompt: This family in Bandung, on Java, sits at a rijsttafel in about 1930. How did Indonesian food become an everyday Dutch meal?
+        visual: { kind: photo, photo: rijsttafel-1880s }
+        answer: 0
+        options:
+          - label: Families came to the Netherlands from Indonesia after 1945, and opened shops and restaurants
+            why: >-
+              Right. The rijsttafel, a rice table of many small dishes, was a feast of the colonial Dutch. After
+              Indonesia became independent, families from there brought their cooking with them, and nasi, bami and
+              saté are now Dutch staples.
+          - label: Dutch sailors brought it home in the 1600s
+            why: It came much later, with the families who moved from Indonesia to the Netherlands after 1945.
+          - label: A cookbook of 1900 made it popular
+            why: It came with the families who moved from Indonesia to the Netherlands after 1945.
+          - label: It was served at Expo 58
+            why: It came with the families who moved from Indonesia to the Netherlands after 1945.
+
+  - id: u21-l4
+    title: Frites, waffles and chocolate
+    icon: fries
+    sources:
+      - title: "Wikipedia, The Fight Between Carnival and Lent"
+        url: https://en.wikipedia.org/wiki/The_Fight_Between_Carnival_and_Lent
+      - title: "Wikipedia, French fries"
+        url: https://en.wikipedia.org/wiki/French_fries
+      - title: "Sortir à Paris, French fries are French, and a Belgian historian is making the claim"
+        url: https://www.sortiraparis.com/en/what-to-visit-in-paris/history-heritage/articles/323227-french-fries-are-french-and-a-belgian-historian-is-making-the-claim
+      - title: "Wikipedia, Belgian waffle"
+        url: https://en.wikipedia.org/wiki/Belgian_waffle
+      - title: "Wikipedia, Coenraad Johannes van Houten"
+        url: https://en.wikipedia.org/wiki/Coenraad_Johannes_van_Houten
+      - title: "Wikipedia, Belgian chocolate"
+        url: https://en.wikipedia.org/wiki/Belgian_chocolate
+      - title: "Wikipedia, The Land of Cockaigne (Bruegel)"
+        url: https://en.wikipedia.org/wiki/The_Land_of_Cockaigne_(Bruegel)
+    exercises:
+      - type: story
+        title: Carnival against Lent
+        body: >-
+          In 1559 Pieter Bruegel painted the feast before Lent fighting the forty days of fasting. Tap the numbers, or
+          step through with Next, to find what people of the Low Countries ate on each side.
+        visual: { kind: painting, painting: carnival-lent }
+      - type: sort
+        prompt: Here is a Liège waffle. Sort each description, Liège or Brussels?
+        visual: { kind: photo, photo: liege-waffle }
+        groups: [Liège waffle, Brussels waffle]
+        items:
+          - { label: Lumps of pearl sugar baked into the dough, group: 0 }
+          - { label: "Chewy, with uneven, caramelised edges", group: 0 }
+          - { label: Eaten warm from the hand at a street stall, group: 0 }
+          - { label: A thin batter poured into the iron, group: 1 }
+          - { label: "Light and crisp, with deep, even pockets", group: 1 }
+          - { label: On a plate with icing sugar or cream, group: 1 }
+        explain: >-
+          The Liège waffle is a sweet yeast dough with pearl sugar that caramelises in the iron. The Brussels waffle is
+          a rectangle of light batter, the one Maurice Vermersch took to the New York World's Fair of 1964, where
+          Americans called it the Belgian waffle.
+      - type: truemyth
+        statement: Fries were first made in Namur in the 1600s, by people who cut potatoes into little fish when the Meuse froze.
+        visual: { kind: photo, photo: frietkot }
+        answer: false
+        explain: >-
+          Myth, or at least unproven. The Belgian journalist Jo Gérard said a family manuscript of 1781 told the story,
+          but he never showed it, and potatoes only reached the region around 1735. The historian Pierre Leclercq of
+          Liège says the text, if it exists, means thin slices browned in a little fat, and that fries were "born in the
+          Parisian street". A Bavarian, Frédéric Krieger, sold Paris-style fries in Belgium from the 1840s. What Belgium
+          did invent is the frietkot.
+      - type: who
+        photo: van-houten
+        clues:
+          - I was born in Amsterdam in 1801, the son of a chocolate maker.
+          - In 1828 my father patented a press that squeezed the fat out of roasted cocoa.
+          - I treated the powder with alkaline salts, so it mixed easily with water.
+          - In 1850 I moved our works from a windmill in Leiden to a steam factory in Weesp.
+        options: [Coenraad van Houten, Jean Neuhaus, Gerard Adriaan Heineken, Douwe Egberts]
+        answer: 0
+        explain: >-
+          Coenraad Johannes van Houten. "Dutch process" cocoa is still named after his alkaline salts, and the cocoa
+          butter pressed out made chocolate that could be eaten, not just drunk. Fry's of Bristol made one of the first
+          chocolate bars in 1847.
+      - type: choice
+        prompt: What did the Van Houtens' press of 1828 squeeze out of ground cocoa beans?
+        visual: { kind: photo, photo: van-houten-poster }
+        answer: 0
+        options:
+          - label: Most of the fat, the cocoa butter
+            why: >-
+              Right. It cut the fat in the cocoa by nearly half. The powder left made a lighter drink, and the butter went
+              into chocolate for eating.
+          - label: The sugar
+            why: Cocoa beans have little sugar. The press took out the fat, the cocoa butter.
+          - label: The caffeine
+            why: The press took out the fat, the cocoa butter.
+          - label: The shells
+            why: Shells were taken off before grinding. The press took out the fat, the cocoa butter.
+      - type: choice
+        prompt: In 1857 a Swiss pharmacist, Jean Neuhaus, opened a shop in this covered arcade in Brussels. In 1912 his grandson filled a chocolate shell with a soft centre. What do Belgians call one?
+        visual: { kind: photo, photo: galerie-reine }
+        answer: 0
+        options:
+          - label: A praline
+            why: >-
+              Right. In Belgium a praline is any chocolate with a filling; in France the word means sugared almonds. In
+              1915 Louise Agostini, the grandson's wife, designed the ballotin, the box that keeps them from being
+              crushed.
+          - label: A truffle
+            why: A truffle is a ball of soft chocolate rolled in cocoa. Neuhaus's filled shell was the praline.
+          - label: A cuberdon
+            why: A cuberdon is a cone of gum with syrup inside, a sweet from Ghent. Neuhaus's filled shell was the praline.
+          - label: A speculoos
+            why: Speculoos is a spiced biscuit. Neuhaus's filled shell was the praline.
+      - type: taste
+        prompt: A purple cone of gum arabic with runny raspberry syrup inside, nicknamed a little nose. Tap the town it belongs to.
+        photo: cuberdons
+        answer: cuberdon
+        explain: >-
+          Ghent, where it is a neuzeke, a little nose. One story says a Ghent pharmacist hit on the recipe in 1873. It
+          keeps for only about three weeks.
+      - type: hunt
+        prompt: In Bruegel's Land of Cockaigne of 1567, food comes to you. Find the roof tiled with pies.
+        photo: cockaigne
+        targets:
+          - [0.0, 0.0, 0.22, 0.34]
+        explain: >-
+          Top left, a lean-to roofed with tarts, with a knight waiting under it. Elsewhere a roast pig runs about with a
+          knife in its back and the fence is woven of sausages: a joke about gluttony and laziness, not a dream to
+          follow.
+      - type: scrub
+        prompt: Drag the slider to the years when Amsterdam is pressing cocoa powder, but Brussels has no pralines yet.
+        map: food
+        start: 1700
+        answer: [1828, 1911]
+        explain: >-
+          The Van Houtens' press dates from 1828. Jean Neuhaus filled chocolate shells in the Galeries Royales of
+          Brussels in 1912, and in 1915 his family designed the ballotin box.
+
+  - id: u21-l5
+    title: Beer and jenever
+    icon: beer
+    sources:
+      - title: "UNESCO, Beer culture in Belgium"
+        url: https://ich.unesco.org/en/RL/beer-culture-in-belgium-01062
+      - title: "Wikipedia, Trappist beer"
+        url: https://en.wikipedia.org/wiki/Trappist_beer
+      - title: "Wikipedia, Lambic"
+        url: https://en.wikipedia.org/wiki/Lambic
+      - title: "Wikipedia, Gerard Adriaan Heineken"
+        url: https://en.wikipedia.org/wiki/Gerard_Adriaan_Heineken
+      - title: "Wikipedia (Dutch), Jenever"
+        url: https://nl.wikipedia.org/wiki/Jenever
+      - title: "Word Histories, Dutch courage"
+        url: https://wordhistories.net/2018/04/12/dutch-courage-origin/
+    exercises:
+      - type: story
+        title: A thousand and more beers
+        body: >-
+          In 2016 UNESCO listed Belgian beer culture as heritage of humanity: almost 1,500 kinds of beer, brewed by monks,
+          families and big firms, cooked with and served in their own glasses. Tap the breweries on the map, then the
+          jenever towns.
+        visual: { kind: foods, only: beer }
+      - type: pick
+        prompt: A Trappist beer is brewed inside a Trappist abbey, by or under the monks. Which of these are Trappist beers?
+        items:
+          - { label: Westvleteren, photo: westvleteren }
+          - { label: Westmalle, photo: westmalle }
+          - { label: Orval, photo: orval }
+          - { label: Chimay, photo: chimay-beers }
+          - { label: Duvel, photo: duvel }
+          - { label: Gueuze and kriek, photo: lambic-beers }
+        answers: [0, 1, 2, 3]
+        explain: >-
+          Westvleteren, Westmalle, Orval and Chimay, with Rochefort, are the five Trappist breweries of Belgium; La
+          Trappe is the Dutch one. Duvel is brewed by a family firm, and gueuze is blended from lambic by small
+          brewers around Brussels.
+      - type: choice
+        prompt: Lambic brewers pour the hot wort into a wide, shallow pan like this and leave it open to the night air. Why?
+        visual: { kind: photo, photo: coolship }
+        answer: 0
+        options:
+          - label: So wild yeasts and bacteria from the air start it fermenting
+            why: >-
+              Right. More than 120 kinds of microbes, said to be native to the valley of the Zenne, settle in the wort.
+              It is brewed only in the cool months, roughly October to May, and young and old lambic blended make gueuze.
+          - label: So it freezes and keeps longer
+            why: It is cooled, not frozen, so wild yeasts from the air can settle in it.
+          - label: So rain waters it down
+            why: The pan sits under a roof. It is left open so wild yeasts from the air settle in it.
+          - label: So the alcohol boils off
+            why: There is no alcohol yet. It is left open so wild yeasts from the air settle in it and start it fermenting.
+      - type: who
+        photo: heineken
+        clues:
+          - I was born in Amsterdam in 1841.
+          - In 1864, aged 22, I bought a brewery called De Hooiberg, the Haystack.
+          - In the 1870s I switched to lager, the bottom-fermented beer of Bavaria.
+          - In 1886 my laboratory in Rotterdam grew a pure yeast, still known as A-yeast.
+        options: [Gerard Adriaan Heineken, Sébastien Artois, Coenraad van Houten, Johan de Borst]
+        answer: 0
+        explain: >-
+          Gerard Adriaan Heineken. Hartog Elion, the chemist in his laboratory, isolated the yeast. The firm still bears
+          his name.
+      - type: truemyth
+        statement: Franciscus Sylvius, a professor of medicine at Leiden, invented jenever in about 1650.
+        visual: { kind: photo, photo: sylvius }
+        answer: false
+        explain: >-
+          Myth. Sylvius did distil a juniper drink as a medicine in 1650, but Jacob van Maerlant had mentioned wine made
+          with juniper some 400 years before, and Philippus Hermanni of Antwerp described a juniper spirit in 1552,
+          before Sylvius was born.
+      - type: gap
+        prompt: In 1665 an English poet wrote of the English fleet beating the Dutch and taking their drink. Fill the gap.
+        quote: The Dutch their Wine, and all their Brandee lose, / Disarm'd of that, from which their ___ grows.
+        source: Edmund Waller, Instructions to a Painter, printed in London in 1666
+        visual: { kind: photo, photo: graanjenever }
+        options: [Courage, Wealth, Freedom, Hunger]
+        answer: 0
+        explain: >-
+          Courage. English soldiers and sailors joked that the Dutch fought on drink, and "Dutch courage" still means
+          boldness from a bottle. English soldiers brought jenever home from the Low Countries, and it became English
+          gin.
+      - type: scrub
+        prompt: Drag the slider to the years when Trappist monks are brewing at Westmalle and Westvleteren, but not yet at Chimay.
+        map: food
+        start: 1795
+        answer: [1838, 1861]
+        explain: >-
+          Westmalle brewed its first beer on 1 August 1836, Westvleteren from 1838. The monks of Scourmont, near Chimay,
+          began in 1862.
+      - type: choice
+        prompt: Compare the food map in 1795 and in 1890. Which marks have spread in between?
+        visual: { kind: compare, map: food, years: [1795, 1890] }
+        answer: 1
+        options:
+          - label: Distilleries
+            why: Schiedam and Hasselt were already distilling in 1795. The new marks are breweries.
+          - label: Breweries, at the abbeys and in Amsterdam
+            why: >-
+              Right. Trappist monks at Westmalle, Westvleteren and Chimay, Heineken in Amsterdam and La Trappe near
+              Tilburg all brew by 1890.
+          - label: Cheese towns
+            why: The cheese towns are there in both years. The new marks are breweries.
+          - label: Fish ports
+            why: The herring ports are there in both years. The new marks are breweries.
+      - type: taste
+        prompt: Bottles of gueuze and kriek, beers fermented by wild yeasts. Tap where they are brewed.
+        photo: lambic-beers
+        answer: lambic
+        explain: >-
+          The Pajottenland and the valley of the Zenne, just southwest of Brussels. Kriek is lambic fermented again with
+          sour cherries.
+
+  - id: u21-l6
+    title: The everyday table
+    icon: pot
+    sources:
+      - title: "Wikipedia, Hutspot"
+        url: https://en.wikipedia.org/wiki/Hutspot
+      - title: "Wikipedia, French fries (the potato in the southern Netherlands)"
+        url: https://en.wikipedia.org/wiki/French_fries
+      - title: "Wikipedia, FEBO"
+        url: https://en.wikipedia.org/wiki/FEBO
+      - title: "Wikipedia, Belgian endive"
+        url: https://en.wikipedia.org/wiki/Belgian_endive
+      - title: "Wikipedia, Dutch famine of 1944–1945"
+        url: https://en.wikipedia.org/wiki/Dutch_famine_of_1944%E2%80%931945
+    exercises:
+      - type: story
+        title: Potatoes for everyone
+        body: >-
+          Potatoes came late to the Low Countries: they were grown in the south only from around the 1730s. A hundred
+          years later they fed the poor, as in Van Gogh's Potato Eaters of 1885, and they still sit on most Dutch and
+          Belgian plates, mashed into stamppot or fried as frites.
+        visual: { kind: photo, photo: potato-eaters }
+      - type: truemyth
+        statement: The stew the Spanish soldiers left behind at Leiden in 1574 was a mash of potatoes, carrots and onions.
+        visual: { kind: photo, photo: leiden-relief }
+        answer: false
+        explain: >-
+          Myth. Leiden still eats hutspot every 3 October, the day the siege ended, along with the herring and white
+          bread the relief ships brought, painted here. But in 1574 the pot would have held parsnips, not potatoes,
+          which were not yet grown in Holland.
+      - type: taste
+        prompt: Mashed potatoes, carrots and onions, eaten every 3 October in memory of a siege. Tap the town.
+        photo: hutspot
+        answer: hutspot
+        explain: Leiden, relieved by the Sea Beggars on 3 October 1574 (Unit 5).
+      - type: sort
+        prompt: Would you more likely eat it in the Netherlands or in Belgium?
+        groups: [Netherlands, Belgium]
+        items:
+          - { label: Stamppot with kale, group: 0, photo: stamppot }
+          - { label: Bitterballen, group: 0, photo: bitterballen }
+          - { label: Poffertjes, group: 0, photo: poffertjes }
+          - { label: Bossche bol, group: 0, photo: bossche-bol }
+          - { label: Waterzooi, group: 1, photo: waterzooi }
+          - { label: Moules-frites, group: 1, photo: moules-frites }
+          - { label: Witloof, group: 1, photo: witloof }
+          - { label: Liège waffle, group: 1, photo: liege-waffle-b }
+        explain: >-
+          Stamppot, bitterballen, poffertjes and the Bossche bol are Dutch; waterzooi from Ghent, moules-frites,
+          witloof and the Liège waffle are Belgian. Many dishes cross the border, but the names give them away.
+      - type: choice
+        prompt: At this Amsterdam snack bar you put coins in a slot and open a little door. What is behind it?
+        visual: { kind: photo, photo: febo }
+        answer: 0
+        options:
+          - label: A hot kroket or another fried snack
+            why: >-
+              Right. FEBO opened in Amsterdam in 1941 and grew into an automat. A kroket is a thick meat ragout, breaded
+              and fried; bitterballen are its round little cousins, served with drinks and mustard.
+          - label: A cheese from the market
+            why: The little doors hold hot fried snacks, krokets above all.
+          - label: A herring
+            why: Herring is sold at fish stalls. The doors hold hot fried snacks, krokets above all.
+          - label: A cup of coffee
+            why: The doors hold hot fried snacks, krokets above all.
+      - type: choice
+        prompt: Aelbert Cuyp painted this young woman with a pot of them in about 1652. Listen to their name. When do Dutch families eat them?
+        visual: { kind: sound, sound: nl-oliebol, photo: cuyp-oliebollen }
+        answer: 2
+        options:
+          - label: On Sinterklaas, 5 December
+            why: Sinterklaas brings speculaas and chocolate letters. Oliebollen are for the last night of the year.
+          - label: At Easter
+            why: Oliebollen are for the last night of the year.
+          - label: On New Year's Eve
+            why: >-
+              Right. Oliebollen, oil balls, are balls of yeast dough with currants and raisins, fried and dusted with
+              icing sugar. Stalls sell them all winter, and families fry their own on 31 December.
+          - label: On King's Day, 27 April
+            why: King's Day is for orange cakes and flea markets. Oliebollen are for the last night of the year.
+      - type: choice
+        prompt: Chicory roots kept in the dark sprout these pale leaves, found near Brussels in the 1850s. What are they called in Flemish?
+        visual: { kind: photo, photo: witloof }
+        answer: 2
+        options:
+          - label: Spruitjes
+            why: Spruitjes are Brussels sprouts. These are witloof, white leaf.
+          - label: Andijvie
+            why: Andijvie is curly endive, grown in the light. These are witloof, white leaf.
+          - label: Witloof
+            why: >-
+              Right. Witloof means white leaf; in French it is chicon. Kept in the dark, the leaves cannot turn green.
+              It is eaten raw, or baked with ham and cheese.
+          - label: Prei
+            why: Prei is leek. These are witloof, white leaf.
+      - type: scrub
+        prompt: Drag the slider to the winter when people in the cities of the west eat soup of sugar beet and tulip bulbs.
+        map: food
+        start: 1912
+        answer: [1944, 1944]
+        explain: >-
+          The Hunger Winter of 1944 to 1945. Rations fell to 750 calories a day, and about 20,000 people died (Unit 11).
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Potatoes are grown widely from the 1700s, Mashed stamppot and fried frites become everyday food]
+          - [The German occupiers cut off food to the west in 1944, People eat tulip bulbs and sugar beet]
+          - [Families come from Indonesia after 1945, Saté and nasi become everyday Dutch food]
+          - [A snack bar sells krokets from little doors, Hot food is sold all day without a counter]
+        explain: >-
+          What lands on the table follows history: a crop from the Americas, a war, the end of an empire, and a machine
+          in the wall.

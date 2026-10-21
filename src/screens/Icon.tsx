@@ -116,6 +116,14 @@ export const paths: Record<string, React.ReactNode> = {
     </>
   ),
   chat: <path d="M3 5h11v8H8l-3 3v-3H3zM17 9h4v8h-2v3l-3-3h-5v-2" fill="none" strokeLinejoin="round" />,
+  // Unit 21: a wedge of cheese; a herring; a waffle, for the sweets; a cone of fries; a
+  // beer glass; a cooking pot, for the everyday table.
+  cheese: <path d="M3 18h18V11L3 18zM3 18v2h18v-9M14 15.5h.01M18 14h.01" fill="none" strokeLinejoin="round" />,
+  fish: <path d="M3 12c3-5 10-5 13 0-3 5-10 5-13 0zM16 12l5-4v8zM7.5 11h.01" fill="none" strokeLinejoin="round" />,
+  waffle: <path d="M4 4h16v16H4zM9.3 4v16M14.7 4v16M4 9.3h16M4 14.7h16" fill="none" strokeLinejoin="round" />,
+  fries: <path d="M6 10h12l-2 11H8zM8 10 7 3M11 10V2M14 10l1-7M17 10l2-5M8.5 14h7" fill="none" strokeLinejoin="round" />,
+  beer: <path d="M5 7h11l-1 14H6zM16 10h2.5a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5H15.5M5 7c0-2 2-3 3-2 1-2 4-2 5 0 1-1 3 0 3 2" fill="none" strokeLinejoin="round" />,
+  pot: <path d="M4 10h16v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM2 10h20M9 3c-1 2 1 3 0 5M14 3c-1 2 1 3 0 5" fill="none" strokeLinejoin="round" />,
 }
 
 export function Icon({ name }: { name: string }) {

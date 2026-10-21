@@ -49,6 +49,8 @@ async function answer(page: Page) {
       await page.locator('.label-pool .label-card').first().click()
       await spots.nth(i).click()
     }
+  } else if (await page.locator('.food-pick').count()) {
+    await page.locator('.food-pick .food-mark').first().dispatchEvent('click')
   } else if (await page.locator('.dialect-pick').count()) {
     await page.locator('.dialect-pick .dialect').first().dispatchEvent('click')
   } else if (await page.locator('.chip-pool').count()) {
@@ -469,15 +471,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 41 snapshots from Caesar to the federal Belgium of 2012', async ({ page }) => {
+test('the time map steps through 42 snapshots from Caesar to the food map of 2016', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('41 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('42 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 41 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 42 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '40')
+  await expect(slider).toHaveAttribute('max', '41')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('About 1100: Hebban olla vogala')
@@ -643,6 +645,15 @@ test('the time map steps through 41 snapshots from Caesar to the federal Belgium
   await expect(map.locator('.time-map-title')).toHaveText('2012: Brussels-Halle-Vilvoorde is split')
   await expect(map.locator('.hist-dam')).toHaveCount(0)
   await expect(map.locator('.hist-area-french').first()).toBeVisible()
+
+  // The last snapshot is the food map of Unit 21: every mark at once, unnamed, and the language areas gone.
+  await slider.fill('41')
+  await expect(map.locator('.time-map-title')).toHaveText('2016: Belgian beer culture')
+  await expect(map.locator('.hist-area-french')).toHaveCount(0)
+  await expect(map.locator('.hist-site.hist-brewery')).toHaveCount(6)
+  await expect(map.locator('.hist-site.hist-cheese').first()).toBeVisible()
+  await expect(map.locator('.hist-site-label')).toHaveCount(0)
+  await expect(map.locator('.key-swatch.key-distillery')).toHaveCount(1)
 
   await page.getByRole('button', { name: 'Back to the course' }).click()
   await expect(page.locator('.review')).toBeVisible()
@@ -1790,4 +1801,76 @@ test('the phrasebook has 100 phrases in ten sets, and searches in English or Dut
   await expect(book.locator('.phrase-empty')).toBeVisible()
   await book.getByRole('button', { name: 'Back to the course' }).click()
   await expect(page.locator('.phrasebook-teaser')).toBeVisible()
+})
+
+test('plays all of unit 21 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of ['Cheese country', 'Herring and the sea', 'Spices, syrup and sprinkles', 'Frites, waffles and chocolate', 'Beer and jenever', 'The everyday table']) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 21 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the food map filters by kind and opens a card, and a taste question is answered on it', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Cheese country', exact: true }).click()
+  const map = page.locator('.food-map')
+  // The first story shows only the cheeses, named.
+  await expect(map.locator('.food-mark')).toHaveCount(4)
+  await expect(map.locator('.food-label')).toHaveCount(4)
+  await map.getByRole('button', { name: 'Everything', exact: true }).click()
+  await expect(map.locator('.food-mark')).toHaveCount(30)
+  await expect(map.locator('.food-label')).toHaveCount(0)
+  await map.locator('.food-mark.hist-brewery').first().dispatchEvent('click')
+  await expect(map.locator('.food-card .food-title')).toBeVisible()
+  await map.getByRole('button', { name: 'Cheese', exact: true }).click()
+  await map.locator('.food-mark[data-food="gouda"]').dispatchEvent('click')
+  const card = map.locator('.food-card')
+  await expect(card.locator('.food-title')).toContainText('Gouda')
+  await expect(card.locator('.food-status')).toContainText('2010')
+  await expect(card.getByRole('button', { name: /Play/ })).toBeVisible()
+
+  await unlock(page, ['u21-l1', 'u21-l2'])
+  await page.getByRole('button', { name: 'Spices, syrup and sprinkles', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  for (let step = 0; step < 10 && !(await page.locator('.food-pick').count()); step++) {
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  const taste = page.locator('.exercise')
+  await expect(taste.locator('.eyebrow')).toHaveText('Taste and find')
+  await expect(taste.locator('.taste-photo figcaption')).toHaveText('Caption and credit shown once you answer')
+  await expect(taste.locator('.food-label')).toHaveCount(0)
+  await taste.locator('.food-mark[data-food="stroopwafel"]').dispatchEvent('click')
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(foot).toHaveClass(/is-right/)
+  await expect(taste.locator('.food-mark.is-right .food-label')).toHaveText('Stroopwafel')
+})
+
+test('pick all that belong marks the right, the wrong and the missed', async ({ page }) => {
+  await unlock(page, ['u21-l1', 'u21-l2', 'u21-l3', 'u21-l4'])
+  await page.getByRole('button', { name: 'Beer and jenever', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  await foot.getByRole('button', { name: 'Continue' }).click()
+  const pick = page.locator('.exercise-pick')
+  await expect(pick.locator('.eyebrow')).toHaveText('Pick all that belong')
+  await expect(pick.locator('.option')).toHaveCount(6)
+  await pick.locator('.option').filter({ hasText: 'Westvleteren' }).click()
+  await pick.locator('.option').filter({ hasText: 'Duvel' }).click()
+  await expect(pick.locator('.option.picked')).toHaveCount(2)
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(foot).toHaveClass(/is-wrong/)
+  await expect(pick.locator('.option.right')).toHaveCount(1)
+  await expect(pick.locator('.option.wrong')).toHaveCount(1)
+  await expect(pick.locator('.option.missed')).toHaveCount(3)
+  await expect(pick.locator('.hint')).toHaveText('4 of the 6 belong.')
 })
