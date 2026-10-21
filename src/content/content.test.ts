@@ -26,6 +26,8 @@ import congoTopology from '../data/congo.topo.json'
 import { greatWarStory } from '../data/greatwar'
 import { westhoekStory } from '../data/westhoek'
 import westhoekTopology from '../data/westhoek.topo.json'
+import { languageStory } from '../data/language'
+import belgiumTopology from '../data/belgium.topo.json'
 import { charts } from '../data/charts'
 import { eventAt } from '../data/timeline'
 import { peopleIn, trees } from '../data/families'
@@ -281,6 +283,7 @@ describe('time maps in lessons', () => {
     congo: congoStory,
     greatwar: greatWarStory,
     westhoek: westhoekStory,
+    language: languageStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -300,6 +303,7 @@ describe('time maps in lessons', () => {
     congo: [congoStory.min, congoStory.max],
     greatwar: [greatWarStory.min, greatWarStory.max],
     westhoek: [westhoekStory.min, westhoekStory.max],
+    language: [languageStory.min, languageStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -515,6 +519,56 @@ describe('Westhoek front map', () => {
       if (e.from < max - 1) expect(fronts.length, e.title).toBeGreaterThan(0)
     }
     for (const s of sites.filter((s) => s.kind === 'grave' || s.kind === 'memorial')) expect(s.to, s.name).toBeUndefined()
+  })
+})
+
+describe('language map', () => {
+  const { min, max, events, sites, labels, lines, areas = [] } = languageStory
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const parts = new Set((feature(belgiumTopology as any, (belgiumTopology as any).objects.parts) as any).features.map((f: any) => f.properties.id))
+  const inBelgium = ([lon, lat]: [number, number]) => lon > 2.4 && lon < 6.5 && lat > 49.4 && lat < 51.7
+  const kindAt = (year: number, part: string) =>
+    areas.filter((a) => a.kind !== 'bhv' && a.regions?.includes(part) && a.from <= year && (a.to === undefined || year <= a.to)).map((a) => a.kind)
+
+  it('puts every area on a piece of the municipal map, and every site and label in Belgium', () => {
+    for (const a of areas) {
+      expect(a.regions?.length ?? 0, a.name).toBeGreaterThan(0)
+      for (const id of a.regions ?? []) expect(parts.has(id), `${a.name} ${id}`).toBe(true)
+    }
+    expect(lines).toHaveLength(0)
+    for (const s of sites) expect(inBelgium(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inBelgium(l.at), l.text).toBe(true)
+    expect(new Set(areas.map((a) => a.name)).size, 'area names are unique').toBe(areas.length)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels, ...areas]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
+  })
+
+  it('colours every piece of Belgium in every stage, and moves the right ones', () => {
+    for (const { from } of events)
+      for (const part of parts) expect(kindAt(from, part as string).length, `${part} in ${from}`).toBeGreaterThan(0)
+    expect(kindAt(1919, 'east-cantons')).toEqual(['abroad'])
+    expect(kindAt(1920, 'east-cantons')).toEqual(['german'])
+    expect(kindAt(1932, 'brussels')).toContain('bilingual')
+    expect(kindAt(1932, 'brussels-1954')).toEqual(['dutch'])
+    expect(kindAt(1954, 'brussels-1954')).toContain('bilingual')
+    expect(kindAt(1954, 'rand-1954')).toContain('facility')
+    expect(kindAt(1954, 'rand-1963')).toEqual(['dutch'])
+    expect(kindAt(1963, 'rand-1963')).toContain('facility')
+    expect(kindAt(2012, 'voeren')).toEqual(['dutch'])
+    // Brussels-Halle-Vilvoorde votes as one district from 1963 until the split of 2012.
+    const bhv = areas.find((a) => a.kind === 'bhv')!
+    expect([bhv.from, bhv.to]).toEqual([1963, 2011])
   })
 })
 
