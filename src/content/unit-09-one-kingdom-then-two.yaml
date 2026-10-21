@@ -379,6 +379,12 @@ lessons:
         explain: >-
           Jenneval, the stage name of Alexandre Dechet. His song was the Brabançonne, now Belgium's national
           anthem. Its first words attacked the House of Orange; Charles Rogier rewrote them in 1860.
+      - type: story
+        title: Hear the Brabançonne
+        body: >-
+          François Van Campenhout's tune of 1830, played by the United States Navy Band. Today Belgium's anthem has
+          words in French, Dutch and German, one for each of its languages.
+        visual: { kind: sound, sound: brabanconne }
       - type: voices
         prompt: In October 1830 the king's son, the Prince of Orange, tried to save the south for his family. Read what he said, and how his father answered. What did the king decide?
         voices:

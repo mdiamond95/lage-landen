@@ -1,0 +1,731 @@
+id: unit-20
+number: 20
+title: Languages
+era: About 500 to today
+summary: Dutch and Flemish, Frisian and Low Saxon, Limburgish with its tones, Walloon, Picard and Luxembourgish, German in the east of Belgium, and Dutch carried across the world to South Africa, the Caribbean and Canada. Follow the languages of the Low Countries from a monk's pen trial of about 1100 to the regional languages recognised in the 1990s, tap your way across the dialect map, hear real speakers, and leave with a hundred everyday phrases.
+lessons:
+  - id: u20-l1
+    title: Hebban olla vogala
+    icon: bird
+    sources:
+      - title: "Wikipedia, Hebban olla vogala"
+        url: https://en.wikipedia.org/wiki/Hebban_olla_vogala
+      - title: "Wikipedia, Old Dutch"
+        url: https://en.wikipedia.org/wiki/Old_Dutch
+      - title: "Wikipedia, Jacob van Maerlant"
+        url: https://en.wikipedia.org/wiki/Jacob_van_Maerlant
+      - title: "Wikipedia, Of Reynaert the Fox"
+        url: https://en.wikipedia.org/wiki/Of_Reynaert_the_Fox
+      - title: "Wikipedia (Dutch), Statenvertaling"
+        url: https://nl.wikipedia.org/wiki/Statenvertaling
+    exercises:
+      - type: story
+        title: Three peoples, three tongues
+        body: >-
+          Around the year 800 three Germanic peoples share the Low Countries: Frisians along the coast, Saxons in the
+          east and Franks inland. Their speech will become Frisian, Low Saxon and Dutch. South of a line across what is
+          now Belgium, people speak the Latin the Romans left behind, on its way to becoming Walloon and Picard. Monks
+          write in Latin, so their own languages leave only scraps on parchment.
+        visual: { kind: time-map, map: tongues, year: 800 }
+      - type: gap
+        prompt: In about 1100 a monk tried out his pen with a line of verse. It means "All birds have begun nests, except me and you. What are we waiting for?" Fill the gap.
+        quote: Hebban olla vogala nestas hagunnan hinase hic enda ___, wat unbidan we nu
+        source: A pen trial, late 11th century, in a manuscript now in the Bodleian Library, Oxford
+        visual: { kind: photo, photo: hebban-folio }
+        options: [thu, vogala, nestas, unbidan]
+        answer: 0
+        explain: >-
+          Thu, you, as in the old English thou. The line was found in 1932 on a blank page of a book of sermons, written
+          by a Flemish monk in an English monastery. For a long time it was called the oldest Dutch sentence; today most
+          scholars read it as a mix of Old Dutch and Old English.
+      - type: truemyth
+        statement: Hebban olla vogala is the oldest Dutch ever written down.
+        visual: { kind: photo, photo: baptismal-vow }
+        answer: false
+        explain: >-
+          Myth. Older scraps survive: Frankish words glossed into a law code of the early 500s, among them "Maltho thi
+          afrio lito", "I tell you, I free you, serf"; a baptismal vow of the 800s in which converts renounce the old gods,
+          on this page; and the Wachtendonck Psalms of about 900. Hebban olla vogala is just the most famous.
+      - type: who
+        photo: maerlant-statue
+        clues:
+          - I was born near Bruges around 1235, and worked as a clerk in Damme, the port of Bruges.
+          - I wrote history, science and the lives of saints in Dutch, for townspeople who could not read Latin.
+          - My Mirror of History, begun in 1283, told the story of the world in rhyme.
+          - A poet who came after me called me the father of all Dutch poets.
+        options: [Jacob van Maerlant, Simon Stevin, Erasmus, Joost van den Vondel]
+        answer: 0
+        explain: >-
+          Jacob van Maerlant. His Spiegel Historiael, the Mirror of History, and his book of nature, Der naturen bloeme,
+          brought learning to people who read only Dutch. Damme put up this statue of him in 1860.
+      - type: choice
+        prompt: This manuscript holds a story written in Flanders around 1260 by a poet who calls himself Willem. It is still read in Flemish and Dutch schools. Who is its hero?
+        visual: { kind: photo, photo: reynaert-manuscript }
+        answer: 0
+        options:
+          - label: A sly fox who tricks the lion king and his court
+            why: >-
+              Right. Van den vos Reynaerde, Of Reynaert the Fox, follows the fox as he lies his way out of the gallows,
+              mocking the nobles and the clergy along the way. It is one of the great works of Middle Dutch.
+          - label: A knight who rides to the Holy Land
+            why: The hero is a fox, Reynaert, who tricks the lion's court.
+          - label: A saint who converts the Frisians
+            why: The hero is a fox, Reynaert, who tricks the lion's court.
+          - label: A count of Flanders at war with France
+            why: The hero is a fox, Reynaert, who tricks the lion's court.
+      - type: scrub
+        prompt: Drag the slider to the years when refugees from Antwerp are carrying the way they speak north to Holland.
+        map: tongues
+        start: 1270
+        answer: [1585, 1636]
+        explain: >-
+          After Antwerp fell to Spain in 1585, tens of thousands of Protestants, merchants, printers and teachers left
+          the South for Holland and Zeeland. The written Dutch of the North took in much of their Brabant and Flemish
+          speech.
+      - type: truemyth
+        statement: Standard Dutch grew out of the language of the States Bible, printed in 1637.
+        visual: { kind: photo, photo: statenbijbel }
+        answer: false
+        explain: >-
+          Myth, though a stubborn one. The States Bible, ordered by the Synod of Dordrecht and read in Protestant homes for
+          three centuries, helped fix spelling and gave Dutch many sayings, like "een doorn in het oog", a thorn in the
+          eye, and "de zondebok", the scapegoat. But standard Dutch grew over the 1500s and 1600s from the written
+          language of Holland and Brabant, shaped by many printers, schoolmasters and writers.
+      - type: order
+        prompt: Put these texts in order, from oldest to newest.
+        items:
+          - { label: "Frankish words in a law code: Maltho thi afrio lito", year: 510, when: "early 500s" }
+          - { label: The Wachtendonck Psalms, year: 900, when: "about 900" }
+          - { label: Hebban olla vogala, year: 1100, when: "about 1100" }
+          - { label: Van den vos Reynaerde, year: 1260, when: "about 1260" }
+          - { label: The States Bible, year: 1637, when: "1637" }
+        explain: >-
+          Old Dutch survives in scraps from the 500s to about 1150. Then comes Middle Dutch, the language of Reynaert
+          and Maerlant, and from the 1500s the modern Dutch of the printing presses and the States Bible.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Monks write almost everything in Latin, Only scraps of Old Dutch survive]
+          - [The rich towns of Flanders want books in their own language, Maerlant writes history and science in Dutch]
+          - [Antwerp falls to Spain in 1585, Its printers and merchants carry Brabant speech north]
+          - [The Synod of Dordrecht orders a new Bible, Its sayings enter everyday Dutch]
+        explain: >-
+          Who could write, and who wanted to read, decided which language reached parchment and paper: Latin for the
+          monks, Dutch for the towns, and the Bible for every Protestant household.
+
+  - id: u20-l2
+    title: One language, two countries
+    icon: speech
+    sources:
+      - title: "Nederlandse Taalunie, About the Dutch Language Union"
+        url: https://taalunie.org/
+      - title: "Wikipedia, Belgian Dutch"
+        url: https://en.wikipedia.org/wiki/Belgian_Dutch
+      - title: "Wikipedia, Francization of Brussels"
+        url: https://en.wikipedia.org/wiki/Francization_of_Brussels
+      - title: "Wikipedia, Shibboleth"
+        url: https://en.wikipedia.org/wiki/Shibboleth
+      - title: "Wikipedia, Groene Boekje"
+        url: https://en.wikipedia.org/wiki/Groene_Boekje
+    exercises:
+      - type: story
+        title: Gezellig
+        body: >-
+          Dutch is the first language of about 24 million people, most of them in the Netherlands and in Flanders,
+          the north of Belgium. It is one language with one spelling, but you can hear where someone comes from. Press
+          play to hear gezellig, the word for a cosy, sociable good time.
+        visual: { kind: sound, sound: nl-gezellig }
+      - type: choice
+        prompt: Two speakers say gezellig. One has the hard, scraping g of the north, the other the soft g of the south, of Brabant, Limburg and Flanders. Which is the soft g?
+        answer: 1
+        options:
+          - sound: gezellig-hard
+            why: This is the hard g, scraped at the back of the throat, as in Holland. The soft g is gentler, further forward.
+          - sound: gezellig-soft
+            why: >-
+              Right. The soft g, said further forward in the mouth, is heard south of the great rivers in the Netherlands,
+              and all over Flanders. It is one of the quickest ways to tell a southerner.
+      - type: truemyth
+        statement: Flemish is a separate language from Dutch.
+        visual: { kind: photo, photo: groene-boekje }
+        answer: false
+        explain: >-
+          Myth. Flemish is the name for the Dutch of Flanders. Both countries share one standard language, one spelling
+          and one official word list, the Green Booklet. Accents and some words differ, much as British and Canadian
+          English do, and the dialects of Flanders are a world of their own.
+      - type: sort
+        prompt: Would you more likely hear each word in Flanders or in the Netherlands?
+        groups: [Flanders, Netherlands]
+        items:
+          - { label: "gsm (mobile phone)", group: 0 }
+          - { label: "plezant (fun)", group: 0 }
+          - { label: "rondpunt (roundabout)", group: 0 }
+          - { label: "beenhouwer (butcher)", group: 0 }
+          - { label: "mobiel (mobile phone)", group: 1 }
+          - { label: "leuk (fun)", group: 1 }
+          - { label: "rotonde (roundabout)", group: 1 }
+          - { label: "slager (butcher)", group: 1 }
+        explain: >-
+          Flemish keeps older Dutch words like beenhouwer and plezant, and borrows from French less often than people
+          think. The phrasebook on the home screen has more.
+      - type: truemyth
+        statement: Order a patat in Flanders and you could be handed a raw potato.
+        visual: { kind: sound, sound: nl-patat }
+        answer: true
+        explain: >-
+          True. In Flanders a patat is a potato, and fries are frieten. In most of the Netherlands fries are patat, and
+          in the south friet.
+      - type: choice
+        prompt: Listen. During the Second World War, the story goes, Dutch people asked strangers to say this name. Why?
+        visual: { kind: sound, sound: nl-scheveningen }
+        answer: 0
+        options:
+          - label: Germans could not say its Dutch sch, so it unmasked them
+            why: >-
+              Right. Scheveningen, the seaside quarter of The Hague, starts with the Dutch s and a scraping ch. A German
+              speaker tends to say it as "sh", and gives himself away. A word used like this is called a shibboleth.
+          - label: It was the password of the resistance
+            why: It was a test, not a password. Germans could not say its Dutch sch.
+          - label: It was where the queen had left for London
+            why: She left from Hook of Holland. The name was a test that Germans failed.
+          - label: It was the hardest word to spell in Dutch
+            why: It was hard to say, not to spell, for Germans.
+      - type: scrub
+        prompt: Drag the slider to the years when one body has started to look after the spelling, word list and teaching of Dutch in both countries.
+        map: tongues
+        start: 1830
+        answer: [1980, 1996]
+        explain: >-
+          The Netherlands and Belgium signed the treaty of the Dutch Language Union, the Taalunie, in Brussels on 9
+          September 1980. Suriname joined as an associate member in 2004.
+      - type: choice
+        prompt: Street signs in Brussels are in French and Dutch. In 1846, what did most people in the city speak?
+        visual: { kind: photo, photo: brussels-signs }
+        answer: 0
+        options:
+          - label: Dutch, in its Brabant dialect
+            why: >-
+              Right. In the language census of 1846, 61 percent of the people of Brussels spoke Dutch. French was the
+              language of the court, the government and getting ahead, and by 1947 three in four people in the region
+              spoke mostly French.
+          - label: French, as it always had
+            why: Brussels grew up as a Brabant town speaking Dutch. In 1846, 61 percent still did.
+          - label: German
+            why: Brussels grew up as a Brabant town speaking Dutch. In 1846, 61 percent still did.
+          - label: Walloon
+            why: Walloon is spoken further south. In 1846, 61 percent of Brussels spoke Dutch.
+
+  - id: u20-l3
+    title: The dialect map
+    icon: ear
+    sources:
+      - title: "Wikipedia, Dutch dialects"
+        url: https://en.wikipedia.org/wiki/Dutch_dialects
+      - title: "Wikipedia, Limburgish"
+        url: https://en.wikipedia.org/wiki/Limburgish
+      - title: "Wikipedia, West Flemish"
+        url: https://en.wikipedia.org/wiki/West_Flemish
+      - title: "Wikipedia, Walloon language"
+        url: https://en.wikipedia.org/wiki/Walloon_language
+      - title: "Wikipedia, Luxembourgish"
+        url: https://en.wikipedia.org/wiki/Luxembourgish
+      - title: "Wikipedia, Uerdingen line"
+        url: https://en.wikipedia.org/wiki/Uerdingen_line
+    exercises:
+      - type: story
+        title: A language in every valley
+        body: >-
+          Before radio and television, people in the next village sometimes said things a little differently, and in
+          the next province you could struggle to follow them. Many of these dialects are still spoken. Tap a region to
+          read about it, and to hear it where a speaker has shared a recording.
+        visual: { kind: dialects }
+      - type: listen
+        prompt: Listen to this word for "I". Then tap where it is spoken.
+        sound: li-ich
+        answer: limburgish
+        explain: >-
+          Ich, with a ch, as in German: Limburgish lies south of the Uerdingen line, where Dutch ik turns into ich. Its
+          own name for itself is Limburgs.
+      - type: listen
+        prompt: This speaker names their own language. Tap where it is spoken.
+        sound: vls-taele
+        answer: west-flemish
+        explain: >-
+          De Vlamsche taele, the Flemish language, in West Flemish. It is spoken in West Flanders, in Zeelandic Flanders
+          across the Dutch border, and in a few villages of French Flanders.
+      - type: listen
+        prompt: Listen to this greeting. Tap where it is spoken.
+        sound: wa-bondjou
+        answer: walloon
+        explain: >-
+          Bondjoû, good day, in Walloon, a Romance language of its own, spoken around Liège, Namur and Charleroi. It
+          is not a dialect of French, though the two are close cousins.
+      - type: listen
+        prompt: Listen to this greeting. Tap where it is spoken.
+        sound: lb-moien
+        answer: luxembourgish
+        explain: >-
+          Moien, hello, in Luxembourgish. Around Arlon, in the Belgian province of Luxembourg, older people still speak
+          it, the same language as in the Grand Duchy next door.
+      - type: truemyth
+        statement: In many Limburgish dialects, the same sounds can mean different things depending on the pitch of the voice.
+        visual: { kind: dialects, focus: limburgish }
+        answer: true
+        explain: >-
+          True. Like Swedish and Norwegian, Limburgish tells some words apart by a rising or falling tone, called the
+          push tone and the drag tone. The Ripuarian dialects across the German border do too; standard Dutch does
+          not.
+      - type: choice
+        prompt: "A sign in Tilburg, in Brabantian: \"Hondepoep opgerömd? Dègge bedankt zèèt, dè witte!\" What is it saying?"
+        visual: { kind: photo, photo: tilburg-sign }
+        answer: 0
+        options:
+          - label: Picked up after your dog? Know that we thank you!
+            why: >-
+              Right. In standard Dutch: "Hondenpoep opgeruimd? Dat je bedankt bent, dat weet je!" Brabantian says ge for
+              you, as Flemish does, and stretches its vowels.
+          - label: No dogs allowed in the park
+            why: It thanks you for picking up after your dog.
+          - label: Beware of the dog
+            why: It thanks you for picking up after your dog.
+          - label: Dogs must be on a leash
+            why: It thanks you for picking up after your dog.
+      - type: region
+        prompt: Frisian is an official language in one Dutch province. Tap it.
+        layer: provinces
+        answer: [NL-FR]
+        explain: >-
+          Friesland, in Frisian Fryslân, the official name of the province since 1997. Frisian is the only language in
+          the European Netherlands besides Dutch with official status.
+
+  - id: u20-l4
+    title: Frisian
+    icon: leaf
+    sources:
+      - title: "Wikipedia, West Frisian language"
+        url: https://en.wikipedia.org/wiki/West_Frisian_language
+      - title: "Wikipedia (Dutch), Kneppelfreed"
+        url: https://nl.wikipedia.org/wiki/Kneppelfreed
+      - title: "Wikipedia, Fedde Schurer"
+        url: https://en.wikipedia.org/wiki/Fedde_Schurer
+      - title: "Wikipedia, Pier Gerlofs Donia"
+        url: https://en.wikipedia.org/wiki/Pier_Gerlofs_Donia
+      - title: "Wikipedia, Elfstedentocht"
+        url: https://en.wikipedia.org/wiki/Elfstedentocht
+    exercises:
+      - type: story
+        title: Good butter and green cheese
+        body: >-
+          Frisian is not a Dutch dialect but a language of its own, and one of the closest living relatives of English.
+          Once spoken along the whole coast, by the 1600s it had shrunk to the province of Friesland, where more than half
+          the people grew up speaking it. Groningen had gone over to Saxon, and West Friesland, north of Amsterdam, to
+          the Dutch of Holland.
+        visual: { kind: time-map, map: tongues, year: 1637 }
+      - type: choice
+        prompt: Listen to the Frisian name of a town in Friesland, with this water gate of 1613. Which town is it?
+        visual: { kind: sound, sound: fy-snits, photo: sneek-waterpoort }
+        answer: 0
+        options:
+          - label: Sneek
+            why: >-
+              Right. Snits is Sneek in Frisian. Its water gate, the Waterpoort, guarded the canal into town. Every town in
+              Friesland has a Frisian name, and many signs show both.
+          - label: Leeuwarden
+            why: Leeuwarden is Ljouwert. This was Snits, Sneek.
+          - label: Harlingen
+            why: Harlingen is Harns. This was Snits, Sneek.
+          - label: Dokkum
+            why: Dokkum is Dokkum in both. This was Snits, Sneek.
+      - type: choice
+        prompt: The capital of Friesland is Leeuwarden. Which recording says its Frisian name?
+        answer: 1
+        options:
+          - sound: fy-harns
+            why: This is Harns, Harlingen, the port.
+          - sound: fy-ljouwert
+            why: Right. Ljouwert is Leeuwarden, the capital of Fryslân.
+          - sound: fy-boalsert
+            why: This is Boalsert, Bolsward.
+          - sound: fy-starum
+            why: This is Starum, Stavoren, the oldest town of Friesland.
+      - type: gap
+        prompt: In 1951 a vet wanted to defend himself in Frisian before a judge in Heerenveen. What did the judge tell him?
+        quote: Officieel ___ ik u niet.
+        source: Judge Wolthers in his court in Heerenveen, 17 October 1951
+        visual: { kind: photo, photo: leeuwarden-court }
+        options: [versta, hoor, zie, ken]
+        answer: 0
+        explain: >-
+          "Officially I do not understand you." A journalist called the judge childish and insulting in his paper, and
+          was put on trial for it at the courthouse in Leeuwarden, in this picture.
+      - type: who
+        photo: fedde-schurer
+        clues:
+          - I was born in Drachten in 1898, and worked as a teacher, a journalist and a poet.
+          - In 1951 I wrote that a judge had insulted the Frisian language, and I was put on trial for it.
+          - Police beat the crowd that came to my trial in Leeuwarden, a day remembered as Kneppelfreed.
+          - From 1956 to 1963 I sat in parliament for the Labour Party.
+        options: [Fedde Schurer, Pieter Jelles Troelstra, Gysbert Japicx, Pier Gerlofs Donia]
+        answer: 0
+        explain: >-
+          Fedde Schurer, whose trial on 16 November 1951 turned into Kneppelfreed, Baton Friday. He lost his case, but
+          the government listened: a law of 1955 let schools teach in Frisian, and one of 1956 let people speak it in
+          court.
+      - type: truemyth
+        statement: Grutte Pier really did make strangers say "Bûter, brea en griene tsiis", and killed those who could not.
+        visual: { kind: photo, photo: grutte-pier }
+        answer: false
+        explain: >-
+          Myth, or at least a legend. Pier Gerlofs Donia, Big Pier, led Frisian rebels and pirates against Saxon and
+          Habsburg rule from 1515, but the story of the password, "butter, bread and green cheese", comes from legend, not
+          from any record of his time. It is still the test every Frisian child knows: say it right, or you are no true Frisian.
+      - type: scrub
+        prompt: Drag the slider to the first years when people may speak Frisian in court.
+        map: tongues
+        start: 1637
+        answer: [1956, 1996]
+        explain: >-
+          The law of 1956 gave Frisians the right to speak their language in court, five years after Kneppelfreed. In
+          2013 a new law made Frisian an official language of the province beside Dutch.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [A judge refuses to understand Frisian, Fedde Schurer attacks him in the paper]
+          - [Schurer is put on trial in Leeuwarden, Police club the crowd outside on Kneppelfreed]
+          - [The country is shocked by Kneppelfreed, New laws allow Frisian in schools and in court]
+          - [The province chooses its own name, Friesland becomes Fryslân in 1997]
+        explain: >-
+          One judge's words in 1951 set off the fight that won Frisian its place in schools, courts and, finally, the
+          name of the province.
+
+  - id: u20-l5
+    title: French, German and Walloon
+    icon: puppet
+    sources:
+      - title: "Wikipedia, Belgian French"
+        url: https://en.wikipedia.org/wiki/Belgian_French
+      - title: "Wikipedia, Walloon language"
+        url: https://en.wikipedia.org/wiki/Walloon_language
+      - title: "Wikipedia (French), Tchantchès"
+        url: https://fr.wikipedia.org/wiki/Tchantch%C3%A8s
+      - title: "Wikipedia, German-speaking Community of Belgium"
+        url: https://en.wikipedia.org/wiki/German-speaking_Community_of_Belgium
+      - title: "Wikipedia, French Flemish"
+        url: https://en.wikipedia.org/wiki/French_Flemish
+    exercises:
+      - type: story
+        title: Across the Meuse
+        body: >-
+          South of the language border, people's own languages were Walloon, Picard and Gaumais, all Romance languages
+          like French. French came in as the language of books, schools and government, and today most Walloons speak
+          French at home. Press play to hear Djus-d'la-Moûse, Walloon for Outremeuse, the old quarter of Liège across the
+          river, which loves its dialect more than anywhere.
+        visual: { kind: sound, sound: wa-outremeuse }
+      - type: choice
+        prompt: Listen to this word in Walloon. Which number is it?
+        visual: { kind: sound, sound: wa-septante }
+        answer: 0
+        options:
+          - label: "70"
+            why: >-
+              Right. Septante, seventy. Walloon, Belgian French and Swiss French all count septante, where the French of
+              France says soixante-dix, sixty-ten.
+          - label: "17"
+            why: Seventeen is dix-sept. This was septante, seventy.
+          - label: "7"
+            why: Seven is sept. This was septante, seventy.
+          - label: "700"
+            why: Seven hundred is sept cents. This was septante, seventy.
+      - type: truemyth
+        statement: Like some Swiss, Belgians say huitante for eighty.
+        visual: { kind: sound, sound: fr-be-71 }
+        answer: false
+        explain: >-
+          Myth. Belgians say septante for 70 and nonante for 90, as you heard in septante et un, 71, but quatre-vingts for
+          80, just like the French. Huitante is only heard in parts of Switzerland.
+      - type: choice
+        prompt: A Belgian friend in Liège invites you for dîner. When do you turn up?
+        answer: 0
+        options:
+          - label: Around noon
+            why: >-
+              Right. In Belgium, as in Switzerland and in Canada, le dîner is the midday meal, and the evening meal is le
+              souper. In France dîner is the evening meal.
+          - label: In the evening
+            why: That would be le souper. In Belgium dîner is the midday meal.
+          - label: First thing in the morning
+            why: That is le déjeuner in Belgium. Dîner is at midday.
+          - label: Late at night
+            why: In Belgium dîner is the midday meal.
+      - type: who
+        photo: tchantches-statue
+        clues:
+          - I am a puppet, first seen in the puppet theatres of Liège around 1860.
+          - My name is Liège Walloon for François.
+          - In the puppet plays I fight beside Charlemagne, though I am a working man of Outremeuse.
+          - My wife Nanesse runs the house, and my red nose gives away my love of peket, Liège gin.
+        options: [Tchantchès, Manneken Pis, Tijl Uilenspiegel, Lamme Goedzak]
+        answer: 0
+        explain: >-
+          Tchantchès, in his blue smock, checked trousers, red scarf and cap, the spirit of Liège. Joseph Zomers made this statue
+          of him in 1937, and puppeteers in Outremeuse still play him today.
+      - type: sort
+        prompt: Is each word Belgian French, or the French of France?
+        groups: [Belgium, France]
+        items:
+          - { label: septante (70), group: 0 }
+          - { label: nonante (90), group: 0 }
+          - { label: le bourgmestre (mayor), group: 0 }
+          - { label: soixante-dix (70), group: 1 }
+          - { label: quatre-vingt-dix (90), group: 1 }
+          - { label: le maire (mayor), group: 1 }
+        explain: >-
+          Belgian French keeps the old, simpler numbers, and borrows from its Dutch-speaking neighbours: bourgmestre from
+          burgemeester, dringuelle from drinkgeld.
+      - type: match
+        prompt: Belgian French borrowed these from Dutch. Match each to the Dutch word it came from.
+        pairs:
+          - ["un kot, a student room", kot]
+          - ["une dringuelle, a tip", drinkgeld]
+          - ["le bourgmestre, the mayor", burgemeester]
+          - ["viens une fois!, come here a moment!", eens]
+      - type: truemyth
+        statement: In French Flanders, where this sign stands, Flemish is still the everyday language of most villages.
+        visual: { kind: photo, photo: arneke-sign }
+        answer: false
+        explain: >-
+          Myth. Two languages on a street sign do not mean two languages at home. French Flanders has been French since
+          the 1600s, and French schools and French government slowly won; only some older people still speak Flemish,
+          and signs like this one in Arnèke keep the old names alive.
+      - type: pin
+        prompt: In the far south-east of Wallonia, some older people still speak Luxembourgish, the language of the Grand Duchy next door. Pin their town, Arlon.
+        place: arlon
+        fullKm: 10
+        okKm: 25
+        explain: >-
+          Arlon, capital of the Belgian province of Luxembourg, which went to Belgium in 1839 when the old duchy was
+          split. Around it the old language is Luxembourgish, not Walloon, though French has taken over.
+      - type: choice
+        prompt: Compare 1830 with 1956. Where has Flemish given way to French?
+        visual: { kind: compare, map: tongues, years: [1830, 1956] }
+        answer: 0
+        options:
+          - label: French Flanders, around Dunkirk
+            why: >-
+              Right. This corner of Flanders became part of France between 1659 and 1678. French schools and French government slowly
+              won, and today only a few older people speak Flemish there, though some village signs are in both.
+          - label: Zeelandic Flanders
+            why: Zeelandic Flanders still speaks Dutch dialects. French Flanders, around Dunkirk, went over to French.
+          - label: Fryslân
+            why: Frisian is still spoken in Fryslân. French Flanders, around Dunkirk, went over to French.
+          - label: Limburg
+            why: Limburg still speaks Limburgish and Dutch. French Flanders, around Dunkirk, went over to French.
+
+  - id: u20-l6
+    title: Dutch around the world
+    icon: globe
+    sources:
+      - title: "Wikipedia, Afrikaans"
+        url: https://en.wikipedia.org/wiki/Afrikaans
+      - title: "Wikipedia, Papiamento"
+        url: https://en.wikipedia.org/wiki/Papiamento
+      - title: "Wikipedia, Dutch Canadians"
+        url: https://en.wikipedia.org/wiki/Dutch_Canadians
+      - title: "Wikipedia, Sranan Tongo"
+        url: https://en.wikipedia.org/wiki/Sranan_Tongo
+      - title: "Wikipedia, Negerhollands"
+        url: https://en.wikipedia.org/wiki/Negerhollands
+      - title: "Wikipedia, List of English words of Dutch origin"
+        url: https://en.wikipedia.org/wiki/List_of_English_words_of_Dutch_origin
+    exercises:
+      - type: story
+        title: Carried by ships
+        body: >-
+          Dutch sailors, traders and settlers took their language to Africa, Asia and the Americas. It is still official
+          in Suriname, and in Aruba, Curaçao and Sint Maarten beside their own languages. At the Cape it grew into a
+          language of its own, Afrikaans, and in New Netherlands it left words that English still uses.
+        visual: { kind: photo, photo: willemstad }
+      - type: truemyth
+        statement: Listen to this word. Someone who speaks Dutch can read the language it comes from without much trouble.
+        visual: { kind: sound, sound: af-lekker, photo: taalmonument }
+        answer: true
+        explain: >-
+          True. This is lekker, tasty, in Afrikaans, which grew from the Dutch of the settlers at the Cape and was
+          recognised as an official language of South Africa in 1925. Most of its words come from Dutch, and a Dutch reader can
+          follow a South African newspaper. The monument to the language at Paarl opened in 1975.
+      - type: truemyth
+        statement: Papiamento, spoken on Curaçao, Aruba and Bonaire, is a dialect of Dutch.
+        visual: { kind: photo, photo: bonaire }
+        answer: false
+        explain: >-
+          Myth. Papiamento is a creole language: most of its words come from Portuguese and Spanish, and a smaller part
+          from Dutch, English and the languages of Africa. Bon dia is good morning, and danki, thank you. It became an
+          official language on Aruba in 2003 and in the Netherlands Antilles in 2007.
+      - type: odd
+        prompt: English took three of these words from Dutch. Which one is the odd one out?
+        items:
+          - { label: cookie, photo: koekjes }
+          - { label: yacht, photo: states-yacht }
+          - { label: sleigh, photo: avercamp-winter }
+          - { label: croissant, photo: croissants }
+        answer: 3
+        reasons:
+          - It came into English from French, not Dutch
+          - It is the only food
+          - It is the only word from Belgium
+        reason: 0
+        explain: >-
+          Cookie comes from koekje, a little cake, yacht from jacht, a fast ship for chasing, and sleigh from
+          slee, all by way of the Dutch of New Netherlands or of sailors. Croissant, a crescent, is French.
+      - type: match
+        prompt: Match each English word to the Dutch it came from.
+        pairs:
+          - [boss, baas]
+          - [Santa Claus, Sinterklaas]
+          - [Brooklyn, Breukelen]
+          - [coleslaw, koolsla]
+      - type: choice
+        prompt: Many Dutch families left for Canada after the Second World War. How many Canadians told the census of 2021 they have Dutch roots?
+        visual: { kind: photo, photo: emigrants-canada }
+        answer: 0
+        options:
+          - label: Nearly a million
+            why: >-
+              Right: 988,585, about 2.7 percent of Canadians, and 174,625 of them in Alberta. Dutch immigrants founded
+              their own churches, schools and credit unions, in Edmonton among other places.
+          - label: About 100,000
+            why: Far more. In 2021, 988,585 Canadians said they had Dutch roots.
+          - label: About 10 million
+            why: Fewer. In 2021, 988,585 Canadians said they had Dutch roots.
+          - label: About 25,000
+            why: Far more. In 2021, 988,585 Canadians said they had Dutch roots.
+      - type: choice
+        prompt: Dutch is the official language of Suriname, independent since 1975. Which language do many Surinamese use with each other, whatever their background?
+        visual: { kind: photo, photo: paramaribo }
+        answer: 0
+        options:
+          - label: Sranan Tongo
+            why: >-
+              Right. Sranan Tongo, an English-based creole with many Dutch and Portuguese words, grew on the plantations
+              and is now the common language of the street. Mi lobi yu: I love you.
+          - label: Afrikaans
+            why: Afrikaans is South African. Suriname's common language is Sranan Tongo.
+          - label: Papiamento
+            why: Papiamento belongs to the islands off Venezuela. Suriname's common language is Sranan Tongo.
+          - label: Frisian
+            why: Suriname's common language is Sranan Tongo.
+      - type: truemyth
+        statement: A creole built on Dutch was once spoken in the Virgin Islands of the Caribbean.
+        answer: true
+        explain: >-
+          True. Negerhollands grew on the plantations of the Danish West Indies, today's United States Virgin Islands,
+          from the Zeeland Dutch of the planters and the languages of enslaved Africans. Its last known speaker, Alice
+          Stevens, died in 1987.
+
+  - id: u20-l7
+    title: Everyday phrases
+    icon: chat
+    sources:
+      - title: "Wikipedia, Dutch language"
+        url: https://en.wikipedia.org/wiki/Dutch_language
+      - title: "Wikipedia, Gezelligheid"
+        url: https://en.wikipedia.org/wiki/Gezelligheid
+      - title: "Wikipedia, Sinterklaas"
+        url: https://en.wikipedia.org/wiki/Sinterklaas
+      - title: "Wikipedia, Uitwaaien"
+        url: https://en.wikipedia.org/wiki/Uitwaaien
+    exercises:
+      - type: story
+        title: Hello and goodbye
+        body: >-
+          A few words go a long way. Here are ten ways to say hello and goodbye, with recordings by Dutch speakers on
+          Wikimedia Commons. The phrasebook on the home screen has a hundred everyday phrases, in Dutch, Flemish and
+          Belgian French.
+        visual: { kind: phrases, set: hello }
+      - type: choice
+        prompt: You walk into a café at seven at night. Which recording is the right greeting?
+        answer: 1
+        options:
+          - sound: nl-goedemorgen
+            why: This is goedemorgen, good morning, until about noon.
+          - sound: nl-goedenavond
+            why: Right. Goedenavond, good evening.
+          - sound: nl-welterusten
+            why: This is welterusten, sleep well, said when going to bed.
+      - type: choice
+        prompt: Listen. When would you say this?
+        visual: { kind: sound, sound: nl-eet-smakelijk }
+        answer: 0
+        options:
+          - label: Just before everyone starts eating
+            why: Right. Eet smakelijk, enjoy your meal, or just smakelijk.
+          - label: After someone sneezes
+            why: That would be gezondheid. This was eet smakelijk, enjoy your meal.
+          - label: When raising a glass
+            why: That would be proost. This was eet smakelijk, enjoy your meal.
+          - label: When leaving
+            why: That would be tot ziens. This was eet smakelijk, enjoy your meal.
+      - type: choice
+        prompt: Someone near you says this. What just happened?
+        visual: { kind: sound, sound: nl-gezondheid }
+        answer: 0
+        options:
+          - label: You sneezed
+            why: Right. Gezondheid, health, is the Dutch bless you.
+          - label: You paid the bill
+            why: This was gezondheid, health, said after a sneeze.
+          - label: You arrived late
+            why: This was gezondheid, health, said after a sneeze.
+          - label: You raised your glass
+            why: That would be proost. This was gezondheid, said after a sneeze.
+      - type: choice
+        prompt: Listen. This word has no English twin. What does it mean?
+        visual: { kind: sound, sound: nl-uitwaaien }
+        answer: 0
+        options:
+          - label: To clear your head with a walk in a stiff wind
+            why: >-
+              Right. Uitwaaien, to blow out: a walk on the beach or along a dike in the wind, to blow the cobwebs away.
+          - label: To wave goodbye
+            why: This was uitwaaien, a bracing walk in the wind.
+          - label: To air out a room
+            why: Close, but this was uitwaaien, a walk in the wind to clear your head.
+          - label: To fly a kite
+            why: This was uitwaaien, a walk in the wind to clear your head.
+      - type: truemyth
+        statement: Ask a Dutch speaker the time and hear "half drie". It is half past three.
+        answer: false
+        explain: >-
+          Myth. Dutch counts the half hour towards the next hour: half drie, half three, is 2:30.
+      - type: match
+        prompt: Match each word to when you would say it.
+        pairs:
+          - [Proost!, Raising a glass]
+          - [Jammer, Something didn't work out]
+          - [Doei!, Leaving friends]
+          - [Pardon, Getting past someone]
+      - type: choice
+        prompt: You'd like something sweet with your coffee. Which recording says cookie?
+        answer: 0
+        options:
+          - sound: nl-koekje
+            why: Right. Koekje, a little cake, the word that gave English cookie.
+          - sound: nl-stroopwafel
+            why: This is stroopwafel, a syrup waffle. Nice with coffee, but not a cookie.
+          - sound: nl-fiets
+            why: This is fiets, a bike.
+      - type: choice
+        prompt: Listen. Who is it?
+        visual: { kind: sound, sound: nl-sinterklaas }
+        answer: 0
+        options:
+          - label: Saint Nicholas, who brings presents in early December
+            why: >-
+              Right. Sinterklaas arrives by steamboat from Spain in November and brings presents on the evening of 5
+              December in the Netherlands, and on the morning of 6 December in Belgium. In New York he became Santa Claus.
+          - label: The king
+            why: The king is de koning. This was Sinterklaas, Saint Nicholas.
+          - label: A famous footballer
+            why: This was Sinterklaas, Saint Nicholas.
+          - label: The Easter bunny
+            why: That would be de paashaas. This was Sinterklaas, Saint Nicholas.

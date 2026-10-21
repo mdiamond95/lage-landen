@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import { Art } from '../art/Art'
 import type { ExerciseOf } from '../content/schema'
 import { Photo } from '../photos/Photo'
+import { sound } from '../sounds'
+import { PlayButton } from '../sounds/Sound'
 import { shuffle } from '../lesson/shuffle'
 import type { ExerciseProps } from './types'
 import { VisualView } from './VisualView'
@@ -19,6 +21,7 @@ export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<Ex
   const order = useMemo(() => shuffle(exercise.options.map((_, i) => i)), [exercise])
   const [picked, setPicked] = useState<number | null>(null)
   const pictures = exercise.options.some((o) => o.art || o.photo)
+  const sounds = exercise.options.some((o) => o.sound)
 
   const pick = (i: number) => {
     if (checked) return
@@ -31,13 +34,23 @@ export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<Ex
 
   return (
     <div className="exercise">
-      <p className="eyebrow">{pictures ? 'Pick the picture' : exercise.visual?.kind === 'chart' ? 'Read the chart' : 'Choose'}</p>
+      <p className="eyebrow">{sounds ? 'Listen and choose' : pictures ? 'Pick the picture' : exercise.visual?.kind === 'chart' ? 'Read the chart' : 'Choose'}</p>
       <h2>{exercise.prompt}</h2>
       {exercise.visual && <VisualView visual={exercise.visual} label={exercise.prompt} hideCaption={!checked} />}
       <div className={pictures ? 'options options-grid' : 'options'}>
         {order.map((i) => {
           const o = exercise.options[i]
           const state = checked ? (i === exercise.answer ? 'right' : i === picked ? 'wrong' : 'dim') : i === picked ? 'picked' : ''
+          // A recording to pick sits beside its own play button, as buttons can't nest.
+          if (o.sound)
+            return (
+              <div key={i} className={`option-sound ${state}`}>
+                <PlayButton id={o.sound} name={`recording ${order.indexOf(i) + 1}`} />
+                <button type="button" className={`option ${state}`} aria-pressed={i === picked} onClick={() => pick(i)} disabled={checked}>
+                  <span>{o.label ?? (checked ? `${sound(o.sound).words}: ${sound(o.sound).language}` : `Recording ${order.indexOf(i) + 1}`)}</span>
+                </button>
+              </div>
+            )
           return (
             <button
               type="button"

@@ -103,6 +103,19 @@ export const paths: Record<string, React.ReactNode> = {
       <ellipse cx="12" cy="12" rx="9.5" ry="3.8" fill="none" transform="rotate(120 12 12)" />
     </>
   ),
+  // Unit 20: a bird, for the oldest line of Dutch; an ear, for the dialect map; a
+  // pompeblêd leaf from the Frisian flag; a hand puppet, for Tchantchès of Liège; two
+  // speech bubbles, for the phrasebook.
+  bird: <path d="M3 13c3 0 5-1 7-4 1-2 3-3 5-3 2 0 3 1 4 2l2 1-2 1c0 5-4 8-9 8-3 0-5-1-7-3 2 0 4-1 5-2M15 9h.01" fill="none" strokeLinejoin="round" />,
+  ear: <path d="M7 10a5 5 0 0 1 10 0c0 3-2 4-3 6s-1 4-3 4-3-1-3-2M10 10a2 2 0 0 1 4 0c0 1-1 2-2 2" fill="none" strokeLinejoin="round" />,
+  leaf: <path d="M12 20C7 16 4 13 4 9.5A4 4 0 0 1 12 7a4 4 0 0 1 8 2.5c0 3.5-3 6.5-8 10.5zM12 20v2" fill="none" strokeLinejoin="round" />,
+  puppet: (
+    <>
+      <circle cx="12" cy="7" r="3.5" fill="none" />
+      <path d="M8.5 5.5 12 2l3.5 3.5M6 21l1-7c1-2 3-3 5-3s4 1 5 3l1 7M4 13l3 1M20 13l-3 1" fill="none" strokeLinejoin="round" />
+    </>
+  ),
+  chat: <path d="M3 5h11v8H8l-3 3v-3H3zM17 9h4v8h-2v3l-3-3h-5v-2" fill="none" strokeLinejoin="round" />,
 }
 
 export function Icon({ name }: { name: string }) {

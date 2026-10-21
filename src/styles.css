@@ -485,9 +485,9 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .cause-heads span:last-child::before { content: '→ '; }
 
 /* Daily review and the time map */
-.review, .timemap-teaser { display: grid; gap: 12px; }
-.review h2, .timemap-teaser h2 { margin: 0 0 4px; }
-.review p, .timemap-teaser p { margin: 0; color: var(--ink-soft); }
+.review, .timemap-teaser, .phrasebook-teaser { display: grid; gap: 12px; }
+.review h2, .timemap-teaser h2, .phrasebook-teaser h2 { margin: 0 0 4px; }
+.review p, .timemap-teaser p, .phrasebook-teaser p { margin: 0; color: var(--ink-soft); }
 .review .btn-primary:disabled { opacity: 0.55; cursor: default; box-shadow: none; }
 .time-travel { max-width: 640px; margin: 0 auto; padding-bottom: 32px; }
 .time-travel-title { margin: 0; font-size: 1.25rem; }
@@ -732,3 +732,89 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .hist-mill path { fill: #1f4e9c; stroke: #fff; stroke-width: 1; }
 .key-mill { width: 11px; height: 11px; background: #1f4e9c; clip-path: polygon(40% 0, 60% 0, 60% 40%, 100% 40%, 100% 60%, 60% 60%, 60% 100%, 40% 100%, 40% 60%, 0 60%, 0 40%, 40% 40%); transform: rotate(45deg); }
 .key-lost { width: 10px; height: 10px; background: #b9a9a4; border-radius: 2px; }
+/* Unit 20: languages. The dialect map colours each area by family: Frisian blue, Saxon
+   teal, the Dutch (Low Franconian) dialects in warm yellows and oranges, Romance in reds
+   and pinks, German in greens. The same family colours shade the language time map. */
+.dialect { stroke: #fff; stroke-width: 0.9; cursor: pointer; transition: opacity 0.25s, fill 0.25s; }
+.dialect:hover { stroke: var(--ink); }
+.dialect-frisian { fill: #6f9bd8; background: #6f9bd8; }
+.dialect-saxon { fill: #5fb3a8; background: #5fb3a8; }
+.dialect-hollandic { fill: #f7dc6f; background: #f7dc6f; }
+.dialect-zeelandic { fill: #b9d7ea; background: #b9d7ea; }
+.dialect-west-flemish { fill: #f3b562; background: #f3b562; }
+.dialect-east-flemish { fill: #f6c98a; background: #f6c98a; }
+.dialect-brabantian { fill: #efd08a; background: #efd08a; }
+.dialect-limburgish { fill: #d9a6c9; background: #d9a6c9; }
+.dialect-guelderish { fill: #d7c27a; background: #d7c27a; }
+.dialect-brussels { fill: #8b7fc8; background: #8b7fc8; }
+.dialect-walloon { fill: #e8867a; background: #e8867a; }
+.dialect-picard { fill: #f1aa9b; background: #f1aa9b; }
+.dialect-lorrain { fill: #c96a7a; background: #c96a7a; }
+.dialect-luxembourgish { fill: #8fc47a; background: #8fc47a; }
+.dialect-german { fill: #b8d8a3; background: #b8d8a3; }
+.dialect-new-land { fill: #e4e0d4; background: #e4e0d4; }
+.dialect.is-dim { opacity: 0.35; }
+.dialect.is-selected { stroke: var(--ink); stroke-width: 2.2; }
+.dialect-pick .dialect { fill: #ece6d6; stroke: #a99f88; stroke-width: 0.8; }
+.dialect-pick .dialect:hover { fill: #f6efdc; }
+.dialect-pick .dialect.is-selected { fill: #7d9bd0; }
+.dialect.is-right, .dialect-pick .dialect.is-right { fill: #7fbf8c; opacity: 1; stroke: var(--green-dark); stroke-width: 2; }
+.dialect.is-wrong, .dialect-pick .dialect.is-wrong { fill: #e79b94; opacity: 1; }
+.dialect-label { font-size: 11px; font-weight: 800; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+.dialect-label-small { font-size: 9px; }
+.dialect-map { margin: 0; display: grid; gap: 10px; }
+.dialect-card { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 12px 14px; display: grid; gap: 4px; }
+.dialect-card p { margin: 0; }
+.dialect-title { font-weight: 900; font-size: 1.05rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.dialect-own { font-weight: 600; color: var(--ink-soft); font-style: italic; }
+.dialect-family { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--delft); }
+.dialect-about { font-size: 0.92rem; }
+.dialect-status { font-size: 0.85rem; color: var(--ink-soft); }
+.dialect-sounds { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; }
+.dialect-sounds li { display: flex; align-items: center; gap: 10px; }
+.dialect-key { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.dialect-key button { display: flex; align-items: center; gap: 6px; border: 2px solid var(--line); background: var(--card); border-radius: 10px; padding: 4px 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+.dialect-key button.is-on { border-color: var(--ink); }
+.dialect-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgb(0 0 0 / 0.2); flex: none; }
+.hist-area-frisian { fill: #6f9bd8; stroke: #2f5590; stroke-width: 0.6; transition: fill 0.4s; }
+.hist-area-saxon { fill: #8fcbc2; stroke: #2f7a70; stroke-width: 0.6; transition: fill 0.4s; }
+.key-frisian { width: 12px; height: 10px; background: #6f9bd8; border: 1px solid #2f5590; border-radius: 2px; }
+.key-saxon { width: 12px; height: 10px; background: #8fcbc2; border: 1px solid #2f7a70; border-radius: 2px; }
+/* Recordings: a round play button whose ring fills as it plays. */
+.play-btn { width: 44px; height: 44px; flex: none; border: 0; padding: 0; background: none; cursor: pointer; color: var(--delft); }
+.play-btn svg { width: 100%; height: 100%; display: block; }
+.play-big { width: 64px; height: 64px; }
+.play-track { fill: var(--delft-soft); stroke: var(--line); stroke-width: 3; }
+.play-ring { fill: none; stroke: var(--orange); stroke-width: 3.5; stroke-linecap: round; transition: stroke-dasharray 0.2s linear; }
+.play-icon { fill: var(--delft); }
+.play-icon-line { fill: none; stroke: var(--delft); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.play-btn.is-playing .play-track { fill: #fde7cf; }
+.play-voice .play-track { fill: var(--paper); stroke-dasharray: 3 3; }
+.play-none { width: 44px; flex: none; }
+.sound-figure { margin: 0; display: grid; gap: 10px; }
+.sound-card { display: flex; align-items: center; gap: 14px; background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 14px; }
+.sound-text { display: grid; gap: 2px; min-width: 0; }
+.sound-text p { margin: 0; }
+.sound-words { font-weight: 900; font-size: 1.15rem; }
+.sound-meta { color: var(--ink-soft); font-size: 0.92rem; }
+.sound-credit { font-size: 0.75rem; color: var(--ink-soft); }
+.option-sound { display: flex; align-items: center; gap: 10px; }
+.option-sound .option { flex: 1; }
+/* The phrasebook */
+.phrasebook { max-width: 640px; margin: 0 auto; padding-bottom: 32px; }
+.phrase-search { display: block; margin: 0 16px 12px; }
+.phrase-search input { width: 100%; box-sizing: border-box; border: 2px solid var(--line); border-radius: 12px; padding: 10px 12px; font: inherit; background: var(--card); }
+.phrase-tabs { display: flex; gap: 6px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: thin; }
+.phrase-tabs button { flex: none; border: 2px solid var(--line); background: var(--card); border-radius: 99px; padding: 6px 12px; font-weight: 700; font-size: 0.85rem; cursor: pointer; }
+.phrase-tabs button.is-on { background: var(--delft); border-color: var(--delft); color: #fff; }
+.phrase-empty { margin: 0 16px; }
+.phrase-list { list-style: none; margin: 0; padding: 0 16px; display: grid; gap: 8px; }
+.phrase-cards .phrase-list { padding: 0; }
+.phrase { display: flex; align-items: flex-start; gap: 12px; background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+.phrase-text { min-width: 0; display: grid; gap: 2px; }
+.phrase-text p { margin: 0; }
+.phrase-say { font-weight: 900; font-size: 1.05rem; }
+.phrase-means { font-size: 0.92rem; }
+.phrase-note { font-size: 0.82rem; color: var(--ink-soft); }
+.phrase-cards { margin: 0; display: grid; gap: 8px; }
+.phrase-set-title { margin: 0; font-weight: 900; color: var(--delft); }
