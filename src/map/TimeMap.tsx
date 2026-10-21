@@ -186,11 +186,15 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
                 <path d="M-1.6-7h3.2v3.4h3.4v3.2h-3.4v7.4h-3.2v-7.4h-3.4v-3.2h3.4z" />
               ) : s.kind === 'memorial' ? (
                 <path d="M-3.5 6h7l-1.5-11.5h-4z" />
+              ) : s.kind === 'workshop' ? (
+                <path d="M0-6.5c4 0 7 2.6 7 5.8 0 2-1.6 2.6-3 2.4-1.3-.2-2 .6-1.7 1.7.4 1.6-.6 3.1-2.6 3.1-4 0-6.7-3-6.7-6.5S-4-6.5 0-6.5z" />
+              ) : s.kind === 'market' ? (
+                <path d="M-6 6V-1.5L0-6.5 6-1.5V6z" />
               ) : (
                 <rect x={-4.5} y={-4.5} width={9} height={9} />
               )}
-              {/* A battle's or a breach's name goes once its stage is over; its grey mark stays. */}
-              {s.label && !(gone && (s.kind === 'battle' || s.kind === 'breach')) && (
+              {/* A battle's, a breach's or a dead painter's name goes once its stage is over; its grey mark stays. */}
+              {s.label && !(gone && (s.kind === 'battle' || s.kind === 'breach' || s.kind === 'workshop')) && (
                 <text x={s.label === 'left' ? -8 : 8} y={4} textAnchor={s.label === 'left' ? 'end' : 'start'} className="hist-site-label">
                   {s.name}
                 </text>

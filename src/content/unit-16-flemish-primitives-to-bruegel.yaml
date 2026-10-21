@@ -1,0 +1,804 @@
+id: unit-16
+number: 16
+title: Flemish Primitives to Bruegel
+era: 1420 to 1569
+summary: In the towns of Flanders and Brabant, painters working in oil on oak learned to paint the world as it looks, down to a reflection in a mirror. Jan van Eyck finished the Ghent Altarpiece in 1432; Rogier van der Weyden, Dieric Bouts, Hans Memling and Hugo van der Goes painted for dukes, guilds and Italian bankers; Hieronymus Bosch filled his panels with monsters. Then the art market moved to Antwerp, where Pieter Bruegel painted proverbs, peasants and winter, until the storm of 1566 broke over the churches.
+lessons:
+  - id: u16-l1
+    title: The Ghent Altarpiece up close
+    icon: altarpiece
+    sources:
+      - title: "Wikipedia, Ghent Altarpiece"
+        url: https://en.wikipedia.org/wiki/Ghent_Altarpiece
+      - title: "Closer to Van Eyck, the Ghent Altarpiece photographed panel by panel (KIK-IRPA)"
+        url: http://closertovaneyck.kikirpa.be/
+      - title: "Albrecht Dürer, Records of Journeys to Venice and the Low Countries, translated by Rudolf Tombo (Project Gutenberg)"
+        url: https://www.gutenberg.org/ebooks/3226
+      - title: "Wikipedia, Jan van Eyck"
+        url: https://en.wikipedia.org/wiki/Jan_van_Eyck
+      - title: "Wikipedia, Portrait of Margaret van Eyck"
+        url: https://en.wikipedia.org/wiki/Portrait_of_Margaret_van_Eyck
+      - title: "Wikipedia, The Just Judges"
+        url: https://en.wikipedia.org/wiki/The_Just_Judges
+      - title: "Wikipedia, Altaussee salt mine"
+        url: https://en.wikipedia.org/wiki/Altaussee_salt_mine
+    exercises:
+      - type: story
+        title: Twelve panels of oak
+        body: >-
+          In the 1420s the painters of Flanders found a new way to paint: colour ground in oil, laid on in thin,
+          see-through layers over a white ground on oak. It dried slowly, so they could paint every hair, jewel and
+          blade of grass, and light seemed to glow from inside the picture. The greatest work of that new art still
+          stands in St Bavo's Cathedral in Ghent. Start the tour and zoom in.
+        visual: { kind: painting, painting: ghent-altarpiece }
+      - type: choice
+        prompt: The lamb on the altar is the heart of the painting, which is also called the Adoration of the Mystic Lamb. Who or what does the lamb stand for?
+        visual: { kind: painting, painting: ghent-altarpiece, focus: lamb }
+        answer: 0
+        options:
+          - label: Christ, sacrificed to save the world
+            why: >-
+              Right. In the Bible John the Baptist calls Jesus "the Lamb of God, which taketh away the sin of the
+              world". The lamb's blood runs into a golden cup, as the wine of the mass was believed to become Christ's
+              blood, and crowds of saints come from all sides to worship it.
+          - label: Saint Bavo, the patron of the church
+            why: Bavo was a nobleman turned hermit. The lamb stands for someone far greater.
+          - label: The wool that made Ghent rich
+            why: Ghent did grow rich on cloth, but this lamb stands on an altar, bleeding into a cup.
+          - label: The Golden Fleece of the duke's knights
+            why: The duke's order hung a gold ram from a chain. This lamb is alive, on an altar.
+      - type: hunt
+        prompt: This is the altarpiece closed, as people saw it on ordinary days. The angel greets Mary in a room of a Flemish house. Tap the window that looks out on a street of the town.
+        photo: ghent-closed
+        targets:
+          - [0.35, 0.31, 0.14, 0.13]
+        explain: >-
+          Through the window you look down on a street of tall brick houses, so tiny you need to zoom in. Van Eyck put
+          the visit of the angel in a house of his own day, as if it had happened just down the road.
+      - type: choice
+        prompt: Kneeling at the bottom of the closed altarpiece are the two people who paid for it. Who were they?
+        visual: { kind: photo, photo: ghent-closed }
+        answer: 0
+        options:
+          - label: Joos Vijd and his wife Lysbette Borluut, a rich Ghent couple
+            why: >-
+              Right. Joos Vijd was a rich citizen of Ghent and one of its aldermen. The couple paid for the
+              altarpiece, for the chapel in St Bavo's where it stood, and for masses to be said there for their souls.
+          - label: Duke Philip the Good and his wife
+            why: Van Eyck was the duke's painter, but this altarpiece was paid for by a couple from Ghent.
+          - label: The abbot and prior of St Bavo's
+            why: Look at them. One is a woman.
+          - label: The guild of painters of Ghent
+            why: A guild would not be painted as one man and one woman at prayer.
+      - type: gap
+        prompt: In April 1521 Albrecht Dürer, the great painter from Nuremberg, came to Ghent to see the altarpiece. Fill the gap in what he wrote in his diary.
+        quote: >-
+          Afterwards I saw the Jan [Van Eyck's] picture, which is a very splendid, deeply studied painting, and
+          especially the "___," the "Mary," and "God the Father" were extremely good.
+        source: Albrecht Dürer, diary of his journey to the Low Countries, April 1521 (translated by Rudolf Tombo)
+        visual: { kind: painting, painting: ghent-altarpiece }
+        options: [Eve, Lamb, Fountain, Angels]
+        answer: 0
+        explain: >-
+          Eve, the near life-size nude on the far right of the upper row. Dürer had studied the human body all his
+          life, and Van Eyck's Adam and Eve, painted almost a hundred years before, still amazed him.
+      - type: truemyth
+        statement: In the 1800s the church took down Adam and Eve and hung copies in their place with the two dressed in animal skins.
+        visual: { kind: painting, painting: ghent-altarpiece, focus: adam }
+        answer: true
+        explain: >-
+          True. Emperor Joseph II found the nudes disagreeable on his visit in 1781, and they were taken down. In the
+          1800s the originals went to the museum in Brussels, and copies with skins painted on hung in Ghent. The
+          originals came home in 1920, but you can still see the dressed copies in the cathedral.
+      - type: sort
+        prompt: Which do you see when the altarpiece is open, on feast days, and which when it is closed?
+        visual: { kind: painting, painting: ghent-altarpiece }
+        groups: [Open, Closed]
+        items:
+          - { label: The Lamb on the altar, group: 0 }
+          - { label: Eight angels singing, group: 0 }
+          - { label: Adam and Eve, group: 0 }
+          - { label: The angel Gabriel greeting Mary, group: 1 }
+          - { label: The two donors at prayer, group: 1 }
+          - { label: The two Saint Johns painted to look like stone statues, group: 1 }
+        explain: >-
+          Closed, the altarpiece is quiet and grey, with the saints painted as if carved in stone. On feast days the
+          wings swung open and the whole of heaven appeared in colour and gold.
+      - type: cause
+        prompt: The altarpiece has had a dangerous life. Link each event to what it led to.
+        pairs:
+          - [Calvinists stormed the churches of Ghent in 1566, The altarpiece was hidden in the cathedral tower]
+          - [French revolutionary armies took Ghent in 1794, The middle panels hung in the Louvre in Paris until 1815]
+          - [The side wings were pawned and sold in 1816, "They hung in Berlin until the peace treaty of 1919 sent them back"]
+          - [The Nazis seized the altarpiece in 1942, It was found in an Austrian salt mine in 1945]
+        explain: >-
+          Stolen, sold, split up and hidden, the altarpiece came through it all, except one panel: the Just Judges,
+          stolen in 1934 and never found.
+      - type: scrub
+        prompt: Drag the slider to a year when Jan van Eyck had his workshop in Bruges.
+        map: painters
+        start: 1420
+        answer: [1430, 1441]
+        explain: >-
+          Jan van Eyck worked for Duke Philip the Good from 1425, first in Lille, and settled in Bruges around 1430.
+          He died there in July 1441 and was buried at St Donatian's.
+      - type: gap
+        prompt: Van Eyck painted his wife Margaret in 1439, and wrote on the frame. Fill the gap with his motto, a play on his name.
+        quote: My husband Johannes completed me in the year 1439 on 17 June. My age was thirty-three years. ___
+        source: Inscription on the frame of Jan van Eyck's portrait of Margaret van Eyck, 1439 (translated from the Latin and Flemish)
+        visual: { kind: photo, photo: margaret-van-eyck }
+        options: [As I can, God be praised, Forever yours, Made in Bruges]
+        answer: 0
+        explain: >-
+          ALS ICH CAN, "as I can", in Flemish but written in Greek letters on the frame: a modest motto, and a pun
+          on his name, Eyck. Van Eyck put it on several of his paintings.
+      - type: order
+        prompt: Put the life of the altarpiece in order.
+        items:
+          - { label: Hubert van Eyck dies with the altarpiece unfinished, year: 1426, when: '1426' }
+          - { label: Jan van Eyck finishes it, year: 1432, when: '1432' }
+          - { label: Joseph II has Adam and Eve taken down, year: 1781, when: '1781' }
+          - { label: The Just Judges is stolen, year: 1934, when: '1934' }
+          - { label: The restored lamb is shown to the world, year: 2020, when: 'January 2020' }
+        explain: >-
+          Nearly six hundred years. The last restoration took off paint added in the 1500s and found Van Eyck's own
+          lamb underneath, with a startling, almost human face.
+
+  - id: u16-l2
+    title: Tournai, Brussels and Leuven
+    icon: tear
+    sources:
+      - title: "Wikipedia, Mérode Altarpiece"
+        url: https://en.wikipedia.org/wiki/M%C3%A9rode_Altarpiece
+      - title: "Wikipedia, Robert Campin"
+        url: https://en.wikipedia.org/wiki/Robert_Campin
+      - title: "Wikipedia, Rogier van der Weyden"
+        url: https://en.wikipedia.org/wiki/Rogier_van_der_Weyden
+      - title: "National Gallery of Art, Portrait of a Lady by Rogier van der Weyden"
+        url: https://www.nga.gov/collection/art-object-page.44.html
+      - title: "Wikipedia, Altarpiece of the Holy Sacrament (Bouts)"
+        url: https://en.wikipedia.org/wiki/Altarpiece_of_the_Holy_Sacrament_(Bouts)
+      - title: "Wikipedia, Portinari Altarpiece"
+        url: https://en.wikipedia.org/wiki/Portinari_Altarpiece
+      - title: "Albrecht Dürer, Records of Journeys to Venice and the Low Countries, translated by Rudolf Tombo (Project Gutenberg)"
+        url: https://www.gutenberg.org/ebooks/3226
+      - title: "Wikipedia, Francisco de Holanda, who recorded Michelangelo's words on Flemish painting"
+        url: https://en.wikipedia.org/wiki/Francisco_de_Holanda
+    exercises:
+      - type: story
+        title: The painters of the towns
+        body: >-
+          Van Eyck was not alone. In Tournai, Robert Campin ran a busy workshop, and his pupil Rogier van der Weyden
+          became the town painter of Brussels, the painter whose weeping faces were copied all over Europe. Dieric
+          Bouts worked in Leuven, and Hugo van der Goes in Ghent. They painted Bible stories in rooms and streets
+          that looked like their own. Here an angel visits Mary in a Flemish living room, and Joseph works next door.
+        visual: { kind: photo, photo: merode }
+      - type: hunt
+        prompt: Joseph is a carpenter, and has been making mousetraps. Find one of them.
+        photo: merode
+        targets:
+          - [0.8, 0.53, 0.035, 0.06]
+          - [0.825, 0.4, 0.03, 0.045]
+        explain: >-
+          One mousetrap is on his bench, and another sits in the window, as if for sale. Saint Augustine called the
+          cross the devil's mousetrap, the bait that caught the devil, so a carpenter's everyday work hides a
+          meaning.
+      - type: pin
+        prompt: Pin Tournai, where Robert Campin had his workshop and Rogier van der Weyden learned to paint.
+        place: tournai
+        fullKm: 10
+        okKm: 25
+        explain: >-
+          Tournai, on the Schelde, was a French-speaking town that belonged to the king of France. Rogier, born there as Rogier de le Pasture,
+          trained with Campin and moved to Brussels, where he became town painter in 1436 and took the Flemish form
+          of his name.
+      - type: choice
+        prompt: Rogier van der Weyden painted this lady in about 1460. Who was she?
+        visual: { kind: photo, photo: rogier-lady }
+        answer: 0
+        options:
+          - label: Nobody knows
+            why: >-
+              Right. Her name is lost. Her pinned linen headdress, her fine gown and the gold buckle of her belt say
+              she was rich, and her lowered eyes and tightly folded hands say she wanted to be seen as devout.
+          - label: Mary of Burgundy
+            why: Mary of Burgundy was born in 1457, so she was a small child in 1460.
+          - label: Margaret of York
+            why: Margaret came from England to marry Charles the Bold in 1468, after Rogier's death in 1464.
+          - label: Saint Barbara
+            why: Saints in paintings carry the sign of who they are, like Barbara's tower. This is a living woman.
+      - type: truemyth
+        statement: When Dieric Bouts painted this Last Supper, professors of theology from Leuven told him what to paint.
+        visual: { kind: photo, photo: bouts-supper }
+        answer: true
+        explain: >-
+          True. The contract with the Confraternity of the Holy Sacrament, signed on 15 March 1464, named two
+          professors of the university of Leuven to advise him. Bouts finished in 1468. It was one of the first Last
+          Suppers painted on panel in the Low Countries, with all the lines of the room meeting at a point above
+          Christ.
+      - type: choice
+        prompt: Hugo van der Goes painted this huge altarpiece in Ghent for an Italian banker. Where did the banker send it?
+        visual: { kind: photo, photo: portinari }
+        answer: 0
+        options:
+          - label: Florence
+            why: >-
+              Right. Tommaso Portinari, who ran the bank of the Medici in Bruges, had it shipped to the church of the
+              hospital his family had founded in Florence, where it arrived in 1483. Florentine painters had never seen shepherds so real, and Domenico
+              Ghirlandaio borrowed them for his own Adoration in 1485.
+          - label: Rome
+            why: It went to the banker's home town, not to the pope.
+          - label: Venice
+            why: The banker worked for the Medici. Think of their city.
+          - label: Nowhere; it stayed in Ghent
+            why: It left the Low Countries and has never come back. It is in the Uffizi.
+      - type: voices
+        prompt: Two great painters of the Renaissance on the painters of the Low Countries. Read them side by side. How do they differ?
+        voices:
+          - who: Albrecht Dürer, German painter, in Bruges
+            when: Diary of his journey to the Low Countries, April 1521 (translated by Rudolf Tombo)
+            text: >-
+              Thence they took me to St. James's and let me see the splendid paintings of Roger and Hugo, who are both
+              great masters.
+            photo: durer-self
+          - who: Michelangelo, Italian painter and sculptor, as remembered by Francisco de Holanda
+            when: Dialogues in Rome, written down in 1548 (translated from the Portuguese)
+            text: >-
+              They paint stuffs and masonry, the green grass of the fields, the shadow of trees, and rivers and bridges,
+              which they call landscapes... And all this, though it pleases some persons, is done without reason or art.
+        options:
+          - Dürer admires them; Michelangelo finds their detail pleasing but without art
+          - Both say the Flemish painters are the best in Europe
+          - Both say Flemish painting is old-fashioned
+          - Michelangelo admires them; Dürer does not
+        answer: 0
+        explain: >-
+          Dürer honoured Rogier van der Weyden and Hugo van der Goes as great masters. Michelangelo, who believed great
+          art meant the noble human body, thought the Flemish copied everything they saw and chose nothing. Yet he
+          admitted it pleased the devout more than Italian painting.
+      - type: odd
+        prompt: Three of these were painted in the Low Countries. Which is the odd one out, and why?
+        items:
+          - { label: The Merode Altarpiece, photo: merode }
+          - { label: The Descent from the Cross, photo: descent-cross }
+          - { label: The Last Supper of Leuven, photo: bouts-supper }
+          - { label: Mona Lisa, photo: mona-lisa }
+        answer: 3
+        reasons:
+          - It was painted in Italy, by Leonardo da Vinci
+          - It is not painted in oil
+          - It was painted before 1450
+        reason: 0
+        explain: >-
+          Leonardo began the Mona Lisa in Florence in about 1503, in oil, on a panel of poplar. The other three were
+          painted in oil on oak by Campin, Rogier and Bouts. Italian painters learned a great deal about oil from
+          Flemish paintings like the Portinari Altarpiece.
+      - type: match
+        prompt: Match each painter to the town where he had his workshop.
+        pairs:
+          - [Robert Campin, Tournai]
+          - [Rogier van der Weyden, Brussels]
+          - [Dieric Bouts, Leuven]
+          - [Hugo van der Goes, Ghent]
+
+  - id: u16-l3
+    title: Bruges, market for masterpieces
+    icon: scales
+    sources:
+      - title: "Wikipedia, Shrine of St. Ursula"
+        url: https://en.wikipedia.org/wiki/Shrine_of_St._Ursula
+      - title: "Wikipedia, Hans Memling"
+        url: https://en.wikipedia.org/wiki/Hans_Memling
+      - title: "Wikipedia, Tommaso Portinari"
+        url: https://en.wikipedia.org/wiki/Tommaso_Portinari
+      - title: "Wikipedia, A Goldsmith in his Shop"
+        url: https://en.wikipedia.org/wiki/A_Goldsmith_in_his_Shop
+      - title: "Wikipedia, The Judgement of Cambyses"
+        url: https://en.wikipedia.org/wiki/The_Judgement_of_Cambyses
+      - title: "Wikipedia, The Last Judgment (Memling)"
+        url: https://en.wikipedia.org/wiki/The_Last_Judgment_(Memling)
+      - title: "Wikipedia, Saint Ursula"
+        url: https://en.wikipedia.org/wiki/Saint_Ursula
+      - title: "Wikipedia, Madonna with Canon van der Paele"
+        url: https://en.wikipedia.org/wiki/Madonna_with_Canon_van_der_Paele
+      - title: "Wikipedia, Cologne Cathedral"
+        url: https://en.wikipedia.org/wiki/Cologne_Cathedral
+    exercises:
+      - type: story
+        title: A town of merchants
+        body: >-
+          In the 1400s Bruges was the great market of northern Europe. Italian bankers, Spanish wool traders and
+          merchants of the Hanseatic towns lived there, and the dukes of Burgundy often held court there. Rich
+          customers made it a town of painters. Hans Memling, born near Frankfurt, became a citizen of Bruges in
+          1465 and its busiest painter. In 1489 he finished this little shrine, made like a gilded church, for the
+          relics of Saint Ursula in St John's Hospital.
+        visual: { kind: photo, photo: ursula-shrine }
+      - type: hunt
+        prompt: In this panel of the shrine, Ursula's ship lands at Cologne. Memling had seen the city with his own eyes. Tap the big wooden crane on top of the unfinished cathedral.
+        photo: ursula-side-1
+        targets:
+          - [0.42, 0.23, 0.11, 0.08]
+        explain: >-
+          Building on Cologne Cathedral stopped in the 1470s, and the crane stood on the stump of its south tower for
+          nearly four hundred years, until work began again in 1842. The cathedral was finished in 1880.
+      - type: who
+        photo: tommaso-portinari
+        clues:
+          - I was born in Florence, and came to Bruges as a boy to work in the bank of the Medici.
+          - I ran that bank in Bruges, and lent Duke Charles the Bold far more than was wise.
+          - I paid Hugo van der Goes for a huge altarpiece and shipped it home to Florence.
+        options: [Tommaso Portinari, Giovanni Arnolfini, Lorenzo de' Medici, Angelo Tani]
+        answer: 0
+        explain: >-
+          Tommaso Portinari, painted by Hans Memling in about 1470, with his wife Maria Baroncelli on a matching panel.
+          His loans to the duke helped sink the Medici bank in Bruges. Angelo Tani, who ran it before him, ordered a
+          Last Judgement from Memling; Giovanni Arnolfini was the merchant from Lucca whom Van Eyck painted with his
+          wife.
+      - type: hunt
+        prompt: A goldsmith weighs a ring for a young couple. Tap the round mirror that shows the street outside his shop.
+        photo: christus-goldsmith
+        targets:
+          - [0.83, 0.59, 0.13, 0.24]
+        explain: >-
+          In the mirror two men stand in the street, one with a falcon on his wrist, and you can see the houses
+          across the way. Petrus Christus, who worked in Bruges after Van Eyck, painted it in 1449, perhaps for the
+          goldsmiths' guild.
+      - type: choice
+        prompt: Bruges hung this painting in its town hall. A Persian king has a judge who took bribes skinned alive. Why put it there?
+        visual: { kind: photo, photo: cambyses }
+        answer: 0
+        options:
+          - label: To warn the town's own judges and aldermen to stay honest
+            why: >-
+              Right. The story of King Cambyses and the judge Sisamnes comes from the Greek historian Herodotus; the
+              king had the judge's skin stretched over the judgement seat, where his son would sit next. Gerard David
+              finished it in 1498. It was ordered around 1488, the year Bruges held the future emperor Maximilian
+              prisoner, and some see it as the town's way of saying sorry.
+          - label: To celebrate a victory over the Persians
+            why: Bruges never fought Persia. Look at what is being done to the man on the table.
+          - label: Because skinning was a punishment used in Bruges
+            why: It was not. The painting tells an old story from Herodotus.
+          - label: It was a gift from the king of Persia
+            why: It was painted in Bruges by Gerard David, for the town hall.
+      - type: scrub
+        prompt: Drag the slider to a year when Hans Memling was at work in Bruges and Hieronymus Bosch in 's-Hertogenbosch at the same time.
+        map: painters
+        start: 1420
+        answer: [1474, 1494]
+        explain: >-
+          Bosch is first named in his town's records in 1474, and Memling died in Bruges in 1494. The calm, sweet
+          Memling and the wild Bosch were at work only about 120 kilometres apart.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - ["Italian, Spanish and Hanseatic merchants lived in Bruges", Painters there had rich customers from abroad]
+          - ["The Zwin, Bruges' way to the sea, silted up", Trade and painters moved to Antwerp]
+          - [A privateer from Danzig captured an Italian galley in 1473, Memling's Last Judgement went to Gdańsk instead of Florence]
+          - [Oil paint dries slowly and lets light through its layers, Painters could build up glowing colours and the tiniest details]
+        explain: >-
+          Paintings travelled as far as trade did. Memling's Last Judgement, ordered by Angelo Tani for Florence, is
+          still in Gdańsk today.
+      - type: truemyth
+        statement: Saint Ursula and her 11,000 maidens, painted on the shrine, are a well-recorded event of Roman history.
+        visual: { kind: photo, photo: ursula-side-1 }
+        answer: false
+        explain: >-
+          Myth. An old inscription in Cologne honours virgins martyred there, but the story of Ursula, a princess from
+          Britain sailing to Rome with 11,000 companions and killed by the Huns, grew up centuries later. The number
+          may come from a misreading of a Latin abbreviation, eleven martyred virgins read as eleven thousand.
+      - type: choice
+        prompt: Van Eyck painted the old canon Joris van der Paele kneeling before Mary in 1436. Zoom in. What is he holding?
+        visual: { kind: photo, photo: van-der-paele }
+        answer: 0
+        options:
+          - label: A prayer book and his spectacles
+            why: >-
+              Right. The canon was old and ill, and Van Eyck painted every wrinkle and vein. Look into Saint George's
+              shining armour, too: a tiny figure is reflected there, perhaps the painter himself.
+          - label: A purse of gold
+            why: He was a churchman at prayer. Look closer at his hands.
+          - label: A sword
+            why: The sword and armour belong to Saint George, standing behind him.
+          - label: A model of a church
+            why: Donors sometimes hold one, but not this one.
+
+  - id: u16-l4
+    title: Bosch's dreams and nightmares
+    icon: owl
+    sources:
+      - title: "Wikipedia, Hieronymus Bosch"
+        url: https://en.wikipedia.org/wiki/Hieronymus_Bosch
+      - title: "Wikipedia, The Garden of Earthly Delights"
+        url: https://en.wikipedia.org/wiki/The_Garden_of_Earthly_Delights
+      - title: "Museo del Prado, The Garden of Earthly Delights Triptych"
+        url: https://www.museodelprado.es/en/the-collection/art-work/the-garden-of-earthly-delights-triptych/02388242-6d6a-4e9e-a992-e1311eab3609
+      - title: "Wikipedia, The Haywain Triptych"
+        url: https://en.wikipedia.org/wiki/The_Haywain_Triptych
+      - title: "Wikipedia, The Temptation of St. Anthony (Bosch triptych)"
+        url: https://en.wikipedia.org/wiki/The_Temptation_of_St._Anthony_(Bosch_triptych)
+      - title: "Wikipedia, The Tower of Babel (Bruegel)"
+        url: https://en.wikipedia.org/wiki/The_Tower_of_Babel_(Bruegel)
+    exercises:
+      - type: story
+        title: Paradise, pleasure and hell
+        body: >-
+          In 's-Hertogenbosch, a busy town in the duchy of Brabant, Jheronimus van Aken came from a family of
+          painters. He signed his panels with the name of his town: Bosch. Nobody before him had painted anything like
+          his monsters, his giant birds and fruit, his hells full of fire and strange machines. Start the tour of his
+          most famous work, and zoom in as far as you dare.
+        visual: { kind: painting, painting: garden }
+      - type: who
+        photo: bosch-portrait
+        clues:
+          - I was born around 1450 into a family of painters, in a busy town in the duchy of Brabant.
+          - I married a rich woman, Aleid van de Meervenne, and joined my town's Brotherhood of Our Lady.
+          - I signed my paintings with the name of my town.
+          - After my death, King Philip II of Spain collected my paintings and took them to Madrid.
+        options: [Hieronymus Bosch, Pieter Bruegel, Jan van Eyck, Quinten Metsys]
+        answer: 0
+        explain: >-
+          Hieronymus Bosch, in a drawing copied around 1550 for a book of portraits, perhaps from a lost portrait. He
+          died in August 1516. Because Philip II loved his work, many of his paintings are in the Prado in Madrid.
+      - type: pin
+        prompt: Pin 's-Hertogenbosch, the town where Bosch lived and whose name he took.
+        place: den-bosch
+        fullKm: 10
+        okKm: 25
+        explain: >-
+          's-Hertogenbosch, Den Bosch for short, is in North Brabant, today in the Netherlands. Bosch lived all his
+          life in and near the town, and in 2016, five hundred years after his death, it held the biggest show of
+          his work ever gathered.
+      - type: hunt
+        prompt: Bosch hid owls all over his paintings. Find the owl peering out of the fountain in paradise, on the left wing.
+        photo: garden-delights
+        targets:
+          - [0.09, 0.415, 0.055, 0.09]
+        explain: >-
+          An owl looks out from a round hole at the foot of the pink fountain of life. Owls hunt at night, and for
+          Bosch's viewers they could stand for darkness and sin. Even in paradise, something is watching.
+      - type: truemyth
+        statement: The music written on a sinner's backside in this hell can actually be played.
+        visual: { kind: painting, painting: garden, focus: music }
+        answer: true
+        explain: >-
+          True. In 2014 a student in the United States copied out the notes, a short tune for a choir, and played it.
+          It went round the internet as the 500-year-old butt song.
+      - type: choice
+        prompt: Closed, the Garden shows a grey-green world inside a glass ball, with God small in the corner. What does it show?
+        visual: { kind: photo, photo: garden-closed }
+        answer: 0
+        options:
+          - label: The world being created, before there were animals or people
+            why: >-
+              Right. Most historians read it as the third day of creation, with plants but no animals yet. The words
+              along the top come from Psalm 33: "For he spake, and it was done; he commanded, and it stood fast."
+              Open the wings, and the colour bursts out.
+          - label: The moon, seen through a telescope
+            why: The telescope was invented in the Netherlands in 1608, about a hundred years after this.
+          - label: The end of the world
+            why: The end comes inside, in the hell on the right wing. This is a beginning.
+          - label: "'s-Hertogenbosch in winter"
+            why: There are no houses or people anywhere on it.
+      - type: gap
+        prompt: Around 1560 a Spanish nobleman wrote down what most people called Bosch. Fill the gap.
+        quote: The inventor of ___ and chimeras.
+        source: Felipe de Guevara, Commentaries on Painting, about 1560 (translated from the Spanish)
+        visual: { kind: painting, painting: garden, focus: prince }
+        options: [monsters, saints, landscapes, portraits]
+        answer: 0
+        explain: >-
+          Monsters, like this bird-headed Prince of Hell swallowing sinners. Copies and imitations of Bosch were
+          already everywhere, and Guevara complained that imitators painted monsters
+          without his sense.
+      - type: odd
+        prompt: Which of these is the odd one out, and why?
+        items:
+          - { label: The Garden of Earthly Delights, photo: garden-delights }
+          - { label: The Haywain, photo: haywain }
+          - { label: The Temptation of Saint Anthony, photo: st-anthony }
+          - { label: The Tower of Babel, photo: babel }
+        answer: 3
+        reasons:
+          - It was painted by Bruegel, long after Bosch died
+          - It has no people in it
+          - It was painted on canvas
+        reason: 0
+        explain: >-
+          Pieter Bruegel painted the Tower of Babel in 1563, nearly fifty years after Bosch's death. The other three are
+          Bosch's triptychs, with wings that close. Bruegel learned a lot from Bosch, but his tower is full of real
+          stonemasons and cranes, not monsters.
+      - type: choice
+        prompt: In the middle of the Haywain, everyone from the pope and the emperor to monks and peasants grabs at a huge cart of hay. What does the hay stand for?
+        visual: { kind: photo, photo: haywain }
+        answer: 0
+        options:
+          - label: The riches of the world, which everyone fights over and which are worth nothing
+            why: >-
+              Right. An old Flemish saying went: the world is a haystack, and everyone grabs what he can. Look where
+              the cart is going: towards hell, on the right.
+          - label: A good harvest, a gift from God
+            why: Look at the people fighting and killing to get some, and where the demons are pulling the cart.
+          - label: The taxes the duke took
+            why: The pope and the emperor are grabbing at it too.
+          - label: Hay for the horses of an army
+            why: There is no army here, only greed.
+      - type: truemyth
+        statement: Only about two dozen paintings by Bosch himself survive.
+        visual: { kind: photo, photo: st-anthony }
+        answer: true
+        explain: >-
+          True. Today only about 25 paintings are confidently held to be his, with a few more from his workshop. He
+          rarely dated a picture, and the many copies and imitations made after his death make it hard to tell.
+
+  - id: u16-l5
+    title: Antwerp, the art market of Europe
+    icon: easel
+    sources:
+      - title: "Wikipedia, Antwerp School"
+        url: https://en.wikipedia.org/wiki/Antwerp_School
+      - title: "Wikipedia, Quentin Matsys"
+        url: https://en.wikipedia.org/wiki/Quentin_Matsys
+      - title: "Wikipedia, Le Prêteur et sa femme (in French)"
+        url: https://fr.wikipedia.org/wiki/Le_Pr%C3%AAteur_et_sa_femme
+      - title: "Wikipedia, Joachim Patinir"
+        url: https://en.wikipedia.org/wiki/Joachim_Patinir
+      - title: "Wikipedia, Catharina van Hemessen"
+        url: https://en.wikipedia.org/wiki/Catharina_van_Hemessen
+      - title: "Wikipedia, Jan Gossaert"
+        url: https://en.wikipedia.org/wiki/Jan_Gossaert
+      - title: "Albrecht Dürer, Records of Journeys to Venice and the Low Countries, translated by Rudolf Tombo (Project Gutenberg)"
+        url: https://www.gutenberg.org/ebooks/3226
+    exercises:
+      - type: story
+        title: A market for pictures
+        body: >-
+          Around 1500 trade left Bruges for Antwerp, on the deep Schelde, and the painters followed. In Antwerp nobody
+          waited for an order: painters made pictures in advance and sold them at stalls during the fairs, and later
+          in a painters' market above the new Bourse, to buyers from all over Europe. Press play and watch the
+          workshops gather in Antwerp.
+        visual: { kind: time-map, map: painters, year: 1491 }
+      - type: choice
+        prompt: Wipe from 1450 to 1560. Which town has become the centre of painting and the art trade?
+        visual: { kind: compare, map: painters, years: [1450, 1560] }
+        answer: 0
+        options:
+          - label: Antwerp
+            why: >-
+              Right. In 1450 the painters worked in Bruges, Brussels, Tournai and Ghent. By 1560 Antwerp had its art
+              fair, a painters' market at the Bourse and the print shop of the Four Winds, and some three hundred
+              painters and sculptors.
+          - label: Bruges
+            why: Bruges was the market of the 1400s, but its way to the sea silted up.
+          - label: Ghent
+            why: Ghent kept its altarpiece, but the market moved elsewhere.
+          - label: "'s-Hertogenbosch"
+            why: Bosch worked there, but it never became a great art market.
+      - type: hunt
+        prompt: A moneychanger weighs coins, and his wife looks up from her prayer book to watch. Tap the little round mirror on the table.
+        photo: moneylender
+        targets:
+          - [0.49, 0.77, 0.13, 0.13]
+        explain: >-
+          The mirror shows a window outside the picture, and a customer leaning on its ledge. Quinten Metsys painted
+          it in Antwerp in 1514. A line from the Bible was later written on the frame: "Let the balance be just and
+          the weights equal."
+      - type: truemyth
+        statement: We know for certain that Quinten Metsys gave up being a blacksmith to win the woman he loved.
+        visual: { kind: photo, photo: moneylender }
+        answer: false
+        explain: >-
+          Myth, or at least a legend. A plaque put up on Antwerp Cathedral in 1629 calls him "a smith and afterwards a
+          famous painter", and the iron well in front of the cathedral is said to be his work. But Karel van Mander,
+          writing in 1604, said an illness left him too weak for the smithy. The love story has no record behind it.
+      - type: gap
+        prompt: In 1521 Dürer went to the wedding of an Antwerp painter. Fill the gap with the kind of painter Dürer called him, one of the first times the word was used.
+        quote: On Sunday before Holy Cross Week, Master Joachim, the good ___ painter, asked me to his wedding, and showed me all honour.
+        source: Albrecht Dürer, diary of his journey to the Low Countries, May 1521 (translated by Rudolf Tombo)
+        visual: { kind: photo, photo: patinir-styx }
+        options: [landscape, portrait, glass, church]
+        answer: 0
+        explain: >-
+          Landscape. Joachim Patinir, master of the Antwerp guild from 1515, painted vast blue-green views of rivers,
+          rocks and sky, with the story, here Charon rowing a soul across the river Styx, made small inside them.
+      - type: who
+        photo: hemessen-self
+        clues:
+          - I was born in Antwerp in 1528, the daughter of a painter.
+          - I painted this when I was twenty, and wrote on it that I had painted myself.
+          - Mary of Hungary, the regent of the Netherlands, was my patron and took me with her to Spain.
+        options: [Catharina van Hemessen, Levina Teerlinc, Mayken Verhulst, Margaret of Austria]
+        answer: 0
+        explain: >-
+          Catharina van Hemessen. Her self-portrait of 1548 is often called the first painting of an artist, man or
+          woman, at the easel. Levina Teerlinc, from Bruges, painted for the English court; Mayken Verhulst, a painter
+          of miniatures, was Bruegel's mother-in-law.
+      - type: scrub
+        prompt: Drag the slider to the year Albrecht Dürer travelled through the Low Countries.
+        map: painters
+        start: 1491
+        answer: [1520, 1521]
+        explain: >-
+          Dürer came down the Rhine in the summer of 1520 and made Antwerp his base for a year, travelling to Brussels,
+          Zeeland, Bruges and Ghent. He went home to Nuremberg in July 1521.
+      - type: choice
+        prompt: Dürer drew Antwerp's harbour in 1520. In Brussels he saw treasures just sent to the emperor from a land across the ocean. Where from?
+        visual: { kind: photo, photo: durer-antwerp }
+        answer: 0
+        options:
+          - label: Mexico, the empire of the Aztecs
+            why: >-
+              Right. Cortés had sent Charles V gold and silver suns, weapons and feather work. Dürer wrote: "All the
+              days of my life I have seen nothing that reaches my heart so much as these, for among them I have seen
+              wonderfully artistic things and have admired the subtle ingenuity of men in foreign lands."
+          - label: Peru, the empire of the Incas
+            why: The Spanish conquest of the Incas began in 1532, after Dürer's visit.
+          - label: China
+            why: China was not conquered by anyone from Europe.
+          - label: India
+            why: The Portuguese traded there, but Charles V's treasure came from the land Cortés was conquering.
+      - type: choice
+        prompt: Jan Gossaert went to Rome in 1508 and came back painting something new to the Low Countries. What?
+        visual: { kind: photo, photo: gossaert-neptune }
+        answer: 0
+        options:
+          - label: Gods and heroes of ancient myth, nude, in the Roman style
+            why: >-
+              Right. Gossaert travelled with Philip of Burgundy, admiral and later bishop of Utrecht, who loved
+              ancient Rome. In 1516 he painted Neptune and his wife Amphitrite for him, among the first such nudes
+              painted in the Low Countries.
+          - label: Landscapes with tiny figures
+            why: That was Patinir's speciality.
+          - label: Scenes of peasants at work
+            why: That came later, with Bruegel.
+          - label: Bunches of flowers
+            why: Flower paintings came in around 1600.
+      - type: order
+        prompt: Put these in order.
+        items:
+          - { label: Quinten Metsys becomes a master in Antwerp, year: 1491, when: '1491' }
+          - { label: Albrecht Dürer comes to Antwerp, year: 1520, when: '1520' }
+          - { label: A painters' market opens above the Bourse, year: 1540, when: '1540' }
+          - { label: Catharina van Hemessen paints herself at the easel, year: 1548, when: '1548' }
+          - { label: Pieter Bruegel joins the Antwerp guild, year: 1551, when: '1551' }
+        explain: >-
+          In sixty years Antwerp grew into the art market of Europe, selling paintings and prints by the thousand.
+
+  - id: u16-l6
+    title: Bruegel's world
+    icon: skate
+    sources:
+      - title: "Wikipedia, Pieter Bruegel the Elder"
+        url: https://en.wikipedia.org/wiki/Pieter_Bruegel_the_Elder
+      - title: "Wikipedia, Netherlandish Proverbs"
+        url: https://en.wikipedia.org/wiki/Netherlandish_Proverbs
+      - title: "Wikipedia, The Hunters in the Snow"
+        url: https://en.wikipedia.org/wiki/The_Hunters_in_the_Snow
+      - title: "Wikipedia, The Peasant Wedding"
+        url: https://en.wikipedia.org/wiki/The_Peasant_Wedding
+      - title: "Royal Collection Trust, Massacre of the Innocents by Pieter Bruegel the Elder"
+        url: https://www.rct.uk/collection/405787/massacre-of-the-innocents
+      - title: "Wikipedia, Landscape with the Fall of Icarus"
+        url: https://en.wikipedia.org/wiki/Landscape_with_the_Fall_of_Icarus
+      - title: "Wikipedia, Big Fish Eat Little Fish"
+        url: https://en.wikipedia.org/wiki/Big_Fish_Eat_Little_Fish
+      - title: "Karel van Mander, Schilder-boeck, 1604, life of Pieter Bruegel (DBNL, in Dutch)"
+        url: https://www.dbnl.org/tekst/mand001schi01_01/mand001schi01_01_0119.php
+    exercises:
+      - type: story
+        title: Winter in the valley
+        body: >-
+          Pieter Bruegel joined the Antwerp guild in 1551, crossed the Alps to Italy, and came back to paint the
+          world around him: villages, proverbs, children at play, peasants dancing, and the seasons of the year. In
+          1565 he painted a winter so cold you can almost feel it. Start the tour.
+        visual: { kind: painting, painting: hunters }
+      - type: hunt
+        prompt: Bruegel's village acts out more than a hundred proverbs. Find the man running his head into a brick wall.
+        photo: proverbs
+        targets:
+          - [0.14, 0.76, 0.08, 0.17]
+        explain: >-
+          Met het hoofd tegen de muur lopen, to run your head into a wall: to try the impossible, and get hurt. The
+          saying is still used in Dutch today, and in English too.
+      - type: choice
+        prompt: What is the woman in red doing to her husband, and what does it mean?
+        visual: { kind: painting, painting: proverbs, focus: cloak }
+        answer: 0
+        options:
+          - label: Hanging a blue cloak on him; she is cheating on him
+            why: >-
+              Right. De blauwe huik omhangen, to hang the blue cloak on someone, meant to deceive your husband. The
+              painting was once called The Blue Cloak.
+          - label: Keeping him warm; she loves him
+            why: The cloak is not a gift. Its colour gives the proverb away.
+          - label: Dressing him for church
+            why: Nobody in this village is going to church.
+          - label: Making him a monk
+            why: Monks' habits were brown, black or white. This is a blue cloak.
+      - type: story
+        title: A village of proverbs
+        body: >-
+          Bruegel painted the Netherlandish Proverbs in 1559, in Antwerp. People loved collecting sayings then, and
+          many of these are still used today, in Dutch and in English. Take the tour, then hunt for more on your own:
+          a man fighting fire with a burning stick, someone shearing a sheep and another a pig, a fox and a stork
+          sharing a meal.
+        visual: { kind: painting, painting: proverbs }
+      - type: truemyth
+        statement: Bruegel was a peasant himself, which is why he painted peasants so often.
+        visual: { kind: photo, photo: peasant-wedding }
+        answer: false
+        explain: >-
+          Myth. Bruegel was a city man who worked for rich collectors in Antwerp and Brussels. Karel van Mander wrote
+          in 1604 that Bruegel and the merchant Hans Franckert dressed up as peasants and went to country weddings
+          and fairs, bringing gifts and claiming to be family, to watch how peasants ate, danced and drank.
+      - type: who
+        photo: bruegel-portrait
+        clues:
+          - I joined the painters' guild of Antwerp in 1551.
+          - I crossed the Alps and went as far as the Strait of Messina, and drew mountains all my life.
+          - In 1563 I married Mayken Coecke in Brussels, and both my sons became painters.
+          - I painted a village acting out more than a hundred proverbs.
+        options: [Pieter Bruegel, Hieronymus Bosch, Pieter Coecke van Aelst, Joachim Patinir]
+        answer: 0
+        explain: >-
+          Pieter Bruegel the Elder, engraved for a book of portraits of painters of the Low Countries in 1572. Pieter
+          Coecke van Aelst was his wife's father, and probably his teacher. His sons Pieter and Jan were too young to
+          learn from him: he died in 1569.
+      - type: scrub
+        prompt: Drag the slider to a year when Bruegel had his workshop in Brussels.
+        map: painters
+        start: 1540
+        answer: [1563, 1568]
+        explain: >-
+          Bruegel married in Brussels in 1563 and lived there until his death on 9 September 1569. He is buried in
+          the Kapellekerk, the church where he was married.
+      - type: sort
+        prompt: Bosch or Bruegel? Sort the paintings and drawings.
+        groups: [Bosch, Bruegel]
+        items:
+          - { label: The Haywain, group: 0, photo: haywain }
+          - { label: The Ship of Fools, group: 0, photo: ship-fools }
+          - { label: The Temptation of Saint Anthony, group: 0, photo: st-anthony }
+          - { label: Big Fish Eat Little Fish, group: 1, photo: big-fish }
+          - { label: The Tower of Babel, group: 1, photo: babel }
+          - { label: "Children's Games", group: 1, photo: childrens-games }
+        explain: >-
+          Big Fish is the trick one. Bruegel drew it in 1556, but when Hieronymus Cock published the print in 1557 he
+          put Bosch's name on it, because Bosch sold better. Bruegel was called "the second Bosch" in his day.
+      - type: choice
+        prompt: Soldiers raid a Flemish village in the snow, as King Herod ordered in the Bible. Around 1600 the painting was changed. What was painted over?
+        visual: { kind: photo, photo: massacre-innocents }
+        answer: 0
+        options:
+          - label: The murdered children, turned into bundles, food and animals
+            why: >-
+              Right. Probably for its owner, the emperor Rudolf II, the dead babies were painted over with bundles,
+              food and animals, which turned a massacre into plundering. Bruegel painted it around 1565 to 1567,
+              when the Low Countries feared the soldiers of the Spanish king.
+          - label: The Spanish flags of the soldiers
+            why: The change was about the victims, not the soldiers.
+          - label: "Bruegel's signature"
+            why: Signatures were not what was painted out.
+          - label: The snow, to make it summer
+            why: The snow is still there.
+      - type: hunt
+        prompt: This is the Fall of Icarus, the boy who flew too close to the sun. Where is Icarus? Tap him.
+        photo: icarus
+        targets:
+          - [0.82, 0.7, 0.06, 0.08]
+        explain: >-
+          Just his legs, kicking in the water below the ship. The ploughman, the shepherd and the fisherman carry on
+          without noticing. The poet W. H. Auden wrote about it in 1938: everything turns away from the disaster.
+          This painting is probably an early copy of a lost Bruegel.
+      - type: order
+        prompt: Put Bruegel's life in order.
+        items:
+          - { label: Bruegel joins the Antwerp guild, year: 1551, when: '1551' }
+          - { label: He is in the south of Italy, year: 1552, when: '1552' }
+          - { label: Big Fish Eat Little Fish is published under Bosch's name, year: 1557, when: '1557' }
+          - { label: He paints the Netherlandish Proverbs, year: 1559, when: '1559' }
+          - { label: He marries and moves to Brussels, year: 1563, when: '1563' }
+          - { label: He paints The Hunters in the Snow, year: 1565, when: '1565' }
+        explain: >-
+          Bruegel left about forty paintings. Van Mander says that on his deathbed he had his wife burn drawings with
+          captions too sharp or mocking, for fear of the trouble they might bring her in the dangerous years after
+          1566.

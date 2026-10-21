@@ -14,10 +14,11 @@ import unit12 from './unit-12-water-welfare-tolerance.yaml?raw'
 import unit13 from './unit-13-industry-and-empire.yaml?raw'
 import unit14 from './unit-14-flanders-fields.yaml?raw'
 import unit15 from './unit-15-language-and-federal-state.yaml?raw'
+import unit16 from './unit-16-flemish-primitives-to-bruegel.yaml?raw'
 import { buildCards } from './cards'
 import { Unit } from './schema'
 
-export const units: Unit[] = [unit01, unit02, unit03, unit04, unit05, unit06, unit07, unit08, unit09, unit10, unit11, unit12, unit13, unit14, unit15].map((text) => Unit.parse(parse(text)))
+export const units: Unit[] = [unit01, unit02, unit03, unit04, unit05, unit06, unit07, unit08, unit09, unit10, unit11, unit12, unit13, unit14, unit15, unit16].map((text) => Unit.parse(parse(text)))
 
 export const cards = buildCards(units)
 

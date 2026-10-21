@@ -272,7 +272,8 @@ lessons:
           In 1432 a huge folding altarpiece was unveiled in a Ghent church. Its painters, the brothers Hubert and
           Jan van Eyck, worked in thin layers of oil paint, so every pearl, leaf and hair seems real. Painters in
           Bruges, Brussels and Leuven followed. Much later, these painters were called the Flemish Primitives.
-        visual: { kind: photo, photo: ghent-altarpiece }
+          Take the tour of the altarpiece.
+        visual: { kind: painting, painting: ghent-altarpiece }
       - type: hunt
         prompt: >-
           Here is the Lamb at the heart of the altarpiece. Behind it, Van Eyck painted heaven as a landscape full of
@@ -314,7 +315,7 @@ lessons:
           probably Giovanni Arnolfini, a merchant from Lucca who lived in Bruges.
       - type: truemyth
         statement: One panel of the Ghent Altarpiece was stolen in 1934 and has never been found.
-        visual: { kind: photo, photo: ghent-altarpiece }
+        visual: { kind: painting, painting: ghent-altarpiece, focus: judges }
         answer: true
         explain: >-
           The Just Judges panel, at the bottom left, vanished in 1934. The panel there now is a copy by Jef Van

@@ -45,7 +45,9 @@ export type HistSite = Dated & {
   // A `camp` is a Nazi camp; a `drop` is where Allied bombers dropped food in 1945.
   // A `breach` is a gap the sea broke in a dike. A `mine` is a colliery, ironworks or mine.
   // A `grave` is a war cemetery; a `memorial` is a monument to the dead or the missing.
-  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach' | 'mine' | 'grave' | 'memorial'
+  // A `workshop` is a painter at work in a town, named after the painter; a `market` is
+  // an art fair or a print shop.
+  kind: 'fort' | 'town' | 'barrier' | 'battle' | 'voc' | 'wic' | 'camp' | 'drop' | 'breach' | 'mine' | 'grave' | 'memorial' | 'workshop' | 'market'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number

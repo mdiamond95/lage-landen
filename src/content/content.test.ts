@@ -28,8 +28,10 @@ import { westhoekStory } from '../data/westhoek'
 import westhoekTopology from '../data/westhoek.topo.json'
 import { languageStory } from '../data/language'
 import belgiumTopology from '../data/belgium.topo.json'
+import { paintersStory } from '../data/painters'
 import { charts } from '../data/charts'
-import { eventAt } from '../data/timeline'
+import { tours } from '../data/paintings'
+import { activeAt, eventAt } from '../data/timeline'
 import { peopleIn, trees } from '../data/families'
 import { places } from './places'
 import { Unit, timeMaps, type Exercise } from './schema'
@@ -137,6 +139,8 @@ describe.each(files)('%s', (file) => {
           expect(ex.answer).toBeLessThan(ex.items.length)
           expect(ex.reason).toBeLessThan(ex.reasons.length)
         }
+        if (visual?.kind === 'painting' && visual.focus)
+          expect(tours[visual.painting].stops.map((s) => s.id), visual.focus).toContain(visual.focus)
         if (visual?.kind === 'family-tree' && visual.hide)
           expect(peopleIn(trees[visual.tree]).map((p) => p.id), visual.hide).toContain(visual.hide)
         if (ex.type === 'hunt') {
@@ -170,6 +174,18 @@ describe.each(files)('%s', (file) => {
       expect(asks.filter(isVisual).length / asks.length).toBeGreaterThanOrEqual(0.5)
     })
   }
+})
+
+describe('painting tours', () => {
+  it('stop at details inside the painting, each with its own id', () => {
+    for (const [id, tour] of Object.entries(tours)) {
+      expect(photoIds, id).toContain(tour.photo)
+      const ids = tour.stops.map((s) => s.id)
+      expect(new Set(ids).size, `${id} stop ids`).toBe(ids.length)
+      for (const { id: stop, box: [x, y, w, h] } of tour.stops)
+        expect(x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= 1.0001 && y + h <= 1.0001, `${id} ${stop} inside the painting`).toBe(true)
+    }
+  })
 })
 
 describe('photos', () => {
@@ -284,6 +300,7 @@ describe('time maps in lessons', () => {
     greatwar: greatWarStory,
     westhoek: westhoekStory,
     language: languageStory,
+    painters: paintersStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -304,6 +321,7 @@ describe('time maps in lessons', () => {
     greatwar: [greatWarStory.min, greatWarStory.max],
     westhoek: [westhoekStory.min, westhoekStory.max],
     language: [languageStory.min, languageStory.max],
+    painters: [paintersStory.min, paintersStory.max],
   }
 
   it('open at years inside their slider', () => {
@@ -569,6 +587,42 @@ describe('language map', () => {
     // Brussels-Halle-Vilvoorde votes as one district from 1963 until the split of 2012.
     const bhv = areas.find((a) => a.kind === 'bhv')!
     expect([bhv.from, bhv.to]).toEqual([1963, 2011])
+  })
+})
+
+describe("painters' map", () => {
+  const { min, max, events, sites, labels, lines } = paintersStory
+  const [[w, s], [e, n]] = paintersStory.bounds!
+  const inFrame = ([lon, lat]: [number, number]) => lon >= w && lon <= e && lat >= s && lat <= n
+
+  it('puts every workshop, market, route and label inside its frame', () => {
+    for (const site of sites) expect(inFrame(site.at), site.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+    for (const l of lines) for (const c of l.coords) expect(inFrame(c), `${l.name} ${c}`).toBe(true)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((ev) => ev.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels, ...lines]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined && item.to < max) expect(starts, `${name} goes`).toContain(item.to + 1)
+      for (const [a, b] of item.off ?? []) {
+        expect(starts, `${name} leaves`).toContain(a)
+        expect(starts, `${name} returns`).toContain(b + 1)
+      }
+    }
+  })
+
+  it('never has one painter in two towns at once', () => {
+    for (const { from } of events) {
+      const at = sites.filter((st) => st.kind === 'workshop' && activeAt(from, st)).map((st) => st.name)
+      expect(new Set(at).size, `${from}: ${at.join(', ')}`).toBe(at.length)
+    }
   })
 })
 
