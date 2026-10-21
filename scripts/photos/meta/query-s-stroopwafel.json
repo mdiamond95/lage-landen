@@ -1,0 +1,27 @@
+[
+ {
+  "searchinfo": {
+   "totalhits": 2
+  },
+  "search": [
+   {
+    "ns": 6,
+    "title": "File:Nl-stroopwafel.ogg",
+    "pageid": 29748149,
+    "size": 346,
+    "wordcount": 150,
+    "snippet": "DescriptionNl-<span class=\"searchmatch\">stroopwafel</span>.ogg Nederlands: <span class=\"searchmatch\">Stroopwafel</span>. Date 20 November 2013 Source Own work Author Marcel coenders",
+    "timestamp": "2025-10-01T16:25:10Z"
+   },
+   {
+    "ns": 6,
+    "title": "File:En-au-stroopwafel.ogg",
+    "pageid": 75858458,
+    "size": 347,
+    "wordcount": 161,
+    "snippet": "DescriptionEn-au-<span class=\"searchmatch\">stroopwafel</span>.ogg English: Pronunciation in English of &quot;<span class=\"searchmatch\">stroopwafel</span>&quot;. Male, Australian accent. Date 15 January 2019 Source Own work Author",
+    "timestamp": "2024-12-29T12:56:19Z"
+   }
+  ]
+ }
+]

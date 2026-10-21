@@ -1,0 +1,36 @@
+[
+ {
+  "searchinfo": {
+   "totalhits": 3
+  },
+  "search": [
+   {
+    "ns": 6,
+    "title": "File:Nl-Pacifische schol.ogg",
+    "pageid": 139138172,
+    "size": 327,
+    "wordcount": 164,
+    "snippet": "DescriptionNl-Pacifische <span class=\"searchmatch\">schol</span>.ogg Nederlands: Wikiwoordenboek audio Date 18 October 2023 Source Own work Author Marcel coenders",
+    "timestamp": "2025-07-17T02:26:11Z"
+   },
+   {
+    "ns": 6,
+    "title": "File:Nl-schol.ogg",
+    "pageid": 96764,
+    "size": 265,
+    "wordcount": 22,
+    "snippet": "DescriptionNl-<span class=\"searchmatch\">schol</span>.ogg English: Dutch pronunciation of &quot;<span class=\"searchmatch\">schol</span>&quot; Source Own work Author GerardM",
+    "timestamp": "2025-12-13T22:00:20Z"
+   },
+   {
+    "ns": 6,
+    "title": "File:Nl-Amerikaanse schol.ogg",
+    "pageid": 139039871,
+    "size": 328,
+    "wordcount": 164,
+    "snippet": "DescriptionNl-Amerikaanse <span class=\"searchmatch\">schol</span>.ogg Nederlands: Wikiwoordenboek audio Date 16 October 2023 Source Own work Author Marcel coenders",
+    "timestamp": "2025-07-16T05:52:11Z"
+   }
+  ]
+ }
+]

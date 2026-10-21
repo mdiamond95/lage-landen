@@ -1,0 +1,27 @@
+[
+ {
+  "searchinfo": {
+   "totalhits": 2
+  },
+  "search": [
+   {
+    "ns": 6,
+    "title": "File:Nl-goedenavond.ogg",
+    "pageid": 29425199,
+    "size": 379,
+    "wordcount": 141,
+    "snippet": "DescriptionNl-<span class=\"searchmatch\">goedenavond</span>.ogg Dutch pronunciation Date 4 November 2013 Source Own work Author Marcel coenders",
+    "timestamp": "2020-08-18T04:43:44Z"
+   },
+   {
+    "ns": 6,
+    "title": "File:LL-Q7411 (nld)-Punsisil-Goedenavond.wav",
+    "pageid": 170137141,
+    "size": 326,
+    "wordcount": 123,
+    "snippet": "(nld)-Punsisil-<span class=\"searchmatch\">Goedenavond</span>.wav Audio pronunciation file from the Lingua Libre project. Language InfoField Dutch Transcription InfoField <span class=\"searchmatch\">Goedenavond</span> Date 16 July",
+    "timestamp": "2026-07-28T06:39:47Z"
+   }
+  ]
+ }
+]
