@@ -33,7 +33,7 @@ export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<Ex
     <div className="exercise">
       <p className="eyebrow">{pictures ? 'Pick the picture' : exercise.visual?.kind === 'chart' ? 'Read the chart' : 'Choose'}</p>
       <h2>{exercise.prompt}</h2>
-      {exercise.visual && <VisualView visual={exercise.visual} label={exercise.prompt} />}
+      {exercise.visual && <VisualView visual={exercise.visual} label={exercise.prompt} hideCaption={!checked} />}
       <div className={pictures ? 'options options-grid' : 'options'}>
         {order.map((i) => {
           const o = exercise.options[i]

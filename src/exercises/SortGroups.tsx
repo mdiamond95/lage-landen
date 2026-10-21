@@ -49,7 +49,7 @@ export function SortGroups({ exercise, checked, setAnswer }: ExerciseProps<Exerc
     <div className="exercise">
       <p className="eyebrow">Sort into groups</p>
       <h2>{exercise.prompt}</h2>
-      {exercise.visual && <VisualView visual={exercise.visual} label={exercise.prompt} />}
+      {exercise.visual && <VisualView visual={exercise.visual} label={exercise.prompt} hideCaption={!checked} />}
       {loose.length > 0 && (
         <>
           <p className="sort-hint muted">{picked === null ? 'Tap a card, then the group it belongs in.' : 'Now tap its group.'}</p>

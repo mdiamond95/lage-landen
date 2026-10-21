@@ -24,6 +24,8 @@ lessons:
         url: https://www.huisdoorn.nl/en/
       - title: "Parlement.com, NSB (in Dutch)"
         url: https://www.parlement.com/id/vh8lnhrp8wsw/nationaal_socialistische_beweging_nsb
+      - title: "Wikipedia, De Stijl"
+        url: https://en.wikipedia.org/wiki/De_Stijl
     exercises:
       - type: story
         title: A neutral country at war's edge
@@ -86,6 +88,15 @@ lessons:
           Neutrality kept the Netherlands out of the trenches, not out of the war. In 1917 hungry crowds in
           Amsterdam rioted over potatoes, and in November 1918 the socialist Troelstra briefly called for a
           revolution that never came.
+      - type: scrub
+        prompt: The war trapped artists in the neutral Netherlands too. Piet Mondrian, home from Paris on a visit, could not get back. Drag the slider to the stage when Theo van Doesburg starts De Stijl in Leiden.
+        map: moderns
+        start: 1908
+        answer: [1917, 1918]
+        explain: >-
+          In 1917 Van Doesburg founded the magazine De Stijl, with Mondrian, stuck at Laren since 1914, and others,
+          among them the Utrecht furniture maker Gerrit Rietveld. Cut off from Paris, they made an art of straight lines
+          and pure colour that spread across Europe after the war. Unit 18 tells the story.
       - type: choice
         prompt: In 1931 Anton Mussert, a civil engineer from Utrecht, founded the NSB, a Dutch party copying the Nazis. At the provincial elections of 1935, how did it do?
         visual: { kind: photo, photo: mussert }

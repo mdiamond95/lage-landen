@@ -474,19 +474,44 @@ lessons:
             why: Look at them again. Nobody is laughing in Hals's late portrait.
           - label: Neither; both are stiff rows of faces
             why: One of the two is anything but stiff. Look at the man rising from his chair.
-      - type: sort
-        prompt: Rembrandt or Frans Hals? Sort the paintings.
+      - type: style
+        prompt: Rembrandt or Frans Hals? Look at the light and the brushwork, and name the painter.
         groups: [Rembrandt, Frans Hals]
         items:
-          - { label: The Syndics, 1662, group: 0, photo: syndics }
-          - { label: The Night Watch, 1642, group: 0, photo: night-watch }
-          - { label: The Anatomy Lesson of Dr Tulp, 1632, group: 0, photo: anatomy-lesson }
-          - { label: The Regentesses, about 1664, group: 1, photo: regentesses }
-          - { label: The Merry Drinker, about 1628, group: 1, photo: merry-drinker }
-          - { label: The Meagre Company, 1633 to 1637, group: 1, photo: meagre-company }
+          - photo: syndics
+            title: Rembrandt, The Syndics, 1662
+            group: 0
+            tell: Warm light on the faces, deep brown shadow all around them, and a rug that glows red. Rembrandt builds the picture out of light and dark.
+            box: [0.3, 0.3, 0.45, 0.45]
+          - photo: night-watch
+            title: Rembrandt, The Night Watch, 1642
+            group: 0
+            tell: A few figures caught in bright light in a dark crowd, to lead your eye, like the lieutenant in pale yellow and the girl behind the captain.
+            box: [0.25, 0.3, 0.45, 0.6]
+          - photo: anatomy-lesson
+            title: Rembrandt, The Anatomy Lesson of Dr Tulp, 1632
+            group: 0
+            tell: Light falls on the pale body and the ring of faces bent over it, and the room behind sinks into shadow.
+            box: [0.3, 0.55, 0.55, 0.3]
+          - photo: regentesses
+            title: Frans Hals, The Regentesses of the Old Men's Almshouse, about 1664
+            group: 1
+            tell: Hands and white collars set down in a few quick, flat strokes, in cool blacks and greys. Hals's brush hardly seems to stop.
+            box: [0.25, 0.35, 0.5, 0.35]
+          - photo: merry-drinker
+            title: Frans Hals, The Merry Drinker, about 1628
+            group: 1
+            tell: Loose, slashing strokes you could almost count, in the raised hand and the lace collar, and a laugh caught in a moment.
+            box: [0, 0.35, 0.7, 0.4]
+          - photo: meagre-company
+            title: Frans Hals and Pieter Codde, The Meagre Company, 1633 to 1637
+            group: 1
+            tell: Even daylight with no deep shadows, and on the left, the sashes and collars of Hals's quick, sketchy brush.
+            box: [0, 0.15, 0.4, 0.7]
         explain: >-
-          The Meagre Company is only half by Hals. He refused to paint in Amsterdam and wanted the militiamen to come
-          to Haarlem; in the end Pieter Codde finished the painting.
+          Rembrandt leads your eye with light against deep shadow; Hals paints in quick, open strokes and clear, even
+          light. The Meagre Company is only half by Hals. He refused to paint in Amsterdam and wanted the militiamen to
+          come to Haarlem; in the end Pieter Codde finished the painting.
       - type: cause
         prompt: Link each cause to what it led to.
         pairs:

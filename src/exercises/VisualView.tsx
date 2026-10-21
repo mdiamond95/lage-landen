@@ -72,7 +72,9 @@ export function AnyTimeMap({ map, year, onYear, hideCaption }: TimeMapProps) {
   return <TimeMap story={stories[map]} start={year} onYear={onYear} hideCaption={hideCaption} />
 }
 
-export function VisualView({ visual, label }: { visual: Visual; label: string }) {
+// `hideCaption` keeps a time map's stage captions back until the question is checked, as
+// they often say what the question asks; the map alone has to answer it.
+export function VisualView({ visual, label, hideCaption }: { visual: Visual; label: string; hideCaption?: boolean }) {
   if (visual.kind === 'art') return <Art id={visual.art} className="art art-large" />
   if (visual.kind === 'photo') return <PhotoFigure id={visual.photo} />
   if (visual.kind === 'painting') return <PaintingTour painting={visual.painting} focus={visual.focus} />
@@ -80,7 +82,7 @@ export function VisualView({ visual, label }: { visual: Visual; label: string })
   if (visual.kind === 'series') return <PainterRoad id={visual.series} at={visual.at} />
   if (visual.kind === 'polder-slider') return <PolderSlider />
   if (visual.kind === 'storm-barrier') return <StormBarrier />
-  if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} />
+  if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} hideCaption={hideCaption} />
   if (visual.kind === 'family-tree') return <FamilyTree tree={visual.tree} hide={visual.hide} />
   if (visual.kind === 'chart') return <LineChart chart={visual.chart} until={visual.until} />
   if (visual.kind === 'federal') return <FederalDiagram show={visual.show} />

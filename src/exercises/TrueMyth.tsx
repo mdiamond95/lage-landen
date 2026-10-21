@@ -16,7 +16,7 @@ export function TrueMyth({ exercise, checked, setAnswer }: ExerciseProps<Exercis
     <div className="exercise">
       <p className="eyebrow">True or myth?</p>
       <blockquote className="claim">{exercise.statement}</blockquote>
-      {exercise.visual && <VisualView visual={exercise.visual} label={exercise.statement} />}
+      {exercise.visual && <VisualView visual={exercise.visual} label={exercise.statement} hideCaption={!checked} />}
       <div className="options options-two">
         <button type="button" className={`option big ${cls(true)}`} onClick={() => pick(true)} disabled={checked} aria-pressed={picked === true}>
           True
