@@ -124,6 +124,11 @@ export const paths: Record<string, React.ReactNode> = {
   fries: <path d="M6 10h12l-2 11H8zM8 10 7 3M11 10V2M14 10l1-7M17 10l2-5M8.5 14h7" fill="none" strokeLinejoin="round" />,
   beer: <path d="M5 7h11l-1 14H6zM16 10h2.5a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5H15.5M5 7c0-2 2-3 3-2 1-2 4-2 5 0 1-1 3 0 3 2" fill="none" strokeLinejoin="round" />,
   pot: <path d="M4 10h16v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM2 10h20M9 3c-1 2 1 3 0 5M14 3c-1 2 1 3 0 5" fill="none" strokeLinejoin="round" />,
+  // Unit 22: a calendar page, for the year of feasts; a bishop's mitre, for Sinterklaas; a giant
+  // of the processions. Carnival takes the mask, King's Day the crown and Keti Koti the broken chain.
+  calendar: <path d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5M8 14h2M14 14h2M8 17h2" fill="none" strokeLinejoin="round" />,
+  mitre: <path d="M6 21h12V9l-6-6-6 6zM12 7v10M9 12h6M6 9l6 3 6-3" fill="none" strokeLinejoin="round" />,
+  giant: <path d="M12 2.5a2.5 2.5 0 1 0 .01 0zM9 8h6l3 13H6zM9 8 5 13M15 8l4 5M10 21v-5M14 21v-5" fill="none" strokeLinejoin="round" />,
 }
 
 export function Icon({ name }: { name: string }) {

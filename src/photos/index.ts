@@ -708,6 +708,53 @@ import yserFloodMap from './yser-flood-map.jpg'
 import yserTower from './yser-tower.jpg'
 import yslMondrian from './ysl-mondrian.jpg'
 import zadkine from './zadkine.jpg'
+import nieuwjaarsduik from './nieuwjaarsduik.jpg'
+import twelfthNight from './twelfth-night.jpg'
+import sintMaarten from './sint-maarten.jpg'
+import sintMaartenB from './sint-maarten-b.jpg'
+import paasvuur from './paasvuur.jpg'
+import dam4Mei from './dam-4-mei.jpg'
+import verhas21July from './verhas-21-july.jpg'
+import myraIcon from './myra-icon.jpg'
+import schenkman from './schenkman.jpg'
+import schenkmanFront from './schenkman-front.jpg'
+import schenkman1905 from './schenkman-1905.jpg'
+import steamboatSpanje from './steamboat-spanje.jpg'
+import steamboat1960s from './steamboat-1960s.jpg'
+import chocLetter from './choc-letter.jpg'
+import schoenZetten from './schoen-zetten.jpg'
+import sinterklaasdagPrint from './sinterklaasdag-print.jpg'
+import roetveegpiet from './roetveegpiet.jpg'
+import bincheGilles from './binche-gilles.jpg'
+import bincheGillesB from './binche-gilles-b.jpg'
+import gilleMask from './gille-mask.jpg'
+import gilleHat from './gille-hat.jpg'
+import gillesOld from './gilles-old.jpg'
+import blancsMoussis from './blancs-moussis.jpg'
+import aalstStoet from './aalst-stoet.jpg'
+import aalstFloat from './aalst-float.jpg'
+import maastricht2023 from './maastricht-2023.jpg'
+import alslootIsabella from './alsloot-isabella.jpg'
+import leysDurer from './leys-durer.jpg'
+import sallaertBird from './sallaert-bird.jpg'
+import holyBloodRelic from './holy-blood-relic.jpg'
+import carDor from './car-dor.jpg'
+import lumecon from './lumecon.jpg'
+import lumeconDragon from './lumecon-dragon.jpg'
+import goliathAth from './goliath-ath.jpg'
+import meyboom from './meyboom.jpg'
+import meyboomGiants from './meyboom-giants.jpg'
+import koningsdagBoats from './koningsdag-boats.jpg'
+import vrijmarkt1986 from './vrijmarkt-1986.jpg'
+import defile1966 from './defile-1966.jpg'
+import steenPrinsjesdag from './steen-prinsjesdag.jpg'
+import defile2016 from './defile-2016.jpg'
+import liberation1955 from './liberation-1955.jpg'
+import ketiKoti2013 from './keti-koti-2013.jpg'
+import ketiKoti2018 from './keti-koti-2018.jpg'
+import ketiKoti2018b from './keti-koti-2018b.jpg'
+import ketiKotiCake from './keti-koti-cake.jpg'
+import ketiKotiStage from './keti-koti-stage.jpg'
 // Unit 10
 // Unit 11
 import { credits } from './credits'
@@ -1428,6 +1475,54 @@ const files: Record<PhotoId, string> = {
   'schiedam-mill': schiedamMill,
   'carnival-lent': carnivalLent,
   'cockaigne': cockaigne,
+  // Unit 22
+  'nieuwjaarsduik': nieuwjaarsduik,
+  'twelfth-night': twelfthNight,
+  'sint-maarten': sintMaarten,
+  'sint-maarten-b': sintMaartenB,
+  'paasvuur': paasvuur,
+  'dam-4-mei': dam4Mei,
+  'verhas-21-july': verhas21July,
+  'myra-icon': myraIcon,
+  'schenkman': schenkman,
+  'schenkman-front': schenkmanFront,
+  'schenkman-1905': schenkman1905,
+  'steamboat-spanje': steamboatSpanje,
+  'steamboat-1960s': steamboat1960s,
+  'choc-letter': chocLetter,
+  'schoen-zetten': schoenZetten,
+  'sinterklaasdag-print': sinterklaasdagPrint,
+  'roetveegpiet': roetveegpiet,
+  'binche-gilles': bincheGilles,
+  'binche-gilles-b': bincheGillesB,
+  'gille-mask': gilleMask,
+  'gille-hat': gilleHat,
+  'gilles-old': gillesOld,
+  'blancs-moussis': blancsMoussis,
+  'aalst-stoet': aalstStoet,
+  'aalst-float': aalstFloat,
+  'maastricht-2023': maastricht2023,
+  'alsloot-isabella': alslootIsabella,
+  'leys-durer': leysDurer,
+  'sallaert-bird': sallaertBird,
+  'holy-blood-relic': holyBloodRelic,
+  'car-dor': carDor,
+  'lumecon': lumecon,
+  'lumecon-dragon': lumeconDragon,
+  'goliath-ath': goliathAth,
+  'meyboom': meyboom,
+  'meyboom-giants': meyboomGiants,
+  'koningsdag-boats': koningsdagBoats,
+  'vrijmarkt-1986': vrijmarkt1986,
+  'defile-1966': defile1966,
+  'steen-prinsjesdag': steenPrinsjesdag,
+  'defile-2016': defile2016,
+  'liberation-1955': liberation1955,
+  'keti-koti-2013': ketiKoti2013,
+  'keti-koti-2018': ketiKoti2018,
+  'keti-koti-2018b': ketiKoti2018b,
+  'keti-koti-cake': ketiKotiCake,
+  'keti-koti-stage': ketiKotiStage,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

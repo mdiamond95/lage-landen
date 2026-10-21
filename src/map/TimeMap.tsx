@@ -6,7 +6,7 @@ import { AfricaBase, africaCountries } from './AfricaBase'
 import { AmsterdamBase } from './AmsterdamBase'
 import { BelgiumBase, belgiumParts } from './BelgiumBase'
 import { DeltaBase, deltaProvinces } from './DeltaBase'
-import { foodGlyphs, type FoodGlyph } from './glyphs'
+import { feastGlyphs, foodGlyphs, type FeastGlyph, type FoodGlyph } from './glyphs'
 import { LowlandsMap } from './LowlandsMap'
 import { WesthoekBase, westhoekCountries } from './WesthoekBase'
 import { WorldBase } from './WorldBase'
@@ -209,6 +209,8 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
                 <path d="M-6-6h12v12h-12zM-2.5-2.5v5h5v-5z" fillRule="evenodd" />
               ) : s.kind in foodGlyphs ? (
                 <path d={foodGlyphs[s.kind as FoodGlyph]} fillRule="evenodd" />
+              ) : s.kind in feastGlyphs ? (
+                <path d={feastGlyphs[s.kind as FeastGlyph]} fillRule="evenodd" />
               ) : s.kind === 'mill' ? (
                 <path d="M-1.3-7.5h2.6v6.2h6.2v2.6H1.3v6.2h-2.6V1.3h-6.2v-2.6h6.2z" transform="rotate(45)" />
               ) : (

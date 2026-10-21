@@ -402,6 +402,43 @@ export const tours = {
       },
     ],
   },
+  'alsloot-isabella': {
+    photo: 'alsloot-isabella',
+    intro:
+      'Denis van Alsloot’s Triumph of Archduchess Isabella, 1616: the wagons of the Ommegang of 31 May 1615 roll past the houses of Brussels, watched from every window. Isabella had the procession painted. Tap a number, or start the tour.',
+    stops: [
+      {
+        id: 'psapho',
+        title: 'Isabel is Queen',
+        text: 'A great birdcage on wheels tells the story of King Psapho, who taught birds to speak his name. Here a boy inside teaches them to say “Isabel is Queen”, for the archduchess who had shot down the crossbowmen’s bird two weeks before.',
+        box: [0.39, 0.5, 0.11, 0.45],
+      },
+      {
+        id: 'nativity',
+        title: 'A stable on wheels',
+        text: 'The guilds and churches of Brussels show scenes from the Bible. On this wagon is the Nativity: Mary and the child in a thatched stable, with the shepherds.',
+        box: [0.2, 0.32, 0.12, 0.36],
+      },
+      {
+        id: 'jesse',
+        title: 'The Tree of Jesse',
+        text: 'A tree grows out of a tent on wheels, with figures sitting in its branches: the Tree of Jesse, the family tree of Christ, from King David’s father Jesse.',
+        box: [0.66, 0.12, 0.06, 0.5],
+      },
+      {
+        id: 'fame',
+        title: 'Fame and her trumpet',
+        text: 'Ladies in their finest clothes ride on a tall car, and on its top a winged Fame blows her trumpet, to spread the archduchess’s glory.',
+        box: [0.59, 0.55, 0.13, 0.42],
+      },
+      {
+        id: 'ship',
+        title: 'Plus oultre',
+        text: 'Last comes a ship on wheels, made for the funeral of Emperor Charles V in 1558. On the right stand his two Pillars of Hercules with his motto, Plus oultre: further still.',
+        box: [0.78, 0.1, 0.18, 0.33],
+      },
+    ],
+  },
 } satisfies Record<string, Tour>
 
 export type TourId = keyof typeof tours

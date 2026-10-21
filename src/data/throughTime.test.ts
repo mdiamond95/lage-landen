@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 42 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(42)
+  it('has 43 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(43)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)

@@ -1,20 +1,21 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 42 snapshots, from Caesar's conquest to the food map of 2016. Each era's lines,
+// through 43 snapshots, from Caesar's conquest to the feast map of 2023. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, the languages of about 1100, Burgundy, the painters' workshops, revolt,
 // the Golden Age painters, the Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
 // Belgium's first railways and coal country, the railways and canals of 1839 to 1914,
 // Belgium's front of 1914 to 1918, the modern artists, the war of 1940 to 1945, water and the flood of 1953,
-// the buildings of Expo 58, Belgium's language areas from 1963, the food map of 2016), and stay on the map only from the era's first
+// the buildings of Expo 58, Belgium's language areas from 1963, the food map of 2016, the feast map of 2023), and stay on the map only from the era's first
 // snapshot to its end, so one era never bleeds into another. The Delta Works and the
 // language areas share the years 1963 to 1997, so those snapshots show both keys, and
 // so do Burgundy and the painters in 1520 and 1549, and the revolt and the Golden Age painters
 // in 1642, and the buildings and the water works in 1958.
-// The plan's full time map runs to today with about 40 snapshots; these are the 42 of
+// The plan's full time map runs to today with about 40 snapshots; these are the 43 of
 // Units 1 to 21.
 
 import { bordersStory } from './borders'
 import { buildingsStory } from './buildings'
 import { foodStory } from './food'
+import { feastStory } from './feastMap'
 import { burgundyStory } from './burgundy'
 import { greatWarByYear } from './greatwar'
 import { industryStory } from './industry'
@@ -157,6 +158,15 @@ const foodTodayStory: TimeStory = {
   labels: foodStory.labels.filter((l) => l.from === foodStory.max),
 }
 
+// The feasts and traditions of the Low Countries (Unit 22) in 2023, the year of the king's apology on
+// Keti Koti: every feast on the unit's map at once, a feast map at the end of the time map. As with
+// the food map, the marks stay and their names are left to the unit's own map.
+const feastsTodayStory: TimeStory = {
+  ...feastStory,
+  sites: feastStory.sites.map((s) => ({ ...s, label: undefined })),
+  labels: feastStory.labels.filter((l) => l.from <= feastStory.max && (l.to === undefined || l.to >= feastStory.max) && l.kind !== 'water'),
+}
+
 // The stage each snapshot shows, taken from its era's own captions unless given here.
 // `also` is another era still on the map at that snapshot, whose key is shown too.
 type Snapshot = { story: TimeStory; from: number; event?: Omit<HistEvent, 'from'>; also?: TimeStory }
@@ -212,6 +222,7 @@ const snapshots: Snapshot[] = [
   },
   { story: languageByYear, from: 2012 },
   { story: foodTodayStory, from: 2016 },
+  { story: feastsTodayStory, from: 2023 },
 ]
 
 const eras = [...new Set(snapshots.map((s) => s.story))]

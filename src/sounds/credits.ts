@@ -605,4 +605,13 @@ export const soundCredits: Record<SoundId, SoundCredit> = {
     licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
     source: "https://commons.wikimedia.org/wiki/File:Nl-speculaas.ogg",
   },
+  "nl-sinterklaas-song": {
+    words: "Zie ginds komt de stoomboot uit Spanje weer aan",
+    language: "Dutch, a Sinterklaas song from Jan Schenkman's book of 1850",
+    meaning: "See, there comes the steamboat from Spain again",
+    author: "Edoderoo",
+    licence: "CC BY-SA 4.0",
+    licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    source: "https://commons.wikimedia.org/wiki/File:Zie_ginds_komt_de_stoomboot.wav",
+  },
 }

@@ -67,5 +67,6 @@ export const soundIds = [
   'nl-lambiek',
   'nl-rijsttafel',
   'nl-speculaas',
+  'nl-sinterklaas-song',
 ] as const
 export type SoundId = (typeof soundIds)[number]
