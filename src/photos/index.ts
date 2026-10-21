@@ -215,6 +215,50 @@ import louisBonaparte from './louis-bonaparte.jpg'
 import louiseMarie from './louise-marie.jpg'
 import lumumbaBrussels from './lumumba-brussels.jpg'
 import lumumbaMausoleum from './lumumba-mausoleum.jpg'
+import bravoBelgium from './bravo-belgium.jpg'
+import albertSpeaight from './albert-speaight.jpg'
+import bigBertha from './big-bertha.jpg'
+import germansArrive from './germans-arrive.jpg'
+import leuvenLibrary from './leuven-library.jpg'
+import yserFloodMap from './yser-flood-map.jpg'
+import elisabeth1915 from './elisabeth-1915.jpg'
+import belgianMg1918 from './belgian-mg-1918.jpg'
+import yserTower from './yser-tower.jpg'
+import dePanneVilla from './de-panne-villa.jpg'
+import christmasTruce from './christmas-truce.jpg'
+import gasAttackRoberts from './gas-attack-roberts.jpg'
+import broodingSoldier from './brooding-soldier.jpg'
+import mccrae from './mccrae.jpg'
+import essexFarm from './essex-farm.jpg'
+import flandersFieldsMs from './flanders-fields-ms.jpg'
+import ypres1919 from './ypres-1919.jpg'
+import passchendaeleMud from './passchendaele-mud.jpg'
+import loneTreeCrater from './lone-tree-crater.jpg'
+import passchendaeleAerial from './passchendaele-aerial.jpg'
+import currieOrpen from './currie-orpen.jpg'
+import tyneCot from './tyne-cot.jpg'
+import mccraeMemorial from './mccrae-memorial.jpg'
+import hill62 from './hill-62.jpg'
+import adegem from './adegem.jpg'
+import meninGate from './menin-gate.jpg'
+import lijssenthoek from './lijssenthoek.jpg'
+import vladslo from './vladslo.jpg'
+import grievingParents from './grieving-parents.jpg'
+import dodengang from './dodengang.jpg'
+import lastPost from './last-post.jpg'
+import stSymphorien from './st-symphorien.jpg'
+import leopoldIii from './leopold-iii.jpg'
+import pierlotKarsh from './pierlot-karsh.jpg'
+import fauxSoir from './faux-soir.jpg'
+import andreeDeJongh from './andree-de-jongh.jpg'
+import convoy20 from './convoy-20.jpg'
+import dossin from './dossin.jpg'
+import breendonk from './breendonk.jpg'
+import degrelle from './degrelle.jpg'
+import brussels1944 from './brussels-1944.jpg'
+import bastogneSupply from './bastogne-supply.jpg'
+import leopoldReturn from './leopold-return.jpg'
+import referendumPosters from './referendum-posters.jpg'
 import lumumbaSigns from './lumumba-signs.jpg'
 import luttrellSheep from './luttrell-sheep.jpg'
 import maeslantkering from './maeslantkering.jpg'
@@ -782,6 +826,50 @@ const files: Record<PhotoId, string> = {
   'leopold-statue-brussels': leopoldStatueBrussels,
   'philippe': philippe,
   'lumumba-mausoleum': lumumbaMausoleum,
+  'bravo-belgium': bravoBelgium,
+  'albert-speaight': albertSpeaight,
+  'big-bertha': bigBertha,
+  'germans-arrive': germansArrive,
+  'leuven-library': leuvenLibrary,
+  'yser-flood-map': yserFloodMap,
+  'elisabeth-1915': elisabeth1915,
+  'belgian-mg-1918': belgianMg1918,
+  'yser-tower': yserTower,
+  'de-panne-villa': dePanneVilla,
+  'christmas-truce': christmasTruce,
+  'gas-attack-roberts': gasAttackRoberts,
+  'brooding-soldier': broodingSoldier,
+  'mccrae': mccrae,
+  'essex-farm': essexFarm,
+  'flanders-fields-ms': flandersFieldsMs,
+  'ypres-1919': ypres1919,
+  'passchendaele-mud': passchendaeleMud,
+  'lone-tree-crater': loneTreeCrater,
+  'passchendaele-aerial': passchendaeleAerial,
+  'currie-orpen': currieOrpen,
+  'tyne-cot': tyneCot,
+  'mccrae-memorial': mccraeMemorial,
+  'hill-62': hill62,
+  'adegem': adegem,
+  'menin-gate': meninGate,
+  'lijssenthoek': lijssenthoek,
+  'vladslo': vladslo,
+  'grieving-parents': grievingParents,
+  'dodengang': dodengang,
+  'last-post': lastPost,
+  'st-symphorien': stSymphorien,
+  'leopold-iii': leopoldIii,
+  'pierlot-karsh': pierlotKarsh,
+  'faux-soir': fauxSoir,
+  'andree-de-jongh': andreeDeJongh,
+  'convoy-20': convoy20,
+  'dossin': dossin,
+  'breendonk': breendonk,
+  'degrelle': degrelle,
+  'brussels-1944': brussels1944,
+  'bastogne-supply': bastogneSupply,
+  'leopold-return': leopoldReturn,
+  'referendum-posters': referendumPosters,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

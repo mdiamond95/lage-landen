@@ -1,10 +1,11 @@
 import { useId, useMemo, type ReactNode } from 'react'
 import { activeAt, eventAt, type FlowTone, type HistArea, type TimeStory } from '../data/timeline'
-import { AFRICA_H, CITY_H, countries, DELTA_H, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, type Frame, type GeoFeature } from './geo'
+import { AFRICA_H, CITY_H, countries, DELTA_H, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, WESTHOEK_H, type Frame, type GeoFeature } from './geo'
 import { AfricaBase, africaCountries } from './AfricaBase'
 import { AmsterdamBase } from './AmsterdamBase'
 import { DeltaBase, deltaProvinces } from './DeltaBase'
 import { LowlandsMap } from './LowlandsMap'
+import { WesthoekBase, westhoekCountries } from './WesthoekBase'
 import { WorldBase } from './WorldBase'
 import { TimeControls } from './TimeControls'
 import { usePlayback } from './usePlayback'
@@ -18,8 +19,8 @@ const tones: FlowTone[] = ['asia', 'atlantic', 'enslaved']
 
 // `fresh` marks land that changed hands in the stage on screen, so it stands out.
 // Land split between two sides is hatched in both their colours. `regions` name shapes
-// of the story's own base: the delta's detailed provinces, Africa's countries, or the
-// Low Countries' countries and provinces.
+// of the story's own base: the delta's detailed provinces, Africa's or the Westhoek's
+// countries, or the Low Countries' countries and provinces.
 type AreaProps = { area: HistArea; frame: Frame; uid: string; fresh: false | 'fill' | 'outline'; regionShapes: GeoFeature[] }
 
 function Area({ area, frame, uid, fresh, regionShapes }: AreaProps) {
@@ -71,6 +72,8 @@ function LowlandsBase({ areas, children, ...props }: { label: string; frame: Fra
   )
 }
 
+const bases = { amsterdam: AmsterdamBase, world: WorldBase, delta: DeltaBase, africa: AfricaBase, westhoek: WesthoekBase, lowlands: LowlandsBase }
+
 // One year of a time map: the base map with the story's areas, labels, lines and
 // sites as they stood that year. `fresh` marks land that changed hands in the stage
 // on screen; a still picture (the before-and-after swipe) leaves it out.
@@ -82,14 +85,13 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
       story.base === 'world'
         ? makeWorldFrame(story.bounds ?? [[-98, 8], [152, -5], [27, 64], [27, -46]])
         : story.bounds
-          ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : story.base === 'delta' ? DELTA_H : story.base === 'africa' ? AFRICA_H : MAP_H)
+          ? makeFrame({ type: 'MultiPoint', coordinates: story.bounds }, story.base === 'amsterdam' ? CITY_H : story.base === 'delta' ? DELTA_H : story.base === 'africa' ? AFRICA_H : story.base === 'westhoek' ? WESTHOEK_H : MAP_H)
           : lowlandsFrame,
     [story],
   )
   const { toXY, linePath } = frame
-  const Base =
-    story.base === 'amsterdam' ? AmsterdamBase : story.base === 'world' ? WorldBase : story.base === 'delta' ? DeltaBase : story.base === 'africa' ? AfricaBase : LowlandsBase
-  const regionShapes = story.base === 'delta' ? deltaProvinces : story.base === 'africa' ? africaCountries : lowlandsShapes
+  const Base = bases[story.base ?? 'lowlands']
+  const regionShapes = story.base === 'delta' ? deltaProvinces : story.base === 'africa' ? africaCountries : story.base === 'westhoek' ? westhoekCountries : lowlandsShapes
   const shown = (item: { end?: number }) => item.end === undefined || year <= item.end
   const fresh = highlightFresh && (event.fresh ?? story.fresh ?? 'fill')
   const areas = (story.areas ?? [])
@@ -173,6 +175,10 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
                 <circle r={5} />
               ) : s.kind === 'battle' ? (
                 <path d="M0-7 2 -2 7 0 2 2 0 7-2 2-7 0-2-2z" />
+              ) : s.kind === 'grave' ? (
+                <path d="M-1.6-7h3.2v3.4h3.4v3.2h-3.4v7.4h-3.2v-7.4h-3.4v-3.2h3.4z" />
+              ) : s.kind === 'memorial' ? (
+                <path d="M-3.5 6h7l-1.5-11.5h-4z" />
               ) : (
                 <rect x={-4.5} y={-4.5} width={9} height={9} />
               )}

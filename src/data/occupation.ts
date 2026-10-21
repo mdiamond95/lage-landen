@@ -125,6 +125,11 @@ const sites: HistSite[] = [
   { name: 'Ypenburg', kind: 'drop', from: APR_1945, to: until(MAY_1945), at: [4.36, 52.04], note: 'Food dropped by Allied bombers, from 29 April 1945' },
   { name: 'Rotterdam, Waalhaven', kind: 'drop', from: APR_1945, to: until(MAY_1945), at: [4.44, 51.89], note: 'Food dropped by Allied bombers, from 29 April 1945' },
   { name: 'Schiphol', kind: 'drop', from: APR_1945, to: until(MAY_1945), at: [4.76, 52.31], note: 'Food dropped by Allied bombers, from 29 April 1945' },
+  // Canadian war cemeteries, laid out as the fighting moved on and shown with the liberation.
+  { name: 'Adegem', kind: 'grave', from: MAY_1945, at: [3.505, 51.205], note: 'Canadian war cemetery: 848 Canadians killed freeing the banks of the Scheldt, autumn 1944' },
+  { name: 'Bergen op Zoom', kind: 'grave', from: MAY_1945, at: [4.322, 51.483], note: 'Canadian war cemetery, for Canadians killed in the battles of the Scheldt and in Brabant, autumn 1944' },
+  { name: 'Groesbeek', kind: 'grave', from: MAY_1945, at: [5.929, 51.795], note: 'The largest Canadian war cemetery in the Netherlands, mostly for Canadians killed in the Rhineland, February and March 1945' },
+  { name: 'Holten', kind: 'grave', from: MAY_1945, at: [6.432, 52.28], note: 'Canadian war cemetery, for Canadians killed freeing the east and north of the Netherlands, April 1945' },
   { name: 'Wageningen', kind: 'town', from: MAY_1945, at: [5.66, 51.97], label: 'right', note: 'Where the German army in the Netherlands surrendered, 5 and 6 May 1945' },
 ]
 
@@ -201,7 +206,7 @@ export const occupationStory: TimeStory = {
   labels,
   areas,
   fresh: 'outline',
-  note: 'Front lines are approximate, drawn with today’s provinces. A month shows the land freed by its end.',
+  note: 'Front lines are approximate, drawn with today’s provinces. A month shows the land freed by its end. Canadian war cemeteries appear with the liberation.',
   key: [
     { swatch: 'key-occupied', text: 'Occupied by Germany' },
     { swatch: 'key-free', text: 'Liberated' },
@@ -210,6 +215,7 @@ export const occupationStory: TimeStory = {
     { swatch: 'key-battle', text: 'Battle' },
     { swatch: 'key-camp', text: 'Camp' },
     { swatch: 'key-drop', text: 'Food drop' },
+    { swatch: 'key-grave', text: 'Canadian war cemetery' },
   ],
 }
 
