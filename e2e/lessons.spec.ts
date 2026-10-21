@@ -1474,22 +1474,22 @@ test("the Golden Age painters' map follows the painters north, and Rembrandt to 
 
   const map = page.locator('.time-map')
   const year = map.getByRole('slider', { name: 'Year' })
-  await expect(map.locator('.time-map-title')).toHaveText('1641: Pictures at the fair')
+  await expect(map.getByRole('img', { name: /1641: Pictures at the fair$/ })).toHaveCount(1)
   await expect(map.locator('.hist-market:not(.hist-gone)', { hasText: 'Rotterdam fair' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-market')).toHaveCount(1)
 
   await year.fill('1585')
-  await expect(map.locator('.time-map-title')).toHaveText('1585: Antwerp falls')
+  await expect(map.getByRole('img', { name: /1585: Antwerp falls$/ })).toHaveCount(1)
   await expect(map.locator('.hist-flow')).toHaveCount(3)
   await expect(map.locator('.hist-alert', { hasText: 'FALL OF ANTWERP' })).toHaveCount(1)
 
   await year.fill('1632')
-  await expect(map.locator('.time-map-title')).toHaveText('1632: To Amsterdam and London')
+  await expect(map.getByRole('img', { name: /1632: To Amsterdam and London$/ })).toHaveCount(1)
   await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'Rembrandt' })).toHaveCount(1)
   await expect(map.locator('.hist-flow')).toHaveCount(2)
 
   await year.fill('1672')
-  await expect(map.locator('.time-map-title')).toHaveText('1672: The Disaster Year')
+  await expect(map.getByRole('img', { name: /1672: The Disaster Year$/ })).toHaveCount(1)
   await expect(map.locator('.hist-alert', { hasText: 'THE DISASTER YEAR' })).toHaveCount(1)
   await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'Johannes Vermeer' })).toHaveCount(1)
 })
