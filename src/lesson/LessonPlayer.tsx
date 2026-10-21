@@ -13,6 +13,8 @@ import { StoryCard } from '../exercises/StoryCard'
 import { StyleSorter } from '../exercises/StyleSorter'
 import { LabelParts } from '../exercises/LabelParts'
 import { ListenMap } from '../exercises/ListenMap'
+import { PickAll } from '../exercises/PickAll'
+import { TasteMap } from '../exercises/TasteMap'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
 import type { Evaluate, Result } from '../exercises/types'
@@ -128,6 +130,10 @@ export function LessonPlayer({ title, exercises, note, calm = false, onExit, onF
         return <LabelParts exercise={exercise} {...props} />
       case 'listen':
         return <ListenMap exercise={exercise} {...props} />
+      case 'taste':
+        return <TasteMap exercise={exercise} {...props} />
+      case 'pick':
+        return <PickAll exercise={exercise} {...props} />
     }
   })()
 

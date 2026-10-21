@@ -230,6 +230,43 @@ export const facades = {
       },
     ],
   },
+  'gouda-waag': {
+    photo: 'gouda-waag',
+    intro:
+      'The front of the Waag, the weigh house of Gouda, finished in 1668. Farmers brought their cheese here to be weighed, and paid the town a fee for every weighing. Tap a part, or walk along the front.',
+    spots: [
+      {
+        id: 'relief',
+        label: 'The relief',
+        text: 'Bartholomeus Eggers carved what went on inside: a stack of cheeses waiting their turn, a man writing down the weight at a table, and the buyer and seller looking on.',
+        at: [0.42, 0.7],
+        box: [0.36, 0.45, 0.27, 0.4],
+        side: 'left',
+      },
+      {
+        id: 'scale',
+        label: 'The scale',
+        text: 'A great balance hangs from a beam, with cheeses on one pan and weights on the other. The town kept the scales and the weights, so buyer and seller could trust the result.',
+        at: [0.5, 0.33],
+        box: [0.38, 0.14, 0.24, 0.4],
+      },
+      {
+        id: 'arms',
+        label: 'Coats of arms',
+        text: 'Four coats of arms, of the four burgomasters who ran Gouda when the weigh house was built.',
+        at: [0.28, 0.38],
+        box: [0.0, 0.18, 0.34, 0.4],
+      },
+      {
+        id: 'date',
+        label: '1668',
+        text: 'The year it was finished. The architect was Pieter Post, who also designed the weigh house of Leiden and the palace of Huis ten Bosch in The Hague.',
+        at: [0.49, 0.95],
+        box: [0.4, 0.84, 0.18, 0.16],
+        side: 'left',
+      },
+    ],
+  },
 } satisfies Record<string, Facade>
 
 export type FacadeId = keyof typeof facades

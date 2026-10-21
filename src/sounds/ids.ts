@@ -58,5 +58,14 @@ export const soundIds = [
   'brabanconne',
   'wilhelmina-1940',
   'kiek-1944',
+  'nl-gouda',
+  'nl-edammer',
+  'nl-hutspot',
+  'nl-oliebol',
+  'nl-jenever',
+  'nl-waterzooi',
+  'nl-lambiek',
+  'nl-rijsttafel',
+  'nl-speculaas',
 ] as const
 export type SoundId = (typeof soundIds)[number]

@@ -138,6 +138,13 @@ lessons:
           in Moscow, then moved on to the VOC yards in Amsterdam. The little house still stands. Wind-powered
           sawmills, invented by Cornelis Corneliszoon of Uitgeest in the 1590s, cut planks far faster than men
           could by hand.
+      - type: taste
+        prompt: Dutch ships carried Holland's cheese all over Europe, and the towns where farmers sold it built grand weigh houses. In 1668 one of them opened a new one, and its cheese is now made the world over. Where does it come from?
+        photo: gouda-wheels
+        answer: gouda
+        explain: >-
+          Gouda. Its weigh house, by Pieter Post, has a relief of cheese being weighed over the door, and the cheese
+          market on the square in front of it still runs in summer. Unit 21 has more on Dutch cheese.
       - type: cause
         prompt: Link each cause to its effect.
         pairs:

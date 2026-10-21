@@ -50,7 +50,9 @@ export type HistSite = Dated & {
   // a `museum` is a museum of modern art. On the buildings map (Unit 19) a building is
   // marked by its style, `gothic`, `classic` (Renaissance and Baroque), `revival` (the old
   // styles built again in the 1800s), `nouveau` (Art Nouveau) or `modern`; a `beguinage` is
-  // a court of beguines, and a `mill` a windmill or pumping station.
+  // a court of beguines, and a `mill` a windmill or pumping station. On the food map (Unit 21)
+  // a mark is a `cheese`, `fish`, `sweet` (sweets and baking), `dish` (a dish or vegetable),
+  // `brewery` or `distillery`.
   kind:
     | 'fort'
     | 'town'
@@ -75,6 +77,12 @@ export type HistSite = Dated & {
     | 'modern'
     | 'beguinage'
     | 'mill'
+    | 'cheese'
+    | 'fish'
+    | 'sweet'
+    | 'dish'
+    | 'brewery'
+    | 'distillery'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number

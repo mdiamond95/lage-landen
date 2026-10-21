@@ -82,7 +82,7 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook }: Props) {
       <section className="timemap-teaser card">
         <div>
           <h2>Time map</h2>
-          <p>Watch the Low Countries change in {throughTimeStory.events.length} snapshots, from Caesar to the federal Belgium of 2012.</p>
+          <p>Watch the Low Countries change in {throughTimeStory.events.length} snapshots, from Caesar to the food map of 2016.</p>
         </div>
         <button type="button" className="btn-ghost" onClick={onTimeMap}>
           Open the time map

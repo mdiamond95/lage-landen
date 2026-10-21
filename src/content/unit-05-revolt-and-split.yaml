@@ -317,6 +317,12 @@ lessons:
             why: The fleet brought sea fish and bread.
           - label: Nothing, the town had already fallen
             why: Leiden held out, and the Spanish army pulled back as the water rose.
+      - type: story
+        title: Leiden's stew
+        body: >-
+          Leiden still eats hutspot every 3 October. Tap the pot on the map to hear its name, and see what the
+          Spanish camp's stew would really have held. Unit 21 puts it among the other foods of the Low Countries.
+        visual: { kind: foods, focus: hutspot }
       - type: truemyth
         statement: William of Orange was called the Silent because he hardly ever spoke.
         visual: { kind: photo, photo: william-orange }
