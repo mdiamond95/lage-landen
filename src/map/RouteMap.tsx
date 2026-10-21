@@ -14,6 +14,8 @@ type Props = {
   at?: number
   show?: string[]
   picked?: string[]
+  // How many places a question asks for.
+  need?: number
   correct?: string[]
   onPick?: (place: string) => void
 }
@@ -32,7 +34,7 @@ const pct = (n: number) => `${n}%`
 // The route maps of Unit 23: a classic race drawn on the map, step by step, with each climb's
 // length and gradient, or the towns of the Elfstedentocht. A question asks for places on the
 // route in the order the race passes them.
-export function RouteMap({ route: id, mode = 'explore', at = 0, show = [], picked = [], correct, onPick }: Props) {
+export function RouteMap({ route: id, mode = 'explore', at = 0, show = [], picked = [], need, correct, onPick }: Props) {
   const route = routes[id]
   const bounds = route.bounds!
   const height = heightFor(bounds)
@@ -70,7 +72,7 @@ export function RouteMap({ route: id, mode = 'explore', at = 0, show = [], picke
   const [mx, my] = frame.toXY(here.at)
 
   return (
-    <figure className={`route-map route-${mode}`} data-route={id} data-need={correct?.length}>
+    <figure className={`route-map route-${mode}`} data-route={id} data-need={need}>
       {explore && (
         <>
           <p className="route-title">{route.title}</p>

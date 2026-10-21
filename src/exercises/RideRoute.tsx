@@ -19,14 +19,14 @@ export function RideRoute({ exercise, checked, setAnswer }: ExerciseProps<Exerci
     setPicked(next)
     if (next.length < need) return setAnswer(null)
     const ok = next.every((q, j) => q === exercise.ask[j])
-    setAnswer(() => ({ correct: ok, detail: ok ? exercise.explain : `The race passes ${names(exercise.ask)}. ${exercise.explain}` }))
+    setAnswer(() => ({ correct: ok, detail: ok ? exercise.explain : `In order: ${names(exercise.ask)}. ${exercise.explain}` }))
   }
 
   return (
     <div className="exercise exercise-ride">
       <p className="eyebrow">Ride the route</p>
       <h2>{exercise.prompt}</h2>
-      <RouteMap route={exercise.route} mode="pick" show={exercise.show} picked={picked} correct={checked ? exercise.ask : undefined} onPick={pick} />
+      <RouteMap route={exercise.route} mode="pick" show={exercise.show} picked={picked} need={need} correct={checked ? exercise.ask : undefined} onPick={pick} />
       <p className="hint">
         {checked
           ? `You picked ${picked.length ? names(picked) : 'nothing'}.`
