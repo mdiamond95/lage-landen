@@ -25,7 +25,7 @@ for line in open(src):
     if os.path.exists(out) and os.path.exists(os.path.join(metadir, pid + ".json")):
         continue
     q = urllib.parse.urlencode({"action": "query", "titles": "File:" + fname, "prop": "imageinfo",
-        "iiprop": "url|size|extmetadata", "iiurlwidth": 960 if width <= 960 else 1280, "format": "json"})
+        "iiprop": "url|size|extmetadata", "iiurlwidth": 960 if width <= 960 else 1280 if width <= 1280 else width, "format": "json"})
     d = fetch("https://nl.wikipedia.org/w/api.php?" + q)
     page = next(iter(d["query"]["pages"].values()))
     if "imageinfo" not in page:
