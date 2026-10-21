@@ -196,15 +196,18 @@ lessons:
             why: That's a polder, low land drained into a grid of ditches. This is the Beemster from the air.
           - photo: kinderdijk
             why: Those are drainage windmills at Kinderdijk, which pumped water out of the polders.
-      - type: order
-        prompt: Put these in order, oldest first.
-        items:
-          - { label: First terps built in Friesland, year: -500, when: about 500 BCE }
-          - { label: First sea dikes, year: 1000, when: about 1000 }
-          - { label: Beemster lake drained, year: 1612, when: '1612' }
-          - { label: Kinderdijk windmills built, year: 1740, when: 1738 to 1740 }
-          - { label: Haarlemmermeer pumped dry by steam, year: 1852, when: 1849 to 1852 }
-        explain: People first lived on mounds, then joined them with dikes, then drained whole lakes with windmills and later steam.
+      - type: panels
+        prompt: Put the story of winning land from the water in order, oldest first.
+        order: true
+        panels:
+          - { photo: terp-hogebeintum, kind: caption, say: "Farmers pile up a mound above the tides" }
+          - { photo: polder-beemster, kind: caption, say: "43 windmills pump a lake dry" }
+          - { photo: kinderdijk, kind: caption, say: "A row of mills drains a river polder" }
+          - { photo: cruquius, kind: caption, say: "Steam pumps empty a great lake" }
+        explain: >-
+          The first terps in Friesland go back to about 500 BCE, and sea dikes to about 1000. The Beemster was drained
+          in 1612, the Kinderdijk mills were built from 1738 to 1740, and the Haarlemmermeer was pumped dry by steam
+          from 1849 to 1852.
       - type: pin
         prompt: The lowest point in the Netherlands is in the Zuidplaspolder, just northeast of Rotterdam. Pin it.
         place: zuidplaspolder

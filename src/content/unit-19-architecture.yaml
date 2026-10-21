@@ -597,6 +597,21 @@ lessons:
           Myth. The House of the People, built from 1896 to 1899 around a hall for more than 2,000 people, was
           pulled down in 1965, although more than 700 architects from around the world protested. Some of its iron
           went into a café in Antwerp. A tower block stands on the site.
+      - type: choice
+        prompt: Another Horta building in Brussels was saved. He built it in 1906 as a store for the cloth merchant Charles Waucquez. What is in it now?
+        visual: { kind: photo, photo: cbbd-hall }
+        answer: 1
+        options:
+          - label: The Belgian parliament
+            why: It is the Belgian Comic Strip Center, opened in 1989.
+          - label: The Belgian Comic Strip Center
+            why: >-
+              Right. The store stood empty from 1970 and was nearly pulled down too, until it was restored and opened
+              as the Comic Strip Center on 6 October 1989, with Tintin's rocket under Horta's glass roof.
+          - label: A railway station
+            why: It is the Belgian Comic Strip Center, opened in 1989.
+          - label: The House of the People, rebuilt
+            why: The House of the People was never rebuilt. This store is now the Belgian Comic Strip Center.
       - type: odd
         prompt: Three of these are Art Nouveau houses in Brussels. Which is the odd one out?
         items:

@@ -65,6 +65,7 @@ import nlLambiek from './nl-lambiek.mp3'
 import nlRijsttafel from './nl-rijsttafel.mp3'
 import nlSpeculaas from './nl-speculaas.mp3'
 import nlSinterklaasSong from './nl-sinterklaas-song.mp3'
+import saxJazz from './sax-jazz.mp3'
 import { soundCredits } from './credits'
 import type { SoundId } from './ids'
 
@@ -139,6 +140,7 @@ const files: Record<SoundId, string> = {
   'nl-rijsttafel': nlRijsttafel,
   'nl-speculaas': nlSpeculaas,
   'nl-sinterklaas-song': nlSinterklaasSong,
+  'sax-jazz': saxJazz,
 }
 
 export const sound = (id: SoundId) => ({ src: files[id], ...soundCredits[id] })

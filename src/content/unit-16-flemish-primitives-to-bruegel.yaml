@@ -724,6 +724,18 @@ lessons:
           a man fighting fire with a burning stick, someone shearing a sheep and another a pig, a fox and a stork
           sharing a meal.
         visual: { kind: painting, painting: proverbs }
+      - type: panels
+        prompt: Bruegel's villagers act out sayings that are still used. Put each Dutch proverb on its scene. One belongs to none of them.
+        panels:
+          - { photo: proverbs, box: [0.13, 0.04, 0.12, 0.17], kind: caption, say: "Het dak met vlaaien gedekt" }
+          - { photo: proverbs, box: [0.215, 0.62, 0.08, 0.11], kind: caption, say: "De kat de bel aanbinden" }
+          - { photo: proverbs, box: [0.42, 0.86, 0.13, 0.14], kind: caption, say: "De put dempen als het kalf verdronken is" }
+          - { photo: proverbs, box: [0.61, 0.86, 0.09, 0.13], kind: caption, say: "Je moet je krommen om door de wereld te komen" }
+        extra: ["Twee honden aan één been"]
+        explain: >-
+          A roof tiled with tarts is plenty of everything; to bell the cat is to dare the dangerous job; to fill the
+          well once the calf has drowned is to act too late; and you must stoop to get through the world. Two dogs
+          at one bone, fighting over it, are in the painting too, but in none of these scenes.
       - type: truemyth
         statement: Bruegel was a peasant himself, which is why he painted peasants so often.
         visual: { kind: photo, photo: peasant-wedding }

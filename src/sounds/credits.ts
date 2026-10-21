@@ -614,4 +614,12 @@ export const soundCredits: Record<SoundId, SoundCredit> = {
     licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
     source: "https://commons.wikimedia.org/wiki/File:Zie_ginds_komt_de_stoomboot.wav",
   },
+  "sax-jazz": {
+    words: "A jazz tune",
+    language: "Played on a tenor saxophone",
+    author: "Serolillo",
+    licence: "CC BY 2.5",
+    licenceUrl: "https://creativecommons.org/licenses/by/2.5/",
+    source: "https://commons.wikimedia.org/wiki/File:Jazz-Sax.ogg",
+  },
 }

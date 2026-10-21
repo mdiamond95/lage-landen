@@ -120,4 +120,8 @@ export const places: Record<string, Place> = {
   // Unit 23
   oudenaarde: { name: 'Oudenaarde', lat: 50.845, lon: 3.604, note: 'Finish of the Tour of Flanders since 2012' },
   heerenveen: { name: 'Heerenveen', lat: 52.96, lon: 5.92, note: 'Thialf ice stadium, 1967' },
+  // Unit 24
+  middelkerke: { name: 'Middelkerke', lat: 51.185, lon: 2.82, note: 'A seaside town of comic strip statues' },
+  boom: { name: 'Boom', lat: 51.088, lon: 4.367, note: 'Tomorrowland, since 2005' },
+  hilversum: { name: 'Hilversum', lat: 52.223, lon: 5.176, note: 'Home of Dutch radio and television' },
 }

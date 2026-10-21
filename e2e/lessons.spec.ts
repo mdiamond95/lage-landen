@@ -60,6 +60,13 @@ async function answer(page: Page) {
     const need = Number(await page.locator('.route-pick').getAttribute('data-need') ?? '1')
     const places = page.locator('.route-pick .route-place:not(.is-end)')
     for (let i = 0; i < need; i++) await places.nth(i).dispatchEvent('click')
+  } else if (await page.locator('.panels-pool-order').count()) {
+    while (await page.locator('.panels-pool-order .panel-chip').count()) await page.locator('.panels-pool-order .panel-chip').first().click()
+  } else if (await page.locator('.exercise-panels').count()) {
+    while (await page.locator('.exercise-panels .panel-slot.is-empty').count()) {
+      await page.locator('.panels-pool .panel-chip').first().click()
+      await page.locator('.exercise-panels .panel-slot.is-empty').first().click()
+    }
   } else if (await page.locator('.chip-pool').count()) {
     while (await page.locator('.chip').count()) await page.locator('.chip').first().click()
   } else {
@@ -478,15 +485,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 44 snapshots from Caesar to the feasts of 2023', async ({ page }) => {
+test('the time map steps through 45 snapshots from Caesar to the feasts of 2023', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('44 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('45 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 44 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 45 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '43')
+  await expect(slider).toHaveAttribute('max', '44')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('About 1100: Hebban olla vogala')
@@ -613,28 +620,36 @@ test('the time map steps through 44 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(0)
   await expect(map.locator('.hist-grave')).toHaveCount(4)
 
+  // Comics in 1946, from Unit 24: speech balloons for the first strips, the war's graves gone.
   await slider.fill('35')
+  await expect(map.locator('.time-map-title')).toHaveText('1946: Tintin gets a magazine')
+  await expect(map.locator('.hist-site.hist-strip')).toHaveCount(6)
+  await expect(map.locator('.hist-grave')).toHaveCount(0)
+  await expect(map.locator('.key-swatch.key-strip')).toHaveCount(1)
+
+  await slider.fill('36')
   await expect(map.locator('.time-map-title')).toHaveText('1953: The great flood')
+  await expect(map.locator('.hist-site.hist-strip')).toHaveCount(0)
   await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
   await expect(map.locator('.hist-breach')).toHaveCount(4)
   await expect(map.locator('.key-swatch.key-flooded')).toHaveCount(1)
 
   await expect(map.locator('.hist-area-dutch')).toHaveCount(0)
 
-  await slider.fill('36')
+  await slider.fill('37')
   await expect(map.locator('.time-map-title')).toHaveText('1958: Expo 58 and the Atomium')
   await expect(map.getByText('Atomium', { exact: true })).toBeVisible()
   await expect(map.locator('.key-swatch.key-nouveau')).toHaveCount(1)
   // The Delta Works carry on beside the buildings.
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
 
-  await slider.fill('37')
+  await slider.fill('38')
   await expect(map.locator('.time-map-title')).toHaveText('1963: The language border is fixed')
   await expect(map.locator('.hist-area-german')).toHaveCount(2)
   await expect(map.locator('.key-swatch.key-dutch')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-facility')).toHaveCount(0)
 
-  await slider.fill('38')
+  await slider.fill('39')
   await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
   await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
@@ -642,10 +657,10 @@ test('the time map steps through 44 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-area-bilingual')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-bilingual')).toHaveCount(1)
 
-  await slider.fill('39')
+  await slider.fill('40')
   await expect(map.locator('.time-map-title')).toHaveText('1993: A federal state')
 
-  await slider.fill('40')
+  await slider.fill('41')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
@@ -653,13 +668,13 @@ test('the time map steps through 44 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
 
-  await slider.fill('41')
+  await slider.fill('42')
   await expect(map.locator('.time-map-title')).toHaveText('2012: Brussels-Halle-Vilvoorde is split')
   await expect(map.locator('.hist-dam')).toHaveCount(0)
   await expect(map.locator('.hist-area-french').first()).toBeVisible()
 
   // The food map of Unit 21: every mark at once, unnamed, and the language areas gone.
-  await slider.fill('42')
+  await slider.fill('43')
   await expect(map.locator('.time-map-title')).toHaveText('2016: Belgian beer culture')
   await expect(map.locator('.hist-area-french')).toHaveCount(0)
   await expect(map.locator('.hist-site.hist-brewery')).toHaveCount(6)
@@ -669,7 +684,7 @@ test('the time map steps through 44 snapshots from Caesar to the feasts of 2023'
 
   // The last snapshot is the feast map of Unit 22: its marks unnamed, the food marks gone, the
   // two countries named and the Zwarte Piet debate still open.
-  await slider.fill('43')
+  await slider.fill('44')
   await expect(map.locator('.time-map-title')).toHaveText('2023: An apology on Keti Koti')
   await expect(map.locator('.hist-site.hist-brewery')).toHaveCount(0)
   await expect(map.locator('.hist-site.hist-procession').first()).toBeVisible()
@@ -2036,4 +2051,87 @@ test('a route map steps a rider over the climbs, and a ride-the-route question i
   await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
   await expect(ride.locator('.route-place.is-right')).toHaveCount(2)
   await expect(ride.locator('.route-place.is-right .route-name')).toHaveText(['Oude Kwaremont', 'Paterberg'])
+})
+
+test('plays all of unit 24 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of ['Tintin and the clear line', 'Spirou, the Smurfs and Marcinelle', 'Spike and Suzy and the Flemish strips', 'Miffy, Bommel and the Dutch strips', 'Saxophones, chansons and Eurovision', 'Film and the small screen']) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 24 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('a comic strip tells a story in panels, and the panels of a strip are put in order', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Tintin and the clear line', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  // The content note comes first.
+  if (await page.locator('.content-note').count()) await foot.getByRole('button', { name: 'Continue' }).click()
+  const strip = page.locator('.comic-strip-figure')
+  await expect(strip.locator('.comic-panel')).toHaveCount(3)
+  await expect(strip.locator('.balloon-caption').first()).toContainText('Le Petit Vingtième')
+  await expect(strip.locator('.strip-credits')).toBeVisible()
+  // Skip to the ordering: a Who am I?, a true or myth, a gap and a choice come first.
+  for (let i = 0; i < 5; i++) {
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  const ex = page.locator('.exercise-panels')
+  await expect(ex.locator('.eyebrow')).toHaveText('Comic panels')
+  await expect(ex.locator('.panel-slots .panel-slot.is-empty')).toHaveCount(4)
+  const pool = ex.locator('.panels-pool-order .panel-chip')
+  await pool.filter({ hasText: 'museum' }).click()
+  await expect(ex.locator('.panel-placed')).toHaveCount(1)
+  // Tap the placed panel to take it back, then place them all in order.
+  await ex.locator('.panel-placed').first().click()
+  await expect(ex.locator('.panel-placed')).toHaveCount(0)
+  for (const text of ['America', 'Moon', 'Canadian', 'museum']) await pool.filter({ hasText: text }).click()
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(foot).toHaveClass(/is-right/)
+  await expect(ex.locator('.panel-placed.is-right')).toHaveCount(4)
+})
+
+test('a balloon question puts each balloon in its panel, and marks the wrong ones', async ({ page }) => {
+  await unlock(page, ['u24-l1'])
+  await page.getByRole('button', { name: 'Spirou, the Smurfs and Marcinelle', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  for (let i = 0; i < 2; i++) {
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  const ex = page.locator('.exercise-panels')
+  await expect(ex.locator('.panel-slot.is-empty')).toHaveCount(3)
+  // Three panels and one spare balloon, for a hero who isn't there.
+  await expect(ex.locator('.panels-pool .panel-chip')).toHaveCount(4)
+  const chip = (text: string) => ex.locator('.panels-pool .panel-chip', { hasText: text })
+  const slot = (n: number) => ex.locator('.panel-slot').nth(n)
+  // Put the spare in the first panel, then move a balloon there: it leaves its old panel.
+  await chip('lonesome cowboy').click()
+  await slot(0).click()
+  await expect(slot(0)).toHaveAttribute('aria-label', "Panel 1: I'm a poor lonesome cowboy…")
+  await chip('Houba').click()
+  await slot(1).click()
+  await chip("M'enfin").click()
+  await slot(1).click()
+  await expect(slot(1)).toHaveAttribute('aria-label', "Panel 2: M'enfin !")
+  await expect(chip('Houba')).toHaveCount(1)
+  await chip('Mille sabords').click()
+  await slot(2).click()
+  await expect(ex.locator('.panels-pool')).toHaveCount(1)
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(foot).toHaveClass(/is-wrong/)
+  await expect(foot).toContainText("Panel 1 says “M'enfin !”")
+  await expect(ex.locator('.comic-panel.is-wrong')).toHaveCount(2)
+  await expect(ex.locator('.comic-panel.is-right')).toHaveCount(1)
+  await expect(ex.locator('.balloon-right')).toHaveCount(2)
+  await expect(ex.locator('.panels-pool')).toHaveCount(0)
 })

@@ -807,6 +807,69 @@ import victorBoin from './victor-boin.jpg'
 import vosCross from './vos-cross.jpg'
 import wust from './wust.jpg'
 import zoetemelk from './zoetemelk.jpg'
+import aanslagShoot from './aanslag-shoot.jpg'
+import akerman from './akerman.jpg'
+import blakeMural from './blake-mural.jpg'
+import bouleMural from './boule-mural.jpg'
+import brel1962 from './brel-1962.jpg'
+import bruna from './bruna.jpg'
+import cbbdHall from './cbbd-hall.jpg'
+import corryBrokken from './corry-brokken.jpg'
+import cubitusMural from './cubitus-mural.jpg'
+import dardennes from './dardennes.jpg'
+import django from './django.jpg'
+import donaldRedactie from './donald-redactie.jpg'
+import franquin1979 from './franquin-1979.jpg'
+import gastonMural from './gaston-mural.jpg'
+import gastonStatue from './gaston-statue.jpg'
+import goldenEarring from './golden-earring.jpg'
+import gorris1982 from './gorris-1982.jpg'
+import haanstraOscar from './haanstra-oscar.jpg'
+import hauerVanDeVen from './hauer-van-de-ven.jpg'
+import hepburn1954 from './hepburn-1954.jpg'
+import hepburnGerzon from './hepburn-gerzon.jpg'
+import herge1962 from './herge-1962.jpg'
+import herge1962B from './herge-1962-b.jpg'
+import herge1962C from './herge-1962-c.jpg'
+import hergeMuseum from './herge-museum.jpg'
+import jeromStatue from './jerom-statue.jpg'
+import laurence2019 from './laurence-2019.jpg'
+import lennyKuhr from './lenny-kuhr.jpg'
+import luckyMural from './lucky-mural.jpg'
+import marsupilamiDupuis from './marsupilami-dupuis.jpg'
+import marsupilamiNest from './marsupilami-nest.jpg'
+import miffyLight from './miffy-light.jpg'
+import miffyStatues from './miffy-statues.jpg'
+import morrisGoscinny from './morris-goscinny.jpg'
+import neroStatue from './nero-statue.jpg'
+import petitVingtieme1931 from './petit-vingtieme-1931.jpg'
+import petitVingtieme1932 from './petit-vingtieme-1932.jpg'
+import ricHochetMural from './ric-hochet-mural.jpg'
+import saxAlto from './sax-alto.jpg'
+import saxDinant from './sax-dinant.jpg'
+import shockingBlue from './shocking-blue.jpg'
+import smurfMural from './smurf-mural.jpg'
+import smurfStatue from './smurf-statue.jpg'
+import smurfStatuesMiddelkerke from './smurf-statues-middelkerke.jpg'
+import spirouMural from './spirou-mural.jpg'
+import stockelTintin from './stockel-tintin.jpg'
+import stromae from './stromae.jpg'
+import suskeMural from './suske-mural.jpg'
+import suskeMuseum from './suske-museum.jpg'
+import suskeWagon from './suske-wagon.jpg'
+import teachIn from './teach-in.jpg'
+import teddyScholten from './teddy-scholten.jpg'
+import tiesto2004 from './tiesto-2004.jpg'
+import tintinEtuve from './tintin-etuve.jpg'
+import tintinMural from './tintin-mural.jpg'
+import tintinRocket from './tintin-rocket.jpg'
+import toonderBommel from './toonder-bommel.jpg'
+import toots1961 from './toots-1961.jpg'
+import traitorsGallery from './traitors-gallery.jpg'
+import tuschinski1973 from './tuschinski-1973.jpg'
+import vandersteen1985 from './vandersteen-1985.jpg'
+import vandersteenHasselt from './vandersteen-hasselt.jpg'
+import yokoMural from './yoko-mural.jpg'
 import type { PhotoId } from './ids'
 
 export type { PhotoId } from './ids'
@@ -1621,6 +1684,69 @@ const files: Record<PhotoId, string> = {
   'vos-cross': vosCross,
   'wust': wust,
   'zoetemelk': zoetemelk,
+  'aanslag-shoot': aanslagShoot,
+  'akerman': akerman,
+  'blake-mural': blakeMural,
+  'boule-mural': bouleMural,
+  'brel-1962': brel1962,
+  'bruna': bruna,
+  'cbbd-hall': cbbdHall,
+  'corry-brokken': corryBrokken,
+  'cubitus-mural': cubitusMural,
+  'dardennes': dardennes,
+  'django': django,
+  'donald-redactie': donaldRedactie,
+  'franquin-1979': franquin1979,
+  'gaston-mural': gastonMural,
+  'gaston-statue': gastonStatue,
+  'golden-earring': goldenEarring,
+  'gorris-1982': gorris1982,
+  'haanstra-oscar': haanstraOscar,
+  'hauer-van-de-ven': hauerVanDeVen,
+  'hepburn-1954': hepburn1954,
+  'hepburn-gerzon': hepburnGerzon,
+  'herge-1962': herge1962,
+  'herge-1962-b': herge1962B,
+  'herge-1962-c': herge1962C,
+  'herge-museum': hergeMuseum,
+  'jerom-statue': jeromStatue,
+  'laurence-2019': laurence2019,
+  'lenny-kuhr': lennyKuhr,
+  'lucky-mural': luckyMural,
+  'marsupilami-dupuis': marsupilamiDupuis,
+  'marsupilami-nest': marsupilamiNest,
+  'miffy-light': miffyLight,
+  'miffy-statues': miffyStatues,
+  'morris-goscinny': morrisGoscinny,
+  'nero-statue': neroStatue,
+  'petit-vingtieme-1931': petitVingtieme1931,
+  'petit-vingtieme-1932': petitVingtieme1932,
+  'ric-hochet-mural': ricHochetMural,
+  'sax-alto': saxAlto,
+  'sax-dinant': saxDinant,
+  'shocking-blue': shockingBlue,
+  'smurf-mural': smurfMural,
+  'smurf-statue': smurfStatue,
+  'smurf-statues-middelkerke': smurfStatuesMiddelkerke,
+  'spirou-mural': spirouMural,
+  'stockel-tintin': stockelTintin,
+  'stromae': stromae,
+  'suske-mural': suskeMural,
+  'suske-museum': suskeMuseum,
+  'suske-wagon': suskeWagon,
+  'teach-in': teachIn,
+  'teddy-scholten': teddyScholten,
+  'tiesto-2004': tiesto2004,
+  'tintin-etuve': tintinEtuve,
+  'tintin-mural': tintinMural,
+  'tintin-rocket': tintinRocket,
+  'toonder-bommel': toonderBommel,
+  'toots-1961': toots1961,
+  'traitors-gallery': traitorsGallery,
+  'tuschinski-1973': tuschinski1973,
+  'vandersteen-1985': vandersteen1985,
+  'vandersteen-hasselt': vandersteenHasselt,
+  'yoko-mural': yokoMural,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

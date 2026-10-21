@@ -976,3 +976,56 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .climb-wedge { width: 40px; height: 12px; }
 .climb-wedge path { fill: #8a6d3b; }
 @media (prefers-reduced-motion: reduce) { .route-mover { transition: none; } }
+
+/* Comic strips and panel matching (Unit 24): panels in rows, each with a black frame, a speech
+   balloon or the narrator's caption box above its picture. */
+.comic-strip-figure { margin: 0 0 12px; }
+.strip-title { font-weight: 800; margin: 0 0 6px; }
+.comic-strip { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 6px; padding: 6px; background: #fff; border: 2px solid var(--ink); border-radius: 4px; }
+.comic-panel {
+  position: relative; display: flex; flex-direction: column; min-width: 0; max-width: 100%;
+  padding: 0; margin: 0; border: 2.5px solid var(--ink); background: #fff; text-align: left; font: inherit; color: inherit;
+}
+button.comic-panel { cursor: pointer; }
+.panel-picture { position: relative; overflow: hidden; width: 100%; background: var(--land); }
+.panel-picture img { position: absolute; display: block; max-width: none; height: auto; }
+.panel-number {
+  position: absolute; top: 4px; left: 4px; z-index: 2; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px;
+  background: var(--ink); color: #fff; font-size: 0.72rem; font-weight: 800; line-height: 20px; text-align: center;
+}
+.balloon {
+  position: relative; display: block; margin: 6px 6px 10px; padding: 6px 9px; border: 2px solid var(--ink); border-radius: 14px;
+  background: #fff; font-family: 'Comic Neue', 'Comic Sans MS', 'Chalkboard SE', var(--font, inherit); font-size: 0.86rem; font-weight: 700; line-height: 1.3;
+}
+.balloon-speech::after {
+  content: ''; position: absolute; left: 22px; bottom: -9px; width: 12px; height: 12px; background: inherit;
+  border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: skewX(25deg) rotate(45deg);
+}
+.balloon-caption { margin: 0; border-width: 0 0 2px; border-radius: 0; background: #fbe9a6; font-size: 0.8rem; }
+.comic-panel .panel-number + .balloon { margin-left: 30px; }
+.strip-credits { margin: 6px 0 0; font-size: 0.75rem; }
+.panel-slot { display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
+.panel-slot:disabled { cursor: default; }
+.balloon-empty { color: var(--ink-soft); border-style: dashed; text-align: center; }
+.comic-panel.is-ready .balloon-empty { border-color: var(--delft); background: var(--delft-soft); color: var(--delft); }
+.comic-panel.is-right { border-color: var(--green); box-shadow: 0 0 0 2px var(--green); }
+.comic-panel.is-wrong { border-color: var(--red); box-shadow: 0 0 0 2px var(--red); }
+.comic-panel.is-wrong .panel-slot > .balloon:first-child { text-decoration: line-through; opacity: 0.7; }
+.balloon-right { background: var(--green-soft); }
+.panels-pool { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 12px; }
+.panel-chip { padding: 0; border: 0; background: none; text-align: left; cursor: pointer; max-width: 100%; }
+.panel-chip .balloon { margin: 0 0 8px; box-shadow: 0 3px 0 var(--line); }
+.panel-chip.picked .balloon { border-color: var(--delft); background: var(--delft-soft); box-shadow: 0 3px 0 var(--delft); }
+.panels-pool-order { background: var(--paper); border-style: dashed; }
+.panels-pool-order .comic-panel { flex-basis: 7.5rem; }
+.panels-pool-order .panel-chip .balloon { margin: 6px 6px 10px; box-shadow: none; }
+.panel-slots .panel-slot.is-empty { flex: 1 0 7.5rem; min-height: 120px; border-style: dashed; border-color: var(--line); background: var(--paper); }
+
+/* Unit 24: pop culture. On the pop time map a comic strip is a yellow speech balloon, music a
+   purple note and film and television a dark frame of film; museums keep their temple front. */
+.hist-strip path { fill: #f2c200; stroke: #3a3328; stroke-width: 0.9; }
+.key-strip { width: 13px; height: 10px; background: #f2c200; border: 1.5px solid #3a3328; border-radius: 3px; }
+.hist-music path { fill: #7a3fb0; stroke: #fff; stroke-width: 0.8; }
+.key-music { width: 10px; height: 12px; background: #7a3fb0; clip-path: polygon(30% 0, 100% 0, 100% 25%, 50% 25%, 50% 85%, 30% 100%, 0 90%, 0 70%, 30% 62%); }
+.hist-film path { fill: #2b3140; stroke: #fff; stroke-width: 0.8; }
+.key-film { width: 13px; height: 10px; background: #2b3140; border-left: 3px dotted #fff; border-right: 3px dotted #fff; }

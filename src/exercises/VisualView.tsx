@@ -1,4 +1,5 @@
 import { Art } from '../art/Art'
+import { ComicStrip } from '../art/ComicStrip'
 import { FacadeTour } from '../art/FacadeTour'
 import { FamilyTree } from '../art/FamilyTree'
 import { FederalDiagram } from '../art/FederalDiagram'
@@ -34,6 +35,7 @@ import { tonguesStory } from '../data/tongues'
 import { foodStory } from '../data/food'
 import { feastStory } from '../data/feastMap'
 import { sportStory } from '../data/sport'
+import { popStory } from '../data/pop'
 import { westhoekStory } from '../data/westhoek'
 import { CompareMap } from '../map/CompareMap'
 import { DialectMap } from '../map/DialectMap'
@@ -74,6 +76,7 @@ export const stories = {
   food: foodStory,
   feasts: feastStory,
   sport: sportStory,
+  pop: popStory,
 }
 
 type TimeMapProps = {
@@ -111,6 +114,7 @@ export function VisualView({ visual, label, hideCaption }: { visual: Visual; lab
   if (visual.kind === 'phrases') return <PhraseCards set={visual.set} />
   if (visual.kind === 'foods') return <FoodMap focus={visual.focus} only={visual.only} />
   if (visual.kind === 'wheel') return <FeastWheel focus={visual.focus} only={visual.only} />
+  if (visual.kind === 'strip') return <ComicStrip title={visual.title} panels={visual.panels} />
   if (visual.kind === 'route') return <RouteMap route={visual.route} at={visual.at} />
   return (
     <div className="map-frame">
