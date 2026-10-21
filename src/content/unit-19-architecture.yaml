@@ -54,6 +54,12 @@ lessons:
             why: The bells are real, and played from a keyboard or by a turning drum.
           - label: By the wind
             why: The bells are played from a keyboard, or by a turning drum.
+      - type: story
+        title: Hear a carillon
+        body: >-
+          A carillon playing the Wilhelmus. The biggest bells sound the low notes and the smallest the high ones, and
+          a good carillonneur can make them sing softly or ring out over the whole town.
+        visual: { kind: sound, sound: wilhelmus-carillon }
       - type: hunt
         prompt: Find the gilded dragon that has guarded Ghent from the top of its belfry since 1377.
         photo: ghent-belfry

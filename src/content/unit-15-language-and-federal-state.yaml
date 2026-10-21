@@ -744,6 +744,13 @@ lessons:
         explain: >-
           Eupen lies a few kilometres from the German border, south of Aachen. Its parliament governs the schools and
           culture of nine municipalities, inside the Walloon Region.
+      - type: story
+        title: Older than the language laws
+        body: >-
+          Beneath Belgium's three official languages lie older ones: the dialects of Flanders and Brussels, Walloon,
+          Picard and Gaumais in the south, Luxembourgish around Arlon and the Platt of the east. Tap the map to read
+          about them and hear some of them. Unit 20 has more.
+        visual: { kind: dialects }
       - type: choice
         prompt: Look at the map of regions. Which region do the German-speaking towns belong to?
         visual: { kind: federal, show: regions }

@@ -12,11 +12,13 @@ import { SortGroups } from '../exercises/SortGroups'
 import { StoryCard } from '../exercises/StoryCard'
 import { StyleSorter } from '../exercises/StyleSorter'
 import { LabelParts } from '../exercises/LabelParts'
+import { ListenMap } from '../exercises/ListenMap'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
 import type { Evaluate, Result } from '../exercises/types'
 import { Voices } from '../exercises/Voices'
 import { WhoAmI } from '../exercises/WhoAmI'
+import { stopSound } from '../sounds/player'
 import { XP } from './scoring'
 
 // `answers` holds each question's first try, for the review schedule.
@@ -77,6 +79,7 @@ export function LessonPlayer({ title, exercises, note, calm = false, onExit, onF
   }
 
   const next = () => {
+    stopSound()
     if (index + 1 >= queue.length) {
       onFinish(tally)
       return
@@ -123,13 +126,15 @@ export function LessonPlayer({ title, exercises, note, calm = false, onExit, onF
         return <StyleSorter exercise={exercise} {...props} />
       case 'label':
         return <LabelParts exercise={exercise} {...props} />
+      case 'listen':
+        return <ListenMap exercise={exercise} {...props} />
     }
   })()
 
   return (
     <div className="lesson">
       <header className="lesson-top">
-        <button type="button" className="icon-btn" onClick={onExit} aria-label="Leave lesson">
+        <button type="button" className="icon-btn" onClick={() => (stopSound(), onExit())} aria-label="Leave lesson">
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
           </svg>

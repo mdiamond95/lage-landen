@@ -1,4 +1,5 @@
 import { useId, useMemo, type ReactNode } from 'react'
+import { dialectPieces } from '../data/dialects'
 import { activeAt, eventAt, type FlowTone, type HistArea, type TimeStory } from '../data/timeline'
 import { AFRICA_H, BELGIUM_H, CITY_H, countries, DELTA_H, lowlandsFrame, makeFrame, makeWorldFrame, MAP_H, provinces, WESTHOEK_H, type Frame, type GeoFeature } from './geo'
 import { AfricaBase, africaCountries } from './AfricaBase'
@@ -15,7 +16,8 @@ import { usePlayback } from './usePlayback'
 // doesn't care which way the ring winds.
 const polygon = (frame: Frame, coords: [number, number][]) => `M${coords.map((c) => frame.toXY(c).join(',')).join('L')}Z`
 
-const lowlandsShapes = [...countries, ...provinces]
+// The Low Countries map can also tint the pieces of the dialect map (the language map, Unit 20).
+const lowlandsShapes = [...countries, ...provinces, ...(dialectPieces as GeoFeature[])]
 const tones: FlowTone[] = ['asia', 'atlantic', 'enslaved']
 
 // `fresh` marks land that changed hands in the stage on screen, so it stands out.

@@ -2,13 +2,14 @@
 # Used when Commons rate-limits the machine the work is done on: push a branch with a
 # scripts/photos/*-missing.tsv list (id, Commons file, width), and this saves each photo
 # to src/photos and its Commons metadata to scripts/photos/meta, for writing the credits.
+# A scripts/photos/*-query.json list runs Commons searches the same way (see query.py).
 # Delete the list once the photos are in.
 name: Fetch photos
 
 on:
   push:
     branches: ['claude/**']
-    paths: ['scripts/photos/*-missing.tsv', '.github/workflows/photos.yml']
+    paths: ['scripts/photos/*-missing.tsv', 'scripts/photos/*-query.json', '.github/workflows/photos.yml']
   workflow_dispatch:
 
 permissions:
@@ -26,8 +27,12 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install pillow
+      - run: command -v ffmpeg || { sudo apt-get update -q && sudo apt-get install -y -q ffmpeg; }
       - run: |
           shopt -s nullglob
+          for q in scripts/photos/*-query.json; do
+            python3 scripts/photos/query.py "$q" scripts/photos/meta
+          done
           for list in scripts/photos/*-missing.tsv; do
             python3 scripts/photos/fetch.py "$list" src/photos scripts/photos/meta
           done
@@ -35,5 +40,5 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A src/photos scripts/photos
+          git add -A src/photos src/sounds scripts/photos
           git diff --cached --quiet || { git commit -m 'Fetch photos from Wikimedia Commons'; git push; }

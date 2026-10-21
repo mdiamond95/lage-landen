@@ -4,11 +4,13 @@ import type { LessonOutcome } from '../lesson/LessonPlayer'
 import { photo, type PhotoId } from '../photos'
 import { Credit } from '../photos/Photo'
 import { Icon } from './Icon'
+import { sound, type SoundId } from '../sounds'
+import { SoundCredit } from '../sounds/Sound'
 
 // A calm lesson (on slavery, say) ends without a trophy or "Perfect lesson!".
-type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; calm?: boolean; onDone: () => void }
+type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; onDone: () => void }
 
-export function Results({ title, outcome, xp, sources, photos, calm = false, onDone }: Props) {
+export function Results({ title, outcome, xp, sources, photos, sounds = [], calm = false, onDone }: Props) {
   const right = outcome.asked - outcome.mistakes
   const accuracy = outcome.asked ? Math.round((right / outcome.asked) * 100) : 100
   const newPlaces = [...new Set(outcome.places)]
@@ -39,7 +41,7 @@ export function Results({ title, outcome, xp, sources, photos, calm = false, onD
         </div>
       )}
       <details className="sources">
-        <summary>{photos.length ? 'Sources and credits' : 'Sources for this lesson'}</summary>
+        <summary>{photos.length || sounds.length ? 'Sources and credits' : 'Sources for this lesson'}</summary>
         <ul>
           {sources.map((s) => (
             <li key={s.url}>
@@ -56,6 +58,18 @@ export function Results({ title, outcome, xp, sources, photos, calm = false, onD
               {photos.map((id) => (
                 <li key={id}>
                   {photo(id).caption}: <Credit id={id} />
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        {sounds.length > 0 && (
+          <>
+            <p className="sources-sub">Recordings</p>
+            <ul>
+              {sounds.map((id) => (
+                <li key={id}>
+                  {sound(id).words} ({sound(id).language}): <SoundCredit id={id} />
                 </li>
               ))}
             </ul>

@@ -295,6 +295,12 @@ lessons:
           "Den Coninck van Hispangien heb ick altijt gheeert": the King of Spain I have always honoured. The rebels
           claimed to fight the king's bad advisers, not the king. The song is often credited to Marnix of Saint
           Aldegonde, but nobody knows who wrote it. It has been the national anthem since 1932.
+      - type: story
+        title: Hear the Wilhelmus
+        body: >-
+          An early recording of the song, made in 1899, more than thirty years before it became the national anthem.
+          It is still sung before international football matches and at the remembrance of the dead on 4 May.
+        visual: { kind: sound, sound: wilhelmus-1899 }
       - type: choice
         prompt: In 1574 the rebels broke the dikes and sailed a fleet across the flooded land to save this besieged town. What did the starving townspeople get when it arrived on 3 October?
         visual: { kind: photo, photo: leiden-relief }

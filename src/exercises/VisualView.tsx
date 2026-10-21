@@ -30,12 +30,16 @@ import { revoltStory } from '../data/revolt'
 import { romanStory } from '../data/roman'
 import { spanishStory } from '../data/spanish'
 import { waterStory } from '../data/water'
+import { tonguesStory } from '../data/tongues'
 import { westhoekStory } from '../data/westhoek'
 import { CompareMap } from '../map/CompareMap'
+import { DialectMap } from '../map/DialectMap'
 import { LowlandsMap } from '../map/LowlandsMap'
 import { TimeMap } from '../map/TimeMap'
 import { TradeMap } from '../map/TradeMap'
 import { PhotoFigure } from '../photos/Photo'
+import { PhraseCards } from '../art/PhraseCards'
+import { SoundFigure } from '../sounds/Sound'
 
 // Every year-slider map but the cloth trade map, which has a frame of its own.
 export const stories = {
@@ -60,6 +64,7 @@ export const stories = {
   masters: mastersStory,
   moderns: modernsStory,
   buildings: buildingsStory,
+  tongues: tonguesStory,
 }
 
 type TimeMapProps = {
@@ -92,6 +97,9 @@ export function VisualView({ visual, label, hideCaption }: { visual: Visual; lab
   if (visual.kind === 'federal') return <FederalDiagram show={visual.show} />
   if (visual.kind === 'pillars') return <PillarDiagram hide={visual.hide} only={visual.only} />
   if (visual.kind === 'compare') return <CompareMap story={stories[visual.map]} years={visual.years} />
+  if (visual.kind === 'sound') return <SoundFigure id={visual.sound} photo={visual.photo} hideWords={hideCaption} hideLanguage={hideCaption} />
+  if (visual.kind === 'dialects') return <DialectMap focus={visual.focus} />
+  if (visual.kind === 'phrases') return <PhraseCards set={visual.set} />
   return (
     <div className="map-frame">
       <LowlandsMap

@@ -92,7 +92,8 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // French or German is the language, the bilingual capital, Dutch-speaking towns that
 // must also serve their French speakers (facilities), land still abroad (the East
 // Cantons before 1920), and the electoral district of Brussels-Halle-Vilvoorde,
-// outlined over the rest.
+// outlined over the rest. On the map of languages (Unit 20): land where people spoke Frisian
+// or Saxon (the Dutch, French and German kinds serve for the rest).
 export type AreaKind =
   | 'sea'
   | 'ruled'
@@ -117,6 +118,8 @@ export type AreaKind =
   | 'facility'
   | 'abroad'
   | 'bhv'
+  | 'frisian'
+  | 'saxon'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind

@@ -20,6 +20,7 @@ export const photosUsed = (exercises: Exercise[]): PhotoId[] => {
     ...(e.type === 'style' ? e.items.map((i) => i.photo) : []),
     ...('visual' in e && e.visual?.kind === 'facade' ? [facades[e.visual.facade].photo] : []),
     ...(e.type === 'label' ? [e.photo] : []),
+    ...('visual' in e && e.visual?.kind === 'sound' && e.visual.photo ? [e.visual.photo] : []),
   ])
   return [...new Set(ids)]
 }

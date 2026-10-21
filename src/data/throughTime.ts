@@ -1,6 +1,6 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 40 snapshots, from Caesar's conquest to the federal Belgium of 2012. Each era's lines,
-// sites, labels and areas come from the unit maps (Roman, Burgundy, the painters' workshops, revolt,
+// through 41 snapshots, from Caesar's conquest to the federal Belgium of 2012. Each era's lines,
+// sites, labels and areas come from the unit maps (Roman, the languages of about 1100, Burgundy, the painters' workshops, revolt,
 // the Golden Age painters, the Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
 // Belgium's first railways and coal country, the railways and canals of 1839 to 1914,
 // Belgium's front of 1914 to 1918, the modern artists, the war of 1940 to 1945, water and the flood of 1953,
@@ -9,8 +9,8 @@
 // language areas share the years 1963 to 1997, so those snapshots show both keys, and
 // so do Burgundy and the painters in 1520 and 1549, and the revolt and the Golden Age painters
 // in 1642, and the buildings and the water works in 1958.
-// The plan's full time map runs to today with about 40 snapshots; these are the 40 of
-// Units 1 to 19.
+// The plan's full time map runs to today with about 40 snapshots; these are the 41 of
+// Units 1 to 20.
 
 import { bordersStory } from './borders'
 import { buildingsStory } from './buildings'
@@ -27,6 +27,7 @@ import { railsStory } from './rails'
 import { revoltStory } from './revolt'
 import { romanStory } from './roman'
 import { spanishStory } from './spanish'
+import { tonguesStory } from './tongues'
 import type { HistEvent, HistLabel, HistSite, TimeStory } from './timeline'
 import { waterStory } from './water'
 
@@ -141,6 +142,10 @@ const architectureStory: TimeStory = {
   labels: [],
 }
 
+// The languages (Unit 20) in about 1100, the time of Hebban olla vogala: Frisian, Saxon,
+// Old Dutch and Romance, gone again before the patchwork of lands of 1302.
+const oldTonguesStory: TimeStory = { ...tonguesStory, max: 1301 }
+
 // The stage each snapshot shows, taken from its era's own captions unless given here.
 // `also` is another era still on the map at that snapshot, whose key is shown too.
 type Snapshot = { story: TimeStory; from: number; event?: Omit<HistEvent, 'from'>; also?: TimeStory }
@@ -149,6 +154,7 @@ const snapshots: Snapshot[] = [
   { story: romanStory, from: -57 },
   { story: romanStory, from: 47 },
   { story: romanStory, from: 406 },
+  { story: oldTonguesStory, from: 1100 },
   { story: medievalStory, from: 1302 },
   { story: burgundyStory, from: 1384 },
   { story: burgundyStory, from: 1477 },

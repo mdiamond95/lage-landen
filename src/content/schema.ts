@@ -9,6 +9,9 @@ import { cellIds, rowIds } from '../data/pillars'
 import { lineIds } from '../data/roman'
 import { month } from '../data/timeline'
 import { photoIds } from '../photos/ids'
+import { dialectIds } from '../data/dialects'
+import { phraseSetIds } from '../data/phrases'
+import { soundIds } from '../sounds/ids'
 
 // Everything a lesson can show or ask is described here. Lesson YAML is
 // parsed against these schemas, so a typo in content fails tests and the build.
@@ -58,9 +61,10 @@ const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // the painters of the Low Countries worked, from 1420 to 1569, or where the painters of the
 // Golden Age worked, from the fall of Antwerp in 1585 to 1682, or where the modern artists
 // worked, from Van Gogh's first drawings in 1880 to the Van Gogh Museum in 1973, or the
-// buildings of the Low Countries, from the first belfries to the World Heritage list of 2000.
+// buildings of the Low Countries, from the first belfries to the World Heritage list of 2000,
+// or the languages of the Low Countries, from the Frisians, Saxons and Franks of 800 to 1997.
 // `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings'] as const
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues'] as const
 // The maps of the two world wars count in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
@@ -78,7 +82,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
@@ -116,7 +120,20 @@ const SeriesVisual = z.object({ kind: z.literal('series'), series: z.enum(series
 // opens it zoomed in on one hotspot, by its id, without the labels, as the picture for a question.
 const FacadeVisual = z.object({ kind: z.literal('facade'), facade: z.enum(facadeIds), focus: z.string().optional() })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual])
+// A recording from Wikimedia Commons (src/sounds), with a play button, and a photo above it
+// if given. In a question its words, language and credit stay hidden until it is checked,
+// as they are often the answer; a story shows them.
+const SoundVisual = z.object({ kind: z.literal('sound'), sound: z.enum(soundIds), photo: z.enum(photoIds).optional() })
+
+// The clickable dialect map (Unit 20): every language and dialect group of the Low Countries;
+// tap one to read about it and hear it. `focus` opens it on one.
+const DialectsVisual = z.object({ kind: z.literal('dialects'), focus: z.enum(dialectIds).optional() })
+
+// A page of the phrasebook (src/data/phrases.ts): everyday phrases with what they mean and
+// when to say them, each with a recording or, failing that, the device's own voice.
+const PhrasesVisual = z.object({ kind: z.literal('phrases'), set: z.enum(phraseSetIds) })
+
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -154,10 +171,12 @@ const Order = z.object({
   explain: z.string(),
 })
 
+// An option can be a recording to play and pick (which of these has the soft g?).
 const Option = z.object({
   label: z.string().optional(),
   art: z.enum(artIds).optional(),
   photo: z.enum(photoIds).optional(),
+  sound: z.enum(soundIds).optional(),
   why: z.string(),
 })
 
@@ -311,7 +330,16 @@ const Label = z
   })
   .refine((l) => new Set([...l.spots.map((s) => s.label), ...l.extra]).size === l.spots.length + l.extra.length, 'every label differs')
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label])
+// Listen and find: play a recording, then tap where it is spoken on the dialect map.
+const Listen = z.object({
+  type: z.literal('listen'),
+  prompt: z.string(),
+  sound: z.enum(soundIds),
+  answer: z.enum(dialectIds),
+  explain: z.string(),
+})
+
+export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

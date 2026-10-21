@@ -32,6 +32,11 @@ import { paintersStory } from '../data/painters'
 import { mastersStory } from '../data/masters'
 import { modernsStory } from '../data/moderns'
 import { buildingsStory } from '../data/buildings'
+import { tonguesStory } from '../data/tongues'
+import { dialectIds, dialectPieces, dialects } from '../data/dialects'
+import { allPhrases, phraseSetIds, phraseSets } from '../data/phrases'
+import { soundIds } from '../sounds/ids'
+import { soundCredits } from '../sounds/credits'
 import { facades } from '../data/facades'
 import { pairs } from '../data/pairs'
 import { charts } from '../data/charts'
@@ -68,7 +73,8 @@ const isVisual = (e: Exercise) =>
   (e.type === 'voices' && e.voices.some((v) => v.photo)) ||
   (e.type === 'sort' && (e.visual !== undefined || e.items.every((i) => i.photo))) ||
   e.type === 'style' ||
-  e.type === 'label'
+  e.type === 'label' ||
+  e.type === 'listen'
 
 describe.each(files)('%s', (file) => {
   const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
@@ -227,6 +233,106 @@ describe('photos', () => {
       expect(c.licenceUrl, id).toMatch(/^https:\/\/(creativecommons\.org\/|commons\.wikimedia\.org\/wiki\/Template:Attribution$)/)
     }
   })
+
+  it('no picture is saved twice under two ids: reuse the first id instead', () => {
+    const seen = new Map<string, string>()
+    for (const id of photoIds) {
+      const bytes = readFileSync(join(dir, '../photos', `${id}.jpg`)).toString('base64')
+      expect(seen.get(bytes), id).toBeUndefined()
+      seen.set(bytes, id)
+    }
+  })
+})
+
+describe('recordings', () => {
+  it('every recording has a file and a full credit', () => {
+    for (const id of soundIds) {
+      const c = soundCredits[id]
+      expect(existsSync(join(dir, '../sounds', `${id}.mp3`)), id).toBe(true)
+      for (const field of ['words', 'language', 'author', 'licence'] as const) expect(c[field], `${id} ${field}`).not.toBe('')
+      expect(c.source, id).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/)
+      expect(c.licenceUrl, id).toMatch(/^https:\/\/(creativecommons\.org\/|commons\.wikimedia\.org\/wiki\/Template:Attribution$)/)
+    }
+  })
+
+  it('are all used somewhere', () => {
+    const lessons = files.map((f) => readFileSync(join(dir, f), 'utf8')).join('\n')
+    const elsewhere = [...Object.values(dialects).flatMap((d) => d.sounds), ...allPhrases.flatMap((p) => (p.sound ? [p.sound] : []))]
+    for (const id of soundIds) expect(elsewhere.includes(id) || lessons.includes(id), id).toBe(true)
+  })
+})
+
+describe('dialect map', () => {
+  it('draws every dialect, and every piece belongs to one', () => {
+    const drawn = new Set(dialectPieces.map((p) => p.properties.id))
+    for (const id of dialectIds) for (const piece of dialects[id].pieces) expect(drawn.has(piece), `${id} ${piece}`).toBe(true)
+    const claimed = dialectIds.flatMap((id) => dialects[id].pieces)
+    expect(new Set(claimed).size, 'no piece in two dialects').toBe(claimed.length)
+    for (const piece of drawn) expect(claimed, piece).toContain(piece)
+  })
+
+  it('labels every dialect inside the frame, and plays only its own recordings', () => {
+    for (const id of dialectIds) {
+      const [lon, lat] = dialects[id].at
+      expect(lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6, id).toBe(true)
+      for (const s of dialects[id].sounds) expect(soundIds, `${id} ${s}`).toContain(s)
+    }
+  })
+
+  it('asks listening questions about recordings of the dialect they name', () => {
+    for (const file of files) {
+      const unit = Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))
+      for (const ex of unit.lessons.flatMap((l) => l.exercises))
+        if (ex.type === 'listen') expect(dialects[ex.answer].sounds, `${unit.id} ${ex.sound}`).toContain(ex.sound)
+    }
+  })
+})
+
+describe('phrasebook', () => {
+  it('has 100 phrases in ten sets of ten, none twice', () => {
+    expect(phraseSetIds).toHaveLength(10)
+    for (const id of phraseSetIds) expect(phraseSets[id].phrases, id).toHaveLength(10)
+    const says = allPhrases.map((p) => `${p.set} ${p.say}`)
+    expect(new Set(says).size).toBe(100)
+    for (const p of allPhrases) expect(p.say && p.means, p.say).toBeTruthy()
+  })
+})
+
+describe('language time map', () => {
+  const { min, max, events, sites, labels, lines, areas = [] } = tonguesStory
+  const pieces = new Set(dialectPieces.map((p) => p.properties.id))
+  const inFrame = ([lon, lat]: [number, number]) => lon > 1.5 && lon < 8 && lat > 49.3 && lat < 53.7
+
+  it('puts every area on a piece of the dialect map, and every site, line and label in the frame', () => {
+    for (const a of areas) {
+      expect(a.regions?.length ?? 0, a.name).toBeGreaterThan(0)
+      for (const id of a.regions ?? []) expect(pieces.has(id), `${a.name} ${id}`).toBe(true)
+    }
+    for (const s of sites) expect(inFrame(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+    for (const l of lines) for (const c of l.coords) expect(inFrame(c), l.name).toBe(true)
+    expect(new Set(areas.map((a) => a.name)).size, 'area names are unique').toBe(areas.length)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    for (const item of [...sites, ...labels, ...lines, ...areas]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
+  })
+
+  it('colours every piece but the new land once in every stage', () => {
+    for (const { from } of events)
+      for (const piece of pieces) {
+        const on = areas.filter((a) => a.regions?.includes(piece) && a.from <= from && (a.to === undefined || from <= a.to))
+        expect(on.length, `${piece} in ${from}`).toBe(piece === 'flevoland' ? 0 : 1)
+      }
+  })
 })
 
 describe('roman time map', () => {
@@ -332,6 +438,7 @@ describe('time maps in lessons', () => {
     masters: mastersStory,
     moderns: modernsStory,
     buildings: buildingsStory,
+    tongues: tonguesStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -356,6 +463,7 @@ describe('time maps in lessons', () => {
     masters: [mastersStory.min, mastersStory.max],
     moderns: [modernsStory.min, modernsStory.max],
     buildings: [buildingsStory.min, buildingsStory.max],
+    tongues: [tonguesStory.min, tonguesStory.max],
   }
 
   it('open at years inside their slider', () => {
