@@ -1,18 +1,21 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 33 snapshots, from Caesar's conquest to the Delta Works. Each era's lines,
+// through 36 snapshots, from Caesar's conquest to the federal Belgium of 2012. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, Burgundy, revolt, the
 // Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
 // Belgium's first railways and coal country, the railways and canals of 1839 to 1914,
-// Belgium's front of 1914 to 1918, the war of 1940 to 1945, water and the flood of 1953), and stay on the map only from
-// the era's first snapshot to its end, so one era never bleeds into another.
+// Belgium's front of 1914 to 1918, the war of 1940 to 1945, water and the flood of 1953,
+// Belgium's language areas from 1963), and stay on the map only from the era's first
+// snapshot to its end, so one era never bleeds into another. The Delta Works and the
+// language areas share the years 1963 to 1997, so those snapshots show both keys.
 // The plan's full time map runs to today with about 40 snapshots; this is the first
-// 33, for Units 1 to 14.
+// 36, for Units 1 to 15.
 
 import { bordersStory } from './borders'
 import { burgundyStory } from './burgundy'
 import { greatWarByYear } from './greatwar'
 import { industryStory } from './industry'
 import { kingdomStory } from './kingdom'
+import { languageByYear } from './language'
 import { occupationByYear } from './occupation'
 import { railsStory } from './rails'
 import { revoltStory } from './revolt'
@@ -113,7 +116,8 @@ const earlyRailsStory: TimeStory = {
 }
 
 // The stage each snapshot shows, taken from its era's own captions unless given here.
-type Snapshot = { story: TimeStory; from: number; event?: Omit<HistEvent, 'from'> }
+// `also` is another era still on the map at that snapshot, whose key is shown too.
+type Snapshot = { story: TimeStory; from: number; event?: Omit<HistEvent, 'from'>; also?: TimeStory }
 
 const snapshots: Snapshot[] = [
   { story: romanStory, from: -57 },
@@ -147,15 +151,19 @@ const snapshots: Snapshot[] = [
   { story: occupationByYear, from: 1944 },
   { story: occupationByYear, from: 1945 },
   { story: waterStory, from: 1953 },
-  { story: waterStory, from: 1986 },
+  { story: languageByYear, from: 1963, also: waterStory },
+  { story: waterStory, from: 1986, also: languageByYear },
+  { story: languageByYear, from: 1993, also: waterStory },
   {
     story: waterStory,
     from: 1997,
+    also: languageByYear,
     event: {
       title: '1997: The Delta Works are complete',
       text: "Dams and storm barriers shorten the coast of Zeeland and South Holland, and the Maeslantkering guards Rotterdam. The Zuiderzee has become the IJsselmeer, with Flevoland drained from it.",
     },
   },
+  { story: languageByYear, from: 2012 },
 ]
 
 const eras = [...new Set(snapshots.map((s) => s.story))]
@@ -183,10 +191,11 @@ export const throughTimeStory: TimeStory = {
   min: snapshots[0].from,
   max: snapshots[snapshots.length - 1].from,
   format: formatAnyYear,
-  events: snapshots.map(({ story, from, event }) => {
+  events: snapshots.map(({ story, from, event, also }) => {
     const own = story.events.find((e) => e.from === from)
     if (!own && !event) throw new Error(`No caption for ${from}`)
-    return { ...own!, ...event, from, key: story.key, fresh: story.fresh ?? 'fill' }
+    const key = [...(story.key ?? []), ...(also?.key ?? []).filter((k) => !story.key?.some((s) => s.swatch === k.swatch))]
+    return { ...own!, ...event, from, key, fresh: story.fresh ?? 'fill' }
   }),
   lines: eras.flatMap((era) => inEra(era, era.lines).map((l) => ({ ...l, from: Math.max(l.from, eraStart(era)), end: era.max }))),
   sites: eras.flatMap((era) => inEra(era, era.sites).map((s) => ({ ...s, from: Math.max(s.from, eraStart(era)), end: era.max }))),

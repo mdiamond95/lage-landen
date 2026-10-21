@@ -147,7 +147,7 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
           const d = linePath(line.coords)
           const tone = line.tone ? ` hist-flow-${line.tone}` : ''
           return (
-            <g key={line.name} className="fade-in">
+            <g key={`${line.name}-${line.from}`} className="fade-in">
               <path d={d} className={`hist-line hist-flow${tone}`} markerEnd={`url(#${uid}-${line.tone ?? 'flow'})`} />
               <path d={d} className="trade-flow">
                 <title>{line.name}</title>
@@ -155,13 +155,14 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
             </g>
           )
         }
-        // Keyed by state so the draw-in animation replays when a line returns.
+        // Keyed by state so the draw-in animation replays when a line returns, and by year,
+        // as the time map can hold one line from several snapshots of the same era.
         const gone = !activeAt(year, line)
         const draw = !gone && line.kind !== 'road'
         const effect = gone ? 'hist-gone' : draw ? 'draw-in' : 'fade-in'
         return (
           <path
-            key={`${line.name}-${effect}`}
+            key={`${line.name}-${line.from}-${effect}`}
             d={linePath(line.coords)}
             pathLength={draw ? 1 : undefined}
             className={`hist-line hist-${line.kind} ${effect}`}
