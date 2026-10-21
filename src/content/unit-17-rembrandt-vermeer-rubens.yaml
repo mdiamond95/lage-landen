@@ -1,0 +1,960 @@
+id: unit-17
+number: 17
+title: Rembrandt, Vermeer, Rubens
+era: 1585 to 1682
+summary: After Antwerp fell in 1585, the Low Countries had two great schools of painting. In the Catholic south, Rubens ran a workshop that filled the churches and palaces of Europe. In the Protestant north, painters who had seen Caravaggio's work in Rome brought his light home to Utrecht; Rembrandt painted Amsterdam in light and shadow, Vermeer painted the quiet rooms of Delft, and thousands of painters sold landscapes, still lifes and tavern scenes to ordinary people, until the Disaster Year of 1672 emptied the market. Lay their paintings side by side and look.
+lessons:
+  - id: u17-l1
+    title: Rubens and his workshop
+    icon: ladder
+    sources:
+      - title: "Wikipedia, Peter Paul Rubens"
+        url: https://en.wikipedia.org/wiki/Peter_Paul_Rubens
+      - title: "Wikipedia, The Garden of Eden with the Fall of Man"
+        url: https://en.wikipedia.org/wiki/The_Garden_of_Eden_with_the_Fall_of_Man
+      - title: "Sotheby's, The Lion Hunt, on Rubens's letter to Dudley Carleton of 28 April 1618"
+        url: https://sothebys.com/en/buy/auction/2023/master-paintings-and-sculpture-part-ii/the-lion-hunt
+      - title: "Wikipedia, Anthony van Dyck"
+        url: https://en.wikipedia.org/wiki/Anthony_van_Dyck
+      - title: "Wikipedia, Banqueting House, Whitehall"
+        url: https://en.wikipedia.org/wiki/Banqueting_House,_Whitehall
+      - title: "Wikipedia, Massacre of the Innocents (Rubens)"
+        url: https://en.wikipedia.org/wiki/Massacre_of_the_Innocents_(Rubens)
+      - title: "Wikipedia, Het Pelsken"
+        url: https://en.wikipedia.org/wiki/Het_Pelsken
+      - title: "Flemish Art Collection, Jacob Jordaens, The Bean King or The King Drinks"
+        url: https://barokinvlaanderen.vlaamsekunstcollectie.be/en/artwork/bean-king-or-king-drinks
+    exercises:
+      - type: story
+        title: Two masters, one paradise
+        body: >-
+          Rubens came home from eight years in Italy at the end of 1608, and in 1609 the archdukes Albert and Isabella
+          made him their court painter, while letting him live in Antwerp. He built a house with a great studio and
+          filled it with pupils and assistants, and he painted with friends who were masters of their own kind of
+          picture. Around 1615 he and a friend painted this paradise together. Take the tour.
+        visual: { kind: painting, painting: paradise }
+      - type: choice
+        prompt: Rubens painted Adam and Eve, and the tree and the snake. Which friend painted the paradise around them, every bird, flower and animal?
+        visual: { kind: painting, painting: paradise, focus: birds }
+        answer: 0
+        options:
+          - label: Jan Brueghel, the son of Pieter Bruegel
+            why: >-
+              Right. Jan Brueghel the Elder, famous for his flowers and animals, was one of Rubens's most frequent
+              partners. Rubens sketched Adam and Eve in thin paint first, with the tree and the snake; then Brueghel
+              painted the garden around them in tiny, exact strokes.
+          - label: Anthony van Dyck, Rubens's best pupil
+            why: Van Dyck painted people, above all portraits. This garden is the work of a specialist in flowers and animals.
+          - label: Frans Snyders, the animal painter
+            why: Snyders did paint animals for Rubens, big hunting dogs and lions, but not this paradise. Think of a famous family.
+          - label: Jacob Jordaens
+            why: Jordaens worked on his own, painting crowded feasts. This garden is by someone else.
+      - type: hunt
+        prompt: One small animal can't wait for the Fall. Find the monkey biting into an apple.
+        photo: paradise
+        targets:
+          - [0.025, 0.73, 0.05, 0.1]
+        explain: >-
+          On the far left, in the shadows behind the turkey, a monkey is already eating the forbidden fruit. In Brueghel's day a
+          monkey stood for a creature that cannot resist temptation.
+      - type: scrub
+        prompt: Drag the slider to a year when Rubens is away in Italy.
+        map: masters
+        start: 1585
+        answer: [1600, 1608]
+        explain: >-
+          Rubens left for Italy in 1600 and worked for the duke of Mantua, Vincenzo Gonzaga, who also sent him to Spain
+          in 1603. He spent his last Italian years mostly in Rome, and hurried home in 1608 because his mother was
+          ill; she died before he arrived.
+      - type: truemyth
+        statement: Every painting that left Rubens's studio was painted by Rubens himself.
+        visual: { kind: photo, photo: rubens-massacre }
+        answer: false
+        explain: >-
+          Myth. Rubens ran a big workshop: pupils and assistants laid in many of his pictures, and specialists added
+          animals, flowers and landscapes. In April 1618 he offered the English ambassador Dudley Carleton a list of
+          paintings in exchange for his collection of ancient statues, saying which were by his own hand and which his
+          pupils had painted and he had retouched. Carleton turned one down because it was not all Rubens's own work.
+      - type: choice
+        prompt: This Rubens hangs in Toronto. For centuries it was thought to be by one of his followers. What happened when it was sold in London in 2002?
+        visual: { kind: photo, photo: rubens-massacre }
+        answer: 0
+        options:
+          - label: It fetched a record £49.5 million, and the buyer gave it to the Art Gallery of Ontario
+            why: >-
+              Right. An expert at Sotheby's recognised it as Rubens's own work in 2001. The Canadian collector Kenneth
+              Thomson bought it in July 2002 for £49.5 million, then a record for an old master, and it went to the Art
+              Gallery of Ontario in 2008 with the rest of his gift.
+          - label: Nobody bid, as experts doubted it
+            why: The doubts had been settled the year before. The bidding was fierce.
+          - label: The Belgian government stopped it leaving Europe
+            why: It had been in Austria for decades, and it left for Canada.
+          - label: It was bought back by the Rubens House in Antwerp
+            why: It went much further away than Antwerp.
+      - type: who
+        photo: van-dyck-self
+        clues:
+          - I was born in Antwerp in 1599 and was painting on my own before I was twenty.
+          - I worked in Rubens's studio and became his chief assistant.
+          - After six years in Italy, mostly in Genoa, I went to London in 1632, and the king knighted me.
+          - I painted King Charles I about forty times, and I am buried in St Paul's Cathedral.
+        options: [Anthony van Dyck, Jacob Jordaens, Frans Snyders, Jan Brueghel]
+        answer: 0
+        explain: >-
+          Sir Anthony van Dyck, here in a self-portrait with a sunflower painted in England. He died in London in
+          December 1641, aged 42, the year after Rubens. His elegant portraits of the English court set the fashion
+          for British portrait painters for generations.
+      - type: choice
+        prompt: Van Dyck painted Charles I as a gentleman out hunting. Rubens had been to London a few years before, and the king knighted him too, in 1630. Why had Rubens come?
+        visual: { kind: photo, photo: charles-hunt }
+        answer: 0
+        options:
+          - label: As a diplomat, to help make peace between Spain and England
+            why: >-
+              Right. From 1627 to 1630 Rubens travelled between the Spanish and English courts as a diplomat, and the
+              two countries made peace in 1630. Later he painted the great ceiling of the king's Banqueting House at
+              Whitehall.
+          - label: To flee the war in Antwerp
+            why: Antwerp was not his danger. He came on a mission.
+          - label: To become court painter in London
+            why: That was Van Dyck's job, from 1632. Rubens stayed court painter in the Spanish Netherlands.
+          - label: To sell his workshop's paintings at a fair
+            why: Rubens did sell to English collectors, but this visit was about politics.
+      - type: choice
+        prompt: Charles I had Rubens paint the ceiling of his Banqueting House in London. The canvases were painted in Antwerp and put up in 1636. What do they celebrate?
+        visual: { kind: photo, photo: banqueting-house }
+        answer: 0
+        options:
+          - label: The wise reign of the king's father, James I
+            why: >-
+              Right. The canvases glorify James I, uniting his kingdoms, ruling in peace and carried up to heaven. On
+              30 January 1649 Charles I walked beneath them to his execution, stepping out through a window onto a
+              scaffold built outside this hall.
+          - label: Peace between the Dutch and Spain
+            why: That peace came in 1648, twelve years later, and had nothing to do with an English ceiling.
+          - label: The victories of the English navy
+            why: There are no ships up there. It is about a king.
+          - label: Rubens's own life
+            why: Rubens painted it, but the hero is a king.
+      - type: match
+        prompt: Match the people in Rubens's life to what they did.
+        pairs:
+          - [Vincenzo Gonzaga, Duke of Mantua; his patron in Italy]
+          - [Albert and Isabella, Made him their court painter in 1609]
+          - [Isabella Brant, His first wife; married in 1609]
+          - [Helena Fourment, His second wife; she was 16 when they married]
+          - [Charles I, Knighted him in London in 1630]
+      - type: choice
+        prompt: Rubens painted his young wife Helena Fourment, wrapped in a fur, in the late 1630s. It is called Het Pelsken, the little fur. What happened to it?
+        visual: { kind: photo, photo: het-pelsken }
+        answer: 0
+        options:
+          - label: Rubens kept it, and it went to Helena after his death
+            why: >-
+              Right. It was not for sale. It is named in Rubens's will of 1640, and the story goes that a special
+              clause left it to Helena as a personal gift; it is in her own will of 1658. Today it hangs in Vienna.
+          - label: He sold it to the king of Spain
+            why: Philip IV bought many Rubens paintings, but not this private one.
+          - label: It was painted for a church altar
+            why: Look at it again. This was never meant for a church.
+          - label: Helena had it burned
+            why: It survived. It is in Vienna today.
+      - type: choice
+        prompt: Jacob Jordaens, the leading painter in Antwerp after Rubens, painted this feast again and again. What is going on?
+        visual: { kind: photo, photo: king-drinks }
+        answer: 0
+        options:
+          - label: Twelfth Night, when whoever finds the bean in the cake is king, and everyone shouts "The king drinks!"
+            why: >-
+              Right. On the feast of the Three Kings in January, a bean was baked into a cake. Whoever found it became
+              king for the night, and every time he raised his glass the whole table shouted "The king drinks!" Jordaens
+              used his own family and friends as models.
+          - label: A wedding in a Flemish village
+            why: There is no bride. Look at the old man with the paper crown.
+          - label: A guild choosing its new dean
+            why: The crown is made of paper, and it is a family party.
+          - label: The coronation of a king of Spain
+            why: The "king" is an old man in a paper crown at a family table.
+
+  - id: u17-l2
+    title: Candlelight from Utrecht
+    icon: lute
+    sources:
+      - title: "Wikipedia, The Calling of Saint Matthew (Caravaggio)"
+        url: https://en.wikipedia.org/wiki/The_Calling_of_Saint_Matthew_(Caravaggio)
+      - title: "Wikipedia, Hendrick ter Brugghen"
+        url: https://en.wikipedia.org/wiki/Hendrick_ter_Brugghen
+      - title: "Wikipedia, Gerard van Honthorst"
+        url: https://en.wikipedia.org/wiki/Gerard_van_Honthorst
+      - title: "Wikipedia, Dirck van Baburen"
+        url: https://en.wikipedia.org/wiki/Dirck_van_Baburen
+      - title: "Wikipedia, Isabella Stewart Gardner Museum theft"
+        url: https://en.wikipedia.org/wiki/Isabella_Stewart_Gardner_Museum_theft
+      - title: "Wikipedia, Rembrandt"
+        url: https://en.wikipedia.org/wiki/Rembrandt
+      - title: "Wikipedia, Constantijn Huygens"
+        url: https://en.wikipedia.org/wiki/Constantijn_Huygens
+    exercises:
+      - type: story
+        title: Caravaggio's light
+        body: >-
+          Around 1600, in Rome, the painter Caravaggio shocked and thrilled the city with saints who looked like the
+          people in the street, lit by one hard beam of light out of the dark. Young painters from Utrecht went to Rome
+          and saw it. Hendrick ter Brugghen, Gerard van Honthorst and Dirck van Baburen came home with Caravaggio's
+          light, and twenty years later Ter Brugghen painted the same story Caravaggio had. Compare them.
+        visual: { kind: pair, pair: calling }
+      - type: truemyth
+        statement: Everyone agrees which man in Caravaggio's painting is Matthew.
+        visual: { kind: pair, pair: calling, focus: matthew }
+        answer: false
+        explain: >-
+          Myth. Most art historians think Matthew is the bearded man pointing at himself, as if to say "Me?" But some
+          argue he is pointing at the young man hunched over the coins at the end of the table, and that the young
+          man is Matthew. Ter Brugghen left less doubt.
+      - type: choice
+        prompt: Look at the light in both paintings. What does it do?
+        visual: { kind: pair, pair: calling, focus: light }
+        answer: 0
+        options:
+          - label: It falls from one side out of the dark, onto the faces that matter
+            why: >-
+              Right. That is Caravaggio's lesson: one strong light, deep shadow, and the light picks out the moment of
+              the story, a man called by Christ. Ter Brugghen made the light paler and cooler, but kept the idea.
+          - label: It comes from a candle on the table
+            why: There is no candle in either. The light comes from outside the picture.
+          - label: It lights the whole room evenly
+            why: Half of each painting is in deep shadow.
+          - label: It shines from a halo round Christ's head
+            why: Christ is half in shadow. The light comes from one side.
+      - type: hunt
+        prompt: Honthorst loved night scenes so much that he became known in Italy as Gherardo delle Notti, Gerard of the Night. Where does the light in this painting come from? Tap it.
+        photo: honthorst-shepherds
+        targets:
+          - [0.52, 0.54, 0.3, 0.18]
+        explain: >-
+          From the baby. There is no lamp or candle: the light comes from the newborn Christ and lights the faces
+          around him from below, as if from a lantern.
+      - type: scrub
+        prompt: Drag the slider to a year when Ter Brugghen, Honthorst and Baburen are all working in Utrecht.
+        map: masters
+        start: 1609
+        answer: [1621, 1623]
+        explain: >-
+          Ter Brugghen was home from Italy by 1616, Honthorst came back from Rome in 1620, and Baburen late in 1620.
+          Baburen died in February 1624, and Ter Brugghen in 1629.
+      - type: choice
+        prompt: Baburen painted The Procuress in Utrecht in 1622. What is going on?
+        visual: { kind: photo, photo: procuress }
+        answer: 0
+        options:
+          - label: An old woman is arranging for a young woman to be paid by a customer
+            why: >-
+              Right. A procuress was a go-between in the sex trade. The young man holds out a coin, the young woman
+              plays the lute, and the old woman holds out her hand for her share. Utrecht's painters loved such
+              lively, half-length scenes of music, drinking and money.
+          - label: A mother is teaching her daughter music
+            why: Look at the coin in the young man's hand.
+          - label: A family is saying grace before a meal
+            why: There is no meal, and nobody is praying.
+          - label: A merchant is paying his maid
+            why: Look at the old woman's open hand. She is taking a cut.
+      - type: hunt
+        prompt: Decades later, The Procuress, or a copy of it, belonged to Vermeer's mother-in-law in Delft. Vermeer painted it into the background of this picture. Find it.
+        photo: vermeer-virginal
+        targets:
+          - [0.57, 0.0, 0.43, 0.41]
+        explain: >-
+          On the wall, behind the woman at the virginal. Vermeer's mother-in-law, Maria Thins, owned Baburen's
+          painting, or a copy, and Vermeer painted it twice: here, and in The Concert.
+      - type: truemyth
+        statement: The Concert, the other Vermeer with The Procuress on its wall, was stolen in 1990 and has never been found.
+        visual: { kind: photo, photo: vermeer-concert }
+        answer: true
+        explain: >-
+          True. In the early hours of 18 March 1990, two men dressed as police officers talked their way into the
+          Isabella Stewart Gardner Museum in Boston and took thirteen works, The Concert among them. None has been
+          recovered, and the museum offers a reward of 10 million dollars.
+      - type: who
+        photo: lievens-huygens
+        clues:
+          - I was secretary to the princes of Orange, and wrote poems in Dutch, Latin and French.
+          - Around 1629 I visited two young painters in Leiden, Rembrandt and Lievens, and wrote about them with wonder.
+          - I helped them win paintings to order from the prince's court.
+          - My son Christiaan discovered Titan, the largest moon of Saturn.
+        options: [Constantijn Huygens, Hugo Grotius, Frederick Henry, Pieter Lastman]
+        answer: 0
+        explain: >-
+          Constantijn Huygens, painted by Jan Lievens himself, the friend who shared a studio in Leiden with
+          Rembrandt. Huygens wrote that Rembrandt was the better at feeling and lifelike emotion, and Lievens at grand
+          ideas and daring.
+      - type: odd
+        prompt: Which painting is the odd one out?
+        items:
+          - { label: The Calling of Saint Matthew, 1599 to 1600, photo: caravaggio-calling }
+          - { label: The Calling of Saint Matthew, 1621, photo: brugghen-calling }
+          - { label: The Adoration of the Shepherds, photo: honthorst-shepherds }
+          - { label: The Procuress, 1622, photo: procuress }
+        answer: 0
+        reasons:
+          - It was painted in Rome by an Italian; the others by Utrecht painters who had seen his work
+          - It is lit by a candle; the others by daylight
+          - It is the only one with a story from the Bible
+        reason: 0
+        explain: >-
+          Caravaggio's own painting still hangs in the French church in Rome, San Luigi dei Francesi, where it was
+          unveiled in 1600. The other three were painted in Utrecht in the 1620s by Ter Brugghen, Honthorst and
+          Baburen.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Utrecht's young painters studied in Rome, They brought Caravaggio's light and shadow home]
+          - [Constantijn Huygens visited Leiden around 1629, Rembrandt and Lievens painted for the prince's court]
+          - [Vermeer's mother-in-law owned The Procuress, It appears on the walls of two Vermeers]
+          - [Thieves dressed as police entered a Boston museum in 1990, The Concert has been missing ever since]
+        explain: >-
+          Rembrandt never went to Italy, but he learned the strong light of Caravaggio from painters who had, among
+          them his teacher Pieter Lastman and the Utrecht painters.
+
+  - id: u17-l3
+    title: Rembrandt's light and shadow
+    icon: beret
+    sources:
+      - title: "Wikipedia, Rembrandt"
+        url: https://en.wikipedia.org/wiki/Rembrandt
+      - title: "Wikipedia, Self-Portrait with Dishevelled Hair"
+        url: https://en.wikipedia.org/wiki/Self-Portrait_with_Dishevelled_Hair
+      - title: "Wikipedia, The Descent from the Cross (Rembrandt, 1633)"
+        url: https://en.wikipedia.org/wiki/The_Descent_from_the_Cross_(Rembrandt,_1633)
+      - title: "Princeton University Art Museum, Rembrandt's Descent from the Cross, 1633"
+        url: https://artmuseum.princeton.edu/collections/objects/48987
+      - title: "Wikipedia, The Descent from the Cross (Rubens, 1612–1614)"
+        url: https://en.wikipedia.org/wiki/The_Descent_from_the_Cross_(Rubens,_1612%E2%80%931614)
+      - title: "Houbraken Translated (RKD), The Great Theatre of Dutch Painters, 1718, volume 1, pages 260 to 269"
+        url: http://houbraken-translated.rkdstudies.nl/1-240-289/page-260-269/
+      - title: "Van Gogh Letters, to Theo van Gogh, Nuenen, about 10 October 1885 (letter 534)"
+        url: https://vangoghletters.org/vg/letters/let534/letter.html
+      - title: "Webexhibits, Anton Kerssemakers's memories of Van Gogh, De Groene, April 1912"
+        url: https://www.webexhibits.org/vangogh/letter/15/etc-435c.htm
+      - title: "Wikipedia, Hundred Guilder Print"
+        url: https://en.wikipedia.org/wiki/Hundred_Guilder_Print
+      - title: "Wikipedia, Frans Hals"
+        url: https://en.wikipedia.org/wiki/Frans_Hals
+    exercises:
+      - type: story
+        title: Two ways to take down a body
+        body: >-
+          Rembrandt moved to Amsterdam late in 1631 and soon was the most sought-after portrait painter in the city.
+          In 1633 he painted Christ taken down from the cross, for the prince of Orange. Art historians think it was
+          his answer to Rubens's great altarpiece of 1612 to 1614 in Antwerp. Rembrandt never went to Antwerp, but
+          prints made Rubens's pictures known everywhere. Lay them side by side.
+        visual: { kind: pair, pair: descent }
+      - type: choice
+        prompt: How does Rembrandt's light differ from Rubens's?
+        visual: { kind: pair, pair: descent, focus: light }
+        answer: 0
+        options:
+          - label: Rembrandt lights only Christ and the sheet, and leaves the rest in the dark
+            why: >-
+              Right. Rubens fills the scene with light and colour, every figure strong and clear. Rembrandt puts it all
+              in the night, with one pool of light on the broken body and the white sheet, and the onlookers half lost
+              in shadow.
+          - label: Rembrandt paints it in bright daylight
+            why: Look at all the dark around the edges of Rembrandt's painting.
+          - label: Rubens lights it with torches
+            why: Rubens's scene is lit evenly, like day. It is Rembrandt who uses the dark.
+          - label: They light it the same way
+            why: Look again at the corners of each painting.
+      - type: choice
+        prompt: Rembrandt gave the man at the top of the ladder, the one in blue holding Christ's arm, a face people knew. Whose?
+        visual: { kind: pair, pair: descent, focus: ladder }
+        answer: 0
+        options:
+          - label: His own
+            why: >-
+              Right. People who knew Rembrandt's self-portraits, already in circulation by the late 1620s, would have
+              recognised him: the painter himself helps to take Christ down.
+          - label: The prince of Orange's
+            why: The prince paid for it, but he is not on the ladder.
+          - label: Rubens's
+            why: A tribute to Rubens would be a nice idea, but the face is someone else's.
+          - label: Constantijn Huygens's
+            why: Huygens arranged the commission, but this is a different face.
+      - type: choice
+        prompt: Here is Rembrandt himself, at about 22, around 1628, still in Leiden. What was he trying out?
+        visual: { kind: photo, photo: rembrandt-young }
+        answer: 0
+        options:
+          - label: Shadow, leaving most of his own face in the dark
+            why: >-
+              Right. Only his cheek, his ear and his neck catch the light; even his eyes are in shadow. A painter is
+              his own cheapest model, and Rembrandt painted, drew and etched himself all his life.
+          - label: Bright colour, in reds and blues
+            why: It is nearly all browns and greys. The experiment is with light.
+          - label: A disguise as a king
+            why: He did dress up in other self-portraits, but here he is plainly himself.
+          - label: A life-size, full-length figure
+            why: It is a small head and shoulders on a wooden panel.
+      - type: scrub
+        prompt: Drag the slider to a year when Rembrandt is working in Amsterdam and Rubens is still alive.
+        map: masters
+        start: 1609
+        answer: [1632, 1640]
+        explain: >-
+          Rembrandt moved to Amsterdam late in 1631; Rubens died in Antwerp in May 1640. As far as we know, the two
+          never met.
+      - type: voices
+        prompt: Rembrandt's late paintings were laid on thick. Read what two painters made of it, two centuries apart. What do they agree on?
+        voices:
+          - who: Arnold Houbraken, painter and writer
+            when: The Great Theatre of Dutch Painters, 1718 (translated)
+            text: >-
+              Seen up close, his late work "looked as if it had been smeared on with a bricklayer's trowel". In one
+              portrait the paint was so thick that "one could lift the painting up from the ground by the nose". But
+              his pieces "project powerfully even from a great distance".
+          - who: Vincent van Gogh, to his brother Theo
+            when: Letter from Nuenen, about 10 October 1885 (translated)
+            photo: jewish-bride
+            text: >-
+              That Jewish bride, "not reckoned so much", "what an intimate, what an infinitely sympathetic painting,
+              painted, with a glowing hand." "One must have died many times to paint like this."
+        options:
+          - That Rembrandt's rough late paint has great power
+          - That Rembrandt painted too quickly and carelessly
+          - That his early, smooth paintings are better
+          - That his late work should be seen up close
+        answer: 0
+        explain: >-
+          Houbraken, writing when smooth, polished painting was in fashion, still admitted that Rembrandt's thick paint worked from a
+          distance; Van Gogh, who painted thickly himself, was overwhelmed by it. Neither was writing as a neutral
+          judge: each looked at Rembrandt through his own way of painting.
+      - type: truemyth
+        statement: Van Gogh's famous words about this painting, that he would give ten years of his life to sit in front of it for a fortnight with only a crust of bread, come from his own letters.
+        visual: { kind: photo, photo: jewish-bride }
+        answer: false
+        explain: >-
+          Myth. The words come from his friend Anton Kerssemakers, who went with him to the Rijksmuseum in October
+          1885 and remembered them in a newspaper in 1912, more than twenty-five years later. In his own letter to
+          Theo, Van Gogh wrote: "One must have died many times to paint like this."
+      - type: hunt
+        prompt: Rembrandt painted the couple with a tenderness that moved Van Gogh. Find one of the man's hands, resting gently on the woman.
+        photo: jewish-bride
+        targets:
+          - [0.47, 0.46, 0.12, 0.12]
+          - [0.62, 0.34, 0.09, 0.08]
+        explain: >-
+          One hand lies on her shoulder, the other on her breast, and her fingers touch it lightly. Nobody knows who the two were: most art
+          historians think Rembrandt painted a real couple as Isaac and Rebecca from the Bible. The name "Jewish
+          Bride" was given to the painting in the 1800s.
+      - type: choice
+        prompt: Rembrandt worked on this etching of Christ healing the sick through the 1640s. It is called the Hundred Guilder Print. Why?
+        visual: { kind: photo, photo: hundred-guilder }
+        answer: 0
+        options:
+          - label: Because it sold for a hundred guilders or more, a huge price for a print
+            why: >-
+              Right. A letter of 1654 says it "has been sold various times for 100 guilders and more" in Holland, and
+              grumbles that it ought to cost 30.
+          - label: Because Rembrandt drew it on the back of a hundred-guilder note
+            why: The Republic had no paper money then. The name is about its price.
+          - label: Because it shows a hundred people
+            why: There are many, but the name is about money.
+          - label: Because Rembrandt was fined a hundred guilders for it
+            why: Rembrandt had money troubles, but not because of this print.
+      - type: choice
+        prompt: Rembrandt in 1662 and Frans Hals in 1664 both painted the governors of a city institution. Which painter makes it feel as if you have just walked in on their meeting?
+        visual: { kind: pair, pair: regents }
+        answer: 0
+        options:
+          - label: Rembrandt, whose syndics look up from their book and one half rises
+            why: >-
+              Right. The cloth inspectors of Amsterdam look up at us as if we had interrupted them, and one is rising
+              from his chair. Hals's regentesses sit still and stern, painted with fast, rough strokes by a painter in
+              his eighties who was living on an allowance from the town.
+          - label: Hals, whose women are laughing
+            why: Look at them again. Nobody is laughing in Hals's late portrait.
+          - label: Neither; both are stiff rows of faces
+            why: One of the two is anything but stiff. Look at the man rising from his chair.
+      - type: sort
+        prompt: Rembrandt or Frans Hals? Sort the paintings.
+        groups: [Rembrandt, Frans Hals]
+        items:
+          - { label: The Syndics, 1662, group: 0, photo: syndics }
+          - { label: The Night Watch, 1642, group: 0, photo: night-watch }
+          - { label: The Anatomy Lesson of Dr Tulp, 1632, group: 0, photo: anatomy-lesson }
+          - { label: The Regentesses, about 1664, group: 1, photo: regentesses }
+          - { label: The Merry Drinker, about 1628, group: 1, photo: merry-drinker }
+          - { label: The Meagre Company, 1633 to 1637, group: 1, photo: meagre-company }
+        explain: >-
+          The Meagre Company is only half by Hals. He refused to paint in Amsterdam and wanted the militiamen to come
+          to Haarlem; in the end Pieter Codde finished the painting.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Rembrandt bought a big house on the Jodenbreestraat in 1639 with a mortgage, He went bankrupt in 1656 and the house was sold]
+          - [Frans Hals would not paint in Amsterdam, Another painter finished the Meagre Company]
+          - [Hals was old and poor, Haarlem gave him 200 guilders a year from 1664]
+          - [Rembrandt had painted himself since his twenties, About 40 painted self-portraits survive]
+        explain: >-
+          Rembrandt's house is a museum today, the Rembrandthuis. The inventory of his bankruptcy lists his whole
+          collection, room by room, from Italian paintings to armour and shells.
+      - type: order
+        prompt: Put Rembrandt's life in order.
+        items:
+          - { label: He opens a studio in Leiden with Jan Lievens, year: 1625, when: '1625' }
+          - { label: He paints the Descent from the Cross for the prince, year: 1633, when: '1633' }
+          - { label: He finishes the Night Watch; Saskia dies, year: 1642, when: '1642' }
+          - { label: He goes bankrupt, year: 1656, when: '1656' }
+          - { label: He paints the Syndics, year: 1662, when: '1662' }
+          - { label: He dies in Amsterdam, year: 1669, when: '1669' }
+        explain: >-
+          Rembrandt outlived Saskia, his companion Hendrickje Stoffels and his son Titus. He was buried in a rented
+          grave in the Westerkerk, and no one knows exactly where.
+
+  - id: u17-l4
+    title: Vermeer's quiet rooms
+    icon: window
+    sources:
+      - title: "Wikipedia, Johannes Vermeer"
+        url: https://en.wikipedia.org/wiki/Johannes_Vermeer
+      - title: "Wikipedia, The Art of Painting"
+        url: https://en.wikipedia.org/wiki/The_Art_of_Painting
+      - title: "Wikipedia, The Little Street"
+        url: https://en.wikipedia.org/wiki/The_Little_Street
+      - title: "Wikipedia, Girl Reading a Letter at an Open Window"
+        url: https://en.wikipedia.org/wiki/Girl_Reading_a_Letter_at_an_Open_Window
+      - title: "Wikipedia, Han van Meegeren"
+        url: https://en.wikipedia.org/wiki/Han_van_Meegeren
+    exercises:
+      - type: story
+        title: A painter of light
+        body: >-
+          Johannes Vermeer was baptised in Delft in 1632 and spent his life there. He painted slowly, perhaps two or
+          three pictures a year, and only about 34 are accepted as his today. For two centuries he was nearly
+          forgotten, until a French critic, Théophile Thoré-Bürger, championed him in the 1860s and called him the
+          Sphinx of Delft. This is his painting about painting. Take the tour.
+        visual: { kind: painting, painting: art-of-painting }
+      - type: choice
+        prompt: The map on the wall shows the Seventeen Provinces of the Low Countries, as they were before the revolt. Vermeer painted a crease down the middle. What does it divide?
+        visual: { kind: painting, painting: art-of-painting, focus: map }
+        answer: 0
+        options:
+          - label: The north, the Dutch Republic, from the south, still ruled by Spain
+            why: >-
+              Right. The map, published by Claes Jansz Visscher in 1636, shows the Low Countries whole, but the crease
+              splits them where the war had split them. Many see a quiet comment on the divided country.
+          - label: The land from the sea
+            why: The crease runs down the land, not along the coast.
+          - label: Holland from Zeeland
+            why: It splits the whole map in two, north and south.
+          - label: The Catholic east from the Protestant west
+            why: The crease runs north to south across the middle, not east to west.
+      - type: truemyth
+        statement: Adolf Hitler bought The Art of Painting for the museum he planned in Linz.
+        visual: { kind: painting, painting: art-of-painting, focus: painter }
+        answer: true
+        explain: >-
+          True. In November 1940 Hitler's agent bought it from its Austrian owners for 1.82 million Reichsmark. It was
+          kept in the salt mine of Altaussee and rescued in 1945. Back in 1676, Vermeer's widow had tried to keep it
+          from his creditors by giving it to her mother.
+      - type: choice
+        prompt: Vermeer and Pieter de Hooch both painted Delft's houses in the late 1650s. In 2015 historians found where Vermeer's little street was, using the town's register of quay dues. Who lived in the house on the right?
+        visual: { kind: pair, pair: street, focus: passage }
+        answer: 0
+        options:
+          - label: His aunt, who sold tripe, beside a passage called the Tripe Gate
+            why: >-
+              Right. The register measured every house and passage along Delft's canals. It points to today's
+              Vlamingstraat 40 and 42, where Vermeer's aunt Ariaentgen Claes van der Minne sold tripe. His mother and
+              sister lived across the canal.
+          - label: Vermeer himself, with his eleven children
+            why: Vermeer lived with his family in his mother-in-law's house. This was family, though.
+          - label: Pieter de Hooch
+            why: De Hooch painted courtyards like this, but not this house.
+          - label: The headman of the painters' guild
+            why: Vermeer was headman of the guild himself later. The house belonged to someone else.
+      - type: choice
+        prompt: Compare the two painters' passageways. What is the difference?
+        visual: { kind: pair, pair: street, focus: passage }
+        answer: 0
+        options:
+          - label: De Hooch draws a deep, exact view through to the street; Vermeer shows little, and lets the light and the brick speak
+            why: >-
+              Right. De Hooch loved perspective, a view through one space into the next. Vermeer keeps us at a distance
+              and paints the worn brick and whitewash with grainy, dabbed paint.
+          - label: Vermeer's is full of people; De Hooch's is empty
+            why: It is the other way round. Look for the figures.
+          - label: They are exactly the same, as one copied the other
+            why: Two different painters, two different houses.
+      - type: choice
+        prompt: X-rays showed that someone, probably in the 1700s, had painted over part of this picture. What did Dresden's restorers find under the bare wall when they took the paint off, from 2018 to 2021?
+        visual: { kind: photo, photo: letter-before }
+        answer: 0
+        options:
+          - label: A painting of Cupid, the god of love
+            why: >-
+              Right. A big picture of Cupid hangs on the wall behind the girl, which tells you what kind of letter she
+              is reading. Vermeer owned a painting of Cupid much like it.
+          - label: A window onto the canal
+            why: There is already a window. The wall held a picture.
+          - label: A man hiding behind a curtain
+            why: The curtain hides nothing. The wall held a picture.
+          - label: Vermeer's signature and the date
+            why: Something much bigger was hidden there.
+      - type: hunt
+        prompt: Here is the painting restored. Vermeer painted the girl twice. Find her reflection.
+        photo: letter-after
+        targets:
+          - [0.2, 0.46, 0.18, 0.18]
+        explain: >-
+          In the open window, whose panes tilt towards her, you can see her face reflected. When the Elector of Saxony
+          bought this painting in 1742, it was thought to be a Rembrandt.
+      - type: scrub
+        prompt: Drag the slider to a year when Vermeer and Pieter de Hooch are both working in Delft.
+        map: masters
+        start: 1642
+        answer: [1653, 1660]
+        explain: >-
+          Vermeer joined the Delft guild on 29 December 1653. De Hooch was in Delft by 1652 and joined in 1655; by
+          1661 he had moved to Amsterdam.
+      - type: gap
+        prompt: After Vermeer died in December 1675, aged 43, his widow Catharina Bolnes was left with his debts. Fill the gap in her petition to his creditors.
+        quote: During the ruinous war with ___ he not only was unable to sell any of his art.
+        source: Catharina Bolnes, petition to Vermeer's creditors (translated)
+        visual: { kind: photo, photo: little-street }
+        options: [France, England, Spain, Münster]
+        answer: 0
+        explain: >-
+          France invaded the Republic in 1672, the Disaster Year, and buyers stopped buying. She said he had gone from
+          health to death in a day and a half, worn down by worry. She was left with eleven children and debts.
+      - type: truemyth
+        statement: Vermeer's papers prove he traced his pictures with a camera obscura, a dark box with a lens.
+        visual: { kind: photo, photo: little-street }
+        answer: false
+        explain: >-
+          Myth. No document says Vermeer used one. Some see the effects of a lens in his paintings, the soft
+          highlights and the way near things loom large; others think he simply looked very hard. The question is
+          still argued over.
+      - type: who
+        photo: meegeren-trial
+        clues:
+          - In 1937 the greatest Vermeer expert of the day called my Supper at Emmaus "the masterpiece of Johannes Vermeer of Delft".
+          - Hermann Göring gave 137 looted paintings for one of my Vermeers.
+          - Arrested in 1945 for selling a Dutch treasure to the enemy, I said that I had painted it myself.
+          - To prove it, I painted another under the eyes of witnesses.
+        options: [Han van Meegeren, Abraham Bredius, Hermann Göring, Johannes Vermeer]
+        answer: 0
+        explain: >-
+          Han van Meegeren, at his trial in Amsterdam in 1947. The charge of helping the enemy was dropped, and on 12
+          November 1947 he was found guilty of forgery and fraud and given a year in prison. He died in December 1947,
+          before serving it.
+      - type: choice
+        prompt: This is the forgery that fooled the experts in 1937. Look at it next to a real Vermeer. Why were they fooled?
+        visual: { kind: photo, photo: emmaus-forgery }
+        answer: 0
+        options:
+          - label: They wanted to find an early Vermeer of Bible stories, and he painted what they hoped to see
+            why: >-
+              Right. Experts had guessed that Vermeer painted religious scenes in an Italian style, and Van Meegeren
+              gave them one, aged with tricks of his own. The Rembrandt Society bought it for 520,000 guilders for the
+              Boijmans museum in Rotterdam. Today the faces look like film stars of the 1930s.
+          - label: It was painted on a real Vermeer, and showed through
+            why: He did paint on old canvases, but not on Vermeers.
+          - label: Vermeer's signature was genuine
+            why: The signature was forged too.
+          - label: Nobody had ever seen a Vermeer before
+            why: Vermeer's paintings hung in museums across Europe and America.
+
+  - id: u17-l5
+    title: A painting in every house
+    icon: goblet
+    sources:
+      - title: "John Evelyn, Diary, entry of 13 August 1641 (Project Gutenberg)"
+        url: https://www.gutenberg.org/ebooks/41218
+      - title: "Wikipedia, Jan Steen"
+        url: https://en.wikipedia.org/wiki/Jan_Steen
+      - title: "Wikipedia, Rachel Ruysch"
+        url: https://en.wikipedia.org/wiki/Rachel_Ruysch
+      - title: "Wikipedia, Willem Claesz. Heda"
+        url: https://en.wikipedia.org/wiki/Willem_Claesz._Heda
+      - title: "Wikipedia, Willem Kalf"
+        url: https://en.wikipedia.org/wiki/Willem_Kalf
+      - title: "Wikipedia, Pieter Jansz. Saenredam"
+        url: https://en.wikipedia.org/wiki/Pieter_Jansz._Saenredam
+      - title: "Wikipedia, Meindert Hobbema"
+        url: https://en.wikipedia.org/wiki/Meindert_Hobbema
+    exercises:
+      - type: story
+        title: Pictures for everyone
+        body: >-
+          In the Dutch Republic, paintings were not only for churches and palaces. Bakers, brewers and farmers bought
+          them at fairs and from dealers, and hung them at home. To sell among so many, painters specialised: one
+          painted only flowers, another only seas, another only church interiors or tavern scenes. Two still life
+          painters, a generation apart, show how far taste moved. Compare them.
+        visual: { kind: pair, pair: still-life }
+      - type: gap
+        prompt: In August 1641 the English traveller John Evelyn came to the yearly fair at Rotterdam. Fill the gap in his diary.
+        quote: >-
+          The reason of this store of pictures, and their cheapness, proceeds from their want of land to employ their
+          stock, so that it is an ordinary thing to find a common ___ lay out two or three thousand pounds in this
+          commodity.
+        source: John Evelyn, diary, 13 August 1641
+        visual: { kind: time-map, map: masters, year: 1641 }
+        options: [farmer, merchant, prince, sailor]
+        answer: 0
+        explain: >-
+          A common farmer. Evelyn was amazed at a fair "so furnished with pictures (especially landscapes and
+          drolleries, as they call those clownish representations)". He bought some and sent them home to England.
+          His sum is surely exaggerated, but visitors agreed: the Dutch bought paintings like nobody else.
+      - type: choice
+        prompt: Heda painted his table in 1635, Kalf his in 1678. Heda peeled a lemon; Kalf cut open a peach in a bowl of Chinese porcelain. Why paint fruit like this?
+        visual: { kind: pair, pair: still-life, focus: lemon }
+        answer: 0
+        options:
+          - label: To show off, since curling peel and wet, cut fruit are hard to paint
+            why: >-
+              Right. The spiral of peel, the bitter white pith, the fuzz of a peach and its glistening flesh tested a
+              painter's skill, and a buyer could see at once how good the painter was. Lemons, too, were costly
+              imports.
+          - label: Because the fruit was cheap and always on the table
+            why: Lemons came from southern Europe and were a luxury, and Kalf's porcelain came from China.
+          - label: Because the guild ordered every still life to have fruit
+            why: No guild rule said so. It was the painters' own choice.
+          - label: To stand for the House of Orange
+            why: Neither fruit is an orange. It is about skill.
+      - type: choice
+        prompt: Heda's painting is all silver, pewter and brown; Kalf's glows with a Turkish carpet, a nautilus shell cup and porcelain. What is a still life like Kalf's called?
+        visual: { kind: pair, pair: still-life, focus: cups }
+        answer: 0
+        options:
+          - label: A pronk still life, a show of costly things
+            why: >-
+              Right. Pronk means show, display. After the 1650s, as Amsterdam grew richer, buyers wanted gold, silk and
+              treasures from Asia. Heda's quiet, nearly monochrome "breakfast pieces" of the 1630s belonged to an
+              earlier, plainer taste.
+          - label: A vanitas, a warning about death
+            why: There is no skull or snuffed candle here. This one shows off.
+          - label: A breakfast piece
+            why: That is the name for Heda's simpler tables of bread, fish and drink.
+          - label: A market scene
+            why: There is no market, just a table of treasures.
+      - type: hunt
+        prompt: This is a vanitas, a still life about death. The skull is easy. Find what reminds you that time is running out.
+        photo: claesz-vanitas
+        targets:
+          - [0.28, 0.68, 0.17, 0.18]
+        explain: >-
+          The pocket watch, ticking away. With the skull, the knocked-over glass and the burned-out lamp, it says that
+          life is short and that knowledge and riches won't save you. Pieter Claesz painted it in Haarlem in the early 1630s.
+      - type: sort
+        prompt: Painters specialised. Sort the paintings by their kind.
+        groups: [Still life, Landscape, Church interior, Everyday life]
+        items:
+          - { label: "Heda, still life with a gilt goblet", group: 0, photo: heda-goblet }
+          - { label: "Ruysch, flowers on a stone ledge", group: 0, photo: ruysch-flowers }
+          - { label: "Ruisdael, the windmill at Wijk bij Duurstede", group: 1, photo: ruisdael-mill }
+          - { label: "Hobbema, the avenue at Middelharnis", group: 1, photo: hobbema-avenue }
+          - { label: "Saenredam, Saint Bavo's in Haarlem", group: 2, photo: saenredam-bavo }
+          - { label: "Steen, the feast of Saint Nicholas", group: 3, photo: steen-nicholas }
+          - { label: "Vermeer, the little street", group: 3, photo: little-street }
+        explain: >-
+          The Dutch called a picture of everyday life a drollery or a "modern figure"; English speakers later called
+          such pictures genre paintings. Most painters stayed with one kind all their lives, and buyers knew whom to go
+          to for what.
+      - type: choice
+        prompt: Saenredam measured and drew churches like this one in Haarlem. What is missing that the church had before the Reformation?
+        visual: { kind: photo, photo: saenredam-bavo }
+        answer: 0
+        options:
+          - label: Altarpieces, statues and painted walls
+            why: >-
+              Right. When Haarlem became Protestant, Saint Bavo's was stripped for Calvinist worship: whitewashed walls,
+              no altars or saints, a pulpit at the heart. Saenredam painted that white, light-filled emptiness.
+          - label: The roof
+            why: The great wooden vault is still there.
+          - label: The windows
+            why: Look at the light pouring in.
+          - label: The people
+            why: There are a few, small figures. Something bigger is missing.
+      - type: hunt
+        prompt: Jan Steen painted a family on the feast of Saint Nicholas. The good children got sweets and toys in their shoes. One boy got a birch rod instead. Find him.
+        photo: steen-nicholas
+        targets:
+          - [0.05, 0.36, 0.21, 0.46]
+        explain: >-
+          On the left, the boy cries while his sister laughs and holds up his shoe with the rod in it. In the background,
+          his grandmother is beckoning: perhaps she has a present for him after all.
+      - type: who
+        photo: steen-self
+        clues:
+          - I was a brewer's son from Leiden.
+          - I ran a brewery in Delft, without much success, and lived in Haarlem for ten years.
+          - When the art market collapsed in 1672, I opened a tavern.
+          - In Dutch, a messy, rowdy home is still called a household of mine.
+        options: [Jan Steen, Frans Hals, Gerrit Dou, Adriaen van Ostade]
+        answer: 0
+        explain: >-
+          Jan Steen, in a self-portrait playing the lute. Een huishouden van Jan Steen, a Jan Steen household, is a
+          home where everything is upside down, like the houses in his paintings. He painted about 800 pictures, and
+          about 350 survive.
+      - type: choice
+        prompt: Rachel Ruysch painted flowers for some seventy years and was court painter in Düsseldorf from 1708 to 1716. How did her prices compare with Rembrandt's?
+        visual: { kind: photo, photo: ruysch-flowers }
+        answer: 0
+        options:
+          - label: Her paintings sold for 750 to 1,200 guilders; Rembrandt rarely got more than 500
+            why: >-
+              Right. Flower pieces like hers took months, and collectors paid for the work and the rare flowers. She was
+              a mother of ten as well.
+          - label: Hers sold for a few guilders, like prints
+            why: She was one of the best-paid painters of her time.
+          - label: She was not allowed to sell her paintings, as a woman
+            why: She sold them, and joined the painters' guild of The Hague in 1701.
+      - type: cause
+        prompt: Link each cause to its effect.
+        pairs:
+          - [There was little land to buy in Holland, People with money bought paintings]
+          - [Thousands of painters competed for buyers, Each specialised in one kind of picture]
+          - [France invaded in 1672, The market for paintings collapsed]
+          - [Hobbema took a well-paid job checking wine for the city in 1668, He painted far fewer pictures]
+        explain: >-
+          Hobbema's job, as wine gauger for Amsterdam's excise, kept him for life. When he died in 1709 the great age of
+          Dutch painting was long over.
+
+  - id: u17-l6
+    title: Skies, seas and the end of an age
+    icon: cloud
+    sources:
+      - title: "Wikipedia, Hendrick Avercamp"
+        url: https://en.wikipedia.org/wiki/Hendrick_Avercamp
+      - title: "Wikipedia, Meindert Hobbema"
+        url: https://en.wikipedia.org/wiki/Meindert_Hobbema
+      - title: "Wikipedia, Willem van de Velde the Younger"
+        url: https://en.wikipedia.org/wiki/Willem_van_de_Velde_the_Younger
+      - title: "Wikipedia, Willem van de Velde the Elder"
+        url: https://en.wikipedia.org/wiki/Willem_van_de_Velde_the_Elder
+      - title: "Wikipedia, Jacob van Ruisdael"
+        url: https://en.wikipedia.org/wiki/Jacob_van_Ruisdael
+      - title: "Wikipedia, Little Ice Age"
+        url: https://en.wikipedia.org/wiki/Little_Ice_Age
+    exercises:
+      - type: story
+        title: The low land and the high sky
+        body: >-
+          Dutch painters made the flat land and its huge skies worth looking at. In 1608 Hendrick Avercamp moved from
+          Amsterdam to Kampen, on the IJssel, and painted winter on the ice again and again. His early pictures follow
+          the Flemish way of painting, brought north by the painters who fled Antwerp after 1585, and its great
+          master of winter was Bruegel. Put Bruegel's winter of 1565 next to Avercamp's.
+        visual: { kind: pair, pair: winter }
+      - type: choice
+        prompt: Bruegel looks down on his valley from a hilltop. Where does Avercamp put you?
+        visual: { kind: pair, pair: winter, focus: view }
+        answer: 0
+        options:
+          - label: At the edge of the ice, among the crowd
+            why: >-
+              Right. Avercamp still lifts you a little, so you can see over the heads, but he brings you down to the
+              ice, among hundreds of little people skating, gossiping and playing kolf. Every one is a small story.
+          - label: In a warm room, looking out of the window
+            why: There is no window. You are outside in the cold.
+          - label: On the top of a church tower
+            why: You are much lower than Bruegel's hunters, close to the ice.
+          - label: Under the ice
+            why: That would be a cold place to stand.
+      - type: hunt
+        prompt: Avercamp filled the ice with stories. Find the skater who has fallen flat on his back.
+        photo: avercamp-winter
+        targets:
+          - [0.615, 0.67, 0.05, 0.07]
+        explain: >-
+          He lies with his legs in the air and his hat on the ice, and the skaters glide past. Avercamp was mute, and probably deaf, and was
+          known as the Mute of Kampen; he watched the life on the ice very closely.
+      - type: truemyth
+        statement: Avercamp painted so many winters partly because the winters of his time were unusually cold.
+        visual: { kind: photo, photo: avercamp-winter }
+        answer: true
+        explain: >-
+          True. He was born in 1585, in one of the coldest stretches of the Little Ice Age, when rivers and canals
+          froze hard most winters. Painters and buyers loved the ice, and skating was for everyone, rich and poor.
+      - type: scrub
+        prompt: Drag the slider to a year when Avercamp is painting the ice in Kampen.
+        map: masters
+        start: 1585
+        answer: [1609, 1634]
+        explain: >-
+          He moved to Kampen in 1608 and died there in May 1634. Most of his paintings are now in the Rijksmuseum and
+          the Mauritshuis.
+      - type: pin
+        prompt: Jacob van Ruisdael set a windmill against a stormy sky, beside the river Lek. Pin the town, Wijk bij Duurstede.
+        place: wijk-bij-duurstede
+        fullKm: 10
+        okKm: 25
+        explain: >-
+          Wijk bij Duurstede, where the Lek leaves the Rhine, south-east of Utrecht. A thousand years before, it was
+          Dorestad, the great Frisian trading town. Ruisdael painted the mill around 1670.
+      - type: choice
+        prompt: Ruisdael's windmill rises against a vast sky. What makes it feel so big?
+        visual: { kind: photo, photo: ruisdael-mill }
+        answer: 0
+        options:
+          - label: He puts us low down, near the water, so the mill towers over us against the clouds
+            why: >-
+              Right. The horizon is very low, and the mill stands up out of it like a monument, with the light breaking
+              through the clouds behind it. A flat country, painted to look grand.
+          - label: He paints it from far away
+            why: We are close, almost at its foot.
+          - label: He puts mountains behind it
+            why: There are no mountains in the Netherlands. The drama is all in the sky.
+      - type: choice
+        prompt: Hobbema, Ruisdael's pupil, painted this road at Middelharnis in 1689, one of his last paintings. Why did he paint so little after 1668?
+        visual: { kind: photo, photo: hobbema-avenue }
+        answer: 0
+        options:
+          - label: He took a well-paid job as a wine gauger for Amsterdam's excise
+            why: >-
+              Right. In 1668 he married and became a wine gauger for the city, measuring the wine that was taxed. He
+              kept the job until his death in 1709, and painted now and then. Today this avenue is one of the most loved
+              paintings in the National Gallery in London.
+          - label: He went blind
+            why: He could still paint this in 1689.
+          - label: He moved to London
+            why: He lived and died in Amsterdam.
+          - label: He was banned by the guild
+            why: Nothing like that happened. He found a safer living.
+      - type: choice
+        prompt: Willem van de Velde the Younger painted warships like this, with his father, a draughtsman who went out in a small boat to draw sea battles. In 1672 or early 1673 the two moved to London. Why?
+        visual: { kind: photo, photo: cannon-shot }
+        answer: 0
+        options:
+          - label: The war of 1672 had wrecked the art market, and King Charles II offered them each £100 a year
+            why: >-
+              Right. They worked for the English king and his brother, drawing and painting sea fights for the
+              English navy. The father died in London in 1693 and the son in 1707.
+          - label: They had been banished for painting Dutch defeats
+            why: Nobody banished them. They were offered work.
+          - label: They were English
+            why: Both were born in Leiden.
+      - type: choice
+        prompt: Drag the line to wipe from 1600 to 1660. Where have the painters gone?
+        visual: { kind: compare, map: masters, years: [1600, 1660] }
+        answer: 0
+        options:
+          - label: North, to Haarlem, Leiden, Delft, Amsterdam and Utrecht
+            why: >-
+              Right. In 1600 most masters still worked in Antwerp. By 1660 the great painters of the age worked in the
+              towns of Holland and Utrecht, while in the south Jordaens carried on in Antwerp.
+          - label: South, to Antwerp and Brussels
+            why: Look again at where the workshops are in 1660.
+          - label: Abroad, to Italy and England
+            why: A few went, like Van Dyck. Most stayed in the towns of Holland.
+      - type: order
+        prompt: Put the age in order.
+        items:
+          - { label: Antwerp falls; painters move north, year: 1585, when: '1585' }
+          - { label: Avercamp moves to Kampen, year: 1608, when: '1608' }
+          - { label: Rembrandt finishes the Night Watch, year: 1642, when: '1642' }
+          - { label: Vermeer joins the Delft guild, year: 1653, when: '1653' }
+          - { label: The Disaster Year, year: 1672, when: '1672' }
+          - { label: Hobbema paints the avenue at Middelharnis, year: 1689, when: '1689' }
+        explain: >-
+          About a hundred years. By 1700 French taste ruled, and Dutch painters copied it. The Golden Age painters were
+          rediscovered in the 1800s, and Vermeer last of all.

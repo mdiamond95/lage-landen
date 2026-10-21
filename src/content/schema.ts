@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { chartIds } from '../data/charts'
 import { treeIds } from '../data/families'
+import { pairIds } from '../data/pairs'
 import { tourIds } from '../data/paintings'
 import { cellIds, rowIds } from '../data/pillars'
 import { lineIds } from '../data/roman'
@@ -51,9 +52,10 @@ const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // or Belgium's railways and coal country from 1835 to 1914, or the Congo from 1876 to 1961,
 // or Belgium in the First World War and the front in the Westhoek, both month by month,
 // or Belgium's languages and the lines the language laws drew, from 1830 to 2012, or where
-// the painters of the Low Countries worked, from 1420 to 1569.
+// the painters of the Low Countries worked, from 1420 to 1569, or where the painters of the
+// Golden Age worked, from the fall of Antwerp in 1585 to 1682.
 // `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters'] as const
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters'] as const
 // The maps of the two world wars count in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
@@ -71,7 +73,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
@@ -95,7 +97,12 @@ const FederalVisual = z.object({ kind: z.literal('federal'), show: z.enum(['regi
 // without the numbers, as the picture for a question.
 const PaintingVisual = z.object({ kind: z.literal('painting'), painting: z.enum(tourIds), focus: z.string().optional() })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual])
+// Two paintings side by side from src/data/pairs.ts, to compare two painters' ways of
+// working: both glide together to the light, the faces or the brushwork. `focus` opens
+// both zoomed in on one way of looking, by its id, as the picture for a question.
+const PairVisual = z.object({ kind: z.literal('pair'), pair: z.enum(pairIds), focus: z.string().optional() })
+
+export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({

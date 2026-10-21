@@ -1,6 +1,7 @@
 // Painting tours (`{ kind: painting }`): a big painting saved large enough to zoom deep
 // into, and the details on it worth stopping at. Unit 16 brought them in; the Ghent
-// Altarpiece is toured in Unit 4 too, and the Night Watch in Unit 6. Each stop's box is
+// Altarpiece is toured in Unit 4 too, the Night Watch in Unit 6, and Unit 17 tours a
+// Rubens and a Vermeer. Each stop's box is
 // [left, top, width, height] as fractions of the picture, the same as a detail hunt's
 // targets; the tour glides to it and fills the frame with it. A question can open a
 // painting at one stop with `focus`.
@@ -243,6 +244,81 @@ export const tours = {
         title: 'A painting cut down',
         text: 'In 1715 the painting was moved to Amsterdam’s town hall and cut down on every side to fit the wall. A strip on the left, with several figures, was lost.',
         box: [0.0, 0.36, 0.12, 0.2],
+      },
+    ],
+  },
+  // Unit 17
+  paradise: {
+    photo: 'paradise',
+    intro:
+      'Paradise with the Fall of Man, painted around 1615 by Rubens and a friend, two Antwerp masters on one panel. Tap a number, or start the tour, and zoom in as far as you like.',
+    stops: [
+      {
+        id: 'eve',
+        title: 'Adam and Eve',
+        text: 'Eve hands Adam the forbidden fruit, and he reaches for it. Their big, glowing bodies are in Rubens’s grand manner, like ancient statues come to life.',
+        box: [0.1, 0.4, 0.3, 0.5],
+      },
+      {
+        id: 'snake',
+        title: 'The snake',
+        text: 'The serpent coils round a branch of the tree of knowledge, just above the apple Eve has picked.',
+        box: [0.18, 0.1, 0.15, 0.12],
+      },
+      {
+        id: 'birds',
+        title: 'The birds',
+        text: 'Look up into the trees: blue and yellow macaws from South America, parrots and songbirds, each one painted feather by feather in tiny, exact strokes.',
+        box: [0.48, 0.18, 0.14, 0.2],
+      },
+      {
+        id: 'cats',
+        title: 'The tiger and the leopard',
+        text: 'Before the Fall there is no killing. A tiger and a leopard roll over each other at play, and the lion only watches.',
+        box: [0.72, 0.62, 0.28, 0.25],
+      },
+      {
+        id: 'peacock',
+        title: 'The peacock',
+        text: 'At Eve’s feet a peacock trails its tail over the grass, with every eye of the feathers painted, beside a white rabbit and a little dog.',
+        box: [0.26, 0.68, 0.22, 0.32],
+      },
+    ],
+  },
+  'art-of-painting': {
+    photo: 'art-of-painting',
+    intro:
+      'Vermeer’s Art of Painting, from about 1666 to 1668: a painter at work in his studio, as if a curtain had just been pulled back for you. It was still in his house when he died. Tap a number, or start the tour.',
+    stops: [
+      {
+        id: 'curtain',
+        title: 'The curtain',
+        text: 'A heavy tapestry hangs in front, pulled aside like the curtain of a stage. You are let in on something private.',
+        box: [0, 0, 0.42, 0.9],
+      },
+      {
+        id: 'painter',
+        title: 'The painter',
+        text: 'The painter sits with his back to us, in a black doublet slashed to show the white beneath, and red stockings. We never see his face. He has only just begun: on his canvas, so far, there are a few leaves of a wreath.',
+        box: [0.56, 0.42, 0.32, 0.5],
+      },
+      {
+        id: 'clio',
+        title: 'The model',
+        text: 'His model wears a crown of laurel and holds a trumpet and a big book. These are the signs of Clio, the muse of history, as an Italian handbook of symbols described her.',
+        box: [0.36, 0.38, 0.2, 0.3],
+      },
+      {
+        id: 'map',
+        title: 'The map',
+        text: 'A great wall map of the Low Countries, framed by views of their towns. Vermeer painted it so exactly that historians know which map it is, and how it was folded.',
+        box: [0.38, 0.18, 0.52, 0.32],
+      },
+      {
+        id: 'chandelier',
+        title: 'The chandelier',
+        text: 'A brass chandelier without candles, crowned with a double-headed eagle, the badge of the Habsburgs who once ruled the Low Countries. Possibly another sign of the past.',
+        box: [0.5, 0.05, 0.28, 0.2],
       },
     ],
   },

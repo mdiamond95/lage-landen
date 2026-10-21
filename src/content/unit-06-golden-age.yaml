@@ -739,6 +739,10 @@ lessons:
         url: https://whc.unesco.org/en/list/857/
       - title: "Encyclopaedia Britannica, Treaties of Nijmegen"
         url: https://www.britannica.com/event/Treaties-of-Nijmegen
+      - title: "Wikipedia, Hendrick ter Brugghen"
+        url: https://en.wikipedia.org/wiki/Hendrick_ter_Brugghen
+      - title: "Wikipedia, Gerard van Honthorst"
+        url: https://en.wikipedia.org/wiki/Gerard_van_Honthorst
     exercises:
       - type: story
         title: The south stays Catholic
@@ -767,6 +771,21 @@ lessons:
           A dog barks at the bottom left of the centre panel. Rubens painted the altarpiece for Saint
           Walburga's church. The French took it to Paris in 1794, and since its return it has hung in Antwerp
           Cathedral.
+      - type: choice
+        prompt: Look at where the painters worked in 1621, when the truce ended. Rubens is in Antwerp. Where in the north do the painters who had been to Rome, like him, work?
+        visual: { kind: time-map, map: masters, year: 1621 }
+        answer: 0
+        options:
+          - label: Utrecht
+            why: >-
+              Right. Hendrick ter Brugghen, Gerard van Honthorst and Dirck van Baburen had all worked in Rome, where
+              they saw Caravaggio's paintings, and brought his strong light and shadow home to Utrecht.
+          - label: Amsterdam
+            why: Amsterdam had many painters, but the ones home from Rome are further south-east.
+          - label: Haarlem
+            why: Haarlem is Frans Hals's town. He never went to Italy.
+          - label: Delft
+            why: Delft's great age of painting came later, with Vermeer.
       - type: choice
         prompt: The Jesuits built this church in Antwerp from 1615 to 1621, with Rubens's help. What style is it?
         visual: { kind: photo, photo: borromeus }

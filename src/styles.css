@@ -654,3 +654,13 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .tour-text { margin: 0; font-size: 0.92rem; line-height: 1.4; }
 .tour-nav { display: flex; gap: 8px; justify-content: flex-end; }
 .tour-next { background: var(--ink); color: #fff; border-color: var(--ink); }
+/* Side by side (Unit 17): two paintings that glide to matching details together */
+.pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: start; }
+.pair-side { display: grid; gap: 4px; min-width: 0; }
+.pair-label { margin: 0; font-weight: 900; font-size: 0.85rem; line-height: 1.2; }
+.pair-side .zoom-controls .zoom-btn { min-width: 32px; height: 30px; font-size: 1rem; }
+.pair-side .zoom-reset { font-size: 0.75rem; }
+.pair-looks { display: flex; flex-wrap: wrap; gap: 6px; }
+.pair-look { border: 2px solid var(--line); border-radius: 99px; background: var(--card); color: var(--ink); font-weight: 800; font-size: 0.85rem; padding: 4px 12px; cursor: pointer; }
+.pair-look.is-active { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pair-side .zoom-controls { flex-wrap: wrap; gap: 4px; }
