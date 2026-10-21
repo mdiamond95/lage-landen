@@ -1,0 +1,119 @@
+[
+ {
+  "name": "tour1954",
+  "params": {
+   "list": "search",
+   "srsearch": "Tour de France 1954 Amsterdam",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "kindermoord",
+  "params": {
+   "list": "search",
+   "srsearch": "Stop de kindermoord",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "klapschaats",
+  "params": {
+   "list": "search",
+   "srsearch": "klapschaats",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "elf1963",
+  "params": {
+   "list": "search",
+   "srsearch": "Elfstedentocht 1963",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "elf1997",
+  "params": {
+   "list": "search",
+   "srsearch": "Elfstedentocht 1997",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "ronde1913",
+  "params": {
+   "list": "search",
+   "srsearch": "Ronde van Vlaanderen 1913",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "wijnendaele",
+  "params": {
+   "list": "search",
+   "srsearch": "Karel Van Wijnendaele",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "bosman",
+  "params": {
+   "list": "search",
+   "srsearch": "Jean-Marc Bosman",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "heizel",
+  "params": {
+   "list": "search",
+   "srsearch": "Heizelstadion 1985",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "weuro2017",
+  "params": {
+   "list": "search",
+   "srsearch": "Women's Euro 2017 Netherlands",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "koppenberg1987",
+  "params": {
+   "list": "search",
+   "srsearch": "Koppenberg Ronde",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "cruijff1974",
+  "params": {
+   "list": "search",
+   "srsearch": "Cruijff 1974 Zweden",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ },
+ {
+  "name": "merckxtour",
+  "params": {
+   "list": "search",
+   "srsearch": "Merckx Tour de France 1969",
+   "srnamespace": "6",
+   "srlimit": "50"
+  }
+ }
+]
