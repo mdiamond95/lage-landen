@@ -501,7 +501,7 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
     await answer(page)
     await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
   }
-  await expect(page.locator('.results .muted')).toHaveText('Daily review')
+  await expect(page.locator('.results-hero .muted')).toHaveText('Daily review')
   await page.getByRole('button', { name: 'Continue' }).click()
   await expect(page.locator('.review .btn-primary')).toHaveText('Nothing due')
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
@@ -2633,4 +2633,34 @@ test('a finished lesson hangs its cards in the museum, room by room', async ({ p
   await playLesson(page, 'Below sea level, completed, level 1')
   await expect(page.locator('.results h1')).toBeVisible()
   await expect(page.locator('.hung-note')).toHaveCount(0)
+})
+
+test('daily quests: three a day, filled by lessons, with a bonus for each one done', async ({ page }) => {
+  await page.goto('/')
+  const card = page.locator('.quests')
+  await expect(card.locator('.quest-list li')).toHaveCount(3)
+  await expect(card.locator('.quest-list li.is-done')).toHaveCount(0)
+
+  // Set today's quests so the test knows which ones it is playing for.
+  await page.evaluate(() => {
+    const key = 'lage-landen:progress:v1'
+    const p = JSON.parse(localStorage.getItem(key)!)
+    const counts = { xp: 0, lessons: 0, pins: 0, reviewed: 0, right: 0, perfect: 0, cards: 0, crowns: 0 }
+    localStorage.setItem(key, JSON.stringify({ ...p, quests: { ...p.quests, picks: ['lesson', 'right15', 'xp60'], counts, done: [] } }))
+  })
+  await page.reload()
+  await expect(card.locator('.quest-list li').first()).toContainText('Finish a lesson')
+  await expect(card.locator('.quest-count').first()).toHaveText('0 / 1')
+
+  await playLesson(page, 'Two countries, one delta')
+  const note = page.locator('.quest-note', { hasText: 'Finish a lesson' })
+  await expect(note.locator('.quest-bonus')).toHaveText('+10 XP')
+  const xp = Number((await page.locator('.tile-xp .tile-value').textContent())!.slice(1))
+  const done = await page.locator('.quest-note').count()
+  await page.getByRole('button', { name: 'Continue' }).click()
+
+  await expect(card.locator('.quest-list li').first()).toHaveClass(/is-done/)
+  await expect(card.locator('.quest-count').first()).toHaveText('1 / 1')
+  await expect(card.locator('.quest-list li.is-done')).toHaveCount(done)
+  await expect(page.locator('.stat-xp')).toHaveText(String(xp + 10 * done))
 })

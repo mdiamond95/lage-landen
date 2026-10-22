@@ -5,7 +5,9 @@ import type { Exercise, Lesson } from './content/schema'
 import { LessonPlayer, type LessonOutcome } from './lesson/LessonPlayer'
 import { lessonXp } from './lesson/scoring'
 import { dueToday, pickReview } from './progress/review'
-import { getProgress, recordSession, todayKey } from './progress/store'
+import { ensureQuests, getProgress, recordSession, todayKey } from './progress/store'
+import { canToday } from './content/today'
+import type { QuestId } from './progress/quests'
 import { buildLegendary, buildLevel, hasLegendary, legendaryId, timeLimit } from './content/levels'
 import { GATE, lessonLevel, unitMastered, unitsAfter } from './progress/path'
 import { legendaryCrown, lessonCrown, type CrownNote } from './progress/crowns'
@@ -72,7 +74,7 @@ type Screen =
   | { name: 'placement' }
   | { name: 'museum' }
   | { name: 'lesson'; playing: Playing }
-  | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number; crown?: CrownNote; gate?: GateNote; hung?: Hung[] }
+  | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number; crown?: CrownNote; gate?: GateNote; hung?: Hung[]; quests?: QuestId[] }
 
 // Today's review: up to ten due questions from the lessons finished so far.
 const buildReview = (): Playing => {
@@ -170,11 +172,16 @@ export default function App() {
             : legendary
               ? legendaryCrown(legendary.number, right, playing.exercises.length, !!outcome.timedOut)
               : undefined
-          recordSession({
+          const passed = !!legendary && !!crown && 'passed' in crown && crown.passed === true
+          ensureQuests(canToday(getProgress()))
+          const quests = recordSession({
+            kind: playing.id === REVIEW_ID ? 'review' : legendary ? 'legendary' : checkpoint ? 'checkpoint' : 'lesson',
+            hung: hung?.length,
+            crowned: level ? !!crown && crown.level > level.before : passed,
             lessonId: playing.id === REVIEW_ID || legendary ? undefined : playing.id,
             level: level ? crown?.level : undefined,
             score,
-            legendary: legendary && crown && 'passed' in crown && crown.passed ? legendary.unit : undefined,
+            legendary: passed ? legendary.unit : undefined,
             xp,
             perfect: outcome.mistakes === 0,
             places: outcome.places,
@@ -183,7 +190,7 @@ export default function App() {
               return card ? [[card.id, correct] as [string, boolean]] : []
             }),
           })
-          setScreen({ name: 'results', playing, outcome, xp, crown, gate, hung })
+          setScreen({ name: 'results', playing, outcome, xp, crown, gate, hung, quests })
         }}
       />
     )
@@ -194,7 +201,7 @@ export default function App() {
   if (screen.name === 'placement') return <Placement units={units} onBack={home} />
   if (screen.name === 'museum') return <Museum onBack={home} />
   if (screen.name === 'results') {
-    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} crown={screen.crown} gate={screen.gate} hung={screen.hung} onMuseum={() => setScreen({ name: 'museum' })} onDone={home} />
+    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} crown={screen.crown} gate={screen.gate} hung={screen.hung} quests={screen.quests} onMuseum={() => setScreen({ name: 'museum' })} onDone={home} />
   }
   return (
     <Home

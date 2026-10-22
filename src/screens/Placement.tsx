@@ -54,6 +54,7 @@ export function Placement({ units, onBack }: { units: Unit[]; onBack: () => void
           const correct = outcome.answers.filter(([, right]) => right).length
           const passed = placementPassed(correct)
           recordSession({
+            kind: 'placement',
             placed: passed ? unit.id : undefined,
             xp: lessonXp(outcome.mistakes, outcome.bonuses),
             perfect: outcome.mistakes === 0,
