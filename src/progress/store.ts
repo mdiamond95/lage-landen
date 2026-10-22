@@ -156,6 +156,9 @@ export const getProgress = () => state
 
 export const resetProgress = () => save(empty)
 
+// Loading a progress file replaces everything on the device.
+export const replaceProgress = (p: Progress) => save({ ...empty, ...p })
+
 export const useProgress = () =>
   useSyncExternalStore(
     (l) => {

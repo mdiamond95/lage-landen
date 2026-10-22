@@ -2664,3 +2664,38 @@ test('daily quests: three a day, filled by lessons, with a bonus for each one do
   await expect(card.locator('.quest-list li.is-done')).toHaveCount(done)
   await expect(page.locator('.stat-xp')).toHaveText(String(xp + 10 * done))
 })
+
+test('progress saves to a file and loads back, after a check', async ({ page }) => {
+  await page.goto('/')
+  await playLesson(page, 'Two countries, one delta')
+  await page.getByRole('button', { name: 'Continue' }).click()
+  const xp = await page.locator('.stat-xp').textContent()
+  const card = page.getByRole('region', { name: 'Your progress' })
+
+  const saving = page.waitForEvent('download')
+  await card.getByRole('button', { name: 'Save to a file' }).click()
+  const file = await saving
+  expect(file.suggestedFilename()).toMatch(/^lage-landen-progress-\d{4}-\d{2}-\d{2}\.json$/)
+  const path = await file.path()
+
+  // A fresh device, then the file.
+  await page.evaluate(() => localStorage.clear())
+  await page.reload()
+  await expect(page.locator('.stat-xp')).toHaveText('0')
+  await card.locator('input[type="file"]').setInputFiles({ name: 'notes.json', mimeType: 'application/json', buffer: Buffer.from('{"hello": 1}') })
+  await expect(card.getByRole('alert')).toHaveText('That file isn’t a Lage Landen progress file.')
+
+  await card.locator('input[type="file"]').setInputFiles(path)
+  const check = card.getByRole('alertdialog', { name: 'Replace your progress?' })
+  await expect(check).toContainText(`The file, saved on`)
+  await expect(check).toContainText(`${xp} XP, 1 lesson or checkpoint finished`)
+  await expect(check).toContainText('This device now: 0 XP')
+  await check.getByRole('button', { name: "Keep what's here" }).click()
+  await expect(page.locator('.stat-xp')).toHaveText('0')
+
+  await card.locator('input[type="file"]').setInputFiles(path)
+  await check.getByRole('button', { name: 'Replace my progress' }).click()
+  await expect(card.getByRole('status')).toHaveText('Progress loaded from the file.')
+  await expect(page.locator('.stat-xp')).toHaveText(xp!)
+  await expect(page.getByRole('button', { name: 'Two countries, one delta, completed, level 1', exact: true })).toBeVisible()
+})
