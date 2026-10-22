@@ -6,7 +6,7 @@ import { throughTimeStory } from '../data/throughTime'
 import { places } from '../content/places'
 import type { Unit } from '../content/schema'
 import { LowlandsMap } from '../map/LowlandsMap'
-import { checkpointOpen, crownCount, legendaryOpen, lessonLevel, lessonOpen } from '../progress/path'
+import { checkpointOpen, crownCount, GATE, legendaryOpen, lessonLevel, lessonOpen, unitOpen, unitsAfter } from '../progress/path'
 import { hasLegendary, legendaryId } from '../content/levels'
 import { dueToday, nextDue, REVIEW_SIZE } from '../progress/review'
 import { streakAlive, todayKey, useProgress } from '../progress/store'
@@ -138,10 +138,16 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
         const ids = unit.lessons.map((l) => l.id)
         const placed = progress.placed.includes(unit.id)
         const cp = checkpointId(unit)
-        const cpOpen = checkpointOpen(progress, unit)
+        // The mastery gate: until the unit before is mastered, every node stays locked.
+        const gateOpen = unitOpen(progress, unit, units)
+        const before = units.find((u) => !gateOpen && unitsAfter(u, units).includes(unit))
+        const cpOpen = gateOpen && checkpointOpen(progress, unit)
         const allDone = ids.every((id) => progress.completed[id])
+        const cpScore = progress.completed[cp] ? (progress.completed[cp].score ?? 1) : undefined
+        const cpPassed = cpScore !== undefined && cpScore >= GATE
+        const next = unitsAfter(unit, units)
         return (
-          <section key={unit.id} className="unit">
+          <section key={unit.id} className={`unit ${gateOpen ? '' : 'is-gated'}`}>
             <div className="unit-banner">
               <p className="eyebrow light">
                 Unit {unit.number} · {unit.era}
@@ -149,12 +155,17 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
               </p>
               <h2>{unit.title}</h2>
               <p>{unit.summary}</p>
+              {before && (
+                <p className="gate-line">
+                  <Icon name="lock" /> Opens when the Unit {before.number} checkpoint is passed with {Math.round(GATE * 100)}%, or test out with the placement test.
+                </p>
+              )}
             </div>
             <ol className="path">
               {unit.lessons.map((lesson, i) => {
                 const done = !!progress.completed[lesson.id]
                 const level = lessonLevel(progress, unit, lesson.id)
-                const open = lessonOpen(progress, unit, i)
+                const open = gateOpen && lessonOpen(progress, unit, i)
                 // The next lesson in order; a placed unit has every lesson open but one "Start".
                 const current = open && !done && ids.slice(0, i).every((id) => progress.completed[id])
                 return (
@@ -185,14 +196,22 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
               <li className="path-node offset-0">
                 <button
                   type="button"
-                  className={`node checkpoint ${progress.completed[cp] ? 'done' : allDone ? 'current' : cpOpen ? '' : 'locked'}`}
+                  className={`node checkpoint ${cpPassed ? 'done' : cpOpen && (allDone || cpScore !== undefined) ? 'current' : cpOpen ? '' : 'locked'}`}
                   disabled={!cpOpen}
                   onClick={() => onStart(cp)}
                   aria-label={`Unit ${unit.number} checkpoint${cpOpen ? '' : ', locked'}`}
                 >
                   <Icon name={cpOpen ? 'trophy' : 'lock'} />
                 </button>
-                <span className="node-label">Checkpoint: 10 mixed questions</span>
+                <span className="node-label">
+                  Checkpoint: 10 mixed questions
+                  {!cpPassed && next.length > 0 && (
+                    <span className="node-hint">
+                      {cpScore !== undefined ? `Best ${Math.round(cpScore * 100)}%. ` : ''}
+                      {Math.round(GATE * 10)} of 10 right opens {next.map((u) => `Unit ${u.number}`).join(' and ')}
+                    </span>
+                  )}
+                </span>
               </li>
               {hasLegendary(unit) && (
                 <li className="path-node offset-0">

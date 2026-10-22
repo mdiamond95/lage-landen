@@ -1208,3 +1208,14 @@ button.comic-panel { cursor: pointer; }
 .crown-head { font-weight: 900; }
 .lesson-clock { flex: none; min-width: 3.2em; text-align: right; font-weight: 900; font-variant-numeric: tabular-nums; color: #7a4fc4; }
 .lesson-clock.is-low { color: var(--red); }
+
+/* The mastery gate: a unit not yet open says which checkpoint opens it, and the results
+   of a checkpoint say whether it opened the next unit. */
+.gate-line { display: flex; gap: 6px; align-items: flex-start; margin-top: 8px !important; font-weight: 700; font-size: 0.85rem; }
+.gate-line .icon { width: 16px; height: 16px; flex: none; margin-top: 2px; }
+.unit.is-gated .unit-banner { background: #5b6475; box-shadow: 0 4px 0 #444b58; }
+.gate-note { display: flex; gap: 12px; align-items: center; text-align: left; background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.gate-note.is-open { border-color: var(--green); }
+.gate-note > .icon { width: 32px; height: 32px; flex: none; color: var(--ink-soft); }
+.gate-note.is-open > .icon { color: var(--green); }
+.gate-note p { margin: 0; }

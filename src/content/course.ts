@@ -35,3 +35,12 @@ export const courseOutline = [
     [26, 'How the countries work today'],
   ] },
 ] as const
+
+// The unit before each one on the path, whose checkpoint opens it. History is one trunk
+// to 1830 that forks after Unit 9 into the Dutch and Belgian tracks; culture is a
+// track of its own, open from the start alongside history.
+export const previousUnit: Record<number, number | undefined> = Object.fromEntries(
+  courseOutline.flatMap((track, t) =>
+    track.units.map(([n], i) => [n, i > 0 ? track.units[i - 1][0] : t === 1 || t === 2 ? 9 : undefined]),
+  ),
+)

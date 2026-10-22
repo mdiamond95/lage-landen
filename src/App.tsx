@@ -7,7 +7,7 @@ import { lessonXp } from './lesson/scoring'
 import { dueToday, pickReview } from './progress/review'
 import { getProgress, recordSession, todayKey } from './progress/store'
 import { buildLegendary, buildLevel, hasLegendary, legendaryId, timeLimit } from './content/levels'
-import { lessonLevel } from './progress/path'
+import { GATE, lessonLevel, unitMastered, unitsAfter } from './progress/path'
 import { legendaryCrown, lessonCrown, type CrownNote } from './progress/crowns'
 import { Home } from './screens/Home'
 import { Results } from './screens/Results'
@@ -20,6 +20,31 @@ import { soundsUsed } from './sounds/used'
 
 // `note` is a content note shown first; `calm` plays without celebrations, for
 // lessons on painful subjects and any review or checkpoint that draws on them.
+// What a checkpoint did at the mastery gate, for the results screen.
+type GateNote = { passed: boolean; head: string; detail: string }
+
+const listNames = (us: { number: number }[]) => us.map((u) => `Unit ${u.number}`).join(' and ')
+
+const gateNote = (unitId: string, right: number, asked: number, wasMastered: boolean): GateNote => {
+  const unit = units.find((u) => u.id === unitId)!
+  const next = unitsAfter(unit, units)
+  const need = Math.ceil(GATE * asked)
+  const tally = `${right} of ${asked} right first time`
+  if (right >= need)
+    return {
+      passed: true,
+      head: next.length && !wasMastered ? `${listNames(next)} ${next.length > 1 ? 'are' : 'is'} open` : `Unit ${unit.number} mastered`,
+      detail: next.length ? `${tally}: ${need} open the next unit.` : `${tally}, at the end of its track.`,
+    }
+  return {
+    passed: false,
+    head: wasMastered ? `Unit ${unit.number} stays mastered` : `${need} of ${asked} needed`,
+    detail: wasMastered
+      ? `${tally} this time; your earlier pass still counts.`
+      : `${tally}. ${need} ${next.length ? `open ${listNames(next)}` : 'master the unit'}: take the checkpoint again whenever you like.`,
+  }
+}
+
 // A lesson carries the crown level it is played for; a Legendary challenge its unit
 // and the seconds on its clock.
 type Playing = {
@@ -31,6 +56,7 @@ type Playing = {
   calm?: boolean
   retry?: boolean
   level?: { before: number; target: number; legendary: boolean }
+  checkpoint?: string
   legendary?: { unit: string; number: number; seconds: number }
 }
 
@@ -42,7 +68,7 @@ type Screen =
   | { name: 'drill' }
   | { name: 'placement' }
   | { name: 'lesson'; playing: Playing }
-  | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number; crown?: CrownNote }
+  | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number; crown?: CrownNote; gate?: GateNote }
 
 // Today's review: up to ten due questions from the lessons finished so far.
 const buildReview = (): Playing => {
@@ -68,6 +94,7 @@ const resolve = (id: string): Playing | undefined => {
     return {
       id,
       title: `Unit ${cp.number} checkpoint`,
+      checkpoint: cp.id,
       exercises: buildCheckpoint(cp),
       sources: cp.lessons.flatMap((l) => l.sources),
       note: cp.note,
@@ -127,7 +154,11 @@ export default function App() {
         onFinish={(outcome) => {
           const xp = lessonXp(outcome.mistakes, outcome.bonuses)
           const right = outcome.answers.filter(([, ok]) => ok).length
-          const { level, legendary } = playing
+          const { level, legendary, checkpoint } = playing
+          const score = checkpoint ? right / Math.max(1, outcome.answers.length) : undefined
+          const gate = checkpoint
+            ? gateNote(checkpoint, right, outcome.answers.length, unitMastered(getProgress(), units.find((u) => u.id === checkpoint)!))
+            : undefined
           const crown = level
             ? lessonCrown(level.before, level.target, right, outcome.answers.length, level.legendary)
             : legendary
@@ -136,6 +167,7 @@ export default function App() {
           recordSession({
             lessonId: playing.id === REVIEW_ID || legendary ? undefined : playing.id,
             level: level ? crown?.level : undefined,
+            score,
             legendary: legendary && crown && 'passed' in crown && crown.passed ? legendary.unit : undefined,
             xp,
             perfect: outcome.mistakes === 0,
@@ -145,7 +177,7 @@ export default function App() {
               return card ? [[card.id, correct] as [string, boolean]] : []
             }),
           })
-          setScreen({ name: 'results', playing, outcome, xp, crown })
+          setScreen({ name: 'results', playing, outcome, xp, crown, gate })
         }}
       />
     )
@@ -155,7 +187,7 @@ export default function App() {
   if (screen.name === 'drill') return <MapDrill onBack={home} />
   if (screen.name === 'placement') return <Placement units={units} onBack={home} />
   if (screen.name === 'results') {
-    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} crown={screen.crown} onDone={home} />
+    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} crown={screen.crown} gate={screen.gate} onDone={home} />
   }
   return (
     <Home

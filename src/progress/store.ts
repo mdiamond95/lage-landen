@@ -8,8 +8,9 @@ export type Progress = {
   lastDay: string | null
   freezeWeek: string | null
   // Finished lessons and checkpoints; a lesson's `level` (1 to 4) is its crown level,
-  // 1 when left out (progress saved before crowns).
-  completed: Record<string, { bestXp: number; perfect: boolean; level?: number }>
+  // 1 when left out (progress saved before crowns), and a checkpoint's `score` its best
+  // share of first tries right (left out for checkpoints finished before the gate).
+  completed: Record<string, { bestXp: number; perfect: boolean; level?: number; score?: number }>
   discovered: string[]
   // Review cards by id (see content/cards.ts), for the daily review.
   cards: Record<string, Card>
@@ -71,12 +72,14 @@ export const nextStreak = (p: Progress, now: Date): Pick<Progress, 'streak' | 'l
 
 // One finished lesson, checkpoint, review, placement block or Legendary challenge.
 // `lessonId` is left out for the last three, which count for the streak and XP but
-// aren't steps on the path; `level` is the crown level a lesson reached, `placed` the
+// aren't steps on the path; `level` is the crown level a lesson reached, `score` a
+// checkpoint's share of first tries right, `placed` the
 // unit a placement block opened and `legendary` the unit whose challenge was passed.
 // Each question answered (first tries only) moves its review card.
 export type Session = {
   lessonId?: string
   level?: number
+  score?: number
   placed?: string
   legendary?: string
   xp: number
@@ -87,7 +90,7 @@ export type Session = {
 
 const addOnce = (list: string[], id: string | undefined) => (id && !list.includes(id) ? [...list, id] : list)
 
-export const recordSession = ({ lessonId, level = 1, placed, legendary, xp, perfect, places, answers }: Session, now = new Date()) => {
+export const recordSession = ({ lessonId, level = 1, score, placed, legendary, xp, perfect, places, answers }: Session, now = new Date()) => {
   const today = dayKey(now)
   const cards = { ...state.cards }
   for (const [id, correct] of answers) cards[id] = schedule(cards[id], correct, today)
@@ -99,7 +102,13 @@ export const recordSession = ({ lessonId, level = 1, placed, legendary, xp, perf
     completed: lessonId
       ? {
           ...state.completed,
-          [lessonId]: { bestXp: Math.max(prev?.bestXp ?? 0, xp), perfect: (prev?.perfect ?? false) || perfect, level: Math.max(prev ? (prev.level ?? 1) : 0, level) },
+          [lessonId]: {
+            bestXp: Math.max(prev?.bestXp ?? 0, xp),
+            perfect: (prev?.perfect ?? false) || perfect,
+            level: Math.max(prev ? (prev.level ?? 1) : 0, level),
+            // A checkpoint finished before the gate counts as passed.
+            ...(score !== undefined && { score: Math.max(prev ? (prev.score ?? 1) : 0, score) }),
+          },
         }
       : state.completed,
     discovered: [...new Set([...state.discovered, ...places])],

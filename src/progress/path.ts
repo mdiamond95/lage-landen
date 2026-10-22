@@ -1,4 +1,6 @@
 import type { Unit } from '../content/schema'
+import { checkpointId } from '../content/checkpoint'
+import { previousUnit } from '../content/course'
 import { hasLegendary, LEGENDARY_LEVEL } from '../content/levels'
 import type { Progress } from './store'
 
@@ -35,3 +37,32 @@ export const legendaryOpen = (p: Crowned, unit: Unit) =>
 // Crowns in all: one for every level of every lesson.
 export const crownCount = (p: Crowned, units: Unit[]) =>
   units.reduce((sum, u) => sum + u.lessons.reduce((s, l) => s + lessonLevel(p, u, l.id), 0), 0)
+
+// The mastery gate: a checkpoint passed with 80% opens the next unit.
+export const GATE = 0.8
+
+type Gated = Pick<Progress, 'completed' | 'placed'>
+
+// A unit counts as mastered when its checkpoint was passed (one finished before the
+// gate counts) or the placement test opened it.
+export const unitMastered = (p: Gated, unit: Unit) => {
+  const cp = p.completed[checkpointId(unit)]
+  return p.placed.includes(unit.id) || (!!cp && (cp.score ?? 1) >= GATE)
+}
+
+// A unit is open when it starts a track, when the unit before it is mastered, or when
+// the learner has already started it (so no progress from before the gate is shut).
+export const unitOpen = (p: Gated, unit: Unit, units: Unit[]) => {
+  const before = previousUnit[unit.number]
+  const prev = units.find((u) => u.number === before)
+  return (
+    !prev ||
+    unitMastered(p, prev) ||
+    p.placed.includes(unit.id) ||
+    !!p.completed[checkpointId(unit)] ||
+    unit.lessons.some((l) => p.completed[l.id])
+  )
+}
+
+// The units a passed checkpoint opens: the next in its track, or both after Unit 9.
+export const unitsAfter = (unit: Unit, units: Unit[]) => units.filter((u) => previousUnit[u.number] === unit.number)
