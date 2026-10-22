@@ -39,6 +39,9 @@ import { feastStory } from '../data/feastMap'
 import { sportStory } from '../data/sport'
 import { popStory } from '../data/pop'
 import { scienceStory } from '../data/science'
+import { stateStory } from '../data/state'
+import { provinceIds, provinces, provincesOf } from '../data/provinces'
+import { chamberIds, chambers, MAJORITY, SEATS, cabinetSeats } from '../data/seats'
 import { areaOf, courses, greatCircleKm, rhumb, shapeIds, shapes } from '../data/projections'
 import { routes as raceRoutes } from '../data/routes'
 import { DAYS, daysOff, feastIds, feasts, spanOf } from '../data/feasts'
@@ -88,6 +91,7 @@ const isVisual = (e: Exercise) =>
   e.type === 'when' ||
   e.type === 'panels' ||
   e.type === 'truesize' ||
+  e.type === 'drill' ||
   (e.type === 'pick' && (e.visual !== undefined || e.items.every((i) => i.photo)))
 
 describe.each(files)('%s', (file) => {
@@ -518,6 +522,87 @@ describe('thinkers and scientists time map', () => {
   })
 })
 
+describe('state time map', () => {
+  const { min, max, events, sites, labels, areas = [] } = stateStory
+  const inFrame = ([lon, lat]: [number, number]) => lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6
+
+  it('puts every mark and label in the frame, each named once', () => {
+    for (const s of sites) expect(inFrame(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+    expect(new Set(sites.map((s) => s.name)).size, 'site names are unique').toBe(sites.length)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels, ...areas]) {
+      const name = 'text' in item ? item.text : item.name
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
+  })
+
+  it('draws every province once in each year, from real province shapes', () => {
+    for (const year of starts()) {
+      const drawn = areas.filter((a) => activeAt(year, a) && a.kind !== 'sea' && a.kind !== 'outside').flatMap((a) => a.regions ?? [])
+      for (const id of drawn) expect(regionIds.provinces.has(id), id).toBe(true)
+      expect([...drawn].sort(), `${year}`).toEqual([...provinceIds].sort())
+    }
+  })
+  function starts() {
+    return events.map((e) => e.from)
+  }
+})
+
+// The provinces of Unit 26: every one on the map, with a flag of its own, and the right count
+// for each country.
+describe('provinces', () => {
+  it('match the provinces of the map, twelve Dutch and ten Belgian, and Brussels', () => {
+    expect([...provinceIds].sort()).toEqual([...regionIds.provinces].sort())
+    expect(provincesOf('NLD')).toHaveLength(12)
+    expect(provincesOf('BEL')).toHaveLength(11)
+    expect(provinceIds.filter((id) => provinces[id].part === 'brussels')).toEqual(['BE-BRU'])
+  })
+
+  it('each fly a credited flag of their own, with no name in its description', () => {
+    const flags = provinceIds.map((id) => provinces[id].flag)
+    expect(new Set(flags).size).toBe(flags.length)
+    for (const id of provinceIds) {
+      const p = provinces[id]
+      expect(credits[p.flag], p.flag).toBeDefined()
+      // The flag drill shows only the flag: its alt text must not name the province.
+      expect(credits[p.flag].alt, p.flag).not.toContain(p.name.split(' ').pop()!)
+    }
+  })
+
+  it('have their capitals inside the frame and real numbers', () => {
+    for (const id of provinceIds) {
+      const [lon, lat] = provinces[id].at
+      expect(lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6, id).toBe(true)
+      expect(provinces[id].pop, id).toBeGreaterThan(200_000)
+      expect(provinces[id].area, id).toBeGreaterThan(150)
+    }
+  })
+})
+
+describe('seat charts', () => {
+  it('fill exactly 150 seats, and name the government that was formed', () => {
+    for (const id of chamberIds) {
+      const c = chambers[id]
+      expect(c.parties.reduce((n, p) => n + p.seats, 0), id).toBe(SEATS)
+      expect(new Set(c.parties.map((p) => p.name)).size, id).toBe(c.parties.length)
+      expect(cabinetSeats(c), id).toBeGreaterThan(0)
+    }
+    // The Jetten cabinet is a minority; the De Wever government has a majority.
+    expect(cabinetSeats(chambers['tk-2025'])).toBe(66)
+    expect(cabinetSeats(chambers['be-2024'])).toBe(82)
+    expect(cabinetSeats(chambers['be-2024'])).toBeGreaterThanOrEqual(MAJORITY)
+  })
+})
+
 // The projection explorer (Unit 25): a shape's drawn outline must match its real size, or the
 // true-size questions would teach a wrong answer. World-atlas outlines are coarse, so allow 6%.
 describe('projection explorer', () => {
@@ -735,6 +820,7 @@ describe('time maps in lessons', () => {
     sport: sportStory,
     pop: popStory,
     science: scienceStory,
+    state: stateStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -765,6 +851,7 @@ describe('time maps in lessons', () => {
     sport: [sportStory.min, sportStory.max],
     pop: [popStory.min, popStory.max],
     science: [scienceStory.min, scienceStory.max],
+    state: [stateStory.min, stateStory.max],
   }
 
   it('open at years inside their slider', () => {

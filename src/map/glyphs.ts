@@ -55,3 +55,14 @@ export const scienceGlyphs = {
   prize: 'M-4-8h3l1 3.5L1-8h3L1.5-2.6A4.6 4.6 0 1 1-1.5-2.6zM0-1.3a3.3 3.3 0 1 0 .01 0z',
 } as const
 export type ScienceGlyph = keyof typeof scienceGlyphs
+
+// The marks of the state (Unit 26), on the state map: a columned front for a seat of government,
+// scales for an international court, a rolled treaty with its seal, and a star for the European
+// institutions and NATO.
+export const stateGlyphs = {
+  seat: 'M0-7.5 7.5-3.5H-7.5zM-6.5-2.5h13v1.3h-13zM-5.8-.6h2v5h-2zM-1-.6h2v5h-2zM3.8-.6h2v5h-2zM-7.5 5h15v2h-15z',
+  court: 'M-.7-7.5h1.4v12.5H3V6.5h-6V5h2.3zM-6.5-4.5h13v1.2h-13zM-5.5-3.3l-2.5 5h5zM5.5-3.3l-2.5 5h5zM-7.8 1.9a2.3 1.3 0 0 0 4.6 0zM3.2 1.9a2.3 1.3 0 0 0 4.6 0z',
+  treaty: 'M-5.5-7.5h11v15h-11zM-3.5-4.5h7v1.2h-7zM-3.5-1.8h7v1.2h-7zM-3.5.9h7v1.2h-7zM-3.5 3.6h4v1.2h-4z',
+  hq: 'M0-7.5 2.2-2.4 7.5-2l-4.1 3.5 1.3 5.3L0 3.9-4.7 6.8l1.3-5.3L-7.5-2l5.3-.4z',
+}
+export type StateGlyph = keyof typeof stateGlyphs

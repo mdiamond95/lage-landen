@@ -485,9 +485,9 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .cause-heads span:last-child::before { content: '→ '; }
 
 /* Daily review and the time map */
-.review, .timemap-teaser, .phrasebook-teaser { display: grid; gap: 12px; }
-.review h2, .timemap-teaser h2, .phrasebook-teaser h2 { margin: 0 0 4px; }
-.review p, .timemap-teaser p, .phrasebook-teaser p { margin: 0; color: var(--ink-soft); }
+.review, .timemap-teaser, .phrasebook-teaser, .drill-teaser { display: grid; gap: 12px; }
+.review h2, .timemap-teaser h2, .phrasebook-teaser h2, .drill-teaser h2 { margin: 0 0 4px; }
+.review p, .timemap-teaser p, .phrasebook-teaser p, .drill-teaser p { margin: 0; color: var(--ink-soft); }
 .review .btn-primary:disabled { opacity: 0.55; cursor: default; box-shadow: none; }
 .time-travel { max-width: 640px; margin: 0 auto; padding-bottom: 32px; }
 .time-travel-title { margin: 0; font-size: 1.25rem; }
@@ -1083,3 +1083,80 @@ button.comic-panel { cursor: pointer; }
 .key-prize { width: 11px; height: 11px; background: #d4a017; border: 1.5px solid #5a4300; border-radius: 50%; }
 .hist-line.hist-survey { stroke: #1f3a6e; stroke-width: 2.2; stroke-dasharray: 2 4; }
 .key-survey { width: 16px; height: 0; border-top: 2.5px dotted #1f3a6e; }
+
+/* Unit 26: how the countries work today. The province explorer and drill colour the Netherlands
+   orange, Flanders yellow, Wallonia red and Brussels blue; in a drill a right answer turns green, a
+   missed one orange and a wrong tap red. */
+.province-map { margin: 0; display: grid; gap: 10px; }
+.prov { stroke: #fff; stroke-width: 1; cursor: pointer; transition: fill 0.25s, opacity 0.25s; }
+.prov:focus-visible { outline: none; stroke: var(--ink); stroke-width: 2.5; }
+.prov:hover { filter: brightness(0.95); }
+.prov-netherlands { fill: #f9c58d; }
+.prov-flanders { fill: #f7dc6f; }
+.prov-wallonia { fill: #f1aa9b; }
+.prov-brussels { fill: #a9c4ea; }
+.prov-off { fill: var(--land); stroke: #c9c1ae; stroke-width: 0.6; cursor: default; pointer-events: none; }
+.prov.is-dim { opacity: 0.45; }
+.prov.is-selected { stroke: var(--ink); stroke-width: 2.5; }
+.province-drill .prov { fill: #e6dccb; }
+.province-drill .prov.is-right { fill: var(--green); }
+.province-drill .prov.is-missed { fill: var(--orange); }
+.province-drill .prov.is-wrong { fill: var(--red); }
+.prov-capital { fill: var(--ink); stroke: #fff; stroke-width: 1.2; pointer-events: none; }
+.prov-capital.is-on { fill: var(--red); }
+.prov-label { font-size: 17px; font-weight: 800; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+.prov-label-small { font-size: 12px; }
+.province-flag { width: 120px; height: auto; border-radius: 4px; border: 1px solid var(--line); }
+.province-facts { font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); }
+.drill { display: grid; gap: 10px; }
+.drill-clue { display: grid; justify-items: center; gap: 6px; text-align: center; min-height: 64px; }
+.drill-clue p { margin: 0; }
+.drill-ask { font-weight: 900; font-size: 1.1rem; }
+.drill-count { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); }
+.drill-said { font-size: 0.9rem; color: var(--ink-soft); }
+.drill-flag { width: 140px; height: auto; border-radius: 4px; border: 1px solid var(--line); }
+
+.seat-chart { margin: 0; display: grid; gap: 8px; }
+.seat-chart svg { width: 100%; height: auto; }
+.seat { stroke: #fff; stroke-width: 1; transition: opacity 0.25s; }
+.seat.is-dim { opacity: 0.15; }
+.seat-total { font-size: 26px; font-weight: 900; fill: var(--ink); }
+.seat-sub { font-size: 15px; font-weight: 700; fill: var(--ink-soft); }
+.seat-chart figcaption { display: grid; gap: 8px; font-size: 0.9rem; }
+.seat-title { margin: 0; font-weight: 800; }
+.seat-parties { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+.seat-parties button { display: flex; align-items: center; gap: 6px; border: 2px solid var(--line); background: var(--card); border-radius: 10px; padding: 4px 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer; color: var(--ink); }
+.seat-parties button.is-on { border-color: var(--ink); background: var(--delft-soft); }
+.seat-parties .key-swatch { width: 10px; height: 10px; border-radius: 50%; }
+.seat-side { font-weight: 600; color: var(--ink-soft); }
+.seat-cabinet { display: flex; gap: 8px; align-items: flex-start; font-weight: 700; }
+.seat-cabinet input { accent-color: var(--delft); margin-top: 3px; }
+
+/* On the state time map, Dutch provinces are orange and Belgian ones yellow until the regions come in
+   1980, then Flanders yellow, Wallonia red and Brussels blue. Land won from the Zuiderzee is green
+   until it becomes Flevoland. A seat of government is a dark blue building with columns, a court
+   of law purple scales, a treaty a written page and a headquarters a gold star. */
+.hist-area-nlprov { fill: #f9c58d; stroke: #fff; stroke-width: 0.8; transition: fill 0.4s; }
+.hist-area-beprov { fill: #efe0b0; stroke: #fff; stroke-width: 0.8; transition: fill 0.4s; }
+.hist-area-flanders { fill: #f7dc6f; stroke: #fff; stroke-width: 0.8; transition: fill 0.4s; }
+.hist-area-wallonia { fill: #f1aa9b; stroke: #fff; stroke-width: 0.8; transition: fill 0.4s; }
+.hist-area-capital { fill: #a9c4ea; stroke: #fff; stroke-width: 0.8; transition: fill 0.4s; }
+.hist-area-polder { fill: #b8d8a3; stroke: #3f7a3a; stroke-width: 0.6; stroke-dasharray: 3 2; }
+.hist-area-joined { stroke: none; }
+.key-nlprov { width: 12px; height: 10px; background: #f9c58d; border-radius: 2px; }
+.key-beprov { width: 12px; height: 10px; background: #efe0b0; border-radius: 2px; }
+.key-flanders { width: 12px; height: 10px; background: #f7dc6f; border-radius: 2px; }
+.key-wallonia { width: 12px; height: 10px; background: #f1aa9b; border-radius: 2px; }
+.key-capital { width: 12px; height: 10px; background: #a9c4ea; border-radius: 2px; }
+.key-polder { width: 12px; height: 10px; background: #b8d8a3; border: 1px dashed #3f7a3a; border-radius: 2px; }
+.hist-seat path { fill: #1f3a6e; stroke: #fff; stroke-width: 0.8; }
+.key-seat { width: 12px; height: 10px; background: #1f3a6e; border-radius: 6px 6px 1px 1px; }
+.hist-court path { fill: #6b3fa0; stroke: #fff; stroke-width: 0.8; }
+.key-court { width: 12px; height: 10px; background: #6b3fa0; clip-path: polygon(50% 0, 100% 60%, 70% 100%, 30% 100%, 0 60%); }
+.hist-treaty path { fill: #8a5a2b; stroke: #fff; stroke-width: 0.8; }
+.key-treaty { width: 9px; height: 12px; background: #8a5a2b; border-radius: 2px; }
+.hist-hq path { fill: #d4a017; stroke: #5a4300; stroke-width: 0.8; }
+.key-hq { width: 12px; height: 12px; background: #d4a017; clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+
+.map-drill { display: grid; gap: 12px; max-width: 640px; margin: 0 auto; padding-bottom: 32px; }
+.drill-best { margin: 0; font-weight: 800; color: var(--delft); }

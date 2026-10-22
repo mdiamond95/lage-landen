@@ -1,0 +1,836 @@
+id: unit-26
+number: 26
+title: How the countries work today
+era: 1839 to today
+summary: >-
+  Two kings who are never crowned, two parliaments of 150 seats, compulsory voting in Belgium and a red pencil in
+  the Netherlands. Then the map: twelve Dutch provinces, ten Belgian ones, three regions and a capital that belongs to
+  none, and the treaties of Rome, Schengen and Maastricht that made the Low Countries the heart of Europe. Drill the
+  provinces until you know them by name, capital and flag, and follow the map of provinces and seats of power from
+  1839 to today.
+lessons:
+  - id: u26-l1
+    title: Two kings, no crowns
+    icon: orb
+    sources:
+      - title: "Wikipedia, Monarchy of the Netherlands"
+        url: https://en.wikipedia.org/wiki/Monarchy_of_the_Netherlands
+      - title: "Wikipedia, Inauguration of the Dutch monarch"
+        url: https://en.wikipedia.org/wiki/Inauguration_of_the_Dutch_monarch
+      - title: "Wikipedia, Willem-Alexander of the Netherlands"
+        url: https://en.wikipedia.org/wiki/Willem-Alexander_of_the_Netherlands
+      - title: "Wikipedia, Monarchy of Belgium"
+        url: https://en.wikipedia.org/wiki/Monarchy_of_Belgium
+      - title: "Wikipedia, Philippe of Belgium"
+        url: https://en.wikipedia.org/wiki/Philippe_of_Belgium
+      - title: "Wikipedia, Princess Elisabeth, Duchess of Brabant"
+        url: https://en.wikipedia.org/wiki/Princess_Elisabeth,_Duchess_of_Brabant
+      - title: "Wikipedia, Catharina-Amalia, Princess of Orange"
+        url: https://en.wikipedia.org/wiki/Catharina-Amalia,_Princess_of_Orange
+      - title: "The Constitution of the Kingdom of the Netherlands (2023), Articles 32 and 42"
+        url: https://www.government.nl/documents/regulations/2019/02/28/the-constitution-of-the-kingdom-of-the-netherlands
+      - title: "The Belgian Constitution (English translation), Articles 88, 91 and 106"
+        url: https://www.dekamer.be/kvvcr/pdf_sections/publications/constitution/GrondwetUK.pdf
+    exercises:
+      - type: story
+        title: Kings who sign, ministers who answer
+        body: >-
+          The Netherlands and Belgium are both kingdoms, and both are run by their parliaments. The king signs the laws
+          and appoints the ministers, but every act of his needs a minister's signature, and the minister answers for it.
+          Willem-Alexander became King of the Netherlands on 30 April 2013, when his mother Beatrix stepped down;
+          Philippe became King of the Belgians on 21 July 2013, when his father Albert II did the same. Neither was
+          crowned. In Amsterdam the Dutch crown, orb and sceptre lay on a table beside the king.
+        visual: { kind: photo, photo: regalia }
+      - type: who
+        photo: willem-alexander-2013
+        clues:
+          - I was born in Utrecht in 1967, the first boy born to the Dutch royal family in more than a hundred years.
+          - In 1986 I skated the Elfstedentocht, 200 km on frozen canals, under a false name.
+          - For more than twenty years I flew twice a month as a co-pilot for KLM's short-haul airline.
+          - I became king in 2013, the day my mother stepped down.
+        options: [Willem-Alexander, Philippe, Albert II, Claus]
+        answer: 0
+        explain: >-
+          Willem-Alexander, in the royal mantle, photographed by Koos Breukel before his inauguration. He skated the
+          Elfstedentocht as "W.A. van Buren", and his flying for KLM Cityhopper came out only in 2017. He was the first
+          Dutch king since 1890: Wilhelmina, Juliana and Beatrix reigned for 123 years between them.
+      - type: choice
+        prompt: At the inauguration in the Nieuwe Kerk in Amsterdam in 2013, the crown lay on this table and never touched the king's head. Why is a Dutch king never crowned?
+        visual: { kind: photo, photo: regalia }
+        answer: 1
+        options:
+          - label: The crown is too old and fragile to wear
+            why: It was made for William II in 1840 and has never been worn. A Dutch king is sworn in, not crowned.
+          - label: He is king the moment the last one goes, and is sworn in to the constitution before parliament
+            why: >-
+              Right. A Dutch king is "inaugurated": in a joint session of both houses of parliament he swears to uphold
+              the constitution, and the members swear loyalty back. The crown, orb and sceptre lie on a table, the
+              credence, as signs of the kingdom, not of the king.
+          - label: The church will not crown a Protestant king
+            why: No church crowns him, but none refuses either. A Dutch king is sworn in to the constitution, not crowned.
+          - label: Only the pope could crown a king
+            why: Dutch kings have never asked. A Dutch king is sworn in to the constitution, before parliament.
+      - type: gap
+        prompt: In Belgium the heir becomes king only once he has sworn an oath before both houses of parliament. Philippe swore it on 21 July 2013, in Dutch, French and German. Fill the gap.
+        quote: "I swear to observe the Constitution and the laws of the Belgian people, to maintain the national independence and the integrity of the ___."
+        source: The Belgian Constitution, Article 91, the oath of the king (in force since 1831; English translation)
+        visual: { kind: photo, photo: philippe-oath }
+        options: [territory, kingdom, monarchy, faith]
+        answer: 0
+        explain: >-
+          The territory. Until he has sworn, the throne is empty and the ministers rule together. Leopold I swore the
+          same words on 21 July 1831, which is why 21 July is Belgium's national day.
+      - type: truemyth
+        statement: He is called King of the Belgians, not King of Belgium, because his crown comes from the people rather than from the land.
+        visual: { kind: photo, photo: royal-palace }
+        answer: true
+        explain: >-
+          True. The National Congress that wrote the constitution in 1831 chose the title on purpose: a "popular
+          monarchy", in which the king is chosen by and bound to the people. The constitution says that all powers come
+          from the nation. The Royal Palace in Brussels is where the king works; he lives at the castle of Laeken.
+      - type: voices
+        prompt: Both constitutions say who answers for what the king does. What do they agree on?
+        voices:
+          - who: The Dutch constitution
+            when: Article 42 (the rule dates from 1848; English translation)
+            text: >-
+              The Government shall comprise the King and the Ministers. The King shall be inviolable; the Ministers shall
+              be accountable.
+            photo: noordeinde
+          - who: The Belgian constitution
+            when: Articles 88 and 106 (in force since 1831; English translation)
+            text: >-
+              The King's person is inviolable; his ministers are accountable. No act of the King can take effect without
+              the countersignature of a minister, who, in doing so, assumes responsibility for it.
+            photo: philippe
+        options:
+          - The king cannot be tried; his ministers answer for him
+          - The king answers to parliament for his acts
+          - The king may act alone in an emergency
+          - The ministers answer to the king
+        answer: 0
+        explain: >-
+          Ministerial responsibility, written into the Dutch constitution by Thorbecke in 1848 and into the Belgian one
+          from the start. A king who will not sign is in trouble: in 1990 King Baudouin would not sign Belgium's abortion
+          law, and parliament declared him unable to reign for a day and a half while the ministers signed it.
+      - type: choice
+        prompt: Both crowns will pass to a woman, the eldest child of the king. Which of these two, both photographed in Luxembourg in October 2025, is the heir to the Belgian throne?
+        answer: 1
+        options:
+          - photo: amalia-2025
+            why: >-
+              This is Catharina-Amalia, Princess of Orange, born in 2003, the heir to the Dutch throne. Since 1983 the
+              eldest child inherits in the Netherlands, son or daughter.
+          - photo: elisabeth-2025
+            why: >-
+              Right. Elisabeth, Duchess of Brabant, born in 2001. Belgium let daughters inherit in 1991; she will be the
+              country's first queen in her own right. Both princesses were guests at the accession of Grand Duke
+              Guillaume of Luxembourg on 3 October 2025.
+
+  - id: u26-l2
+    title: Parliaments and votes
+    icon: ballot
+    sources:
+      - title: "Wikipedia, House of Representatives (Netherlands)"
+        url: https://en.wikipedia.org/wiki/House_of_Representatives_(Netherlands)
+      - title: "Wikipedia, 2025 Dutch general election"
+        url: https://en.wikipedia.org/wiki/2025_Dutch_general_election
+      - title: "Wikipedia, Jetten cabinet"
+        url: https://en.wikipedia.org/wiki/Jetten_cabinet
+      - title: "Wikipedia, Chamber of Representatives (Belgium)"
+        url: https://en.wikipedia.org/wiki/Chamber_of_Representatives_(Belgium)
+      - title: "Wikipedia, 2024 Belgian federal election"
+        url: https://en.wikipedia.org/wiki/2024_Belgian_federal_election
+      - title: "Wikipedia, De Wever Government"
+        url: https://en.wikipedia.org/wiki/De_Wever_Government
+      - title: "Wikipedia, 2010–2011 Belgian government formation"
+        url: https://en.wikipedia.org/wiki/2010%E2%80%932011_Belgian_government_formation
+      - title: "Wikipedia, 2021–2022 Dutch cabinet formation"
+        url: https://en.wikipedia.org/wiki/2021%E2%80%932022_Dutch_cabinet_formation
+      - title: "Wikipedia, Compulsory voting"
+        url: https://en.wikipedia.org/wiki/Compulsory_voting
+      - title: "Wikipedia, Senate (Netherlands)"
+        url: https://en.wikipedia.org/wiki/Senate_(Netherlands)
+      - title: "Wikipedia, Electronic voting in the Netherlands"
+        url: https://en.wikipedia.org/wiki/Electronic_voting_in_the_Netherlands
+    exercises:
+      - type: story
+        title: Two houses of 150
+        body: >-
+          The Dutch House of Representatives, the Tweede Kamer, and the Belgian Chamber of Representatives each have 150
+          seats, shared out among the parties by their share of the vote. No party ever wins half, so every government
+          is a coalition. This is the Dutch house after the election of October 2025. Tap a party to pick out its
+          seats, and tick the box to see which parties govern.
+        visual: { kind: seats, chamber: tk-2025 }
+      - type: choice
+        prompt: Fifteen parties won seats in the Dutch election of 2025, and the two biggest, D66 and the PVV, won 26 each. How many seats does a government need to be sure of passing its laws?
+        visual: { kind: seats, chamber: tk-2025, hideCabinet: true }
+        answer: 2
+        options:
+          - label: "26"
+            why: That is the biggest party alone. A majority is half of 150 and one more, 76.
+          - label: "75"
+            why: Seventy-five is half, a tie. A majority is 76.
+          - label: "76"
+            why: >-
+              Right. D66, the VVD and CDA formed the Jetten cabinet in February 2026 with only 66 seats, a minority
+              government that must find votes for each law. Rob Jetten, 38, is the youngest Dutch prime minister ever.
+          - label: "100"
+            why: Two-thirds is needed only to change the constitution. A majority is 76.
+      - type: choice
+        prompt: This is the Belgian Chamber after the election of June 2024. The Dutch-speaking parties hold 81 seats between them, a majority. Why can't they form a government on their own?
+        visual: { kind: seats, chamber: be-2024, hideCabinet: true }
+        answer: 1
+        options:
+          - label: The king must approve every party
+            why: The king has no such power. The constitution asks for as many French-speaking ministers as Dutch-speaking ones.
+          - label: The constitution says the cabinet has as many French-speaking ministers as Dutch-speaking ones
+            why: >-
+              Right: Article 99, apart from the prime minister. So a government needs parties from both sides. Bart De
+              Wever's government, sworn in on 3 February 2025, joins five parties, three Flemish and two French-speaking,
+              with 82 seats.
+          - label: Brussels must have its own prime minister
+            why: Brussels has its own regional government, but that is not the reason. The federal cabinet must be half French-speaking.
+          - label: The French-speaking parties have more votes
+            why: They have fewer seats. The rule is that the cabinet must be half French-speaking.
+      - type: gap
+        prompt: Belgium made voting compulsory for men in 1893, when every man got a vote, and for women in 1948. The constitution still says so. Fill the gap.
+        quote: "Voting is ___ and secret."
+        source: The Belgian Constitution, Article 62 (English translation)
+        visual: { kind: seats, chamber: be-2024, hideCabinet: true }
+        options: [compulsory, free, public, optional]
+        answer: 0
+        explain: >-
+          Compulsory. Strictly, a Belgian must turn up at the polling station; what happens in the booth is secret. Fines
+          are rarely handed out now, but turnout is still close to nine in ten. Since 2024 Belgians of 16 and 17 have
+          voted in European elections, and Flanders dropped the duty for its municipal elections that year.
+      - type: scrub
+        prompt: The Netherlands had compulsory voting too, for a while. Drag the slider to the years when Dutch voters had to go to the polls.
+        map: state
+        start: 1990
+        answer: [1917, 1969]
+        explain: >-
+          From 1917 to 1970. The duty came with the vote for every man in 1917 and was dropped in 1970, when the parties
+          agreed that a vote should be a right, not a duty. Turnout fell from about 95% to under 80%.
+      - type: truemyth
+        statement: In the Dutch election of 1918, the first in which every man could vote, a man who stayed at home could be fined.
+        visual: { kind: photo, photo: voting-1918 }
+        answer: true
+        explain: >-
+          True. The constitution of 1917 gave every man of 25 the vote and made him turn up at the polling station, on
+          pain of a small fine. The election of July 1918 was the first held with seats shared out by share of the vote.
+          Women could stand in 1918 and vote from 1919; their first general election was in 1922.
+      - type: truemyth
+        statement: Dutch voters still mark their ballot by hand, with a red pencil.
+        visual: { kind: photo, photo: red-pencil }
+        answer: true
+        explain: >-
+          True. In 2006 most Dutch voters used voting computers, until campaigners showed that their signals could be
+          picked up from outside the polling station. They were withdrawn in 2007, and the red pencil came back on a
+          ballot the size of a newspaper page. Much of Belgium votes on computers that print a paper slip.
+      - type: choice
+        prompt: Belgium holds the world record for forming a government, 541 days after 2010. The Netherlands set its own record after the election of March 2021. How long did it take?
+        visual: { kind: photo, photo: ridderzaal }
+        answer: 2
+        options:
+          - label: 54 days
+            why: Far longer. It took 299 days, until the fourth Rutte cabinet was sworn in on 10 January 2022.
+          - label: 154 days
+            why: Far longer. It took 299 days, until the fourth Rutte cabinet was sworn in on 10 January 2022.
+          - label: 299 days
+            why: >-
+              Right, from 17 March 2021 to 10 January 2022, slowed by a leaked note that showed a scout's talks about an
+              awkward member of parliament, "a post elsewhere" for Pieter Omtzigt. In the end the same four parties as
+              before formed the fourth Rutte cabinet. The old cabinet ran the country in the meantime.
+          - label: 541 days
+            why: That is Belgium's record, from June 2010 to December 2011. The Dutch one is 299 days.
+      - type: truemyth
+        statement: Since 2012 the Dutch king has had no part in forming a cabinet.
+        visual: { kind: photo, photo: tweede-kamer }
+        answer: true
+        explain: >-
+          True. Until 2012 the queen met the party leaders after an election and appointed the informateur who sounded
+          them out. Since then the House of Representatives appoints its own scouts and informateurs, and the king
+          only swears in the cabinet. The house has met in a temporary chamber since 2021, while the Binnenhof is
+          rebuilt.
+      - type: choice
+        prompt: In 1983 the members of the States of North Brabant cast these votes in their provincial house in Den Bosch. What were they electing?
+        visual: { kind: photo, photo: staten-vote-1983 }
+        answer: 0
+        options:
+          - label: The Senate of the Netherlands
+            why: >-
+              Right. The 75 members of the Eerste Kamer, the Senate, are elected by the members of the twelve provincial
+              parliaments, a few weeks after the provincial elections. So when the Dutch vote for their province they
+              also choose, at one remove, the Senate.
+          - label: The King's Commissioner of the province
+            why: The commissioner is appointed by the Crown for six years. They were electing the Senate.
+          - label: The mayors of North Brabant
+            why: Dutch mayors are appointed by the Crown too. They were electing the Senate.
+          - label: The board of a water board
+            why: Water boards are elected by the voters themselves. They were electing the Senate.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [No party wins half the seats, Every government is a coalition of several parties]
+          - ["Seats are shared out by share of the vote, nationwide", Fifteen parties sit in the Dutch House]
+          - ["Belgium's parties split along the language line in the 1960s and 1970s", "Each side has its own socialists, liberals and Christian democrats"]
+          - [Voting is compulsory in Belgium, Close to nine in ten Belgians vote]
+        explain: >-
+          Proportional representation came to Belgium in 1899, the first country to use it for a whole parliament, and to
+          the Netherlands in 1917. A Dutch party needs about 0.67% of the vote, one seat's worth; a Belgian one needs 5%
+          in a constituency.
+
+  - id: u26-l3
+    title: Twelve provinces
+    icon: puzzle
+    sources:
+      - title: "Wikipedia, Provinces of the Netherlands"
+        url: https://en.wikipedia.org/wiki/Provinces_of_the_Netherlands
+      - title: "Wikipedia, Holland"
+        url: https://en.wikipedia.org/wiki/Holland
+      - title: "Wikipedia, Flevoland"
+        url: https://en.wikipedia.org/wiki/Flevoland
+      - title: "Wikipedia, Houtribdijk"
+        url: https://en.wikipedia.org/wiki/Houtribdijk
+      - title: "Wikipedia, Paviljoen Welgelegen"
+        url: https://en.wikipedia.org/wiki/Paviljoen_Welgelegen
+      - title: "Wikipedia, King's Commissioner"
+        url: https://en.wikipedia.org/wiki/King%27s_Commissioner
+      - title: "CBS StatLine, population of the provinces on 1 January 2024"
+        url: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/37230ned/table
+      - title: "Wikimedia Commons, flags of the Dutch provinces"
+        url: https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_the_Netherlands
+    exercises:
+      - type: story
+        title: Provinces that were once states
+        body: >-
+          The Netherlands has twelve provinces. Seven of them, Holland, Zeeland, Utrecht, Gelderland, Overijssel,
+          Friesland and Groningen, were the seven united provinces of the Dutch Republic; Drenthe, Brabant and Limburg
+          were added later. Each elects its own parliament, the Provincial States, which runs roads, nature and planning,
+          and each is led by a King's Commissioner appointed for six years. Tap a province to see its flag, its capital and
+          how many people live there.
+        visual: { kind: provinces, country: NLD }
+      - type: drill
+        prompt: Find these Dutch provinces on the map.
+        country: NLD
+        rounds: 6
+        misses: 1
+        explain: >-
+          South Holland has the most people, 3.8 million; Zeeland the fewest, under 400,000. Friesland is the biggest
+          once its water is counted, Gelderland the biggest on land, and Utrecht the smallest overall.
+      - type: truemyth
+        statement: Holland is just another name for the Netherlands.
+        visual: { kind: time-map, map: state, year: 1839 }
+        answer: false
+        explain: >-
+          A myth, though a common one. Holland was the richest of the seven provinces of the Republic, which is how its
+          name came to stand for the whole country. Since 1840 it has been two provinces, North and South Holland, home to
+          Amsterdam, Rotterdam and The Hague. In 2020 the Dutch government stopped using Holland to promote the country.
+      - type: scrub
+        prompt: Drag the slider to the years when the Netherlands had eleven provinces.
+        map: state
+        start: 1839
+        answer: [1840, 1985]
+        explain: >-
+          From 1840, when Holland was split in two, to 1985. On 1 January 1986 the three polders won from the Zuiderzee
+          became Flevoland, the twelfth province.
+      - type: choice
+        prompt: This villa was built in the 1780s as the summer house of the banker Henry Hope, and in 1808 King Louis Bonaparte bought it. Since 1930 it has housed the government of North Holland. In which city?
+        visual: { kind: photo, photo: welgelegen }
+        answer: 1
+        options:
+          - label: Amsterdam
+            why: Amsterdam is the capital of the country, but not of its province. Welgelegen stands in Haarlem.
+          - label: Haarlem
+            why: >-
+              Right. Haarlem has been the capital of North Holland since the province was made in 1840, though Amsterdam
+              has more than five times as many people. In the same way The Hague, not Rotterdam, is the capital of South Holland.
+          - label: Alkmaar
+            why: Alkmaar is a market town in North Holland, but its capital is Haarlem.
+          - label: Zaandam
+            why: Zaandam is in North Holland, but its capital is Haarlem.
+      - type: choice
+        prompt: This dam runs 26 km across the water to Lelystad, capital of the youngest province. What is unusual about Flevoland's land?
+        visual: { kind: photo, photo: houtribdijk }
+        answer: 0
+        options:
+          - label: It was the bottom of the Zuiderzee until between 1942 and 1968
+            why: >-
+              Right. The Noordoostpolder fell dry in 1942, East Flevoland in 1957 and South Flevoland in 1968. Lelystad,
+              named after the engineer Cornelis Lely, and Almere, now the biggest town, were built on it from nothing.
+              The Noordoostpolder joined Flevoland in 1986.
+          - label: It belongs to no municipality
+            why: It is divided into municipalities like any other. Its land was the bottom of the Zuiderzee until 1942 to 1968.
+          - label: It is an island in the Wadden Sea
+            why: It lies in the middle of the country. Its land was the bottom of the Zuiderzee until 1942 to 1968.
+          - label: It was German until 1945
+            why: It was never German. Its land was the bottom of the Zuiderzee until 1942 to 1968.
+      - type: drill
+        prompt: Now find each province by its capital.
+        country: NLD
+        ask: capital
+        rounds: 6
+        misses: 1
+        explain: >-
+          Some capitals are small: Assen in Drenthe, Middelburg in Zeeland and Lelystad in Flevoland. Den Bosch, the
+          capital of North Brabant, is officially 's-Hertogenbosch, the duke's wood.
+      - type: truemyth
+        statement: Friesland's official name has been in Frisian, Fryslân, since 1997.
+        visual: { kind: photo, photo: flag-friesland }
+        answer: true
+        explain: >-
+          True. Frisian is the second official language of the Netherlands, spoken at home by about half the province.
+          The seven red leaves on the flag, pompeblêden, stand for the seven Frisian sea lands of the Middle Ages.
+      - type: sort
+        prompt: Sort these provinces by the neighbour they border.
+        visual: { kind: provinces, country: NLD }
+        groups: [Belgium, Germany, Neither]
+        items:
+          - { label: Zeeland, group: 0 }
+          - { label: North Brabant, group: 0 }
+          - { label: Groningen, group: 1 }
+          - { label: Overijssel, group: 1 }
+          - { label: Drenthe, group: 1 }
+          - { label: Utrecht, group: 2 }
+          - { label: Friesland, group: 2 }
+          - { label: Flevoland, group: 2 }
+        explain: >-
+          Five provinces border Germany and three Belgium. Limburg, left out here, borders both. Utrecht and Flevoland are
+          the only ones without a coast or a foreign border, unless the IJsselmeer counts.
+
+  - id: u26-l4
+    title: Belgium's provinces and regions
+    icon: pieces
+    sources:
+      - title: "Wikipedia, Provinces of Belgium"
+        url: https://en.wikipedia.org/wiki/Provinces_of_Belgium
+      - title: "Wikipedia, Communities, regions and language areas of Belgium"
+        url: https://en.wikipedia.org/wiki/Communities,_regions_and_language_areas_of_Belgium
+      - title: "Wikipedia, Wallonia"
+        url: https://en.wikipedia.org/wiki/Wallonia
+      - title: "Wikipedia, Elysette"
+        url: https://en.wikipedia.org/wiki/Elysette
+      - title: "Wikipedia, Flemish Government"
+        url: https://en.wikipedia.org/wiki/Flemish_Government
+      - title: "Wikipedia, Brussels-Capital Region"
+        url: https://en.wikipedia.org/wiki/Brussels-Capital_Region
+      - title: "Wikipedia, Municipalities of Belgium"
+        url: https://en.wikipedia.org/wiki/Municipalities_of_Belgium
+      - title: "Wikipedia, Palace of the Prince-Bishops, Liège"
+        url: https://en.wikipedia.org/wiki/Palace_of_the_Prince-Bishops_(Li%C3%A8ge)
+      - title: "Statbel, population by place of residence on 1 January 2024"
+        url: https://statbel.fgov.be/en/themes/population/structure-population
+    exercises:
+      - type: story
+        title: Ten provinces, three regions
+        body: >-
+          Belgium has ten provinces, five in Flanders and five in Wallonia, and a capital region, Brussels, that belongs to
+          none. Since the state reforms the regions, with their own parliaments, run most things that touch the land:
+          roads, housing, farming, jobs. The provinces are older, from the French départements of 1795, and their
+          governors are now appointed by the regions. Tap a province to see its flag and its capital.
+        visual: { kind: provinces, country: BEL }
+      - type: drill
+        prompt: Find these Belgian provinces on the map.
+        country: BEL
+        rounds: 6
+        misses: 1
+        explain: >-
+          Antwerp has the most people, 1.9 million; Luxembourg, the biggest province, the fewest, under 300,000. Walloon
+          Brabant is the smallest.
+      - type: choice
+        prompt: The Walloon government meets in this house on the bank of the Meuse. Which city did the Walloon Region choose as its capital in 1986?
+        visual: { kind: photo, photo: elysette }
+        answer: 1
+        options:
+          - label: Liège
+            why: Liège is the biggest city region of Wallonia, but the capital is Namur, in the middle.
+          - label: Namur
+            why: >-
+              Right. Namur lies between Liège and Charleroi, the two big rivals, where the Sambre meets the Meuse. The
+              house is the Elysette, in Jambes, across the river; the Walloon Parliament sits in an old hospital in the
+              centre of Namur.
+          - label: Charleroi
+            why: Charleroi has the most people in Wallonia, but the capital is Namur.
+          - label: Mons
+            why: Mons is the capital of Hainaut. The capital of Wallonia is Namur.
+      - type: truemyth
+        statement: The Flemish Parliament and the Flemish government sit outside Flanders.
+        visual: { kind: provinces, country: BEL, focus: BE-BRU }
+        answer: true
+        explain: >-
+          True: in Brussels, which is in no Flemish province. Flanders merged its region and its community in 1980 and
+          chose Brussels as its capital, to show that it would not give up the city or its Dutch-speaking people.
+          Wallonia kept them apart, so the French Community sits in Brussels and the Walloon Region in Namur.
+      - type: scrub
+        prompt: Drag the slider to the years when Flanders and Wallonia already existed as regions, but Brabant was still one province across the language border.
+        map: state
+        start: 1970
+        answer: [1980, 1994]
+        explain: >-
+          From 1980, when the second state reform made the regions, to 1994. On 1 January 1995 Brabant was split into
+          Flemish Brabant, Walloon Brabant and Brussels.
+      - type: choice
+        prompt: Drag the divider between 1979 and 1995. What happened to the province of Brabant?
+        visual: { kind: compare, map: state, years: [1979, 1995] }
+        answer: 0
+        options:
+          - label: It was split into Flemish Brabant, Walloon Brabant and Brussels, which belongs to no province
+            why: >-
+              Right. Flemish Brabant has its capital in Leuven and Walloon Brabant in Wavre. Brabant had been one land
+              since the dukes of the Middle Ages; its name lives on in the Dutch province of North Brabant, and in the
+              title of the heir to the Belgian throne, Duke or Duchess of Brabant.
+          - label: It became part of the province of Antwerp
+            why: Antwerp kept its borders. Brabant was split in three.
+          - label: It was given to the German-speaking Community
+            why: That is in the east, in the province of Liège. Brabant was split in three.
+          - label: It was renamed Brussels
+            why: Brussels left it. Brabant was split into Flemish Brabant, Walloon Brabant and Brussels.
+      - type: sort
+        prompt: Before 1980 every Belgian province looked the same on the map. Sort these into the region they belong to today.
+        visual: { kind: time-map, map: state, year: 1979 }
+        groups: [Flanders, Wallonia]
+        items:
+          - { label: Antwerp, group: 0 }
+          - { label: Limburg, group: 0 }
+          - { label: East Flanders, group: 0 }
+          - { label: Flemish Brabant, group: 0 }
+          - { label: Hainaut, group: 1 }
+          - { label: Namur, group: 1 }
+          - { label: Luxembourg, group: 1 }
+          - { label: Liège, group: 1 }
+        explain: >-
+          West Flanders is the fifth Flemish province, Walloon Brabant the fifth Walloon one. Hainaut is Henegouwen in
+          Dutch, and Liège is Luik.
+      - type: odd
+        prompt: Three of these buildings house the government of a province. Which is the odd one out?
+        items:
+          - { label: "Welgelegen, Haarlem", photo: welgelegen }
+          - { label: "The Gouvernement, Maastricht", photo: gouvernement-maastricht }
+          - { label: "The Elysette, Namur", photo: elysette }
+          - { label: "The Palace of the Prince-Bishops, Liège", photo: liege-palace }
+        answer: 2
+        reasons:
+          - It houses the government of a region, not a province.
+          - It is the only one in Belgium.
+          - It is the only one built in modern times.
+        reason: 0
+        explain: >-
+          The Elysette is the seat of the Walloon government. The prince-bishops ruled Liège for 800 years, until 1795;
+          their palace now holds the province's governor and the law courts. The province of Namur has its own house, a
+          former bishop's palace.
+      - type: choice
+        prompt: The German-speaking Community, about 80,000 people in nine municipalities, has its own parliament in Eupen. In which province is it?
+        visual: { kind: photo, photo: german-parliament }
+        answer: 2
+        options:
+          - label: Luxembourg
+            why: Around Arlon, in Luxembourg, some villages speak Luxembourgish, but the community is in Liège.
+          - label: Limburg
+            why: Limburg is Flemish. The German-speaking Community is in the province of Liège.
+          - label: Liège
+            why: >-
+              Right. Eupen, Sankt Vith and the villages around them came to Belgium from Germany after the First World
+              War, in 1920, and were joined to the province of Liège. They are part of Wallonia, but run their own
+              schools and culture in German.
+          - label: Namur
+            why: Namur is French-speaking. The German-speaking Community is in the province of Liège.
+      - type: drill
+        prompt: Now find each Belgian province by its capital.
+        country: BEL
+        ask: capital
+        rounds: 6
+        misses: 1
+        explain: >-
+          Two capitals are not the biggest town of their province: Mons rather than Charleroi in Hainaut, and Wavre
+          rather than Braine-l'Alleud in Walloon Brabant. Belgium has 565 municipalities since 2025, down from 2,359 before the mergers of
+          1977.
+
+  - id: u26-l5
+    title: Benelux, Europe and NATO
+    icon: stars
+    sources:
+      - title: "Wikipedia, Benelux"
+        url: https://en.wikipedia.org/wiki/Benelux
+      - title: "Wikipedia, Treaty of Rome"
+        url: https://en.wikipedia.org/wiki/Treaty_of_Rome
+      - title: "Wikipedia, Schengen Agreement"
+        url: https://en.wikipedia.org/wiki/Schengen_Agreement
+      - title: "Wikipedia, Maastricht Treaty"
+        url: https://en.wikipedia.org/wiki/Maastricht_Treaty
+      - title: "Wikipedia, 2005 Dutch European Constitution referendum"
+        url: https://en.wikipedia.org/wiki/2005_Dutch_European_Constitution_referendum
+      - title: "Wikipedia, Secretary General of NATO"
+        url: https://en.wikipedia.org/wiki/Secretary_General_of_NATO
+      - title: "Wikipedia, Mark Rutte"
+        url: https://en.wikipedia.org/wiki/Mark_Rutte
+      - title: "Wikipedia, 2025 NATO summit"
+        url: https://en.wikipedia.org/wiki/2025_The_Hague_NATO_summit
+      - title: "The Schengen Agreement of 14 June 1985 (EUR-Lex)"
+        url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:42000A0922(01)
+    exercises:
+      - type: story
+        title: Small countries, big tables
+        body: >-
+          In 1944, in exile in London, the governments of Belgium, the Netherlands and Luxembourg agreed to drop the
+          customs duties between them: the Benelux, in force from 1948. All three joined NATO in 1949 and founded the
+          European communities with France, West Germany and Italy. Today Brussels is home to the European Commission and
+          NATO, The Hague to the courts of the world, and the most important European treaties carry Low Countries
+          names. Drag the slider to see them arrive.
+        visual: { kind: time-map, map: state, year: 1948 }
+      - type: choice
+        prompt: Six countries signed the Treaty of Rome on 25 March 1957, which made the common market; these are their signatures, on Belgium's copy. Which country was not among them?
+        visual: { kind: photo, photo: rome-signatures }
+        answer: 3
+        options:
+          - label: Luxembourg
+            why: Luxembourg signed, with Belgium and the Netherlands, its Benelux partners. Britain stayed out until 1973.
+          - label: Italy
+            why: Italy signed, in its own capital. Britain stayed out until 1973.
+          - label: West Germany
+            why: West Germany signed, twelve years after the war. Britain stayed out until 1973.
+          - label: Britain
+            why: >-
+              Right. Britain would not join a customs union with powers over its own, and set up a looser free trade
+              area instead in 1960. It joined in 1973, and left in 2020. Joseph Luns signed for the Netherlands and
+              Paul-Henri Spaak for Belgium.
+      - type: choice
+        prompt: On 14 June 1985 five countries agreed to do away with checks at their borders, aboard a riverboat, the Princesse Marie-Astrid, moored at the village of Schengen in Luxembourg. On which river?
+        visual: { kind: photo, photo: marie-astrid }
+        answer: 1
+        options:
+          - label: The Meuse
+            why: The Meuse runs through Belgium and the Netherlands, but Schengen lies on the Moselle.
+          - label: The Moselle
+            why: >-
+              Right. Schengen lies where Luxembourg, France and Germany meet, so the three Benelux countries met their two
+              big neighbours on the border. Checks ended in 1995. This boat is a newer Marie-Astrid, on the same river.
+          - label: The Rhine
+            why: The Rhine is further east. Schengen lies on the Moselle.
+          - label: The Scheldt
+            why: The Scheldt flows to Antwerp. Schengen lies on the Moselle.
+      - type: gap
+        prompt: The Schengen Agreement did not end border checks at once. Its second article says what the police and customs officers would do from the next day. Fill the gap.
+        quote: "The police and customs authorities shall as a general rule carry out simple visual surveillance of private vehicles crossing the common border at reduced speed, without requiring such vehicles to ___."
+        source: The Schengen Agreement, Article 2, signed at Schengen on 14 June 1985 (English text, Official Journal of the European Communities, 2000)
+        visual: { kind: time-map, map: state, year: 1985 }
+        options: [stop, pay, register, turn back]
+        answer: 0
+        explain: >-
+          Stop. A green disc on the windscreen told the officers that the driver had nothing to declare. In 1990 a second
+          Schengen convention set out the rules, and on 26 March 1995 the checks ended for good.
+      - type: pin
+        prompt: Pin the village of Schengen, where Luxembourg meets France and Germany.
+        place: schengen
+        fullKm: 12
+        okKm: 30
+        explain: >-
+          Schengen, in the far southeast corner of Luxembourg, a small wine village. Some 29 countries now
+          belong to the Schengen area.
+      - type: choice
+        prompt: On 7 February 1992 twelve countries signed a treaty in this building, the house of the Dutch province of Limburg, on an island in the Maas. What did it lead to?
+        visual: { kind: photo, photo: gouvernement-maastricht }
+        answer: 2
+        options:
+          - label: The end of border checks
+            why: That was Schengen, in 1985. The Treaty of Maastricht made the European Union and led to the euro.
+          - label: The founding of NATO
+            why: That was in Washington, in 1949. The Treaty of Maastricht made the European Union and led to the euro.
+          - label: The European Union by that name, and the euro
+            why: >-
+              Right. The Dutch held the chair of the European Community that year, so the treaty was signed in Maastricht.
+              Euro notes and coins replaced the guilder and the Belgian franc on 1 January 2002.
+          - label: The Benelux
+            why: The Benelux dates from 1944. The Treaty of Maastricht made the European Union and led to the euro.
+      - type: truemyth
+        statement: In 2005 Dutch voters said no to a constitution for Europe.
+        visual: { kind: photo, photo: european-parliament }
+        answer: true
+        explain: >-
+          True. On 1 June 2005, three days after the French, 61.6% of Dutch voters rejected it, in the first national
+          referendum in two hundred years. The constitution was dropped, and much of it came back in the Treaty of Lisbon
+          of 2007, which needed no referendum.
+      - type: odd
+        prompt: All four led NATO, as its secretary general. Which is the odd one out?
+        items:
+          - { label: Joseph Luns, 1971 to 1984, photo: luns }
+          - { label: Willy Claes, 1994 to 1995, photo: claes }
+          - { label: Jaap de Hoop Scheffer, 2004 to 2009, photo: hoop-scheffer }
+          - { label: Mark Rutte, since 2024, photo: rutte-2024 }
+        answer: 1
+        reasons:
+          - He is the only Belgian of the four.
+          - He was never a minister.
+          - He led NATO the longest.
+        reason: 0
+        explain: >-
+          Willy Claes, a Flemish socialist, who stepped down after a year over a bribery scandal at home. Paul-Henri
+          Spaak, another Belgian, led NATO from 1957 to 1961. Joseph Luns led it the longest, for nearly thirteen years.
+          Of fourteen secretaries general, six have come from the Low Countries: Dirk Stikker, the first Dutchman, led it from 1961 to 1964.
+      - type: who
+        photo: rutte-2024
+        clues:
+          - I was prime minister of my country for nearly fourteen years, longer than anyone before me.
+          - All that time I taught a class at a secondary school in The Hague once a week.
+          - I cycled to work, and when I spilled my coffee in parliament I mopped it up myself.
+          - In 2024 I moved to Brussels to lead an alliance of 32 countries.
+        options: [Mark Rutte, Jaap de Hoop Scheffer, Joseph Luns, Dick Schoof]
+        answer: 0
+        explain: >-
+          Mark Rutte, prime minister from 2010 to 2024 and secretary general of NATO since 1 October 2024. In June 2025 he
+          hosted NATO's leaders in his home town, The Hague, where they agreed to spend 5% of their national income on
+          defence by 2035.
+      - type: scrub
+        prompt: Drag the slider to the years when the European Commission was already in Brussels, but NATO was not. Look for the gold stars by Brussels.
+        map: state
+        start: 1948
+        answer: [1958, 1966]
+        explain: >-
+          From 1958 to 1966. NATO moved its headquarters from Paris to Brussels in 1967, after France left its joint
+          command. Since 2018 it has a new building at Evere, across the road from the old one.
+
+  - id: u26-l6
+    title: Capitals and the map today
+    icon: columns
+    sources:
+      - title: "Wikipedia, Amsterdam (capital)"
+        url: https://en.wikipedia.org/wiki/Amsterdam
+      - title: "Wikipedia, The Hague"
+        url: https://en.wikipedia.org/wiki/The_Hague
+      - title: "Wikipedia, Brussels-Capital Region"
+        url: https://en.wikipedia.org/wiki/Brussels-Capital_Region
+      - title: "Wikipedia, Water board (Netherlands)"
+        url: https://en.wikipedia.org/wiki/Water_board_(Netherlands)
+      - title: "Wikipedia (Dutch), Hoogheemraadschap van Rijnland"
+        url: https://nl.wikipedia.org/wiki/Hoogheemraadschap_van_Rijnland
+      - title: "Wikipedia, Baarle-Hertog"
+        url: https://en.wikipedia.org/wiki/Baarle-Hertog
+      - title: "Wikipedia, Baarle-Nassau"
+        url: https://en.wikipedia.org/wiki/Baarle-Nassau
+      - title: "Wikipedia, Caribbean Netherlands"
+        url: https://en.wikipedia.org/wiki/Caribbean_Netherlands
+    exercises:
+      - type: story
+        title: A capital that is not the seat, and a seat of many capitals
+        body: >-
+          The Netherlands has its capital in Amsterdam and its parliament, government and king in The Hague. Belgium has
+          everything in Brussels, which is also the capital of Flanders, of the French Community and, in all but name, of
+          the European Union. Slide to today to see the twelve Dutch provinces, the three Belgian regions and the seats of
+          power on one map.
+        visual: { kind: time-map, map: state, year: 2026 }
+      - type: gap
+        prompt: The Dutch constitution names the country's capital in only one place, the article on the new king. Fill the gap.
+        quote: "As soon as possible after assuming the royal prerogative the King shall be sworn in and inaugurated in the capital city, ___, at a public and joint session of the two Houses of the States General."
+        source: The Constitution of the Kingdom of the Netherlands, Article 32 (English translation)
+        visual: { kind: photo, photo: huis-ten-bosch }
+        options: [Amsterdam, The Hague, Utrecht, Rotterdam]
+        answer: 0
+        explain: >-
+          Amsterdam, named as the capital in the constitution only since 1983. The king lives at Huis ten Bosch, in a wood in The Hague,
+          and works at Noordeinde Palace in the city centre; the palace on the Dam in Amsterdam is kept for state visits.
+      - type: truemyth
+        statement: The Hague is the capital of the Netherlands.
+        visual: { kind: photo, photo: tweede-kamer }
+        answer: false
+        explain: >-
+          A myth. The Hague is the seat of government, of parliament and of the king, and of the world's courts in the
+          Peace Palace and the International Criminal Court, but the capital is Amsterdam. The counts of Holland held
+          court in The Hague from the 1200s, and the States General stayed.
+      - type: choice
+        prompt: Brussels is the capital of many things. Which of these is it not the capital of?
+        visual: { kind: provinces, country: BEL }
+        answer: 3
+        options:
+          - label: Belgium
+            why: It is, by the constitution. The capital of Flemish Brabant is Leuven.
+          - label: Flanders
+            why: It is, though it lies outside Flanders. The capital of Flemish Brabant is Leuven.
+          - label: The French Community of Belgium
+            why: It is. The capital of Flemish Brabant is Leuven.
+          - label: The province of Flemish Brabant
+            why: >-
+              Right: that is Leuven, since 1995. Brussels belongs to no province at all. It is the capital of Belgium, of
+              Flanders, of the French Community and of its own region, and the home of the European Commission, the
+              Council and NATO.
+      - type: choice
+        prompt: This house in Leiden was, from 1578, the seat of Rijnland, the oldest water board in the Netherlands, first named in a charter of 1255. Who chooses the boards of the 21 Dutch water boards today?
+        visual: { kind: photo, photo: rijnland-house }
+        answer: 2
+        options:
+          - label: The king
+            why: The king appoints the chair, the dike-reeve, but the board is elected. Voters choose it on the day of the provincial elections.
+          - label: The farmers whose land they drain
+            why: Landowners and farmers keep some seats of their own, but most are elected by all the voters, on the day of the provincial elections.
+          - label: The voters, on the day of the provincial elections
+            why: >-
+              Right. Every resident pays the water board tax and has a vote, cast with the same red pencil on the same day
+              as the provincial elections. The boards keep the dikes, the water levels and the sewage plants. Rijnland
+              now works from a modern office on the edge of Leiden.
+          - label: The provinces
+            why: The provinces watch over them, but the boards are elected by the voters, on the day of the provincial elections.
+      - type: truemyth
+        statement: In Baarle, where the border runs through houses, a house belongs to the country its front door stands in.
+        visual: { kind: photo, photo: baarle-border }
+        answer: true
+        explain: >-
+          True, by long custom. Baarle-Hertog is 22 scraps of Belgium inside the Netherlands, with seven scraps of the
+          Netherlands inside them again, left over from the land deals of the dukes of Brabant and the lords of Breda in
+          the Middle Ages. The house numbers carry little flags, and a few families have moved their front door.
+      - type: hunt
+        prompt: In Baarle the border is marked on the ground. Find the line outside this café.
+        photo: baarle-cafe
+        targets:
+          - [0.44, 0.68, 0.26, 0.32]
+          - [0.64, 0.42, 0.18, 0.26]
+          - [0.76, 0.15, 0.17, 0.27]
+        explain: >-
+          The white crosses mark the border, with NL on one side and B on the other. In a café on the line, customers
+          once moved to the Belgian tables when Dutch closing time came.
+      - type: choice
+        prompt: Drag the divider between 1839 and today. How many more provinces do the two countries have now than in 1839?
+        visual: { kind: compare, map: state, years: [1839, 2026] }
+        answer: 1
+        options:
+          - label: One
+            why: More. Holland and Brabant were split in two, and Flevoland was made.
+          - label: Three
+            why: >-
+              Right: 19 then, 22 now. The Netherlands went from ten to twelve, with Holland split in 1840 and Flevoland
+              made in 1986, and Belgium from nine to ten, with Brabant split in 1995 and Brussels left out.
+          - label: Five
+            why: Fewer. Holland and Brabant were split in two, and Flevoland was made.
+          - label: None
+            why: The map changed. Holland and Brabant were split in two, and Flevoland was made.
+      - type: drill
+        prompt: Every province by its flag. Find the province that flies each one.
+        country: both
+        ask: flag
+        rounds: 6
+        misses: 2
+        explain: >-
+          Many flags carry an old coat of arms: the lions of Limburg, Hainaut and Brabant, the cross of Utrecht, the
+          perron of Liège. The flag of the Brussels region is a stylised iris, a flower of its marshes.
+      - type: sort
+        prompt: The Netherlands, Belgium, or both?
+        visual: { kind: time-map, map: state, year: 2026 }
+        groups: [The Netherlands, Belgium, Both]
+        items:
+          - { label: Twelve provinces, group: 0 }
+          - { label: Its seat of government is not its capital, group: 0 }
+          - { label: Three islands in the Caribbean are part of it, group: 0 }
+          - { label: Three regions and three communities, group: 1 }
+          - { label: Voting is compulsory, group: 1 }
+          - { label: A lower house of 150 seats, group: 2 }
+          - { label: A king who is never crowned, group: 2 }
+          - { label: A founder of the Benelux, NATO and the EEC, group: 2 }
+        explain: >-
+          Bonaire, Sint Eustatius and Saba have been special municipalities of the Netherlands since 2010. Aruba, Curaçao
+          and Sint Maarten are countries of their own within the Kingdom of the Netherlands.
+      - type: drill
+        prompt: The final drill. Find every province of both countries, and Brussels.
+        country: both
+        rounds: 10
+        misses: 2
+        explain: >-
+          Twenty-two provinces and one capital region, home to nearly 30 million people. That is the map of the Low Countries
+          today.

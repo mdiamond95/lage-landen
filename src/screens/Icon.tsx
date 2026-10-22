@@ -150,6 +150,20 @@ export const paths: Record<string, React.ReactNode> = {
   pendulum: <path d="M4 3h16M12 3l3 12M12 18a3 3 0 1 0 6 0 3 3 0 1 0-6 0M5 13c1.5 2 3.5 3.5 6 4" fill="none" strokeLinejoin="round" />,
   microscope: <path d="M5 21h14M9 3l4 2-3.5 7.5-4-2zM11 11.5l2 3M15 21c3.5-3 3-8.5-1.5-10.5M8 17h7" fill="none" strokeLinejoin="round" />,
   medal: <path d="M8 2l3 7M16 2l-3 7M12 9a6 6 0 1 0 .01 0zM10.5 13.5 12 12.5v5" fill="none" strokeLinejoin="round" />,
+  // Unit 26: an orb with its cross, a ballot going into a box, a puzzle of provinces, a country in
+  // three pieces, a ring of stars and a building with columns.
+  orb: <path d="M12 2v4M10 4h4M12 6a7 7 0 1 0 .01 0zM5 13h14M12 6v14" fill="none" strokeLinejoin="round" />,
+  ballot: <path d="M4 12h16v9H4zM9 12V4h6v8M10.5 7h3M8 16h8" fill="none" strokeLinejoin="round" />,
+  puzzle: <path d="M4 4h6a2 2 0 1 1 4 0h6v6a2 2 0 1 0 0 4v6h-6a2 2 0 1 0-4 0H4v-6a2 2 0 1 1 0-4z" fill="none" strokeLinejoin="round" />,
+  pieces: <path d="M3 9 9 4l7 2 5 5-3 6-7 3-6-3zM3 9l8 3 7 5M11 12l5-6M11 12v8" fill="none" strokeLinejoin="round" />,
+  stars: (
+    <>
+      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => (
+        <circle key={i} cx={12 + 8 * Math.sin((i * Math.PI) / 6)} cy={12 - 8 * Math.cos((i * Math.PI) / 6)} r="1.3" fill="currentColor" stroke="none" />
+      ))}
+    </>
+  ),
+  columns: <path d="M3 9 12 3l9 6zM4 21h16M5 9v12M9.5 9v12M14.5 9v12M19 9v12" fill="none" strokeLinejoin="round" />,
 }
 
 export function Icon({ name }: { name: string }) {

@@ -126,4 +126,6 @@ export const places: Record<string, Place> = {
   middelkerke: { name: 'Middelkerke', lat: 51.185, lon: 2.82, note: 'A seaside town of comic strip statues' },
   boom: { name: 'Boom', lat: 51.088, lon: 4.367, note: 'Tomorrowland, since 2005' },
   hilversum: { name: 'Hilversum', lat: 52.223, lon: 5.176, note: 'Home of Dutch radio and television' },
+  // Unit 26
+  schengen: { name: 'Schengen', lat: 49.47, lon: 6.364, note: 'Where the Schengen Agreement was signed, in 1985' },
 }
