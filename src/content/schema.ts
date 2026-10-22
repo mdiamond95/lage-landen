@@ -15,6 +15,7 @@ import { soundIds } from '../sounds/ids'
 import { foodIds, foodKinds } from '../data/foods'
 import { feastIds, feastKinds } from '../data/feasts'
 import { routeIds, routes } from '../data/routes'
+import { courseIds, shapeIds, shapes } from '../data/projections'
 
 // Everything a lesson can show or ask is described here. Lesson YAML is
 // parsed against these schemas, so a typo in content fails tests and the build.
@@ -72,9 +73,10 @@ const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // or the food and drink of the Low Countries, from juniper wine in about 1266 to 2016, or the
 // feasts and traditions, from the Holy Blood procession of Bruges in 1303 to Keti Koti in 2023, or
 // sport, from Pim Mulier's tour past the eleven towns in 1890 to the women's European title of 2017, or
-// comics, music and film, from Tintin's first strip in 1929 to the Eurovision Song Contest in Rotterdam in 2021.
+// comics, music and film, from Tintin's first strip in 1929 to the Eurovision Song Contest in Rotterdam in 2021, or
+// learning, from the university of Leuven in 1425 to Lemaître's expanding universe of 1927.
 // `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop'] as const
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop', 'science'] as const
 // The maps of the two world wars count in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
@@ -92,7 +94,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop', 'science'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
@@ -170,7 +172,18 @@ export type Panel = z.infer<typeof Panel>
 // pictures. A panel can be a box cut from a photo, so one big picture can be read as a strip.
 const StripVisual = z.object({ kind: z.literal('strip'), title: z.string().optional(), panels: z.array(Panel).min(2).max(6) })
 
-export const Visual = z.discriminatedUnion('kind', [StripVisual, MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
+// The projection explorer (Unit 25): the world on Mercator's map of 1569, on an equal-area map or on
+// a globe (`view`), with countries to drag north and south (`shapes`), circles of one size to show the
+// stretch, and a ship's course drawn as a steady compass course and as the shortest way.
+const ProjectionVisual = z.object({
+  kind: z.literal('projection'),
+  view: z.enum(['mercator', 'equal', 'globe']).default('mercator'),
+  shapes: z.array(z.enum(shapeIds)).max(3).default([]),
+  course: z.enum(courseIds).optional(),
+  circles: z.boolean().default(false),
+})
+
+export const Visual = z.discriminatedUnion('kind', [ProjectionVisual, StripVisual, MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -440,7 +453,24 @@ const Panels = z
   .refine((p) => new Set([...p.panels.map((x) => x.say), ...p.extra]).size === p.panels.length + p.extra.length, 'every balloon differs')
   .refine((p) => !p.order || p.extra.length === 0, 'an ordering has no spare balloons')
 
-export const Exercise = z.discriminatedUnion('type', [Panels, Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt, Ride])
+// True size (Unit 25): Mercator's map with two or three countries to drag side by side; pick the one
+// that is really bigger (or smaller). The answer comes from the countries' areas, which must differ
+// by at least a tenth, so the 1:110m outlines can't tip it.
+const TrueSizeQ = z
+  .object({
+    type: z.literal('truesize'),
+    prompt: z.string(),
+    shapes: z.array(z.enum(shapeIds)).min(2).max(3),
+    ask: z.enum(['bigger', 'smaller']).default('bigger'),
+    explain: z.string(),
+  })
+  .refine((t) => new Set(t.shapes).size === t.shapes.length, 'every shape differs')
+  .refine((t) => {
+    const a = t.shapes.map((s) => shapes[s].area).sort((x, y) => (t.ask === 'bigger' ? y - x : x - y))
+    return t.ask === 'bigger' ? a[0] >= a[1] * 1.1 : a[1] >= a[0] * 1.1
+  }, 'the answer is clear by a tenth')
+
+export const Exercise = z.discriminatedUnion('type', [TrueSizeQ, Panels, Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt, Ride])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

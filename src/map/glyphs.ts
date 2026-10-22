@@ -42,3 +42,16 @@ export const popGlyphs = {
   film: 'M-7.5-5.5h15v11h-15zM-6-4.2v1.6h1.6v-1.6zM-6-.8v1.6h1.6V-.8zM-6 2.6v1.6h1.6V2.6zM4.4-4.2v1.6H6v-1.6zM4.4-.8v1.6H6V-.8zM4.4 2.6v1.6H6V2.6zM-3-4v8h6v-8z',
 } as const
 export type PopGlyph = keyof typeof popGlyphs
+
+// The marks of learning (Unit 25), on the science time map: a mortarboard for a university, an open
+// book for a printer or an atlas, a quill for a thinker's work, a flask for a laboratory or observatory,
+// a leaf for a garden of plants and a medal for a Nobel Prize.
+export const scienceGlyphs = {
+  university: 'M0-6.5 8-2.5 0 1.5-8-2.5zM-4.5 0v3.5c0 1.5 9 1.5 9 0V0L0 2.2zM6.5-1.8v5.3h1v-5.3z',
+  press: 'M0-4C-2-6-5.5-6.5-8-6v11c2.5-.5 6 0 8 2 2-2 5.5-2.5 8-2V-6c-2.5-.5-6 0-8 2zM-.6-3v8.5h1.2V-3z',
+  scholar: 'M6.5-8C1-6.5-3.5-2-5.5 5L-6.5 8l1.6-.7C-3.5 2-.5-1.5 3-3c-2 1.8-4 4.5-5 7.5C3 3 6-2 6.5-8z',
+  lab: 'M-2.2-7.5h4.4v1.5H1.2v4.3L6.5 5.5c.7 1.1 0 2-1.2 2H-5.3c-1.2 0-1.9-.9-1.2-2L-1.2-1.7V-6h-1z',
+  garden: 'M-6.5 6.5C-7-2-2-7.5 7-7.5 7 2 1.5 6.5-6.5 6.5zM-6.5 6.5-5 5C-2 1 1-2 4-4.5-.5-1.5-3.5 2-6.5 6.5z',
+  prize: 'M-4-8h3l1 3.5L1-8h3L1.5-2.6A4.6 4.6 0 1 1-1.5-2.6zM0-1.3a3.3 3.3 0 1 0 .01 0z',
+} as const
+export type ScienceGlyph = keyof typeof scienceGlyphs

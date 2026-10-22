@@ -485,15 +485,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 45 snapshots from Caesar to the feasts of 2023', async ({ page }) => {
+test('the time map steps through 46 snapshots from Caesar to the feasts of 2023', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('45 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('46 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 45 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 46 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '44')
+  await expect(slider).toHaveAttribute('max', '45')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('About 1100: Hebban olla vogala')
@@ -535,18 +535,28 @@ test('the time map steps through 45 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-area-rebel').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-rebel')).toHaveCount(1)
 
-  await slider.fill('17')
+  // The thinkers and scientists of Unit 25 in 1656: Huygens's clock, with the universities and
+  // printers before it, but not yet Leeuwenhoek.
+  await slider.fill('15')
+  await expect(map.locator('.time-map-title')).toHaveText('1656: the pendulum clock')
+  await expect(map.locator('.hist-lab', { hasText: 'Huygens' })).toHaveCount(1)
+  await expect(map.locator('.hist-university', { hasText: 'Leiden' })).toHaveCount(1)
+  await expect(map.locator('.hist-lab', { hasText: 'Leeuwenhoek' })).toHaveCount(0)
+  await expect(map.locator('.hist-line.hist-survey')).toHaveCount(1)
+  await expect(map.locator('.key-swatch.key-university')).toHaveCount(1)
+
+  await slider.fill('18')
   await expect(map.locator('.time-map-title')).toHaveText('1678: The Peace of Nijmegen')
   await expect(map.locator('.hist-voc')).toHaveCount(0)
   await expect(map.locator('.hist-area-france')).not.toHaveCount(0)
   await expect(map.locator('.hist-area-austria')).toHaveCount(0)
 
-  await slider.fill('18')
+  await slider.fill('19')
   await expect(map.locator('.time-map-title')).toHaveText('1714: The Austrian Netherlands')
   await expect(map.locator('.hist-area-austria').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-austria')).toHaveCount(1)
 
-  await slider.fill('21')
+  await slider.fill('22')
   await expect(map.locator('.time-map-title')).toHaveText('1815: Waterloo and a new kingdom')
   await expect(map.locator('.hist-area-austria')).toHaveCount(0)
   await expect(map.locator('.hist-area-sister')).toHaveCount(0)
@@ -554,23 +564,23 @@ test('the time map steps through 45 snapshots from Caesar to the feasts of 2023'
 
   await expect(map.locator('.hist-area-belgium')).toHaveCount(0)
 
-  await slider.fill('22')
+  await slider.fill('23')
   await expect(map.locator('.time-map-title')).toHaveText('1830: Revolution in Brussels')
   await expect(map.locator('.hist-area-belgium').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-belgium')).toHaveCount(1)
 
-  await slider.fill('23')
+  await slider.fill('24')
   await expect(map.locator('.time-map-title')).toHaveText('1839: The Treaty of London')
   await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
 
-  await slider.fill('24')
+  await slider.fill('25')
   await expect(map.locator('.time-map-title')).toHaveText('1843: To France and Prussia')
   await expect(map.locator('.hist-area-coal')).toHaveCount(1)
   await expect(map.locator('.hist-mine').first()).toBeVisible()
   await expect(map.locator('.hist-area-duchy').first()).toBeVisible()
   await expect(map.locator('.key-swatch.key-coal')).toHaveCount(1)
 
-  await slider.fill('25')
+  await slider.fill('26')
   await expect(map.locator('.time-map-title')).toHaveText('1856: Trains to Germany')
   await expect(map.locator('.hist-area-coal')).toHaveCount(0)
   // Only Limburg's old Domaniale mine; Belgium's collieries belong to the 1843 map.
@@ -579,17 +589,17 @@ test('the time map steps through 45 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.key-swatch.key-rail')).toHaveCount(1)
   await expect(map.locator('.hist-fort', { hasText: 'Maastricht' })).toHaveCount(0)
 
-  await slider.fill('27')
+  await slider.fill('28')
   await expect(map.locator('.time-map-title')).toHaveText('1890: Luxembourg goes its own way')
   await expect(map.locator('.hist-area-duchy')).toHaveCount(0)
 
-  await slider.fill('29')
+  await slider.fill('30')
   await expect(map.locator('.time-map-title')).toHaveText('1915: An occupied country')
   await expect(map.locator('.hist-front')).toHaveCount(1)
   await expect(map.locator('.hist-line.hist-barrier')).toHaveCount(1)
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
 
-  await slider.fill('30')
+  await slider.fill('31')
   await expect(map.locator('.time-map-title')).toHaveText('1917: De Stijl')
   await expect(map.locator('.hist-front')).toHaveCount(0)
   await expect(map.locator('.hist-workshop:not(.hist-gone)', { hasText: 'Theo van Doesburg' })).toHaveCount(1)
@@ -598,36 +608,36 @@ test('the time map steps through 45 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.key-swatch.key-workshop')).toHaveCount(1)
 
   // Sport in 1928: the Games of Antwerp and Amsterdam beside the first races, the modern artists gone.
-  await slider.fill('31')
+  await slider.fill('32')
   await expect(map.locator('.time-map-title')).toHaveText('1928: Amsterdam’s Games')
   await expect(map.locator('.hist-games')).toHaveCount(2)
   await expect(map.locator('.hist-workshop')).toHaveCount(0)
-  await slider.fill('32')
+  await slider.fill('33')
   await expect(map.locator('.time-map-title')).toHaveText('May 1940: Five days of war')
   await expect(map.locator('.hist-rail')).toHaveCount(0)
   await expect(map.locator('.hist-area-occupied').first()).toBeVisible()
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
 
-  await slider.fill('33')
+  await slider.fill('34')
   await expect(map.locator('.time-map-title')).toHaveText('November 1944: The Scheldt, and the Hunger Winter')
   await expect(map.locator('.hist-area-free').first()).toBeVisible()
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-free')).toHaveCount(1)
 
-  await slider.fill('34')
+  await slider.fill('35')
   await expect(map.locator('.time-map-title')).toHaveText('May 1945: Liberation')
   await expect(map.locator('.hist-area-occupied')).toHaveCount(0)
   await expect(map.locator('.hist-alert', { hasText: 'HUNGER WINTER' })).toHaveCount(0)
   await expect(map.locator('.hist-grave')).toHaveCount(4)
 
   // Comics in 1946, from Unit 24: speech balloons for the first strips, the war's graves gone.
-  await slider.fill('35')
+  await slider.fill('36')
   await expect(map.locator('.time-map-title')).toHaveText('1946: Tintin gets a magazine')
   await expect(map.locator('.hist-site.hist-strip')).toHaveCount(6)
   await expect(map.locator('.hist-grave')).toHaveCount(0)
   await expect(map.locator('.key-swatch.key-strip')).toHaveCount(1)
 
-  await slider.fill('36')
+  await slider.fill('37')
   await expect(map.locator('.time-map-title')).toHaveText('1953: The great flood')
   await expect(map.locator('.hist-site.hist-strip')).toHaveCount(0)
   await expect(map.locator('.hist-area-flooded').first()).toBeVisible()
@@ -636,20 +646,20 @@ test('the time map steps through 45 snapshots from Caesar to the feasts of 2023'
 
   await expect(map.locator('.hist-area-dutch')).toHaveCount(0)
 
-  await slider.fill('37')
+  await slider.fill('38')
   await expect(map.locator('.time-map-title')).toHaveText('1958: Expo 58 and the Atomium')
   await expect(map.getByText('Atomium', { exact: true })).toBeVisible()
   await expect(map.locator('.key-swatch.key-nouveau')).toHaveCount(1)
   // The Delta Works carry on beside the buildings.
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
 
-  await slider.fill('38')
+  await slider.fill('39')
   await expect(map.locator('.time-map-title')).toHaveText('1963: The language border is fixed')
   await expect(map.locator('.hist-area-german')).toHaveCount(2)
   await expect(map.locator('.key-swatch.key-dutch')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-facility')).toHaveCount(0)
 
-  await slider.fill('39')
+  await slider.fill('40')
   await expect(map.locator('.time-map-title')).toHaveText('1986: Gates for the Oosterschelde')
   await expect(map.locator('.hist-area-flooded')).toHaveCount(0)
   await expect(map.locator('.hist-breach:not(.hist-gone)')).toHaveCount(0)
@@ -657,10 +667,10 @@ test('the time map steps through 45 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-area-bilingual')).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-bilingual')).toHaveCount(1)
 
-  await slider.fill('40')
+  await slider.fill('41')
   await expect(map.locator('.time-map-title')).toHaveText('1993: A federal state')
 
-  await slider.fill('41')
+  await slider.fill('42')
   await expect(map.locator('.time-map-title')).toHaveText('1997: The Delta Works are complete')
   await expect(map.locator('.hist-area-free')).toHaveCount(0)
   await expect(map.locator('.hist-rail')).toHaveCount(0)
@@ -668,13 +678,13 @@ test('the time map steps through 45 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-area-rebel')).toHaveCount(0)
   await expect(map.locator('.hist-dam').first()).toBeVisible()
 
-  await slider.fill('42')
+  await slider.fill('43')
   await expect(map.locator('.time-map-title')).toHaveText('2012: Brussels-Halle-Vilvoorde is split')
   await expect(map.locator('.hist-dam')).toHaveCount(0)
   await expect(map.locator('.hist-area-french').first()).toBeVisible()
 
   // The food map of Unit 21: every mark at once, unnamed, and the language areas gone.
-  await slider.fill('43')
+  await slider.fill('44')
   await expect(map.locator('.time-map-title')).toHaveText('2016: Belgian beer culture')
   await expect(map.locator('.hist-area-french')).toHaveCount(0)
   await expect(map.locator('.hist-site.hist-brewery')).toHaveCount(6)
@@ -684,7 +694,7 @@ test('the time map steps through 45 snapshots from Caesar to the feasts of 2023'
 
   // The last snapshot is the feast map of Unit 22: its marks unnamed, the food marks gone, the
   // two countries named and the Zwarte Piet debate still open.
-  await slider.fill('44')
+  await slider.fill('45')
   await expect(map.locator('.time-map-title')).toHaveText('2023: An apology on Keti Koti')
   await expect(map.locator('.hist-site.hist-brewery')).toHaveCount(0)
   await expect(map.locator('.hist-site.hist-procession').first()).toBeVisible()
@@ -2134,4 +2144,71 @@ test('a balloon question puts each balloon in its panel, and marks the wrong one
   await expect(ex.locator('.comic-panel.is-right')).toHaveCount(1)
   await expect(ex.locator('.balloon-right')).toHaveCount(2)
   await expect(ex.locator('.panels-pool')).toHaveCount(0)
+})
+
+test('plays all of unit 25 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of ['Erasmus and the printers', 'Vesalius and the body', 'Mercator and the map-makers', 'Stevin, Snellius and Huygens', 'Leeuwenhoek and the small world', 'Lorentz, Lemaître and the Nobel years']) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 25 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test("Mercator's map swells Greenland, shrinks it on the way south, and a true-size question shows the real sizes", async ({ page }) => {
+  await unlock(page, ['u25-l1', 'u25-l2'])
+  await page.getByRole('button', { name: 'Mercator and the map-makers', exact: true }).click()
+  const map = page.locator('.projection-map')
+  await expect(map).toHaveAttribute('data-view', 'mercator')
+  await expect(map.locator('.projection-shape')).toHaveCount(2)
+  await expect(map.locator('.course-rhumb')).toHaveCount(1)
+  await expect(map.locator('.projection-trip')).toContainText('258° all the way')
+  const greenland = map.locator('.projection-sizes li[data-shape="greenland"]')
+  await expect(greenland).toContainText('at 73° north')
+  const times = async () => Number(/([\d.]+) times too big/.exec((await greenland.textContent()) ?? '')![1])
+  const before = await times()
+  expect(before).toBeGreaterThan(5)
+  // Move Greenland south with the arrow keys: it keeps its true size, but is drawn smaller.
+  const shape = map.locator('.projection-shape[data-shape="greenland"] path')
+  await shape.focus()
+  for (let i = 0; i < 15; i++) await page.keyboard.press('ArrowDown')
+  await expect(greenland).toContainText('at 28° north')
+  expect(await times()).toBeLessThan(2)
+  await map.getByRole('button', { name: 'Put back' }).click()
+  await expect(greenland).toContainText('at 73° north')
+  // Drag it by pointer, too.
+  const box = (await shape.boundingBox())!
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 120, { steps: 8 })
+  await page.mouse.up()
+  expect(await times()).toBeLessThan(before)
+  // On the equal-area map and the globe, sizes are true.
+  await map.getByRole('button', { name: 'Equal area' }).click()
+  await expect(map).toHaveAttribute('data-view', 'equal')
+  await expect(greenland).not.toContainText('times too big')
+  await map.getByRole('button', { name: 'Globe' }).click()
+  await expect(map).toHaveAttribute('data-view', 'globe')
+
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+  const q = page.locator('.exercise-truesize')
+  await expect(q.locator('.eyebrow')).toHaveText('True size')
+  // Before the check the map stays on Mercator, and no sizes are shown.
+  await expect(q.locator('.projection-views')).toHaveCount(0)
+  await expect(q.locator('.projection-size')).toHaveCount(0)
+  await q.locator('.truesize-option[data-shape="greenland"]').click()
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.lesson-foot')).toHaveClass(/is-wrong/)
+  await expect(page.locator('.lesson-foot')).toContainText('Africa is bigger')
+  await expect(q.locator('.truesize-option.right')).toHaveText('Africa')
+  await expect(q.locator('.projection-size').first()).toContainText('really')
+  await expect(q.locator('.projection-views')).toHaveCount(1)
 })

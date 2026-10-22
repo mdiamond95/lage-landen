@@ -38,6 +38,8 @@ import { foodIds, foods } from '../data/foods'
 import { feastStory } from '../data/feastMap'
 import { sportStory } from '../data/sport'
 import { popStory } from '../data/pop'
+import { scienceStory } from '../data/science'
+import { areaOf, courses, greatCircleKm, rhumb, shapeIds, shapes } from '../data/projections'
 import { routes as raceRoutes } from '../data/routes'
 import { DAYS, daysOff, feastIds, feasts, spanOf } from '../data/feasts'
 import { dialectIds, dialectPieces, dialects } from '../data/dialects'
@@ -85,6 +87,7 @@ const isVisual = (e: Exercise) =>
   e.type === 'taste' ||
   e.type === 'when' ||
   e.type === 'panels' ||
+  e.type === 'truesize' ||
   (e.type === 'pick' && (e.visual !== undefined || e.items.every((i) => i.photo)))
 
 describe.each(files)('%s', (file) => {
@@ -490,6 +493,49 @@ describe('pop culture time map', () => {
   })
 })
 
+describe('thinkers and scientists time map', () => {
+  const { min, max, events, sites, labels, lines } = scienceStory
+  const inFrame = ([lon, lat]: [number, number]) => lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6
+
+  it('puts every mark and label in the frame, each named once', () => {
+    for (const s of sites) expect(inFrame(s.at), s.name).toBe(true)
+    for (const l of lines) for (const p of l.coords) expect(inFrame(p), l.name).toBe(true)
+    expect(new Set(sites.map((s) => s.name)).size, 'site names are unique').toBe(sites.length)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels, ...lines]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+      for (const [a, b] of item.off ?? []) expect(starts, `${name} closes and opens`).toEqual(expect.arrayContaining([a, b + 1]))
+    }
+  })
+})
+
+// The projection explorer (Unit 25): a shape's drawn outline must match its real size, or the
+// true-size questions would teach a wrong answer. World-atlas outlines are coarse, so allow 6%.
+describe('projection explorer', () => {
+  it('draws every country at its real size', () => {
+    for (const id of shapeIds) {
+      const ratio = areaOf(shapes[id].feature) / shapes[id].area
+      expect(Math.abs(ratio - 1), `${id} drawn at ${ratio.toFixed(3)} of its real size`).toBeLessThan(0.06)
+    }
+  })
+
+  it('makes a rhumb line longer than the great circle between the same ports', () => {
+    for (const c of Object.values(courses)) {
+      const r = rhumb(c.from.at, c.to.at)
+      expect(r.km).toBeGreaterThan(greatCircleKm(c.from.at, c.to.at))
+    }
+  })
+})
+
 // Comic panels (Unit 24): every box cut from a picture lies inside it, and a strip never shows the
 // same cut twice. A balloon question's panels are told apart by their pictures, so no two share one.
 describe('comic panels', () => {
@@ -688,6 +734,7 @@ describe('time maps in lessons', () => {
     feasts: feastStory,
     sport: sportStory,
     pop: popStory,
+    science: scienceStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -717,6 +764,7 @@ describe('time maps in lessons', () => {
     feasts: [feastStory.min, feastStory.max],
     sport: [sportStory.min, sportStory.max],
     pop: [popStory.min, popStory.max],
+    science: [scienceStory.min, scienceStory.max],
   }
 
   it('open at years inside their slider', () => {

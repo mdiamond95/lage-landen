@@ -143,6 +143,13 @@ export const paths: Record<string, React.ReactNode> = {
   rabbit: <path d="M9 10C8 7 8 3 9.5 3S11 7 11 10M15 10c1-3 1-7-.5-7S13 7 13 10M6 15a6 5 0 0 0 12 0 6 5 0 0 0-12 0zM10 14h.01M14 14h.01M11 17l1 .5 1-.5" fill="none" strokeLinejoin="round" />,
   note: <path d="M9 18V5l11-2v13M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM20 16a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM9 9l11-2" fill="none" strokeLinejoin="round" />,
   film: <path d="M4 3h16v18H4zM8 3v18M16 3v18M4 7.5h4M4 12h4M4 16.5h4M16 7.5h4M16 12h4M16 16.5h4" fill="none" strokeLinejoin="round" />,
+  // Unit 25: a printing press, a bone, a pair of dividers, a pendulum, a microscope and a medal.
+  press: <path d="M5 21V4h14v17M3 21h18M12 4v5M9 6h6M8 9h8v3H8zM6 16h12" fill="none" strokeLinejoin="round" />,
+  bone: <path d="M7 10.5h10M7 13.5h10M3.5 9.5a2 2 0 1 0 4 0 2 2 0 1 0-4 0M3.5 14.5a2 2 0 1 0 4 0 2 2 0 1 0-4 0M16.5 9.5a2 2 0 1 0 4 0 2 2 0 1 0-4 0M16.5 14.5a2 2 0 1 0 4 0 2 2 0 1 0-4 0" fill="none" strokeLinejoin="round" />,
+  dividers: <path d="M10 5a2 2 0 1 0 4 0 2 2 0 1 0-4 0M11 6.8 6 21M13 6.8 18 21M8.5 14h7" fill="none" strokeLinejoin="round" />,
+  pendulum: <path d="M4 3h16M12 3l3 12M12 18a3 3 0 1 0 6 0 3 3 0 1 0-6 0M5 13c1.5 2 3.5 3.5 6 4" fill="none" strokeLinejoin="round" />,
+  microscope: <path d="M5 21h14M9 3l4 2-3.5 7.5-4-2zM11 11.5l2 3M15 21c3.5-3 3-8.5-1.5-10.5M8 17h7" fill="none" strokeLinejoin="round" />,
+  medal: <path d="M8 2l3 7M16 2l-3 7M12 9a6 6 0 1 0 .01 0zM10.5 13.5 12 12.5v5" fill="none" strokeLinejoin="round" />,
 }
 
 export function Icon({ name }: { name: string }) {

@@ -29,6 +29,7 @@ import antwerpCentralHall from './antwerp-central-hall.jpg'
 import antwerpSiegeBridge from './antwerp-siege-bridge.jpg'
 import antwerpTownHall from './antwerp-town-hall.jpg'
 import arakan from './arakan.jpg'
+import arcanaD from './arcana-d.jpg'
 import archdukes from './archdukes.jpg'
 import arnekeSign from './arneke-sign.jpg'
 import arnhem1944 from './arnhem-1944.jpg'
@@ -37,12 +38,14 @@ import arnolfini from './arnolfini.jpg'
 import arron from './arron.jpg'
 import artOfPainting from './art-of-painting.jpg'
 import arteveldeStatue from './artevelde-statue.jpg'
+import atlasTitle from './atlas-title.jpg'
 import atomium1957 from './atomium-1957.jpg'
 import atomium from './atomium.jpg'
 import atticChurch from './attic-church.jpg'
 import avercampWinter from './avercamp-winter.jpg'
 import baarleBorder from './baarle-border.jpg'
 import babel from './babel.jpg'
+import baekeland from './baekeland.jpg'
 import banda1724 from './banda-1724.jpg'
 import banknote1826 from './banknote-1826.jpg'
 import banquetingHouse from './banqueting-house.jpg'
@@ -57,9 +60,11 @@ import belgianRefugees1914 from './belgian-refugees-1914.jpg'
 import berlaymont from './berlaymont.jpg'
 import bigBertha from './big-bertha.jpg'
 import bigFish from './big-fish.jpg'
+import blaeu1648 from './blaeu-1648.jpg'
 import blegny from './blegny.jpg'
 import blucher from './blucher.jpg'
 import boekentoren from './boekentoren.jpg'
+import boerhaave from './boerhaave.jpg'
 import boisDuCazier from './bois-du-cazier.jpg'
 import boisDuLuc from './bois-du-luc.jpg'
 import boma1899 from './boma-1899.jpg'
@@ -112,6 +117,7 @@ import citadel1832 from './citadel-1832.jpg'
 import claeszVanitas from './claesz-vanitas.jpg'
 import claudiusCivilis from './claudius-civilis.jpg'
 import clovisBaptism from './clovis-baptism.jpg'
+import clusius from './clusius.jpg'
 import cockerillKing from './cockerill-king.jpg'
 import cockerill from './cockerill.jpg'
 import coen from './coen.jpg'
@@ -153,6 +159,7 @@ import destree from './destree.jpg'
 import deurneHelmet from './deurne-helmet.jpg'
 import dodendraad from './dodendraad.jpg'
 import dodengang from './dodengang.jpg'
+import dodoensBook from './dodoens-book.jpg'
 import doesburgCounter from './doesburg-counter.jpg'
 import doesburgSoldier from './doesburg-soldier.jpg'
 import dokwerker from './dokwerker.jpg'
@@ -171,6 +178,8 @@ import eastIndiaHouse from './east-india-house.jpg'
 import eelRiot from './eel-riot.jpg'
 import egmontHorneExecution from './egmont-horne-execution.jpg'
 import egmontHorneStatue from './egmont-horne-statue.jpg'
+import einsteinLorentz from './einstein-lorentz.jpg'
+import einthovenEcg from './einthoven-ecg.jpg'
 import elisabeth1915 from './elisabeth-1915.jpg'
 import elmina1665 from './elmina-1665.jpg'
 import elminaCastle from './elmina-castle.jpg'
@@ -183,6 +192,8 @@ import ensorEntry from './ensor-entry.jpg'
 import ensorMasks from './ensor-masks.jpg'
 import ensorOyster from './ensor-oyster.jpg'
 import erasmus from './erasmus.jpg'
+import erasmusMassys from './erasmus-massys.jpg'
+import erasmusStatue from './erasmus-statue.jpg'
 import escher1971 from './escher-1971.jpg'
 import escherPaleis from './escher-paleis.jpg'
 import essexFarm from './essex-farm.jpg'
@@ -192,6 +203,10 @@ import exchangeCourtyard from './exchange-courtyard.jpg'
 import expo58Congo from './expo58-congo.jpg'
 import expo58Philips from './expo58-philips.jpg'
 import eyskens from './eyskens.jpg'
+import fabricaC from './fabrica-c.jpg'
+import fabricaFront from './fabrica-front.jpg'
+import fabricaSkeleton from './fabrica-skeleton.jpg'
+import fabricaTitle from './fabrica-title.jpg'
 import fauxSoir from './faux-soir.jpg'
 import feddeSchurer from './fedde-schurer.jpg'
 import ferrier from './ferrier.jpg'
@@ -218,6 +233,8 @@ import gardenDelights from './garden-delights.jpg'
 import gasAttackRoberts from './gas-attack-roberts.jpg'
 import gauguinChair from './gauguin-chair.jpg'
 import gauguinVincent from './gauguin-vincent.jpg'
+import gemmaTriangulation from './gemma-triangulation.jpg'
+import geographer from './geographer.jpg'
 import germanParliament from './german-parliament.jpg'
 import germansArrive from './germans-arrive.jpg'
 import gevangenpoort from './gevangenpoort.jpg'
@@ -255,6 +272,7 @@ import hebbanFolio from './hebban-folio.jpg'
 import hedaGoblet from './heda-goblet.jpg'
 import hedgeSermon from './hedge-sermon.jpg'
 import heerlenThermen from './heerlen-thermen.jpg'
+import heliumLiquefier from './helium-liquefier.jpg'
 import hemessenSelf from './hemessen-self.jpg'
 import hetLoo1690 from './het-loo-1690.jpg'
 import hetPelsken from './het-pelsken.jpg'
@@ -263,6 +281,7 @@ import hiroshigePlum from './hiroshige-plum.jpg'
 import hobbemaAvenue from './hobbema-avenue.jpg'
 import honthorstShepherds from './honthorst-shepherds.jpg'
 import hoochCourtyard from './hooch-courtyard.jpg'
+import hortusLeiden from './hortus-leiden.jpg'
 import hotelDeWereld from './hotel-de-wereld.jpg'
 import hundredGuilder from './hundred-guilder.jpg'
 import hungerWinter from './hunger-winter.jpg'
@@ -271,6 +290,7 @@ import huyCitadel from './huy-citadel.jpg'
 import huygens from './huygens.jpg'
 import icarus from './icarus.jpg'
 import iconoclasmAntwerp from './iconoclasm-antwerp.jpg'
+import ingenhousz from './ingenhousz.jpg'
 import jacoba from './jacoba.jpg'
 import jenneval from './jenneval.jpg'
 import jewishBride from './jewish-bride.jpg'
@@ -296,10 +316,13 @@ import lastPost from './last-post.jpg'
 import leBelge from './le-belge.jpg'
 import leeuwardenCourt from './leeuwarden-court.jpg'
 import leeuwenhoek from './leeuwenhoek.jpg'
+import leeuwenhoekMicroscope from './leeuwenhoek-microscope.jpg'
 import leiden1807 from './leiden-1807.jpg'
 import leidenJagers from './leiden-jagers.jpg'
 import leidenRelief from './leiden-relief.jpg'
+import leidenTheatre from './leiden-theatre.jpg'
 import lelyStatue from './lely-statue.jpg'
+import lemaitreStatue from './lemaitre-statue.jpg'
 import leoBelgicus from './leo-belgicus.jpg'
 import leopoldI from './leopold-i.jpg'
 import leopoldIiBassano from './leopold-ii-bassano.jpg'
@@ -334,6 +357,7 @@ import louvainLaNeuve from './louvain-la-neuve.jpg'
 import lumumbaBrussels from './lumumba-brussels.jpg'
 import lumumbaMausoleum from './lumumba-mausoleum.jpg'
 import lumumbaSigns from './lumumba-signs.jpg'
+import luther1529 from './luther-1529.jpg'
 import luttrellSheep from './luttrell-sheep.jpg'
 import maerlantStatue from './maerlant-statue.jpg'
 import maeslantkering from './maeslantkering.jpg'
@@ -366,6 +390,8 @@ import meegerenTrial from './meegeren-trial.jpg'
 import memlingJudgment from './memling-judgment.jpg'
 import menenRelief from './menen-relief.jpg'
 import meninGate from './menin-gate.jpg'
+import mercator1569 from './mercator-1569.jpg'
+import mercatorHogenberg from './mercator-hogenberg.jpg'
 import merdeka1945 from './merdeka-1945.jpg'
 import merode from './merode.jpg'
 import merryDrinker from './merry-drinker.jpg'
@@ -400,11 +426,14 @@ import nehalenniaAltar from './nehalennia-altar.jpg'
 import nhmSemarang from './nhm-semarang.jpg'
 import nieuwerkerkMonument from './nieuwerkerk-monument.jpg'
 import nightWatch from './night-watch.jpg'
+import nobelFour from './nobel-four.jpg'
 import oldenbarnevelt from './oldenbarnevelt.jpg'
 import oosterscheldekering from './oosterscheldekering.jpg'
 import opening1986 from './opening-1986.jpg'
+import ortelius1570 from './ortelius-1570.jpg'
 import ostendPatent from './ostend-patent.jpg'
 import ostendSiege from './ostend-siege.jpg'
+import otletDesk from './otlet-desk.jpg'
 import ouwerkerkCaissons from './ouwerkerk-caissons.jpg'
 import palaceNation from './palace-nation.jpg'
 import panoramaMesdag from './panorama-mesdag.jpg'
@@ -417,6 +446,18 @@ import herveCheese from './herve-cheese.jpg'
 import leidenCheese from './leiden-cheese.jpg'
 import goudaWaag from './gouda-waag.jpg'
 import peetersCheese from './peeters-cheese.jpg'
+import plantinPress from './plantin-press.jpg'
+import quetelet from './quetelet.jpg'
+import saturnA from './saturn-a.jpg'
+import snelliusBaseline from './snellius-baseline.jpg'
+import solvay1927 from './solvay-1927.jpg'
+import stevinStatue from './stevin-statue.jpg'
+import stevinYacht from './stevin-yacht.jpg'
+import swammerdamMayfly from './swammerdam-mayfly.jpg'
+import teylersOval from './teylers-oval.jpg'
+import thiende from './thiende.jpg'
+import trilingue from './trilingue.jpg'
+import utopiaMap from './utopia-map.jpg'
 import vanDijckCheese from './van-dijck-cheese.jpg'
 import herringEater from './herring-eater.jpg'
 import herringStall from './herring-stall.jpg'
@@ -439,6 +480,7 @@ import vanHoutenPoster from './van-houten-poster.jpg'
 import cuberdons from './cuberdons.jpg'
 import hagelslag from './hagelslag.jpg'
 import bosscheBol from './bossche-bol.jpg'
+import vesaliusPortrait from './vesalius-portrait.jpg'
 import vlaai from './vlaai.jpg'
 import poffertjes from './poffertjes.jpg'
 import cuypOliebollen from './cuyp-oliebollen.jpg'
@@ -806,6 +848,7 @@ import vdpCross from './vdp-cross.jpg'
 import victorBoin from './victor-boin.jpg'
 import vosCross from './vos-cross.jpg'
 import wust from './wust.jpg'
+import zeeman from './zeeman.jpg'
 import zoetemelk from './zoetemelk.jpg'
 import aanslagShoot from './aanslag-shoot.jpg'
 import akerman from './akerman.jpg'
@@ -878,6 +921,43 @@ export type { PhotoId } from './ids'
 // Credits (author, licence, source page) live in credits.ts so tests can check them.
 const files: Record<PhotoId, string> = {
   kinderdijk,
+  'arcana-d': arcanaD,
+  'atlas-title': atlasTitle,
+  baekeland: baekeland,
+  'blaeu-1648': blaeu1648,
+  boerhaave: boerhaave,
+  clusius: clusius,
+  'dodoens-book': dodoensBook,
+  'einstein-lorentz': einsteinLorentz,
+  'einthoven-ecg': einthovenEcg,
+  'erasmus-massys': erasmusMassys,
+  'erasmus-statue': erasmusStatue,
+  'fabrica-c': fabricaC,
+  'fabrica-front': fabricaFront,
+  'fabrica-skeleton': fabricaSkeleton,
+  'fabrica-title': fabricaTitle,
+  'gemma-triangulation': gemmaTriangulation,
+  geographer: geographer,
+  'helium-liquefier': heliumLiquefier,
+  'hortus-leiden': hortusLeiden,
+  ingenhousz: ingenhousz,
+  'leeuwenhoek-microscope': leeuwenhoekMicroscope,
+  'leiden-theatre': leidenTheatre,
+  'lemaitre-statue': lemaitreStatue,
+  'luther-1529': luther1529,
+  'mercator-1569': mercator1569,
+  'mercator-hogenberg': mercatorHogenberg,
+  'nobel-four': nobelFour,
+  'ortelius-1570': ortelius1570,
+  'otlet-desk': otletDesk,
+  'plantin-press': plantinPress,
+  quetelet: quetelet,
+  'saturn-a': saturnA,
+  'snellius-baseline': snelliusBaseline,
+  'solvay-1927': solvay1927,
+  'stevin-statue': stevinStatue,
+  'stevin-yacht': stevinYacht,
+  'swammerdam-mayfly': swammerdamMayfly,
   'terp-hogebeintum': terpHogebeintum,
   'polder-beemster': polderBeemster,
   afsluitdijk,
@@ -892,6 +972,8 @@ const files: Record<PhotoId, string> = {
   'ambiorix-statue': ambiorixStatue,
   'claudius-civilis': claudiusCivilis,
   'deurne-helmet': deurneHelmet,
+  'teylers-oval': teylersOval,
+  thiende: thiende,
   'tongeren-wall': tongerenWall,
   'heerlen-thermen': heerlenThermen,
   'nehalennia-altar': nehalenniaAltar,
@@ -902,11 +984,14 @@ const files: Record<PhotoId, string> = {
   'boniface-fulda': bonifaceFulda,
   'aachen-chapel': aachenChapel,
   'charlemagne-durer': charlemagneDurer,
+  trilingue: trilingue,
+  'utopia-map': utopiaMap,
   'utrecht-psalter': utrechtPsalter,
   gravensteen,
   'bruges-belfry': brugesBelfry,
   beguinage,
   'luttrell-sheep': luttrellSheep,
+  'vesalius-portrait': vesaliusPortrait,
   'ypres-cloth-hall': ypresClothHall,
   'ter-beurze': terBeurze,
   'golden-spurs-chronicle': goldenSpursChronicle,
@@ -1683,6 +1768,7 @@ const files: Record<PhotoId, string> = {
   'victor-boin': victorBoin,
   'vos-cross': vosCross,
   'wust': wust,
+  zeeman: zeeman,
   'zoetemelk': zoetemelk,
   'aanslag-shoot': aanslagShoot,
   'akerman': akerman,

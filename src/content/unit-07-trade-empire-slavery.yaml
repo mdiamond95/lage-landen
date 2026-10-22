@@ -342,6 +342,22 @@ lessons:
         explain: >-
           The wall of wooden stakes across the island, built in 1653. The street that ran beside it is still called
           Wall Street.
+      - type: choice
+        prompt: WIC ships crossed from Amsterdam to New Amsterdam. On Mercator's map a steady compass course is a straight line, in red; the blue line is the shortest way. Which is true?
+        visual: { kind: projection, course: new-amsterdam }
+        answer: 2
+        options:
+          - label: The straight red line is the shortest way
+            why: Only on a flat world. The shortest way on a globe is a great circle, which curves north on this map.
+          - label: No, the shortest way runs south of it
+            why: It runs north of it, on a great circle, closer to Greenland.
+          - label: No, the shortest way curves north of it, and is nearly 300 km shorter
+            why: >-
+              Right. The great circle is about 5,860 km, the steady compass course about 6,140. Switch the map to the
+              globe to see the shortest way as a straight line. In practice the winds decided: ships from Holland
+              often sailed south first, to pick up the trade winds.
+          - label: The two are the same length
+            why: The great circle, which curves north on this map, is nearly 300 km shorter.
       - type: gap
         prompt: In November 1626 a ship from New Netherland reached Amsterdam, and Pieter Schaghen reported the news to the States General. Fill the gap in his letter.
         quote: They have purchased the Island Manhattes from the Indians for the value of ___ guilders.

@@ -338,6 +338,12 @@ lessons:
             why: The old kingdom's lands were split between the Free State and Portuguese Angola.
           - label: Britain and France together
             why: They held colonies around it, but let Leopold have the Congo, as a buffer between them.
+      - type: truesize
+        prompt: The Congo lies on the equator, where Mercator's map, still on many classroom walls, draws land at its true size. Which is really bigger, the Congo or western Europe from Spain to Germany and Britain?
+        shapes: [congo, western-europe]
+        explain: >-
+          The Congo, by about 15 percent. It is 76 times the size of Belgium. Mercator's map draws land at 50° north,
+          the latitude of Brussels, about two and a half times too big, so Europe looks far larger than it is.
       - type: choice
         prompt: From 1879 to 1884 the explorer Henry Morton Stanley worked for Leopold in the Congo. What did he do for him?
         visual: { kind: photo, photo: stanley }
