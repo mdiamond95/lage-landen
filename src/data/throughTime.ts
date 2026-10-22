@@ -19,6 +19,7 @@ import { feastStory } from './feastMap'
 import { sportStory } from './sport'
 import { popStory } from './pop'
 import { scienceStory } from './science'
+import { stateStory } from './state'
 import { burgundyStory } from './burgundy'
 import { greatWarByYear } from './greatwar'
 import { industryStory } from './industry'
@@ -244,6 +245,7 @@ const snapshots: Snapshot[] = [
   { story: languageByYear, from: 2012 },
   { story: foodTodayStory, from: 2016 },
   { story: feastsTodayStory, from: 2023 },
+  { story: stateStory, from: 2026 },
 ]
 
 const eras = [...new Set(snapshots.map((s) => s.story))]

@@ -499,6 +499,14 @@ lessons:
           The regions look after land: the economy, roads, housing, the environment. The communities look after
           people: schools, culture, the media in their language. The federal state keeps what has to be the same for
           everyone.
+      - type: drill
+        prompt: Since 1995 the Flemish Region has five provinces. Find them on the map.
+        country: BEL
+        only: [BE-VAN, BE-VLI, BE-VOV, BE-VWV, BE-VBR]
+        misses: 1
+        explain: >-
+          Antwerp, Limburg, East Flanders, West Flanders and Flemish Brabant, made when Brabant was split in 1995.
+          Wallonia has the other five, and Brussels belongs to no province.
       - type: choice
         prompt: On the map of communities, Brussels is striped in two colours. Why?
         visual: { kind: federal, show: communities }

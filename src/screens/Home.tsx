@@ -1,3 +1,4 @@
+import { provinceIds } from '../data/provinces'
 import { cards } from '../content'
 import { courseOutline } from '../content/course'
 import { checkpointId } from '../content/checkpoint'
@@ -10,7 +11,7 @@ import { streakAlive, todayKey, useProgress } from '../progress/store'
 import { Icon } from './Icon'
 import { allPhrases } from '../data/phrases'
 
-type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void }
+type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void }
 
 const listUnits = (ns: number[]) => (ns.length < 3 ? ns.join(' and ') : `${ns.slice(0, -1).join(', ')} and ${ns[ns.length - 1]}`)
 
@@ -20,7 +21,7 @@ const dayName = (day: string, today: string) => {
   return diff <= 1 ? 'tomorrow' : d.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' })
 }
 
-export function Home({ units, onStart, onTimeMap, onPhrasebook }: Props) {
+export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill }: Props) {
   const progress = useProgress()
   const totalPlaces = Object.keys(places).length
   const alive = streakAlive(progress)
@@ -82,7 +83,7 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook }: Props) {
       <section className="timemap-teaser card">
         <div>
           <h2>Time map</h2>
-          <p>Watch the Low Countries change in {throughTimeStory.events.length} snapshots, from Caesar to the feasts of 2023.</p>
+          <p>Watch the Low Countries change in {throughTimeStory.events.length} snapshots, from Caesar to the provinces of today.</p>
         </div>
         <button type="button" className="btn-ghost" onClick={onTimeMap}>
           Open the time map
@@ -96,6 +97,16 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook }: Props) {
         </div>
         <button type="button" className="btn-ghost" onClick={onPhrasebook}>
           Open the phrasebook
+        </button>
+      </section>
+
+      <section className="drill-teaser card">
+        <div>
+          <h2>Map drill</h2>
+          <p>The {provinceIds.length - 1} provinces of both countries and Brussels, to find by name, capital or flag.</p>
+        </div>
+        <button type="button" className="btn-ghost" onClick={onDrill}>
+          Open the map drill
         </button>
       </section>
 

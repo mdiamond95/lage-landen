@@ -913,6 +913,53 @@ import tuschinski1973 from './tuschinski-1973.jpg'
 import vandersteen1985 from './vandersteen-1985.jpg'
 import vandersteenHasselt from './vandersteen-hasselt.jpg'
 import yokoMural from './yoko-mural.jpg'
+import regalia from './regalia.jpg'
+import philippeOath from './philippe-oath.jpg'
+import noordeinde from './noordeinde.jpg'
+import tweedeKamer from './tweede-kamer.jpg'
+import statenVote1983 from './staten-vote-1983.jpg'
+import welgelegen from './welgelegen.jpg'
+import gouvernementMaastricht from './gouvernement-maastricht.jpg'
+import houtribdijk from './houtribdijk.jpg'
+import elysette from './elysette.jpg'
+import liegePalace from './liege-palace.jpg'
+import baarleCafe from './baarle-cafe.jpg'
+import marieAstrid from './marie-astrid.jpg'
+import luns from './luns.jpg'
+import hoopScheffer from './hoop-scheffer.jpg'
+import rutte2024 from './rutte-2024.jpg'
+import claes from './claes.jpg'
+import romeSignatures from './rome-signatures.jpg'
+import willemAlexander2013 from './willem-alexander-2013.jpg'
+import voting1918 from './voting-1918.jpg'
+import redPencil from './red-pencil.jpg'
+import elisabeth2025 from './elisabeth-2025.jpg'
+import amalia2025 from './amalia-2025.jpg'
+import rijnlandHouse from './rijnland-house.jpg'
+import huisTenBosch from './huis-ten-bosch.jpg'
+import flagGroningen from './flag-groningen.jpg'
+import flagFriesland from './flag-friesland.jpg'
+import flagDrenthe from './flag-drenthe.jpg'
+import flagOverijssel from './flag-overijssel.jpg'
+import flagFlevoland from './flag-flevoland.jpg'
+import flagGelderland from './flag-gelderland.jpg'
+import flagUtrecht from './flag-utrecht.jpg'
+import flagNoordHolland from './flag-noord-holland.jpg'
+import flagZuidHolland from './flag-zuid-holland.jpg'
+import flagZeeland from './flag-zeeland.jpg'
+import flagNoordBrabant from './flag-noord-brabant.jpg'
+import flagLimburgNl from './flag-limburg-nl.jpg'
+import flagAntwerp from './flag-antwerp.jpg'
+import flagLimburgBe from './flag-limburg-be.jpg'
+import flagEastFlanders from './flag-east-flanders.jpg'
+import flagWestFlanders from './flag-west-flanders.jpg'
+import flagFlemishBrabant from './flag-flemish-brabant.jpg'
+import flagWalloonBrabant from './flag-walloon-brabant.jpg'
+import flagHainaut from './flag-hainaut.jpg'
+import flagNamur from './flag-namur.jpg'
+import flagLiege from './flag-liege.jpg'
+import flagLuxembourgBe from './flag-luxembourg-be.jpg'
+import flagBrussels from './flag-brussels.jpg'
 import type { PhotoId } from './ids'
 
 export type { PhotoId } from './ids'
@@ -1833,6 +1880,53 @@ const files: Record<PhotoId, string> = {
   'vandersteen-1985': vandersteen1985,
   'vandersteen-hasselt': vandersteenHasselt,
   'yoko-mural': yokoMural,
+  'regalia': regalia,
+  'philippe-oath': philippeOath,
+  'noordeinde': noordeinde,
+  'tweede-kamer': tweedeKamer,
+  'staten-vote-1983': statenVote1983,
+  'welgelegen': welgelegen,
+  'gouvernement-maastricht': gouvernementMaastricht,
+  'houtribdijk': houtribdijk,
+  'elysette': elysette,
+  'liege-palace': liegePalace,
+  'baarle-cafe': baarleCafe,
+  'marie-astrid': marieAstrid,
+  'luns': luns,
+  'hoop-scheffer': hoopScheffer,
+  'rutte-2024': rutte2024,
+  'claes': claes,
+  'rome-signatures': romeSignatures,
+  'willem-alexander-2013': willemAlexander2013,
+  'voting-1918': voting1918,
+  'red-pencil': redPencil,
+  'elisabeth-2025': elisabeth2025,
+  'amalia-2025': amalia2025,
+  'rijnland-house': rijnlandHouse,
+  'huis-ten-bosch': huisTenBosch,
+  'flag-groningen': flagGroningen,
+  'flag-friesland': flagFriesland,
+  'flag-drenthe': flagDrenthe,
+  'flag-overijssel': flagOverijssel,
+  'flag-flevoland': flagFlevoland,
+  'flag-gelderland': flagGelderland,
+  'flag-utrecht': flagUtrecht,
+  'flag-noord-holland': flagNoordHolland,
+  'flag-zuid-holland': flagZuidHolland,
+  'flag-zeeland': flagZeeland,
+  'flag-noord-brabant': flagNoordBrabant,
+  'flag-limburg-nl': flagLimburgNl,
+  'flag-antwerp': flagAntwerp,
+  'flag-limburg-be': flagLimburgBe,
+  'flag-east-flanders': flagEastFlanders,
+  'flag-west-flanders': flagWestFlanders,
+  'flag-flemish-brabant': flagFlemishBrabant,
+  'flag-walloon-brabant': flagWalloonBrabant,
+  'flag-hainaut': flagHainaut,
+  'flag-namur': flagNamur,
+  'flag-liege': flagLiege,
+  'flag-luxembourg-be': flagLuxembourgBe,
+  'flag-brussels': flagBrussels,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

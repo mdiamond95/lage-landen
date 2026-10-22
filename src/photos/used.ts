@@ -3,6 +3,7 @@ import { facades } from '../data/facades'
 import { foodIds, foods } from '../data/foods'
 import { feastIds, feasts } from '../data/feasts'
 import { pairs } from '../data/pairs'
+import { provinces, provincesOf } from '../data/provinces'
 import { tours } from '../data/paintings'
 import { series } from '../data/series'
 import type { PhotoId } from './ids'
@@ -28,6 +29,9 @@ export const photosUsed = (exercises: Exercise[]): PhotoId[] => {
     ...(e.type === 'pick' ? e.items.flatMap((i) => (i.photo ? [i.photo] : [])) : []),
     ...('visual' in e && e.visual?.kind === 'wheel' ? feastIds.flatMap((f) => (feasts[f].photo ? [feasts[f].photo] : [])) : []),
     ...(e.type === 'when' ? [e.photo] : []),
+    // The province map and drill (Unit 26) show the provinces' flags.
+    ...('visual' in e && e.visual?.kind === 'provinces' ? provincesOf(e.visual.country).map((id) => provinces[id].flag) : []),
+    ...(e.type === 'drill' ? provincesOf(e.country).map((id) => provinces[id].flag) : []),
   ])
   return [...new Set(ids)]
 }

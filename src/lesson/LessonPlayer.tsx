@@ -19,6 +19,7 @@ import { WhenWheel } from '../exercises/WhenWheel'
 import { RideRoute } from '../exercises/RideRoute'
 import { ComicPanels } from '../exercises/ComicPanels'
 import { TrueSize } from '../exercises/TrueSize'
+import { ProvinceDrill } from '../exercises/ProvinceDrill'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
 import type { Evaluate, Result } from '../exercises/types'
@@ -146,6 +147,8 @@ export function LessonPlayer({ title, exercises, note, calm = false, onExit, onF
         return <ComicPanels exercise={exercise} {...props} />
       case 'truesize':
         return <TrueSize exercise={exercise} {...props} />
+      case 'drill':
+        return <ProvinceDrill exercise={exercise} {...props} />
     }
   })()
 

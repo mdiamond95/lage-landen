@@ -58,7 +58,9 @@ export type HistSite = Dated & {
   // a cycling `race`, a `ball` game (football and korfball), the `ice` or the Olympic `games`. On the pop
   // map (Unit 24) a mark is a comic `strip`, `music` or `film` (cinema and television), or a `museum`. On the
   // science map (Unit 25) a mark is a `university`, a `press` (a printer or an atlas), a `scholar`'s work, a
-  // `lab` (a laboratory or an observatory), a `garden` of plants or a Nobel `prize`.
+  // `lab` (a laboratory or an observatory), a `garden` of plants or a Nobel `prize`. On the state map
+  // (Unit 26) a mark is a `seat` of government, an international `court`, a `treaty` signed there, or
+  // the `hq` of the European institutions or NATO.
   kind:
     | 'fort'
     | 'town'
@@ -109,6 +111,10 @@ export type HistSite = Dated & {
     | 'lab'
     | 'garden'
     | 'prize'
+    | 'seat'
+    | 'court'
+    | 'treaty'
+    | 'hq'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number
@@ -127,7 +133,9 @@ export type HistLabel = Dated & { text: string; at: [number, number]; kind?: 'pe
 // must also serve their French speakers (facilities), land still abroad (the East
 // Cantons before 1920), and the electoral district of Brussels-Halle-Vilvoorde,
 // outlined over the rest. On the map of languages (Unit 20): land where people spoke Frisian
-// or Saxon (the Dutch, French and German kinds serve for the rest).
+// or Saxon (the Dutch, French and German kinds serve for the rest). On the state map (Unit 26): a Dutch
+// or a Belgian province, a province of Flanders or Wallonia once the regions are made, the Brussels-Capital
+// Region, and new land won from the Zuiderzee before it is a province.
 export type AreaKind =
   | 'sea'
   | 'ruled'
@@ -154,9 +162,17 @@ export type AreaKind =
   | 'bhv'
   | 'frisian'
   | 'saxon'
+  | 'nlprov'
+  | 'beprov'
+  | 'flanders'
+  | 'wallonia'
+  | 'capital'
+  | 'polder'
 export type HistArea = Dated & {
   name: string
   kind?: AreaKind
+  // Several shapes that were one province then (Holland, Brabant), drawn without the lines between them.
+  joined?: boolean
   regions?: string[]
   clip?: [number, number][]
   shape?: [number, number][]

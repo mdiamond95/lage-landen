@@ -16,6 +16,8 @@ import { foodIds, foodKinds } from '../data/foods'
 import { feastIds, feastKinds } from '../data/feasts'
 import { routeIds, routes } from '../data/routes'
 import { courseIds, shapeIds, shapes } from '../data/projections'
+import { provinceIds } from '../data/provinces'
+import { chamberIds } from '../data/seats'
 
 // Everything a lesson can show or ask is described here. Lesson YAML is
 // parsed against these schemas, so a typo in content fails tests and the build.
@@ -74,9 +76,10 @@ const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // feasts and traditions, from the Holy Blood procession of Bruges in 1303 to Keti Koti in 2023, or
 // sport, from Pim Mulier's tour past the eleven towns in 1890 to the women's European title of 2017, or
 // comics, music and film, from Tintin's first strip in 1929 to the Eurovision Song Contest in Rotterdam in 2021, or
-// learning, from the university of Leuven in 1425 to Lemaître's expanding universe of 1927.
+// learning, from the university of Leuven in 1425 to Lemaître's expanding universe of 1927, or the provinces,
+// regions and seats of government of the two countries, from the split of 1839 to today.
 // `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop', 'science'] as const
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop', 'science', 'state'] as const
 // The maps of the two world wars count in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
@@ -94,7 +97,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop', 'science'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop', 'science', 'state'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
@@ -183,7 +186,15 @@ const ProjectionVisual = z.object({
   circles: z.boolean().default(false),
 })
 
-export const Visual = z.discriminatedUnion('kind', [ProjectionVisual, StripVisual, MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
+// The provinces and regions of the two countries (Unit 26): tap one for its flag, capital, people and
+// size. `country` opens it on one country, `focus` on one province.
+const ProvincesVisual = z.object({ kind: z.literal('provinces'), country: z.enum(['NLD', 'BEL', 'both']).default('both'), focus: z.enum(provinceIds).optional() })
+
+// A lower house of parliament as a half circle of its 150 seats (Unit 26), coloured by party, with the
+// parties of the government picked out on demand. `hideCabinet` keeps that back for a question.
+const SeatsVisual = z.object({ kind: z.literal('seats'), chamber: z.enum(chamberIds), hideCabinet: z.boolean().default(false) })
+
+export const Visual = z.discriminatedUnion('kind', [ProvincesVisual, SeatsVisual, ProjectionVisual, StripVisual, MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -470,7 +481,23 @@ const TrueSizeQ = z
     return t.ask === 'bigger' ? a[0] >= a[1] * 1.1 : a[1] >= a[0] * 1.1
   }, 'the answer is clear by a tenth')
 
-export const Exercise = z.discriminatedUnion('type', [TrueSizeQ, Panels, Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt, Ride])
+// The provinces drill (Unit 26): find each province on the unnamed map, by its name, its capital or its
+// flag, one after another. `only` limits it to some provinces, `rounds` to the first few of a shuffle;
+// it counts as right with no more than `misses` misses.
+const Drill = z
+  .object({
+    type: z.literal('drill'),
+    prompt: z.string(),
+    country: z.enum(['NLD', 'BEL', 'both']),
+    ask: z.enum(['name', 'capital', 'flag']).default('name'),
+    only: z.array(z.enum(provinceIds)).min(3).optional(),
+    rounds: z.number().int().min(3).optional(),
+    misses: z.number().int().nonnegative().default(1),
+    explain: z.string(),
+  })
+  .refine((d) => !d.only || d.only.every((id) => d.country === 'both' || id.startsWith(d.country === 'NLD' ? 'NL-' : 'BE-')), 'only provinces of its country')
+
+export const Exercise = z.discriminatedUnion('type', [Drill, TrueSizeQ, Panels, Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt, Ride])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

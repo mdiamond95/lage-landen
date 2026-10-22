@@ -1,5 +1,7 @@
 import { Art } from '../art/Art'
 import { ComicStrip } from '../art/ComicStrip'
+import { SeatChart } from '../art/SeatChart'
+import { ProvinceMap } from '../map/ProvinceMap'
 import { ProjectionMap } from '../map/ProjectionMap'
 import { FacadeTour } from '../art/FacadeTour'
 import { FamilyTree } from '../art/FamilyTree'
@@ -38,6 +40,7 @@ import { feastStory } from '../data/feastMap'
 import { sportStory } from '../data/sport'
 import { popStory } from '../data/pop'
 import { scienceStory } from '../data/science'
+import { stateStory } from '../data/state'
 import { westhoekStory } from '../data/westhoek'
 import { CompareMap } from '../map/CompareMap'
 import { DialectMap } from '../map/DialectMap'
@@ -80,6 +83,7 @@ export const stories = {
   sport: sportStory,
   pop: popStory,
   science: scienceStory,
+  state: stateStory,
 }
 
 type TimeMapProps = {
@@ -120,6 +124,8 @@ export function VisualView({ visual, label, hideCaption }: { visual: Visual; lab
   if (visual.kind === 'projection') return <ProjectionMap view={visual.view} shapes={visual.shapes} course={visual.course} circles={visual.circles} />
   if (visual.kind === 'strip') return <ComicStrip title={visual.title} panels={visual.panels} />
   if (visual.kind === 'route') return <RouteMap route={visual.route} at={visual.at} />
+  if (visual.kind === 'provinces') return <ProvinceMap country={visual.country} focus={visual.focus} />
+  if (visual.kind === 'seats') return <SeatChart chamber={visual.chamber} hideCabinet={visual.hideCabinet} />
   return (
     <div className="map-frame">
       <LowlandsMap

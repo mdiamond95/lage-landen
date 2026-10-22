@@ -5,7 +5,13 @@ async function answer(page: Page) {
   const foot = page.locator('.lesson-foot')
   if (await page.locator('.story').count()) return
   if (await page.locator('.content-note').count()) return
-  if (await page.locator('.exercise-scrub').count()) {
+  if (await page.locator('.drill').count()) {
+    // A map drill: tap the province it asks for, round after round.
+    while (await page.locator('.drill[data-target]').count()) {
+      const id = await page.locator('.drill').getAttribute('data-target')
+      await page.locator(`.drill [data-province="${id}"]`).dispatchEvent('click')
+    }
+  } else if (await page.locator('.exercise-scrub').count()) {
     const slider = page.locator('.exercise-scrub input[type="range"]')
     await slider.fill(await slider.getAttribute('max') ?? '0')
   } else if (await page.locator('.hunt-image').count()) {
@@ -485,15 +491,15 @@ test('a finished lesson comes back in the daily review', async ({ page }) => {
   expect(Number(await page.locator('.stat-xp').textContent())).toBeGreaterThan(xp)
 })
 
-test('the time map steps through 46 snapshots from Caesar to the feasts of 2023', async ({ page }) => {
+test('the time map steps through 47 snapshots from Caesar to the provinces of today', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.timemap-teaser')).toContainText('46 snapshots')
+  await expect(page.locator('.timemap-teaser')).toContainText('47 snapshots')
   await page.getByRole('button', { name: 'Open the time map' }).click()
-  await expect(page.locator('.time-travel-intro')).toContainText('in 46 snapshots')
+  await expect(page.locator('.time-travel-intro')).toContainText('in 47 snapshots')
   const map = page.locator('.time-map')
   const slider = page.getByRole('slider', { name: 'Year' })
   await expect(map.locator('.time-map-title')).toHaveText('57 BCE: Caesar conquers the Belgae')
-  await expect(slider).toHaveAttribute('max', '45')
+  await expect(slider).toHaveAttribute('max', '46')
 
   await slider.fill('3')
   await expect(map.locator('.time-map-title')).toHaveText('About 1100: Hebban olla vogala')
@@ -692,7 +698,7 @@ test('the time map steps through 46 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-site-label')).toHaveCount(0)
   await expect(map.locator('.key-swatch.key-distillery')).toHaveCount(1)
 
-  // The last snapshot is the feast map of Unit 22: its marks unnamed, the food marks gone, the
+  // Then the feast map of Unit 22: its marks unnamed, the food marks gone, the
   // two countries named and the Zwarte Piet debate still open.
   await slider.fill('45')
   await expect(map.locator('.time-map-title')).toHaveText('2023: An apology on Keti Koti')
@@ -702,6 +708,16 @@ test('the time map steps through 46 snapshots from Caesar to the feasts of 2023'
   await expect(map.locator('.hist-site-label')).toHaveCount(0)
   await expect(map.locator('.hist-alert', { hasText: 'ZWARTE PIET DEBATE' })).toHaveCount(1)
   await expect(map.locator('.key-swatch.key-procession')).toHaveCount(1)
+
+  // The last snapshot is the state map of Unit 26: twelve Dutch provinces, three Belgian regions and
+  // the seats of power, with the feast marks gone.
+  await slider.fill('46')
+  await expect(map.locator('.time-map-title')).toHaveText('2026: Today')
+  await expect(map.locator('.hist-site.hist-procession')).toHaveCount(0)
+  await expect(map.locator('.hist-area-nlprov').first()).toBeVisible()
+  await expect(map.locator('.hist-area-capital')).toHaveCount(1)
+  await expect(map.locator('.hist-site.hist-hq').first()).toBeVisible()
+  await expect(map.locator('.key-swatch.key-wallonia')).toHaveCount(1)
 
   await page.getByRole('button', { name: 'Back to the course' }).click()
   await expect(page.locator('.review')).toBeVisible()
@@ -2211,4 +2227,150 @@ test("Mercator's map swells Greenland, shrinks it on the way south, and a true-s
   await expect(q.locator('.truesize-option.right')).toHaveText('Africa')
   await expect(q.locator('.projection-size').first()).toContainText('really')
   await expect(q.locator('.projection-views')).toHaveCount(1)
+})
+
+test('plays all of unit 26 and the checkpoint without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  const shots = process.env.SHOTS
+  for (const name of ['Two kings, no crowns', 'Parliaments and votes', 'Twelve provinces', "Belgium's provinces and regions", 'Benelux, Europe and NATO', 'Capitals and the map today']) {
+    await playLesson(page, name, shots)
+    await expect(page.locator('.results h1')).toBeVisible()
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await playLesson(page, 'Unit 26 checkpoint', shots)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  expect(errors).toEqual([])
+})
+
+test('the seat chart picks out a party and shows whether the government has a majority', async ({ page }) => {
+  await unlock(page, ['u26-l1'])
+  await page.getByRole('button', { name: 'Parliaments and votes', exact: true }).click()
+  const chart = page.locator('.seat-chart')
+  await expect(chart.locator('circle.seat')).toHaveCount(150)
+  await expect(chart.locator('.seat-total')).toHaveText('150 seats')
+  await chart.getByRole('button', { name: /^D66/ }).click()
+  await expect(chart.locator('.seat-total')).toHaveText('26 seats')
+  await expect(chart.locator('circle.seat:not(.is-dim)')).toHaveCount(26)
+  await chart.getByRole('button', { name: /^D66/ }).click()
+  await chart.getByRole('checkbox').check()
+  await expect(chart.locator('.seat-total')).toHaveText('66 seats')
+  await expect(chart.locator('.seat-sub')).toHaveText('short of a majority: 76 needed')
+
+  // In the questions the government stays hidden.
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+  await expect(page.locator('.seat-chart')).toBeVisible()
+  await expect(page.locator('.seat-chart').getByRole('checkbox')).toHaveCount(0)
+  await page.locator('.option', { hasText: '76' }).click()
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.lesson-foot')).toHaveClass(/is-right/)
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+  // Belgium's parties say which side of the language border they stand on.
+  await expect(page.locator('.seat-chart .seat-parties')).toContainText('N-VA 24 · Dutch-speaking')
+  await expect(page.locator('.seat-chart .seat-parties')).toContainText('PVDA-PTB 15 · both sides')
+})
+
+test('the province map opens a card for each province, and the drill marks right, wrong and missed', async ({ page }) => {
+  await unlock(page, ['u26-l1', 'u26-l2'])
+  await page.getByRole('button', { name: 'Twelve provinces', exact: true }).click()
+  const map = page.locator('.province-explore')
+  await expect(map.locator('path[data-province]')).toHaveCount(12)
+  await map.locator('[data-province="NL-NH"]').dispatchEvent('click')
+  await expect(map.locator('.province-card')).toContainText('North Holland')
+  await expect(map.locator('.province-card')).toContainText('Capital: Haarlem')
+  await expect(map.locator('.province-flag')).toBeVisible()
+  await map.getByRole('button', { name: 'Belgium' }).click()
+  await expect(map.locator('path[data-province]')).toHaveCount(11)
+  await expect(map.locator('.province-card')).not.toContainText('North Holland')
+
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
+  const drill = page.locator('.drill')
+  await expect(drill.locator('.drill-count')).toHaveText('1 of 6')
+  // No names on the map until a province is found.
+  await expect(drill.locator('.prov-label')).toHaveCount(0)
+  const first = (await drill.getAttribute('data-target'))!
+  await drill.locator(`[data-province="${first}"]`).dispatchEvent('click')
+  await expect(drill.locator(`[data-province="${first}"]`)).toHaveClass(/is-right/)
+  await expect(drill.locator('.prov-label')).toHaveCount(1)
+  // A wrong tap shows the right one in orange and the tapped one in red.
+  const second = (await drill.getAttribute('data-target'))!
+  const wrong = second === 'NL-UT' ? 'NL-ZE' : 'NL-UT'
+  await drill.locator(`[data-province="${wrong}"]`).dispatchEvent('click')
+  await expect(drill.locator(`[data-province="${second}"]`)).toHaveClass(/is-missed/)
+  await expect(drill.locator(`[data-province="${wrong}"]`)).toHaveClass(/is-wrong/)
+  await expect(drill.locator('.drill-said')).toContainText('is the one in orange')
+  // Two misses fail the drill, which allows one.
+  const third = (await drill.getAttribute('data-target'))!
+  await drill.locator(`[data-province="${third === 'NL-UT' ? 'NL-ZE' : 'NL-UT'}"]`).dispatchEvent('click')
+  while (await page.locator('.drill[data-target]').count()) {
+    const id = await drill.getAttribute('data-target')
+    await drill.locator(`[data-province="${id}"]`).dispatchEvent('click')
+  }
+  await expect(drill.locator('.drill-ask')).toHaveText('4 of 6 right')
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.lesson-foot')).toHaveClass(/is-wrong/)
+  await expect(page.locator('.lesson-foot')).toContainText('Missed:')
+  // After the check the map can be explored.
+  await expect(page.locator('.province-explore')).toBeVisible()
+})
+
+test('the map drill screen drills every province and keeps the best score', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('.drill-teaser')).toContainText('22 provinces')
+  await page.getByRole('button', { name: 'Open the map drill' }).click()
+  await expect(page.locator('.drill-best')).toHaveText('No score yet for this drill.')
+  await page.locator('.map-drill').getByRole('button', { name: 'Belgium' }).click()
+  await page.locator('.map-drill').getByRole('button', { name: 'By flag' }).click()
+  const drill = page.locator('.drill')
+  await expect(drill.locator('.drill-count')).toHaveText('1 of 11')
+  await expect(drill.locator('.drill-flag')).toBeVisible()
+  while (await page.locator('.drill[data-target]').count()) {
+    const id = await drill.getAttribute('data-target')
+    await drill.locator(`[data-province="${id}"]`).dispatchEvent('click')
+  }
+  await expect(drill.locator('.drill-ask')).toHaveText('11 of 11 right')
+  await expect(page.locator('.drill-best')).toHaveText('Your best: 11 of 11')
+  await page.getByRole('button', { name: 'Start again' }).click()
+  await expect(drill.locator('.drill-count')).toHaveText('1 of 11')
+  await page.reload()
+  await page.getByRole('button', { name: 'Open the map drill' }).click()
+  await page.locator('.map-drill').getByRole('button', { name: 'Belgium' }).click()
+  await page.locator('.map-drill').getByRole('button', { name: 'By flag' }).click()
+  await expect(page.locator('.drill-best')).toHaveText('Your best: 11 of 11')
+})
+
+test('the state map joins Holland and Brabant, dries Flevoland and makes the Belgian regions', async ({ page }) => {
+  await unlock(page, ['u26-l1', 'u26-l2', 'u26-l3', 'u26-l4', 'u26-l5'])
+  await page.getByRole('button', { name: 'Capitals and the map today', exact: true }).click()
+  const map = page.locator('.time-map')
+  const slider = map.getByRole('slider', { name: 'Year' })
+  await expect(map.locator('.time-map-title')).toHaveText('2026: Today')
+  await expect(map.locator('.hist-area-joined')).toHaveCount(0)
+  await expect(map.locator('.hist-area-capital')).toHaveCount(1)
+  await expect(map.locator('.hist-area-flanders')).toHaveCount(5)
+  await expect(map.locator('.hist-area-wallonia')).toHaveCount(5)
+
+  await slider.fill('1839')
+  await expect(map.locator('.time-map-title')).toHaveText('1839: Two kingdoms, nineteen provinces')
+  // Holland and Brabant, each one province.
+  await expect(map.locator('.hist-area-joined')).toHaveCount(2)
+  await expect(map.locator('.hist-area-polder')).toHaveCount(1)
+  await expect(map.locator('.hist-area-flanders')).toHaveCount(0)
+  await expect(map.locator('.hist-site.hist-hq')).toHaveCount(0)
+
+  // In 1980 the regions come, but Brabant still spans them.
+  await slider.fill('1980')
+  await expect(map.locator('.hist-area-joined')).toHaveCount(3)
+  await expect(map.locator('.hist-area-flanders')).toHaveCount(5)
+  await expect(map.locator('.hist-area-polder')).toHaveCount(1)
+  await expect(map.locator('.hist-site.hist-hq')).toHaveCount(2)
+
+  await slider.fill('1995')
+  await expect(map.locator('.time-map-title')).toHaveText('1995: Brabant in three')
+  await expect(map.locator('.hist-area-joined')).toHaveCount(0)
+  await expect(map.locator('.hist-area-polder')).toHaveCount(0)
+  await expect(map.locator('.hist-area-capital')).toHaveCount(1)
 })

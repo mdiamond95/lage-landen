@@ -71,7 +71,8 @@ for line in open(src):
             ("Artist", "LicenseShortName", "LicenseUrl", "ImageDescription", "DateTimeOriginal", "ObjectName", "Credit", "UsageTerms")}
     meta.update(file=fname, width=ii["width"], height=ii["height"], descriptionurl=ii["descriptionurl"])
     url = ii.get("thumburl") or ii["url"]
-    if ii["width"] <= width: url = ii["url"]
+    # An SVG (a flag, say) is always taken as the PNG Commons renders, never the original.
+    if ii["width"] <= width and not fname.lower().endswith(".svg"): url = ii["url"]
     url = url.split("?")[0]
     try:
         img = Image.open(io.BytesIO(fetch(url, binary=True)))

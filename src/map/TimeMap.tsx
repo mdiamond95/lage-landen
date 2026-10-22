@@ -6,7 +6,7 @@ import { AfricaBase, africaCountries } from './AfricaBase'
 import { AmsterdamBase } from './AmsterdamBase'
 import { BelgiumBase, belgiumParts } from './BelgiumBase'
 import { DeltaBase, deltaProvinces } from './DeltaBase'
-import { feastGlyphs, foodGlyphs, popGlyphs, scienceGlyphs, sportGlyphs, type FeastGlyph, type FoodGlyph, type PopGlyph, type ScienceGlyph, type SportGlyph } from './glyphs'
+import { feastGlyphs, foodGlyphs, popGlyphs, scienceGlyphs, sportGlyphs, stateGlyphs, type FeastGlyph, type FoodGlyph, type PopGlyph, type ScienceGlyph, type SportGlyph, type StateGlyph } from './glyphs'
 import { LowlandsMap } from './LowlandsMap'
 import { WesthoekBase, westhoekCountries } from './WesthoekBase'
 import { WorldBase } from './WorldBase'
@@ -29,7 +29,7 @@ const tones: FlowTone[] = ['asia', 'atlantic', 'enslaved']
 type AreaProps = { area: HistArea; frame: Frame; uid: string; fresh: false | 'fill' | 'outline'; regionShapes: GeoFeature[] }
 
 function Area({ area, frame, uid, fresh, regionShapes }: AreaProps) {
-  const cls = `hist-area hist-area-${area.kind ?? 'sea'}${fresh === 'fill' ? ' hist-area-new' : fresh === 'outline' ? ' hist-area-flash' : ''}`
+  const cls = `hist-area hist-area-${area.kind ?? 'sea'}${area.joined ? ' hist-area-joined' : ''}${fresh === 'fill' ? ' hist-area-new' : fresh === 'outline' ? ' hist-area-flash' : ''}`
   const style = area.kind === 'contested' ? { fill: `url(#${uid}-hatch)` } : area.kind === 'facility' ? { fill: `url(#${uid}-facility)` } : undefined
   if (area.shape) return <path d={polygon(frame, area.shape)} className={cls} style={style} />
   const shapes = regionShapes.filter((f) => area.regions?.includes(f.properties.id!))
@@ -217,6 +217,8 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
                 <path d={popGlyphs[s.kind as PopGlyph]} fillRule="evenodd" />
               ) : s.kind in scienceGlyphs ? (
                 <path d={scienceGlyphs[s.kind as ScienceGlyph]} fillRule="evenodd" />
+              ) : s.kind in stateGlyphs ? (
+                <path d={stateGlyphs[s.kind as StateGlyph]} fillRule="evenodd" />
               ) : s.kind === 'mill' ? (
                 <path d="M-1.3-7.5h2.6v6.2h6.2v2.6H1.3v6.2h-2.6V1.3h-6.2v-2.6h6.2z" transform="rotate(45)" />
               ) : (
