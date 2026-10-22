@@ -12,8 +12,10 @@ import { dueToday, nextDue, REVIEW_SIZE } from '../progress/review'
 import { streakAlive, todayKey, useProgress } from '../progress/store'
 import { Icon } from './Icon'
 import { allPhrases } from '../data/phrases'
+import { wall } from '../content/wall'
+import { collected } from '../progress/collection'
 
-type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void; onPlacement: () => void }
+type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void; onPlacement: () => void; onMuseum: () => void }
 
 const listUnits = (ns: number[]) => (ns.length < 3 ? ns.join(' and ') : `${ns.slice(0, -1).join(', ')} and ${ns[ns.length - 1]}`)
 
@@ -23,7 +25,7 @@ const dayName = (day: string, today: string) => {
   return diff <= 1 ? 'tomorrow' : d.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' })
 }
 
-export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlacement }: Props) {
+export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlacement, onMuseum }: Props) {
   const progress = useProgress()
   const totalPlaces = Object.keys(places).length
   const alive = streakAlive(progress)
@@ -82,6 +84,19 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
         </div>
         <button type="button" className="btn-primary" disabled={due === 0} onClick={() => onStart('review')}>
           {due > 0 ? `Review ${Math.min(due, REVIEW_SIZE)}` : 'Nothing due'}
+        </button>
+      </section>
+
+      <section className="museum-teaser card">
+        <div>
+          <h2>Your museum</h2>
+          <p>
+            {wall.filter((c) => collected(progress, c)).length} of {wall.length} cards collected: the artworks, people, buildings and food of the lessons you
+            finish.
+          </p>
+        </div>
+        <button type="button" className="btn-ghost" onClick={onMuseum}>
+          Open the museum
         </button>
       </section>
 

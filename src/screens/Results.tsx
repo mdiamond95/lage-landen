@@ -2,16 +2,20 @@ import type { Lesson } from '../content/schema'
 import { LowlandsMap } from '../map/LowlandsMap'
 import type { LessonOutcome } from '../lesson/LessonPlayer'
 import { photo, type PhotoId } from '../photos'
-import { Credit } from '../photos/Photo'
+import { Credit, Photo } from '../photos/Photo'
+import type { Hung } from '../progress/collection'
 import type { CrownNote } from '../progress/crowns'
 import { Icon } from './Icon'
 import { sound, type SoundId } from '../sounds'
 import { SoundCredit } from '../sounds/Sound'
 
 // A calm lesson (on slavery, say) ends without a trophy or "Perfect lesson!".
-type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; crown?: CrownNote; gate?: { passed: boolean; head: string; detail: string }; onDone: () => void }
+type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; crown?: CrownNote; gate?: { passed: boolean; head: string; detail: string }; hung?: Hung[]; onMuseum?: () => void; onDone: () => void }
 
-export function Results({ title, outcome, xp, sources, photos, sounds = [], calm = false, crown, gate, onDone }: Props) {
+// How many new cards the results screen shows; the rest are counted.
+const HUNG_SHOWN = 6
+
+export function Results({ title, outcome, xp, sources, photos, sounds = [], calm = false, crown, gate, hung = [], onMuseum, onDone }: Props) {
   const right = outcome.asked - outcome.mistakes
   const accuracy = outcome.asked ? Math.round((right / outcome.asked) * 100) : 100
   const newPlaces = [...new Set(outcome.places)]
@@ -61,6 +65,27 @@ export function Results({ title, outcome, xp, sources, photos, sounds = [], calm
         <div className="map-frame small">
           <LowlandsMap label="Places from this lesson" highlight={['NLD', 'BEL']} pins={newPlaces.map((place) => ({ place, tone: 'answer' as const }))} />
         </div>
+      )}
+      {hung.length > 0 && (
+        <section className="hung-note">
+          <h2>
+            {hung.length} new {hung.length === 1 ? 'card' : 'cards'} in your museum
+          </h2>
+          <ul className="hung-list">
+            {hung.slice(0, HUNG_SHOWN).map((c) => (
+              <li key={c.photo}>
+                <Photo id={c.photo} className="hung-photo" />
+                <span>{c.title}</span>
+              </li>
+            ))}
+          </ul>
+          {hung.length > HUNG_SHOWN && <p className="muted">and {hung.length - HUNG_SHOWN} more</p>}
+          {onMuseum && (
+            <button type="button" className="btn-ghost" onClick={onMuseum}>
+              See your museum
+            </button>
+          )}
+        </section>
       )}
       <SourceDetails sources={sources} photos={photos} sounds={sounds} />
       <button type="button" className="btn-primary" onClick={onDone}>
