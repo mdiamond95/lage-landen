@@ -14,6 +14,7 @@ import { ensureQuests, streakAlive, todayKey, useProgress } from '../progress/st
 import { canToday } from '../content/today'
 import { QUEST_XP, quests } from '../progress/quests'
 import { Icon } from './Icon'
+import { BackupCard } from './BackupCard'
 import { allPhrases } from '../data/phrases'
 import { wall } from '../content/wall'
 import { collected } from '../progress/collection'
@@ -287,6 +288,8 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
           </section>
         )
       })}
+
+      <BackupCard />
 
       <section className="outline card">
         <h2>The whole course</h2>

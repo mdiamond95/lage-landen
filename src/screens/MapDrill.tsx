@@ -3,6 +3,7 @@ import { provincesOf, type ProvinceId } from '../data/provinces'
 import { Drill, type Ask } from '../exercises/ProvinceDrill'
 import { shuffle } from '../lesson/shuffle'
 import type { Country } from '../map/ProvinceMap'
+import { loadBest, saveBest } from '../progress/drill'
 
 const countries: { id: Country; label: string }[] = [
   { id: 'NLD', label: 'The Netherlands' },
@@ -14,23 +15,6 @@ const asks: { id: Ask; label: string }[] = [
   { id: 'capital', label: 'By capital' },
   { id: 'flag', label: 'By flag' },
 ]
-
-// Best scores are a convenience kept on this device only; the drill works without them.
-const KEY = 'lage-landen-drill-best'
-const loadBest = (): Record<string, number> => {
-  try {
-    return JSON.parse(localStorage.getItem(KEY) ?? '{}')
-  } catch {
-    return {}
-  }
-}
-const saveBest = (best: Record<string, number>) => {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(best))
-  } catch {
-    // Private windows may refuse storage.
-  }
-}
 
 // The provinces drill on its own screen (Unit 26): every province of one country or both, by
 // name, capital or flag, as often as you like.

@@ -1281,3 +1281,15 @@ button.comic-panel { cursor: pointer; }
 .quest-tick { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--green); color: #fff; }
 .quest-tick .icon { width: 20px; height: 20px; }
 .quest-bonus { flex: none; font-weight: 900; color: #b07d00; }
+
+/* Saving and loading progress: two buttons, then a check that shows the file next to the
+   device before anything is replaced. */
+.backup { display: grid; gap: 10px; }
+.backup h2, .backup p { margin: 0; }
+.backup > p { color: var(--ink-soft); }
+.backup-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.backup-load { display: inline-flex; align-items: center; }
+.backup-load:focus-within { outline: 2px solid var(--delft); outline-offset: 2px; }
+.backup-check { display: grid; gap: 8px; border: 2px solid var(--orange); border-radius: 14px; padding: 12px 14px; background: #fff8ef; }
+.backup-note { font-weight: 700; color: var(--green-dark); }
+.backup-note.is-error { color: var(--red); }
