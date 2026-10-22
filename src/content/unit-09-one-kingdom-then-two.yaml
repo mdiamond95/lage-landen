@@ -289,7 +289,7 @@ lessons:
           overthrown the French king.
         visual: { kind: photo, photo: monnaie-1830 }
       - type: choice
-        prompt: That night the crowd sacked and burned this house in Brussels. Whose was it?
+        prompt: On the night of 25 August 1830, after the opera at La Monnaie, the crowd sacked and burned this house in Brussels. Whose was it?
         visual: { kind: photo, photo: van-maanen-ruin }
         answer: 2
         options:

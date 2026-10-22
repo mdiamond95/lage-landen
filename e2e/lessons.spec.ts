@@ -2374,3 +2374,81 @@ test('the state map joins Holland and Brabant, dries Flevoland and makes the Bel
   await expect(map.locator('.hist-area-polder')).toHaveCount(0)
   await expect(map.locator('.hist-area-capital')).toHaveCount(1)
 })
+
+// Plays placement blocks until the test ends, going on after a miss as well, and
+// returns the units the summary says it opened.
+async function playPlacement(page: Page) {
+  const foot = page.locator('.lesson-foot')
+  for (let block = 0; block < 30; block++) {
+    for (let step = 0; step < 8; step++) {
+      if (await page.locator('.placement-verdict').count()) break
+      await answer(page)
+      // Each question is asked once: a placement test doesn't bring misses back.
+      await expect(page.locator('.feedback-note')).toHaveCount(0)
+      await foot.getByRole('button', { name: 'Continue' }).click()
+    }
+    await expect(page.locator('.placement-score')).toHaveText(/^[0-5] of 5 right$/)
+    const next = page.getByRole('button', { name: /^(Next: Unit|Try Unit) \d+/ })
+    if (await next.count()) await next.click()
+    else break
+  }
+  await page.getByRole('button', { name: 'See your results' }).click()
+  return page.locator('.placement-list li.is-open').count()
+}
+
+test('the placement test plays a block for every unit and opens the units it passes', async ({ page }) => {
+  test.setTimeout(600_000)
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  await page.goto('/')
+
+  let opened = 0
+  for (const [track, units] of [
+    ['Shared history, to 1830', 9],
+    ['The Netherlands, 1830 to today', 3],
+    ['Belgium, 1830 to today', 3],
+    ['Culture', 11],
+  ] as const) {
+    await page.getByRole('button', { name: 'Placement test', exact: true }).click()
+    const card = page.locator('.placement-track', { has: page.getByRole('heading', { name: track }) })
+    const start = card.getByRole('button')
+    if (await start.isDisabled()) continue
+    await start.click()
+    const passed = await playPlacement(page)
+    await expect(page.locator('.placement-list li')).toHaveCount(units)
+    opened += passed
+    await page.getByRole('button', { name: 'Continue' }).click()
+  }
+  await expect(page.locator('.tag-placed')).toHaveCount(opened)
+  expect(errors).toEqual([])
+})
+
+test('a unit the placement test opened has every lesson and its checkpoint open', async ({ page }) => {
+  await page.goto('/')
+  await page.evaluate(() => {
+    localStorage.setItem(
+      'lage-landen:progress:v1',
+      JSON.stringify({ xp: 0, streak: 0, lastDay: null, freezeWeek: null, completed: {}, discovered: [], placed: ['unit-10'] }),
+    )
+  })
+  await page.reload()
+  const unit = page.locator('.unit', { has: page.getByRole('heading', { name: 'Constitution and pillars' }) })
+  await expect(unit.locator('.tag-placed')).toHaveText('Opened by the placement test')
+  await expect(unit.locator('.path-node .node:disabled')).toHaveCount(0)
+  await expect(unit.locator('.node-start')).toHaveCount(1)
+  await expect(page.getByRole('button', { name: 'Unit 10 checkpoint', exact: true })).toBeEnabled()
+  // The unit before it is untouched.
+  await expect(page.getByRole('button', { name: 'Unit 9 checkpoint, locked', exact: true })).toBeDisabled()
+
+  // A new run skips the opened unit and says so.
+  await page.getByRole('button', { name: 'Placement test', exact: true }).click()
+  const card = page.locator('.placement-track', { has: page.getByRole('heading', { name: 'The Netherlands, 1830 to today' }) })
+  await expect(card).toContainText('1 of 3 already open')
+  await expect(card.getByRole('button')).toHaveText('Start at Unit 11')
+
+  // Leaving before a unit is finished opens nothing.
+  await card.getByRole('button').click()
+  await page.getByRole('button', { name: 'Leave lesson' }).click()
+  await expect(page.locator('.placement-track')).toHaveCount(4)
+})

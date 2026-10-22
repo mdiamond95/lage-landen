@@ -39,7 +39,7 @@ lessons:
           years of war in Belgium.
         visual: { kind: time-map, map: greatwar, year: '1914-08' }
       - type: gap
-        prompt: That evening the British ambassador in Berlin went to see the German chancellor, who was angry that Britain would fight over Belgium. Fill the gap in the ambassador's report.
+        prompt: On the evening of 4 August 1914 the British ambassador in Berlin went to see the German chancellor, who was angry that Britain would fight over Belgium. Fill the gap in the ambassador's report.
         quote: Just for a word, "neutrality", a word which in war time had so often been disregarded, just for a ___ of paper, Great Britain was going to make war on a kindred nation who desired nothing better than to be friends with her.
         source: Sir Edward Goschen, British ambassador in Berlin, reporting his talk with Chancellor Bethmann Hollweg on 4 August 1914
         visual: { kind: photo, photo: bravo-belgium }

@@ -40,45 +40,52 @@ export function Results({ title, outcome, xp, sources, photos, sounds = [], calm
           <LowlandsMap label="Places from this lesson" highlight={['NLD', 'BEL']} pins={newPlaces.map((place) => ({ place, tone: 'answer' as const }))} />
         </div>
       )}
-      <details className="sources">
-        <summary>{photos.length || sounds.length ? 'Sources and credits' : 'Sources for this lesson'}</summary>
-        <ul>
-          {sources.map((s) => (
-            <li key={s.url}>
-              <a href={s.url} target="_blank" rel="noreferrer">
-                {s.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-        {photos.length > 0 && (
-          <>
-            <p className="sources-sub">Photos and maps</p>
-            <ul>
-              {photos.map((id) => (
-                <li key={id}>
-                  {photo(id).caption}: <Credit id={id} />
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-        {sounds.length > 0 && (
-          <>
-            <p className="sources-sub">Recordings</p>
-            <ul>
-              {sounds.map((id) => (
-                <li key={id}>
-                  {sound(id).words} ({sound(id).language}): <SoundCredit id={id} />
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-      </details>
+      <SourceDetails sources={sources} photos={photos} sounds={sounds} />
       <button type="button" className="btn-primary" onClick={onDone}>
         Continue
       </button>
     </div>
+  )
+}
+
+// The lesson's sources, then the credits for every photo and recording in it.
+export function SourceDetails({ sources, photos, sounds = [] }: { sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[] }) {
+  return (
+    <details className="sources">
+      <summary>{photos.length || sounds.length ? 'Sources and credits' : 'Sources for this lesson'}</summary>
+      <ul>
+        {sources.map((s) => (
+          <li key={s.url}>
+            <a href={s.url} target="_blank" rel="noreferrer">
+              {s.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+      {photos.length > 0 && (
+        <>
+          <p className="sources-sub">Photos and maps</p>
+          <ul>
+            {photos.map((id) => (
+              <li key={id}>
+                {photo(id).caption}: <Credit id={id} />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      {sounds.length > 0 && (
+        <>
+          <p className="sources-sub">Recordings</p>
+          <ul>
+            {sounds.map((id) => (
+              <li key={id}>
+                {sound(id).words} ({sound(id).language}): <SoundCredit id={id} />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </details>
   )
 }

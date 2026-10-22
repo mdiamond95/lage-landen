@@ -262,7 +262,7 @@ lessons:
           - label: 98 m
             why: Higher than that. The southeast tip of Limburg is hilly.
       - type: pin
-        prompt: Now pin the Vaalserberg, where the Netherlands, Belgium and Germany meet.
+        prompt: Pin the Vaalserberg, where the Netherlands, Belgium and Germany meet.
         place: vaalserberg
         okKm: 30
         explain: The Vaalserberg is just south of Vaals, near Aachen. A marker on top shows where the three countries meet.

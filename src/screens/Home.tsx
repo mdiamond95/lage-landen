@@ -6,12 +6,13 @@ import { throughTimeStory } from '../data/throughTime'
 import { places } from '../content/places'
 import type { Unit } from '../content/schema'
 import { LowlandsMap } from '../map/LowlandsMap'
+import { checkpointOpen, lessonOpen } from '../progress/path'
 import { dueToday, nextDue, REVIEW_SIZE } from '../progress/review'
 import { streakAlive, todayKey, useProgress } from '../progress/store'
 import { Icon } from './Icon'
 import { allPhrases } from '../data/phrases'
 
-type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void }
+type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void; onPlacement: () => void }
 
 const listUnits = (ns: number[]) => (ns.length < 3 ? ns.join(' and ') : `${ns.slice(0, -1).join(', ')} and ${ns[ns.length - 1]}`)
 
@@ -21,7 +22,7 @@ const dayName = (day: string, today: string) => {
   return diff <= 1 ? 'tomorrow' : d.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' })
 }
 
-export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill }: Props) {
+export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlacement }: Props) {
   const progress = useProgress()
   const totalPlaces = Object.keys(places).length
   const alive = streakAlive(progress)
@@ -110,22 +111,47 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill }: Props
         </button>
       </section>
 
+      <section className="unit placement-unit">
+        <div className="unit-banner">
+          <p className="eyebrow light">Unit 0 · Placement test</p>
+          <h2>Skip ahead</h2>
+          <p>
+            Know some of this already? Answer five questions a unit and open the units you know, lessons and checkpoint.
+            {progress.placed.length > 0 && ` ${progress.placed.length} ${progress.placed.length === 1 ? 'unit is' : 'units are'} open so far.`}
+          </p>
+        </div>
+        <ol className="path">
+          <li className="path-node offset-0">
+            <button type="button" className="node placement-node" onClick={onPlacement} aria-label="Placement test">
+              <Icon name="signpost" />
+            </button>
+            <span className="node-label">Placement test</span>
+          </li>
+        </ol>
+      </section>
+
       {units.map((unit) => {
         const ids = unit.lessons.map((l) => l.id)
-        const doneCount = ids.filter((id) => progress.completed[id]).length
+        const placed = progress.placed.includes(unit.id)
         const cp = checkpointId(unit)
+        const cpOpen = checkpointOpen(progress, unit)
+        const allDone = ids.every((id) => progress.completed[id])
         return (
           <section key={unit.id} className="unit">
             <div className="unit-banner">
-              <p className="eyebrow light">Unit {unit.number} · {unit.era}</p>
+              <p className="eyebrow light">
+                Unit {unit.number} · {unit.era}
+                {placed && <span className="tag tag-placed">Opened by the placement test</span>}
+              </p>
               <h2>{unit.title}</h2>
               <p>{unit.summary}</p>
             </div>
             <ol className="path">
               {unit.lessons.map((lesson, i) => {
                 const done = !!progress.completed[lesson.id]
-                const open = i === 0 || !!progress.completed[ids[i - 1]]
-                const current = open && !done
+                const open = lessonOpen(progress, unit, i)
+                // The next lesson in order; a placed unit has every lesson open but one "Start".
+                const current = open && !done && ids.slice(0, i).every((id) => progress.completed[id])
                 return (
                   <li key={lesson.id} className={`path-node offset-${i % 4}`}>
                     <button
@@ -148,12 +174,12 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill }: Props
               <li className="path-node offset-0">
                 <button
                   type="button"
-                  className={`node checkpoint ${progress.completed[cp] ? 'done' : doneCount === ids.length ? 'current' : 'locked'}`}
-                  disabled={doneCount < ids.length}
+                  className={`node checkpoint ${progress.completed[cp] ? 'done' : allDone ? 'current' : cpOpen ? '' : 'locked'}`}
+                  disabled={!cpOpen}
                   onClick={() => onStart(cp)}
-                  aria-label={`Unit ${unit.number} checkpoint${doneCount < ids.length ? ', locked' : ''}`}
+                  aria-label={`Unit ${unit.number} checkpoint${cpOpen ? '' : ', locked'}`}
                 >
-                  <Icon name={doneCount === ids.length ? 'trophy' : 'lock'} />
+                  <Icon name={cpOpen ? 'trophy' : 'lock'} />
                 </button>
                 <span className="node-label">Checkpoint: 10 mixed questions</span>
               </li>
