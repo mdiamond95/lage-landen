@@ -1187,3 +1187,24 @@ button.comic-panel { cursor: pointer; }
 .placement-list li.is-open .outline-num { background: var(--green); border-color: var(--green); color: #fff; }
 .placement-list-score { margin-left: auto; font-variant-numeric: tabular-nums; }
 .placement-list .tag { margin-left: 0; }
+
+/* Crowns: a lesson's level sits on its node as a small crown with a number, purple for
+   levels 1 to 4 and gold at 5; the Legendary node after the checkpoint is purple until
+   passed. The clock of a timed challenge sits at the end of the progress bar. */
+.stat-crowns { color: #7a4fc4; }
+.node { position: relative; }
+.crown-badge { position: absolute; right: -6px; bottom: -4px; display: inline-flex; align-items: center; gap: 1px; padding: 1px 5px 1px 3px; border-radius: 10px; background: #7a4fc4; color: #fff; border: 2px solid var(--card); font-size: 0.7rem; font-weight: 900; line-height: 1; }
+.node .crown-badge .icon, .crown-badge .icon { width: 12px; height: 12px; }
+.crown-badge.level-5 { background: #d9a400; color: #3d2c00; }
+.node.legendary { background: #7a4fc4; box-shadow: 0 6px 0 #5a3698; border-radius: 20px; }
+.node.legendary.done { background: #d9a400; box-shadow: 0 6px 0 #a67c00; }
+.node.legendary.locked { background: #d5dae2; color: #8d95a3; box-shadow: 0 6px 0 #b7bec9; }
+.node-hint { display: block; font-weight: 700; font-size: 0.75rem; color: var(--ink-soft); }
+.crown-note { display: flex; gap: 12px; align-items: center; text-align: left; background: var(--card); border: 2px solid #c9b6ec; border-radius: 14px; padding: 12px 14px; }
+.crown-note.level-5 { border-color: #e8c55a; }
+.crown-note .crown-badge { position: static; font-size: 1rem; padding: 4px 8px 4px 6px; border-radius: 12px; flex: none; }
+.crown-note .crown-badge .icon { width: 20px; height: 20px; }
+.crown-note p { margin: 0; }
+.crown-head { font-weight: 900; }
+.lesson-clock { flex: none; min-width: 3.2em; text-align: right; font-weight: 900; font-variant-numeric: tabular-nums; color: #7a4fc4; }
+.lesson-clock.is-low { color: var(--red); }

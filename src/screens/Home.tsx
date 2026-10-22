@@ -6,7 +6,8 @@ import { throughTimeStory } from '../data/throughTime'
 import { places } from '../content/places'
 import type { Unit } from '../content/schema'
 import { LowlandsMap } from '../map/LowlandsMap'
-import { checkpointOpen, lessonOpen } from '../progress/path'
+import { checkpointOpen, crownCount, legendaryOpen, lessonLevel, lessonOpen } from '../progress/path'
+import { hasLegendary, legendaryId } from '../content/levels'
 import { dueToday, nextDue, REVIEW_SIZE } from '../progress/review'
 import { streakAlive, todayKey, useProgress } from '../progress/store'
 import { Icon } from './Icon'
@@ -45,6 +46,9 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
           </span>
           <span className="stat stat-xp" title="Total XP">
             <Icon name="star" /> {progress.xp}
+          </span>
+          <span className="stat stat-crowns" title="Crowns">
+            <Icon name="crown" /> {crownCount(progress, units)}
           </span>
         </div>
       </header>
@@ -149,6 +153,7 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
             <ol className="path">
               {unit.lessons.map((lesson, i) => {
                 const done = !!progress.completed[lesson.id]
+                const level = lessonLevel(progress, unit, lesson.id)
                 const open = lessonOpen(progress, unit, i)
                 // The next lesson in order; a placed unit has every lesson open but one "Start".
                 const current = open && !done && ids.slice(0, i).every((id) => progress.completed[id])
@@ -159,9 +164,15 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
                       className={`node ${done ? 'done' : current ? 'current' : open ? '' : 'locked'}`}
                       disabled={!open}
                       onClick={() => onStart(lesson.id)}
-                      aria-label={`${lesson.title}${done ? ', completed' : open ? '' : ', locked'}`}
+                      aria-label={`${lesson.title}${done ? `, completed, level ${level}` : open ? '' : ', locked'}`}
                     >
                       <Icon name={open ? lesson.icon : 'lock'} />
+                      {done && (
+                        <span className={`crown-badge level-${level}`} aria-hidden="true">
+                          <Icon name="crown" />
+                          <span>{level}</span>
+                        </span>
+                      )}
                     </button>
                     <span className="node-label">
                       {lesson.title}
@@ -183,6 +194,23 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
                 </button>
                 <span className="node-label">Checkpoint: 10 mixed questions</span>
               </li>
+              {hasLegendary(unit) && (
+                <li className="path-node offset-0">
+                  <button
+                    type="button"
+                    className={`node legendary ${progress.legendary.includes(unit.id) ? 'done' : legendaryOpen(progress, unit) ? 'open' : 'locked'}`}
+                    disabled={!legendaryOpen(progress, unit)}
+                    onClick={() => onStart(legendaryId(unit))}
+                    aria-label={`Unit ${unit.number} Legendary${progress.legendary.includes(unit.id) ? ', passed' : legendaryOpen(progress, unit) ? '' : ', locked'}`}
+                  >
+                    <Icon name={legendaryOpen(progress, unit) ? 'crown' : 'lock'} />
+                  </button>
+                  <span className="node-label">
+                    Legendary: 15 questions against the clock
+                    {!legendaryOpen(progress, unit) && <span className="node-hint">Opens with every lesson at level 4</span>}
+                  </span>
+                </li>
+              )}
             </ol>
           </section>
         )

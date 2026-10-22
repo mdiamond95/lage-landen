@@ -2435,7 +2435,9 @@ test('a unit the placement test opened has every lesson and its checkpoint open'
   await page.reload()
   const unit = page.locator('.unit', { has: page.getByRole('heading', { name: 'Constitution and pillars' }) })
   await expect(unit.locator('.tag-placed')).toHaveText('Opened by the placement test')
-  await expect(unit.locator('.path-node .node:disabled')).toHaveCount(0)
+  // Every lesson and the checkpoint; the Legendary challenge still waits for level 4.
+  await expect(unit.locator('.path-node .node:not(.legendary):disabled')).toHaveCount(0)
+  await expect(unit.locator('.node.legendary')).toBeDisabled()
   await expect(unit.locator('.node-start')).toHaveCount(1)
   await expect(page.getByRole('button', { name: 'Unit 10 checkpoint', exact: true })).toBeEnabled()
   // The unit before it is untouched.
@@ -2451,4 +2453,97 @@ test('a unit the placement test opened has every lesson and its checkpoint open'
   await card.getByRole('button').click()
   await page.getByRole('button', { name: 'Leave lesson' }).click()
   await expect(page.locator('.placement-track')).toHaveCount(4)
+})
+
+// Saves lessons as finished at a crown level, and units whose Legendary is passed.
+async function crowns(page: Page, levels: Record<string, number>, legendary: string[] = []) {
+  await page.goto('/')
+  await page.evaluate(
+    ([levels, legendary]) => {
+      const completed = Object.fromEntries(Object.entries(levels).map(([id, level]) => [id, { bestXp: 10, perfect: false, level }]))
+      localStorage.setItem(
+        'lage-landen:progress:v1',
+        JSON.stringify({ xp: 0, streak: 0, lastDay: null, freezeWeek: null, completed, discovered: [], placed: [], legendary }),
+      )
+    },
+    [levels, legendary] as const,
+  )
+  await page.reload()
+}
+
+// Plays whatever is on screen through to the results.
+async function playThrough(page: Page) {
+  const foot = page.locator('.lesson-foot')
+  for (let step = 0; step < 40; step++) {
+    if (await page.locator('.results').count()) return
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  throw new Error('did not finish')
+}
+
+const unit2 = ['u2-l1', 'u2-l2', 'u2-l3', 'u2-l4', 'u2-l5', 'u2-l6']
+
+test('a finished lesson shows its crown and plays for the next level', async ({ page }) => {
+  await crowns(page, { 'u1-l1': 1 })
+  await expect(page.locator('.stat-crowns')).toHaveText('1')
+  await page.getByRole('button', { name: 'Two countries, one delta, completed, level 1', exact: true }).click()
+  await expect(page.getByRole('progressbar', { name: 'Two countries, one delta, level 2 progress' })).toBeVisible()
+  await playThrough(page)
+  await expect(page.locator('.crown-head')).toHaveText(/^(Level 2 reached|Still level 1)$/)
+  const reached = (await page.locator('.crown-head').textContent()) === 'Level 2 reached'
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.locator('.path-node .crown-badge').first()).toHaveText(reached ? '2' : '1')
+})
+
+test('level 3 asks the questions alone, and level 4 asks each once', async ({ page }) => {
+  await crowns(page, { 'u1-l1': 2 })
+  await page.getByRole('button', { name: 'Two countries, one delta, completed, level 2', exact: true }).click()
+  await expect(page.locator('.story')).toHaveCount(0)
+  await playThrough(page)
+
+  await crowns(page, { 'u1-l1': 3 })
+  await page.getByRole('button', { name: 'Two countries, one delta, completed, level 3', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  for (let step = 0; step < 20 && !(await page.locator('.results').count()); step++) {
+    await expect(page.locator('.story')).toHaveCount(0)
+    await answer(page)
+    await expect(page.locator('.feedback-note')).toHaveCount(0)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  await expect(page.locator('.crown-head')).toHaveText(/^(Level 4 reached|Still level 3)$/)
+})
+
+test('the Legendary challenge opens at level 4, runs a clock and turns the crowns gold', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  await crowns(page, Object.fromEntries(unit2.slice(0, 5).map((id) => [id, 4])))
+  await expect(page.getByRole('button', { name: 'Unit 2 Legendary, locked', exact: true })).toBeDisabled()
+  // Unit 7's lessons are mostly about slavery and conquest: no clock on those.
+  await expect(page.getByRole('button', { name: /^Unit 7 Legendary/ })).toHaveCount(0)
+
+  await crowns(page, Object.fromEntries(unit2.map((id) => [id, 4])))
+  await page.getByRole('button', { name: 'Unit 2 Legendary', exact: true }).click()
+  await expect(page.getByRole('timer')).toHaveText(/^\d+:\d\d$/)
+  await playThrough(page)
+  await expect(page.locator('.crown-head')).toHaveText(/^(Legendary|Not this time)$/)
+  const passed = (await page.locator('.crown-head').textContent()) === 'Legendary'
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.locator('.stat-crowns')).toHaveText(String((passed ? 5 : 4) * 6))
+  if (passed) await expect(page.getByRole('button', { name: 'Unit 2 Legendary, passed', exact: true })).toBeVisible()
+
+  // Gold crowns everywhere once passed.
+  await crowns(page, Object.fromEntries(unit2.map((id) => [id, 4])), ['unit-02'])
+  await expect(page.locator('.crown-badge.level-5')).toHaveCount(6)
+  expect(errors).toEqual([])
+})
+
+test('the Legendary clock ends the challenge when it runs out', async ({ page }) => {
+  await page.clock.install()
+  await crowns(page, Object.fromEntries(unit2.map((id) => [id, 4])))
+  await page.getByRole('button', { name: 'Unit 2 Legendary', exact: true }).click()
+  await expect(page.getByRole('timer')).toBeVisible()
+  await page.clock.runFor(20 * 60 * 1000)
+  await expect(page.locator('.results h1')).toHaveText("Time's up")
+  await expect(page.locator('.crown-head')).toHaveText("Time's up")
 })
