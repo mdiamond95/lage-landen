@@ -163,6 +163,9 @@ export const paths: Record<string, React.ReactNode> = {
       ))}
     </>
   ),
+  // Daily quests: a target, and a tick for a quest done.
+  target: <path d="M12 3a9 9 0 1 0 .01 0zM12 7.5a4.5 4.5 0 1 0 .01 0zM12 11.5a.5.5 0 1 0 .01 0zM12 12l7-7M16 5h3v3" fill="none" strokeLinejoin="round" />,
+  check: <path d="M5 12.5l4.5 4.5L19 7" fill="none" strokeLinejoin="round" />,
   columns: <path d="M3 9 12 3l9 6zM4 21h16M5 9v12M9.5 9v12M14.5 9v12M19 9v12" fill="none" strokeLinejoin="round" />,
 }
 

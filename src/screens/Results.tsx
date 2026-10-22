@@ -4,18 +4,19 @@ import type { LessonOutcome } from '../lesson/LessonPlayer'
 import { photo, type PhotoId } from '../photos'
 import { Credit, Photo } from '../photos/Photo'
 import type { Hung } from '../progress/collection'
+import { QUEST_XP, quests as questList, type QuestId } from '../progress/quests'
 import type { CrownNote } from '../progress/crowns'
 import { Icon } from './Icon'
 import { sound, type SoundId } from '../sounds'
 import { SoundCredit } from '../sounds/Sound'
 
 // A calm lesson (on slavery, say) ends without a trophy or "Perfect lesson!".
-type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; crown?: CrownNote; gate?: { passed: boolean; head: string; detail: string }; hung?: Hung[]; onMuseum?: () => void; onDone: () => void }
+type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; crown?: CrownNote; gate?: { passed: boolean; head: string; detail: string }; hung?: Hung[]; quests?: QuestId[]; onMuseum?: () => void; onDone: () => void }
 
 // How many new cards the results screen shows; the rest are counted.
 const HUNG_SHOWN = 6
 
-export function Results({ title, outcome, xp, sources, photos, sounds = [], calm = false, crown, gate, hung = [], onMuseum, onDone }: Props) {
+export function Results({ title, outcome, xp, sources, photos, sounds = [], calm = false, crown, gate, hung = [], quests = [], onMuseum, onDone }: Props) {
   const right = outcome.asked - outcome.mistakes
   const accuracy = outcome.asked ? Math.round((right / outcome.asked) * 100) : 100
   const newPlaces = [...new Set(outcome.places)]
@@ -47,6 +48,18 @@ export function Results({ title, outcome, xp, sources, photos, sounds = [], calm
           </div>
         </div>
       )}
+      {quests.map((id) => (
+        <div key={id} className="quest-note">
+          <span className="quest-tick" aria-hidden="true">
+            <Icon name="check" />
+          </span>
+          <div>
+            <p className="crown-head">Daily quest done</p>
+            <p className="muted">{questList[id].text}</p>
+          </div>
+          <span className="quest-bonus">+{QUEST_XP} XP</span>
+        </div>
+      ))}
       <div className="results-stats">
         <div className="tile tile-xp">
           <span className="tile-label">XP earned</span>

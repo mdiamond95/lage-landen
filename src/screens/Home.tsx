@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { provinceIds } from '../data/provinces'
 import { cards } from '../content'
 import { courseOutline } from '../content/course'
@@ -9,7 +10,9 @@ import { LowlandsMap } from '../map/LowlandsMap'
 import { checkpointOpen, crownCount, GATE, legendaryOpen, lessonLevel, lessonOpen, unitOpen, unitsAfter } from '../progress/path'
 import { hasLegendary, legendaryId } from '../content/levels'
 import { dueToday, nextDue, REVIEW_SIZE } from '../progress/review'
-import { streakAlive, todayKey, useProgress } from '../progress/store'
+import { ensureQuests, streakAlive, todayKey, useProgress } from '../progress/store'
+import { canToday } from '../content/today'
+import { QUEST_XP, quests } from '../progress/quests'
 import { Icon } from './Icon'
 import { allPhrases } from '../data/phrases'
 import { wall } from '../content/wall'
@@ -34,6 +37,9 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
   const due = dueToday(cards.items, progress.cards, progress.completed, today).length
   const learned = Object.keys(progress.cards).length
   const next = nextDue(progress.cards)
+  // Today's quests are picked the first time the course is opened each day.
+  useEffect(() => ensureQuests(canToday(progress)), [progress])
+  const day = progress.quests?.day === today ? progress.quests : null
 
   return (
     <div className="home">
@@ -54,6 +60,38 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
           </span>
         </div>
       </header>
+
+      {day && (
+        <section className="quests card" aria-label="Daily quests">
+          <div className="quests-head">
+            <h2>Daily quests</h2>
+            <span className="muted">{day.done.length === day.picks.length ? 'All done. New quests tomorrow.' : `+${QUEST_XP} XP each`}</span>
+          </div>
+          <ul className="quest-list">
+            {day.picks.map((id) => {
+              const quest = quests[id]
+              const count = Math.min(day.counts[quest.measure], quest.goal)
+              const done = day.done.includes(id)
+              return (
+                <li key={id} className={done ? 'is-done' : ''}>
+                  <span className="quest-icon" aria-hidden="true">
+                    <Icon name={done ? 'check' : 'target'} />
+                  </span>
+                  <span className="quest-text">
+                    {quest.text}
+                    <span className="quest-bar" role="progressbar" aria-label={quest.text} aria-valuemin={0} aria-valuemax={quest.goal} aria-valuenow={count}>
+                      <span style={{ width: `${(count / quest.goal) * 100}%` }} />
+                    </span>
+                  </span>
+                  <span className="quest-count">
+                    {count} / {quest.goal}
+                  </span>
+                </li>
+              )
+            })}
+          </ul>
+        </section>
+      )}
 
       <section className="discover card">
         <div className="discover-text">
