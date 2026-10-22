@@ -358,6 +358,8 @@ lessons:
         url: https://hanse.org/en/the-medieval-hanseatic-league/die-kontore
       - title: Visit Bruges, the Belfry
         url: https://www.visitbruges.be/en/things-to-do/culture-and-heritage/belfort-belfry
+      - title: "Wikipedia, Belfry of Bruges"
+        url: https://en.wikipedia.org/wiki/Belfry_of_Bruges
     exercises:
       - type: story
         title: A port 15 km from the sea
@@ -435,6 +437,14 @@ lessons:
             why: The count of Flanders had a castle and court in Bruges, but this tower belonged to the town.
           - label: A lighthouse
             why: Bruges is inland. The tower was a lookout for fires, not ships.
+      - type: truemyth
+        statement: The belfry of Bruges once stood almost 20 metres taller than it does today.
+        visual: { kind: then-now, pair: bruges }
+        answer: true
+        explain: >-
+          True. The eight-sided top, added from 1483 to 1487, carried a wooden spire. Lightning burned it in 1493,
+          and its replacement burned in 1741 and was never rebuilt, so the tower fell from 102 to 83 metres. Drag
+          across: since the 1890s it has hardly changed.
       - type: cause
         prompt: Link each cause to its effect.
         pairs:

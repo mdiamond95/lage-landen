@@ -1308,3 +1308,16 @@ button.comic-panel { cursor: pointer; }
 .results-hero .stork-line { margin: 8px auto 0; max-width: 32ch; }
 @keyframes stork-hop { 0% { transform: translateY(10px); opacity: 0; } 60% { transform: translateY(-4px); opacity: 1; } 100% { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .stork-cheer { animation: none; } }
+
+/* Then and now */
+.then-now { margin: 0; border: 2px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); }
+.then-now-frame { position: relative; overflow: hidden; touch-action: pan-y; cursor: ew-resize; user-select: none; background: var(--land); }
+.then-now-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.then-now-then { filter: sepia(0.15); }
+.then-now-divider { background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35); }
+.then-now-handle { position: absolute; top: 50%; left: 50%; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; background: #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4); }
+.then-now-handle::before { content: '‹ ›'; position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; color: var(--ink); font-size: 0.9rem; }
+.then-now figcaption { display: grid; gap: 8px; padding: 12px; }
+.then-now figcaption p { margin: 0; }
+.then-now-place { font-weight: 900; color: var(--delft); }
+.then-now-credits { font-size: 0.8rem; color: var(--ink-soft); }

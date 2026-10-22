@@ -51,6 +51,7 @@ import { soundIds } from '../sounds/ids'
 import { soundCredits } from '../sounds/credits'
 import { facades } from '../data/facades'
 import { pairs } from '../data/pairs'
+import { thenNows } from '../data/thenNow'
 import { charts } from '../data/charts'
 import { tours } from '../data/paintings'
 import { series } from '../data/series'
@@ -236,6 +237,21 @@ describe('paintings side by side', () => {
       for (const { id: look, boxes } of pair.looks)
         for (const [x, y, w, h] of boxes)
           expect(x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= 1.0001 && y + h <= 1.0001, `${id} ${look} inside the painting`).toBe(true)
+    }
+  })
+})
+
+describe('then and now', () => {
+  const shown = files
+    .map((file) => Unit.parse(parse(readFileSync(join(dir, file), 'utf8'))))
+    .flatMap((u) => u.lessons.flatMap((l) => l.exercises)).flatMap((e) => ('visual' in e && e.visual?.kind === 'then-now' ? [e.visual.pair] : []))
+  it('lays an old picture over a photo of the same place today, and each one is shown in a lesson', () => {
+    for (const [id, pair] of Object.entries(thenNows)) {
+      expect(photoIds, id).toContain(pair.then.photo)
+      expect(photoIds, id).toContain(pair.now.photo)
+      expect(pair.then.photo, id).not.toBe(pair.now.photo)
+      expect(pair.now.when, id).toBe('Today')
+      expect(shown, id).toContain(id)
     }
   })
 })

@@ -549,6 +549,12 @@ lessons:
         url: https://en.wikipedia.org/wiki/Girl_Reading_a_Letter_at_an_Open_Window
       - title: "Wikipedia, Han van Meegeren"
         url: https://en.wikipedia.org/wiki/Han_van_Meegeren
+      - title: "Wikipedia, View of Delft"
+        url: https://en.wikipedia.org/wiki/View_of_Delft
+      - title: "Wikipedia (Dutch), Vestingwerken van Delft"
+        url: https://nl.wikipedia.org/wiki/Vestingwerken_van_Delft
+      - title: "Wikipedia, Nieuwe Kerk (Delft)"
+        url: https://en.wikipedia.org/wiki/Nieuwe_Kerk_(Delft)
     exercises:
       - type: story
         title: A painter of light
@@ -610,6 +616,21 @@ lessons:
             why: It is the other way round. Look for the figures.
           - label: They are exactly the same, as one copied the other
             why: Two different painters, two different houses.
+      - type: choice
+        prompt: Vermeer painted his View of Delft about 1660, looking across the harbour at the south side of the town. Drag across to the same spot today. Which of the buildings he painted still stands?
+        visual: { kind: then-now, pair: delft }
+        answer: 2
+        options:
+          - label: The Schiedam Gate, with the clock on its bridge
+            why: The Schiedam Gate was pulled down in 1836, with the town walls along the water.
+          - label: The Rotterdam Gate, with its two towers
+            why: The Rotterdam Gate was pulled down in 1834. Seven of Delft's eight town gates went in the 1800s.
+          - label: The tower of the Nieuwe Kerk, lit by the sun behind the gates
+            why: >-
+              Right. It still rises over the roofs, at 108.75 metres the second tallest church tower in the
+              Netherlands, with a spire rebuilt by Pierre Cuypers in 1872.
+          - label: None of them
+            why: Look above the roofs on the right. One tower is still there.
       - type: choice
         prompt: X-rays showed that someone, probably in the 1700s, had painted over part of this picture. What did Dresden's restorers find under the bare wall when they took the paint off, from 2018 to 2021?
         visual: { kind: photo, photo: letter-before }

@@ -106,6 +106,14 @@ lessons:
             why: Mechelen was on the very first line, in 1835.
           - label: Brussels
             why: The first train left from Brussels.
+      - type: truemyth
+        statement: When trains began to run under Antwerp's Central Station in 2007, its front of 1905 was pulled down and rebuilt.
+        visual: { kind: then-now, pair: antwerp-central }
+        answer: false
+        explain: >-
+          A myth. Drag across: the front is the one of 1905. It was cleaned and kept, and the new platforms were
+          dug out below the old ones, so that trains to the Netherlands can pass straight through instead of
+          turning back.
       - type: choice
         prompt: Antwerp's Central Station opened in 1905, with a great dome over its hall. What is it often called?
         visual: { kind: photo, photo: antwerp-central-hall }

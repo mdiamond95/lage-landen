@@ -744,7 +744,6 @@ import williamLeaves1840 from './william-leaves-1840.jpg'
 import williamOrange from './william-orange.jpg'
 import woutersEyepatch from './wouters-eyepatch.jpg'
 import youngPrince from './young-prince.jpg'
-import ypres1919 from './ypres-1919.jpg'
 import ypresClothHall from './ypres-cloth-hall.jpg'
 import yserFloodMap from './yser-flood-map.jpg'
 import yserTower from './yser-tower.jpg'
@@ -961,6 +960,18 @@ import flagLiege from './flag-liege.jpg'
 import flagLuxembourgBe from './flag-luxembourg-be.jpg'
 import flagBrussels from './flag-brussels.jpg'
 import type { PhotoId } from './ids'
+import damPalace from './dam-palace.jpg'
+import brussels1695Ruins from './brussels-1695-ruins.jpg'
+import brusselsHall2015 from './brussels-hall-2015.jpg'
+import laurens1940 from './laurens-1940.jpg'
+import laurensToday from './laurens-today.jpg'
+import ypresHalls1919 from './ypres-halls-1919.jpg'
+import afsluitdijkToday from './afsluitdijk-today.jpg'
+import nuenenChurch from './nuenen-church.jpg'
+import antwerpCentral1905 from './antwerp-central-1905.jpg'
+import antwerpCentral from './antwerp-central.jpg'
+import delftToday from './delft-today.jpg'
+import bruges1890s from './bruges-1890s.jpg'
 
 export type { PhotoId } from './ids'
 
@@ -1412,7 +1423,6 @@ const files: Record<PhotoId, string> = {
   'mccrae': mccrae,
   'essex-farm': essexFarm,
   'flanders-fields-ms': flandersFieldsMs,
-  'ypres-1919': ypres1919,
   'passchendaele-mud': passchendaeleMud,
   'lone-tree-crater': loneTreeCrater,
   'passchendaele-aerial': passchendaeleAerial,
@@ -1927,6 +1937,18 @@ const files: Record<PhotoId, string> = {
   'flag-liege': flagLiege,
   'flag-luxembourg-be': flagLuxembourgBe,
   'flag-brussels': flagBrussels,
+  'dam-palace': damPalace,
+  'brussels-1695-ruins': brussels1695Ruins,
+  'brussels-hall-2015': brusselsHall2015,
+  'laurens-1940': laurens1940,
+  'laurens-today': laurensToday,
+  'ypres-halls-1919': ypresHalls1919,
+  'afsluitdijk-today': afsluitdijkToday,
+  'nuenen-church': nuenenChurch,
+  'antwerp-central-1905': antwerpCentral1905,
+  'antwerp-central': antwerpCentral,
+  'delft-today': delftToday,
+  'bruges-1890s': bruges1890s,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

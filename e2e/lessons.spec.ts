@@ -2506,8 +2506,8 @@ test('a finished lesson shows its crown and plays for the next level', async ({ 
   await page.getByRole('button', { name: 'Two countries, one delta, completed, level 1', exact: true }).click()
   await expect(page.getByRole('progressbar', { name: 'Two countries, one delta, level 2 progress' })).toBeVisible()
   await playThrough(page)
-  await expect(page.locator('.crown-head')).toHaveText(/^(Level 2 reached|Still level 1)$/)
-  const reached = (await page.locator('.crown-head').textContent()) === 'Level 2 reached'
+  await expect(page.locator('.crown-note .crown-head')).toHaveText(/^(Level 2 reached|Still level 1)$/)
+  const reached = (await page.locator('.crown-note .crown-head').textContent()) === 'Level 2 reached'
   await page.getByRole('button', { name: 'Continue' }).click()
   await expect(page.locator('.path-node .crown-badge').first()).toHaveText(reached ? '2' : '1')
 })
@@ -2527,7 +2527,7 @@ test('level 3 asks the questions alone, and level 4 asks each once', async ({ pa
     await expect(page.locator('.feedback-note')).toHaveCount(0)
     await foot.getByRole('button', { name: 'Continue' }).click()
   }
-  await expect(page.locator('.crown-head')).toHaveText(/^(Level 4 reached|Still level 3)$/)
+  await expect(page.locator('.crown-note .crown-head')).toHaveText(/^(Level 4 reached|Still level 3)$/)
 })
 
 test('the Legendary challenge opens at level 4, runs a clock and turns the crowns gold', async ({ page }) => {
@@ -2542,8 +2542,8 @@ test('the Legendary challenge opens at level 4, runs a clock and turns the crown
   await page.getByRole('button', { name: 'Unit 2 Legendary', exact: true }).click()
   await expect(page.getByRole('timer')).toHaveText(/^\d+:\d\d$/)
   await playThrough(page)
-  await expect(page.locator('.crown-head')).toHaveText(/^(Legendary|Not this time)$/)
-  const passed = (await page.locator('.crown-head').textContent()) === 'Legendary'
+  await expect(page.locator('.crown-note .crown-head')).toHaveText(/^(Legendary|Not this time)$/)
+  const passed = (await page.locator('.crown-note .crown-head').textContent()) === 'Legendary'
   await page.getByRole('button', { name: 'Continue' }).click()
   await expect(page.locator('.stat-crowns')).toHaveText(String((passed ? 5 : 4) * 6))
   if (passed) await expect(page.getByRole('button', { name: 'Unit 2 Legendary, passed', exact: true })).toBeVisible()
@@ -2561,7 +2561,7 @@ test('the Legendary clock ends the challenge when it runs out', async ({ page })
   await expect(page.getByRole('timer')).toBeVisible()
   await page.clock.runFor(20 * 60 * 1000)
   await expect(page.locator('.results h1')).toHaveText("Time's up")
-  await expect(page.locator('.crown-head')).toHaveText("Time's up")
+  await expect(page.locator('.crown-note .crown-head')).toHaveText("Time's up")
 })
 
 test('the mastery gate keeps a unit shut until the checkpoint before it is passed with 80%', async ({ page }) => {
@@ -2743,4 +2743,34 @@ test('the stork cheers in the unit’s hat and keeps out of lessons with a conte
   }
   await expect(page.locator('.results-hero')).toContainText('Lesson complete')
   await expect(page.locator('.stork')).toHaveCount(0)
+})
+
+test('then and now wipes from an old picture to today, by dragging or the slider', async ({ page }) => {
+  await openUnit(page, 6)
+  await page.getByRole('button', { name: 'Amsterdam, warehouse of the world', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  for (let step = 0; step < 20 && !(await page.locator('.then-now').count()); step++) {
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  const pair = page.locator('.then-now')
+  await expect(pair.locator('.compare-tag')).toHaveText(['1672', 'Today'])
+  // Where it is and what changed wait until the question is checked.
+  await expect(pair.locator('.then-now-place')).toHaveCount(0)
+  const slider = pair.getByRole('slider', { name: 'Then and now' })
+  await expect(slider).toHaveValue('50')
+  await slider.fill('0')
+  await expect(pair.locator('.then-now-then')).toHaveCSS('clip-path', 'inset(0px 100% 0px 0px)')
+  // A tap or drag on the picture moves the divider there.
+  const box = (await pair.locator('.then-now-frame').boundingBox())!
+  await page.mouse.move(box.x + box.width * 0.25, box.y + box.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(box.x + box.width * 0.8, box.y + box.height / 2, { steps: 5 })
+  await page.mouse.up()
+  await expect(slider).toHaveValue('80')
+
+  await page.getByRole('button', { name: 'A royal palace' }).click()
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Correct!')
+  await expect(pair.locator('.then-now-place')).toHaveText('The town hall on the Dam, Amsterdam')
 })

@@ -9,6 +9,8 @@ lessons:
     title: Learning to paint
     icon: pencil
     sources:
+      - title: "Van Gogh Museum, Congregation Leaving the Reformed Church in Nuenen"
+        url: https://www.vangoghmuseum.nl/en/collection/s0003V1962
       - title: "Van Gogh Museum, Van Gogh's life"
         url: https://www.vangoghmuseum.nl/en/art-and-stories/vincent-van-gogh-faq
       - title: "Vincent van Gogh, The Letters, letter 497 to Theo, 30 April 1885"
@@ -105,6 +107,13 @@ lessons:
           Van Gogh wanted people to feel the hard work in those hands; Rappard saw clumsy, untrue drawing. Van Gogh
           sent the letter back, and their five-year friendship never recovered. The Potato Eaters is now one of the
           most famous paintings in the Van Gogh Museum.
+      - type: truemyth
+        statement: The little church at Nuenen that Van Gogh painted, where his father preached, was pulled down long ago.
+        visual: { kind: then-now, pair: nuenen }
+        answer: false
+        explain: >-
+          A myth. Drag across: it still stands, at the end of a path under the trees. Van Gogh painted it in 1884
+          for his mother, who had broken her leg, and added the churchgoers in 1885, after his father died.
       - type: hunt
         prompt: Van Gogh painted his late father's Bible in October 1885, some months after his father died. Find the book that is not a Bible.
         photo: vg-bible
