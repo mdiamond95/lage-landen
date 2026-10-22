@@ -97,6 +97,22 @@ async function playLesson(page: Page, name: string, shots?: string) {
   throw new Error(`${name} did not finish`)
 }
 
+
+// The mastery gate opens a unit once the checkpoint before it is passed: this marks
+// that checkpoint passed, so a test can start on the unit's first lesson.
+const before: Record<number, number> = { 10: 9, 13: 9 }
+async function openUnit(page: Page, n: number) {
+  const prev = before[n] ?? n - 1
+  await page.goto('/')
+  await page.evaluate((id) => {
+    localStorage.setItem(
+      'lage-landen:progress:v1',
+      JSON.stringify({ xp: 0, streak: 0, lastDay: null, freezeWeek: null, completed: { [id]: { bestXp: 10, perfect: true, score: 1 } }, discovered: [] }),
+    )
+  }, `unit-${String(prev).padStart(2, '0')}-checkpoint`)
+  await page.reload()
+}
+
 test.setTimeout(180_000)
 
 test('plays all of unit 1 and the checkpoint without errors', async ({ page }) => {
@@ -122,7 +138,7 @@ test('plays all of unit 2 and the checkpoint without errors', async ({ page }) =
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 2)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -143,7 +159,7 @@ test('plays all of unit 2 and the checkpoint without errors', async ({ page }) =
 })
 
 test('the Roman time map follows the year slider and plays', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 2)
   // The frontier story opens the second lesson, unlocked by finishing the first.
   await playLesson(page, 'Caesar and the Belgae')
   await page.getByRole('button', { name: 'Continue' }).click()
@@ -203,7 +219,7 @@ test('plays all of unit 3 and the checkpoint without errors', async ({ page }) =
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 3)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -281,7 +297,7 @@ test('plays all of unit 4 and the checkpoint without errors', async ({ page }) =
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 4)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -302,7 +318,7 @@ test('plays all of unit 4 and the checkpoint without errors', async ({ page }) =
 })
 
 test('the Burgundy map fills in as lands join, one by one', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 4)
   await page.getByRole('button', { name: 'Burgundy gathers the lands', exact: true }).click()
 
   const map = page.locator('.time-map')
@@ -330,7 +346,7 @@ test('the Burgundy map fills in as lands join, one by one', async ({ page }) => 
 })
 
 test('find the year hides the captions and marks the year chosen', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 4)
   await page.getByRole('button', { name: 'Burgundy gathers the lands', exact: true }).click()
   const foot = page.locator('.lesson-foot')
   await foot.getByRole('button', { name: 'Continue' }).click()
@@ -371,7 +387,7 @@ test('plays all of unit 5 and the checkpoint without errors', async ({ page }) =
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 5)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -392,7 +408,7 @@ test('plays all of unit 5 and the checkpoint without errors', async ({ page }) =
 })
 
 test('the revolt map splits the provinces and sends refugees north', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 5)
   await page.getByRole('button', { name: 'Philip II and the Iconoclastic Fury', exact: true }).click()
 
   const map = page.locator('.time-map')
@@ -432,7 +448,7 @@ async function skipTo(page: Page, eyebrow: string) {
 }
 
 test('fill the gap puts the chosen word in the quote and shows the right one', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 5)
   await page.getByRole('button', { name: 'Philip II and the Iconoclastic Fury', exact: true }).click()
   await skipTo(page, 'Fill the gap')
 
@@ -727,7 +743,7 @@ test('plays all of unit 6 and the checkpoint without errors', async ({ page }) =
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 6)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -748,7 +764,7 @@ test('plays all of unit 6 and the checkpoint without errors', async ({ page }) =
 })
 
 test('the Amsterdam map grows ring by ring on its canals', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 6)
   await page.getByRole('button', { name: 'Amsterdam, warehouse of the world', exact: true }).click()
 
   const map = page.locator('.time-map')
@@ -818,7 +834,7 @@ test('a painting can be zoomed into, and a detail hunt still scores when zoomed'
 })
 
 test('once loaded, the app and its pictures work offline', async ({ page, context }) => {
-  await page.goto('/')
+  await openUnit(page, 5)
   await page.evaluate(async () => {
     await navigator.serviceWorker.ready
   })
@@ -839,7 +855,7 @@ test('plays all of unit 7 and the checkpoint without errors', async ({ page }) =
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 7)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -860,7 +876,7 @@ test('plays all of unit 7 and the checkpoint without errors', async ({ page }) =
 })
 
 test('the world map follows the ships from Asia to the Caribbean', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 7)
   await page.getByRole('button', { name: 'Round the Cape to the spice islands', exact: true }).click()
   await page.locator('.lesson-foot').getByRole('button', { name: 'Continue' }).click()
 
@@ -922,7 +938,7 @@ test('plays all of unit 8 and the checkpoint without errors', async ({ page }) =
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 8)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -943,7 +959,7 @@ test('plays all of unit 8 and the checkpoint without errors', async ({ page }) =
 })
 
 test('the border map changes hands year by year from 1672 to 1815', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 8)
   await page.getByRole('button', { name: 'The Disaster Year', exact: true }).click()
 
   const map = page.locator('.time-map')
@@ -978,7 +994,7 @@ test('plays all of unit 9 and the checkpoint without errors', async ({ page }) =
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 9)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -999,7 +1015,7 @@ test('plays all of unit 9 and the checkpoint without errors', async ({ page }) =
 })
 
 test('the kingdom map splits in 1830 and is settled in 1839', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 9)
   await page.getByRole('button', { name: 'One kingdom', exact: true }).click()
 
   const map = page.locator('.time-map')
@@ -1047,7 +1063,7 @@ test('plays all of unit 10 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 10)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -1111,7 +1127,7 @@ test('plays all of unit 11 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 11)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -1164,7 +1180,7 @@ test('plays all of unit 12 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 12)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -1239,7 +1255,7 @@ test('plays all of unit 13 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 13)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -1260,7 +1276,7 @@ test('plays all of unit 13 and the checkpoint without errors', async ({ page }) 
 })
 
 test("Belgium's railway map grows out of Mechelen, over the coal belt", async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 13)
   await page.getByRole('button', { name: 'The first trains on the continent', exact: true }).click()
 
   const map = page.locator('.time-map')
@@ -1315,7 +1331,7 @@ test('plays all of unit 14 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 14)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -1368,7 +1384,7 @@ test('plays all of unit 15 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 15)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -1389,7 +1405,7 @@ test('plays all of unit 15 and the checkpoint without errors', async ({ page }) 
 })
 
 test('the language map draws the line of 1963, facilities and Brussels-Halle-Vilvoorde', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 15)
   await page.getByRole('button', { name: 'A language of their own', exact: true }).click()
 
   const map = page.locator('.time-map')
@@ -1520,7 +1536,7 @@ test('plays all of unit 17 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 17)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -1595,7 +1611,7 @@ test('plays all of unit 18 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 18)
 
   const shots = process.env.SHOTS
   for (const name of [
@@ -1616,7 +1632,7 @@ test('plays all of unit 18 and the checkpoint without errors', async ({ page }) 
 })
 
 test("a painter's road steps through his pictures, and the modern artists' map follows Van Gogh", async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 18)
   await page.getByRole('button', { name: 'Learning to paint', exact: true }).click()
   const road = page.locator('.road')
   const slider = road.getByRole('slider', { name: 'Vincent van Gogh, picture by picture' })
@@ -1683,7 +1699,7 @@ test('plays all of unit 19 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 19)
 
   const shots = process.env.SHOTS
   for (const name of ['Towers of the towns', 'Churches and courts', 'Gables on the canals', 'Mills and pumps', 'Whiplash lines', 'Lines and planes']) {
@@ -1697,7 +1713,7 @@ test('plays all of unit 19 and the checkpoint without errors', async ({ page }) 
 })
 
 test('a building front names its parts and glides to each, and the buildings map grows tower by tower', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 19)
   await page.getByRole('button', { name: 'Towers of the towns', exact: true }).click()
   const front = page.locator('.facade')
   await expect(front.locator('.facade-spot')).toHaveCount(4)
@@ -1730,7 +1746,7 @@ test('a building front names its parts and glides to each, and the buildings map
 })
 
 test('label the parts puts each name on its numbered spot, and a building front can open on one part', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 19)
   await page.getByRole('button', { name: 'Towers of the towns', exact: true }).click()
   await skipTo(page, 'Label the parts')
   const label = page.locator('.exercise-label')
@@ -1779,7 +1795,7 @@ test('plays all of unit 20 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 20)
 
   const shots = process.env.SHOTS
   for (const name of ['Hebban olla vogala', 'One language, two countries', 'The dialect map', 'Frisian', 'French, German and Walloon', 'Dutch around the world', 'Everyday phrases']) {
@@ -1826,7 +1842,7 @@ test('the dialect map tells about each region and plays its speakers, and a list
 })
 
 test('the language map shows Frisian shrinking, and a choice between recordings names them once checked', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 20)
   await page.getByRole('button', { name: 'Hebban olla vogala', exact: true }).click()
   const map = page.locator('.time-map')
   await expect(map.locator('.time-map-title')).toHaveText('About 800: Frisians, Saxons and Franks')
@@ -1871,7 +1887,7 @@ test('plays all of unit 21 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 21)
 
   const shots = process.env.SHOTS
   for (const name of ['Cheese country', 'Herring and the sea', 'Spices, syrup and sprinkles', 'Frites, waffles and chocolate', 'Beer and jenever', 'The everyday table']) {
@@ -1885,7 +1901,7 @@ test('plays all of unit 21 and the checkpoint without errors', async ({ page }) 
 })
 
 test('the food map filters by kind and opens a card, and a taste question is answered on it', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 21)
   await page.getByRole('button', { name: 'Cheese country', exact: true }).click()
   const map = page.locator('.food-map')
   // The first story shows only the cheeses, named.
@@ -1943,7 +1959,7 @@ test('plays all of unit 22 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 22)
 
   const shots = process.env.SHOTS
   for (const name of ['A year of feasts', 'Sinterklaas', 'Carnival', 'Processions and giants', "King's Day and national days", 'Keti Koti and the days of freedom']) {
@@ -1957,7 +1973,7 @@ test('plays all of unit 22 and the checkpoint without errors', async ({ page }) 
 })
 
 test('the calendar wheel filters by country and opens a card', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 22)
   await page.getByRole('button', { name: 'A year of feasts', exact: true }).click()
   const wheel = page.locator('.feast-wheel')
   await expect(wheel.locator('.wheel-mark')).toHaveCount(27)
@@ -1981,7 +1997,7 @@ test('the calendar wheel filters by country and opens a card', async ({ page }) 
 })
 
 test('a when-is-it question is answered by turning the wheel', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 22)
   await page.getByRole('button', { name: 'A year of feasts', exact: true }).click()
   const foot = page.locator('.lesson-foot')
   await foot.getByRole('button', { name: 'Continue' }).click()
@@ -2029,7 +2045,7 @@ test('plays all of unit 23 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 23)
 
   const shots = process.env.SHOTS
   for (const name of ['A country of bicycles', 'The Tour of Flanders', 'The Cannibal and the classics', 'Total Football', 'Two Games and a disaster', 'Ice and the Elfstedentocht']) {
@@ -2083,7 +2099,7 @@ test('plays all of unit 24 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 24)
 
   const shots = process.env.SHOTS
   for (const name of ['Tintin and the clear line', 'Spirou, the Smurfs and Marcinelle', 'Spike and Suzy and the Flemish strips', 'Miffy, Bommel and the Dutch strips', 'Saxophones, chansons and Eurovision', 'Film and the small screen']) {
@@ -2097,7 +2113,7 @@ test('plays all of unit 24 and the checkpoint without errors', async ({ page }) 
 })
 
 test('a comic strip tells a story in panels, and the panels of a strip are put in order', async ({ page }) => {
-  await page.goto('/')
+  await openUnit(page, 24)
   await page.getByRole('button', { name: 'Tintin and the clear line', exact: true }).click()
   const foot = page.locator('.lesson-foot')
   // The content note comes first.
@@ -2166,7 +2182,7 @@ test('plays all of unit 25 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 25)
 
   const shots = process.env.SHOTS
   for (const name of ['Erasmus and the printers', 'Vesalius and the body', 'Mercator and the map-makers', 'Stevin, Snellius and Huygens', 'Leeuwenhoek and the small world', 'Lorentz, Lemaître and the Nobel years']) {
@@ -2233,7 +2249,7 @@ test('plays all of unit 26 and the checkpoint without errors', async ({ page }) 
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
-  await page.goto('/')
+  await openUnit(page, 26)
 
   const shots = process.env.SHOTS
   for (const name of ['Two kings, no crowns', 'Parliaments and votes', 'Twelve provinces', "Belgium's provinces and regions", 'Benelux, Europe and NATO', 'Capitals and the map today']) {
@@ -2546,4 +2562,41 @@ test('the Legendary clock ends the challenge when it runs out', async ({ page })
   await page.clock.runFor(20 * 60 * 1000)
   await expect(page.locator('.results h1')).toHaveText("Time's up")
   await expect(page.locator('.crown-head')).toHaveText("Time's up")
+})
+
+test('the mastery gate keeps a unit shut until the checkpoint before it is passed with 80%', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByRole('button', { name: 'Two countries, one delta', exact: true })).toBeEnabled()
+  // Culture opens alongside history.
+  await expect(page.getByRole('button', { name: 'The Ghent Altarpiece up close', exact: true })).toBeEnabled()
+  const unit2 = page.locator('.unit', { has: page.getByRole('heading', { name: 'Celts, Romans and Franks' }) })
+  await expect(unit2.locator('.gate-line')).toContainText('Opens when the Unit 1 checkpoint is passed with 80%')
+  await expect(page.getByRole('button', { name: 'Caesar and the Belgae, locked', exact: true })).toBeDisabled()
+
+  await unlock(page, ['u1-l1', 'u1-l2', 'u1-l3', 'u1-l4', 'u1-l5'])
+  await expect(page.locator('.unit', { hasText: 'Land and water' }).locator('.node-hint').first()).toHaveText('8 of 10 right opens Unit 2')
+  await page.getByRole('button', { name: 'Unit 1 checkpoint', exact: true }).click()
+  await playThrough(page)
+  await expect(page.locator('.gate-note .crown-head')).toHaveText(/^(Unit 2 is open|8 of 10 needed)$/)
+  const passed = (await page.locator('.gate-note .crown-head').textContent()) === 'Unit 2 is open'
+  await page.getByRole('button', { name: 'Continue' }).click()
+  const first = page.getByRole('button', { name: passed ? 'Caesar and the Belgae' : 'Caesar and the Belgae, locked', exact: true })
+  if (passed) await expect(first).toBeEnabled()
+  else await expect(first).toBeDisabled()
+})
+
+test('a unit the placement test opened counts as mastered, so the next unit opens', async ({ page }) => {
+  await page.goto('/')
+  await page.evaluate(() => {
+    localStorage.setItem(
+      'lage-landen:progress:v1',
+      JSON.stringify({ xp: 0, streak: 0, lastDay: null, freezeWeek: null, completed: {}, discovered: [], placed: ['unit-03'] }),
+    )
+  })
+  await page.reload()
+  await expect(page.getByRole('button', { name: 'Burgundy gathers the lands', exact: true })).toBeEnabled()
+  await expect(page.getByRole('button', { name: 'Philip II and the Iconoclastic Fury, locked', exact: true })).toBeDisabled()
+  // Units 10 and 13 both wait for Unit 9.
+  await expect(page.getByRole('button', { name: "Thorbecke's constitution, locked", exact: true })).toBeDisabled()
+  await expect(page.getByRole('button', { name: 'The first trains on the continent, locked', exact: true })).toBeDisabled()
 })

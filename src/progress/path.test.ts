@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { units } from '../content'
 import { checkpointId } from '../content/checkpoint'
-import { checkpointOpen, crownCount, legendaryOpen, lessonLevel, lessonOpen, unitsToPlace } from './path'
+import { checkpointOpen, crownCount, legendaryOpen, lessonLevel, lessonOpen, unitMastered, unitOpen, unitsAfter, unitsToPlace } from './path'
 
 const [u1, u2, u3] = units
 const fresh = { completed: {}, placed: [] as string[] }
@@ -45,5 +45,39 @@ describe('crowns', () => {
     const p = { completed: allAt(4), legendary: [u2.id] }
     expect(lessonLevel(p, u2, u2.lessons[0].id)).toBe(5)
     expect(crownCount(p, units)).toBe(5 * u2.lessons.length)
+  })
+})
+
+describe('the mastery gate', () => {
+  const byNumber = (n: number) => units.find((u) => u.number === n)!
+  const fresh = { completed: {}, placed: [] as string[] }
+  const passed = (n: number, score?: number) => ({ [checkpointId(byNumber(n))]: { bestXp: 10, perfect: false, score } })
+
+  it('opens Unit 1 and the culture track on a fresh profile, and nothing else', () => {
+    expect(units.filter((u) => unitOpen(fresh, u, units)).map((u) => u.number)).toEqual([1, 16])
+  })
+  it('opens the next unit at 80% on the checkpoint, not below', () => {
+    expect(unitOpen({ ...fresh, completed: passed(1, 0.8) }, byNumber(2), units)).toBe(true)
+    expect(unitOpen({ ...fresh, completed: passed(1, 0.7) }, byNumber(2), units)).toBe(false)
+  })
+  it('counts a checkpoint finished before the gate as passed', () => {
+    expect(unitOpen({ ...fresh, completed: passed(1) }, byNumber(2), units)).toBe(true)
+  })
+  it('forks after Unit 9 into the Dutch and Belgian tracks', () => {
+    const p = { ...fresh, completed: passed(9, 1) }
+    expect(unitsAfter(byNumber(9), units).map((u) => u.number)).toEqual([10, 13])
+    expect(unitOpen(p, byNumber(10), units)).toBe(true)
+    expect(unitOpen(p, byNumber(13), units)).toBe(true)
+    expect(unitOpen(p, byNumber(11), units)).toBe(false)
+  })
+  it('treats a unit the placement test opened as mastered, so the next one opens too', () => {
+    const p = { ...fresh, placed: [byNumber(3).id] }
+    expect(unitMastered(p, byNumber(3))).toBe(true)
+    expect(unitOpen(p, byNumber(4), units)).toBe(true)
+    expect(unitOpen(p, byNumber(5), units)).toBe(false)
+  })
+  it('keeps a unit open once started, so no progress from before the gate is shut', () => {
+    const p = { ...fresh, completed: { [byNumber(12).lessons[0].id]: { bestXp: 10, perfect: false } } }
+    expect(unitOpen(p, byNumber(12), units)).toBe(true)
   })
 })

@@ -9,9 +9,9 @@ import { sound, type SoundId } from '../sounds'
 import { SoundCredit } from '../sounds/Sound'
 
 // A calm lesson (on slavery, say) ends without a trophy or "Perfect lesson!".
-type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; crown?: CrownNote; onDone: () => void }
+type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; crown?: CrownNote; gate?: { passed: boolean; head: string; detail: string }; onDone: () => void }
 
-export function Results({ title, outcome, xp, sources, photos, sounds = [], calm = false, crown, onDone }: Props) {
+export function Results({ title, outcome, xp, sources, photos, sounds = [], calm = false, crown, gate, onDone }: Props) {
   const right = outcome.asked - outcome.mistakes
   const accuracy = outcome.asked ? Math.round((right / outcome.asked) * 100) : 100
   const newPlaces = [...new Set(outcome.places)]
@@ -22,6 +22,15 @@ export function Results({ title, outcome, xp, sources, photos, sounds = [], calm
         <h1>{outcome.timedOut ? "Time's up" : crown?.head === 'Legendary' ? 'Legendary!' : crown?.head === 'Not this time' ? 'Challenge over' : calm ? 'Lesson complete' : outcome.mistakes === 0 ? 'Perfect lesson!' : 'Lesson complete!'}</h1>
         <p className="muted">{title}</p>
       </div>
+      {gate && (
+        <div className={`gate-note ${gate.passed ? 'is-open' : ''}`}>
+          <Icon name={gate.passed ? 'trophy' : 'lock'} />
+          <div>
+            <p className="crown-head">{gate.head}</p>
+            <p className="muted">{gate.detail}</p>
+          </div>
+        </div>
+      )}
       {crown && (
         <div className={`crown-note level-${crown.level}`}>
           <span className="crown-badge" aria-hidden="true">
