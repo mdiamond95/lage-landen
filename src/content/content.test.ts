@@ -37,6 +37,7 @@ import { foodStory } from '../data/food'
 import { foodIds, foods } from '../data/foods'
 import { feastStory } from '../data/feastMap'
 import { sportStory } from '../data/sport'
+import { popStory } from '../data/pop'
 import { routes as raceRoutes } from '../data/routes'
 import { DAYS, daysOff, feastIds, feasts, spanOf } from '../data/feasts'
 import { dialectIds, dialectPieces, dialects } from '../data/dialects'
@@ -83,6 +84,7 @@ const isVisual = (e: Exercise) =>
   e.type === 'listen' ||
   e.type === 'taste' ||
   e.type === 'when' ||
+  e.type === 'panels' ||
   (e.type === 'pick' && (e.visual !== undefined || e.items.every((i) => i.photo)))
 
 describe.each(files)('%s', (file) => {
@@ -463,6 +465,66 @@ describe('sport time map', () => {
   })
 })
 
+describe('pop culture time map', () => {
+  const { min, max, events, sites, labels, lines } = popStory
+  const inFrame = ([lon, lat]: [number, number]) => lon > 2.4 && lon < 7.3 && lat > 49.4 && lat < 53.6
+
+  it('puts every mark and label in the frame, each named once', () => {
+    for (const s of sites) expect(inFrame(s.at), s.name).toBe(true)
+    for (const l of labels) expect(inFrame(l.at), l.text).toBe(true)
+    expect(lines).toHaveLength(0)
+    expect(new Set(sites.map((s) => s.name)).size, 'site names are unique').toBe(sites.length)
+  })
+
+  it('tells its story in order, and every change on the map has a caption', () => {
+    const starts = events.map((e) => e.from)
+    expect(starts[0]).toBe(min)
+    expect(starts[starts.length - 1]).toBe(max)
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts)
+    expect(new Set(starts).size).toBe(starts.length)
+    for (const item of [...sites, ...labels]) {
+      const name = 'name' in item ? item.name : item.text
+      if (item.from > min) expect(starts, `${name} appears`).toContain(item.from)
+      if (item.to !== undefined) expect(starts, `${name} goes`).toContain(item.to + 1)
+    }
+  })
+})
+
+// Comic panels (Unit 24): every box cut from a picture lies inside it, and a strip never shows the
+// same cut twice. A balloon question's panels are told apart by their pictures, so no two share one.
+describe('comic panels', () => {
+  const all = files.flatMap((f) => Unit.parse(parse(readFileSync(join(dir, f), 'utf8'))).lessons.flatMap((l) => l.exercises.map((e) => ({ id: l.id, e }))))
+  const strips = all.flatMap(({ id, e }) => {
+    const out: { id: string; panels: Extract<Exercise, { type: 'panels' }>['panels']; order?: boolean }[] = []
+    if (e.type === 'panels') out.push({ id, panels: e.panels, order: e.order })
+    const v = 'visual' in e ? e.visual : undefined
+    if (v?.kind === 'strip') out.push({ id, panels: v.panels })
+    return out
+  })
+
+  it('cut every panel from inside its picture, each cut once', () => {
+    expect(strips.length).toBeGreaterThan(0)
+    for (const { id, panels } of strips) {
+      for (const { box } of panels)
+        if (box) {
+          const [x, y, w, h] = box
+          expect(x >= 0 && y >= 0 && w > 0.05 && h > 0.05 && x + w <= 1.0001 && y + h <= 1.0001, `${id} panel box inside the picture`).toBe(true)
+        }
+      const cuts = panels.map((p) => `${p.photo} ${p.box ?? 'whole'}`)
+      expect(new Set(cuts).size, `${id} panels differ`).toBe(cuts.length)
+    }
+  })
+
+  it('keep the answer out of the pictures’ captions and descriptions on a balloon question', () => {
+    for (const { e } of all) {
+      if (e.type !== 'panels' || e.order) continue
+      const alts = e.panels.map((p) => credits[p.photo].alt)
+      // A balloon's own words should not be printed under the picture it belongs to.
+      e.panels.forEach((p, i) => expect(alts[i].toLowerCase(), p.say).not.toContain(p.say.toLowerCase()))
+    }
+  })
+})
+
 describe('route maps', () => {
   it('draw every place and bend inside the frame, and every place is on the route', () => {
     for (const [id, r] of Object.entries(raceRoutes)) {
@@ -625,6 +687,7 @@ describe('time maps in lessons', () => {
     food: foodStory,
     feasts: feastStory,
     sport: sportStory,
+    pop: popStory,
   }
   const range = {
     water: [waterStory.min, waterStory.max],
@@ -653,6 +716,7 @@ describe('time maps in lessons', () => {
     food: [foodStory.min, foodStory.max],
     feasts: [feastStory.min, feastStory.max],
     sport: [sportStory.min, sportStory.max],
+    pop: [popStory.min, popStory.max],
   }
 
   it('open at years inside their slider', () => {

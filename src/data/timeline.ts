@@ -55,7 +55,8 @@ export type HistSite = Dated & {
   // `brewery` or `distillery`. On the feast map (Unit 22) a mark is a feast of the `church` year, a
   // `saint`'s day, a `carnival`, a `procession` with its giants, a feast of a king or a `nation`, a
   // day of `memory` (remembrance and freedom), or a `folk` custom. On the sport map (Unit 23) a mark is
-  // a cycling `race`, a `ball` game (football and korfball), the `ice` or the Olympic `games`.
+  // a cycling `race`, a `ball` game (football and korfball), the `ice` or the Olympic `games`. On the pop
+  // map (Unit 24) a mark is a comic `strip`, `music` or `film` (cinema and television), or a `museum`.
   kind:
     | 'fort'
     | 'town'
@@ -97,6 +98,9 @@ export type HistSite = Dated & {
     | 'ball'
     | 'ice'
     | 'games'
+    | 'strip'
+    | 'music'
+    | 'film'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number

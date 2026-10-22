@@ -33,3 +33,12 @@ export const sportGlyphs = {
   games: 'M0-8C1.5-4 5-2.5 5 2.2a5 5 0 0 1-10 0C-5-1-3-2.5-3-5c1.4 1 2 2.2 2 3.6C0-3.5.3-5.5 0-8z',
 } as const
 export type SportGlyph = keyof typeof sportGlyphs
+
+// The marks of pop culture (Unit 24), on the pop time map: a speech balloon for a comic strip, a
+// note for music and a frame of film for cinema and television. Museums take the temple front.
+export const popGlyphs = {
+  strip: 'M-7.5-6.5h15a1.5 1.5 0 0 1 1.5 1.5v7a1.5 1.5 0 0 1-1.5 1.5H-1.5L-5.5 7.5V3.5h-2a1.5 1.5 0 0 1-1.5-1.5v-7a1.5 1.5 0 0 1 1.5-1.5z',
+  music: 'M-1-7.5H6v3.2H1.5V4a3.2 3.2 0 1 1-2.5-3.1z',
+  film: 'M-7.5-5.5h15v11h-15zM-6-4.2v1.6h1.6v-1.6zM-6-.8v1.6h1.6V-.8zM-6 2.6v1.6h1.6V2.6zM4.4-4.2v1.6H6v-1.6zM4.4-.8v1.6H6V-.8zM4.4 2.6v1.6H6V2.6zM-3-4v8h6v-8z',
+} as const
+export type PopGlyph = keyof typeof popGlyphs

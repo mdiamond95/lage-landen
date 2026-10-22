@@ -1,0 +1,680 @@
+id: unit-24
+number: 24
+title: Comics and pop culture
+era: 1929 to today
+summary: >-
+  Brussels, the capital of the comic strip: Tintin and the clear line, Spirou, Gaston and the Smurfs from Marcinelle,
+  Spike and Suzy and Nero in Flanders, Miffy and Mr Bumble in the Netherlands. Then the saxophone, Django and Brel,
+  five Dutch wins at Eurovision, Audrey Hepburn, three Dutch Oscars and a house full of cameras. Match the balloons
+  to their panels, put strips in order, and follow comics, music and film on the map from 1929 to 2021.
+note: >-
+  This checkpoint can ask about Tintin in the Congo, a comic of 1930 that shows Congolese people through the
+  colonial prejudices of its time, and about Hergé's work for a newspaper run under the German occupation.
+lessons:
+  - id: u24-l1
+    title: Tintin and the clear line
+    icon: quiff
+    note: >-
+      This lesson looks at Tintin in the Congo, a comic of 1930 that shows Congolese people through the colonial
+      prejudices of its time, and at the work Hergé did under the German occupation.
+    sources:
+      - title: "Wikipedia, Hergé"
+        url: https://en.wikipedia.org/wiki/Herg%C3%A9
+      - title: "Wikipedia, The Adventures of Tintin"
+        url: https://en.wikipedia.org/wiki/The_Adventures_of_Tintin
+      - title: "Wikipedia, Le Petit Vingtième"
+        url: https://en.wikipedia.org/wiki/Le_Petit_Vingti%C3%A8me
+      - title: "Wikipedia, Tintin in the Congo"
+        url: https://en.wikipedia.org/wiki/Tintin_in_the_Congo
+      - title: "Wikipedia, Ligne claire"
+        url: https://en.wikipedia.org/wiki/Ligne_claire
+      - title: "Wikipedia, Musée Hergé"
+        url: https://en.wikipedia.org/wiki/Mus%C3%A9e_Herg%C3%A9
+      - title: "Wikipedia, Tintin magazine"
+        url: https://en.wikipedia.org/wiki/Tintin_magazine
+    exercises:
+      - type: story
+        title: A reporter who never files a story
+        body: >-
+          On 10 January 1929 a boy reporter with a quiff and a white fox terrier set off for the land of the Soviets,
+          in Le Petit Vingtième, the children's supplement of a Catholic paper in Brussels. His maker signed himself
+          Hergé, the French sound of his initials reversed: Georges Remi, R. G. Tintin went on to 24 albums, more than
+          70 languages and some 200 million copies, and Brussels became the capital of the comic strip.
+        visual:
+          kind: strip
+          title: Brussels, 1929 to 2009
+          panels:
+            - { photo: petit-vingtieme-1931, kind: caption, say: "Every Thursday in Le Petit Vingtième" }
+            - { photo: herge-1962-c, kind: caption, say: "Georges Remi: R. G., or Hergé" }
+            - { photo: tintin-etuve, kind: caption, say: "Tintin on the walls of Brussels" }
+      - type: who
+        photo: herge-1962
+        clues:
+          - I was born in Etterbeek, a district of Brussels, in 1907, and was a Boy Scout before I was a cartoonist.
+          - I drew with an even, clean line, flat colours and no shading, a style later called the clear line.
+          - I took my pen name from my initials, reversed, and spent more than fifty years on one boy reporter.
+        options: [Hergé, Edgar P. Jacobs, André Franquin, Willy Vandersteen]
+        answer: 0
+        explain: >-
+          Hergé, Georges Remi, filmed here for Canadian television in 1962. Edgar P. Jacobs, who drew Blake and Mortimer,
+          worked in his studio for a time. Hergé died in 1983, and left word that no one should carry on Tintin.
+      - type: truemyth
+        statement: Tintin walked on the Moon before Neil Armstrong did.
+        visual: { kind: photo, photo: tintin-rocket }
+        answer: true
+        explain: >-
+          True. In Explorers on the Moon, which ran in Tintin magazine in 1952 and 1953 and came out as an album in 1954,
+          Tintin steps onto the Moon from his red-and-white chequered rocket, fifteen years before Armstrong. Hergé had
+          read up on rocketry, and drew the Moon with no air, low gravity and a sky full of stars.
+      - type: gap
+        prompt: Tintin in the Congo ran in Le Petit Vingtième from 1930 to 1931, and shows Congolese people as childish and simple. Decades later, Hergé looked back on it. Pick the missing word.
+        quote: "The fact was that I was fed on the ___ of the bourgeois society in which I moved."
+        source: Hergé, interviewed by Numa Sadoul, 1975
+        visual: { kind: photo, photo: petit-vingtieme-1931 }
+        options: [prejudices, stories, newspapers, dreams]
+        answer: 0
+        explain: >-
+          Prejudices. He said he had drawn Africans "in the purely paternalistic spirit which existed then in Belgium".
+          The book still divides readers: in 2007 a Congolese student in Brussels went to court to have it banned, and
+          in 2012 the court ruled that it broke no law. Shops in Britain moved it to the shelves for adults.
+      - type: choice
+        prompt: During the German occupation, Le Petit Vingtième was closed. Where did Tintin appear from 1940 to 1944?
+        visual: { kind: photo, photo: traitors-gallery }
+        answer: 1
+        options:
+          - label: In a resistance paper printed in secret
+            why: He appeared in Le Soir, the big Brussels daily, run under German control.
+          - label: In Le Soir, a paper run under German control
+            why: >-
+              Right. Le Soir was taken over by the occupiers, and Hergé drew for it all through the war. After the
+              liberation he was arrested four times, and for about a year he was barred from the newspapers. The
+              resistance group L'Insoumis put his photo in its Gallery of Traitors, a book of collaborators.
+          - label: Only in albums, not in any paper
+            why: He appeared in Le Soir, the big Brussels daily, run under German control.
+          - label: In a paper printed in London
+            why: He appeared in Le Soir, the big Brussels daily, run under German control.
+      - type: panels
+        prompt: Put these moments of Tintin's story in order, from the first to the last.
+        order: true
+        panels:
+          - { photo: petit-vingtieme-1932, kind: caption, say: "A boy plays Tintin, home from America" }
+          - { photo: tintin-rocket, kind: caption, say: "The rocket lands on the Moon" }
+          - { photo: herge-1962-b, kind: caption, say: "Hergé talks to Canadian television" }
+          - { photo: herge-museum, kind: caption, say: "Hergé gets a museum of his own" }
+        explain: >-
+          In 1932 a boy dressed as Tintin came home from America; Le Petit Vingtième staged Tintin's homecomings with a real boy dressed as Tintin at the station, from 1930. The
+          Moon came in 1953, and the museum, a white building by Christian de Portzamparc in the woods of
+          Louvain-la-Neuve, opened on 2 June 2009.
+      - type: hunt
+        prompt: The walls of Stockel, a Brussels metro station, are covered with the cast of the Tintin albums. Two of them carry the portrait of Captain Haddock's ancestor, Sir Francis. Find the ship he commanded.
+        photo: stockel-tintin
+        targets:
+          - [0.73, 0.36, 0.08, 0.15]
+        explain: >-
+          The Unicorn, from The Secret of the Unicorn, sails beside Sir Francis Haddock in his portrait. Stockel station
+          has two frescoes designed by Hergé, each 135 m long, with Tintin, Snowy, Haddock and the rest of the cast.
+      - type: pin
+        prompt: The Hergé Museum opened in 2009 in a new university town, built after the Flemish university of Leuven and its French side split in the 1960s. Pin it.
+        place: louvain-la-neuve
+        explain: >-
+          Louvain-la-Neuve, south-east of Brussels. The French-speaking half of the university of Leuven moved here
+          after the split of 1968, and the town was built from nothing around it.
+      - type: scrub
+        prompt: Drag the slider to the years when Tintin is the only comic strip on the map.
+        map: pop
+        start: 2000
+        answer: [1929, 1937]
+        explain: >-
+          From 1929, when Tintin set off for the Soviets, until 1938, when Dupuis brought out the first Spirou
+          magazine in Marcinelle.
+
+  - id: u24-l2
+    title: Spirou, the Smurfs and Marcinelle
+    icon: cap
+    sources:
+      - title: "Wikipedia, Spirou (magazine)"
+        url: https://en.wikipedia.org/wiki/Spirou_(magazine)
+      - title: "Wikipedia, André Franquin"
+        url: https://en.wikipedia.org/wiki/Andr%C3%A9_Franquin
+      - title: "Wikipedia, Marcinelle school"
+        url: https://en.wikipedia.org/wiki/Marcinelle_school
+      - title: "Wikipedia, Lucky Luke"
+        url: https://en.wikipedia.org/wiki/Lucky_Luke
+      - title: "Wikipedia, The Smurfs"
+        url: https://en.wikipedia.org/wiki/The_Smurfs
+      - title: "Wikipedia, Brussels' Comic Book Route"
+        url: https://en.wikipedia.org/wiki/Brussels%27_Comic_Book_Route
+    exercises:
+      - type: story
+        title: Two magazines, two styles
+        body: >-
+          In 1938 the printer Jean Dupuis, in Marcinelle by Charleroi, brought out a weekly called Spirou, after its
+          bellboy hero. After the war it had a rival in Brussels, Tintin magazine. Tintin's artists drew the clear
+          line, calm and exact. Spirou's drew round, rubbery figures full of movement, a style named after
+          Marcinelle. For fifty years Belgian children took one side or the other.
+        visual: { kind: photo, photo: spirou-mural }
+      - type: who
+        photo: franquin-1979
+        clues:
+          - I was born in Etterbeek in 1924, and took over Spirou and his squirrel Spip in 1946.
+          - In 1952 I gave Spirou a yellow, spotted animal with a tail many metres long, who says only "houba".
+          - In 1957 I drew a lazy, clumsy office boy who wrecks the Spirou offices, week after week.
+        options: [André Franquin, Peyo, Morris, Hergé]
+        answer: 0
+        explain: >-
+          André Franquin, the master of the Marcinelle style, who made the Marsupilami and Gaston Lagaffe. He died in
+          1997. Gaston has a statue in Brussels, by the comic strip centre.
+      - type: panels
+        prompt: Each of these heroes has a line readers know by heart. Put each balloon in its panel. One belongs to a hero who isn't here.
+        panels:
+          - { photo: gaston-mural, say: "M'enfin !" }
+          - { photo: marsupilami-dupuis, say: "Houba ! Houba !" }
+          - { photo: tintin-mural, say: "Mille sabords !" }
+        extra: ["I'm a poor lonesome cowboy…"]
+        explain: >-
+          Gaston's "M'enfin !", why, really!, the Marsupilami's "Houba !", and Captain Haddock's "Mille sabords !",
+          "billions of blue blistering barnacles" in the English albums: he is the bearded sailor on the fire escape.
+          The cowboy's song is Lucky Luke's, sung as he rides off at the end of each story.
+      - type: sort
+        prompt: Sort these heroes, all on walls in Brussels, by the magazine they first appeared in.
+        groups: [Spirou, Tintin]
+        items:
+          - { label: Gaston Lagaffe, group: 0, photo: gaston-mural }
+          - { label: Lucky Luke, group: 0, photo: lucky-mural }
+          - { label: Yoko Tsuno, group: 0, photo: yoko-mural }
+          - { label: Boule et Bill, group: 0, photo: boule-mural }
+          - { label: Blake and Mortimer, group: 1, photo: blake-mural }
+          - { label: Ric Hochet, group: 1, photo: ric-hochet-mural }
+          - { label: Cubitus, group: 1, photo: cubitus-mural }
+        explain: >-
+          Blake and Mortimer were in the first Tintin magazine of 1946, Ric Hochet came in 1955 and the big white dog
+          Cubitus in 1968. Spirou had Lucky Luke from 1946, Gaston from 1957, Boule et Bill from 1959 and Yoko Tsuno from
+          1970. Since 1991 more than sixty walls in Brussels have been painted with comic strips.
+      - type: truemyth
+        statement: Lucky Luke has always had a cigarette in his mouth.
+        visual: { kind: photo, photo: morris-goscinny }
+        answer: false
+        explain: >-
+          Myth. Morris, born Maurice De Bevere in Kortrijk, drew him with a cigarette from 1946, but in 1983 swapped it
+          for a blade of straw. The World Health Organization gave him an award for it in 1988. Here he is on the right,
+          in Amsterdam in 1971, beside René Goscinny, who wrote Lucky Luke from 1955 as well as Asterix.
+      - type: choice
+        prompt: Peyo first drew the Smurfs in 1958, as little blue extras in another strip. Where does their name, Schtroumpf in French, come from?
+        visual: { kind: photo, photo: smurf-mural }
+        answer: 2
+        options:
+          - label: An old Walloon word for a gnome
+            why: Peyo made it up at a meal with André Franquin on the coast, when the word for salt slipped his mind.
+          - label: The name of the village where Peyo grew up
+            why: Peyo made it up at a meal with André Franquin on the coast, when the word for salt slipped his mind.
+          - label: A word Peyo made up when he forgot the word for salt
+            why: >-
+              Right. "Passe-moi le… schtroumpf", he said to Franquin, who answered "when you've finished schtroumpfing,
+              schtroumpf it back", and they spoke Smurf all weekend. The Smurfs first appeared in Spirou on 23 October
+              1958, and the Hanna-Barbera cartoon of 1981 took them round the world.
+          - label: The Dutch word for a blue cap
+            why: Peyo made it up at a meal with André Franquin on the coast, when the word for salt slipped his mind.
+      - type: odd
+        prompt: Which of these was not first drawn for Spirou?
+        items:
+          - { label: Gaston Lagaffe, photo: gaston-statue }
+          - { label: The Smurfs, photo: smurf-statue }
+          - { label: The Marsupilami, photo: marsupilami-nest }
+          - { label: Tintin, photo: tintin-mural }
+        answer: 3
+        reasons:
+          - It began in a children's supplement of a Brussels paper, years before Spirou existed.
+          - It was first drawn in Dutch.
+          - It was first drawn in the Netherlands.
+        reason: 0
+        explain: >-
+          Tintin began in Le Petit Vingtième in 1929, nine years before the first Spirou. Gaston, the Smurfs and the
+          Marsupilami were all first printed in Spirou in Marcinelle.
+      - type: scrub
+        prompt: Drag the slider to the years when Spirou is on the map, but Lucky Luke has not yet ridden in.
+        map: pop
+        start: 1929
+        answer: [1938, 1945]
+        explain: >-
+          Spirou came out in Marcinelle on 21 April 1938, and Lucky Luke first rode into it in 1946. Near the end
+          of the war, short of paper, Spirou had to stop for a while.
+
+  - id: u24-l3
+    title: Spike and Suzy and the Flemish strips
+    icon: balloon
+    sources:
+      - title: "Wikipedia, Willy Vandersteen"
+        url: https://en.wikipedia.org/wiki/Willy_Vandersteen
+      - title: "Wikipedia, Suske en Wiske"
+        url: https://en.wikipedia.org/wiki/Suske_en_Wiske
+      - title: "Wikipedia (Dutch), Nero (strip)"
+        url: https://nl.wikipedia.org/wiki/Nero_(strip)
+      - title: "Wikipedia, Marc Sleen"
+        url: https://en.wikipedia.org/wiki/Marc_Sleen
+      - title: "Wikipedia (Dutch), Stripstandbeelden in Middelkerke"
+        url: https://nl.wikipedia.org/wiki/Middelkerke
+    exercises:
+      - type: story
+        title: Strips in the daily paper
+        body: >-
+          In Flanders the comic strip lived in the newspaper. Every day a strip of three or four panels, every year a
+          few albums from the kiosk. Willy Vandersteen's Suske en Wiske, Spike and Suzy, began in De Nieuwe Standaard in
+          1945, and Marc Sleen's Nero in De Nieuwe Gids in 1947. Their heroes were ordinary people with Flemish names,
+          and the albums sold in their millions.
+        visual: { kind: photo, photo: suske-mural }
+      - type: who
+        photo: vandersteen-1985
+        clues:
+          - I was born in the Seefhoek, a poor quarter of Antwerp, in 1913, and dressed shop windows for a department store.
+          - In my studio, a team drew my strips beside me, so that there could be several a week.
+          - My best-known heroes are a boy, a girl, a strong man called Jerom and a vain old Lambik.
+        options: [Willy Vandersteen, Marc Sleen, Hergé, Bob De Moor]
+        answer: 0
+        explain: >-
+          Willy Vandersteen, on the left, in 1985, beside Paul Geerts, who drew Suske en Wiske after him. Hergé called
+          him the Brueghel of the comic strip. He also drew De Rode Ridder and Bessy, and
+          died in 1990. Suske en Wiske is still drawn today.
+      - type: truemyth
+        statement: Suske en Wiske began before the Second World War was over in Europe.
+        visual: { kind: photo, photo: suske-wagon }
+        answer: true
+        explain: >-
+          True. The first story ran in De Nieuwe Standaard from 30 March 1945, five weeks before Germany surrendered,
+          though Antwerp had been freed in September 1944. Suske was not in the first story yet: it was called Rikki en
+          Wiske.
+      - type: choice
+        prompt: Spike and Suzy is one English name for Suske en Wiske. Which is another name the strip has had in English?
+        visual: { kind: photo, photo: vandersteen-hasselt }
+        answer: 1
+        options:
+          - label: Tin and Tan
+            why: In English they have also been Willy and Wanda, and in French Bob et Bobette.
+          - label: Willy and Wanda
+            why: >-
+              Right. American editions of the 1970s called them Willy and Wanda, British ones Spike and Suzy, and in
+              French they are Bob et Bobette.
+          - label: Jack and Jill
+            why: In English they have also been Willy and Wanda, and in French Bob et Bobette.
+          - label: Hansel and Gretel
+            why: In English they have also been Willy and Wanda, and in French Bob et Bobette.
+      - type: choice
+        prompt: Marc Sleen drew Nero for more than 45 years. How does almost every Nero story since 1965 end?
+        visual: { kind: photo, photo: nero-statue }
+        answer: 0
+        options:
+          - label: With everyone eating waffles
+            why: >-
+              Right. Since Het Groene Vuur of 1965, every story ends with a waffle feast, the wafelenbak, with Nero, his
+              friends and often the villains round the table.
+          - label: With Nero falling asleep in his chair
+            why: Since 1965 every story has ended with a waffle feast, the wafelenbak.
+          - label: With a march through the streets of Antwerp
+            why: Since 1965 every story has ended with a waffle feast, the wafelenbak.
+          - label: With Nero reading the newspaper
+            why: Since 1965 every story has ended with a waffle feast, the wafelenbak.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Flemish strips run every day in the newspaper, Readers buy the next paper to see how the story goes on]
+          - [Vandersteen hires a team to draw with him, Several Suske en Wiske stories can run at once]
+          - [Middelkerke wants to be known as a comic strip town, Seventeen statues of comic heroes line its sea dike]
+          - [Hergé's friends and Tintin's readers after the war want a magazine, Tintin gets a weekly of his own in 1946]
+        explain: >-
+          The newspapers fought for readers with their strips, and Vandersteen's studio, from 1952, could keep up with
+          the demand. Middelkerke's statues honour Flemish and Walloon heroes alike, from Jommeke to the Smurfs.
+      - type: odd
+        prompt: All four stand on the sea front at Middelkerke. Which is the odd one out?
+        items:
+          - { label: Nero, photo: nero-statue }
+          - { label: Jerom, photo: jerom-statue }
+          - { label: The Smurfs, photo: smurf-statues-middelkerke }
+          - { label: Suske en Wiske, photo: suske-museum }
+        answer: 2
+        reasons:
+          - They were first drawn in French, for Spirou.
+          - They were first drawn after the year 2000.
+          - They are not from a Belgian strip.
+        reason: 0
+        explain: >-
+          Peyo's Smurfs began in French, in Spirou. Nero, Jerom and Suske en Wiske were all first printed in Dutch, in
+          Flemish newspapers. Middelkerke honours both.
+      - type: pin
+        prompt: Pin the seaside town whose promenade is lined with comic strip statues.
+        place: middelkerke
+        explain: Middelkerke, between Ostend and Nieuwpoort, with seventeen statues of comic heroes on its sea dike.
+      - type: scrub
+        prompt: Drag the slider to the years when Suske en Wiske is on the map, but Nero is not yet.
+        map: pop
+        start: 1960
+        answer: [1945, 1946]
+        explain: Suske en Wiske began in 1945, and Nero in 1947.
+
+  - id: u24-l4
+    title: Miffy, Bommel and the Dutch strips
+    icon: rabbit
+    sources:
+      - title: "Wikipedia, Dick Bruna"
+        url: https://en.wikipedia.org/wiki/Dick_Bruna
+      - title: "Wikipedia, Miffy"
+        url: https://en.wikipedia.org/wiki/Miffy
+      - title: "Wikipedia, Marten Toonder"
+        url: https://en.wikipedia.org/wiki/Marten_Toonder
+      - title: "Wikipedia (Dutch), Marten Toonder"
+        url: https://nl.wikipedia.org/wiki/Marten_Toonder
+      - title: "Wikipedia, Joost Swarte"
+        url: https://en.wikipedia.org/wiki/Joost_Swarte
+      - title: "Wikipedia, Donald Duck (Dutch magazine)"
+        url: https://en.wikipedia.org/wiki/Donald_Duck_(magazine)
+    exercises:
+      - type: story
+        title: A rabbit from Utrecht
+        body: >-
+          In 1955, after a family holiday by the sea where he had watched a rabbit in the dunes, Dick Bruna drew one
+          for his small son: Nijntje, from konijntje, little rabbit. Thick black lines, a few flat colours, a face of two dots and a cross. Miffy, as she is called in
+          English, has sold more than 85 million books in more than fifty languages, and Utrecht, where Bruna lived and
+          worked all his life, is full of her.
+        visual: { kind: photo, photo: miffy-statues }
+      - type: who
+        photo: bruna
+        clues:
+          - I was born in Utrecht in 1927, into a family of publishers, and left the art academy in Amsterdam after a few months.
+          - For my family's paperbacks I designed more than 2,000 covers.
+          - I drew with only a few colours, red, yellow, blue and green, and later brown and grey.
+        options: [Dick Bruna, Marten Toonder, Joost Swarte, Annie M. G. Schmidt]
+        answer: 0
+        explain: >-
+          Dick Bruna, in his studio in 2007. He drew Nijntje for almost sixty years, retired in 2014 and died in
+          Utrecht in 2017. The Nijntje museum there is for the smallest readers.
+      - type: hunt
+        prompt: Some crossings in Utrecht have a traffic light of their own. Find the little figure in the light.
+        photo: miffy-light
+        targets:
+          - [0.47, 0.26, 0.08, 0.13]
+        explain: A few pedestrian lights in Utrecht show Nijntje instead of the usual little man, red standing still and green walking.
+      - type: choice
+        prompt: Marten Toonder's Tom Poes and Mr Bumble, Olivier B. Bommel, ran in De Telegraaf from 1941. What did they leave in the Dutch language?
+        visual: { kind: photo, photo: toonder-bommel }
+        answer: 2
+        options:
+          - label: The word for comic strip, strip
+            why: Toonder's words were his own inventions, like minkukel and denkraam.
+          - label: The names of the days of the week
+            why: Toonder's words were his own inventions, like minkukel and denkraam.
+          - label: Words like minkukel, a dimwit, and denkraam, the mind
+            why: >-
+              Right. Toonder made up words like minkukel, a nitwit, denkraam, the frame of mind, zielknijper, a
+              psychiatrist, and grootgrutter, a big grocer. Many are in the dictionary now, and Bommel's line, "als je
+              begrijpt wat ik bedoel", if you know what I mean, is a saying.
+          - label: The Dutch words for rabbit and cat
+            why: Toonder's words were his own inventions, like minkukel and denkraam.
+      - type: truemyth
+        statement: The words "clear line", for Hergé's way of drawing, were coined by a Dutchman.
+        visual: { kind: photo, photo: tintin-mural }
+        answer: true
+        explain: >-
+          True. Joost Swarte, a Dutch cartoonist, called it de klare lijn for an exhibition of Tintin in Rotterdam in
+          1977, and the name stuck in every language: ligne claire in French. Swarte later designed the inside of the
+          Hergé Museum.
+      - type: choice
+        prompt: The Dutch Donald Duck weekly has come out since 25 October 1952. These are its editors, in 1982. Who is it made for?
+        visual: { kind: photo, photo: donald-redactie }
+        answer: 1
+        options:
+          - label: Only for grown-ups, as a satire
+            why: It is a weekly for children, made by a Dutch editorial team who write many of its stories themselves.
+          - label: Children, with many stories written and drawn in the Netherlands
+            why: >-
+              Right. At its peak, in 1980, it sold about 457,000 copies a week, and in 2014 four in five Dutch children
+              of 6 to 12 read it. Dutch writers and artists make many of its stories, and Duckburg is Duckstad.
+          - label: Learners of English, with the text in English
+            why: It is a weekly for children, in Dutch, made by a Dutch editorial team.
+          - label: Readers in the Dutch colonies only
+            why: It is a weekly for children, in Dutch, made by a Dutch editorial team.
+      - type: choice
+        prompt: Compare the map in 1946, after the war, with 2021. What has changed in the kind of marks?
+        visual: { kind: compare, map: pop, years: [1946, 2021] }
+        answer: 1
+        options:
+          - label: There are fewer marks in 2021
+            why: There are far more in 2021, and most of the new ones are music and film.
+          - label: In 1946 nearly every mark is a comic strip, by 2021 music and film have joined them
+            why: >-
+              Right. In 1946 the map is almost all strips, from Brussels and Marcinelle to Amsterdam and Antwerp. Since
+              then music, film and television have taken their place beside them.
+          - label: The comic strips have all moved to the Netherlands
+            why: Most strip marks are still in Belgium, around Brussels and Marcinelle.
+          - label: Nothing has changed
+            why: Far more marks are on the map in 2021, and most of the new ones are music and film.
+      - type: pin
+        prompt: Pin the city where Dick Bruna lived and drew Nijntje all his life.
+        place: utrecht
+        explain: Utrecht. Bruna's studio stood near the Dom tower, and the Nijntje museum is by the Centraal Museum.
+      - type: scrub
+        prompt: Drag the slider to the years when Tom Poes is on the map, but Nijntje is not yet.
+        map: pop
+        start: 1929
+        answer: [1941, 1954]
+        explain: Tom Poes began in De Telegraaf in 1941, and Nijntje in 1955.
+
+  - id: u24-l5
+    title: Saxophones, chansons and Eurovision
+    icon: note
+    sources:
+      - title: "Wikipedia, Adolphe Sax"
+        url: https://en.wikipedia.org/wiki/Adolphe_Sax
+      - title: "Wikipedia, Django Reinhardt"
+        url: https://en.wikipedia.org/wiki/Django_Reinhardt
+      - title: "Wikipedia, Toots Thielemans"
+        url: https://en.wikipedia.org/wiki/Toots_Thielemans
+      - title: "Wikipedia, Le Plat Pays"
+        url: https://en.wikipedia.org/wiki/Le_Plat_Pays
+      - title: "Wikipedia, Netherlands in the Eurovision Song Contest"
+        url: https://en.wikipedia.org/wiki/Netherlands_in_the_Eurovision_Song_Contest
+      - title: "Wikipedia, Belgium in the Eurovision Song Contest"
+        url: https://en.wikipedia.org/wiki/Belgium_in_the_Eurovision_Song_Contest
+      - title: "Wikipedia, Tomorrowland (festival)"
+        url: https://en.wikipedia.org/wiki/Tomorrowland_(festival)
+    exercises:
+      - type: story
+        title: An instrument from Dinant
+        body: >-
+          Adolphe Sax was born in Dinant on the Meuse in 1814, the son of an instrument maker. In Paris, in 1846, he
+          patented a brass instrument played with a reed like a clarinet, and named it after himself. Armies and brass
+          bands took it up first. Jazz made it famous, a century later, far from Belgium.
+        visual: { kind: sound, sound: sax-jazz, photo: sax-alto }
+      - type: truemyth
+        statement: The saxophone was invented in New Orleans, for jazz.
+        visual: { kind: photo, photo: sax-dinant }
+        answer: false
+        explain: >-
+          Myth. Adolphe Sax patented it in Paris on 28 June 1846, decades before jazz was born. He made it in sizes from
+          the tiny sopranino to the huge subcontrabass, and died poor in Paris in 1894. In Dinant, the bridge over the
+          Meuse is lined with giant saxophones in the colours of many countries.
+      - type: who
+        photo: django
+        clues:
+          - I was born in a caravan in Liberchies, in Belgium, in 1910, into a family of travelling Manouche.
+          - At 18 I was badly burned in a fire, and played the guitar for the rest of my life with two fingers of my left hand.
+          - In Paris in 1934, with the violinist Stéphane Grappelli, I founded the Quintette du Hot Club de France.
+        options: [Django Reinhardt, Toots Thielemans, Jacques Brel, Adolphe Sax]
+        answer: 0
+        explain: >-
+          Django Reinhardt, the first great European jazz musician, photographed in New York in 1946. His gypsy jazz is
+          still played at festivals all over the world.
+      - type: choice
+        prompt: Toots Thielemans, born in Brussels in 1922, played on the soundtrack of Midnight Cowboy and the closing theme of Sesame Street. On what?
+        visual: { kind: photo, photo: toots-1961 }
+        answer: 3
+        options:
+          - label: The saxophone
+            why: He played the chromatic harmonica, and the guitar, and whistled.
+          - label: The accordion
+            why: He played the chromatic harmonica, and the guitar, and whistled.
+          - label: The trumpet
+            why: He played the chromatic harmonica, and the guitar, and whistled.
+          - label: The harmonica
+            why: >-
+              Right, the chromatic harmonica, which he made a jazz instrument. His tune Bluesette of 1962, played on
+              guitar and whistled, went round the world. King Albert II made him a baron in 2001, and he died in 2016.
+      - type: gap
+        prompt: In 1962 Jacques Brel, from Brussels, sang of Belgium as a flat land under a low sky. Pick the missing word in its opening line.
+        quote: "Avec la mer du ___ pour dernier terrain vague"
+        source: Jacques Brel, Le plat pays, 1962
+        visual: { kind: photo, photo: brel-1962 }
+        options: [Nord, Sud, Rhin, Ciel]
+        answer: 0
+        explain: >-
+          Nord: with the North Sea for a last waste ground. Brel sang in French, but he also recorded it in Dutch as
+          Mijn vlakke land. He moved to France, then to the Marquesas Islands in the Pacific, and is buried there.
+      - type: panels
+        prompt: The Netherlands has won the Eurovision Song Contest five times. Put each winning song's title with its singers. One title is Belgium's.
+        panels:
+          - { photo: corry-brokken, say: "Net als toen" }
+          - { photo: teddy-scholten, say: "Een beetje" }
+          - { photo: teach-in, say: "Ding-a-dong" }
+          - { photo: laurence-2019, say: "Arcade" }
+        extra: ["J'aime la vie"]
+        explain: >-
+          Corry Brokken won in 1957, Teddy Scholten in 1959, Lenny Kuhr in 1969, in a tie of four, and Teach-In in 1975.
+          Duncan Laurence won with Arcade in 2019. Belgium's one win, J'aime la vie, was sung by Sandra Kim in
+          1986, when she was 13.
+      - type: sort
+        prompt: Sort these musicians by the country they come from.
+        groups: [Netherlands, Belgium]
+        items:
+          - { label: Golden Earring, group: 0, photo: golden-earring }
+          - { label: Shocking Blue, group: 0, photo: shocking-blue }
+          - { label: Tiësto, group: 0, photo: tiesto-2004 }
+          - { label: Lenny Kuhr, group: 0, photo: lenny-kuhr }
+          - { label: Django Reinhardt, group: 1, photo: django }
+          - { label: Jacques Brel, group: 1, photo: brel-1962 }
+          - { label: Stromae, group: 1, photo: stromae }
+        explain: >-
+          Golden Earring from The Hague had Radar Love in 1973, Shocking Blue a number one in America with Venus in 1970,
+          Lenny Kuhr won Eurovision in this dress in 1969, and Tiësto played at the opening of the Athens Olympics in 2004. Django was born in Belgium, Brel in Brussels,
+          and Stromae, also from Brussels, sang Alors on danse in 2009.
+      - type: pin
+        prompt: Since 2005 one of the biggest dance festivals in the world has been held in a Flemish town between Antwerp and Brussels. Pin it.
+        place: boom
+        explain: >-
+          Boom, where Tomorrowland has been held since 2005 in the park of De Schorre. About 10,000 came the first year;
+          now it is some 400,000 over two weekends.
+      - type: scrub
+        prompt: Drag the slider to the years when the Netherlands has won Eurovision with Teach-In, but Belgium has not yet won.
+        map: pop
+        start: 1929
+        answer: [1975, 1985]
+        explain: Teach-In won in 1975 with Ding-a-dong, and Sandra Kim won Belgium's only Eurovision in 1986.
+
+  - id: u24-l6
+    title: Film and the small screen
+    icon: film
+    sources:
+      - title: "Wikipedia, Audrey Hepburn"
+        url: https://en.wikipedia.org/wiki/Audrey_Hepburn
+      - title: "Wikipedia, Turkish Delight (1973 film)"
+        url: https://en.wikipedia.org/wiki/Turkish_Delight_(1973_film)
+      - title: "Wikipedia, Glass (1958 film)"
+        url: https://en.wikipedia.org/wiki/Glass_(1958_film)
+      - title: "Wikipedia, List of Dutch submissions for the Academy Award for Best International Feature Film"
+        url: https://en.wikipedia.org/wiki/List_of_Dutch_submissions_for_the_Academy_Award_for_Best_International_Feature_Film
+      - title: "Wikipedia, Rosetta (film)"
+        url: https://en.wikipedia.org/wiki/Rosetta_(film)
+      - title: "Wikipedia, Big Brother (Dutch TV series)"
+        url: https://en.wikipedia.org/wiki/Big_Brother_(Dutch_TV_series)
+      - title: "Wikipedia, Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles"
+        url: https://en.wikipedia.org/wiki/Jeanne_Dielman,_23_quai_du_Commerce,_1080_Bruxelles
+    exercises:
+      - type: story
+        title: Small countries, big screens
+        body: >-
+          The Low Countries make small films for small markets, in Dutch and French, and their stars often leave. Yet
+          they have won Oscars and Palmes d'Or, made the most famous reality show on earth, and given Hollywood an
+          actress born in Brussels and a director from Amsterdam.
+        visual: { kind: photo, photo: tuschinski-1973 }
+      - type: who
+        photo: hepburn-1954
+        clues:
+          - I was born in Ixelles, in Brussels, in 1929, to a Dutch mother.
+          - I spent the war in Arnhem and Velp, studying ballet, and in the Hunger Winter we ate flour made from tulip bulbs.
+          - I won an Oscar for my first big film, as a princess on the run in Rome.
+        options: [Audrey Hepburn, Chantal Akerman, Monique van de Ven, Sandra Kim]
+        answer: 0
+        explain: >-
+          Audrey Hepburn, who won the Oscar for Roman Holiday in 1954 and starred in Breakfast at Tiffany's. Later she
+          worked for UNICEF, remembering the help that came to the Netherlands in 1945.
+      - type: truemyth
+        statement: Audrey Hepburn is known for certain to have carried messages for the Dutch resistance.
+        visual: { kind: photo, photo: hepburn-gerzon }
+        answer: false
+        explain: >-
+          Not known for certain. She danced in secret performances that raised money for the resistance, and a book
+          of 2019 says she carried messages too, but in 2016 the Airborne Museum in Oosterbeek found no evidence of it.
+          The war years are well documented; her part in the resistance is not.
+      - type: panels
+        prompt: Put these moments of Dutch film at the Oscars in order, the first first.
+        order: true
+        panels:
+          - { photo: haanstra-oscar, kind: caption, say: "Haanstra wins with a film about glass" }
+          - { photo: aanslag-shoot, kind: caption, say: "Rademakers films De Aanslag in Haarlem" }
+          - { photo: gorris-1982, kind: caption, say: "Gorris, the first woman to win it" }
+        explain: >-
+          Haanstra's short documentary Glas won in 1960, and Marleen Gorris was the first woman to win the Oscar for a
+          foreign-language film. Fons Rademakers's De Aanslag, from Harry Mulisch's novel of a
+          wartime killing in Haarlem, was the first Dutch feature to win, in 1987. Marleen Gorris's Antonia followed in
+          1996 and Mike van Diem's Karakter in 1998.
+      - type: choice
+        prompt: Crowds queue outside the Tuschinski cinema in Amsterdam in 1973. Paul Verhoeven's Turks Fruit, with Rutger Hauer and Monique van de Ven, was on. How did it do?
+        visual: { kind: photo, photo: hauer-van-de-ven }
+        answer: 1
+        options:
+          - label: It was banned in the Netherlands
+            why: It was seen by more than 3 million people, the biggest Dutch film ever.
+          - label: More than 3 million saw it, more than any other Dutch film
+            why: >-
+              Right. Out of 13 million Dutch people, more than 3 million went, and in 1999 it was voted the best Dutch film
+              of the century. It was also nominated for an Oscar. Verhoeven went on to make Soldaat van Oranje, then
+              RoboCop and Basic Instinct in Hollywood.
+          - label: It flopped, and was rediscovered on television
+            why: It was seen by more than 3 million people, the biggest Dutch film ever.
+          - label: It was shown only at festivals abroad
+            why: It was seen by more than 3 million people, the biggest Dutch film ever.
+      - type: truemyth
+        statement: The Dardenne brothers' film Rosetta, about a girl who desperately wants a job, made Belgium pass a new law on jobs for young people.
+        visual: { kind: photo, photo: dardennes }
+        answer: false
+        explain: >-
+          Mostly a myth, though it is often told. Rosetta, filmed in Seraing, won the Palme d'Or at Cannes in 1999, and a
+          plan to get young people into work was soon called the Rosetta plan. But Jean-Pierre Dardenne said the law
+          already existed and had only not yet been voted through.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [John de Mol puts strangers in a house full of cameras in 1999, Big Brother is sold to dozens of countries]
+          - [Fons Rademakers films Mulisch's novel of the war, The Netherlands wins its first Oscar for a feature film]
+          - [Turks Fruit makes stars of Rutger Hauer and Paul Verhoeven, Both go on to work in Hollywood]
+          - [Hepburn lived through the Hunger Winter as a girl, She works for UNICEF in her later years]
+        explain: >-
+          Big Brother went on air on 16 September 1999, and its format has since been made in dozens of countries.
+          Hauer played in Blade Runner in 1982, and Verhoeven made RoboCop in 1987.
+      - type: choice
+        prompt: In 2022 film critics voted a Belgian film the greatest film ever made, in the poll of the magazine Sight and Sound. Which?
+        visual: { kind: photo, photo: akerman }
+        answer: 2
+        options:
+          - label: Rosetta, by the Dardenne brothers
+            why: It was Chantal Akerman's Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles, of 1975.
+          - label: Le Huitième Jour, by Jaco Van Dormael
+            why: It was Chantal Akerman's Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles, of 1975.
+          - label: Jeanne Dielman, by Chantal Akerman
+            why: >-
+              Right. Akerman, from Brussels, made it at 25: three days in the life of a widow in her flat, filmed almost in
+              real time. It was the first film by a woman to top the poll, held every ten years since 1952.
+          - label: Man Bites Dog, by Rémy Belvaux
+            why: It was Chantal Akerman's Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles, of 1975.
+      - type: scrub
+        prompt: Drag the slider to the years when The Assault has won its Oscar, but Big Brother is not yet on air.
+        map: pop
+        start: 1950
+        answer: [1987, 1998]
+        explain: De Aanslag won in 1987, and Big Brother went on air in Almere in 1999.

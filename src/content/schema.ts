@@ -19,6 +19,9 @@ import { routeIds, routes } from '../data/routes'
 // Everything a lesson can show or ask is described here. Lesson YAML is
 // parsed against these schemas, so a typo in content fails tests and the build.
 
+// A box on a picture, [left, top, width, height] as fractions of it.
+const Box = z.tuple([z.number(), z.number(), z.number(), z.number()])
+
 export const artIds = [
   'windmill',
   'terp',
@@ -68,9 +71,10 @@ const BarrierVisual = z.object({ kind: z.literal('storm-barrier') })
 // or the languages of the Low Countries, from the Frisians, Saxons and Franks of 800 to 1997,
 // or the food and drink of the Low Countries, from juniper wine in about 1266 to 2016, or the
 // feasts and traditions, from the Holy Blood procession of Bruges in 1303 to Keti Koti in 2023, or
-// sport, from Pim Mulier's tour past the eleven towns in 1890 to the women's European title of 2017.
+// sport, from Pim Mulier's tour past the eleven towns in 1890 to the women's European title of 2017, or
+// comics, music and film, from Tintin's first strip in 1929 to the Eurovision Song Contest in Rotterdam in 2021.
 // `year` opens it at a given year instead of the start.
-export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport'] as const
+export const timeMaps = ['water', 'roman', 'cloth', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop'] as const
 // The maps of the two world wars count in months, written "1944-09"; the others count in years.
 const When = z.union([
   z.number(),
@@ -88,7 +92,7 @@ const ChartVisual = z.object({ kind: z.literal('chart'), chart: z.enum(chartIds)
 
 // Before and after: two years of a time map, one over the other, with a divider to
 // drag between them. The cloth map draws routes rather than lands, so it can't be used.
-export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport'] as const
+export const compareMaps = ['water', 'roman', 'burgundy', 'revolt', 'amsterdam', 'spanish', 'empire', 'borders', 'kingdom', 'rails', 'occupation', 'delta', 'industry', 'congo', 'greatwar', 'westhoek', 'language', 'painters', 'masters', 'moderns', 'buildings', 'tongues', 'food', 'feasts', 'sport', 'pop'] as const
 const CompareVisual = z.object({
   kind: z.literal('compare'),
   map: z.enum(compareMaps),
@@ -152,7 +156,21 @@ const WheelVisual = z.object({ kind: z.literal('wheel'), focus: z.enum(feastIds)
 // Liège–Bastogne–Liège or the Elfstedentocht, stepped along with a slider. `at` opens it at a step.
 const RouteVisual = z.object({ kind: z.literal('route'), route: z.enum(routeIds), at: z.number().int().nonnegative().optional() })
 
-export const Visual = z.discriminatedUnion('kind', [MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
+// A comic panel (Unit 24): a photo, or a box cut from one, with a speech balloon or a caption box
+// (`caption`, the narrator's voice) above it.
+export const Panel = z.object({
+  photo: z.enum(photoIds),
+  box: Box.optional(),
+  say: z.string(),
+  kind: z.enum(['speech', 'caption']).default('speech'),
+})
+export type Panel = z.infer<typeof Panel>
+
+// A comic strip (Unit 24): two to six panels read left to right, row by row, to tell a story in
+// pictures. A panel can be a box cut from a photo, so one big picture can be read as a strip.
+const StripVisual = z.object({ kind: z.literal('strip'), title: z.string().optional(), panels: z.array(Panel).min(2).max(6) })
+
+export const Visual = z.discriminatedUnion('kind', [StripVisual, MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
@@ -247,7 +265,6 @@ const Scrub = z.object({
 // Detail hunt: find and tap something inside a painting or photo. Each target is a
 // box as fractions of the picture, [left, top, width, height]; a tap in any counts
 // (the crossbows hide in more than one corner).
-const Box = z.tuple([z.number(), z.number(), z.number(), z.number()])
 const Hunt = z.object({
   type: z.literal('hunt'),
   prompt: z.string(),
@@ -408,7 +425,22 @@ const Ride = z
   .refine((r) => [...r.ask, ...r.show].every((p) => p in routes[r.route].places), 'every place is on the route')
   .refine((r) => new Set(r.ask).size === r.ask.length && r.ask.every((p) => !r.show.includes(p) && !routes[r.route].places[p].end), 'ask unnamed places, each once')
 
-export const Exercise = z.discriminatedUnion('type', [Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt, Ride])
+// Comic panel matching (Unit 24): put each balloon in the panel it belongs to, or, with `order`,
+// put the panels, balloons and all, in the order the story happens. `extra` adds balloons that
+// belong in no panel.
+const Panels = z
+  .object({
+    type: z.literal('panels'),
+    prompt: z.string(),
+    order: z.boolean().default(false),
+    panels: z.array(Panel).min(3).max(5),
+    extra: z.array(z.string()).max(2).default([]),
+    explain: z.string(),
+  })
+  .refine((p) => new Set([...p.panels.map((x) => x.say), ...p.extra]).size === p.panels.length + p.extra.length, 'every balloon differs')
+  .refine((p) => !p.order || p.extra.length === 0, 'an ordering has no spare balloons')
+
+export const Exercise = z.discriminatedUnion('type', [Panels, Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt, Ride])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

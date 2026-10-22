@@ -136,6 +136,13 @@ export const paths: Record<string, React.ReactNode> = {
   jersey: <path d="M9 3 4 6l2 4 2-1v12h8V9l2 1 2-4-5-3a3 3 0 0 1-6 0z" fill="none" strokeLinejoin="round" />,
   ball: <path d="M12 3a9 9 0 1 0 .01 0zM12 8l3.5 2.5-1.3 4h-4.4l-1.3-4zM12 3v5M15.5 10.5l5-1.5M14.2 14.5l3 4M9.8 14.5l-3 4M8.5 10.5l-5-1.5" fill="none" strokeLinejoin="round" />,
   torch: <path d="M9 10h6l-2 11h-2zM12 2c1 2 3 3 3 5a3 3 0 0 1-6 0c0-1.5 1-2 1-3 1 .5 1.5 1.2 1.5 2 .5-1 .5-2.5.5-4z" fill="none" strokeLinejoin="round" />,
+  // Unit 24: Tintin's quiff, a Smurf's cap, a speech balloon, Miffy's ears, a note and a strip of film.
+  quiff: <path d="M6 14a6 6 0 0 0 12 0c0-3-1.5-5-4-6 1-1 1-3 0-5-1 2-3 3-5 4-2 1-3 3-3 7zM10 14h.01M14 14h.01M10.5 17.5c1 .7 2 .7 3 0" fill="none" strokeLinejoin="round" />,
+  cap: <path d="M4 20c0-6 2-11 6-13 3-2 7-2 8 1 1 2-1 3-2 2 1 3 2 6 2 10zM3 20h18" fill="none" strokeLinejoin="round" />,
+  balloon: <path d="M4 5h16v10h-9l-4 4v-4H4zM8 9h8M8 12h5" fill="none" strokeLinejoin="round" />,
+  rabbit: <path d="M9 10C8 7 8 3 9.5 3S11 7 11 10M15 10c1-3 1-7-.5-7S13 7 13 10M6 15a6 5 0 0 0 12 0 6 5 0 0 0-12 0zM10 14h.01M14 14h.01M11 17l1 .5 1-.5" fill="none" strokeLinejoin="round" />,
+  note: <path d="M9 18V5l11-2v13M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM20 16a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM9 9l11-2" fill="none" strokeLinejoin="round" />,
+  film: <path d="M4 3h16v18H4zM8 3v18M16 3v18M4 7.5h4M4 12h4M4 16.5h4M16 7.5h4M16 12h4M16 16.5h4" fill="none" strokeLinejoin="round" />,
 }
 
 export function Icon({ name }: { name: string }) {

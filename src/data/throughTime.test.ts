@@ -5,8 +5,8 @@ import { throughTimeStory } from './throughTime'
 describe('time map through the eras', () => {
   const { events, areas = [], labels } = throughTimeStory
 
-  it('has 44 snapshots in order, each with a caption', () => {
-    expect(events).toHaveLength(44)
+  it('has 45 snapshots in order, each with a caption', () => {
+    expect(events).toHaveLength(45)
     events.forEach((e, i) => {
       if (i) expect(e.from).toBeGreaterThan(events[i - 1].from)
       expect(e.title).toMatch(/\S/)
@@ -70,6 +70,12 @@ describe('time map through the eras', () => {
     expect(names(1928)).not.toContain('Ajax')
     expect(names(1928)).not.toContain('René Magritte')
     expect(names(1940)).not.toContain('Amsterdam 1928')
+    // Comics in 1946: Tintin, Spirou and Suske en Wiske, after the war and gone by the flood of 1953.
+    expect(names(1946)).toEqual(expect.arrayContaining(['Tintin', 'Spirou', 'Suske en Wiske', 'Kuifje']))
+    expect(names(1946)).not.toContain('Smurfs')
+    expect(names(1946)).not.toContain('Amsterdam 1928')
+    expect(kinds(1946).has('occupied')).toBe(false)
+    expect(names(1953)).not.toContain('Tintin')
     expect(names(1958)).toContain('Atomium')
     expect(names(1958)).not.toContain('Belfry of Bruges')
     expect(names(1953)).not.toContain('Atomium')
