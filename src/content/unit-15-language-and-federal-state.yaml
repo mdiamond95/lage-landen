@@ -608,7 +608,7 @@ lessons:
         visual: { kind: photo, photo: atomium }
       - type: choice
         prompt: The Atomium was built for Expo 58. What does it show?
-        visual: { kind: photo, photo: atomium-1957 }
+        visual: { kind: then-now, pair: atomium }
         answer: 3
         options:
           - label: The nine provinces of Belgium

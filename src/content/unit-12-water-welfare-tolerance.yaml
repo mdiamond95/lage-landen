@@ -34,8 +34,9 @@ lessons:
         body: >-
           On 28 May 1932 the last gap in the Afsluitdijk was closed, and the Zuiderzee became a lake. The country
           behind it was in the grip of the Depression. After the war came hunger for land, homes and work, and
-          two answers: leave for a new country, or build a state that would catch people when they fell.
-        visual: { kind: photo, photo: sluitgat-1932 }
+          two answers: leave for a new country, or build a state that would catch people when they fell. Drag to
+          see the dike today.
+        visual: { kind: then-now, pair: afsluitdijk }
       - type: who
         photo: lorentz-nobel
         clues:

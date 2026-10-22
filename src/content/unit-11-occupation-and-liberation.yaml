@@ -128,6 +128,8 @@ lessons:
     title: Five days in May
     icon: flame
     sources:
+      - title: "Wikipedia, Grote of Sint-Laurenskerk (Rotterdam)"
+        url: https://en.wikipedia.org/wiki/Grote_of_Sint-Laurenskerk,_Rotterdam
       - title: "Canon van Nederland, De Tweede Wereldoorlog (in Dutch)"
         url: https://www.canonvannederland.nl/nl/tweedewereldoorlog
       - title: "DutchNews, Rotterdam remembers the bombardment of May 14, 1940"
@@ -176,6 +178,21 @@ lessons:
             why: The bombs fell on the houses and streets of the old centre.
           - label: The city was evacuated in time
             why: There was no warning.
+      - type: choice
+        prompt: Drag from Rotterdam in May 1940 to the same spot today. What is the building that stood through the fire?
+        visual: { kind: then-now, pair: rotterdam }
+        answer: 2
+        options:
+          - label: The town hall
+            why: The town hall did survive, a little to the north, but this is not it.
+          - label: A warehouse of the port
+            why: The port lay further south, on the Maas.
+          - label: The church of St Lawrence, the Laurenskerk
+            why: >-
+              Right. Its roof and inside burned, but the walls and tower stood. Restored from 1952 to 1968, it is the
+              last large building left of medieval Rotterdam.
+          - label: A new church built after the war
+            why: It is older than that. Its tower was finished in the 1400s and 1600s.
       - type: odd
         prompt: Three of these places are remembered for the fighting of May 1940. Which is the odd one out, and why?
         items:

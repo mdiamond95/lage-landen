@@ -8,6 +8,8 @@ lessons:
     title: Amsterdam, warehouse of the world
     icon: ship
     sources:
+      - title: "Wikipedia, Dam Square"
+        url: https://en.wikipedia.org/wiki/Dam_Square
       - title: "Het Grachtenhuis, The canal ring (in Dutch)"
         url: https://grachten.museum/
       - title: "Royal Palace Amsterdam"
@@ -74,6 +76,22 @@ lessons:
           Dam, designed by Jacob van Campen. It opened in 1655, and admirers called it the eighth wonder of the
           world. Gerrit Berckheyde painted it in 1672. Tap a part, or walk along the front.
         visual: { kind: facade, facade: dam-town-hall }
+      - type: choice
+        prompt: Drag from Berckheyde's painting of 1672 to the Dam today. The building has hardly changed. What is it now?
+        visual: { kind: then-now, pair: dam }
+        answer: 1
+        options:
+          - label: Still Amsterdam's town hall
+            why: The city council moved out in 1808, and today meets in the Stopera on the Waterlooplein.
+          - label: A royal palace
+            why: >-
+              Right. Louis Napoleon, the king his brother Napoleon gave Holland, made it his palace in 1808, and had
+              the old Weigh House in front of it pulled down. It is still a palace of the Dutch king, used for state
+              visits.
+          - label: The Dutch parliament
+            why: Parliament sits in The Hague, in and around the Binnenhof.
+          - label: A museum of the Golden Age
+            why: It is open to visitors when the king isn't using it, but it is not a museum.
       - type: truemyth
         statement: The town hall on the Dam, now the Royal Palace, stands on more than 13,000 wooden piles.
         visual: { kind: photo, photo: dam-town-hall }
@@ -898,6 +916,13 @@ lessons:
         explain: >-
           A myth. The bombardment of 1695 burned most of the square. Only the town hall's stone shell and a few
           walls survived. The guilds rebuilt their houses within a few years, richer than before.
+      - type: story
+        title: A square rebuilt
+        body: >-
+          Drag from 1695, just after the French guns stopped, to the Grand Place today. The town hall's tower still
+          stood over a field of rubble. Within a few years the guilds had rebuilt around it in stone, and in 1998
+          the square became a World Heritage Site.
+        visual: { kind: then-now, pair: brussels-1695 }
       - type: cause
         prompt: Link each cause to its effect.
         pairs:

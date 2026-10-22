@@ -367,20 +367,22 @@ lessons:
           - label: In a book of his poems in 1915
             why: His book came out in 1919, after his death.
       - type: choice
-        prompt: Ypres in 1919, after four years of shelling. What happened to the town?
-        visual: { kind: photo, photo: ypres-1919 }
-        answer: 1
+        prompt: Ypres in 1919, after four years of shelling, and today. Drag across. When was the Cloth Hall finished again?
+        visual: { kind: then-now, pair: ypres }
+        answer: 2
         options:
-          - label: The ruins were left as a memorial
-            why: Winston Churchill suggested it, but the people of Ypres came home and rebuilt.
-          - label: It was rebuilt as it had been, and the Cloth Hall was finished in 1967
+          - label: In 1920, straight after the war
             why: >-
-              Right. The town was rebuilt on its old plan, paid for as war damages. The Cloth Hall, which took
-              until 1967, now holds the In Flanders Fields Museum.
-          - label: It was rebuilt on a new site
-            why: The town was rebuilt where it stood.
-          - label: It was rebuilt in a modern style
-            why: Ypres chose to look as it had before the war.
+              Far too soon. Winston Churchill even wanted the ruins left as a memorial, but the people of Ypres came
+              home and rebuilt, first their houses.
+          - label: In 1934
+            why: Most of the town stood again by the 1930s, but not yet the Cloth Hall.
+          - label: In 1967
+            why: >-
+              Right. The town was rebuilt on its old plan, paid for as war damages. The Cloth Hall took until 1967,
+              and now holds the In Flanders Fields Museum.
+          - label: It was never rebuilt
+            why: Drag across. It stands again, as it was before the war.
       - type: pin
         prompt: Pin Ypres.
         place: ypres

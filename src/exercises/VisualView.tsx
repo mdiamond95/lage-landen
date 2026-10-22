@@ -8,6 +8,7 @@ import { FamilyTree } from '../art/FamilyTree'
 import { FederalDiagram } from '../art/FederalDiagram'
 import { LineChart } from '../art/LineChart'
 import { PaintingPair } from '../art/PaintingPair'
+import { ThenNow } from '../art/ThenNow'
 import { PainterRoad } from '../art/PainterRoad'
 import { PaintingTour } from '../art/PaintingTour'
 import { PillarDiagram } from '../art/PillarDiagram'
@@ -106,6 +107,7 @@ export function VisualView({ visual, label, hideCaption }: { visual: Visual; lab
   if (visual.kind === 'photo') return <PhotoFigure id={visual.photo} />
   if (visual.kind === 'painting') return <PaintingTour painting={visual.painting} focus={visual.focus} />
   if (visual.kind === 'pair') return <PaintingPair pair={visual.pair} focus={visual.focus} />
+  if (visual.kind === 'then-now') return <ThenNow pair={visual.pair} hideCaption={hideCaption} />
   if (visual.kind === 'series') return <PainterRoad id={visual.series} at={visual.at} />
   if (visual.kind === 'facade') return <FacadeTour facade={visual.facade} focus={visual.focus} />
   if (visual.kind === 'polder-slider') return <PolderSlider />

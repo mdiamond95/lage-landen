@@ -3,6 +3,7 @@ import { chartIds } from '../data/charts'
 import { facadeIds } from '../data/facades'
 import { treeIds } from '../data/families'
 import { pairIds } from '../data/pairs'
+import { thenNowIds } from '../data/thenNow'
 import { seriesIds } from '../data/series'
 import { tourIds } from '../data/paintings'
 import { cellIds, rowIds } from '../data/pillars'
@@ -126,6 +127,10 @@ const PaintingVisual = z.object({ kind: z.literal('painting'), painting: z.enum(
 // both zoomed in on one way of looking, by its id, as the picture for a question.
 const PairVisual = z.object({ kind: z.literal('pair'), pair: z.enum(pairIds), focus: z.string().optional() })
 
+// Then and now from src/data/thenNow.ts: an old picture of a place over a photo of the
+// same spot today, wiped across by hand.
+const ThenNowVisual = z.object({ kind: z.literal('then-now'), pair: z.enum(thenNowIds) })
+
 // A painter's road from src/data/series.ts: one painter's pictures in order on a slider,
 // to watch the way of painting change. `at` opens it at one picture, by its index.
 const SeriesVisual = z.object({ kind: z.literal('series'), series: z.enum(seriesIds), at: z.number().int().nonnegative().optional() })
@@ -194,7 +199,7 @@ const ProvincesVisual = z.object({ kind: z.literal('provinces'), country: z.enum
 // parties of the government picked out on demand. `hideCabinet` keeps that back for a question.
 const SeatsVisual = z.object({ kind: z.literal('seats'), chamber: z.enum(chamberIds), hideCabinet: z.boolean().default(false) })
 
-export const Visual = z.discriminatedUnion('kind', [ProvincesVisual, SeatsVisual, ProjectionVisual, StripVisual, MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
+export const Visual = z.discriminatedUnion('kind', [ProvincesVisual, SeatsVisual, ProjectionVisual, StripVisual, MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, ThenNowVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({
