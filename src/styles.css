@@ -1293,3 +1293,18 @@ button.comic-panel { cursor: pointer; }
 .backup-check { display: grid; gap: 8px; border: 2px solid var(--orange); border-radius: 14px; padding: 12px 14px; background: #fff8ef; }
 .backup-note { font-weight: 700; color: var(--green-dark); }
 .backup-note.is-error { color: var(--red); }
+
+/* The stork */
+.stork { display: block; flex: none; overflow: visible; }
+.stork-says { display: flex; align-items: flex-end; gap: 10px; }
+.stork-bubble { position: relative; margin: 0 0 18px; padding: 10px 14px; background: var(--delft-soft); border-radius: 16px; font-weight: 700; line-height: 1.35; }
+.stork-bubble::before { content: ''; position: absolute; left: -7px; bottom: 12px; border: 7px solid transparent; border-right-color: var(--delft-soft); border-left: 0; }
+.banner-stork { float: right; margin: -4px -4px 4px 10px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; overflow: hidden; }
+.feedback.has-stork { display: flex; gap: 10px; align-items: flex-start; }
+.stork-cheer { animation: stork-hop 0.5s ease-out; }
+.stork-line { font-weight: 800; color: var(--delft); }
+.feedback .stork-line { margin-top: 2px; }
+.results-hero .stork-hero { margin: 0 auto 4px; }
+.results-hero .stork-line { margin: 8px auto 0; max-width: 32ch; }
+@keyframes stork-hop { 0% { transform: translateY(10px); opacity: 0; } 60% { transform: translateY(-4px); opacity: 1; } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .stork-cheer { animation: none; } }

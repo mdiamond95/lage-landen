@@ -9,23 +9,31 @@ import type { CrownNote } from '../progress/crowns'
 import { Icon } from './Icon'
 import { sound, type SoundId } from '../sounds'
 import { SoundCredit } from '../sounds/Sound'
+import type { HatId } from '../mascot/hats'
+import { finishLine } from '../mascot/lines'
+import { Stork } from '../mascot/Stork'
 
-// A calm lesson (on slavery, say) ends without a trophy or "Perfect lesson!".
-type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; crown?: CrownNote; gate?: { passed: boolean; head: string; detail: string }; hung?: Hung[]; quests?: QuestId[]; onMuseum?: () => void; onDone: () => void }
+// A calm lesson (on slavery, say) ends without the stork or "Perfect lesson!".
+type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; hat?: HatId; crown?: CrownNote; gate?: { passed: boolean; head: string; detail: string }; hung?: Hung[]; quests?: QuestId[]; onMuseum?: () => void; onDone: () => void }
 
 // How many new cards the results screen shows; the rest are counted.
 const HUNG_SHOWN = 6
 
-export function Results({ title, outcome, xp, sources, photos, sounds = [], calm = false, crown, gate, hung = [], quests = [], onMuseum, onDone }: Props) {
+export function Results({ title, outcome, xp, sources, photos, sounds = [], calm = false, hat, crown, gate, hung = [], quests = [], onMuseum, onDone }: Props) {
   const right = outcome.asked - outcome.mistakes
   const accuracy = outcome.asked ? Math.round((right / outcome.asked) * 100) : 100
   const newPlaces = [...new Set(outcome.places)]
   return (
     <div className="results">
       <div className="results-hero">
-        <Icon name={calm ? 'book' : 'trophy'} />
+        {calm ? <Icon name="book" /> : <Stork hat={hat} size={88} className="stork-hero" />}
         <h1>{outcome.timedOut ? "Time's up" : crown?.head === 'Legendary' ? 'Legendary!' : crown?.head === 'Not this time' ? 'Challenge over' : calm ? 'Lesson complete' : outcome.mistakes === 0 ? 'Perfect lesson!' : 'Lesson complete!'}</h1>
         <p className="muted">{title}</p>
+        {!calm && (
+          <p className="stork-line">
+            {finishLine({ asked: outcome.asked, mistakes: outcome.mistakes, timedOut: outcome.timedOut, legendary: crown?.head === 'Legendary' ? 'passed' : crown?.head === 'Not this time' ? 'failed' : undefined })}
+          </p>
+        )}
       </div>
       {gate && (
         <div className={`gate-note ${gate.passed ? 'is-open' : ''}`}>

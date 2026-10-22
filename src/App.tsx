@@ -22,6 +22,7 @@ import { wall } from './content/wall'
 import { newCards, type Hung } from './progress/collection'
 import { photosUsed } from './photos/used'
 import { soundsUsed } from './sounds/used'
+import { unitHat, type HatId } from './mascot/hats'
 
 // `note` is a content note shown first; `calm` plays without celebrations, for
 // lessons on painful subjects and any review or checkpoint that draws on them.
@@ -59,6 +60,7 @@ type Playing = {
   sources: Lesson['sources']
   note?: string
   calm?: boolean
+  hat?: HatId
   retry?: boolean
   level?: { before: number; target: number; legendary: boolean }
   checkpoint?: string
@@ -105,6 +107,7 @@ const resolve = (id: string): Playing | undefined => {
       sources: cp.lessons.flatMap((l) => l.sources),
       note: cp.note,
       calm: cp.lessons.some((l) => l.note),
+      hat: unitHat(cp),
     }
   const legend = units.find((u) => legendaryId(u.id) === id)
   if (legend) {
@@ -116,6 +119,7 @@ const resolve = (id: string): Playing | undefined => {
       exercises,
       sources: legend.lessons.flatMap((l) => l.sources),
       retry: false,
+      hat: unitHat(legend),
       legendary: { unit: legend.id, number: legend.number, seconds },
     }
   }
@@ -134,6 +138,7 @@ const resolve = (id: string): Playing | undefined => {
     sources: lesson.sources,
     note: lesson.note,
     calm: !!lesson.note,
+    hat: unitHat(unit),
     level: { before, target, legendary: hasLegendary(unit) },
   }
 }
@@ -154,6 +159,7 @@ export default function App() {
         exercises={playing.exercises}
         note={playing.note}
         calm={playing.calm}
+        hat={playing.hat}
         retry={playing.retry}
         timeLimit={playing.legendary?.seconds}
         onExit={home}
@@ -201,7 +207,7 @@ export default function App() {
   if (screen.name === 'placement') return <Placement units={units} onBack={home} />
   if (screen.name === 'museum') return <Museum onBack={home} />
   if (screen.name === 'results') {
-    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} crown={screen.crown} gate={screen.gate} hung={screen.hung} quests={screen.quests} onMuseum={() => setScreen({ name: 'museum' })} onDone={home} />
+    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} hat={screen.playing.hat} crown={screen.crown} gate={screen.gate} hung={screen.hung} quests={screen.quests} onMuseum={() => setScreen({ name: 'museum' })} onDone={home} />
   }
   return (
     <Home

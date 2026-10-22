@@ -2699,3 +2699,48 @@ test('progress saves to a file and loads back, after a check', async ({ page }) 
   await expect(page.locator('.stat-xp')).toHaveText(xp!)
   await expect(page.getByRole('button', { name: 'Two countries, one delta, completed, level 1', exact: true })).toBeVisible()
 })
+
+test('the stork cheers in the unit’s hat and keeps out of lessons with a content note', async ({ page }) => {
+  // Options are shuffled; a seeded shuffle makes the helper's answers the same every run.
+  await page.addInitScript(() => {
+    let seed = 7
+    Math.random = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646
+  })
+  await page.goto('/')
+  const greeting = page.locator('.greeting')
+  await expect(greeting.locator('.stork-bubble')).toContainText('Hallo, bonjour!')
+  await expect(greeting.locator('.stork')).toHaveAttribute('data-hat', 'souwester')
+  // A hat on every unit's banner but the quiet Unit 7.
+  await expect(page.locator('.banner-stork')).toHaveCount(25)
+  await expect(page.locator('section.unit', { hasText: 'Trade, empire and slavery' }).locator('.stork')).toHaveCount(0)
+
+  // Answered as the helper does, the first lesson has one right answer after a run of slips.
+  await page.getByRole('button', { name: 'Two countries, one delta', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  const cheers: string[] = []
+  for (let step = 0; step < 40 && !(await page.locator('.results').count()); step++) {
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).waitFor()
+    if (await foot.locator('.stork-cheer').count()) {
+      await expect(foot.locator('.stork-cheer')).toHaveAttribute('data-hat', 'souwester')
+      cheers.push((await foot.locator('.stork-line').textContent()) ?? '')
+    }
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  expect(cheers).toEqual(['Back on track. That’s the way.'])
+  await expect(page.locator('.results-hero .stork-hero')).toHaveAttribute('data-hat', 'souwester')
+  await expect(page.locator('.results-hero .stork-line')).not.toBeEmpty()
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await expect(greeting.locator('.stork-bubble')).toContainText('Your 1-day streak is safe for today.')
+
+  // A lesson on slavery: no stork from the content note to the end.
+  await openUnit(page, 7)
+  await page.getByRole('button', { name: 'Round the Cape to the spice islands', exact: true }).click()
+  for (let step = 0; step < 40 && !(await page.locator('.results').count()); step++) {
+    await answer(page)
+    await expect(page.locator('.stork')).toHaveCount(0)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  await expect(page.locator('.results-hero')).toContainText('Lesson complete')
+  await expect(page.locator('.stork')).toHaveCount(0)
+})

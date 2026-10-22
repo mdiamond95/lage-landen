@@ -27,6 +27,9 @@ import { Voices } from '../exercises/Voices'
 import { WhoAmI } from '../exercises/WhoAmI'
 import { stopSound } from '../sounds/player'
 import { XP } from './scoring'
+import { cheer } from '../mascot/lines'
+import type { HatId } from '../mascot/hats'
+import { Stork } from '../mascot/Stork'
 
 // `answers` holds each question's first try, for the review schedule; `timedOut` that
 // the clock of a timed challenge ran out before the last question.
@@ -37,8 +40,10 @@ type Props = {
   exercises: Exercise[]
   // Shown before the first question of a lesson on a painful subject.
   note?: string
-  // No cheering: a quieter "Correct" in place of "Spot on!".
+  // No cheering: a quieter "Correct" in place of "Spot on!", and no stork.
   calm?: boolean
+  // The stork's hat, from the unit being played.
+  hat?: HatId
   // Whether a wrong answer comes back at the end; a placement test asks each question once.
   retry?: boolean
   // Seconds on the clock for a timed challenge (Legendary). It runs only while a
@@ -58,7 +63,7 @@ const feedbackHead = (r: Result, calm: boolean) => {
 // A question answered wrong comes back once at the end of the lesson.
 const clock = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
 
-export function LessonPlayer({ title, exercises, note, calm = false, retry = true, timeLimit, onExit, onFinish }: Props) {
+export function LessonPlayer({ title, exercises, note, calm = false, hat, retry = true, timeLimit, onExit, onFinish }: Props) {
   const [noteRead, setNoteRead] = useState(!note)
   const [queue, setQueue] = useState(exercises)
   const [index, setIndex] = useState(0)
@@ -69,6 +74,9 @@ export function LessonPlayer({ title, exercises, note, calm = false, retry = tru
   const [tally, setTally] = useState<LessonOutcome>({ mistakes: 0, bonuses: 0, places: [], asked: 0, answers: [] })
 
   const [left, setLeft] = useState(timeLimit ?? 0)
+  // Right answers in a row and wrong ones in a row, for the stork's cheers.
+  const [streak, setStreak] = useState({ run: 0, slips: 0 })
+  const [cheered, setCheered] = useState<string | undefined>()
 
   const exercise = queue[index]
   const isStory = exercise.type === 'story'
@@ -96,6 +104,9 @@ export function LessonPlayer({ title, exercises, note, calm = false, retry = tru
     if (!evaluate) return
     const r = evaluate()
     setResult(r)
+    const run = r.correct ? streak.run + 1 : 0
+    setCheered(r.correct && !calm ? cheer(run, streak.slips) : undefined)
+    setStreak({ run, slips: r.correct ? 0 : streak.slips + 1 })
     setTally((t) => ({
       mistakes: t.mistakes + (r.correct ? 0 : 1),
       bonuses: t.bonuses + (r.bonus && !retried.has(exercise) ? 1 : 0),
@@ -121,6 +132,7 @@ export function LessonPlayer({ title, exercises, note, calm = false, retry = tru
     setEvaluate(null)
     setResult(null)
     setRequeued(false)
+    setCheered(undefined)
   }
 
   const props = { checked: result !== null, setAnswer }
@@ -212,10 +224,14 @@ export function LessonPlayer({ title, exercises, note, calm = false, retry = tru
 
       <footer className={`lesson-foot ${result ? (result.correct ? 'is-right' : 'is-wrong') : ''}`} aria-live="polite">
         {result && (
-          <div className="feedback">
-            <p className="feedback-head">{feedbackHead(result, calm)}</p>
-            <p className="feedback-detail">{result.detail}</p>
-            {requeued && <p className="feedback-note">You'll see this one again before the lesson ends.</p>}
+          <div className={`feedback ${cheered ? 'has-stork' : ''}`}>
+            {cheered && <Stork hat={hat} size={52} className="stork-cheer" />}
+            <div>
+              <p className="feedback-head">{feedbackHead(result, calm)}</p>
+              {cheered && <p className="stork-line">{cheered}</p>}
+              <p className="feedback-detail">{result.detail}</p>
+              {requeued && <p className="feedback-note">You'll see this one again before the lesson ends.</p>}
+            </div>
           </div>
         )}
         {!noteRead ? (
