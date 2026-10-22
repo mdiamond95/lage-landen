@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Exercise } from '../content/schema'
 import { DetailHunt } from '../exercises/DetailHunt'
 import { FillGap } from '../exercises/FillGap'
@@ -28,8 +28,9 @@ import { WhoAmI } from '../exercises/WhoAmI'
 import { stopSound } from '../sounds/player'
 import { XP } from './scoring'
 
-// `answers` holds each question's first try, for the review schedule.
-export type LessonOutcome = { mistakes: number; bonuses: number; places: string[]; asked: number; answers: [Exercise, boolean][] }
+// `answers` holds each question's first try, for the review schedule; `timedOut` that
+// the clock of a timed challenge ran out before the last question.
+export type LessonOutcome = { mistakes: number; bonuses: number; places: string[]; asked: number; answers: [Exercise, boolean][]; timedOut?: boolean }
 
 type Props = {
   title: string
@@ -40,6 +41,9 @@ type Props = {
   calm?: boolean
   // Whether a wrong answer comes back at the end; a placement test asks each question once.
   retry?: boolean
+  // Seconds on the clock for a timed challenge (Legendary). It runs only while a
+  // question is open, and the challenge ends when it runs out.
+  timeLimit?: number
   onExit: () => void
   onFinish: (outcome: LessonOutcome) => void
 }
@@ -52,7 +56,9 @@ const feedbackHead = (r: Result, calm: boolean) => {
 
 // Plays a lesson Duolingo-style: answer, check, read why, continue.
 // A question answered wrong comes back once at the end of the lesson.
-export function LessonPlayer({ title, exercises, note, calm = false, retry = true, onExit, onFinish }: Props) {
+const clock = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
+
+export function LessonPlayer({ title, exercises, note, calm = false, retry = true, timeLimit, onExit, onFinish }: Props) {
   const [noteRead, setNoteRead] = useState(!note)
   const [queue, setQueue] = useState(exercises)
   const [index, setIndex] = useState(0)
@@ -62,9 +68,27 @@ export function LessonPlayer({ title, exercises, note, calm = false, retry = tru
   const [retried, setRetried] = useState<Set<Exercise>>(new Set())
   const [tally, setTally] = useState<LessonOutcome>({ mistakes: 0, bonuses: 0, places: [], asked: 0, answers: [] })
 
+  const [left, setLeft] = useState(timeLimit ?? 0)
+
   const exercise = queue[index]
   const isStory = exercise.type === 'story'
   const progress = index / queue.length
+  const ticking = timeLimit !== undefined && noteRead && !isStory && !result && left > 0
+
+  useEffect(() => {
+    if (!ticking) return
+    const id = window.setInterval(() => setLeft((s) => Math.max(0, s - 1)), 1000)
+    return () => window.clearInterval(id)
+  }, [ticking])
+
+  useEffect(() => {
+    if (timeLimit !== undefined && left === 0 && !result) {
+      stopSound()
+      onFinish({ ...tally, timedOut: true })
+    }
+    // Only the clock reaching zero ends the challenge.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [left])
 
   const setAnswer = (fn: Evaluate | null) => setEvaluate(() => fn)
 
@@ -165,6 +189,11 @@ export function LessonPlayer({ title, exercises, note, calm = false, retry = tru
         <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)} aria-label={`${title} progress`}>
           <div className="progress-fill" style={{ width: `${Math.max(4, progress * 100)}%` }} />
         </div>
+        {timeLimit !== undefined && (
+          <span className={`lesson-clock ${left <= 30 ? 'is-low' : ''}`} role="timer" aria-label={`Time left ${clock(left)}`}>
+            {clock(left)}
+          </span>
+        )}
       </header>
 
       <main className="lesson-body" key={noteRead ? index : 'note'}>
