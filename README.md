@@ -33,6 +33,7 @@ Phase 1 from the project plan (Units 1 to 5) is built, Phase 2 (Units 6 to 9) is
 
 Around the units:
 
+- Unit 0, a placement test for learners who know some of this already: pick a track, then answer five questions a unit, one from each of five lessons, in course order. Four right (the plan's 80% bar) opens the whole unit, every lesson and the checkpoint; after a miss the learner can stop or try the next unit anyway. Misses are not asked again, and the answers go into the daily review.
 - A daily review: every question in a finished lesson comes back on a spaced schedule, missed ones sooner, ten at a time.
 - A time map of 47 snapshots, from Caesar's conquest in 57 BCE to the provinces and seats of power of today, built from the unit maps.
 - A map drill of the 22 provinces of both countries and Brussels, by name, capital or flag, with the best score for each kept on the device.
@@ -57,6 +58,7 @@ npm run build:single # one self-contained HTML file in dist-single/
 
 - `src/content/*.yaml`: lessons, one file per unit, checked against `src/content/schema.ts`. `npm test` fails if a lesson points at a place, province or river that doesn't exist, or has too few visual questions.
 - `src/content/places.ts`: every place a lesson can pin.
+- `src/content/placement.ts` and `src/screens/Placement.tsx`: the placement test. `buildPlacement` draws one question from each of five lessons of a unit (no stories); units opened by it are kept in the progress as `placed`, and `src/progress/path.ts` decides which lessons and checkpoints are open. A unit's `note` opens its placement block as well as its checkpoint, so it must not name either.
 - `src/data/lowlands.topo.json`: countries, provinces, rivers and the IJsselmeer from [Natural Earth](https://www.naturalearthdata.com/) (public domain), clipped and simplified with mapshaper.
 - `src/map/`: the SVG map (d3-geo, Mercator), used for pins, region painting and story maps. `TimeMap.tsx` adds a year slider and a play button on top of it, drawing any `TimeStory` (lines, sites, labels and areas that were still sea, each with the years it existed). `TradeMap.tsx` is a wider North Sea map (England to the Ems, down to the Champagne fairs) with moving trade routes; both share `TimeControls.tsx` and `usePlayback.ts`.
 - `src/data/northsea.topo.json`: land and main rivers for the trade map, from Natural Earth 10m, clipped to the North Sea frame and simplified with mapshaper.
@@ -144,3 +146,4 @@ Each new unit is held to what the best units so far do, and when one is finished
 - Where pictures tell a story in steps, or people are known for their words, comic panel questions: balloons put in their panels, or panels put in order (Unit 24; the water works in Unit 1 and Bruegel's proverbs in Unit 16). A speech balloon holds only words that were really said, sung or printed; anything else goes in a caption.
 - Where a map's shape is the story (an empire, a colony, a voyage), a true-size question or the projection explorer, so Mercator's map doesn't mislead (Unit 25; the Congo in Unit 13 and the crossing to New Amsterdam in Unit 7).
 - Where a unit is about places that can be learned by heart (provinces, regions, countries), a map drill that names them only once they are found (Unit 26).
+- Every question can turn up on its own, in the checkpoint or the placement test, so none may lean on the story or question before it, and a unit needs at least five lessons with questions (`npm test` checks).

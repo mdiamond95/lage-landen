@@ -673,7 +673,7 @@ lessons:
           November 1947 he was found guilty of forgery and fraud and given a year in prison. He died in December 1947,
           before serving it.
       - type: choice
-        prompt: This is the forgery that fooled the experts in 1937. Look at it next to a real Vermeer. Why were they fooled?
+        prompt: This Supper at Emmaus is the forgery that fooled the experts in 1937. Look at it next to a real Vermeer. Why were they fooled?
         visual: { kind: photo, photo: emmaus-forgery }
         answer: 0
         options:

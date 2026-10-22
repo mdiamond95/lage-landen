@@ -38,6 +38,8 @@ type Props = {
   note?: string
   // No cheering: a quieter "Correct" in place of "Spot on!".
   calm?: boolean
+  // Whether a wrong answer comes back at the end; a placement test asks each question once.
+  retry?: boolean
   onExit: () => void
   onFinish: (outcome: LessonOutcome) => void
 }
@@ -50,7 +52,7 @@ const feedbackHead = (r: Result, calm: boolean) => {
 
 // Plays a lesson Duolingo-style: answer, check, read why, continue.
 // A question answered wrong comes back once at the end of the lesson.
-export function LessonPlayer({ title, exercises, note, calm = false, onExit, onFinish }: Props) {
+export function LessonPlayer({ title, exercises, note, calm = false, retry = true, onExit, onFinish }: Props) {
   const [noteRead, setNoteRead] = useState(!note)
   const [queue, setQueue] = useState(exercises)
   const [index, setIndex] = useState(0)
@@ -77,7 +79,7 @@ export function LessonPlayer({ title, exercises, note, calm = false, onExit, onF
       asked: t.asked + 1,
       answers: retried.has(exercise) ? t.answers : [...t.answers, [exercise, r.correct]],
     }))
-    const again = !r.correct && !retried.has(exercise)
+    const again = retry && !r.correct && !retried.has(exercise)
     setRequeued(again)
     if (again) {
       setQueue((q) => [...q, exercise])

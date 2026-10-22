@@ -11,6 +11,7 @@ import { Results } from './screens/Results'
 import { TimeTravel } from './screens/TimeTravel'
 import { MapDrill } from './screens/MapDrill'
 import { Phrasebook } from './screens/Phrasebook'
+import { Placement } from './screens/Placement'
 import { photosUsed } from './photos/used'
 import { soundsUsed } from './sounds/used'
 
@@ -19,7 +20,7 @@ import { soundsUsed } from './sounds/used'
 type Playing = { id: string; title: string; exercises: Exercise[]; sources: Lesson['sources']; note?: string; calm?: boolean }
 
 const REVIEW_ID = 'review'
-type Screen = { name: 'home' } | { name: 'timemap' } | { name: 'phrasebook' } | { name: 'drill' } | { name: 'lesson'; playing: Playing } | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number }
+type Screen = { name: 'home' } | { name: 'timemap' } | { name: 'phrasebook' } | { name: 'drill' } | { name: 'placement' } | { name: 'lesson'; playing: Playing } | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number }
 
 // Today's review: up to ten due questions from the lessons finished so far.
 const buildReview = (): Playing => {
@@ -93,6 +94,7 @@ export default function App() {
   if (screen.name === 'timemap') return <TimeTravel onBack={home} />
   if (screen.name === 'phrasebook') return <Phrasebook onBack={home} />
   if (screen.name === 'drill') return <MapDrill onBack={home} />
+  if (screen.name === 'placement') return <Placement units={units} onBack={home} />
   if (screen.name === 'results') {
     return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} onDone={home} />
   }
@@ -114,6 +116,10 @@ export default function App() {
       }}
       onDrill={() => {
         setScreen({ name: 'drill' })
+        window.scrollTo(0, 0)
+      }}
+      onPlacement={() => {
+        setScreen({ name: 'placement' })
         window.scrollTo(0, 0)
       }}
     />

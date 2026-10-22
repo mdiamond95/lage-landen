@@ -11,10 +11,12 @@ export type Progress = {
   discovered: string[]
   // Review cards by id (see content/cards.ts), for the daily review.
   cards: Record<string, Card>
+  // Units opened by the placement test: all their lessons and the checkpoint.
+  placed: string[]
 }
 
 const KEY = 'lage-landen:progress:v1'
-const empty: Progress = { xp: 0, streak: 0, lastDay: null, freezeWeek: null, completed: {}, discovered: [], cards: {} }
+const empty: Progress = { xp: 0, streak: 0, lastDay: null, freezeWeek: null, completed: {}, discovered: [], cards: {}, placed: [] }
 
 const load = (): Progress => {
   try {
@@ -63,12 +65,13 @@ export const nextStreak = (p: Progress, now: Date): Pick<Progress, 'streak' | 'l
   return { streak: 1, lastDay: today, freezeWeek: p.freezeWeek }
 }
 
-// One finished lesson, checkpoint or review. `lessonId` is left out for a review,
-// which counts for the streak and XP but isn't a step on the path. Each question
-// answered (first tries only) moves its review card.
-export type Session = { lessonId?: string; xp: number; perfect: boolean; places: string[]; answers: [cardId: string, correct: boolean][] }
+// One finished lesson, checkpoint, review or placement block. `lessonId` is left out
+// for a review or placement block, which count for the streak and XP but aren't steps
+// on the path; `placed` is the unit a placement block opened. Each question answered
+// (first tries only) moves its review card.
+export type Session = { lessonId?: string; placed?: string; xp: number; perfect: boolean; places: string[]; answers: [cardId: string, correct: boolean][] }
 
-export const recordSession = ({ lessonId, xp, perfect, places, answers }: Session, now = new Date()) => {
+export const recordSession = ({ lessonId, placed, xp, perfect, places, answers }: Session, now = new Date()) => {
   const today = dayKey(now)
   const cards = { ...state.cards }
   for (const [id, correct] of answers) cards[id] = schedule(cards[id], correct, today)
@@ -82,6 +85,7 @@ export const recordSession = ({ lessonId, xp, perfect, places, answers }: Sessio
       : state.completed,
     discovered: [...new Set([...state.discovered, ...places])],
     cards,
+    placed: placed && !state.placed.includes(placed) ? [...state.placed, placed] : state.placed,
   })
 }
 

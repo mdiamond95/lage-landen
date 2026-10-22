@@ -521,7 +521,7 @@ export const Unit = z.object({
   title: z.string(),
   era: z.string(),
   summary: z.string(),
-  // The content note for the unit's checkpoint, when some of its lessons have one.
+  // The content note for the unit's checkpoint and placement block, when some of its lessons have one.
   note: z.string().optional(),
   lessons: z.array(Lesson).min(1),
 })

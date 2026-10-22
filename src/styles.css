@@ -1160,3 +1160,30 @@ button.comic-panel { cursor: pointer; }
 
 .map-drill { display: grid; gap: 12px; max-width: 640px; margin: 0 auto; padding-bottom: 32px; }
 .drill-best { margin: 0; font-weight: 800; color: var(--delft); }
+
+/* Unit 0, the placement test: a green node on the path, then a screen of its own that
+   picks a track, plays five questions a unit and says which units it opened. */
+.placement-unit .unit-banner { background: var(--green); box-shadow: 0 4px 0 var(--green-dark); }
+.node.placement-node { background: var(--green); box-shadow: 0 6px 0 var(--green-dark); }
+.node.placement-node:active { box-shadow: 0 2px 0 var(--green-dark); }
+.tag.tag-placed { margin-left: 8px; letter-spacing: 0; vertical-align: 1px; }
+.placement { max-width: 640px; margin: 0 auto; padding-bottom: 32px; }
+.placement-track { display: grid; gap: 12px; }
+.placement-track h2 { margin: 0 0 4px; font-size: 1.1rem; }
+.placement-track p { margin: 0; color: var(--ink-soft); }
+.placement-verdict { display: grid; justify-items: center; text-align: center; gap: 4px; }
+.placement-verdict .icon { width: 56px; height: 56px; color: var(--delft); }
+.placement-verdict.is-open .icon { color: var(--green); }
+.placement-verdict h2 { margin: 0; }
+.placement-verdict p { margin: 0; }
+.placement-score { font-size: 1.5rem; font-weight: 900; color: var(--delft); }
+.placement-verdict.is-open .placement-score { color: var(--green-dark); }
+.placement-actions { display: grid; gap: 10px; margin: 0 16px 16px; }
+.placement .sources { margin: 0 16px; }
+.placement-summary h2 { margin: 0 0 6px; }
+.placement-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; }
+.placement-list li { display: flex; align-items: center; gap: 10px; color: var(--ink-soft); }
+.placement-list li.is-open { color: var(--ink); font-weight: 800; }
+.placement-list li.is-open .outline-num { background: var(--green); border-color: var(--green); color: #fff; }
+.placement-list-score { margin-left: auto; font-variant-numeric: tabular-nums; }
+.placement-list .tag { margin-left: 0; }

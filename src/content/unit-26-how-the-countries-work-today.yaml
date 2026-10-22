@@ -367,7 +367,7 @@ lessons:
           - label: It was German until 1945
             why: It was never German. Its land was the bottom of the Zuiderzee until 1942 to 1968.
       - type: drill
-        prompt: Now find each province by its capital.
+        prompt: Find each Dutch province by its capital.
         country: NLD
         ask: capital
         rounds: 6
@@ -536,7 +536,7 @@ lessons:
           - label: Namur
             why: Namur is French-speaking. The German-speaking Community is in the province of Liège.
       - type: drill
-        prompt: Now find each Belgian province by its capital.
+        prompt: Find each Belgian province by its capital.
         country: BEL
         ask: capital
         rounds: 6

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { nextStreak, type Progress } from './store'
 
-const base: Progress = { xp: 0, streak: 4, lastDay: '2026-10-19', freezeWeek: null, completed: {}, discovered: [], cards: {} }
+const base: Progress = { xp: 0, streak: 4, lastDay: '2026-10-19', freezeWeek: null, completed: {}, discovered: [], cards: {}, placed: [] }
 const at = (d: string) => new Date(`${d}T09:00:00`)
 
 describe('nextStreak', () => {
