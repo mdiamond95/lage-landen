@@ -18,6 +18,9 @@ import { BackupCard } from './BackupCard'
 import { allPhrases } from '../data/phrases'
 import { wall } from '../content/wall'
 import { collected } from '../progress/collection'
+import { lastUnit, unitHat, unitHats } from '../mascot/hats'
+import { greeting } from '../mascot/lines'
+import { StorkSays, Stork } from '../mascot/Stork'
 
 type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void; onPlacement: () => void; onMuseum: () => void }
 
@@ -41,6 +44,9 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
   // Today's quests are picked the first time the course is opened each day.
   useEffect(() => ensureQuests(canToday(progress)), [progress])
   const day = progress.quests?.day === today ? progress.quests : null
+  // The stork greets in the hat of the unit last worked on; Unit 1's before any.
+  const fresh = Object.keys(progress.completed).length === 0 && progress.placed.length === 0
+  const hat = fresh ? unitHats[1] : unitHat(lastUnit(progress.completed, units))
 
   return (
     <div className="home">
@@ -61,6 +67,10 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
           </span>
         </div>
       </header>
+
+      <StorkSays hat={hat} className="greeting card" size={72}>
+        {greeting({ fresh, playedToday: progress.lastDay === today, streak: progress.streak, streakAlive: alive, due, questsLeft: day ? day.picks.length - day.done.length : null })}
+      </StorkSays>
 
       {day && (
         <section className="quests card" aria-label="Daily quests">
@@ -203,6 +213,7 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
         return (
           <section key={unit.id} className={`unit ${gateOpen ? '' : 'is-gated'}`}>
             <div className="unit-banner">
+              {unitHat(unit) && <Stork hat={unitHat(unit)} size={52} portrait className="banner-stork" />}
               <p className="eyebrow light">
                 Unit {unit.number} · {unit.era}
                 {placed && <span className="tag tag-placed">Opened by the placement test</span>}
