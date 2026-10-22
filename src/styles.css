@@ -1029,3 +1029,57 @@ button.comic-panel { cursor: pointer; }
 .key-music { width: 10px; height: 12px; background: #7a3fb0; clip-path: polygon(30% 0, 100% 0, 100% 25%, 50% 25%, 50% 85%, 30% 100%, 0 90%, 0 70%, 30% 62%); }
 .hist-film path { fill: #2b3140; stroke: #fff; stroke-width: 0.8; }
 .key-film { width: 13px; height: 10px; background: #2b3140; border-left: 3px dotted #fff; border-right: 3px dotted #fff; }
+
+/* Projection explorer (Unit 25) */
+.projection-map { margin: 0; display: grid; gap: 10px; }
+.projection-views { display: flex; flex-wrap: wrap; gap: 6px; }
+.projection-views button, .projection-toggles button {
+  border: 2px solid var(--line); background: var(--card); border-radius: 10px; padding: 6px 10px;
+  font-size: 0.85rem; font-weight: 800; cursor: pointer;
+}
+.projection-views button.is-on { border-color: var(--delft); background: var(--delft-soft); color: var(--delft-dark); }
+.projection-svg { display: block; width: 100%; height: auto; touch-action: none; }
+.projection-paper { fill: var(--paper); }
+.projection-mercator .projection-paper, .projection-mercator .projection-sea { fill: var(--sea); }
+.projection-grid { fill: none; stroke: #9fc2dd; stroke-width: 0.6; pointer-events: none; }
+.projection-equator { fill: none; stroke: var(--delft); stroke-width: 1; stroke-dasharray: 4 3; pointer-events: none; }
+.projection-land { stroke-width: 0.4; pointer-events: none; }
+.projection-circle { fill: rgb(200 55 45 / 0.35); stroke: var(--red); stroke-width: 0.8; pointer-events: none; }
+.projection-shape path { stroke: #fff; stroke-width: 1; cursor: grab; fill-opacity: 0.85; }
+.projection-shape path:focus-visible { outline: none; stroke: var(--ink); stroke-width: 2.5; }
+.projection-shape.is-picked path { stroke: var(--ink); stroke-width: 2.5; }
+.shape-0 path, .shape-swatch.shape-0 { fill: var(--orange); background: var(--orange); }
+.shape-1 path, .shape-swatch.shape-1 { fill: var(--delft); background: var(--delft); }
+.shape-2 path, .shape-swatch.shape-2 { fill: var(--green); background: var(--green); }
+.shape-swatch { width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; }
+.projection-label { font-size: 12px; font-weight: 800; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 3px; pointer-events: none; }
+.course-rhumb { fill: none; stroke: var(--red); stroke-width: 2.5; stroke-dasharray: 6 4; pointer-events: none; }
+.course-great { fill: none; stroke: var(--delft-dark); stroke-width: 2.5; pointer-events: none; }
+.course-port { fill: #fff; stroke: var(--ink); stroke-width: 2; }
+.course-swatch-rhumb { background: var(--red); }
+.course-swatch-great { background: var(--delft-dark); }
+.projection-caption { display: grid; gap: 8px; font-size: 0.9rem; }
+.projection-about { margin: 0; color: var(--ink-soft); }
+.projection-toggles { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-weight: 700; }
+.projection-toggles input { accent-color: var(--delft); }
+.projection-sizes, .projection-trip { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.projection-trip .key-swatch { width: 18px; vertical-align: middle; margin-right: 4px; }
+.truesize-option { display: flex; align-items: center; justify-content: center; }
+
+/* Unit 25: learning. On the science time map a university is a dark blue mortarboard, a printer a
+   brown book, a thinker's work a quill, a laboratory a green flask, plants a leaf and a Nobel Prize
+   a gold medal. Snellius's chain of triangles is a dotted line. */
+.hist-university path { fill: #1f3a6e; stroke: #fff; stroke-width: 0.8; }
+.key-university { width: 13px; height: 9px; background: #1f3a6e; clip-path: polygon(50% 0, 100% 40%, 50% 80%, 0 40%); }
+.hist-press path { fill: #8a5a2b; stroke: #fff; stroke-width: 0.8; }
+.key-press { width: 13px; height: 9px; background: #8a5a2b; border-radius: 2px; }
+.hist-scholar path { fill: #b0352a; stroke: #fff; stroke-width: 0.6; }
+.key-scholar { width: 6px; height: 12px; background: #b0352a; border-radius: 50% 50% 0 50%; transform: rotate(30deg); }
+.hist-lab path { fill: #2e8540; stroke: #fff; stroke-width: 0.8; }
+.key-lab { width: 10px; height: 11px; background: #2e8540; clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 100%, 0 100%, 35% 35%); }
+.hist-garden path { fill: #6a9f2a; stroke: #fff; stroke-width: 0.6; }
+.key-garden { width: 11px; height: 11px; background: #6a9f2a; border-radius: 0 70% 0 70%; }
+.hist-prize path { fill: #d4a017; stroke: #5a4300; stroke-width: 0.8; }
+.key-prize { width: 11px; height: 11px; background: #d4a017; border: 1.5px solid #5a4300; border-radius: 50%; }
+.hist-line.hist-survey { stroke: #1f3a6e; stroke-width: 2.2; stroke-dasharray: 2 4; }
+.key-survey { width: 16px; height: 0; border-top: 2.5px dotted #1f3a6e; }

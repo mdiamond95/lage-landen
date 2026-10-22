@@ -1,7 +1,7 @@
 // The time map through all the eras so far: one map of the Low Countries that steps
-// through 45 snapshots, from Caesar's conquest to the feast map of 2023. Each era's lines,
+// through 46 snapshots, from Caesar's conquest to the feast map of 2023. Each era's lines,
 // sites, labels and areas come from the unit maps (Roman, the languages of about 1100, Burgundy, the painters' workshops, revolt,
-// the Golden Age painters, the Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
+// the Golden Age painters, the learning of 1656, the Spanish Netherlands, the border changes to 1815, the kingdom of 1815 to 1839,
 // Belgium's first railways and coal country, the railways and canals of 1839 to 1914,
 // Belgium's front of 1914 to 1918, the modern artists, the sport of 1928, the war of 1940 to 1945, the comics of 1946, water and the flood of 1953,
 // the buildings of Expo 58, Belgium's language areas from 1963, the food map of 2016, the feast map of 2023), and stay on the map only from the era's first
@@ -9,8 +9,8 @@
 // language areas share the years 1963 to 1997, so those snapshots show both keys, and
 // so do Burgundy and the painters in 1520 and 1549, and the revolt and the Golden Age painters
 // in 1642, and the buildings and the water works in 1958.
-// The plan's full time map runs to today with about 40 snapshots; these are the 45 of
-// Units 1 to 24.
+// The plan's full time map runs to today with about 40 snapshots; these are the 46 of
+// Units 1 to 25.
 
 import { bordersStory } from './borders'
 import { buildingsStory } from './buildings'
@@ -18,6 +18,7 @@ import { foodStory } from './food'
 import { feastStory } from './feastMap'
 import { sportStory } from './sport'
 import { popStory } from './pop'
+import { scienceStory } from './science'
 import { burgundyStory } from './burgundy'
 import { greatWarByYear } from './greatwar'
 import { industryStory } from './industry'
@@ -145,6 +146,11 @@ const sportThenStory: TimeStory = { ...sportStory, max: 1939, labels: sportStory
 // flood of 1953. The unit's own map runs on to the song contest of 2021.
 const comicsThenStory: TimeStory = { ...popStory, max: 1952, labels: popStory.labels.filter((l) => l.kind === 'territory' || l.kind === 'water') }
 
+// Learning (Unit 25) in 1656, the year of Huygens's pendulum clock: the universities, printers and
+// thinkers of the Low Countries from Leuven in 1425 on, gone again when the French war of 1667 begins.
+// The unit's own map runs on to Lemaître's primeval atom of 1931.
+const scienceThenStory: TimeStory = { ...scienceStory, max: 1667, labels: scienceStory.labels.filter((l) => l.kind === 'territory' || l.kind === 'water') }
+
 // The buildings of the century (Unit 19) in 1958, the year of Expo 58: Art Nouveau and modern
 // buildings from 1893 on, gone again before the language border of 1963. The older buildings
 // stay on the unit's own map, and only the Atomium is named, so the snapshot isn't crowded.
@@ -199,6 +205,7 @@ const snapshots: Snapshot[] = [
   { story: companiesStory, from: COMPANIES },
   { story: goldenAgeStory, from: 1642, also: revoltStory },
   { story: revoltStory, from: 1648 },
+  { story: scienceThenStory, from: 1656 },
   { story: spanishStory, from: 1668 },
   { story: spanishStory, from: 1672 },
   { story: spanishStory, from: 1678 },

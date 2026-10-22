@@ -1,0 +1,830 @@
+id: unit-25
+number: 25
+title: Thinkers and scientists
+era: 1425 to 1931
+summary: >-
+  Erasmus and the printers of Leuven and Antwerp, Vesalius and the body, Mercator and the map that every ship
+  still steers by, Stevin's decimals, Huygens' ring of Saturn and Leeuwenhoek's little animals, then Lorentz,
+  helium and the universe that began as one atom. Drag Greenland down to Africa on Mercator's map to see its true
+  size, and follow five centuries of learning on the map, from Leuven in 1425 to Lemaître in 1931.
+lessons:
+  - id: u25-l1
+    title: Erasmus and the printers
+    icon: press
+    sources:
+      - title: "Wikipedia, Erasmus"
+        url: https://en.wikipedia.org/wiki/Erasmus
+      - title: "Wikipedia, In Praise of Folly"
+        url: https://en.wikipedia.org/wiki/In_Praise_of_Folly
+      - title: "Wikipedia, Plowboy trope (the Paraclesis of 1516)"
+        url: https://en.wikipedia.org/wiki/Plowboy_trope
+      - title: "Wikipedia, On the Bondage of the Will"
+        url: https://en.wikipedia.org/wiki/On_the_Bondage_of_the_Will
+      - title: "Wikipedia, Plantin-Moretus Museum"
+        url: https://en.wikipedia.org/wiki/Plantin-Moretus_Museum
+      - title: "Wikipedia, Dirk Martens"
+        url: https://en.wikipedia.org/wiki/Dirk_Martens
+      - title: "Wikipedia, Collegium Trilingue"
+        url: https://en.wikipedia.org/wiki/Collegium_Trilingue
+      - title: "Wikipedia, Index Librorum Prohibitorum"
+        url: https://en.wikipedia.org/wiki/Index_Librorum_Prohibitorum
+    exercises:
+      - type: story
+        title: The prince of humanists
+        body: >-
+          Desiderius Erasmus was born in Rotterdam in about 1466, schooled in Deventer and made a monk at Steyn, near
+          Gouda. He left the cloister for Paris, England, Italy and Basel, and became the most famous scholar in Europe,
+          writing only in Latin. He lived in Leuven from 1517 to 1521. Quentin Massys painted him that year in Antwerp,
+          as a gift for his friend Thomas More in London. Printing made him: his books sold in their tens of thousands,
+          from presses in Leuven, Antwerp, Paris and Basel.
+        visual: { kind: photo, photo: erasmus-massys }
+      - type: truemyth
+        statement: Erasmus wrote In Praise of Folly, his most famous book, in about a week.
+        visual: { kind: photo, photo: erasmus }
+        answer: true
+        explain: >-
+          True, by his own account. In 1509, while staying with Thomas More in London and waiting for his books to
+          arrive, he wrote it in about seven days. The Latin title, Moriae encomium, is a pun on More's name. Folly
+          herself gives the speech, and mocks monks, theologians and popes. It came out in 1511.
+      - type: gap
+        prompt: In 1516 Erasmus printed the New Testament in Greek, with his own Latin translation beside it. In the preface he wished it could be read by everyone, in their own language. Fill the gap.
+        quote: "Would that, as a result, the farmer sing some portion of them at the ___, the weaver hum some parts of them to the movement of his shuttle, the traveller lighten the weariness of the journey with stories from this source!"
+        source: Erasmus, Paraclesis, the preface to his New Testament, 1516 (translated from Latin)
+        visual: { kind: photo, photo: erasmus-statue }
+        options: [plough, market, table, church]
+        answer: 0
+        explain: >-
+          The plough. Erasmus's Greek text was the first to go on sale, and Luther translated the New Testament into
+          German from its second edition. Rotterdam put up this bronze statue of him in 1622, the oldest bronze statue in
+          the Netherlands.
+      - type: voices
+        prompt: In 1524 and 1525 Erasmus and Luther fell out over free will. Which of them says a person can choose to turn towards salvation?
+        voices:
+          - who: Erasmus
+            when: On Free Will, 1524 (translated from Latin)
+            text: >-
+              By freedom of choice in this place we mean a power of the human will by which a man can apply himself to
+              the things which lead to eternal salvation, or turn away from them.
+            photo: erasmus-massys
+          - who: Martin Luther
+            when: The Bondage of the Will, 1525 (translated from Latin)
+            text: >-
+              Thus the human will is placed between the two like a beast of burden. If God rides it, it wills and goes
+              where God wills. If Satan rides it, it wills and goes where Satan wills; nor can it choose to run to
+              either of the two riders or to seek him out.
+            photo: luther-1529
+        options: [Erasmus, Luther, Both of them, Neither of them]
+        answer: 0
+        explain: >-
+          Erasmus. He wanted the church mended from within, and never left it. Luther thought he was too timid, and many
+          Catholics thought he had laid the egg that Luther hatched. In 1559 the pope put all of Erasmus's books on the
+          Index of forbidden books.
+      - type: choice
+        prompt: This woodcut was in the first edition of a book printed in Leuven in 1516 by Dirk Martens, with Erasmus seeing it through the press. Which book?
+        visual: { kind: photo, photo: utopia-map }
+        answer: 1
+        options:
+          - label: In Praise of Folly
+            why: That came out in Paris in 1511. This is the island of Utopia.
+          - label: Utopia, by Thomas More
+            why: >-
+              Right. More's island of Utopia, where no one owns anything and everyone works six hours a day. Erasmus
+              found the printer for his friend. The word Utopia means "no place".
+          - label: The atlas of Ortelius
+            why: That came out in Antwerp in 1570. This is the island of Utopia.
+          - label: The Fabrica of Vesalius
+            why: That came out in Basel in 1543. This is the island of Utopia.
+      - type: pin
+        prompt: Dirk Martens printed Utopia in Leuven, but he began in his home town, where he printed the first dated book of the Southern Netherlands in 1473. Pin it.
+        place: aalst
+        explain: >-
+          Aalst, between Ghent and Brussels. Martens worked there, in Antwerp and in Leuven, and printed several of
+          Erasmus's books. His statue stands on the market square of Aalst.
+      - type: choice
+        prompt: In 1517 a college opened in Leuven, paid for by the will of Jérôme de Busleyden, a councillor of the Habsburgs, with Erasmus finding its teachers. Which three languages did it teach?
+        visual: { kind: photo, photo: trilingue }
+        answer: 0
+        options:
+          - label: Latin, Greek and Hebrew
+            why: >-
+              Right: the three languages of the Bible, so that scholars could read it in the original. Students came
+              from all over Europe. Erasmus never taught there himself.
+          - label: Latin, French and Dutch
+            why: It taught Latin, Greek and Hebrew, the languages of the Bible.
+          - label: Latin, Greek and Arabic
+            why: It taught Latin, Greek and Hebrew, the languages of the Bible.
+          - label: Dutch, French and German
+            why: It taught Latin, Greek and Hebrew, the languages of the Bible.
+      - type: choice
+        prompt: Christophe Plantin, a bookbinder from France, set up a printing house in Antwerp in 1555. What makes the press room of his house, now a museum, unique?
+        visual: { kind: photo, photo: plantin-press }
+        answer: 2
+        options:
+          - label: It printed the first book in Dutch
+            why: Dutch books were printed from the 1470s, long before Plantin. Its presses are the two oldest that survive.
+          - label: It has Gutenberg's own press
+            why: Gutenberg's press is lost. These are the two oldest presses that survive anywhere.
+          - label: It has the two oldest printing presses that survive anywhere
+            why: >-
+              Right. At its peak Plantin's house had 73 workmen. His heirs, the Moretus family, kept the house and its
+              presses until they sold it to the city in 1876. It is the only museum on UNESCO's
+              list of World Heritage.
+          - label: It was the first press in the Low Countries
+            why: That was in Aalst, in 1473. These are the two oldest presses that survive anywhere.
+      - type: scrub
+        prompt: Drag the slider to the years when Leuven is the only university in the Low Countries.
+        map: science
+        start: 1700
+        answer: [1425, 1574]
+        explain: >-
+          From 1425, when the duke of Brabant founded it, until 1575, when William of Orange gave Leiden a university of
+          its own, in the middle of the revolt against Spain.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Erasmus prints the New Testament in Greek, Luther translates it into German from Erasmus's text]
+          - ["Busleyden leaves money in his will for a college", "Latin, Greek and Hebrew are taught in Leuven from 1517"]
+          - [Both Catholics and Protestants think Erasmus too soft, The pope bans all his books in 1559]
+          - [Printing makes books cheap, Erasmus's books sell in their tens of thousands]
+        explain: >-
+          Without the press, Erasmus would have been one scholar among many. With it, he was read from Spain to Poland in
+          his own lifetime.
+
+  - id: u25-l2
+    title: Vesalius and the body
+    icon: bone
+    sources:
+      - title: "Wikipedia, Andreas Vesalius"
+        url: https://en.wikipedia.org/wiki/Andreas_Vesalius
+      - title: "Wikipedia, De humani corporis fabrica"
+        url: https://en.wikipedia.org/wiki/De_humani_corporis_fabrica
+      - title: "Wikipedia, Herman Boerhaave"
+        url: https://en.wikipedia.org/wiki/Herman_Boerhaave
+      - title: "Wikipedia, Rembert Dodoens"
+        url: https://en.wikipedia.org/wiki/Rembert_Dodoens
+      - title: "Wikipedia, Anatomical theatre"
+        url: https://en.wikipedia.org/wiki/Anatomical_theatre
+      - title: "Rijksmuseum Boerhaave, the anatomical theatre"
+        url: https://rijksmuseumboerhaave.nl/
+    exercises:
+      - type: story
+        title: A doctor who looked for himself
+        body: >-
+          Andreas Vesalius was born in Brussels in 1514, the son of the emperor's apothecary. He studied in Leuven and
+          Paris, and at 23 became professor at Padua, where he cut up bodies himself instead of reading from a book while
+          a barber did it. In 1543 he published De humani corporis fabrica, On the Fabric of the Human Body: seven books
+          and some 700 pages, with more than 200 woodcuts. He then became physician to the emperor Charles V.
+        visual: { kind: photo, photo: vesalius-portrait }
+      - type: hunt
+        prompt: On the title page of the Fabrica, Vesalius dissects a body in a packed hall. Among the crowd is an animal that tells you what the old Greek doctor Galen had dissected. Find the monkey.
+        photo: fabrica-title
+        targets:
+          - [0.16, 0.6, 0.12, 0.1]
+        explain: >-
+          The monkey, on the left, with a dog at the bottom right. Galen, whose books doctors had followed for 1,300
+          years, had cut up apes and other animals, since Rome did not allow the dissection of people. Vesalius showed
+          that many of his "human" bones were an ape's.
+      - type: choice
+        prompt: Vesalius found that Galen was wrong about the human body again and again. Why?
+        visual: { kind: photo, photo: fabrica-skeleton }
+        answer: 1
+        options:
+          - label: Galen's books had been badly copied
+            why: The copies were good. Galen had described apes, not people.
+          - label: Galen had dissected apes and other animals, not people
+            why: >-
+              Right. Galen's lower jaw of two bones and his breastbone of seven parts belonged to animals. Vesalius's
+              skeleton leans on a tomb that reads "Vivitur ingenio, caetera mortis erunt": genius lives on, all else will
+              die.
+          - label: Bodies had changed since Roman times
+            why: They had not. Galen had described apes, not people.
+          - label: Galen had never seen a body at all
+            why: He had, but they were animals'. Galen had described apes, not people.
+      - type: truemyth
+        statement: Laid side by side, the landscapes behind the muscle men of the Fabrica join up into one long view of the hills near Padua.
+        visual: { kind: photo, photo: fabrica-c }
+        answer: true
+        explain: >-
+          True, as was found in the twentieth century. The woodcuts were made in Venice, probably by Jan Steven van
+          Calcar, a pupil of Titian. The wood blocks were carried over the Alps on mules to the printer in Basel, and
+          survived until a bombing raid on Munich in 1944.
+      - type: who
+        photo: boerhaave
+        clues:
+          - I was born in Voorhout, near Leiden, in 1668, the son of a minister.
+          - I held three chairs at Leiden at once, in medicine, botany and chemistry.
+          - I taught at the bedside, in a hospital ward of twelve beds, and students came from all over Europe to watch.
+          - I printed Jan Swammerdam's notebooks on insects, 57 years after his death.
+        options: [Herman Boerhaave, Frederik Ruysch, Jan Swammerdam, Nicolaes Tulp]
+        answer: 0
+        explain: >-
+          Herman Boerhaave, the "teacher of all Europe", painted here by Cornelis Troost. His motto was Simplex veri
+          sigillum, simplicity is the seal of truth. Leiden's science museum, Rijksmuseum Boerhaave, is named after him.
+      - type: truemyth
+        statement: A letter from China addressed only "To the illustrious Boerhaave, physician in Europe" reached him in Leiden.
+        answer: false
+        explain: >-
+          Probably a myth. The story is told in many books, but the letter has never been found, and nobody knows who
+          sent it. What is certain is how far his name went: Peter the Great came to see him, and his students carried
+          his teaching to Edinburgh, Vienna and Göttingen.
+      - type: choice
+        prompt: Leiden's anatomy theatre, opened in 1596, held public dissections that anyone could pay to watch. Why only in winter?
+        visual: { kind: photo, photo: leiden-theatre }
+        answer: 2
+        options:
+          - label: The students were away in summer
+            why: Students were there all year. The reason was the smell.
+          - label: Winter evenings were long and dull
+            why: It was the cold that mattered. A body kept for longer before it began to rot.
+          - label: In the cold a body kept for long enough to dissect
+            why: >-
+              Right. A dissection took days. In summer the theatre was a museum, with skeletons of people and animals
+              holding banners with sayings such as "Pulvis et umbra sumus", we are dust and shadow.
+          - label: The church banned it in summer
+            why: No such ban. In the cold a body kept for longer before it began to rot.
+      - type: odd
+        prompt: Which of these is the odd one out?
+        items:
+          - { label: The Fabrica, photo: fabrica-front }
+          - { label: The anatomy lesson of Dr Tulp, photo: anatomy-lesson }
+          - { label: The Cruydeboeck of Dodoens, photo: dodoens-book }
+          - { label: The anatomy theatre of Leiden, photo: leiden-theatre }
+        answer: 2
+        reasons:
+          - It is about plants, not the human body.
+          - It was made in the north.
+          - It is a painting.
+        reason: 0
+        explain: >-
+          Rembert Dodoens, town physician of Mechelen, published his Cruydeboeck, his book of herbs, in Antwerp in 1554,
+          with 715 woodcuts. For a while it was the most translated book after the Bible. In 1582 Dodoens became a
+          professor at Leiden.
+
+  - id: u25-l3
+    title: Mercator and the map-makers
+    icon: dividers
+    sources:
+      - title: "Wikipedia, Gerardus Mercator"
+        url: https://en.wikipedia.org/wiki/Gerardus_Mercator
+      - title: "Wikipedia, Mercator 1569 world map"
+        url: https://en.wikipedia.org/wiki/Mercator_1569_world_map
+      - title: "Wikipedia, Mercator projection"
+        url: https://en.wikipedia.org/wiki/Mercator_projection
+      - title: "Wikipedia, Rhumb line"
+        url: https://en.wikipedia.org/wiki/Rhumb_line
+      - title: "Wikipedia, Abraham Ortelius"
+        url: https://en.wikipedia.org/wiki/Abraham_Ortelius
+      - title: "Wikipedia, Gemma Frisius"
+        url: https://en.wikipedia.org/wiki/Gemma_Frisius
+      - title: "Wikipedia, The Geographer"
+        url: https://en.wikipedia.org/wiki/The_Geographer
+      - title: "Wikipedia, Greenland; Africa; India (areas)"
+        url: https://en.wikipedia.org/wiki/Greenland
+    exercises:
+      - type: story
+        title: A map for sailors
+        body: >-
+          Gerard Mercator was born in Rupelmonde in 1512 and learned to make globes in Leuven with Gemma Frisius. In 1569,
+          in Duisburg, he printed a world map on 18 sheets "for the use of sailors". On it, a course of one steady compass
+          bearing is a straight line, so a navigator could lay a ruler from port to port. The price: the further from the
+          equator, the bigger the land. Drag the shapes on this map, switch to a globe, and turn on the circles: each is
+          the same size on the Earth.
+        visual: { kind: projection, shapes: [greenland, africa], course: new-amsterdam, circles: true }
+      - type: truesize
+        prompt: On Mercator's map, Greenland looks about as big as Africa. Which is really bigger?
+        shapes: [greenland, africa]
+        explain: >-
+          Africa, about 14 times over. Greenland's middle lies at about 73° north, where Mercator's map stretches every
+          area about 12 times, and its northern tip far more; Africa straddles the equator, where it is hardly stretched.
+      - type: truesize
+        prompt: Which is really bigger, Greenland or India?
+        shapes: [greenland, india]
+        explain: >-
+          India, by half again. On Mercator's map Greenland looks several times bigger, because India lies near the
+          equator. Drag Greenland down beside India and watch it shrink.
+      - type: choice
+        prompt: Why did sailors want Mercator's map, even though it drew the far north and south far too big?
+        visual: { kind: photo, photo: mercator-1569 }
+        answer: 1
+        options:
+          - label: It showed every country at its true size
+            why: It did the opposite. Its gift was that a steady compass course is a straight line on it.
+          - label: A steady compass course is a straight line on it
+            why: >-
+              Right. Draw a line from port to port, read its angle, and steer by it. It is not the shortest way, which on
+              a globe is a great circle, but it is the easiest to follow. Sea charts are still drawn this way.
+          - label: It showed the shortest way between two ports
+            why: The shortest way is a great circle, which is curved on this map. A steady compass course is straight.
+          - label: It fitted on one small sheet
+            why: It was printed on 18 sheets. Its gift was that a steady compass course is a straight line on it.
+      - type: gap
+        prompt: In a note on the map itself, Mercator explains what he set out to do. Fill the gap.
+        quote: "In making this representation of the world we had to spread on a ___ the surface of the sphere in such a way that the positions of places shall correspond on all sides with each other."
+        source: Gerard Mercator, the third legend of his world map, 1569 (translated from Latin)
+        visual: { kind: photo, photo: mercator-hogenberg }
+        options: [plane, globe, sail, canvas]
+        answer: 0
+        explain: >-
+          A plane, a flat sheet. A ball cannot be flattened without stretching it somewhere, and Mercator chose to
+          stretch the map north and south just as much as it was stretched east and west, so that shapes and angles stay
+          true in each small patch.
+      - type: pin
+        prompt: In 1543 Mercator was arrested for heresy, and held for seven months in the castle of the village where he was born, on the Schelde. Pin it.
+        place: rupelmonde
+        explain: >-
+          Rupelmonde, where the Rupel flows into the Schelde, south-west of Antwerp. He was freed for want of evidence,
+          but in 1552 he moved to Duisburg, outside the Habsburg Netherlands, and stayed there until his death in 1594.
+      - type: order
+        prompt: Put these in order, oldest first.
+        items:
+          - { label: Gemma Frisius explains how to map a land with triangles, year: 1533, when: '1533' }
+          - { label: Mercator makes his globe of the Earth, year: 1541, when: '1541' }
+          - { label: Mercator prints his world map for sailors, year: 1569, when: '1569' }
+          - { label: Ortelius brings out the first modern atlas, year: 1570, when: '1570' }
+          - { label: The first book called an atlas comes out, year: 1595, when: '1595' }
+          - { label: Joan Blaeu prints his great world map in Amsterdam, year: 1648, when: '1648' }
+        explain: >-
+          In about a century, map-making moved from Leuven to Antwerp to Amsterdam, where Blaeu's printing house became
+          one of the biggest in Europe.
+      - type: choice
+        prompt: Ortelius of Antwerp had collected maps for years. In 1570 he printed 53 of them, all the same size, in one book. What was new about it?
+        visual: { kind: photo, photo: ortelius-1570 }
+        answer: 0
+        options:
+          - label: It was the first modern atlas, maps made to go together in a book
+            why: >-
+              Right. The Theatrum orbis terrarum, the Theatre of the World, ran to 25 editions in his lifetime, with a
+              list of the map-makers he had used.
+          - label: It was the first map of the whole world
+            why: World maps are much older. What was new was a set of maps made to go together in a book.
+          - label: It was the first printed map
+            why: Maps had been printed since the 1470s. What was new was a set of maps made to go together in a book.
+          - label: It showed America for the first time
+            why: America had been on maps since 1507. What was new was a set of maps made to go together in a book.
+      - type: choice
+        prompt: Mercator's last work, printed by his son in 1595, was the first book to be called an atlas. Who did he name it after?
+        visual: { kind: photo, photo: atlas-title }
+        answer: 1
+        options:
+          - label: The giant who holds up the sky
+            why: That is what most people think, but Mercator chose a king, said to be a wise astronomer.
+          - label: A king of Mauretania, said to be a wise astronomer
+            why: >-
+              Right. Mercator wrote that Atlas, king of Mauretania in north-west Africa, was a learned philosopher who
+              made the first globe of the heavens. The title page shows him measuring a globe.
+          - label: The Atlas Mountains of Morocco
+            why: He named it after a person, a king of Mauretania said to be a wise astronomer.
+          - label: His ship
+            why: He named it after a king of Mauretania said to be a wise astronomer.
+      - type: hunt
+        prompt: Vermeer painted a geographer at work in Delft, with a globe and charts. Find the tool map-makers used to measure distances on a chart.
+        photo: geographer
+        targets:
+          - [0.38, 0.56, 0.11, 0.08]
+        explain: >-
+          The dividers, in his right hand. Set the points to a distance on the scale bar, and walk them across the chart.
+          The globe on the cupboard is one by Jodocus Hondius of Amsterdam, made in 1600.
+
+  - id: u25-l4
+    title: Stevin, Snellius and Huygens
+    icon: pendulum
+    sources:
+      - title: "Wikipedia, Simon Stevin"
+        url: https://en.wikipedia.org/wiki/Simon_Stevin
+      - title: "Wikipedia, Delft tower experiment"
+        url: https://en.wikipedia.org/wiki/Delft_tower_experiment
+      - title: "Wikipedia, Willebrord Snellius"
+        url: https://en.wikipedia.org/wiki/Willebrord_Snellius
+      - title: "Wikipedia, Triangulation (surveying)"
+        url: https://en.wikipedia.org/wiki/Triangulation_(surveying)
+      - title: "Wikipedia, Christiaan Huygens"
+        url: https://en.wikipedia.org/wiki/Christiaan_Huygens
+      - title: "Wikipedia, Systema Saturnium"
+        url: https://en.wikipedia.org/wiki/Systema_Saturnium
+    exercises:
+      - type: story
+        title: The engineer of Bruges
+        body: >-
+          Simon Stevin was born in Bruges in 1548 and moved north in the troubled 1580s. He studied at Leiden, then
+          worked for Prince Maurice of Orange as engineer and teacher: forts, sluices, windmills, bookkeeping and the
+          art of war. He wrote in Dutch, and made up Dutch words for science that are still used, such as wiskunde for
+          mathematics and natuurkunde for physics. Bruges put up his statue in 1847.
+        visual: { kind: photo, photo: stevin-statue }
+      - type: choice
+        prompt: In 1585 Stevin published a little book of 35 pages, De Thiende, The Tenth. What did it teach?
+        visual: { kind: photo, photo: thiende }
+        answer: 0
+        options:
+          - label: How to write fractions as decimals and work with them
+            why: >-
+              Right. He wrote 3.75 with little circled numbers over each digit, and argued that coins, weights and
+              measures should all be counted in tens. The metric system came two centuries later, in France.
+          - label: The metric system
+            why: That came from France in the 1790s. Stevin taught decimal fractions, and said measures should follow.
+          - label: How to use the number zero
+            why: Zero had reached Europe centuries before. Stevin taught decimal fractions.
+          - label: Logarithms
+            why: Those came from John Napier in 1614. Stevin taught decimal fractions.
+      - type: truemyth
+        statement: Stevin built a carriage with sails that carried Prince Maurice and twenty-six others along the beach faster than horses.
+        visual: { kind: photo, photo: stevin-yacht }
+        answer: true
+        explain: >-
+          True. Around 1600 it sailed along the beach between Scheveningen and Petten, driven only by the wind. Maurice
+          used it to show off to visiting princes and ambassadors.
+      - type: choice
+        prompt: In 1586 Stevin and Jan Cornets de Groot, the father of Hugo Grotius, climbed a church tower in Delft and dropped two lead balls, one ten times heavier than the other, from 30 feet. What happened?
+        visual: { kind: time-map, map: science, year: 1586 }
+        answer: 2
+        options:
+          - label: The heavy ball landed ten times sooner
+            why: That is what Aristotle had taught. They landed together.
+          - label: The light ball landed first
+            why: They landed together, so close that the two thuds sounded as one.
+          - label: They landed together
+            why: >-
+              Right: two weights fall at the same rate. Stevin and De Groot tested it a few years before Galileo's
+              famous experiment in Pisa, which he may never have done.
+          - label: The heavy ball broke the floor
+            why: They dropped them onto a board, so they could listen. They landed together.
+      - type: gap
+        prompt: In 1656 Christiaan Huygens, with a telescope he made himself, worked out why Saturn seemed to have ears. He hid the answer in an anagram, and solved it in print in 1659. Fill the gap.
+        quote: "It is girdled by a thin, flat ___, nowhere touching, inclined to the ecliptic."
+        source: Christiaan Huygens, Systema Saturnium, 1659 (translated from Latin)
+        visual: { kind: photo, photo: saturn-a }
+        options: [ring, moon, cloud, belt]
+        answer: 0
+        explain: >-
+          A ring. Galileo had seen Saturn with two "ears" that later vanished; Huygens saw that they were a ring seen from
+          different angles. The same year, 1655, he found Saturn's biggest moon, Titan.
+      - type: choice
+        prompt: Compare the map of 1574 with 1648. What has changed in the north?
+        visual: { kind: compare, map: science, years: [1574, 1648] }
+        answer: 1
+        options:
+          - label: Its printers have all moved south
+            why: It went the other way. Printers moved north after Antwerp fell in 1585, and the north got five universities.
+          - label: It has gone from no university to five
+            why: >-
+              Right: Leiden in 1575, Franeker in 1585, Groningen in 1614, Utrecht in 1636 and Harderwijk in 1648. The
+              Dutch Republic wanted its own ministers, lawyers and doctors, taught at home.
+          - label: Leuven has moved north
+            why: Leuven stayed in the south. The north got five universities of its own.
+          - label: Nothing has changed
+            why: The north has gone from no university to five.
+      - type: choice
+        prompt: In 1533 Gemma Frisius of Leuven drew lines from Antwerp and Brussels to the towns around them. What was he showing?
+        visual: { kind: photo, photo: gemma-triangulation }
+        answer: 3
+        options:
+          - label: Roads between the towns
+            why: The lines are lines of sight. He was showing how to map a land by measuring angles between towns.
+          - label: Which towns could see each other's church bells
+            why: He was showing how to map a land by measuring angles between towns, a method called triangulation.
+          - label: Trade routes of Antwerp
+            why: He was showing how to map a land by measuring angles between towns, a method called triangulation.
+          - label: How to map a land by measuring the angles between towns
+            why: >-
+              Right. Measure one distance and the angles to the towns from each end, and the rest is geometry. It is
+              called triangulation, and it was used to map the world until satellites took over.
+      - type: choice
+        prompt: In 1615 Willebrord Snellius of Leiden measured a chain of triangles between church towers from Alkmaar to Bergen op Zoom, to work out the size of the Earth. How close did he get?
+        visual: { kind: photo, photo: snellius-baseline }
+        answer: 1
+        options:
+          - label: Exactly right
+            why: He was about 3.5 percent short, close for a man with a quadrant and church towers.
+          - label: About 3.5 percent short
+            why: >-
+              Right. He made the Earth about 38,650 km around; it is about 40,000. He called his book Eratosthenes
+              Batavus, the Dutch Eratosthenes, after the Greek who had first measured the Earth.
+          - label: Twice too big
+            why: He was much closer, about 3.5 percent short.
+          - label: Half too small
+            why: He was much closer, about 3.5 percent short.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Stevin writes his books in Dutch, Dutch gets its own words for science such as wiskunde]
+          - [Huygens grinds better lenses for his telescope, He sees Saturn's ring and its moon Titan]
+          - [Snellius measures angles between church towers, He works out the size of the Earth without walking all the way]
+          - [Antwerp falls to the king's army in 1585, Scholars and printers move north to Leiden and Amsterdam]
+        explain: >-
+          Stevin had fled the south himself. The scholars who followed him in the 1580s made Leiden, a university only ten
+          years old, one of the best in Europe.
+      - type: scrub
+        prompt: Drag the slider to the years when Huygens is on the map, but Leeuwenhoek has not yet seen his little animals.
+        map: science
+        start: 1900
+        answer: [1656, 1675]
+        explain: >-
+          Huygens made his pendulum clock in The Hague in 1656; Leeuwenhoek first saw living creatures in a drop of water
+          in Delft in 1676.
+
+  - id: u25-l5
+    title: Leeuwenhoek and the small world
+    icon: microscope
+    sources:
+      - title: "Wikipedia, Antonie van Leeuwenhoek"
+        url: https://en.wikipedia.org/wiki/Antonie_van_Leeuwenhoek
+      - title: "Wikipedia, Jan Swammerdam"
+        url: https://en.wikipedia.org/wiki/Jan_Swammerdam
+      - title: "Wikipedia, Carolus Clusius"
+        url: https://en.wikipedia.org/wiki/Carolus_Clusius
+      - title: "Wikipedia, Hortus Botanicus Leiden"
+        url: https://en.wikipedia.org/wiki/Hortus_Botanicus_Leiden
+      - title: "Wikipedia, Teylers Museum"
+        url: https://en.wikipedia.org/wiki/Teylers_Museum
+      - title: "Wikipedia, Jan Ingenhousz"
+        url: https://en.wikipedia.org/wiki/Jan_Ingenhousz
+      - title: "Wikipedia, Eisinga Planetarium"
+        url: https://en.wikipedia.org/wiki/Eisinga_Planetarium
+    exercises:
+      - type: story
+        title: A draper with a lens
+        body: >-
+          Antonie van Leeuwenhoek of Delft sold cloth, and used lenses to check its threads. From the 1670s he made his
+          own microscopes: a single tiny lens between two plates of brass or silver, the specimen on a pin, held up to
+          the eye. The best magnified about 275 times. He made more than 500 lenses and at least 25 microscopes, of which
+          only nine survive. He kept his ways of making them secret all his life.
+        visual: { kind: photo, photo: leeuwenhoek-microscope }
+      - type: choice
+        prompt: Leeuwenhoek dug grubs out of turf, kept them in a box and drew what they turned into. What did watching such changes show?
+        visual: { kind: photo, photo: arcana-d }
+        answer: 3
+        options:
+          - label: That insects grow from mud and rotting matter
+            why: That was the old belief he disproved. Small creatures come from eggs laid by their parents.
+          - label: That grubs and gnats are different animals
+            why: The grub becomes a pupa, then a gnat. Small creatures come from eggs laid by their parents.
+          - label: That insects live for hundreds of years
+            why: He showed they come from eggs laid by their parents, and pass through stages.
+          - label: That even the smallest creatures come from eggs laid by parents
+            why: >-
+              Right. He showed the same for fleas, weevils and mussels, against the old belief that they arise by
+              themselves from mud, dust or rot. This plate is from a book of his letters printed in Delft in 1695.
+      - type: truemyth
+        statement: We know that Leeuwenhoek was the model for Vermeer's Geographer.
+        visual: { kind: photo, photo: geographer }
+        answer: false
+        explain: >-
+          Myth: it is a guess. Both men were born in Delft in 1632, a few days apart, and after Vermeer died in 1675
+          Leeuwenhoek was made trustee of his bankrupt estate. But no document says they were friends, or that he sat for
+          a painting.
+      - type: choice
+        prompt: In 1676 Leeuwenhoek wrote to the Royal Society in London that he had seen tiny living creatures in water with pepper in it. The Society doubted him. What did it do?
+        visual: { kind: photo, photo: leeuwenhoek }
+        answer: 2
+        options:
+          - label: It asked him to come to London and show them
+            why: He never left Holland. Robert Hooke repeated the work in London and saw them too.
+          - label: It laughed and threw the letter away
+            why: It took him seriously. Robert Hooke repeated the work in London and saw them too.
+          - label: Robert Hooke repeated the work in London, and saw them too
+            why: >-
+              Right, in 1677. Leeuwenhoek also sent signed statements from eight witnesses in Delft, among them a
+              notary and a pastor. In 1680 the Society made him a fellow, though he spoke no English or Latin.
+          - label: It sent him a better microscope
+            why: Nobody made a better one. Robert Hooke repeated the work in London and saw them too.
+      - type: choice
+        prompt: Jan Swammerdam of Amsterdam spent years dissecting insects under the microscope. He opened up this larva of a mayfly. What is remarkable about the mayfly?
+        visual: { kind: photo, photo: swammerdam-mayfly }
+        answer: 0
+        options:
+          - label: It lives for years as a larva in water, and only hours or days with wings
+            why: >-
+              Right. Swammerdam's book on the mayfly came out in 1675. His notebooks were printed only in 1737, by
+              Boerhaave, as the Bible of Nature, with drawings so fine that some are still used.
+          - label: It has no wings at all
+            why: The adult has wings, but lives only hours or days with them, after years as a larva in water.
+          - label: It only lives in May
+            why: The name is old. It lives for years as a larva in water, and only hours or days with wings.
+          - label: It can live without food for a year
+            why: The adult cannot eat at all, but lives only hours or days. The larva lives for years in water.
+      - type: choice
+        prompt: In 1593 Carolus Clusius, born in Arras, came to plant Leiden University's new garden. Which flower did he grow there that later set off a craze?
+        visual: { kind: photo, photo: hortus-leiden }
+        answer: 1
+        options:
+          - label: The rose
+            why: Roses were old in Europe. He brought tulips from Turkey by way of Vienna.
+          - label: The tulip
+            why: >-
+              Right. He had grown them in Vienna, and his bulbs were stolen from the garden, which spread them through
+              Holland. Forty years later, tulip mania. He had also translated Dodoens's herbal into French.
+          - label: The sunflower
+            why: He grew tulips, from Turkey by way of Vienna.
+          - label: The potato
+            why: He did grow and describe potatoes, but the craze was for tulips.
+      - type: sort
+        prompt: Sort these by the town they belong to.
+        groups: [Delft, Leiden, Amsterdam]
+        items:
+          - { label: Leeuwenhoek's microscope, group: 0, photo: leeuwenhoek-microscope }
+          - { label: Vermeer's Geographer, group: 0, photo: geographer }
+          - { label: The anatomy theatre, group: 1, photo: leiden-theatre }
+          - { label: The Clusius garden, group: 1, photo: hortus-leiden }
+          - { label: Swammerdam's mayfly, group: 2, photo: swammerdam-mayfly }
+          - { label: Blaeu's world map, group: 2, photo: blaeu-1648 }
+        explain: >-
+          Delft had Leeuwenhoek and Vermeer; Leiden its university, with the theatre and the garden; Amsterdam had
+          Swammerdam and the biggest printers of maps, the Blaeus.
+      - type: choice
+        prompt: Teylers in Haarlem opened its Oval Room in 1784, for science and art. Pieter Teyler, a cloth merchant, had left his fortune for it. What is special about Teylers today?
+        visual: { kind: photo, photo: teylers-oval }
+        answer: 3
+        options:
+          - label: It is the only museum on UNESCO's list
+            why: That is the Plantin-Moretus Museum in Antwerp. Teylers is the oldest museum in the Netherlands.
+          - label: It has the world's biggest telescope
+            why: It has the biggest electrostatic machine of its day, and is the oldest museum in the Netherlands.
+          - label: It was built by Napoleon
+            why: It was built with a merchant's fortune, and is the oldest museum in the Netherlands.
+          - label: It is the oldest museum in the Netherlands
+            why: >-
+              Right. Its keeper, Martinus van Marum, had the largest electrostatic machine in the world built for it,
+              the great double disc in the middle of this painting. It still stands there.
+      - type: truemyth
+        statement: Jan Ingenhousz of Breda showed that green plants give off oxygen in the light, but not in the dark.
+        visual: { kind: photo, photo: ingenhousz }
+        answer: true
+        explain: >-
+          True. In 1779 he showed that leaves under water make bubbles of oxygen in sunlight and stop in the dark: the
+          first step to understanding photosynthesis. He was also doctor to the empress Maria Theresa, whose children he
+          protected against smallpox.
+      - type: pin
+        prompt: In 1774 a wool comber in a Frisian town built the planets into the ceiling of his living room, to show people that their meeting in the sky would not end the world. It took him seven years, and it still runs. Pin the town.
+        place: franeker
+        explain: >-
+          Franeker, which also had a university from 1585 to 1811. Eise Eisinga's planetarium is the oldest working
+          planetarium in the world, and is on UNESCO's list of World Heritage.
+      - type: scrub
+        prompt: Drag the slider to the years when the north has exactly five universities.
+        map: science
+        start: 1425
+        answer: [1648, 1810]
+        explain: >-
+          From 1648, when Harderwijk opened, until Napoleon closed Franeker and Harderwijk in 1811. Neither ever opened
+          again.
+
+  - id: u25-l6
+    title: Lorentz, Lemaître and the Nobel years
+    icon: medal
+    sources:
+      - title: "Wikipedia, Hendrik Lorentz"
+        url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
+      - title: "Wikipedia, Heike Kamerlingh Onnes"
+        url: https://en.wikipedia.org/wiki/Heike_Kamerlingh_Onnes
+      - title: "Wikipedia, Solvay Conference"
+        url: https://en.wikipedia.org/wiki/Solvay_Conference
+      - title: "Wikipedia, Georges Lemaître"
+        url: https://en.wikipedia.org/wiki/Georges_Lema%C3%AEtre
+      - title: "Wikipedia, Adolphe Quetelet"
+        url: https://en.wikipedia.org/wiki/Adolphe_Quetelet
+      - title: "Wikipedia, Paul Otlet"
+        url: https://en.wikipedia.org/wiki/Paul_Otlet
+      - title: "Wikipedia, Christiaan Eijkman"
+        url: https://en.wikipedia.org/wiki/Christiaan_Eijkman
+      - title: "Wikipedia, Leo Baekeland"
+        url: https://en.wikipedia.org/wiki/Leo_Baekeland
+    exercises:
+      - type: story
+        title: The Nobel years
+        body: >-
+          When the Nobel Prizes began in 1901, the first in chemistry went to Jacobus van 't Hoff, and the second in
+          physics to Hendrik Lorentz and Pieter Zeeman. By 1913 five Dutch scientists had won prizes in physics and
+          chemistry. Lorentz, at Leiden, explained light as the work of tiny electric charges, and his equations lie
+          under Einstein's relativity. Einstein, here with him in Leiden in 1921, visited him often and admired him
+          above anyone.
+        visual: { kind: photo, photo: einstein-lorentz }
+      - type: choice
+        prompt: On 10 July 1908 the laboratory of Heike Kamerlingh Onnes in Leiden made a gas liquid for the first time, and was for a while the coldest place on Earth. Which gas?
+        visual: { kind: photo, photo: helium-liquefier }
+        answer: 0
+        options:
+          - label: Helium
+            why: >-
+              Right, at 4.2 degrees above absolute zero. In 1911, cooling mercury in it, he found that its electrical
+              resistance vanished: superconductivity. He won the Nobel Prize in 1913.
+          - label: Oxygen
+            why: Oxygen was made liquid in 1877. Leiden was first with helium, the hardest of all.
+          - label: Hydrogen
+            why: James Dewar did that in London in 1898. Leiden was first with helium, the hardest of all.
+          - label: Nitrogen
+            why: Nitrogen was made liquid in 1883. Leiden was first with helium, the hardest of all.
+      - type: truemyth
+        statement: Of the 29 scientists in this photo of the Solvay conference in Brussels in 1927, 17 were or became Nobel Prize winners.
+        visual: { kind: photo, photo: solvay-1927 }
+        answer: true
+        explain: >-
+          True. Ernest Solvay, who made a fortune from soda, paid for the conferences from 1911. In 1927 Einstein and
+          Niels Bohr argued over quantum mechanics here. Lorentz chaired it, and Marie Curie, front row, had won two Nobel
+          Prizes.
+      - type: gap
+        prompt: In 1927 Georges Lemaître, a priest and professor at Leuven, worked out that the universe is expanding. In 1931 he went further, in a letter to Nature. Fill the gap.
+        quote: "If we go back in the course of time we must find fewer and fewer quanta, until we find all the energy of the universe packed in a few or even in a unique ___."
+        source: Georges Lemaître, The beginning of the world from the point of view of quantum theory, Nature, 1931
+        visual: { kind: photo, photo: lemaitre-statue }
+        options: [quantum, star, galaxy, cloud]
+        answer: 0
+        explain: >-
+          A single quantum, which he later called the primeval atom. In 1949 the English astronomer Fred Hoyle, who did
+          not believe it, called the idea the Big Bang on the radio, and the name stuck.
+      - type: choice
+        prompt: Adolphe Quetelet of Ghent measured thousands of people to find the "average man". Which number, still used by doctors, did he invent?
+        visual: { kind: photo, photo: quetelet }
+        answer: 1
+        options:
+          - label: The IQ
+            why: The intelligence test came from France in 1905. Quetelet's number is weight divided by height squared.
+          - label: The body mass index, weight divided by height squared
+            why: >-
+              Right. He worked it out in the 1830s, as the Quetelet index; it was renamed the body mass index in 1972.
+              He also founded the observatory in Brussels.
+          - label: Blood pressure
+            why: Quetelet's number is weight divided by height squared, the body mass index.
+          - label: The birth rate
+            why: Quetelet's number is weight divided by height squared, the body mass index.
+      - type: choice
+        prompt: From 1895 Paul Otlet and Henri La Fontaine set out to list every book and article ever published, on index cards, in Brussels. How far did they get?
+        visual: { kind: photo, photo: otlet-desk }
+        answer: 2
+        options:
+          - label: About 10,000 cards
+            why: Far more. By 1934 they had about 15 million cards.
+          - label: They gave up within a year
+            why: They kept at it for decades. By 1934 they had about 15 million cards.
+          - label: About 15 million cards
+            why: >-
+              Right. People could send in a question by post and get copies of the cards back. Otlet dreamed of a network
+              of screens linking the world's knowledge, and is called a forerunner of the web. La Fontaine won the Nobel
+              Peace Prize in 1913.
+          - label: Every book in the world
+            why: Nobody could. By 1934 they had about 15 million cards.
+      - type: choice
+        prompt: All four of these Dutch professors won Nobel Prizes. Christiaan Eijkman, bottom right, won his in 1929 for work in Batavia, in the Dutch East Indies. What did he find?
+        visual: { kind: photo, photo: nobel-four }
+        answer: 3
+        options:
+          - label: The cause of malaria
+            why: That was Ronald Ross, in India. Eijkman found that beriberi came from a lack in the diet.
+          - label: A cure for smallpox
+            why: Eijkman found that beriberi came from a lack in the diet, which led to the discovery of vitamins.
+          - label: The first antibiotic
+            why: Eijkman found that beriberi came from a lack in the diet, which led to the discovery of vitamins.
+          - label: That beriberi comes from a lack in the diet
+            why: >-
+              Right. Chickens fed on polished white rice fell ill, and got better on rice with its husk. The missing
+              substance was later called vitamin B1. He shared the prize with Frederick Hopkins, an English discoverer of
+              vitamins.
+      - type: odd
+        prompt: Which of these is the odd one out?
+        items:
+          - { label: Pieter Zeeman, photo: zeeman }
+          - { label: Heike Kamerlingh Onnes, photo: kamerlingh-onnes }
+          - { label: Willem Einthoven, photo: einthoven-ecg }
+          - { label: Georges Lemaître, photo: lemaitre-statue }
+        answer: 3
+        reasons:
+          - He never won a Nobel Prize.
+          - He worked in Amsterdam.
+          - He was a doctor.
+        reason: 0
+        explain: >-
+          Lemaître, a Belgian, never won a Nobel Prize, though his idea of the expanding universe is one of the biggest
+          of the century. Zeeman won in physics in 1902, Kamerlingh Onnes in physics in 1913, and Einthoven in medicine in
+          1924, for recording the beating of the heart.
+      - type: sort
+        prompt: Sort these by the university where they studied or taught.
+        groups: [Leuven, Leiden]
+        items:
+          - { label: Erasmus, group: 0, photo: erasmus-massys }
+          - { label: Vesalius, group: 0, photo: vesalius-portrait }
+          - { label: Mercator, group: 0, photo: mercator-hogenberg }
+          - { label: Boerhaave, group: 1, photo: boerhaave }
+          - { label: Clusius, group: 1, photo: clusius }
+          - { label: Lorentz, group: 1, photo: lorentz }
+        explain: >-
+          Erasmus lived in Leuven from 1517 to 1521, Vesalius and Mercator studied there. Boerhaave, Clusius and Lorentz
+          taught at Leiden. Leuven was the university of the south, Leiden the first of the north.
+      - type: who
+        photo: baekeland
+        clues:
+          - I was born in Ghent in 1863, the son of a shoemaker, and studied chemistry at its university.
+          - I moved to New York, and invented a photo paper that could be printed by lamplight. I sold it to Kodak in 1899.
+          - In 1907 I made the first plastic that kept its shape when heated, and named it after myself.
+        options: [Leo Baekeland, Ernest Solvay, Zénobe Gramme, Adolphe Sax]
+        answer: 0
+        explain: >-
+          Leo Baekeland. Kodak paid him about 750,000 dollars for his Velox paper. His Bakelite went into telephones,
+          radios and light switches: the start of the age of plastics.
+      - type: cause
+        prompt: Link each cause to what it led to.
+        pairs:
+          - [Kamerlingh Onnes cools mercury in liquid helium, Its electrical resistance vanishes]
+          - [Zeeman puts a flame between strong magnets, The lines of its light split as Lorentz had predicted]
+          - [Lemaître reads how fast distant galaxies move away, He concludes that the universe is expanding]
+          - [Ernest Solvay grows rich from making soda, He pays for the Solvay conferences in Brussels]
+        explain: >-
+          Zeeman found his effect in 1896, and the prize of 1902 went to both. Lemaître's paper of 1927 came out in a
+          little-read Belgian journal; it became famous only when it was translated into English in 1931.

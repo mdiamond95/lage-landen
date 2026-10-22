@@ -109,6 +109,8 @@ export const places: Record<string, Place> = {
   voeren: { name: 'Voeren', lat: 50.759, lon: 5.761, note: "'s-Gravenvoeren, where Voeren's town hall is" },
   eupen: { name: 'Eupen', lat: 50.628, lon: 6.036 },
   'louvain-la-neuve': { name: 'Louvain-la-Neuve', lat: 50.669, lon: 4.615 },
+  rupelmonde: { name: 'Rupelmonde', lat: 51.127, lon: 4.288, note: 'Gerard Mercator was born here in 1512' },
+  franeker: { name: 'Franeker', lat: 53.187, lon: 5.54, note: 'Eise Eisinga built his planetarium here, 1774 to 1781' },
   bastogne: { name: 'Bastogne', lat: 50.0, lon: 5.716 },
   lessines: { name: 'Lessines', lat: 50.712, lon: 3.836 },
   leeuwarden: { name: 'Leeuwarden', lat: 53.201, lon: 5.799 },

@@ -30,7 +30,7 @@ export const formatMonth = (value: number) => `${MONTHS[value % 12]} ${Math.floo
 // A `flow` is people or goods on the move, drawn as an arrow with moving dashes.
 // A `wall` is a town wall, on the city map; a `rail` is a railway line. A `front` is
 // the front line of a war, where the trenches faced each other.
-export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow' | 'wall' | 'rail' | 'front'
+export type LineKind = 'frontier' | 'road' | 'canal' | 'dam' | 'barrier' | 'flow' | 'wall' | 'rail' | 'front' | 'survey'
 // On the world map, flows are ships: to and from Asia, across the Atlantic, or
 // carrying enslaved Africans. Without a tone a flow is people on the move (refugees).
 export type FlowTone = 'asia' | 'atlantic' | 'enslaved'
@@ -56,7 +56,9 @@ export type HistSite = Dated & {
   // `saint`'s day, a `carnival`, a `procession` with its giants, a feast of a king or a `nation`, a
   // day of `memory` (remembrance and freedom), or a `folk` custom. On the sport map (Unit 23) a mark is
   // a cycling `race`, a `ball` game (football and korfball), the `ice` or the Olympic `games`. On the pop
-  // map (Unit 24) a mark is a comic `strip`, `music` or `film` (cinema and television), or a `museum`.
+  // map (Unit 24) a mark is a comic `strip`, `music` or `film` (cinema and television), or a `museum`. On the
+  // science map (Unit 25) a mark is a `university`, a `press` (a printer or an atlas), a `scholar`'s work, a
+  // `lab` (a laboratory or an observatory), a `garden` of plants or a Nobel `prize`.
   kind:
     | 'fort'
     | 'town'
@@ -101,6 +103,12 @@ export type HistSite = Dated & {
     | 'strip'
     | 'music'
     | 'film'
+    | 'university'
+    | 'press'
+    | 'scholar'
+    | 'lab'
+    | 'garden'
+    | 'prize'
   at: [number, number]
   label?: 'left' | 'right'
   end?: number
