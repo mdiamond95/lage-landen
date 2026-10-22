@@ -485,9 +485,9 @@ button:focus-visible, [role='button']:focus-visible { outline: 3px solid var(--o
 .cause-heads span:last-child::before { content: '→ '; }
 
 /* Daily review and the time map */
-.review, .timemap-teaser, .phrasebook-teaser, .drill-teaser { display: grid; gap: 12px; }
-.review h2, .timemap-teaser h2, .phrasebook-teaser h2, .drill-teaser h2 { margin: 0 0 4px; }
-.review p, .timemap-teaser p, .phrasebook-teaser p, .drill-teaser p { margin: 0; color: var(--ink-soft); }
+.review, .timemap-teaser, .phrasebook-teaser, .drill-teaser, .museum-teaser { display: grid; gap: 12px; }
+.review h2, .timemap-teaser h2, .phrasebook-teaser h2, .drill-teaser h2, .museum-teaser h2 { margin: 0 0 4px; }
+.review p, .timemap-teaser p, .phrasebook-teaser p, .drill-teaser p, .museum-teaser p { margin: 0; color: var(--ink-soft); }
 .review .btn-primary:disabled { opacity: 0.55; cursor: default; box-shadow: none; }
 .time-travel { max-width: 640px; margin: 0 auto; padding-bottom: 32px; }
 .time-travel-title { margin: 0; font-size: 1.25rem; }
@@ -1219,3 +1219,43 @@ button.comic-panel { cursor: pointer; }
 .gate-note > .icon { width: 32px; height: 32px; flex: none; color: var(--ink-soft); }
 .gate-note.is-open > .icon { color: var(--green); }
 .gate-note p { margin: 0; }
+
+/* The museum wall: a room for each unit, cards in a grid of frames. A collected card is
+   its photo with a title and a line; those not yet collected are small empty frames under
+   the room. The open card fills the screen over the wall. */
+.museum { max-width: 760px; margin: 0 auto; padding-bottom: 32px; }
+.museum-count { font-weight: 700; font-size: 0.8em; opacity: 0.75; font-variant-numeric: tabular-nums; }
+.museum-room { margin: 18px 16px 0; }
+.museum-room h2 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: 1.05rem; margin: 0 0 10px; }
+.museum-room h2 .eyebrow { margin: 0; }
+.museum-room h2 .museum-count { margin-left: auto; color: var(--ink-soft); }
+.museum-wall { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+.museum-card { display: flex; flex-direction: column; width: 100%; height: 100%; text-align: left; font: inherit; color: inherit; background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 6px 6px 10px; cursor: pointer; box-shadow: 0 3px 0 var(--line); }
+.museum-card:hover, .museum-card:focus-visible { border-color: var(--delft); }
+.museum-card.kind-art { border-top: 5px solid #b5892b; }
+.museum-card.kind-person { border-top: 5px solid var(--delft); }
+.museum-card.kind-building { border-top: 5px solid #8a5a44; }
+.museum-card.kind-food { border-top: 5px solid var(--orange); }
+.museum-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; background: var(--land); }
+.museum-title { font-weight: 800; font-size: 0.88rem; line-height: 1.2; margin: 8px 2px 2px; }
+.museum-line { font-size: 0.75rem; color: var(--ink-soft); margin: 0 2px; line-height: 1.25; }
+.museum-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 10px 0 0; font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); }
+.museum-dots { display: flex; flex-wrap: wrap; gap: 4px; }
+.museum-dot { width: 16px; height: 12px; border: 2px dashed #c3c9d3; border-radius: 3px; }
+.museum-dot.kind-art { border-top: 3px solid #b5892b; }
+.museum-dot.kind-person { border-top: 3px solid var(--delft); }
+.museum-dot.kind-building { border-top: 3px solid #8a5a44; }
+.museum-dot.kind-food { border-top: 3px solid var(--orange); }
+.museum-detail { position: fixed; inset: 0; z-index: 30; background: rgba(20, 26, 38, 0.6); display: grid; place-items: start center; overflow-y: auto; padding: 24px 0; }
+.museum-detail-card { position: relative; width: min(640px, calc(100% - 32px)); margin: 0; }
+.museum-detail-card h2 { margin: 0 40px 4px 0; }
+.museum-detail-card .eyebrow { margin: 0 0 2px; }
+.museum-detail-card > .muted { margin: 0 0 10px; }
+.museum-close { position: absolute; top: 10px; right: 10px; }
+.museum-from { margin: 10px 0 0; font-weight: 700; font-size: 0.85rem; color: var(--ink-soft); }
+.hung-note { text-align: left; background: var(--card); border: 2px solid #e2c27a; border-radius: 14px; padding: 12px 14px; display: grid; gap: 10px; }
+.hung-note h2 { margin: 0; font-size: 1.05rem; }
+.hung-note p { margin: 0; }
+.hung-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
+.hung-list li { display: grid; gap: 4px; font-size: 0.75rem; font-weight: 700; line-height: 1.2; }
+.hung-photo { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; background: var(--land); }

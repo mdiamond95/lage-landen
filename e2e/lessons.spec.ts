@@ -2600,3 +2600,37 @@ test('a unit the placement test opened counts as mastered, so the next unit open
   await expect(page.getByRole('button', { name: "Thorbecke's constitution, locked", exact: true })).toBeDisabled()
   await expect(page.getByRole('button', { name: 'The first trains on the continent, locked', exact: true })).toBeDisabled()
 })
+
+test('a finished lesson hangs its cards in the museum, room by room', async ({ page }) => {
+  await unlock(page, ['u1-l1', 'u1-l2'])
+  await expect(page.locator('.museum-teaser p')).toContainText(/^0 of \d+ cards collected/)
+  await page.getByRole('button', { name: 'Open the museum' }).click()
+  await expect(page.locator('.museum-room').first()).toHaveAttribute('aria-label', 'Unit 1, Land and water')
+  await expect(page.locator('button.museum-card')).toHaveCount(0)
+  await expect(page.locator('.museum-room').first().locator('.museum-left')).toHaveText(/^\d+ still to collect$/)
+  await page.getByRole('button', { name: 'Back to the course' }).click()
+
+  await playLesson(page, 'Below sea level')
+  const hung = page.locator('.hung-note')
+  await expect(hung.locator('h2')).toHaveText(/^\d+ new cards? in your museum$/)
+  await expect(hung.locator('.hung-list li').first()).toContainText('The mills of Kinderdijk')
+  await hung.getByRole('button', { name: 'See your museum' }).click()
+
+  const room = page.locator('.museum-room').first()
+  await expect(room.locator('button.museum-card').first()).toContainText('The mills of Kinderdijk')
+  await page.getByRole('tab', { name: /^People/ }).click()
+  await expect(page.locator('.museum-room').first().locator('button.museum-card')).toHaveCount(0)
+  await page.getByRole('tab', { name: /^Buildings/ }).click()
+  await page.locator('button.museum-card', { hasText: 'The mills of Kinderdijk' }).click()
+  const detail = page.getByRole('dialog', { name: 'The mills of Kinderdijk' })
+  await expect(detail.locator('.museum-from')).toHaveText('Collected in Unit 1, Below sea level')
+  await expect(detail.locator('figcaption')).toContainText('Credit')
+  await page.keyboard.press('Escape')
+  await expect(detail).toHaveCount(0)
+
+  // Playing the lesson again hangs nothing new.
+  await page.getByRole('button', { name: 'Back to the course' }).click()
+  await playLesson(page, 'Below sea level, completed, level 1')
+  await expect(page.locator('.results h1')).toBeVisible()
+  await expect(page.locator('.hung-note')).toHaveCount(0)
+})

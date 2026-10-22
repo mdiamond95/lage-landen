@@ -520,6 +520,13 @@ lessons:
           Courage. English soldiers and sailors joked that the Dutch fought on drink, and "Dutch courage" still means
           boldness from a bottle. English soldiers brought jenever home from the Low Countries, and it became English
           gin.
+      - type: taste
+        prompt: The tallest windmills in the world ground malt for this town's jenever distilleries. Tap the town.
+        photo: schiedam-mill
+        answer: schiedam
+        explain: >-
+          Schiedam, on the Nieuwe Maas just west of Rotterdam. At its height in the 1800s it had nearly 400 distilleries,
+          and its mills, up to 33 m tall, were built high to catch the wind above the warehouses.
       - type: scrub
         prompt: Drag the slider to the years when Trappist monks are brewing at Westmalle and Westvleteren, but not yet at Chimay.
         map: food

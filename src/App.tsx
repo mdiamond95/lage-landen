@@ -15,6 +15,9 @@ import { TimeTravel } from './screens/TimeTravel'
 import { MapDrill } from './screens/MapDrill'
 import { Phrasebook } from './screens/Phrasebook'
 import { Placement } from './screens/Placement'
+import { Museum } from './screens/Museum'
+import { wall } from './content/wall'
+import { newCards, type Hung } from './progress/collection'
 import { photosUsed } from './photos/used'
 import { soundsUsed } from './sounds/used'
 
@@ -67,8 +70,9 @@ type Screen =
   | { name: 'phrasebook' }
   | { name: 'drill' }
   | { name: 'placement' }
+  | { name: 'museum' }
   | { name: 'lesson'; playing: Playing }
-  | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number; crown?: CrownNote; gate?: GateNote }
+  | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number; crown?: CrownNote; gate?: GateNote; hung?: Hung[] }
 
 // Today's review: up to ten due questions from the lessons finished so far.
 const buildReview = (): Playing => {
@@ -156,6 +160,8 @@ export default function App() {
           const right = outcome.answers.filter(([, ok]) => ok).length
           const { level, legendary, checkpoint } = playing
           const score = checkpoint ? right / Math.max(1, outcome.answers.length) : undefined
+          // Cards a lesson finished for the first time hangs on the museum wall.
+          const hung = level ? newCards(getProgress(), wall, playing.id) : undefined
           const gate = checkpoint
             ? gateNote(checkpoint, right, outcome.answers.length, unitMastered(getProgress(), units.find((u) => u.id === checkpoint)!))
             : undefined
@@ -177,7 +183,7 @@ export default function App() {
               return card ? [[card.id, correct] as [string, boolean]] : []
             }),
           })
-          setScreen({ name: 'results', playing, outcome, xp, crown, gate })
+          setScreen({ name: 'results', playing, outcome, xp, crown, gate, hung })
         }}
       />
     )
@@ -186,8 +192,9 @@ export default function App() {
   if (screen.name === 'phrasebook') return <Phrasebook onBack={home} />
   if (screen.name === 'drill') return <MapDrill onBack={home} />
   if (screen.name === 'placement') return <Placement units={units} onBack={home} />
+  if (screen.name === 'museum') return <Museum onBack={home} />
   if (screen.name === 'results') {
-    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} crown={screen.crown} gate={screen.gate} onDone={home} />
+    return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} crown={screen.crown} gate={screen.gate} hung={screen.hung} onMuseum={() => setScreen({ name: 'museum' })} onDone={home} />
   }
   return (
     <Home
@@ -211,6 +218,10 @@ export default function App() {
       }}
       onPlacement={() => {
         setScreen({ name: 'placement' })
+        window.scrollTo(0, 0)
+      }}
+      onMuseum={() => {
+        setScreen({ name: 'museum' })
         window.scrollTo(0, 0)
       }}
     />

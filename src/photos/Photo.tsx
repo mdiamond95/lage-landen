@@ -16,9 +16,9 @@ export function Credit({ id }: { id: PhotoId }) {
   )
 }
 
-export function Photo({ id, className }: { id: PhotoId; className?: string }) {
+export function Photo({ id, className, lazy = false }: { id: PhotoId; className?: string; lazy?: boolean }) {
   const p = photo(id)
-  return <img src={p.src} alt={p.alt} className={className ?? 'photo'} />
+  return <img src={p.src} alt={p.alt} className={className ?? 'photo'} loading={lazy ? 'lazy' : undefined} />
 }
 
 // A large photo with its caption and credit underneath. Paintings full of detail can
