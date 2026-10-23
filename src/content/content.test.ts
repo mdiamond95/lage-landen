@@ -52,6 +52,8 @@ import { soundCredits } from '../sounds/credits'
 import { facades } from '../data/facades'
 import { pairs } from '../data/pairs'
 import { thenNows } from '../data/thenNow'
+import { walks } from '../data/walks'
+import { collection } from '../data/collection'
 import { charts } from '../data/charts'
 import { tours } from '../data/paintings'
 import { series } from '../data/series'
@@ -253,6 +255,33 @@ describe('then and now', () => {
       expect(pair.then.photo, id).not.toBe(pair.now.photo)
       expect(pair.now.when, id).toBe('Today')
       expect(shown, id).toContain(id)
+    }
+  })
+})
+
+describe('museum walks', () => {
+  const lessons = files.map((file) => Unit.parse(parse(readFileSync(join(dir, file), 'utf8')))).flatMap((u) => u.lessons)
+  const cards = new Set(collection.map((c) => c.photo))
+  it('hangs six to eight artworks with their museum cards, each walk in one lesson that lists its sources', () => {
+    for (const [id, walk] of Object.entries(walks)) {
+      expect(walk.stops.length, id).toBeGreaterThanOrEqual(6)
+      expect(walk.stops.length, id).toBeLessThanOrEqual(8)
+      expect(new Set(walk.stops.map((s) => s.photo)).size, `${id} hangs a painting twice`).toBe(walk.stops.length)
+      for (const stop of walk.stops) {
+        expect(photoIds, `${id} ${stop.photo}`).toContain(stop.photo)
+        expect(cards.has(stop.photo), `${id} ${stop.photo} has a card in collection.ts`).toBe(true)
+        expect(stop.text.length, `${id} ${stop.photo} text`).toBeLessThanOrEqual(220)
+      }
+      expect(walk.intro.length, `${id} intro`).toBeLessThanOrEqual(260)
+      const shownIn = lessons.filter((l) => l.exercises.some((e) => 'visual' in e && e.visual?.kind === 'walk' && e.visual.walk === id))
+      expect(shownIn.map((l) => l.id), `${id} is walked in exactly one lesson`).toHaveLength(1)
+      const urls = new Set(shownIn[0].sources.map((s) => s.url))
+      for (const src of walk.sources) expect(urls, `${shownIn[0].id} lists ${src.url}`).toContain(src.url)
+      // A question on the walk follows it in the lesson.
+      const ex = shownIn[0].exercises
+      const at = ex.findIndex((e) => 'visual' in e && e.visual?.kind === 'walk')
+      expect(ex[at].type, id).toBe('story')
+      expect(at, `${id} has a question after it`).toBeLessThan(ex.length - 1)
     }
   })
 })

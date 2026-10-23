@@ -964,6 +964,24 @@ lessons:
         url: https://en.wikipedia.org/wiki/Caf%C3%A9_Terrace_at_Night
       - title: "Wikipedia, George Hendrik Breitner"
         url: https://en.wikipedia.org/wiki/George_Hendrik_Breitner
+      - title: "Wikipedia, Royal Museum of Fine Arts Antwerp"
+        url: https://en.wikipedia.org/wiki/Royal_Museum_of_Fine_Arts_Antwerp
+      - title: "KMSKA, about the museum"
+        url: https://kmska.be/en/about-kmska
+      - title: "Wikipedia, Saint Barbara (van Eyck)"
+        url: https://en.wikipedia.org/wiki/Saint_Barbara_(van_Eyck)
+      - title: "Wikipedia, Melun Diptych"
+        url: https://en.wikipedia.org/wiki/Melun_Diptych
+      - title: "KMSKA, God the Father with singing and music-making angels"
+        url: https://kmska.be/en/masterpiece/god-father-singing-and-music-making-angels
+      - title: "Wikipedia, Adoration of the Magi (Rubens, Antwerp)"
+        url: https://en.wikipedia.org/wiki/Adoration_of_the_Magi_(Rubens,_Antwerp)
+      - title: "Wikipedia, The Oyster Eater (Ensor)"
+        url: https://en.wikipedia.org/wiki/The_Oyster_Eater_(Ensor)
+      - title: "Wikipedia, The Intrigue (painting)"
+        url: https://en.wikipedia.org/wiki/The_Intrigue_(painting)
+      - title: "Wikipedia, Rik Wouters"
+        url: https://en.wikipedia.org/wiki/Rik_Wouters
     exercises:
       - type: story
         title: A collector and her painter
@@ -1112,3 +1130,27 @@ lessons:
             why: The marks are in the Netherlands.
           - label: None yet
             why: Look at the museum marks on the map of 1973.
+      - type: story
+        title: A walk through the KMSKA
+        body: >-
+          Not every great museum began with one collector. The collection of Antwerp's Royal Museum of Fine Arts,
+          the KMSKA, founded in 1810, began with the paintings of the city's old painters' guild, and grew with
+          gifts and purchases for two centuries. Walk through it, from Van Eyck to Rik Wouters, and zoom in.
+        visual: { kind: walk, walk: kmska }
+      - type: choice
+        prompt: >-
+          Memling's three panels of angels around God the Father, almost seven metres wide, were made for the high
+          altar of a Benedictine abbey far from Flanders. In which country?
+        visual: { kind: photo, photo: memling-angels }
+        answer: 0
+        options:
+          - label: Spain
+            why: >-
+              Right. They were set up over the high altar of the abbey church of Santa María la Real at Nájera, in
+              northern Spain, in 1494, the year Memling died in Bruges.
+          - label: Italy
+            why: Italian bankers bought Flemish paintings too, but these went further west.
+          - label: England
+            why: Not England. These angels went south.
+          - label: Poland
+            why: That was Memling's Last Judgement, captured at sea and taken to Gdańsk. These went south.

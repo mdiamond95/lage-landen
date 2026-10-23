@@ -303,6 +303,16 @@ lessons:
         url: https://en.wikipedia.org/wiki/Madonna_with_Canon_van_der_Paele
       - title: "Wikipedia, Cologne Cathedral"
         url: https://en.wikipedia.org/wiki/Cologne_Cathedral
+      - title: "Wikipedia, Groeningemuseum"
+        url: https://en.wikipedia.org/wiki/Groeningemuseum
+      - title: "Wikipedia, Portrait of Margaret van Eyck"
+        url: https://en.wikipedia.org/wiki/Portrait_of_Margaret_van_Eyck
+      - title: "Wikipedia, Death of the Virgin (van der Goes)"
+        url: https://en.wikipedia.org/wiki/Death_of_the_Virgin_(van_der_Goes)
+      - title: "Wikipedia, Moreel Triptych"
+        url: https://en.wikipedia.org/wiki/Moreel_Triptych
+      - title: "Wikipedia, The Last Judgment (Bosch, Bruges)"
+        url: https://en.wikipedia.org/wiki/The_Last_Judgment_(Bosch,_Bruges)
     exercises:
       - type: story
         title: A town of merchants
@@ -401,6 +411,30 @@ lessons:
             why: The sword and armour belong to Saint George, standing behind him.
           - label: A model of a church
             why: Donors sometimes hold one, but not this one.
+      - type: story
+        title: A walk through the Groeninge
+        body: >-
+          Many of the paintings made for Bruges never left. Today they hang in the Groeninge Museum, the city's own
+          museum of fine arts, on the site of an old abbey beside the canals. Walk through its first rooms, one
+          painting at a time, and zoom in.
+        visual: { kind: walk, walk: groeninge }
+      - type: choice
+        prompt: >-
+          Willem Moreel, a merchant, banker and burgomaster of Bruges, had Memling paint him with his wife and sixteen
+          of their eighteen children in 1484. Where did the couple mean this triptych to hang?
+        visual: { kind: photo, photo: moreel-triptych }
+        answer: 0
+        options:
+          - label: Over the altar of their chapel in St James's Church in Bruges, as their memorial
+            why: >-
+              Right. It was the couple's epitaph, set on the altar of a chapel in St James's Church that they had
+              helped pay to extend, so that the family would kneel in prayer there for ever.
+          - label: In the town hall, beside the Judgement of Cambyses
+            why: The town hall ordered Cambyses. The Moreels' triptych is a family's prayer.
+          - label: In their dining room, to show their guests
+            why: The saints and the kneeling family tell you it was made for a church.
+          - label: In a church in Florence, for the Medici bank
+            why: That was Tommaso Portinari's altarpiece by Hugo van der Goes. The Moreels stayed in Bruges.
 
   - id: u16-l4
     title: Bosch's dreams and nightmares

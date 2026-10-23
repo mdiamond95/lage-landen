@@ -4,6 +4,7 @@ import { foodIds, foods } from '../data/foods'
 import { feastIds, feasts } from '../data/feasts'
 import { pairs } from '../data/pairs'
 import { thenNows } from '../data/thenNow'
+import { walks } from '../data/walks'
 import { landmarkOf } from '../data/cities'
 import { provinces, provincesOf } from '../data/provinces'
 import { tours } from '../data/paintings'
@@ -17,6 +18,7 @@ export const photosUsed = (exercises: Exercise[]): PhotoId[] => {
     ...('visual' in e && e.visual?.kind === 'painting' ? [tours[e.visual.painting].photo] : []),
     ...('visual' in e && e.visual?.kind === 'pair' ? [pairs[e.visual.pair].left.photo, pairs[e.visual.pair].right.photo] : []),
     ...('visual' in e && e.visual?.kind === 'then-now' ? [thenNows[e.visual.pair].then.photo, thenNows[e.visual.pair].now.photo] : []),
+    ...('visual' in e && e.visual?.kind === 'walk' ? walks[e.visual.walk].stops.map((s) => s.photo) : []),
     ...(e.type === 'choice' ? e.options.flatMap((o) => (o.photo ? [o.photo] : [])) : []),
     ...(e.type === 'who' || e.type === 'hunt' ? [e.photo] : []),
     ...(e.type === 'odd' ? e.items.flatMap((i) => (i.photo ? [i.photo] : [])) : []),

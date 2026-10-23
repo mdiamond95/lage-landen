@@ -1364,3 +1364,28 @@ button.comic-panel { cursor: pointer; }
 .city-sources summary { cursor: pointer; font-weight: 700; color: var(--ink-soft); }
 .city-sources ul { margin: 6px 0 0; padding-left: 18px; font-size: 0.85rem; }
 .exercise-landmark .city-explorer-map { margin-top: 4px; }
+
+/* Museum walks: a row of small frames, the painting on a gallery wall, and its wall label. */
+.walk { display: grid; gap: 8px; margin: 0; }
+.walk-museum { margin: 0; font-size: 0.95rem; }
+.walk-intro { margin: 0; font-size: 0.92rem; line-height: 1.45; color: var(--ink-soft); }
+.walk-wall { display: flex; gap: 6px; margin: 0; padding: 4px 2px 6px; list-style: none; overflow-x: auto; scrollbar-width: thin; }
+.walk-thumb { display: block; padding: 3px; border: 2px solid #b89a5e; border-radius: 3px; background: #f4ecd8; cursor: pointer; box-shadow: 0 2px 3px rgb(0 0 0 / 0.18); }
+.walk-thumb.is-on { border-color: var(--orange); outline: 2px solid var(--orange); outline-offset: 1px; }
+.walk-thumb-img { display: block; height: 44px; width: auto; max-width: 84px; object-fit: cover; }
+.walk-hang .zoom-frame { background: #e9e3d6; }
+.walk-hang .zoom-inner img { width: auto; max-width: 100%; max-height: min(56vh, 440px); margin: 0 auto; box-shadow: 0 4px 12px rgb(0 0 0 / 0.25); }
+.walk-label { display: grid; gap: 4px; border: 2px solid var(--line); border-radius: 12px; background: var(--card); padding: 10px 12px; }
+.walk-count { margin: 0; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); }
+.walk-title { margin: 0; font-weight: 900; font-size: 1.05rem; }
+.walk-line { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+.walk-text { margin: 4px 0 0; font-size: 0.92rem; line-height: 1.45; }
+.walk-nav { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+.walk-next:not(:disabled) { background: var(--ink); color: #fff; border-color: var(--ink); }
+.walk figcaption { font-size: 0.8rem; color: var(--ink-soft); }
+.museum-walks { margin: 14px 16px 16px; }
+.museum-walks h2 { font-size: 1.05rem; margin: 0 0 8px; }
+.museum-walks ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.museum-walk { display: grid; gap: 2px; width: 100%; text-align: left; font: inherit; color: inherit; background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 10px 12px; cursor: pointer; box-shadow: 0 3px 0 var(--line); }
+.museum-walk:disabled { cursor: default; opacity: 0.6; box-shadow: none; }
+.museum-walk-name { font-weight: 900; }

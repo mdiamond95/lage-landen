@@ -988,6 +988,14 @@ import servaasbrug from './servaasbrug.jpg'
 import stGudula from './st-gudula.jpg'
 import stServatius from './st-servatius.jpg'
 import delftOudeKerk from './delft-oude-kerk.jpg'
+import moreelTriptych from './moreel-triptych.jpg'
+import goesDeathVirgin from './goes-death-virgin.jpg'
+import boschJudgmentBruges from './bosch-judgment-bruges.jpg'
+import vanEyckBarbara from './van-eyck-barbara.jpg'
+import fouquetMadonna from './fouquet-madonna.jpg'
+import memlingAngels from './memling-angels.jpg'
+import rubensMagi from './rubens-magi.jpg'
+import ensorIntrigue from './ensor-intrigue.jpg'
 
 export type { PhotoId } from './ids'
 
@@ -1981,6 +1989,14 @@ const files: Record<PhotoId, string> = {
   'st-gudula': stGudula,
   'st-servatius': stServatius,
   'delft-oude-kerk': delftOudeKerk,
+  'moreel-triptych': moreelTriptych,
+  'goes-death-virgin': goesDeathVirgin,
+  'bosch-judgment-bruges': boschJudgmentBruges,
+  'van-eyck-barbara': vanEyckBarbara,
+  'fouquet-madonna': fouquetMadonna,
+  'memling-angels': memlingAngels,
+  'rubens-magi': rubensMagi,
+  'ensor-intrigue': ensorIntrigue,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })
