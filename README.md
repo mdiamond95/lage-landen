@@ -2,7 +2,7 @@
 
 A Duolingo-style web app for learning the history and culture of the Netherlands and Belgium, built around maps, pictures and timelines.
 
-Phase 1 from the project plan (Units 1 to 5) is built, Phase 2 (Units 6 to 9) is built, and the Netherlands track is built with Units 10 to 12. Playable now:
+**Version 1 is complete** (October 2026): all 26 units of the project plan are built, in four tracks (shared history to 1830, the Netherlands and Belgium from 1830, and culture), with the plan's features around them. What is deliberately left for later is listed under [After Version 1](#after-version-1). The units:
 
 - Unit 1, Land and water: five lessons and a checkpoint, with a dike slider and an animated map of the Zuiderzee and Delta Works.
 - Unit 2, Celts, Romans and Franks (57 BCE to 900): six lessons and a checkpoint, opening with an animated map of the Roman frontier and roads.
@@ -36,7 +36,7 @@ Around the units:
 - Unit 0, a placement test for learners who know some of this already: pick a track, then answer five questions a unit, one from each of five lessons, in course order. Four right (the plan's 80% bar) opens the whole unit, every lesson and the checkpoint; after a miss the learner can stop or try the next unit anyway. Misses are not asked again, and the answers go into the daily review.
 - A mastery gate: a unit opens once the checkpoint of the unit before it is passed with 8 of 10 right first time. History runs as one trunk to Unit 9 and then forks into the Dutch (10 to 12) and Belgian (13 to 15) tracks, both opened by Unit 9; culture (16 to 26) is a track of its own, open from the start. A unit the placement test opened counts as mastered, so the one after it opens too, and a unit already started stays open, as does any checkpoint finished before the gate.
 - Crowns: every lesson has five levels. Finishing it is level 1; playing it again goes up a level with 80% right first time: level 2 is the lesson once more, stories and all, level 3 its questions alone in a new order, and level 4 the same with no second chance at a miss. Level 5 is the unit's Legendary challenge, opened once every lesson is at level 4: 15 questions from across the unit against a clock (25 to 60 seconds a question and at least seven minutes in all, running only while a question is open), passed with 12 right in time, which turns every crown in the unit gold. Lessons with a content note are never put on the clock, so Unit 7, most of whose lessons are about slavery and conquest, has no Legendary challenge.
-- A museum of 495 cards: the artworks, people, buildings and food the lessons show, each hung on the learner's wall when a lesson that shows it is finished, in one room per unit, with filters by kind and a full view with the photo's caption and credit. A face asked about in a Who am I? waits for that lesson, so the wall never names it first. People cards leave out the perpetrators the course covers, and buildings leave out memorials, cemeteries and sites of persecution.
+- A museum of 507 cards: the artworks, people, buildings and food the lessons show, each hung on the learner's wall when a lesson that shows it is finished, in one room per unit, with filters by kind and a full view with the photo's caption and credit. A face asked about in a Who am I? waits for that lesson, so the wall never names it first. People cards leave out the perpetrators the course covers, and buildings leave out memorials, cemeteries and sites of persecution.
 - Daily quests: three small goals a day, one warm-up (earn 30 XP, finish a lesson, find 5 places on the map), one steady (15 answers right first time, a lesson with no mistakes, 3 new museum cards, 10 questions in the review) and one stretch (60 XP, 2 lessons, a crown raised), each worth 10 XP once met. The day picks them, so everyone has the same ones, and only from what the learner can do: no review quest without 10 questions due, no crown before a lesson is finished.
 - A daily review: every question in a finished lesson comes back on a spaced schedule, missed ones sooner, ten at a time.
 - A time map of 47 snapshots, from Caesar's conquest in 57 BCE to the provinces and seats of power of today, built from the unit maps.
@@ -52,7 +52,17 @@ Around the units:
 - The app's own words in English, Dutch or French, picked in the top bar and kept on the device: buttons, hints, feedback, maps' controls and every screen. The lessons themselves (stories, questions, captions) stay in English.
 - Works offline once loaded, and installs on a phone's home screen.
 
-The live site for testers is published to GitHub Pages from `main` by `.github/workflows/pages.yml`, at https://mdiamond95.github.io/lage-landen/ once Pages is switched on (Settings > Pages > Source: GitHub Actions).
+## After Version 1
+
+These are deliberately left for later:
+
+- More lessons per unit: the plan aims at about twelve, and units have six or seven now.
+- Outside reviewers: a historian and native speakers to check the facts, the Dutch and French interface, and the sensitive lessons.
+- Translated lessons: the interface is in English, Dutch and French, but the lessons, captions and stories are in English only.
+- App-store versions: the web app installs on a phone's home screen, but there is no app in the App Store or Google Play.
+- Accounts, leagues and sync: progress stays on the device (with save to a file), and there are no leagues or friends.
+
+The live site for testers is published to GitHub Pages from `main` by `.github/workflows/pages.yml`, at https://mdiamond95.github.io/lage-landen/ once Pages is switched on (Settings > Pages > Source: GitHub Actions). Pushing a version tag (`v1.0.0`) publishes a GitHub release with the notes in `docs/releases/<tag>.md`, by `.github/workflows/release.yml`.
 
 ## Run it
 
