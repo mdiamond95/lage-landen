@@ -46,6 +46,6 @@ group('progress files', () => {
     for (const p of damaged) expect(readBackup(text(makeBackup(p as Progress, {}, now)))).toEqual({ ok: false, error: 'That progress file is damaged, so nothing was changed.' })
   })
   it('sums up a progress in a line', () => {
-    expect(describe(progress)).toBe('120 XP, 2 lessons and checkpoints finished, 1 question in the review')
+    expect(describe(progress)).toBe('120 XP, 2 steps on the path finished, 1 question in the review')
   })
 })

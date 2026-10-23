@@ -5,6 +5,7 @@ import { treeIds } from '../data/families'
 import { pairIds } from '../data/pairs'
 import { thenNowIds } from '../data/thenNow'
 import { walkIds } from '../data/walks'
+import { mapStories } from '../data/mapStories'
 import { seriesIds } from '../data/series'
 import { tourIds } from '../data/paintings'
 import { cellIds, rowIds } from '../data/pillars'
@@ -170,6 +171,9 @@ const WheelVisual = z.object({ kind: z.literal('wheel'), focus: z.enum(feastIds)
 
 // A route map of a classic race (Unit 23): the Tour of Flanders of 2025 over its climbs,
 // Liège–Bastogne–Liège or the Elfstedentocht, stepped along with a slider. `at` opens it at a step.
+// A unit's narrated map story (src/data/mapStories.ts), played step by step.
+const MapStoryVisual = z.object({ kind: z.literal('map-story'), unit: z.enum(Object.keys(mapStories) as [string, ...string[]]) })
+
 const RouteVisual = z.object({ kind: z.literal('route'), route: z.enum(routeIds), at: z.number().int().nonnegative().optional() })
 
 // A comic panel (Unit 24): a photo, or a box cut from one, with a speech balloon or a caption box
@@ -205,7 +209,7 @@ const ProvincesVisual = z.object({ kind: z.literal('provinces'), country: z.enum
 // parties of the government picked out on demand. `hideCabinet` keeps that back for a question.
 const SeatsVisual = z.object({ kind: z.literal('seats'), chamber: z.enum(chamberIds), hideCabinet: z.boolean().default(false) })
 
-export const Visual = z.discriminatedUnion('kind', [ProvincesVisual, SeatsVisual, ProjectionVisual, StripVisual, MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, ThenNowVisual, WalkVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual])
+export const Visual = z.discriminatedUnion('kind', [ProvincesVisual, SeatsVisual, ProjectionVisual, StripVisual, MapVisual, ArtVisual, PhotoVisual, PolderVisual, BarrierVisual, TimeMapVisual, TreeVisual, ChartVisual, CompareVisual, PillarsVisual, FederalVisual, PaintingVisual, PairVisual, ThenNowVisual, WalkVisual, SeriesVisual, FacadeVisual, SoundVisual, DialectsVisual, PhrasesVisual, FoodsVisual, WheelVisual, RouteVisual, MapStoryVisual])
 export type Visual = z.infer<typeof Visual>
 
 const Story = z.object({

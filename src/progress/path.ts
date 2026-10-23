@@ -12,6 +12,7 @@ export const lessonOpen = (p: Seen, unit: Unit, index: number) =>
   index === 0 || p.placed.includes(unit.id) || !!p.completed[unit.lessons[index - 1].id]
 
 // The checkpoint opens once every lesson is finished, or straight away for a placed unit.
+// The unit's map story, just before it, opens at the same time but never holds it shut.
 export const checkpointOpen = (p: Seen, unit: Unit) =>
   p.placed.includes(unit.id) || unit.lessons.every((l) => p.completed[l.id])
 

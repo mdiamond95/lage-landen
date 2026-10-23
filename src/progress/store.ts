@@ -8,7 +8,7 @@ export type Progress = {
   streak: number
   lastDay: string | null
   freezeWeek: string | null
-  // Finished lessons and checkpoints; a lesson's `level` (1 to 4) is its crown level,
+  // Finished lessons, map stories and checkpoints; a lesson's `level` (1 to 4) is its crown level,
   // 1 when left out (progress saved before crowns), and a checkpoint's `score` its best
   // share of first tries right (left out for checkpoints finished before the gate).
   completed: Record<string, { bestXp: number; perfect: boolean; level?: number; score?: number }>
@@ -79,7 +79,7 @@ export const ensureQuests = (can: Can, now = new Date()) => {
   if (state.quests?.day !== today) save({ ...state, quests: startDay(today, can) })
 }
 
-// One finished lesson, checkpoint, review, placement block or Legendary challenge.
+// One finished lesson, map story, checkpoint, review, placement block or Legendary challenge.
 // `lessonId` is left out for the last three, which count for the streak and XP but
 // aren't steps on the path; `level` is the crown level a lesson reached, `score` a
 // checkpoint's share of first tries right, `placed` the
@@ -87,7 +87,7 @@ export const ensureQuests = (can: Can, now = new Date()) => {
 // Each question answered (first tries only) moves its review card. `kind`, `hung` (new
 // museum cards) and `crowned` (a lesson went up a crown) count towards the daily quests.
 export type Session = {
-  kind?: 'lesson' | 'checkpoint' | 'review' | 'legendary' | 'placement'
+  kind?: 'lesson' | 'story' | 'checkpoint' | 'review' | 'legendary' | 'placement'
   hung?: number
   crowned?: boolean
   lessonId?: string
