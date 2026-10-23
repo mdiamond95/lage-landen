@@ -133,7 +133,7 @@ export function CityExplorer({ onBack }: { onBack: () => void }) {
       {mode === 'explore' ? (
         <section className="city-card" aria-live="polite">
           <div className="city-card-nav">
-            <button type="button" className="btn-small" onClick={() => setAt(Math.max(0, at - 1))} disabled={at === 0} aria-label="Previous landmark">
+            <button type="button" className="zoom-btn" onClick={() => setAt(Math.max(0, at - 1))} disabled={at === 0} aria-label="Previous landmark">
               ‹
             </button>
             <p className="city-card-name">
@@ -142,7 +142,7 @@ export function CityExplorer({ onBack }: { onBack: () => void }) {
               </span>
               {here.name}
             </p>
-            <button type="button" className="btn-small" onClick={() => setAt(Math.min(ids.length - 1, at + 1))} disabled={at === ids.length - 1} aria-label="Next landmark">
+            <button type="button" className="zoom-btn" onClick={() => setAt(Math.min(ids.length - 1, at + 1))} disabled={at === ids.length - 1} aria-label="Next landmark">
               ›
             </button>
           </div>

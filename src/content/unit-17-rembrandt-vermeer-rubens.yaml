@@ -555,6 +555,18 @@ lessons:
         url: https://nl.wikipedia.org/wiki/Vestingwerken_van_Delft
       - title: "Wikipedia, Nieuwe Kerk (Delft)"
         url: https://en.wikipedia.org/wiki/Nieuwe_Kerk_(Delft)
+      - title: "Wikipedia, Mauritshuis"
+        url: https://en.wikipedia.org/wiki/Mauritshuis
+      - title: "Wikipedia, The Garden of Eden with the Fall of Man"
+        url: https://en.wikipedia.org/wiki/The_Garden_of_Eden_with_the_Fall_of_Man
+      - title: "Wikipedia, Clara Peeters"
+        url: https://en.wikipedia.org/wiki/Clara_Peeters
+      - title: "Wikipedia, The Anatomy Lesson of Dr. Nicolaes Tulp"
+        url: https://en.wikipedia.org/wiki/The_Anatomy_Lesson_of_Dr._Nicolaes_Tulp
+      - title: "Wikipedia, The Goldfinch (painting)"
+        url: https://en.wikipedia.org/wiki/The_Goldfinch_(painting)
+      - title: "Wikipedia, Girl with a Pearl Earring"
+        url: https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring
     exercises:
       - type: story
         title: A painter of light
@@ -709,6 +721,31 @@ lessons:
             why: The signature was forged too.
           - label: Nobody had ever seen a Vermeer before
             why: Vermeer's paintings hung in museums across Europe and America.
+      - type: story
+        title: A walk through the Mauritshuis
+        body: >-
+          Two of Vermeer's paintings hang in The Hague, in the Mauritshuis, once the house of a governor of Dutch
+          Brazil and now a small museum full of masterpieces of the Golden Age. Walk through it, one painting at a
+          time, and zoom in.
+        visual: { kind: walk, walk: mauritshuis }
+      - type: choice
+        prompt: >-
+          Zoom into the goldfinch Carel Fabritius painted in Delft. A thin chain ties its leg to the ring of its
+          feeder. Why would a bird like this wear a chain?
+        visual: { kind: photo, photo: goldfinch }
+        answer: 0
+        options:
+          - label: It was a pet, trained to draw its own water from a bowl in a tiny bucket on a chain
+            why: >-
+              Right. It was a fashionable trick in the 1600s, and the painting's Dutch name, Het puttertje, from
+              putten, to draw water, comes from it. Fabritius painted the bird nearly life size, as if it sat on the
+              wall.
+          - label: Goldfinches were caught to be eaten, and kept until the cook came
+            why: This one has a feeder with a lid. It was kept and cared for.
+          - label: The painter was in prison and painted his own chain
+            why: Fabritius was a free man in Delft. The chain belongs to the bird's daily life.
+          - label: The guild ordered every painted bird to be chained, so it could not be stolen
+            why: No guild rule said so. The chain was really there, on a real bird.
 
   - id: u17-l5
     title: A painting in every house
@@ -728,6 +765,32 @@ lessons:
         url: https://en.wikipedia.org/wiki/Pieter_Jansz._Saenredam
       - title: "Wikipedia, Meindert Hobbema"
         url: https://en.wikipedia.org/wiki/Meindert_Hobbema
+      - title: "Wikipedia, Rijksmuseum"
+        url: https://en.wikipedia.org/wiki/Rijksmuseum
+      - title: "Wikipedia, Hendrick Avercamp"
+        url: https://en.wikipedia.org/wiki/Hendrick_Avercamp
+      - title: "Wikipedia, The Merry Drinker"
+        url: https://en.wikipedia.org/wiki/The_Merry_Drinker
+      - title: "Wikipedia, The Little Street"
+        url: https://en.wikipedia.org/wiki/The_Little_Street
+      - title: "Wikipedia, The Milkmaid (Vermeer)"
+        url: https://en.wikipedia.org/wiki/The_Milkmaid_(Vermeer)
+      - title: "Wikipedia, The Feast of Saint Nicholas"
+        url: https://en.wikipedia.org/wiki/The_Feast_of_Saint_Nicholas
+      - title: "Rijksmuseum, The Feast of St Nicholas"
+        url: https://www.rijksmuseum.nl/en/collection/SK-A-385
+      - title: "Wikipedia, The Jewish Bride"
+        url: https://en.wikipedia.org/wiki/The_Jewish_Bride
+      - title: "Wikipedia, The Night Watch"
+        url: https://en.wikipedia.org/wiki/The_Night_Watch
+      - title: "Wikipedia, Mauritshuis"
+        url: https://en.wikipedia.org/wiki/Mauritshuis
+      - title: "Wikipedia, The Anatomy Lesson of Dr. Nicolaes Tulp"
+        url: https://en.wikipedia.org/wiki/The_Anatomy_Lesson_of_Dr._Nicolaes_Tulp
+      - title: "Wikipedia, The Goldfinch (painting)"
+        url: https://en.wikipedia.org/wiki/The_Goldfinch_(painting)
+      - title: "Wikipedia, Girl with a Pearl Earring"
+        url: https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring
     exercises:
       - type: story
         title: Pictures for everyone
@@ -822,12 +885,12 @@ lessons:
           - label: The people
             why: There are a few, small figures. Something bigger is missing.
       - type: hunt
-        prompt: Jan Steen painted a family on the feast of Saint Nicholas. The good children got sweets and toys in their shoes. One boy got a birch rod instead. Find him.
+        prompt: Jan Steen painted a family on the feast of Saint Nicholas. The good children got sweets and toys in their shoes. One boy got only a switch, a bundle of twigs. Find him.
         photo: steen-nicholas
         targets:
           - [0.05, 0.36, 0.21, 0.46]
         explain: >-
-          On the left, the boy cries while his sister laughs and holds up his shoe with the rod in it. In the background,
+          On the left, the boy cries while his sister holds up his shoe with the switch in it. In the background,
           his grandmother is beckoning: perhaps she has a present for him after all.
       - type: who
         photo: steen-self
@@ -865,6 +928,28 @@ lessons:
         explain: >-
           Hobbema's job, as wine gauger for Amsterdam's excise, kept him for life. When he died in 1709 the great age of
           Dutch painting was long over.
+
+      - type: story
+        title: A walk through the Rijksmuseum
+        body: >-
+          Many of the paintings that once hung in Dutch homes, guildhalls and town halls now hang in the
+          Rijksmuseum in Amsterdam, the national museum. Walk up its Gallery of Honour, one painting at a time, and
+          zoom in.
+        visual: { kind: walk, walk: rijksmuseum }
+      - type: sort
+        prompt: The Netherlands' two great museums of the Golden Age are the Rijksmuseum in Amsterdam and the Mauritshuis in The Hague. Sort the paintings by where they hang.
+        groups: ["Rijksmuseum, Amsterdam", "Mauritshuis, The Hague"]
+        items:
+          - { label: "The Night Watch, by Rembrandt", group: 0, photo: night-watch }
+          - { label: "The Milkmaid, by Vermeer", group: 0, photo: milkmaid }
+          - { label: "The Feast of Saint Nicholas, by Jan Steen", group: 0, photo: steen-nicholas }
+          - { label: "Girl with a Pearl Earring, by Vermeer", group: 1, photo: girl-pearl }
+          - { label: "The Goldfinch, by Carel Fabritius", group: 1, photo: goldfinch }
+          - { label: "The Anatomy Lesson of Dr Tulp, by Rembrandt", group: 1, photo: anatomy-lesson }
+        explain: >-
+          Rembrandt and Vermeer hang in both. The Mauritshuis began with the stadholders' paintings, given to the
+          state by King William I; the Rijksmuseum began in The Hague in 1798 and moved to Amsterdam ten years
+          later.
 
   - id: u17-l6
     title: Skies, seas and the end of an age

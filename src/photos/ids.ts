@@ -1004,5 +1004,13 @@ export const photoIds = [
   'st-gudula',
   'st-servatius',
   'delft-oude-kerk',
+  'moreel-triptych',
+  'goes-death-virgin',
+  'bosch-judgment-bruges',
+  'van-eyck-barbara',
+  'fouquet-madonna',
+  'memling-angels',
+  'rubens-magi',
+  'ensor-intrigue',
 ] as const
 export type PhotoId = (typeof photoIds)[number]

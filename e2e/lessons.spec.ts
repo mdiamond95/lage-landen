@@ -2315,7 +2315,8 @@ test('the province map opens a card for each province, and the drill marks right
   await expect(drill.locator('.prov-label')).toHaveCount(1)
   // A wrong tap shows the right one in orange and the tapped one in red.
   const second = (await drill.getAttribute('data-target'))!
-  const wrong = second === 'NL-UT' ? 'NL-ZE' : 'NL-UT'
+  // Not the one asked for, nor the one already found.
+  const wrong = ['NL-UT', 'NL-ZE', 'NL-GR'].find((id) => id !== first && id !== second)!
   await drill.locator(`[data-province="${wrong}"]`).dispatchEvent('click')
   await expect(drill.locator(`[data-province="${second}"]`)).toHaveClass(/is-missed/)
   await expect(drill.locator(`[data-province="${wrong}"]`)).toHaveClass(/is-wrong/)
@@ -2835,4 +2836,65 @@ test('a landmark question names one pin to steer by, and shows the answer on the
   await expect(q.locator('[data-landmark="our-lady"]')).toHaveClass(/is-wrong/)
   await expect(q.locator('.city-pin-label')).toHaveText(['Huis ter Beurze', 'The Belfry', 'The Church of Our Lady'])
   await expect(q.locator('.photo-figure img')).toHaveAttribute('alt', /Gothic stone house front/)
+})
+
+test('a museum walk strolls past the paintings one at a time, in the lesson and in the museum', async ({ page }) => {
+  await unlock(page, ['u16-l1', 'u16-l2'])
+  await page.getByRole('button', { name: 'Bruges, market for masterpieces', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  for (let step = 0; step < 20 && !(await page.locator('.walk').count()); step++) {
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  const walk = page.locator('.walk')
+  await expect(walk).toHaveAttribute('data-walk', 'groeninge')
+  await expect(walk.locator('.walk-museum')).toHaveText('The Groeninge Museum, Bruges')
+  // In a lesson the museum's own story waits for the museum screen.
+  await expect(walk.locator('.walk-intro')).toHaveCount(0)
+  await expect(walk.locator('.walk-thumb')).toHaveCount(6)
+  await expect(walk.locator('.walk-count')).toHaveText('1 of 6')
+  await expect(walk.locator('.walk-title')).toHaveText('The Virgin with Canon van der Paele')
+  await expect(walk.locator('.walk-line')).toHaveText('Jan van Eyck, 1436')
+  await expect(walk.getByRole('button', { name: 'Back' })).toBeDisabled()
+  await walk.getByRole('button', { name: 'Walk on' }).click()
+  await expect(walk.locator('.walk-count')).toHaveText('2 of 6')
+  await expect(walk.locator('.walk-title')).toHaveText('Portrait of Margaret van Eyck')
+  await expect(walk.locator('.walk-thumb').nth(1)).toHaveAttribute('aria-current', 'step')
+  // A tap on a small frame goes straight to it, and the painting can be zoomed into.
+  await walk.getByRole('button', { name: 'The Moreel Triptych' }).click()
+  await expect(walk.locator('.walk-count')).toHaveText('4 of 6')
+  await expect(walk.locator('.walk-text')).toContainText('Saint Christopher')
+  await walk.getByRole('button', { name: 'Zoom in' }).click()
+  await expect(walk.getByRole('button', { name: 'Whole picture' })).toBeVisible()
+  await walk.getByRole('button', { name: 'The Judgement of Cambyses' }).click()
+  await expect(walk.locator('.walk-count')).toHaveText('6 of 6')
+  await expect(walk.getByRole('button', { name: 'End of the walk' })).toBeDisabled()
+  await expect(walk.locator('figcaption')).toContainText('Credit')
+
+  // The walk is followed by a question on it.
+  await foot.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.getByRole('heading', { name: /Willem Moreel/ })).toBeVisible()
+})
+
+test('the museum opens each walk once its lesson is finished', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Open the museum' }).click()
+  const walks = page.getByRole('region', { name: 'Museum walks' })
+  await expect(walks.locator('button.museum-walk')).toHaveCount(4)
+  const groeninge = walks.locator('button.museum-walk', { hasText: 'The Groeninge Museum, Bruges' })
+  await expect(groeninge).toBeDisabled()
+  await expect(groeninge).toContainText('Finish Unit 16, Bruges, market for masterpieces, to open it')
+
+  await unlock(page, ['u16-l3'])
+  await page.getByRole('button', { name: 'Open the museum' }).click()
+  await expect(groeninge).toBeEnabled()
+  await expect(groeninge).toContainText('6 paintings')
+  await expect(walks.locator('button.museum-walk', { hasText: 'The Mauritshuis, The Hague' })).toBeDisabled()
+  await groeninge.click()
+  const dialog = page.getByRole('dialog', { name: 'The Groeninge Museum, Bruges' })
+  await expect(dialog.locator('.walk-intro')).toContainText('Eekhout Abbey')
+  await dialog.getByRole('button', { name: 'Walk on' }).click()
+  await expect(dialog.locator('.walk-count')).toHaveText('2 of 6')
+  await page.keyboard.press('Escape')
+  await expect(dialog).toHaveCount(0)
 })

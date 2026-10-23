@@ -27,7 +27,13 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install pillow
-      - run: command -v ffmpeg || { sudo apt-get update -q && sudo apt-get install -y -q ffmpeg; }
+      # ffmpeg is needed only for sounds, and the apt mirror sometimes hangs, so install it
+      # only when a list names a sound file, and give up after ten minutes.
+      - run: |
+          if grep -qiE '\.(ogg|oga|wav|opus|flac|mp3)\b' scripts/photos/*-missing.tsv 2>/dev/null && ! command -v ffmpeg; then
+            sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+          fi
+        timeout-minutes: 10
       - run: |
           shopt -s nullglob
           for q in scripts/photos/*-query.json; do

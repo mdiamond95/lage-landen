@@ -46,6 +46,8 @@ const SLOW = new Set<Exercise['type']>(['match', 'cause', 'order', 'sort', 'styl
 const MEDIUM = new Set<Exercise['type']>(['pin', 'region', 'scrub', 'hunt', 'who', 'gap', 'pick', 'taste', 'when', 'listen', 'truesize', 'landmark'])
 export const secondsFor = (e: Exercise) => (SLOW.has(e.type) ? 60 : MEDIUM.has(e.type) ? 40 : 25)
 
-// The clock for a challenge: the sum of its questions' allowances. It runs only while
-// a question is open, not while the answer is being read.
-export const timeLimit = (exercises: Exercise[]) => exercises.reduce((s, e) => s + secondsFor(e), 0)
+// The clock for a challenge: the sum of its questions' allowances, and never under seven
+// minutes, as a draw of only quick questions would be a rush. It runs only while a
+// question is open, not while the answer is being read.
+export const MIN_SECONDS = 7 * 60
+export const timeLimit = (exercises: Exercise[]) => Math.max(MIN_SECONDS, exercises.reduce((s, e) => s + secondsFor(e), 0))
