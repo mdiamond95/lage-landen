@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { t } from '../i18n'
 
 // Cross-section of the Oosterschelde barrier, from the North Sea to a polder behind
 // the Oosterschelde. Raise the storm surge: the barrier's gates stay open for the tide
@@ -87,7 +88,7 @@ export function StormBarrier() {
       </svg>
       <figcaption>
         <label className="slider-row">
-          <span>Storm surge</span>
+          <span>{t('Storm surge')}</span>
           <input
             type="range"
             min={0}
@@ -95,12 +96,12 @@ export function StormBarrier() {
             step={0.5}
             value={sea}
             onChange={(e) => setSea(Number(e.target.value))}
-            aria-label="Sea level in metres above NAP"
+            aria-label={t('Sea level in metres above NAP')}
           />
           <span className="slider-value">+{sea.toFixed(1)} m</span>
         </label>
         <button type="button" className="btn-ghost" onClick={() => setBarrier((b) => !b)}>
-          {barrier ? 'Take the barrier away' : 'Put the barrier back'}
+          {barrier ? t('Take the barrier away') : t('Put the barrier back')}
         </button>
       </figcaption>
     </figure>

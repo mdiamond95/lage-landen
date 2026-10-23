@@ -6,6 +6,7 @@ import { sound } from '../sounds'
 import { lowlandsFrame } from './geo'
 import { foodGlyphs, type FoodGlyph } from './glyphs'
 import { LowlandsMap } from './LowlandsMap'
+import { t } from '../i18n'
 
 // Each kind of food has the mark it has on the food time map.
 export const glyphOf: Record<FoodKind, FoodGlyph> = { cheese: 'cheese', sea: 'fish', sweet: 'sweet', dish: 'dish', beer: 'brewery', spirit: 'distillery' }
@@ -52,9 +53,9 @@ export function FoodMap({ mode = 'explore', focus, only, picked = null, correct,
   return (
     <figure className={`food-map food-${mode}`}>
       {mode === 'explore' && (
-        <div className="food-kinds" role="group" aria-label="Kinds of food">
+        <div className="food-kinds" role="group" aria-label={t('Kinds of food')}>
           <button type="button" className={kind === null ? 'is-on' : ''} aria-pressed={kind === null} onClick={() => filter(null)}>
-            Everything
+            {t('Everything')}
           </button>
           {foodKinds.map((k) => (
             <button type="button" key={k} className={kind === k ? 'is-on' : ''} aria-pressed={kind === k} onClick={() => filter(k)}>
@@ -65,7 +66,7 @@ export function FoodMap({ mode = 'explore', focus, only, picked = null, correct,
         </div>
       )}
       <div className="map-frame">
-        <LowlandsMap label={mode === 'pick' ? 'Map of the Low Countries with unnamed places to pick' : 'Map of the food and drink of the Low Countries'}>
+        <LowlandsMap label={mode === 'pick' ? t('Map of the Low Countries with unnamed places to pick') : t('Map of the food and drink of the Low Countries')}>
           {shown.map((id, i) => {
             const f = foods[id]
             const [x, y] = lowlandsFrame.toXY(f.at)
@@ -78,7 +79,7 @@ export function FoodMap({ mode = 'explore', focus, only, picked = null, correct,
                 transform={`translate(${x},${y})`}
                 role="button"
                 tabIndex={0}
-                aria-label={mode === 'pick' && correct === undefined ? `Place ${i + 1}` : f.name}
+                aria-label={mode === 'pick' && correct === undefined ? t('Place {n}', { n: i + 1 }) : f.name}
                 aria-pressed={selected === id}
                 onClick={() => tap(id)}
                 onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), tap(id))}
@@ -116,7 +117,7 @@ export function FoodMap({ mode = 'explore', focus, only, picked = null, correct,
               )}
             </>
           ) : (
-            <p className="food-about">Tap a mark to see what is eaten or drunk there. The buttons pick one kind at a time.</p>
+            <p className="food-about">{t('Tap a mark to see what is eaten or drunk there. The buttons pick one kind at a time.')}</p>
           )}
         </div>
       )}

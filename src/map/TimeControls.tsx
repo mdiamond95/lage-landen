@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import type { HistEvent } from '../data/timeline'
+import { t } from '../i18n'
 
 type Props = {
   event: HistEvent
@@ -22,21 +23,21 @@ type Props = {
 
 // The caption, year slider, play button and key under a time map.
 export function TimeControls({ event, year, min, max, format, playing, onScrub, onTogglePlay, hideCaption, note, stops, months, children }: Props) {
-  const unit = months ? 'Month' : 'Year'
+  const unit = months ? t('Month') : t('Year')
   // With stops, the slider's value is the number of the stage on screen.
   const stop = stops ? Math.max(0, stops.findLastIndex((s) => s <= year)) : 0
   return (
     <figcaption>
       {hideCaption ? (
-        <p className="time-map-caption time-map-hidden">Read the map: the captions come back once you check.</p>
+        <p className="time-map-caption time-map-hidden">{t('Read the map: the captions come back once you check.')}</p>
       ) : (
-        <div className="time-map-caption" aria-live="polite">
+        <div className="time-map-caption" aria-live="polite" lang="en-CA">
           <p className="time-map-title">{event.title}</p>
           <p className="time-map-text">{event.text}</p>
         </div>
       )}
       <label className="slider-row">
-        <span>{stops ? `${stop + 1} of ${stops.length}` : unit}</span>
+        <span>{stops ? t('{n} of {total}', { n: stop + 1, total: stops.length }) : unit}</span>
         <input
           type="range"
           min={stops ? 0 : min}
@@ -51,9 +52,9 @@ export function TimeControls({ event, year, min, max, format, playing, onScrub, 
       </label>
       <div className="time-map-foot">
         <button type="button" className="btn-ghost" onClick={onTogglePlay}>
-          {playing ? 'Pause' : 'Play the story'}
+          {playing ? t('Pause') : t('Play the story')}
         </button>
-        <ul className="time-map-key" aria-label="Map key">
+        <ul className="time-map-key" aria-label={t('Map key')}>
           {children}
         </ul>
       </div>

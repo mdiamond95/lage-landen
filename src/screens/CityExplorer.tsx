@@ -7,6 +7,7 @@ import { PhotoFigure } from '../photos/Photo'
 import { photosUsed } from '../photos/used'
 import type { PhotoId } from '../photos/ids'
 import { loadBest, saveBest } from '../progress/drill'
+import { t } from '../i18n'
 
 // The unit whose lessons first show a photo: a landmark's link back to the course.
 const unitOfPhoto = new Map<PhotoId, { number: number; title: string }>()
@@ -78,27 +79,27 @@ export function CityExplorer({ onBack }: { onBack: () => void }) {
   return (
     <div className="city-explorer">
       <header className="lesson-top">
-        <button type="button" className="icon-btn" onClick={onBack} aria-label="Back to the course">
+        <button type="button" className="icon-btn" onClick={onBack} aria-label={t('Back to the course')}>
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        <h1 className="time-travel-title">City explorer</h1>
+        <h1 className="time-travel-title">{t('City explorer')}</h1>
       </header>
-      <p className="muted time-travel-intro">Seven old town centres, street by street. Tap a landmark to read about it, or find them all on the map.</p>
-      <div className="food-kinds" role="group" aria-label="City">
+      <p className="muted time-travel-intro">{t('Seven old town centres, street by street. Tap a landmark to read about it, or find them all on the map.')}</p>
+      <div className="food-kinds" role="group" aria-label={t('City')}>
         {cityIds.map((id) => (
           <button type="button" key={id} className={city === id ? 'is-on' : ''} aria-pressed={city === id} onClick={() => start(id, mode)}>
             {cities[id].name}
           </button>
         ))}
       </div>
-      <div className="food-kinds" role="group" aria-label="Mode">
+      <div className="food-kinds" role="group" aria-label={t('Mode')}>
         <button type="button" className={mode === 'explore' ? 'is-on' : ''} aria-pressed={mode === 'explore'} onClick={() => start(city, 'explore')}>
-          Explore
+          {t('Explore')}
         </button>
         <button type="button" className={mode === 'find' ? 'is-on' : ''} aria-pressed={mode === 'find'} onClick={() => start(city, 'find')}>
-          Find them
+          {t('Find them')}
         </button>
       </div>
 
@@ -107,68 +108,69 @@ export function CityExplorer({ onBack }: { onBack: () => void }) {
           {c.name}
           {'local' in c && c.local ? ` (${c.local})` : ''}.
         </strong>{' '}
-        {c.intro}
+        <span lang="en-CA">{c.intro}</span>
       </p>
 
       {mode === 'find' && (
         <div className="city-find" aria-live="polite" data-target={target ?? undefined}>
           {done ? (
             <p className="city-find-ask">
-              {rounds.length - misses.length} of {rounds.length} found first time.{misses.length ? ' The ones you missed are named on the map.' : ''}
+              {t('{n} of {total} found first time.', { n: rounds.length - misses.length, total: rounds.length })}
+              {misses.length ? ` ${t('The ones you missed are named on the map.')}` : ''}
             </p>
           ) : (
             <p className="city-find-ask">
               <span className="city-count">
-                {round + 1} of {rounds.length}
+                {t('{n} of {total}', { n: round + 1, total: rounds.length })}
               </span>{' '}
-              Find <strong>{landmarkOf(city, target!).name}</strong>
+              {t('Find')} <strong>{landmarkOf(city, target!).name}</strong>
             </p>
           )}
-          <p className="drill-best">{best[key] !== undefined ? `Your best: ${best[key]} of ${rounds.length}` : 'No score yet for this city.'}</p>
+          <p className="drill-best">{best[key] !== undefined ? t('Your best: {n} of {total}', { n: best[key], total: rounds.length }) : t('No score yet for this city.')}</p>
         </div>
       )}
 
-      <CityMap city={city} pins={pins} label={`Street map of ${c.name} with ${ids.length} landmarks`} onPick={tap} />
+      <CityMap city={city} pins={pins} label={t('Street map of {city} with {n} landmarks', { city: c.name, n: ids.length })} onPick={tap} />
 
       {mode === 'explore' ? (
         <section className="city-card" aria-live="polite">
           <div className="city-card-nav">
-            <button type="button" className="zoom-btn" onClick={() => setAt(Math.max(0, at - 1))} disabled={at === 0} aria-label="Previous landmark">
+            <button type="button" className="zoom-btn" onClick={() => setAt(Math.max(0, at - 1))} disabled={at === 0} aria-label={t('Previous landmark')}>
               ‹
             </button>
             <p className="city-card-name">
               <span className="city-count">
-                {at + 1} of {ids.length}
+                {t('{n} of {total}', { n: at + 1, total: ids.length })}
               </span>
               {here.name}
             </p>
-            <button type="button" className="zoom-btn" onClick={() => setAt(Math.min(ids.length - 1, at + 1))} disabled={at === ids.length - 1} aria-label="Next landmark">
+            <button type="button" className="zoom-btn" onClick={() => setAt(Math.min(ids.length - 1, at + 1))} disabled={at === ids.length - 1} aria-label={t('Next landmark')}>
               ›
             </button>
           </div>
-          <p>{here.text}</p>
+          <p lang="en-CA">{here.text}</p>
           {unit && (
             <p className="city-unit">
-              In Unit {unit.number}, {unit.title}
+              {t('In Unit {n}, {title}', { n: unit.number, title: unit.title })}
             </p>
           )}
           {here.photo && <PhotoFigure id={here.photo} />}
         </section>
       ) : tapped && !done ? (
         <div className="city-find-next">
-          <p className={tapped === target ? 'city-right' : 'city-wrong'}>{tapped === target ? 'Right!' : `That was ${landmarkOf(city, tapped).name}.`}</p>
+          <p className={tapped === target ? 'city-right' : 'city-wrong'}>{tapped === target ? t('Right!') : t('That was {name}.', { name: landmarkOf(city, tapped).name })}</p>
           <button type="button" className="btn-primary" onClick={nextRound}>
-            {round === rounds.length - 1 ? 'See the score' : 'Next'}
+            {round === rounds.length - 1 ? t('See the score') : t('Next')}
           </button>
         </div>
       ) : done ? (
         <button type="button" className="btn-primary" onClick={() => start(city, 'find')}>
-          Play again
+          {t('Play again')}
         </button>
       ) : null}
 
       <details className="city-sources">
-        <summary>Sources</summary>
+        <summary>{t('Sources')}</summary>
         <ul>
           {c.sources.map((s) => (
             <li key={s.url}>

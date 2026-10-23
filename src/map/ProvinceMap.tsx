@@ -3,6 +3,7 @@ import { geoPath } from 'd3-geo'
 import { partNames, provinces as info, provincesOf, type ProvinceId } from '../data/provinces'
 import { Credit, Photo } from '../photos/Photo'
 import { countries, lakes, lowlandsFrame, makeFrame, MAP_W, provinces, type Frame, type GeoFeature } from './geo'
+import { t } from '../i18n'
 
 export type Country = 'NLD' | 'BEL' | 'both'
 
@@ -74,16 +75,16 @@ export function ProvinceMap({ country: start = 'both', mode = 'explore', focus, 
   return (
     <figure className={`province-map province-${mode}`}>
       {mode === 'explore' && (
-        <div className="food-kinds province-countries" role="group" aria-label="Country">
+        <div className="food-kinds province-countries" role="group" aria-label={t('Country')}>
           {(['NLD', 'BEL', 'both'] as const).map((c) => (
             <button type="button" key={c} className={country === c ? 'is-on' : ''} aria-pressed={country === c} onClick={() => pick(c)}>
-              {c === 'NLD' ? 'The Netherlands' : c === 'BEL' ? 'Belgium' : 'Both'}
+              {c === 'NLD' ? t('The Netherlands') : c === 'BEL' ? t('Belgium') : t('Both')}
             </button>
           ))}
         </div>
       )}
       <div className="map-frame">
-        <svg className="lowlands-map province-svg" viewBox={`0 0 ${MAP_W} ${height}`} role="img" aria-label={label ?? `Map of the provinces of ${country === 'NLD' ? 'the Netherlands' : country === 'BEL' ? 'Belgium' : 'the Netherlands and Belgium'}`}>
+        <svg className="lowlands-map province-svg" viewBox={`0 0 ${MAP_W} ${height}`} role="img" aria-label={label ?? (country === 'NLD' ? t('Map of the provinces of the Netherlands') : country === 'BEL' ? t('Map of the provinces of Belgium') : t('Map of the provinces of the Netherlands and Belgium'))}>
           <rect className="sea" width={MAP_W} height={height} />
           {countries.map((f) => (
             <path key={f.properties.id} d={frame.path(f) ?? undefined} className={f.properties.id === 'NLD' || f.properties.id === 'BEL' ? 'land focus' : 'land'} />

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { series, type SeriesId } from '../data/series'
 import { photo } from '../photos'
 import { Credit } from '../photos/Photo'
+import { t } from '../i18n'
 
 // A painter's road: one painter's pictures in the order they were made, one at a time on
 // a slider, with the year and a word on what changed. `at` opens it at one picture.
@@ -38,7 +39,7 @@ export function PainterRoad({ id, at = 0 }: { id: SeriesId; at?: number }) {
         <p className="tour-text">{step.text}</p>
       </div>
       <figcaption>
-        {p.caption} · <span className="photo-credit">Credit: <Credit id={step.photo} /></span>
+        {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={step.photo} /></span>
       </figcaption>
     </figure>
   )

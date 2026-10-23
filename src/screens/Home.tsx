@@ -23,15 +23,16 @@ import { collected } from '../progress/collection'
 import { lastUnit, unitHat, unitHats } from '../mascot/hats'
 import { greeting } from '../mascot/lines'
 import { StorkSays, Stork } from '../mascot/Stork'
+import { getLang, langTags, list, t, type Key } from '../i18n'
+import { LangPicker } from './LangPicker'
 
 type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void; onPlacement: () => void; onMuseum: () => void; onCities: () => void }
 
-const listUnits = (ns: number[]) => (ns.length < 3 ? ns.join(' and ') : `${ns.slice(0, -1).join(', ')} and ${ns[ns.length - 1]}`)
 
 const dayName = (day: string, today: string) => {
   const d = new Date(`${day}T12:00:00`)
   const diff = Math.round((d.getTime() - Date.parse(`${today}T12:00:00`)) / 86_400_000)
-  return diff <= 1 ? 'tomorrow' : d.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' })
+  return diff <= 1 ? t('tomorrow') : d.toLocaleDateString(langTags[getLang()], { weekday: 'long', month: 'long', day: 'numeric' })
 }
 
 export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlacement, onMuseum, onCities }: Props) {
@@ -58,15 +59,16 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
           <span>Lage Landen</span>
         </div>
         <div className="stats">
-          <span className={`stat ${alive ? 'stat-streak' : 'stat-off'}`} title="Day streak">
+          <span className={`stat ${alive ? 'stat-streak' : 'stat-off'}`} title={t('Day streak')}>
             <Icon name="flame" /> {alive ? progress.streak : 0}
           </span>
-          <span className="stat stat-xp" title="Total XP">
+          <span className="stat stat-xp" title={t('Total XP')}>
             <Icon name="star" /> {progress.xp}
           </span>
-          <span className="stat stat-crowns" title="Crowns">
+          <span className="stat stat-crowns" title={t('Crowns')}>
             <Icon name="crown" /> {crownCount(progress, units)}
           </span>
+          <LangPicker />
         </div>
       </header>
 
@@ -75,10 +77,10 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
       </StorkSays>
 
       {day && (
-        <section className="quests card" aria-label="Daily quests">
+        <section className="quests card" aria-label={t('Daily quests')}>
           <div className="quests-head">
-            <h2>Daily quests</h2>
-            <span className="muted">{day.done.length === day.picks.length ? 'All done. New quests tomorrow.' : `+${QUEST_XP} XP each`}</span>
+            <h2>{t('Daily quests')}</h2>
+            <span className="muted">{day.done.length === day.picks.length ? t('All done. New quests tomorrow.') : t('+{xp} XP each', { xp: QUEST_XP })}</span>
           </div>
           <ul className="quest-list">
             {day.picks.map((id) => {
@@ -91,8 +93,8 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
                     <Icon name={done ? 'check' : 'target'} />
                   </span>
                   <span className="quest-text">
-                    {quest.text}
-                    <span className="quest-bar" role="progressbar" aria-label={quest.text} aria-valuemin={0} aria-valuemax={quest.goal} aria-valuenow={count}>
+                    {t(quest.text as Key)}
+                    <span className="quest-bar" role="progressbar" aria-label={t(quest.text as Key)} aria-valuemin={0} aria-valuemax={quest.goal} aria-valuenow={count}>
                       <span style={{ width: `${(count / quest.goal) * 100}%` }} />
                     </span>
                   </span>
@@ -108,14 +110,12 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
 
       <section className="discover card">
         <div className="discover-text">
-          <h2>Your map</h2>
-          <p>
-            {progress.discovered.length} of {totalPlaces} places discovered. Every place you pin in a lesson lights up here.
-          </p>
+          <h2>{t('Your map')}</h2>
+          <p>{t('{n} of {total} places discovered. Every place you pin in a lesson lights up here.', { n: progress.discovered.length, total: totalPlaces })}</p>
         </div>
         <div className="map-frame small">
           <LowlandsMap
-            label="Map of places you have discovered"
+            label={t('Map of places you have discovered')}
             highlight={['NLD', 'BEL']}
             pins={progress.discovered.map((place) => ({ place, tone: 'info' as const }))}
           />
@@ -124,91 +124,92 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
 
       <section className="review card">
         <div className="review-text">
-          <h2>Daily review</h2>
+          <h2>{t('Daily review')}</h2>
           <p>
             {learned === 0 && due === 0
-              ? 'Finish a lesson and its questions come back here, spaced out so they stick.'
+              ? t('Finish a lesson and its questions come back here, spaced out so they stick.')
               : due > 0
-                ? `${due} question${due === 1 ? ' is' : 's are'} due. Missed ones come back sooner.`
-                : `All caught up on ${learned} questions. The next ones are due ${next ? dayName(next, today) : 'soon'}.`}
+                ? t(due === 1 ? '1 question is due. Missed ones come back sooner.' : '{n} questions are due. Missed ones come back sooner.', { n: due })
+                : t('All caught up on {n} questions. The next ones are due {when}.', { n: learned, when: next ? dayName(next, today) : t('soon') })}
           </p>
         </div>
         <button type="button" className="btn-primary" disabled={due === 0} onClick={() => onStart('review')}>
-          {due > 0 ? `Review ${Math.min(due, REVIEW_SIZE)}` : 'Nothing due'}
+          {due > 0 ? t('Review {n}', { n: Math.min(due, REVIEW_SIZE) }) : t('Nothing due')}
         </button>
       </section>
 
       <section className="museum-teaser card">
         <div>
-          <h2>Your museum</h2>
-          <p>
-            {wall.filter((c) => collected(progress, c)).length} of {wall.length} cards collected: the artworks, people, buildings and food of the lessons you
-            finish.
-          </p>
+          <h2>{t('Your museum')}</h2>
+          <p>{t('{n} of {total} cards collected: the artworks, people, buildings and food of the lessons you finish.', { n: wall.filter((c) => collected(progress, c)).length, total: wall.length })}</p>
         </div>
         <button type="button" className="btn-ghost" onClick={onMuseum}>
-          Open the museum
+          {t('Open the museum')}
         </button>
       </section>
 
       <section className="timemap-teaser card">
         <div>
-          <h2>Time map</h2>
-          <p>Watch the Low Countries change in {throughTimeStory.events.length} snapshots, from Caesar to the provinces of today.</p>
+          <h2>{t('Time map')}</h2>
+          <p>{t('Watch the Low Countries change in {n} snapshots, from Caesar to the provinces of today.', { n: throughTimeStory.events.length })}</p>
         </div>
         <button type="button" className="btn-ghost" onClick={onTimeMap}>
-          Open the time map
+          {t('Open the time map')}
         </button>
       </section>
 
       <section className="phrasebook-teaser card">
         <div>
-          <h2>Phrasebook</h2>
-          <p>{allPhrases.length} everyday phrases in Dutch, Flemish and Belgian French, {allPhrases.filter((p) => p.sound).length} of them recorded by speakers.</p>
+          <h2>{t('Phrasebook')}</h2>
+          <p>{t('{n} everyday phrases in Dutch, Flemish and Belgian French, {recorded} of them recorded by speakers.', { n: allPhrases.length, recorded: allPhrases.filter((p) => p.sound).length })}</p>
         </div>
         <button type="button" className="btn-ghost" onClick={onPhrasebook}>
-          Open the phrasebook
+          {t('Open the phrasebook')}
         </button>
       </section>
 
       <section className="drill-teaser card">
         <div>
-          <h2>Map drill</h2>
-          <p>The {provinceIds.length - 1} provinces of both countries and Brussels, to find by name, capital or flag.</p>
+          <h2>{t('Map drill')}</h2>
+          <p>{t('The {n} provinces of both countries and Brussels, to find by name, capital or flag.', { n: provinceIds.length - 1 })}</p>
         </div>
         <button type="button" className="btn-ghost" onClick={onDrill}>
-          Open the map drill
+          {t('Open the map drill')}
         </button>
       </section>
 
       <section className="cities-teaser card">
         <div>
-          <h2>City explorer</h2>
+          <h2>{t('City explorer')}</h2>
           <p>
-            {cityIds.length} old town centres, from {cities[cityIds[0]].name} to {cities[cityIds[cityIds.length - 1]].name}, street by street, with {cityIds.reduce((n, c) => n + landmarkIds(c).length, 0)} landmarks to
-            tap and find.
+            {t('{n} old town centres, from {first} to {last}, street by street, with {landmarks} landmarks to tap and find.', {
+              n: cityIds.length,
+              first: cities[cityIds[0]].name,
+              last: cities[cityIds[cityIds.length - 1]].name,
+              landmarks: cityIds.reduce((n, c) => n + landmarkIds(c).length, 0),
+            })}
           </p>
         </div>
         <button type="button" className="btn-ghost" onClick={onCities}>
-          Open the city explorer
+          {t('Open the city explorer')}
         </button>
       </section>
 
       <section className="unit placement-unit">
         <div className="unit-banner">
-          <p className="eyebrow light">Unit 0 · Placement test</p>
-          <h2>Skip ahead</h2>
+          <p className="eyebrow light">{t('Unit 0 · Placement test')}</p>
+          <h2>{t('Skip ahead')}</h2>
           <p>
-            Know some of this already? Answer five questions a unit and open the units you know, lessons and checkpoint.
-            {progress.placed.length > 0 && ` ${progress.placed.length} ${progress.placed.length === 1 ? 'unit is' : 'units are'} open so far.`}
+            {t('Know some of this already? Answer five questions a unit and open the units you know, lessons and checkpoint.')}
+            {progress.placed.length > 0 && ` ${t(progress.placed.length === 1 ? '1 unit is open so far.' : '{n} units are open so far.', { n: progress.placed.length })}`}
           </p>
         </div>
         <ol className="path">
           <li className="path-node offset-0">
-            <button type="button" className="node placement-node" onClick={onPlacement} aria-label="Placement test">
+            <button type="button" className="node placement-node" onClick={onPlacement} aria-label={t('Placement test')}>
               <Icon name="signpost" />
             </button>
-            <span className="node-label">Placement test</span>
+            <span className="node-label">{t('Placement test')}</span>
           </li>
         </ol>
       </section>
@@ -233,14 +234,14 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
             <div className="unit-banner">
               {unitHat(unit) && <Stork hat={unitHat(unit)} size={52} portrait className="banner-stork" />}
               <p className="eyebrow light">
-                Unit {unit.number} · {unit.era}
-                {placed && <span className="tag tag-placed">Opened by the placement test</span>}
+                {t('Unit {n}', { n: unit.number })} · <span lang="en-CA">{unit.era}</span>
+                {placed && <span className="tag tag-placed">{t('Opened by the placement test')}</span>}
               </p>
-              <h2>{unit.title}</h2>
-              <p>{unit.summary}</p>
+              <h2 lang="en-CA">{unit.title}</h2>
+              <p lang="en-CA">{unit.summary}</p>
               {before && (
                 <p className="gate-line">
-                  <Icon name="lock" /> Opens when the Unit {before.number} checkpoint is passed with {Math.round(GATE * 100)}%, or test out with the placement test.
+                  <Icon name="lock" /> {t('Opens when the Unit {n} checkpoint is passed with {pct}%, or test out with the placement test.', { n: before.number, pct: Math.round(GATE * 100) })}
                 </p>
               )}
             </div>
@@ -258,7 +259,7 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
                       className={`node ${done ? 'done' : current ? 'current' : open ? '' : 'locked'}`}
                       disabled={!open}
                       onClick={() => onStart(lesson.id)}
-                      aria-label={`${lesson.title}${done ? `, completed, level ${level}` : open ? '' : ', locked'}`}
+                      aria-label={`${lesson.title}${done ? t(', completed, level {n}', { n: level }) : open ? '' : t(', locked')}`}
                     >
                       <Icon name={open ? lesson.icon : 'lock'} />
                       {done && (
@@ -269,10 +270,10 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
                       )}
                     </button>
                     <span className="node-label">
-                      {lesson.title}
-                      {lesson.note && <span className="lesson-note-tag">Content note</span>}
+                      <span lang="en-CA">{lesson.title}</span>
+                      {lesson.note && <span className="lesson-note-tag">{t('Content note')}</span>}
                     </span>
-                    {current && <span className="node-start">Start</span>}
+                    {current && <span className="node-start">{t('Start')}</span>}
                   </li>
                 )
               })}
@@ -282,13 +283,13 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
                   className={`node map-story-node ${storyDone ? 'done' : cpOpen && allDone && cpScore === undefined ? 'current' : cpOpen ? '' : 'locked'}`}
                   disabled={!cpOpen}
                   onClick={() => onStart(story)}
-                  aria-label={`Unit ${unit.number} map story${storyDone ? ', completed' : cpOpen ? '' : ', locked'}`}
+                  aria-label={`${t('Unit {n} map story', { n: unit.number })}${storyDone ? t(', completed') : cpOpen ? '' : t(', locked')}`}
                 >
                   <Icon name={cpOpen ? 'map' : 'lock'} />
                 </button>
                 <span className="node-label">
-                  Map story: the unit in 90 seconds
-                  {cpOpen && !storyDone && <span className="node-hint">Narrated, then three find-the-year questions</span>}
+                  {t('Map story: the unit in 90 seconds')}
+                  {cpOpen && !storyDone && <span className="node-hint">{t('Narrated, then three find-the-year questions')}</span>}
                 </span>
               </li>
               <li className="path-node offset-0">
@@ -297,16 +298,16 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
                   className={`node checkpoint ${cpPassed ? 'done' : cpOpen && ((allDone && storyDone) || cpScore !== undefined) ? 'current' : cpOpen ? '' : 'locked'}`}
                   disabled={!cpOpen}
                   onClick={() => onStart(cp)}
-                  aria-label={`Unit ${unit.number} checkpoint${cpOpen ? '' : ', locked'}`}
+                  aria-label={`${t('Unit {n} checkpoint', { n: unit.number })}${cpOpen ? '' : t(', locked')}`}
                 >
                   <Icon name={cpOpen ? 'trophy' : 'lock'} />
                 </button>
                 <span className="node-label">
-                  Checkpoint: 10 mixed questions
+                  {t('Checkpoint: 10 mixed questions')}
                   {!cpPassed && next.length > 0 && (
                     <span className="node-hint">
-                      {cpScore !== undefined ? `Best ${Math.round(cpScore * 100)}%. ` : ''}
-                      {Math.round(GATE * 10)} of 10 right opens {next.map((u) => `Unit ${u.number}`).join(' and ')}
+                      {cpScore !== undefined ? `${t('Best {pct}%.', { pct: Math.round(cpScore * 100) })} ` : ''}
+                      {t('{n} of 10 right opens {units}', { n: Math.round(GATE * 10), units: list(next.map((u) => t('Unit {n}', { n: u.number }))) })}
                     </span>
                   )}
                 </span>
@@ -318,13 +319,13 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
                     className={`node legendary ${progress.legendary.includes(unit.id) ? 'done' : legendaryOpen(progress, unit) ? 'open' : 'locked'}`}
                     disabled={!legendaryOpen(progress, unit)}
                     onClick={() => onStart(legendaryId(unit))}
-                    aria-label={`Unit ${unit.number} Legendary${progress.legendary.includes(unit.id) ? ', passed' : legendaryOpen(progress, unit) ? '' : ', locked'}`}
+                    aria-label={`${t('Unit {n} Legendary', { n: unit.number })}${progress.legendary.includes(unit.id) ? t(', passed') : legendaryOpen(progress, unit) ? '' : t(', locked')}`}
                   >
                     <Icon name={legendaryOpen(progress, unit) ? 'crown' : 'lock'} />
                   </button>
                   <span className="node-label">
-                    Legendary: 15 questions against the clock
-                    {!legendaryOpen(progress, unit) && <span className="node-hint">Opens with every lesson at level 4</span>}
+                    {t('Legendary: 15 questions against the clock')}
+                    {!legendaryOpen(progress, unit) && <span className="node-hint">{t('Opens with every lesson at level 4')}</span>}
                   </span>
                 </li>
               )}
@@ -336,20 +337,21 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
       <BackupCard />
 
       <section className="outline card">
-        <h2>The whole course</h2>
+        <h2>{t('The whole course')}</h2>
         <p className="muted">
-          26 units are planned. {units.length === 1 ? 'Unit 1 is' : `Units ${listUnits(units.map((u) => u.number))} are`} playable now; the
-          others arrive in later phases.
+          {units.length === 1
+            ? t('26 units are planned. Unit 1 is playable now; the others arrive in later phases.')
+            : t('26 units are planned. Units {units} are playable now; the others arrive in later phases.', { units: list(units.map((u) => u.number)) })}
         </p>
         {courseOutline.map((track) => (
           <div key={track.track} className="outline-track">
-            <h3>{track.track}</h3>
+            <h3 lang="en-CA">{track.track}</h3>
             <ul>
               {track.units.map(([n, title]) => (
                 <li key={n} className={playable.has(n) ? 'ready' : ''}>
                   <span className="outline-num">{n}</span>
-                  {title}
-                  {playable.has(n) ? <span className="tag">Playable</span> : null}
+                  <span lang="en-CA">{title}</span>
+                  {playable.has(n) ? <span className="tag">{t('Playable')}</span> : null}
                 </li>
               ))}
             </ul>
@@ -357,7 +359,7 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
         ))}
       </section>
       <footer className="credits muted">
-        Map data from Natural Earth (public domain). Photos and historical maps from Wikimedia Commons, credited under each picture and at the end of every lesson. Other illustrations drawn for Lage Landen.
+        {t('Map data from Natural Earth (public domain). Photos and historical maps from Wikimedia Commons, credited under each picture and at the end of every lesson. Other illustrations drawn for Lage Landen.')}
       </footer>
     </div>
   )

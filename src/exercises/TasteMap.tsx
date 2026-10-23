@@ -5,6 +5,7 @@ import { FoodMap } from '../map/FoodMap'
 import { photo } from '../photos'
 import { Credit, Photo } from '../photos/Photo'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 // Taste and find (Unit 21): a photo of something to eat or drink, then a tap on where it
 // comes from. The map shows only the marks of its kind, unnamed until the answer is checked,
@@ -18,28 +19,28 @@ export function TasteMap({ exercise, checked, setAnswer }: ExerciseProps<Exercis
     setPicked(id)
     setAnswer(() => ({
       correct: id === exercise.answer,
-      detail: id === exercise.answer ? exercise.explain : `It comes from ${right.place.replace(/^The /, 'the ')}. ${exercise.explain}`,
+      detail: id === exercise.answer ? exercise.explain : `${t('It comes from {place}.', { place: right.place.replace(/^The /, 'the ') })} ${exercise.explain}`,
     }))
   }
 
   return (
     <div className="exercise">
-      <p className="eyebrow">Taste and find</p>
+      <p className="eyebrow">{t('Taste and find')}</p>
       <h2>{exercise.prompt}</h2>
       <figure className="photo-figure taste-photo">
         <Photo id={exercise.photo} className="photo photo-large" />
         <figcaption>
           {checked ? (
             <>
-              {photo(exercise.photo).caption} · <span className="photo-credit">Credit: <Credit id={exercise.photo} /></span>
+              {photo(exercise.photo).caption} · <span className="photo-credit">{t('Credit:')} <Credit id={exercise.photo} /></span>
             </>
           ) : (
-            <span className="photo-credit">Caption and credit shown once you answer</span>
+            <span className="photo-credit">{t('Caption and credit shown once you answer')}</span>
           )}
         </figcaption>
       </figure>
       <FoodMap mode="pick" only={right.kind} picked={picked} correct={checked ? exercise.answer : undefined} onPick={pick} />
-      <p className="hint">{checked && picked ? `You picked ${foods[picked].place}.` : picked ? 'Place picked. Tap another to change your mind.' : 'Tap the mark where it comes from.'}</p>
+      <p className="hint">{checked && picked ? t('You picked {name}.', { name: foods[picked].place }) : picked ? t('Place picked. Tap another to change your mind.') : t('Tap the mark where it comes from.')}</p>
     </div>
   )
 }

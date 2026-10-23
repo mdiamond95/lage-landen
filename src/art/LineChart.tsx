@@ -1,4 +1,5 @@
 import { charts, type ChartId } from '../data/charts'
+import { t } from '../i18n'
 
 const W = 600
 const H = 330
@@ -35,7 +36,7 @@ export function LineChart({ chart, until }: { chart: ChartId; until?: number }) 
   return (
     <figure className="line-chart">
       <figcaption className="tree-title">{title}</figcaption>
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Line chart: ${title}`}>
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={t('Line chart: {title}', { title })}>
         {yTicks.map((v) => (
           <g key={v}>
             <line x1={M.left} x2={W - M.right} y1={y(v)} y2={y(v)} className="chart-grid" />

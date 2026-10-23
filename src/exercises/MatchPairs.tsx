@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import { shuffle } from '../lesson/shuffle'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 type Side = 'left' | 'right'
 
@@ -23,7 +24,7 @@ export function MatchPairs({ exercise, setAnswer }: ExerciseProps<ExerciseOf<'ma
       setDone(next)
       setPending(null)
       if (next.length === exercise.pairs.length) {
-        const lead = mistakes === 0 ? 'Every pair matched first time.' : `All matched, with ${mistakes} wrong ${mistakes === 1 ? 'try' : 'tries'} on the way.`
+        const lead = mistakes === 0 ? t('Every pair matched first time.') : t(mistakes === 1 ? 'All matched, with 1 wrong try on the way.' : 'All matched, with {n} wrong tries on the way.', { n: mistakes })
         setAnswer(() => ({ correct: mistakes === 0, detail: cause ? `${lead} ${exercise.explain}` : lead }))
       }
     } else {
@@ -39,12 +40,12 @@ export function MatchPairs({ exercise, setAnswer }: ExerciseProps<ExerciseOf<'ma
 
   return (
     <div className="exercise">
-      <p className="eyebrow">{cause ? 'Cause and effect' : 'Match the pairs'}</p>
+      <p className="eyebrow">{cause ? t('Cause and effect') : t('Match the pairs')}</p>
       <h2>{exercise.prompt}</h2>
       {cause && (
         <p className="cause-heads" aria-hidden="true">
-          <span>Cause</span>
-          <span>Effect</span>
+          <span>{t('Cause')}</span>
+          <span>{t('Effect')}</span>
         </p>
       )}
       <div className={`match-grid${cause ? ' cause-grid' : ''}`}>

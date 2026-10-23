@@ -12,6 +12,7 @@ import { WesthoekBase, westhoekCountries } from './WesthoekBase'
 import { WorldBase } from './WorldBase'
 import { TimeControls } from './TimeControls'
 import { usePlayback } from './usePlayback'
+import { t } from '../i18n'
 
 // A plain SVG polygon through projected points. Unlike d3's spherical paths it
 // doesn't care which way the ring winds.
@@ -113,7 +114,7 @@ export function StoryMap({ story, year, highlightFresh = true }: { story: TimeSt
     ))
 
   return (
-    <Base label={`Map of ${story.place} in ${story.format(year)}: ${event.title}`} frame={frame} areas={areas}>
+    <Base label={t('Map of {place} in {year}: {title}', { place: story.place, year: story.format(year), title: event.title })} frame={frame} areas={areas}>
       <defs>
         <pattern id={`${uid}-hatch`} width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
           <rect width="8" height="8" className="hatch-a" />

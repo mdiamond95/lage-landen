@@ -1,5 +1,6 @@
 import { photo, type PhotoId } from '.'
 import { ZoomImage } from './ZoomImage'
+import { t } from '../i18n'
 
 export function Credit({ id }: { id: PhotoId }) {
   const p = photo(id)
@@ -31,7 +32,7 @@ export function PhotoFigure({ id, hideCredit = false }: { id: PhotoId; hideCredi
       {p.zoom ? <ZoomImage src={p.src} alt={p.alt} /> : <Photo id={id} className="photo photo-large" />}
       <figcaption>
         {p.caption} ·{' '}
-        <span className="photo-credit">{hideCredit ? 'Credit shown once you answer' : <>Credit: <Credit id={id} /></>}</span>
+        <span className="photo-credit">{hideCredit ? t('Credit shown once you answer') : <>{t('Credit:')} <Credit id={id} /></>}</span>
       </figcaption>
     </figure>
   )

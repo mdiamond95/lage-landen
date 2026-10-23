@@ -3,6 +3,7 @@ import { geoMercator } from 'd3-geo'
 import { routes, type RouteId } from '../data/routes'
 import { makeFrame, MAP_W } from './geo'
 import { LowlandsMap } from './LowlandsMap'
+import { t } from '../i18n'
 
 type Props = {
   route: RouteId
@@ -80,7 +81,7 @@ export function RouteMap({ route: id, mode = 'explore', at = 0, show = [], picke
         </>
       )}
       <div className="map-frame">
-        <LowlandsMap label={explore ? `Route map: ${route.title}` : `Route map of ${route.title} with unnamed places to tap in order`} frame={frame} height={height}>
+        <LowlandsMap label={explore ? t('Route map: {title}', { title: route.title }) : t('Route map of {title} with unnamed places to tap in order', { title: route.title })} frame={frame} height={height}>
           {route.labels.map((l) => {
             const [x, y] = frame.toXY(l.at)
             return (
@@ -107,7 +108,7 @@ export function RouteMap({ route: id, mode = 'explore', at = 0, show = [], picke
                 transform={`translate(${x},${y})`}
                 role="button"
                 tabIndex={0}
-                aria-label={named(p) ? place.name : `Place ${i + 1}`}
+                aria-label={named(p) ? place.name : t('Place {n}', { n: i + 1 })}
                 aria-pressed={explore ? p === current.place : order >= 0}
                 onClick={() => tap(p)}
                 onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), tap(p))}
@@ -146,7 +147,7 @@ export function RouteMap({ route: id, mode = 'explore', at = 0, show = [], picke
       {explore && (
         <>
           <div className="route-controls">
-            <button type="button" className="btn-small" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0} aria-label="Back along the route">
+            <button type="button" className="btn-small" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0} aria-label={t('Back along the route')}>
               ‹
             </button>
             <input
@@ -155,17 +156,17 @@ export function RouteMap({ route: id, mode = 'explore', at = 0, show = [], picke
               max={route.path.length - 1}
               value={step}
               onChange={(e) => setStep(Number(e.target.value))}
-              aria-label="Along the route"
+              aria-label={t('Along the route')}
               aria-valuetext={`${here.name}${current.km !== undefined ? `, ${kmText(current.km)}` : ''}`}
             />
-            <button type="button" className="btn-small" onClick={() => setStep(Math.min(route.path.length - 1, step + 1))} disabled={step === route.path.length - 1} aria-label="On along the route">
+            <button type="button" className="btn-small" onClick={() => setStep(Math.min(route.path.length - 1, step + 1))} disabled={step === route.path.length - 1} aria-label={t('On along the route')}>
               ›
             </button>
           </div>
           <div className="route-card" aria-live="polite">
             <p className="route-stop">
               <span className="route-count">
-                {step + 1} of {route.path.length}
+                {t('{n} of {total}', { n: step + 1, total: route.path.length })}
               </span>
               {here.name}
               {current.km !== undefined && <span className="route-km">{kmText(current.km)}</span>}
@@ -173,15 +174,15 @@ export function RouteMap({ route: id, mode = 'explore', at = 0, show = [], picke
             {here.climb && (
               <dl className="climb-stats">
                 <div>
-                  <dt>Length</dt>
+                  <dt>{t('Length')}</dt>
                   <dd>{here.climb.m >= 1000 ? `${here.climb.m / 1000} km` : `${here.climb.m} m`}</dd>
                 </div>
                 <div>
-                  <dt>Average</dt>
+                  <dt>{t('Average')}</dt>
                   <dd>{pct(here.climb.avg)}</dd>
                 </div>
                 <div>
-                  <dt>Steepest</dt>
+                  <dt>{t('Steepest')}</dt>
                   <dd>
                     {pct(here.climb.max)}
                     <svg viewBox="0 0 40 12" className="climb-wedge" aria-hidden="true">
@@ -191,7 +192,7 @@ export function RouteMap({ route: id, mode = 'explore', at = 0, show = [], picke
                 </div>
                 {here.climb.cobbles && (
                   <div>
-                    <dt>Cobbles</dt>
+                    <dt>{t('Cobbles')}</dt>
                     <dd>{here.climb.cobbles >= 1000 ? `${here.climb.cobbles / 1000} km` : `${here.climb.cobbles} m`}</dd>
                   </div>
                 )}

@@ -12,6 +12,7 @@ import { SoundCredit } from '../sounds/Sound'
 import type { HatId } from '../mascot/hats'
 import { finishLine } from '../mascot/lines'
 import { Stork } from '../mascot/Stork'
+import { t, type Key } from '../i18n'
 
 // A calm lesson (on slavery, say) ends without the stork or "Perfect lesson!".
 type Props = { title: string; outcome: LessonOutcome; xp: number; sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[]; calm?: boolean; hat?: HatId; crown?: CrownNote; gate?: { passed: boolean; head: string; detail: string }; hung?: Hung[]; quests?: QuestId[]; onMuseum?: () => void; onDone: () => void }
@@ -27,11 +28,23 @@ export function Results({ title, outcome, xp, sources, photos, sounds = [], calm
     <div className="results">
       <div className="results-hero">
         {calm ? <Icon name="book" /> : <Stork hat={hat} size={88} className="stork-hero" />}
-        <h1>{outcome.timedOut ? "Time's up" : crown?.head === 'Legendary' ? 'Legendary!' : crown?.head === 'Not this time' ? 'Challenge over' : calm ? 'Lesson complete' : outcome.mistakes === 0 ? 'Perfect lesson!' : 'Lesson complete!'}</h1>
-        <p className="muted">{title}</p>
+        <h1>
+          {outcome.timedOut
+            ? t("Time's up")
+            : crown?.legendary === 'passed'
+              ? t('Legendary!')
+              : crown?.legendary === 'failed'
+                ? t('Challenge over')
+                : calm
+                  ? t('Lesson complete')
+                  : outcome.mistakes === 0
+                    ? t('Perfect lesson!')
+                    : t('Lesson complete!')}
+        </h1>
+        <p className="muted" lang="en-CA">{title}</p>
         {!calm && (
           <p className="stork-line">
-            {finishLine({ asked: outcome.asked, mistakes: outcome.mistakes, timedOut: outcome.timedOut, legendary: crown?.head === 'Legendary' ? 'passed' : crown?.head === 'Not this time' ? 'failed' : undefined })}
+            {finishLine({ asked: outcome.asked, mistakes: outcome.mistakes, timedOut: outcome.timedOut, legendary: crown?.legendary === 'passed' ? 'passed' : crown?.legendary === 'failed' ? 'failed' : undefined })}
           </p>
         )}
       </div>
@@ -62,55 +75,55 @@ export function Results({ title, outcome, xp, sources, photos, sounds = [], calm
             <Icon name="check" />
           </span>
           <div>
-            <p className="crown-head">Daily quest done</p>
-            <p className="muted">{questList[id].text}</p>
+            <p className="crown-head">{t('Daily quest done')}</p>
+            <p className="muted">{t(questList[id].text as Key)}</p>
           </div>
           <span className="quest-bonus">+{QUEST_XP} XP</span>
         </div>
       ))}
       <div className="results-stats">
         <div className="tile tile-xp">
-          <span className="tile-label">XP earned</span>
+          <span className="tile-label">{t('XP earned')}</span>
           <span className="tile-value">+{xp}</span>
         </div>
         <div className="tile tile-acc">
-          <span className="tile-label">Accuracy</span>
+          <span className="tile-label">{t('Accuracy')}</span>
           <span className="tile-value">{accuracy}%</span>
         </div>
         <div className="tile tile-map">
-          <span className="tile-label">Places</span>
+          <span className="tile-label">{t('Places')}</span>
           <span className="tile-value">{newPlaces.length}</span>
         </div>
       </div>
       {newPlaces.length > 0 && (
         <div className="map-frame small">
-          <LowlandsMap label="Places from this lesson" highlight={['NLD', 'BEL']} pins={newPlaces.map((place) => ({ place, tone: 'answer' as const }))} />
+          <LowlandsMap label={t('Places from this lesson')} highlight={['NLD', 'BEL']} pins={newPlaces.map((place) => ({ place, tone: 'answer' as const }))} />
         </div>
       )}
       {hung.length > 0 && (
         <section className="hung-note">
           <h2>
-            {hung.length} new {hung.length === 1 ? 'card' : 'cards'} in your museum
+            {t(hung.length === 1 ? '1 new card in your museum' : '{n} new cards in your museum', { n: hung.length })}
           </h2>
           <ul className="hung-list">
             {hung.slice(0, HUNG_SHOWN).map((c) => (
               <li key={c.photo}>
                 <Photo id={c.photo} className="hung-photo" />
-                <span>{c.title}</span>
+                <span lang="en-CA">{c.title}</span>
               </li>
             ))}
           </ul>
-          {hung.length > HUNG_SHOWN && <p className="muted">and {hung.length - HUNG_SHOWN} more</p>}
+          {hung.length > HUNG_SHOWN && <p className="muted">{t('and {n} more', { n: hung.length - HUNG_SHOWN })}</p>}
           {onMuseum && (
             <button type="button" className="btn-ghost" onClick={onMuseum}>
-              See your museum
+              {t('See your museum')}
             </button>
           )}
         </section>
       )}
       <SourceDetails sources={sources} photos={photos} sounds={sounds} />
       <button type="button" className="btn-primary" onClick={onDone}>
-        Continue
+        {t('Continue')}
       </button>
     </div>
   )
@@ -120,7 +133,7 @@ export function Results({ title, outcome, xp, sources, photos, sounds = [], calm
 export function SourceDetails({ sources, photos, sounds = [] }: { sources: Lesson['sources']; photos: PhotoId[]; sounds?: SoundId[] }) {
   return (
     <details className="sources">
-      <summary>{photos.length || sounds.length ? 'Sources and credits' : 'Sources for this lesson'}</summary>
+      <summary>{photos.length || sounds.length ? t('Sources and credits') : t('Sources for this lesson')}</summary>
       <ul>
         {sources.map((s) => (
           <li key={s.url}>
@@ -132,7 +145,7 @@ export function SourceDetails({ sources, photos, sounds = [] }: { sources: Lesso
       </ul>
       {photos.length > 0 && (
         <>
-          <p className="sources-sub">Photos and maps</p>
+          <p className="sources-sub">{t('Photos and maps')}</p>
           <ul>
             {photos.map((id) => (
               <li key={id}>
@@ -144,7 +157,7 @@ export function SourceDetails({ sources, photos, sounds = [] }: { sources: Lesso
       )}
       {sounds.length > 0 && (
         <>
-          <p className="sources-sub">Recordings</p>
+          <p className="sources-sub">{t('Recordings')}</p>
           <ul>
             {sounds.map((id) => (
               <li key={id}>

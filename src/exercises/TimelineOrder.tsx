@@ -3,6 +3,7 @@ import type { ExerciseOf } from '../content/schema'
 import { isChronological } from '../lesson/scoring'
 import { shuffle } from '../lesson/shuffle'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 export function TimelineOrder({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'order'>>) {
   const pool = useMemo(() => shuffle(exercise.items.map((_, i) => i)), [exercise])
@@ -24,7 +25,7 @@ export function TimelineOrder({ exercise, checked, setAnswer }: ExerciseProps<Ex
 
   return (
     <div className="exercise">
-      <p className="eyebrow">Timeline</p>
+      <p className="eyebrow">{t('Timeline')}</p>
       <h2>{exercise.prompt}</h2>
       <ol className="timeline">
         {exercise.items.map((_, slot) => {
@@ -40,7 +41,7 @@ export function TimelineOrder({ exercise, checked, setAnswer }: ExerciseProps<Ex
                   {checked && <span className="when">{item.when}</span>}
                 </button>
               ) : (
-                <span className="timeline-empty">{slot === 0 ? 'Oldest' : slot === exercise.items.length - 1 ? 'Most recent' : ''}</span>
+                <span className="timeline-empty">{slot === 0 ? t('Oldest') : slot === exercise.items.length - 1 ? t('Most recent') : ''}</span>
               )}
             </li>
           )

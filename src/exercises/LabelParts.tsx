@@ -5,6 +5,7 @@ import { photo } from '../photos'
 import { Credit } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 const pct = (n: number) => `${n * 100}%`
 
@@ -26,7 +27,7 @@ export function LabelParts({ exercise, checked, setAnswer }: ExerciseProps<Exerc
     setSpot(null)
     if (next.some((x) => x === null)) return setAnswer(null)
     const wrong = exercise.spots.filter((sp, i) => labels[next[i]!] !== sp.label)
-    const lead = wrong.length ? `${wrong.map((w) => `${exercise.spots.indexOf(w) + 1} is ${w.label}`).join('; ')}. ` : 'Every label in its place. '
+    const lead = wrong.length ? `${wrong.map((w) => t('{n} is {label}', { n: exercise.spots.indexOf(w) + 1, label: w.label })).join('; ')}. ` : `${t('Every label in its place.')} `
     setAnswer(() => ({ correct: wrong.length === 0, detail: `${lead}${exercise.explain}` }))
   }
 
@@ -50,7 +51,7 @@ export function LabelParts({ exercise, checked, setAnswer }: ExerciseProps<Exerc
 
   return (
     <div className="exercise exercise-label">
-      <p className="eyebrow">Label the parts</p>
+      <p className="eyebrow">{t('Label the parts')}</p>
       <h2>{exercise.prompt}</h2>
       <figure className="photo-figure">
         <ZoomImage src={p.src} alt={p.alt} max={6} className="label-image">
@@ -66,7 +67,7 @@ export function LabelParts({ exercise, checked, setAnswer }: ExerciseProps<Exerc
                 onPointerDown={(e) => e.stopPropagation()}
                 onClick={() => tapSpot(i)}
                 disabled={checked}
-                aria-label={`Spot ${i + 1}: ${on === null ? 'empty' : labels[on]}`}
+                aria-label={on === null ? t('Spot {n}: empty', { n: i + 1 }) : t('Spot {n}: {label}', { n: i + 1, label: labels[on] })}
               >
                 <span className="label-num" aria-hidden="true">
                   {i + 1}
@@ -87,15 +88,15 @@ export function LabelParts({ exercise, checked, setAnswer }: ExerciseProps<Exerc
           })}
         </ZoomImage>
         <figcaption>
-          {p.caption} · <span className="photo-credit">Credit: <Credit id={exercise.photo} /></span>
+          {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={exercise.photo} /></span>
         </figcaption>
       </figure>
       {loose.length > 0 && !checked && (
         <>
           <p className="sort-hint muted">
-            {label !== null ? 'Now tap its number on the picture.' : spot !== null ? `Now tap the label for ${spot + 1}.` : 'Tap a label, then its number on the picture.'}
+            {label !== null ? t('Now tap its number on the picture.') : spot !== null ? t('Now tap the label for {n}.', { n: spot + 1 }) : t('Tap a label, then its number on the picture.')}
           </p>
-          <div className="label-pool" role="group" aria-label="Labels">
+          <div className="label-pool" role="group" aria-label={t('Labels')}>
             {loose.map((l) => (
               <button key={l} type="button" className={`option label-card${label === l ? ' picked' : ''}`} aria-pressed={label === l} onClick={() => tapLabel(l)}>
                 {labels[l]}

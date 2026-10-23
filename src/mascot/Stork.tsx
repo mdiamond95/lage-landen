@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { hats, type HatId } from './hats'
+import { t } from '../i18n'
 
 // The stork, drawn for Lage Landen: white with black flight feathers and a red bill and
 // legs, standing side on. Each hat is drawn with (0, 0) at the top of the head.
@@ -196,7 +197,7 @@ type Props = { hat?: HatId; size?: number; className?: string; label?: string; p
 
 // Decorative unless given a label; a hat's name shows as a tooltip either way.
 export function Stork({ hat, size = 64, className = '', label, portrait = false }: Props) {
-  const tip = hat ? `The stork in ${hats[hat]}` : 'The stork'
+  const tip = hat ? t('The stork in {hat}', { hat: hats[hat] }) : t('The stork')
   return (
     <svg
       viewBox={portrait ? '34 2 64 64' : '0 0 100 134'}

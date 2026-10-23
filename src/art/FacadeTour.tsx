@@ -3,6 +3,7 @@ import { facades, type FacadeId, type FacadeSpot } from '../data/facades'
 import { photo } from '../photos'
 import { Credit } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
+import { t } from '../i18n'
 
 const pct = (n: number) => `${n * 100}%`
 
@@ -44,7 +45,7 @@ export function FacadeTour({ facade, focus }: { facade: FacadeId; focus?: string
           ))}
       </ZoomImage>
       {quiz ? (
-        <p className="hint">Zoomed in on one part. Zoom out with − to see the whole building.</p>
+        <p className="hint">{t('Zoomed in on one part. Zoom out with − to see the whole building.')}</p>
       ) : (
         <div className="tour-panel" aria-live="polite">
           {current ? (
@@ -57,20 +58,20 @@ export function FacadeTour({ facade, focus }: { facade: FacadeId; focus?: string
           )}
           <div className="tour-nav">
             <button type="button" className="zoom-btn zoom-reset" disabled={spot === null} onClick={() => setSpot(spot === null || spot === 0 ? null : spot - 1)}>
-              Back
+              {t('Back')}
             </button>
             <button
               type="button"
               className="zoom-btn zoom-reset tour-next"
               onClick={() => setSpot(spot === null ? 0 : spot + 1 < spots.length ? spot + 1 : null)}
             >
-              {spot === null ? 'Walk along the front' : spot + 1 < spots.length ? 'Next part' : 'Whole front'}
+              {spot === null ? t('Walk along the front') : spot + 1 < spots.length ? t('Next part') : t('Whole front')}
             </button>
           </div>
         </div>
       )}
       <figcaption>
-        {p.caption} · <span className="photo-credit">Credit: <Credit id={f.photo} /></span>
+        {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={f.photo} /></span>
       </figcaption>
     </figure>
   )

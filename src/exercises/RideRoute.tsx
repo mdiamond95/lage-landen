@@ -3,6 +3,7 @@ import type { ExerciseOf } from '../content/schema'
 import { routes } from '../data/routes'
 import { RouteMap } from '../map/RouteMap'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 // Ride the route (Unit 23): tap places on a race's route map in the order the race passes them.
 // A tap on a place already picked takes it back, with any picked after it.
@@ -19,22 +20,22 @@ export function RideRoute({ exercise, checked, setAnswer }: ExerciseProps<Exerci
     setPicked(next)
     if (next.length < need) return setAnswer(null)
     const ok = next.every((q, j) => q === exercise.ask[j])
-    setAnswer(() => ({ correct: ok, detail: ok ? exercise.explain : `In order: ${names(exercise.ask)}. ${exercise.explain}` }))
+    setAnswer(() => ({ correct: ok, detail: ok ? exercise.explain : `${t('In order: {names}.', { names: names(exercise.ask) })} ${exercise.explain}` }))
   }
 
   return (
     <div className="exercise exercise-ride">
-      <p className="eyebrow">Ride the route</p>
+      <p className="eyebrow">{t('Ride the route')}</p>
       <h2>{exercise.prompt}</h2>
       <RouteMap route={exercise.route} mode="pick" show={exercise.show} picked={picked} need={need} correct={checked ? exercise.ask : undefined} onPick={pick} />
       <p className="hint">
         {checked
-          ? `You picked ${picked.length ? names(picked) : 'nothing'}.`
+          ? t('You picked {names}.', { names: picked.length ? names(picked) : t('nothing') })
           : need === 1
             ? picked.length
-              ? 'Place picked. Tap another to change your mind.'
-              : 'Tap the place on the route.'
-            : `Tap ${need} places in order: ${picked.length} of ${need} picked. Tap a picked place to take it back.`}
+              ? t('Place picked. Tap another to change your mind.')
+              : t('Tap the place on the route.')
+            : t('Tap {need} places in order: {n} of {need} picked. Tap a picked place to take it back.', { need, n: picked.length })}
       </p>
     </div>
   )

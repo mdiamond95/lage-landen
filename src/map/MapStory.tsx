@@ -4,6 +4,7 @@ import { frameOf, stories } from '../data/stories'
 import { eventAt } from '../data/timeline'
 import { StoryMap } from './TimeMap'
 import { TradeKey, TradeSvg } from './TradeMap'
+import { t } from '../i18n'
 
 const VOICE_KEY = 'lage-landen-voice'
 // Without a voice (or with it off), a step stays up as long as reading it takes.
@@ -120,14 +121,14 @@ export function MapStory({ unit }: { unit: string }) {
     <figure className={`time-map map-story${story.map === 'cloth' ? ' trade-map' : ''}`} data-step={i}>
       <div className="map-frame">{story.map === 'cloth' ? <TradeSvg year={step.at} /> : <StoryMap story={stories[story.map]} year={step.at} />}</div>
       <figcaption>
-        <ol className="map-story-steps" aria-label={`The story in ${story.steps.length} steps`}>
+        <ol className="map-story-steps" aria-label={t('The story in {n} steps', { n: story.steps.length })}>
           {story.steps.map((s, j) => (
             <li key={s.at}>
               <button
                 type="button"
                 className={`map-story-dot${j === i ? ' is-on' : j < i ? ' is-past' : ''}`}
                 aria-current={j === i ? 'step' : undefined}
-                aria-label={`Step ${j + 1}: ${frame.format(s.at)}`}
+                aria-label={t('Step {n}: {when}', { n: j + 1, when: frame.format(s.at) })}
                 onClick={() => go(j)}
               />
             </li>
@@ -135,29 +136,29 @@ export function MapStory({ unit }: { unit: string }) {
         </ol>
         <div className="time-map-caption" aria-live={playing && voice ? 'off' : 'polite'}>
           <p className="map-story-count">
-            {i + 1} of {story.steps.length} · {frame.format(step.at)}
+            {t('{n} of {total}', { n: i + 1, total: story.steps.length })} · {frame.format(step.at)}
           </p>
-          <p className="time-map-title">{event.title}</p>
-          <p className="time-map-text map-story-say">{step.say}</p>
+          <p className="time-map-title" lang="en-CA">{event.title}</p>
+          <p className="time-map-text map-story-say" lang="en-CA">{step.say}</p>
         </div>
         <div className="map-story-nav">
           <button type="button" className="btn-ghost" onClick={() => go(i - 1)} disabled={i === 0}>
-            Back
+            {t('Back')}
           </button>
           <button type="button" className="btn-ghost map-story-play" onClick={togglePlay}>
-            {playing ? 'Pause' : i === last ? 'Play again' : i === 0 ? 'Play the story' : 'Play on'}
+            {playing ? t('Pause') : i === last ? t('Play again') : i === 0 ? t('Play the story') : t('Play on')}
           </button>
           <button type="button" className="btn-ghost" onClick={() => go(i + 1)} disabled={i === last}>
-            Next
+            {t('Next')}
           </button>
         </div>
         <div className="time-map-foot">
           {speech() && (
             <label className="map-story-voice">
-              <input type="checkbox" checked={voice} onChange={toggleVoice} /> Read aloud
+              <input type="checkbox" checked={voice} onChange={toggleVoice} /> {t('Read aloud')}
             </label>
           )}
-          <ul className="time-map-key" aria-label="Map key">
+          <ul className="time-map-key" aria-label={t('Map key')}>
             {key}
           </ul>
         </div>

@@ -7,11 +7,12 @@
 
 import { foodIds, foods } from './foods'
 import type { PhotoId } from '../photos/ids'
+import type { Key } from '../i18n'
 
 export const cardKinds = ['art', 'person', 'building', 'food'] as const
 export type CardKind = (typeof cardKinds)[number]
 
-export const cardKindNames: Record<CardKind, string> = {
+export const cardKindNames: Record<CardKind, Key> = {
   art: 'Artworks',
   person: 'People',
   building: 'Buildings',

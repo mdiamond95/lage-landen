@@ -25,31 +25,34 @@ import { newCards, type Hung } from './progress/collection'
 import { photosUsed } from './photos/used'
 import { soundsUsed } from './sounds/used'
 import { unitHat, type HatId } from './mascot/hats'
+import { list, t, useLang } from './i18n'
 
 // `note` is a content note shown first; `calm` plays without celebrations, for
 // lessons on painful subjects and any review or checkpoint that draws on them.
 // What a checkpoint did at the mastery gate, for the results screen.
 type GateNote = { passed: boolean; head: string; detail: string }
 
-const listNames = (us: { number: number }[]) => us.map((u) => `Unit ${u.number}`).join(' and ')
+const listNames = (us: { number: number }[]) => list(us.map((u) => t('Unit {n}', { n: u.number })))
 
 const gateNote = (unitId: string, right: number, asked: number, wasMastered: boolean): GateNote => {
   const unit = units.find((u) => u.id === unitId)!
   const next = unitsAfter(unit, units)
   const need = Math.ceil(GATE * asked)
-  const tally = `${right} of ${asked} right first time`
+  const tally = t('{right} of {asked} right first time', { right, asked })
   if (right >= need)
     return {
       passed: true,
-      head: next.length && !wasMastered ? `${listNames(next)} ${next.length > 1 ? 'are' : 'is'} open` : `Unit ${unit.number} mastered`,
-      detail: next.length ? `${tally}: ${need} open the next unit.` : `${tally}, at the end of its track.`,
+      head: next.length && !wasMastered ? t(next.length > 1 ? '{units} are open' : '{units} is open', { units: listNames(next) }) : t('Unit {n} mastered', { n: unit.number }),
+      detail: next.length ? t('{tally}: {need} open the next unit.', { tally, need }) : t('{tally}, at the end of its track.', { tally }),
     }
   return {
     passed: false,
-    head: wasMastered ? `Unit ${unit.number} stays mastered` : `${need} of ${asked} needed`,
+    head: wasMastered ? t('Unit {n} stays mastered', { n: unit.number }) : t('{need} of {asked} needed', { need, asked }),
     detail: wasMastered
-      ? `${tally} this time; your earlier pass still counts.`
-      : `${tally}. ${need} ${next.length ? `open ${listNames(next)}` : 'master the unit'}: take the checkpoint again whenever you like.`,
+      ? t('{tally} this time; your earlier pass still counts.', { tally })
+      : next.length
+        ? t('{tally}. {need} open {units}: take the checkpoint again whenever you like.', { tally, need, units: listNames(next) })
+        : t('{tally}. {need} master the unit: take the checkpoint again whenever you like.', { tally, need }),
   }
 }
 
@@ -89,7 +92,7 @@ const buildReview = (): Playing => {
   const lessonIds = new Set(picked.map((c) => c.lessonId))
   return {
     id: REVIEW_ID,
-    title: 'Daily review',
+    title: t('Daily review'),
     exercises: picked.map((c) => c.exercise),
     sources: units.flatMap((u) => u.lessons.filter((l) => lessonIds.has(l.id)).flatMap((l) => l.sources)),
     calm: units.some((u) => u.lessons.some((l) => l.note && lessonIds.has(l.id))),
@@ -105,7 +108,7 @@ const resolve = (id: string): Playing | undefined => {
   if (cp)
     return {
       id,
-      title: `Unit ${cp.number} checkpoint`,
+      title: t('Unit {n} checkpoint', { n: cp.number }),
       checkpoint: cp.id,
       exercises: buildCheckpoint(cp),
       sources: cp.lessons.flatMap((l) => l.sources),
@@ -117,7 +120,7 @@ const resolve = (id: string): Playing | undefined => {
   if (told)
     return {
       id,
-      title: `Unit ${told.number} map story`,
+      title: t('Unit {n} map story', { n: told.number }),
       story: true,
       exercises: buildMapStory(told),
       sources: told.lessons.flatMap((l) => l.sources),
@@ -131,7 +134,7 @@ const resolve = (id: string): Playing | undefined => {
     const seconds = timeLimit(exercises)
     return {
       id,
-      title: `Unit ${legend.number} Legendary`,
+      title: t('Unit {n} Legendary', { n: legend.number }),
       exercises,
       sources: legend.lessons.flatMap((l) => l.sources),
       retry: false,
@@ -148,7 +151,7 @@ const resolve = (id: string): Playing | undefined => {
   const play = buildLevel(lesson, before >= 4 ? 5 : target)
   return {
     id,
-    title: target > 1 && before < 4 ? `${lesson.title}, level ${target}` : lesson.title,
+    title: target > 1 && before < 4 ? t('{title}, level {n}', { title: lesson.title, n: target }) : lesson.title,
     exercises: play.exercises,
     retry: play.retry,
     sources: lesson.sources,
@@ -160,6 +163,8 @@ const resolve = (id: string): Playing | undefined => {
 }
 
 export default function App() {
+  // Everything below re-renders in the new language when it changes.
+  useLang()
   const [screen, setScreen] = useState<Screen>({ name: 'home' })
   const home = () => {
     setScreen({ name: 'home' })

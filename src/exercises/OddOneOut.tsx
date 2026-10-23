@@ -3,6 +3,7 @@ import type { ExerciseOf } from '../content/schema'
 import { shuffle } from '../lesson/shuffle'
 import { Photo } from '../photos/Photo'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 // Odd one out: pick the item that doesn't belong, then the reason why. The reasons
 // only appear once an item is picked, and both must be right.
@@ -20,7 +21,7 @@ export function OddOneOut({ exercise, checked, setAnswer }: ExerciseProps<Exerci
     const rightItem = nextItem === exercise.answer
     const rightReason = nextReason === exercise.reason
     const odd = exercise.items[exercise.answer].label
-    const lead = rightItem && rightReason ? '' : rightItem ? 'Right one, wrong reason. ' : `The odd one out is ${odd}. `
+    const lead = rightItem && rightReason ? '' : rightItem ? `${t('Right one, wrong reason.')} ` : `${t('The odd one out is {odd}.', { odd })} `
     setAnswer(() => ({ correct: rightItem && rightReason, detail: `${lead}${exercise.explain}` }))
   }
 
@@ -29,7 +30,7 @@ export function OddOneOut({ exercise, checked, setAnswer }: ExerciseProps<Exerci
 
   return (
     <div className="exercise exercise-odd">
-      <p className="eyebrow">Odd one out</p>
+      <p className="eyebrow">{t('Odd one out')}</p>
       <h2>{exercise.prompt}</h2>
       <div className={pictures ? 'options options-grid' : 'options options-two'}>
         {order.map((i) => {
@@ -51,7 +52,7 @@ export function OddOneOut({ exercise, checked, setAnswer }: ExerciseProps<Exerci
       </div>
       {item !== null && (
         <div className="odd-reasons">
-          <p className="odd-why">Why doesn't it belong?</p>
+          <p className="odd-why">{t("Why doesn't it belong?")}</p>
           <div className="options">
             {reasons.map((r) => (
               <button

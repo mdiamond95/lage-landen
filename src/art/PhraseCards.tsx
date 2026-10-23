@@ -2,6 +2,7 @@ import { phraseSets, type Phrase, type PhraseSet, type PhraseSetId } from '../da
 import { sound } from '../sounds'
 import { PlayButton, SoundCredit } from '../sounds/Sound'
 import { toggleSpeech, useSound, useVoices, voiceFor } from '../sounds/player'
+import { t } from '../i18n'
 
 // Says a phrase nobody has recorded with the device's own voice, when it has one for the
 // language; the button says it is a computer voice.
@@ -16,8 +17,8 @@ function SpeakButton({ phrase, lang }: { phrase: Phrase; lang: PhraseSet['lang']
       type="button"
       className={`play-btn play-voice${on ? ' is-playing' : ''}`}
       onClick={() => toggleSpeech(key, phrase.say, lang)}
-      aria-label={on ? `Stop ${phrase.say}` : `Say ${phrase.say} in the device's computer voice`}
-      title="Computer voice"
+      aria-label={on ? t('Stop {name}', { name: phrase.say }) : t("Say {name} in the device's computer voice", { name: phrase.say })}
+      title={t('Computer voice')}
     >
       <svg viewBox="0 0 40 40" aria-hidden="true">
         <circle cx="20" cy="20" r="18" className="play-track" />

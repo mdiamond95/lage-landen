@@ -2,12 +2,13 @@ import { useRef, useState } from 'react'
 import { backupName, describe, makeBackup, readBackup, type Backup } from '../progress/backup'
 import { loadBest, saveBest } from '../progress/drill'
 import { getProgress, replaceProgress } from '../progress/store'
+import { getLang, langTags, t } from '../i18n'
 
 type Step = { name: 'idle' } | { name: 'check'; backup: Backup } | { name: 'error'; text: string } | { name: 'done'; text: string }
 
 const dateOf = (iso: string) => {
   const d = new Date(iso)
-  return Number.isNaN(d.getTime()) ? 'an unknown date' : d.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })
+  return Number.isNaN(d.getTime()) ? t('an unknown date') : d.toLocaleDateString(langTags[getLang()], { year: 'numeric', month: 'long', day: 'numeric' })
 }
 
 // Progress lives on the device, so this card saves it to a file and loads one back: a
@@ -28,7 +29,7 @@ export function BackupCard() {
     a.click()
     a.remove()
     setTimeout(() => URL.revokeObjectURL(url), 1000)
-    setStep({ name: 'done', text: `Saved as ${backupName(now)}.` })
+    setStep({ name: 'done', text: t('Saved as {file}.', { file: backupName(now) }) })
   }
 
   const pick = async (file: File | undefined) => {
@@ -41,35 +42,33 @@ export function BackupCard() {
   const load = (backup: Backup) => {
     replaceProgress(backup.progress)
     saveBest(backup.drill)
-    setStep({ name: 'done', text: 'Progress loaded from the file.' })
+    setStep({ name: 'done', text: t('Progress loaded from the file.') })
   }
 
   return (
-    <section className="backup card" aria-label="Your progress">
-      <h2>Your progress</h2>
-      <p>Everything is kept on this device. Save it to a file to keep a backup, or to carry it to another phone or computer and load it there.</p>
+    <section className="backup card" aria-label={t('Your progress')}>
+      <h2>{t('Your progress')}</h2>
+      <p>{t('Everything is kept on this device. Save it to a file to keep a backup, or to carry it to another phone or computer and load it there.')}</p>
       <div className="backup-actions">
         <button type="button" className="btn-ghost" onClick={save}>
-          Save to a file
+          {t('Save to a file')}
         </button>
         <label className="btn-ghost backup-load">
-          Load from a file
+          {t('Load from a file')}
           <input ref={input} type="file" accept="application/json,.json" className="sr-only" onChange={(e) => pick(e.target.files?.[0])} />
         </label>
       </div>
       {step.name === 'check' && (
-        <div className="backup-check" role="alertdialog" aria-label="Replace your progress?">
-          <p className="crown-head">Replace your progress?</p>
-          <p>
-            The file, saved on {dateOf(step.backup.exported)}: {describe(step.backup.progress)}.
-          </p>
-          <p>This device now: {describe(getProgress())}.</p>
+        <div className="backup-check" role="alertdialog" aria-label={t('Replace your progress?')}>
+          <p className="crown-head">{t('Replace your progress?')}</p>
+          <p>{t('The file, saved on {date}: {what}.', { date: dateOf(step.backup.exported), what: describe(step.backup.progress) })}</p>
+          <p>{t('This device now: {what}.', { what: describe(getProgress()) })}</p>
           <div className="backup-actions">
             <button type="button" className="btn-primary" onClick={() => load(step.backup)}>
-              Replace my progress
+              {t('Replace my progress')}
             </button>
             <button type="button" className="btn-ghost" onClick={() => setStep({ name: 'idle' })}>
-              Keep what's here
+              {t("Keep what's here")}
             </button>
           </div>
         </div>

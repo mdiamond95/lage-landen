@@ -13,6 +13,7 @@ import {
   type CourseId,
   type ShapeId,
 } from '../data/projections'
+import { t, type Key } from '../i18n'
 
 export type View = 'mercator' | 'equal' | 'globe'
 
@@ -55,7 +56,7 @@ const makeProjection = (view: View, turn: [number, number]): GeoProjection => {
     )
 }
 
-export const viewNames: Record<View, { name: string; about: string }> = {
+export const viewNames: Record<View, { name: Key; about: string }> = {
   mercator: {
     name: 'Mercator, 1569',
     about: 'Every steady compass course is a straight line, so sailors could steer by it. The price: land is stretched more the further it lies from the equator.',
@@ -172,10 +173,10 @@ export function ProjectionMap({ view: start = 'mercator', fixed = false, shapes 
   return (
     <figure className={`projection-map projection-${view}`} data-view={view}>
       {!fixed && (
-        <div className="projection-views" role="group" aria-label="Map projection">
+        <div className="projection-views" role="group" aria-label={t('Map projection')}>
           {(Object.keys(viewNames) as View[]).map((v) => (
             <button key={v} type="button" className={`btn-small${v === view ? ' is-on' : ''}`} aria-pressed={v === view} data-view={v} onClick={() => setView(v)}>
-              {viewNames[v].name}
+              {t(viewNames[v].name)}
             </button>
           ))}
         </div>
@@ -186,7 +187,7 @@ export function ProjectionMap({ view: start = 'mercator', fixed = false, shapes 
           className="projection-svg"
           viewBox={`0 0 ${W} ${H}`}
           role="img"
-          aria-label={label ?? `The world on ${viewNames[view].name}`}
+          aria-label={label ?? t('The world on {view}', { view: t(viewNames[view].name) })}
           onPointerDown={(e) => view === 'globe' && down(e)}
           onPointerMove={move}
           onPointerUp={up}
@@ -226,7 +227,7 @@ export function ProjectionMap({ view: start = 'mercator', fixed = false, shapes 
                   d={d}
                   role="button"
                   tabIndex={0}
-                  aria-label={`${shape.name}: drag it, or move it with the arrow keys`}
+                  aria-label={t('{name}: drag it, or move it with the arrow keys', { name: shape.name })}
                   onPointerDown={(e) => down(e, id)}
                   onKeyDown={(e) => key(e, id)}
                 />
@@ -241,24 +242,24 @@ export function ProjectionMap({ view: start = 'mercator', fixed = false, shapes 
         </svg>
       </div>
       <figcaption className="projection-caption">
-        <p className="projection-about">{viewNames[view].about}</p>
+        <p className="projection-about" lang="en-CA">{viewNames[view].about}</p>
         <div className="projection-toggles">
           <label>
-            <input type="checkbox" checked={rings} onChange={(e) => setRings(e.target.checked)} /> Circles of one size
+            <input type="checkbox" checked={rings} onChange={(e) => setRings(e.target.checked)} /> {t('Circles of one size')}
           </label>
           {trip && (
             <label>
-              <input type="checkbox" checked={courseOn} onChange={(e) => setCourseOn(e.target.checked)} /> Course to {trip.to.name}
+              <input type="checkbox" checked={courseOn} onChange={(e) => setCourseOn(e.target.checked)} /> {t('Course to {place}', { place: trip.to.name })}
             </label>
           )}
           {moved && (
             <button type="button" className="btn-small" onClick={() => setAt({})}>
-              Put back
+              {t('Put back')}
             </button>
           )}
         </div>
         {shapes.length > 0 && (
-          <ul className="projection-sizes" aria-live="polite">
+          <ul className="projection-sizes" aria-live="polite" lang="en-CA">
             {placed.map(({ id, shape, feature }, i) => {
               const lat = centreOf(id)[1]
               const drawn = path.area(feature) * perUnit
@@ -281,7 +282,7 @@ export function ProjectionMap({ view: start = 'mercator', fixed = false, shapes 
           </ul>
         )}
         {trip && courseOn && tripStats && (
-          <ul className="projection-trip">
+          <ul className="projection-trip" lang="en-CA">
             <li>
               <span className="key-swatch course-swatch-rhumb" /> Steady compass course, {Math.round(tripStats.bearing)}° all the way: {Math.round(tripStats.km / 10) * 10} km
             </li>

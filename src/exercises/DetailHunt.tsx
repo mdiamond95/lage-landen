@@ -4,6 +4,7 @@ import { photo } from '../photos'
 import { Credit } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 // A little slack around the target box, as a fraction of the picture, so a tap on
 // its edge still counts.
@@ -22,14 +23,14 @@ export function DetailHunt({ exercise, checked, setAnswer }: ExerciseProps<Exerc
       ([left, top, width, height]) =>
         x >= left - SLACK && x <= left + width + SLACK && y >= top - SLACK && y <= top + height + SLACK,
     )
-    const lead = correct ? 'Found it.' : exercise.targets.length > 1 ? 'Not there; look in the boxes.' : "Not there; it's in the box."
+    const lead = correct ? t('Found it.') : exercise.targets.length > 1 ? t('Not there; look in the boxes.') : t("Not there; it's in the box.")
     setAnswer(() => ({ correct, detail: `${lead} ${exercise.explain}` }))
   }
 
   const pct = (n: number) => `${n * 100}%`
   return (
     <div className="exercise">
-      <p className="eyebrow">Find the detail</p>
+      <p className="eyebrow">{t('Find the detail')}</p>
       <h2>{exercise.prompt}</h2>
       <figure className="photo-figure">
         <ZoomImage src={p.src} alt={p.alt} onTap={onTap} className={`hunt-image${checked ? '' : ' hunt-live'}`}>
@@ -40,10 +41,10 @@ export function DetailHunt({ exercise, checked, setAnswer }: ExerciseProps<Exerc
           {tap && <span className="hunt-tap" style={{ left: pct(tap[0]), top: pct(tap[1]) }} />}
         </ZoomImage>
         <figcaption>
-          {p.caption} · <span className="photo-credit">Credit: <Credit id={exercise.photo} /></span>
+          {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={exercise.photo} /></span>
         </figcaption>
       </figure>
-      {!tap && <p className="hint">Tap the picture where you see it. Zoom in with + to look closer; tap again to move your mark.</p>}
+      {!tap && <p className="hint">{t('Tap the picture where you see it. Zoom in with + to look closer; tap again to move your mark.')}</p>}
     </div>
   )
 }
