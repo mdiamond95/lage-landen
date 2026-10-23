@@ -18,6 +18,7 @@ import { MapDrill } from './screens/MapDrill'
 import { Phrasebook } from './screens/Phrasebook'
 import { Placement } from './screens/Placement'
 import { Museum } from './screens/Museum'
+import { CityExplorer } from './screens/CityExplorer'
 import { wall } from './content/wall'
 import { newCards, type Hung } from './progress/collection'
 import { photosUsed } from './photos/used'
@@ -75,6 +76,7 @@ type Screen =
   | { name: 'drill' }
   | { name: 'placement' }
   | { name: 'museum' }
+  | { name: 'cities' }
   | { name: 'lesson'; playing: Playing }
   | { name: 'results'; playing: Playing; outcome: LessonOutcome; xp: number; crown?: CrownNote; gate?: GateNote; hung?: Hung[]; quests?: QuestId[] }
 
@@ -206,6 +208,7 @@ export default function App() {
   if (screen.name === 'drill') return <MapDrill onBack={home} />
   if (screen.name === 'placement') return <Placement units={units} onBack={home} />
   if (screen.name === 'museum') return <Museum onBack={home} />
+  if (screen.name === 'cities') return <CityExplorer onBack={home} />
   if (screen.name === 'results') {
     return <Results title={screen.playing.title} outcome={screen.outcome} xp={screen.xp} sources={screen.playing.sources} photos={photosUsed(screen.playing.exercises)} sounds={soundsUsed(screen.playing.exercises)} calm={screen.playing.calm} hat={screen.playing.hat} crown={screen.crown} gate={screen.gate} hung={screen.hung} quests={screen.quests} onMuseum={() => setScreen({ name: 'museum' })} onDone={home} />
   }
@@ -235,6 +238,10 @@ export default function App() {
       }}
       onMuseum={() => {
         setScreen({ name: 'museum' })
+        window.scrollTo(0, 0)
+      }}
+      onCities={() => {
+        setScreen({ name: 'cities' })
         window.scrollTo(0, 0)
       }}
     />

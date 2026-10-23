@@ -93,6 +93,7 @@ const isVisual = (e: Exercise) =>
   e.type === 'panels' ||
   e.type === 'truesize' ||
   e.type === 'drill' ||
+  e.type === 'landmark' ||
   (e.type === 'pick' && (e.visual !== undefined || e.items.every((i) => i.photo)))
 
 describe.each(files)('%s', (file) => {

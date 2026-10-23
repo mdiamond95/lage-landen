@@ -4,6 +4,7 @@ import { foodIds, foods } from '../data/foods'
 import { feastIds, feasts } from '../data/feasts'
 import { pairs } from '../data/pairs'
 import { thenNows } from '../data/thenNow'
+import { landmarkOf } from '../data/cities'
 import { provinces, provincesOf } from '../data/provinces'
 import { tours } from '../data/paintings'
 import { series } from '../data/series'
@@ -34,6 +35,8 @@ export const photosUsed = (exercises: Exercise[]): PhotoId[] => {
     // The province map and drill (Unit 26) show the provinces' flags.
     ...('visual' in e && e.visual?.kind === 'provinces' ? provincesOf(e.visual.country).map((id) => provinces[id].flag) : []),
     ...(e.type === 'drill' ? provincesOf(e.country).map((id) => provinces[id].flag) : []),
+    // A landmark question shows the answer's photo once checked.
+    ...(e.type === 'landmark' && landmarkOf(e.city, e.answer).photo ? [landmarkOf(e.city, e.answer).photo!] : []),
   ])
   return [...new Set(ids)]
 }

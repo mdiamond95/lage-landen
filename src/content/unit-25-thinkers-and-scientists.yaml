@@ -28,6 +28,8 @@ lessons:
         url: https://en.wikipedia.org/wiki/Collegium_Trilingue
       - title: "Wikipedia, Index Librorum Prohibitorum"
         url: https://en.wikipedia.org/wiki/Index_Librorum_Prohibitorum
+      - title: OpenStreetMap, street maps of the old town centres
+        url: https://www.openstreetmap.org/
     exercises:
       - type: story
         title: The prince of humanists
@@ -131,6 +133,15 @@ lessons:
               list of World Heritage.
           - label: It was the first press in the Low Countries
             why: That was in Aalst, in 1473. These are the two oldest presses that survive anywhere.
+      - type: landmark
+        prompt: Christophe Plantin's printing house stands on the Vrijdagmarkt in Antwerp, about 300 m south-west of the cathedral. Find it on the map.
+        city: antwerp
+        answer: plantin
+        show: [cathedral]
+        options: [plantin, cathedral, steen, bourse, rubenshuis, central]
+        explain: >-
+          The house, its workshops and its presses stayed with Plantin's heirs, the Moretus family, until the city
+          of Antwerp bought it in 1876. It opened as a museum the next year.
       - type: scrub
         prompt: Drag the slider to the years when Leuven is the only university in the Low Countries.
         map: science

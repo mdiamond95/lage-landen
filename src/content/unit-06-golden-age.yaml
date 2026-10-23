@@ -338,6 +338,10 @@ lessons:
         url: https://www.neh.gov/article/why-spinoza-was-excommunicated
       - title: "Museum Ons' Lieve Heer op Solder"
         url: https://opsolder.nl/en/
+      - title: "Wikipedia, Ons' Lieve Heer op Solder"
+        url: https://en.wikipedia.org/wiki/Ons%27_Lieve_Heer_op_Solder
+      - title: OpenStreetMap, street maps of the old town centres
+        url: https://www.openstreetmap.org/
     exercises:
       - type: story
         title: A country without a king
@@ -451,6 +455,15 @@ lessons:
           True. The Republic gave freedom of conscience, but only the Reformed Church could worship openly. Our
           Lord in the Attic was built from 1661 to 1663 in the roof of a canal house. The town turned a blind eye,
           as long as it could not be seen from the street.
+      - type: landmark
+        prompt: Our Lord in the Attic, the Catholic church hidden in a canal house, lies about 600 m east of the Royal Palace on the Dam in Amsterdam. Find it on the map.
+        city: amsterdam
+        answer: attic
+        show: [royal-palace]
+        options: [attic, royal-palace, golden-bend, synagogue]
+        explain: >-
+          It stands on the Oudezijds Voorburgwal, in the oldest part of the city, in a row of ordinary canal houses.
+          Since 1888 it has been a museum.
       - type: hunt
         prompt: Jews who had fled the Inquisition in Spain and Portugal built this great synagogue in Amsterdam, opened in 1675. Find the two dogs.
         photo: synagogue

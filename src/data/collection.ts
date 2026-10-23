@@ -414,6 +414,7 @@ const buildings: Entry[] = [
   ['drielandenpunt', 'The Three-Country Point', 'The Vaalserberg'],
   ['tongeren-wall', 'The Roman town wall', 'Tongeren'],
   ['heerlen-thermen', 'The Roman baths', 'Heerlen'],
+  ['st-servatius', 'The Basilica of St Servatius', 'Maastricht'],
   ['aachen-chapel', "Charlemagne's Palace Chapel", 'Aachen'],
   ['gravensteen', 'The Gravensteen', 'Ghent'],
   ['tournai-belfry', 'The Belfry of Tournai', 'Tournai'],

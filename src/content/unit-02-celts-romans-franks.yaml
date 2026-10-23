@@ -387,6 +387,12 @@ lessons:
         url: https://www.livius.org/articles/person/servatius-of-tongeren
       - title: National Gallery of Art, Master of Saint Giles, The Baptism of Clovis
         url: https://www.nga.gov/artworks/41597-baptism-clovis
+      - title: "Wikipedia, Basilica of Saint Servatius"
+        url: https://en.wikipedia.org/wiki/Basilica_of_Saint_Servatius
+      - title: "Wikipedia (Dutch), Sint Servaasbrug"
+        url: https://nl.wikipedia.org/wiki/Sint_Servaasbrug
+      - title: OpenStreetMap, street maps of the old town centres
+        url: https://www.openstreetmap.org/
     exercises:
       - type: story
         title: Enter the Franks
@@ -476,6 +482,15 @@ lessons:
         explain: >-
           Maastricht. Servatius is said to have died there in 384. His grave lies under the Basilica of Saint
           Servatius, which grew from a chapel built over it.
+      - type: landmark
+        prompt: The Basilica of St Servatius stands on the Vrijthof, the great square of Maastricht, about 600 m west of the old bridge over the Maas. Find it on the map.
+        city: maastricht
+        answer: servatius
+        show: [bridge]
+        options: [servatius, bridge, our-lady, helpoort, town-hall]
+        explain: >-
+          The town grew where the Roman road crossed the Maas, and its name still says so: Mosae Trajectum, the
+          crossing of the Maas. Today's bridge was built from 1280 to 1298, near the Roman one.
       - type: match
         prompt: Match each person to what they did.
         pairs:

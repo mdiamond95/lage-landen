@@ -22,6 +22,10 @@ lessons:
         url: https://www.britannica.com/biography/Henry-I-duke-of-Brabant
       - title: Online Etymology Dictionary, Holland
         url: https://www.etymonline.com/word/Holland
+      - title: "Wikipedia, Gravensteen"
+        url: https://en.wikipedia.org/wiki/Gravensteen
+      - title: OpenStreetMap, street maps of the old town centres
+        url: https://www.openstreetmap.org/
     exercises:
       - type: story
         title: A patchwork of lords
@@ -54,6 +58,15 @@ lessons:
             why: The Steen is a castle in Antwerp, on the Scheldt, not in Ghent.
           - label: The Muiderslot
             why: The Muiderslot is a castle near Amsterdam, in the old county of Holland.
+      - type: landmark
+        prompt: The Gravensteen, the castle of the counts of Flanders, stands beside the water about 500 m north-west of the Belfry of Ghent. Find it on the map.
+        city: ghent
+        answer: gravensteen
+        show: [belfry]
+        options: [gravensteen, belfry, st-bavo, boekentoren]
+        explain: >-
+          The castle sits between two arms of the Leie, a short walk from the town's belfry. In medieval Ghent
+          power was shared, often uneasily, between the count and the town.
       - type: truemyth
         statement: Baldwin "Iron Arm", the first count of Flanders, began his career by running off with a king's daughter.
         answer: true
@@ -360,6 +373,8 @@ lessons:
         url: https://www.visitbruges.be/en/things-to-do/culture-and-heritage/belfort-belfry
       - title: "Wikipedia, Belfry of Bruges"
         url: https://en.wikipedia.org/wiki/Belfry_of_Bruges
+      - title: OpenStreetMap, street maps of the old town centres
+        url: https://www.openstreetmap.org/
     exercises:
       - type: story
         title: A port 15 km from the sea
@@ -396,6 +411,15 @@ lessons:
             why: Bank comes from the Italian banco, the bench where money changers sat.
           - label: Market
             why: Market comes from the Latin mercatus.
+      - type: landmark
+        prompt: Huis ter Beurze, the inn where the merchants of Bruges met, stands about 350 m north of the Belfry. Find it on the map.
+        city: bruges
+        answer: ter-beurze
+        show: [belfry]
+        options: [ter-beurze, belfry, our-lady, burg, beguinage]
+        explain: >-
+          The inn stands on a small square a few streets north of the Markt. The Venetians, the Genoese and the
+          Florentines built their nation houses around it, and it became the money market of Bruges.
       - type: truemyth
         statement: Bruges declined partly because its waterway to the sea silted up.
         visual: { kind: map, highlight: [], rivers: [], pins: [bruges, sluis] }

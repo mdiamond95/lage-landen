@@ -14,6 +14,7 @@ import { ensureQuests, streakAlive, todayKey, useProgress } from '../progress/st
 import { canToday } from '../content/today'
 import { QUEST_XP, quests } from '../progress/quests'
 import { Icon } from './Icon'
+import { cities, cityIds, landmarkIds } from '../data/cities'
 import { BackupCard } from './BackupCard'
 import { allPhrases } from '../data/phrases'
 import { wall } from '../content/wall'
@@ -22,7 +23,7 @@ import { lastUnit, unitHat, unitHats } from '../mascot/hats'
 import { greeting } from '../mascot/lines'
 import { StorkSays, Stork } from '../mascot/Stork'
 
-type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void; onPlacement: () => void; onMuseum: () => void }
+type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void; onPlacement: () => void; onMuseum: () => void; onCities: () => void }
 
 const listUnits = (ns: number[]) => (ns.length < 3 ? ns.join(' and ') : `${ns.slice(0, -1).join(', ')} and ${ns[ns.length - 1]}`)
 
@@ -32,7 +33,7 @@ const dayName = (day: string, today: string) => {
   return diff <= 1 ? 'tomorrow' : d.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' })
 }
 
-export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlacement, onMuseum }: Props) {
+export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlacement, onMuseum, onCities }: Props) {
   const progress = useProgress()
   const totalPlaces = Object.keys(places).length
   const alive = streakAlive(progress)
@@ -176,6 +177,19 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
         </div>
         <button type="button" className="btn-ghost" onClick={onDrill}>
           Open the map drill
+        </button>
+      </section>
+
+      <section className="cities-teaser card">
+        <div>
+          <h2>City explorer</h2>
+          <p>
+            {cityIds.length} old town centres, from {cities[cityIds[0]].name} to {cities[cityIds[cityIds.length - 1]].name}, street by street, with {cityIds.reduce((n, c) => n + landmarkIds(c).length, 0)} landmarks to
+            tap and find.
+          </p>
+        </div>
+        <button type="button" className="btn-ghost" onClick={onCities}>
+          Open the city explorer
         </button>
       </section>
 
