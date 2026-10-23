@@ -1,0 +1,34 @@
+# Runs Overpass (OpenStreetMap) queries on a GitHub runner and commits the results to the
+# branch, for building the city maps. Push a claude/** branch with a
+# scripts/maps/*-overpass.json list (see overpass.py); delete the list and scripts/maps/raw
+# once the maps are built.
+name: Fetch map data
+
+on:
+  push:
+    branches: ['claude/**']
+    paths: ['scripts/maps/*-overpass.json']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: maps-${{ github.ref }}
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          shopt -s nullglob
+          for q in scripts/maps/*-overpass.json; do
+            python3 scripts/maps/overpass.py "$q" scripts/maps/raw
+          done
+      - if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A scripts/maps
+          git diff --cached --quiet || { git commit -m 'Fetch map data from OpenStreetMap'; git pull --rebase -q; git push; }

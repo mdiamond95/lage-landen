@@ -452,6 +452,12 @@ lessons:
         url: https://en.wikipedia.org/wiki/2010%E2%80%932011_Belgian_government_formation
       - title: "Wikipedia, Brussels-Capital Region"
         url: https://en.wikipedia.org/wiki/Brussels-Capital_Region
+      - title: "Wikipedia, Palace of the Nation"
+        url: https://en.wikipedia.org/wiki/Palace_of_the_Nation
+      - title: "Wikipedia, Royal Palace of Brussels"
+        url: https://en.wikipedia.org/wiki/Royal_Palace_of_Brussels
+      - title: OpenStreetMap, street maps of the old town centres
+        url: https://www.openstreetmap.org/
     exercises:
       - type: story
         title: One state, three regions, three communities
@@ -471,6 +477,15 @@ lessons:
           "Dépassé par les faits": the country had already split in its parties, its universities and its
           politics, and the law had to catch up. The reform of 1970 set up cultural communities for Dutch, French and
           German, and promised regions.
+      - type: landmark
+        prompt: The Belgian parliament meets in the Palace of the Nation, about 900 m east of the Grand-Place in Brussels, facing the Royal Palace across a park. Find it on the map.
+        city: brussels
+        answer: palace-nation
+        show: [grand-place]
+        options: [palace-nation, grand-place, palace-justice, manneken-pis, cbbd]
+        explain: >-
+          King and parliament face each other from either end of the Park of Brussels. The palace was built from 1778
+          to 1783 for the Council of Brabant, under Austrian rule.
       - type: order
         prompt: Put the six state reforms in order.
         items:

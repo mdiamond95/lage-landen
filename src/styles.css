@@ -1321,3 +1321,46 @@ button.comic-panel { cursor: pointer; }
 .then-now figcaption p { margin: 0; }
 .then-now-place { font-weight: 900; color: var(--delft); }
 .then-now-credits { font-size: 0.8rem; color: var(--ink-soft); }
+
+/* City explorer: an old town centre street by street, from OpenStreetMap */
+.city-explorer { display: grid; gap: 12px; max-width: 640px; margin: 0 auto; padding-bottom: 32px; }
+.city-explorer-map { margin: 0; border-radius: 16px; overflow: hidden; border: 2px solid var(--line); background: var(--land-focus); }
+.city-streets { display: block; width: 100%; height: auto; touch-action: manipulation; }
+.street-land { fill: #f4efe4; }
+.street-green { fill: #cfe5c0; }
+.street-square { fill: #e9e1cf; }
+.street-water { fill: #b9d6ee; stroke: #94bfe0; stroke-width: 0.6; }
+.street-canal { fill: none; stroke: #94bfe0; stroke-width: 2.5; stroke-linecap: round; }
+.street-rail { fill: none; stroke: #9aa1ad; stroke-width: 1.4; stroke-dasharray: 4 3; }
+.street-minor { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.street-major { fill: none; stroke: #f3d9a4; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.city-pin { cursor: pointer; }
+.city-pin-hit { fill: transparent; }
+.city-pin:focus-visible { outline: none; }
+.city-pin:focus-visible .city-pin-hit, .city-pin:hover .city-pin-hit { fill: rgb(29 36 51 / 0.12); }
+.city-pin-dot { fill: var(--delft); stroke: #fff; stroke-width: 2.5; }
+.city-pin-n { font-size: 12px; font-weight: 900; fill: #fff; pointer-events: none; }
+.city-pin-label { font-size: 14px; font-weight: 800; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 4px; pointer-events: none; }
+.city-pin.is-on .city-pin-dot { fill: var(--orange); r: 13; }
+.city-pin.is-right .city-pin-dot { fill: var(--green); }
+.city-pin.is-wrong .city-pin-dot { fill: var(--red); }
+.city-pin.is-missed .city-pin-dot { fill: var(--green); stroke: var(--green-dark); stroke-dasharray: 3 2; }
+.city-pin.is-dim { opacity: 0.4; }
+.city-osm { margin: 0; padding: 4px 10px; font-size: 0.72rem; color: var(--ink-soft); background: var(--card); text-align: right; }
+.city-osm a { color: inherit; }
+.city-intro { margin: 0; font-size: 0.95rem; }
+.city-card { display: grid; gap: 8px; background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 12px 14px; }
+.city-card p { margin: 0; }
+.city-card-nav { display: flex; align-items: center; gap: 10px; }
+.city-card-name { flex: 1; font-weight: 900; font-size: 1.05rem; }
+.city-count { display: block; font-size: 0.75rem; font-weight: 700; color: var(--ink-soft); letter-spacing: 0.04em; text-transform: uppercase; }
+.city-unit { font-size: 0.85rem; color: var(--delft); font-weight: 700; }
+.city-find { display: grid; gap: 4px; }
+.city-find-ask { margin: 0; font-size: 1.05rem; }
+.city-find-next { display: grid; gap: 8px; }
+.city-find-next p { margin: 0; font-weight: 800; }
+.city-right { color: var(--green-dark); }
+.city-wrong { color: var(--red); }
+.city-sources summary { cursor: pointer; font-weight: 700; color: var(--ink-soft); }
+.city-sources ul { margin: 6px 0 0; padding-left: 18px; font-size: 0.85rem; }
+.exercise-landmark .city-explorer-map { margin-top: 4px; }

@@ -19,6 +19,7 @@ import { routeIds, routes } from '../data/routes'
 import { courseIds, shapeIds, shapes } from '../data/projections'
 import { provinceIds } from '../data/provinces'
 import { chamberIds } from '../data/seats'
+import { cities, cityIds } from '../data/cities'
 
 // Everything a lesson can show or ask is described here. Lesson YAML is
 // parsed against these schemas, so a typo in content fails tests and the build.
@@ -502,7 +503,24 @@ const Drill = z
   })
   .refine((d) => !d.only || d.only.every((id) => d.country === 'both' || id.startsWith(d.country === 'NLD' ? 'NL-' : 'BE-')), 'only provinces of its country')
 
-export const Exercise = z.discriminatedUnion('type', [Drill, TrueSizeQ, Panels, Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt, Ride])
+// Find it in town (the city explorer): a city centre's street map with unnamed landmark pins;
+// tap the one asked for. `options` limits the pins to some of the city's landmarks, and `show`
+// names some of them to find the way by.
+const LandmarkQ = z
+  .object({
+    type: z.literal('landmark'),
+    prompt: z.string(),
+    city: z.enum(cityIds),
+    answer: z.string(),
+    options: z.array(z.string()).min(3).optional(),
+    show: z.array(z.string()).default([]),
+    explain: z.string(),
+  })
+  .refine((l) => [l.answer, ...(l.options ?? []), ...l.show].every((id) => id in cities[l.city].landmarks), 'every landmark is in the city')
+  .refine((l) => !l.show.includes(l.answer) && l.show.every((id) => !l.options || l.options.includes(id)), 'shown landmarks are among the options, and not the answer')
+  .refine((l) => !l.options || (l.options.includes(l.answer) && new Set(l.options).size === l.options.length), 'the options hold the answer, each once')
+
+export const Exercise = z.discriminatedUnion('type', [LandmarkQ, Drill, TrueSizeQ, Panels, Story, Pin, Region, Order, Choice, TrueMyth, Match, Who, Scrub, Hunt, Gap, Cause, Odd, Voices, Sort, StyleSort, Label, Listen, Taste, Pick, WhenIsIt, Ride])
 export type Exercise = z.infer<typeof Exercise>
 export type ExerciseOf<T extends Exercise['type']> = Extract<Exercise, { type: T }>
 

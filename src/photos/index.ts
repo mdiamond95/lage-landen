@@ -972,6 +972,22 @@ import antwerpCentral1905 from './antwerp-central-1905.jpg'
 import antwerpCentral from './antwerp-central.jpg'
 import delftToday from './delft-today.jpg'
 import bruges1890s from './bruges-1890s.jpg'
+import brugesOurLady from './bruges-our-lady.jpg'
+import brugesTownHall from './bruges-town-hall.jpg'
+import delftNieuweKerk from './delft-nieuwe-kerk.jpg'
+import delftOostpoort from './delft-oostpoort.jpg'
+import delftTownHall from './delft-town-hall.jpg'
+import donkerePoort from './donkere-poort.jpg'
+import graslei from './graslei.jpg'
+import helpoort from './helpoort.jpg'
+import hetSteen from './het-steen.jpg'
+import maastrichtOurLady from './maastricht-our-lady.jpg'
+import maastrichtTownHall from './maastricht-town-hall.jpg'
+import mannekenPis from './manneken-pis.jpg'
+import servaasbrug from './servaasbrug.jpg'
+import stGudula from './st-gudula.jpg'
+import stServatius from './st-servatius.jpg'
+import delftOudeKerk from './delft-oude-kerk.jpg'
 
 export type { PhotoId } from './ids'
 
@@ -1949,6 +1965,22 @@ const files: Record<PhotoId, string> = {
   'antwerp-central': antwerpCentral,
   'delft-today': delftToday,
   'bruges-1890s': bruges1890s,
+  'bruges-our-lady': brugesOurLady,
+  'bruges-town-hall': brugesTownHall,
+  'delft-nieuwe-kerk': delftNieuweKerk,
+  'delft-oostpoort': delftOostpoort,
+  'delft-town-hall': delftTownHall,
+  'donkere-poort': donkerePoort,
+  'graslei': graslei,
+  'helpoort': helpoort,
+  'het-steen': hetSteen,
+  'maastricht-our-lady': maastrichtOurLady,
+  'maastricht-town-hall': maastrichtTownHall,
+  'manneken-pis': mannekenPis,
+  'servaasbrug': servaasbrug,
+  'st-gudula': stGudula,
+  'st-servatius': stServatius,
+  'delft-oude-kerk': delftOudeKerk,
 }
 
 export const photo = (id: PhotoId) => ({ src: files[id], ...credits[id] })

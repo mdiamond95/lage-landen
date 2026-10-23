@@ -73,6 +73,8 @@ async function answer(page: Page) {
       await page.locator('.panels-pool .panel-chip').first().click()
       await page.locator('.exercise-panels .panel-slot.is-empty').first().click()
     }
+  } else if (await page.locator('.exercise-landmark').count()) {
+    await page.locator('.exercise-landmark .city-pin').first().dispatchEvent('click')
   } else if (await page.locator('.chip-pool').count()) {
     while (await page.locator('.chip').count()) await page.locator('.chip').first().click()
   } else {
@@ -2773,4 +2775,64 @@ test('then and now wipes from an old picture to today, by dragging or the slider
   await foot.getByRole('button', { name: 'Check' }).click()
   await expect(page.locator('.feedback-head')).toHaveText('Correct!')
   await expect(pair.locator('.then-now-place')).toHaveText('The town hall on the Dam, Amsterdam')
+})
+
+test('the city explorer walks a town landmark by landmark, and keeps the best score at finding them', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Open the city explorer' }).click()
+  const map = page.locator('.city-explorer-map')
+  await expect(map).toHaveAttribute('data-city', 'bruges')
+  await expect(map.locator('.street-water').first()).toBeAttached()
+  await expect(map.locator('.city-pin')).toHaveCount(7)
+  await expect(page.locator('.city-card-name')).toContainText('Huis ter Beurze')
+  await expect(page.locator('.city-unit')).toHaveText('In Unit 3, Counts, bishops and cloth cities')
+  // A tap on a pin, or the arrows, moves the card.
+  await map.locator('[data-landmark="belfry"]').dispatchEvent('click')
+  await expect(page.locator('.city-card-name')).toContainText('The Belfry')
+  await expect(map.locator('[data-landmark="belfry"]')).toHaveClass(/is-on/)
+  await page.getByRole('button', { name: 'Next landmark' }).click()
+  await expect(page.locator('.city-card-name')).toContainText('The Burg')
+
+  await page.getByRole('group', { name: 'City' }).getByRole('button', { name: 'Maastricht' }).click()
+  await expect(map).toHaveAttribute('data-city', 'maastricht')
+  await expect(page.locator('.city-card-name')).toContainText('St Servatius')
+
+  // Find them: every round names a landmark; one wrong tap, the rest right.
+  await page.getByRole('button', { name: 'Find them' }).click()
+  await expect(map.locator('.city-pin-label')).toHaveCount(0)
+  const find = page.locator('.city-find')
+  for (let round = 0; round < 7; round++) {
+    const target = (await find.getAttribute('data-target'))!
+    const tap = round === 0 ? (target === 'bridge' ? 'helpoort' : 'bridge') : target
+    await map.locator(`[data-landmark="${tap}"]`).dispatchEvent('click')
+    await expect(page.locator(round === 0 ? '.city-wrong' : '.city-right')).toBeVisible()
+    await page.getByRole('button', { name: round === 6 ? 'See the score' : 'Next', exact: true }).click()
+  }
+  await expect(find).toContainText('6 of 7 found first time')
+  await expect(map.locator('.city-pin.is-missed')).toHaveCount(1)
+  await expect(find.locator('.drill-best')).toHaveText('Your best: 6 of 7')
+  await page.reload()
+  await page.getByRole('button', { name: 'Open the city explorer' }).click()
+  await page.getByRole('group', { name: 'City' }).getByRole('button', { name: 'Maastricht' }).click()
+  await page.getByRole('button', { name: 'Find them' }).click()
+  await expect(page.locator('.city-find .drill-best')).toHaveText('Your best: 6 of 7')
+})
+
+test('a landmark question names one pin to steer by, and shows the answer on the street map', async ({ page }) => {
+  await unlock(page, ['u3-l1', 'u3-l2', 'u3-l3'])
+  await page.getByRole('button', { name: 'Bruges, market of the world', exact: true }).click()
+  await skipTo(page, 'Find it in Bruges')
+  const q = page.locator('.exercise-landmark')
+  await expect(q.locator('.city-pin')).toHaveCount(5)
+  await expect(q.locator('.city-pin-label')).toHaveText(['The Belfry'])
+  await expect(q.locator('.photo-figure')).toHaveCount(0)
+  await q.locator('[data-landmark="our-lady"]').dispatchEvent('click')
+  await expect(q.locator('[data-landmark="our-lady"]')).toHaveClass(/is-on/)
+  await page.locator('.lesson-foot').getByRole('button', { name: 'Check' }).click()
+  await expect(page.locator('.feedback-head')).toHaveText('Not quite')
+  await expect(page.locator('.feedback-detail')).toContainText('You picked The Church of Our Lady.')
+  await expect(q.locator('[data-landmark="ter-beurze"]')).toHaveClass(/is-missed/)
+  await expect(q.locator('[data-landmark="our-lady"]')).toHaveClass(/is-wrong/)
+  await expect(q.locator('.city-pin-label')).toHaveText(['Huis ter Beurze', 'The Belfry', 'The Church of Our Lady'])
+  await expect(q.locator('.photo-figure img')).toHaveAttribute('alt', /Gothic stone house front/)
 })

@@ -43,7 +43,7 @@ export const buildLegendary = (unit: Unit, random = Math.random): Exercise[] => 
 
 // Seconds allowed for a question: more for the ones with many steps to them.
 const SLOW = new Set<Exercise['type']>(['match', 'cause', 'order', 'sort', 'style', 'label', 'panels', 'drill', 'ride', 'odd', 'voices'])
-const MEDIUM = new Set<Exercise['type']>(['pin', 'region', 'scrub', 'hunt', 'who', 'gap', 'pick', 'taste', 'when', 'listen', 'truesize'])
+const MEDIUM = new Set<Exercise['type']>(['pin', 'region', 'scrub', 'hunt', 'who', 'gap', 'pick', 'taste', 'when', 'listen', 'truesize', 'landmark'])
 export const secondsFor = (e: Exercise) => (SLOW.has(e.type) ? 60 : MEDIUM.has(e.type) ? 40 : 25)
 
 // The clock for a challenge: the sum of its questions' allowances. It runs only while

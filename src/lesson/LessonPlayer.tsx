@@ -20,6 +20,7 @@ import { RideRoute } from '../exercises/RideRoute'
 import { ComicPanels } from '../exercises/ComicPanels'
 import { TrueSize } from '../exercises/TrueSize'
 import { ProvinceDrill } from '../exercises/ProvinceDrill'
+import { LandmarkFind } from '../exercises/LandmarkFind'
 import { TimelineOrder } from '../exercises/TimelineOrder'
 import { TrueMyth } from '../exercises/TrueMyth'
 import type { Evaluate, Result } from '../exercises/types'
@@ -187,6 +188,8 @@ export function LessonPlayer({ title, exercises, note, calm = false, hat, retry 
         return <TrueSize exercise={exercise} {...props} />
       case 'drill':
         return <ProvinceDrill exercise={exercise} {...props} />
+      case 'landmark':
+        return <LandmarkFind exercise={exercise} {...props} />
     }
   })()
 
