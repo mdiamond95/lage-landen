@@ -1,10 +1,15 @@
-# Publishes a GitHub release when a version tag (v1.0.0, ...) is pushed, with the notes
-# in docs/releases/<tag>.md.
+# Publishes a GitHub release with the notes in docs/releases/<tag>.md: when a version tag
+# (v1.0.0, ...) is pushed, or when run by hand from main with the tag to create there.
 name: Release
 
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Version tag to create on this commit, e.g. v1.0.0
+        required: true
 
 permissions:
   contents: write
@@ -12,8 +17,9 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
-      - run: gh release create "$GITHUB_REF_NAME" --title "Lage Landen $GITHUB_REF_NAME" --notes-file "docs/releases/$GITHUB_REF_NAME.md" --verify-tag
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - run: gh release create "$TAG" --target "$GITHUB_SHA" --title "Lage Landen $TAG" --notes-file "docs/releases/$TAG.md"
