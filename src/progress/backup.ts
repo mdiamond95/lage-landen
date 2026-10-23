@@ -76,5 +76,5 @@ export const readBackup = (text: string): Read => {
 export const describe = (p: Progress) => {
   const finished = Object.keys(p.completed).length
   const learned = Object.keys(p.cards).length
-  return `${p.xp} XP, ${finished} ${finished === 1 ? 'lesson or checkpoint' : 'lessons and checkpoints'} finished, ${learned} ${learned === 1 ? 'question' : 'questions'} in the review`
+  return `${p.xp} XP, ${finished} ${finished === 1 ? 'step' : 'steps'} on the path finished, ${learned} ${learned === 1 ? 'question' : 'questions'} in the review`
 }

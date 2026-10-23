@@ -2577,7 +2577,7 @@ test('the mastery gate keeps a unit shut until the checkpoint before it is passe
   await expect(page.getByRole('button', { name: 'Caesar and the Belgae, locked', exact: true })).toBeDisabled()
 
   await unlock(page, ['u1-l1', 'u1-l2', 'u1-l3', 'u1-l4', 'u1-l5'])
-  await expect(page.locator('.unit', { hasText: 'Land and water' }).locator('.node-hint').first()).toHaveText('8 of 10 right opens Unit 2')
+  await expect(page.locator('.unit', { hasText: 'Land and water' }).locator('.node-hint', { hasText: 'right opens' })).toHaveText('8 of 10 right opens Unit 2')
   await page.getByRole('button', { name: 'Unit 1 checkpoint', exact: true }).click()
   await playThrough(page)
   await expect(page.locator('.gate-note .crown-head')).toHaveText(/^(Unit 2 is open|8 of 10 needed)$/)
@@ -2691,7 +2691,7 @@ test('progress saves to a file and loads back, after a check', async ({ page }) 
   await card.locator('input[type="file"]').setInputFiles(path)
   const check = card.getByRole('alertdialog', { name: 'Replace your progress?' })
   await expect(check).toContainText(`The file, saved on`)
-  await expect(check).toContainText(`${xp} XP, 1 lesson or checkpoint finished`)
+  await expect(check).toContainText(`${xp} XP, 1 step on the path finished`)
   await expect(check).toContainText('This device now: 0 XP')
   await check.getByRole('button', { name: "Keep what's here" }).click()
   await expect(page.locator('.stat-xp')).toHaveText('0')
@@ -2897,4 +2897,58 @@ test('the museum opens each walk once its lesson is finished', async ({ page }) 
   await expect(dialog.locator('.walk-count')).toHaveText('2 of 6')
   await page.keyboard.press('Escape')
   await expect(dialog).toHaveCount(0)
+})
+
+test('a map story opens after the lessons, narrates the map step by step, then asks three find-the-year questions', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  await page.goto('/')
+  const node = page.getByRole('button', { name: 'Unit 1 map story, locked' })
+  await expect(node).toBeDisabled()
+
+  await unlock(page, ['u1-l1', 'u1-l2', 'u1-l3', 'u1-l4', 'u1-l5'])
+  // It comes before the checkpoint, and is the next step on the path.
+  await expect(page.getByRole('button', { name: 'Unit 1 map story', exact: true })).toHaveClass(/current/)
+  await expect(page.getByRole('button', { name: 'Unit 1 checkpoint', exact: true })).not.toHaveClass(/current/)
+  await page.getByRole('button', { name: 'Unit 1 map story', exact: true }).click()
+  const story = page.locator('.map-story')
+  await expect(page.getByRole('heading', { name: 'Land and water, on the map' })).toBeVisible()
+  await expect(story.locator('.map-story-count')).toHaveText('1 of 8 · 1916')
+  await expect(story.locator('.map-story-say')).toContainText('winter storm broke the dikes')
+  await expect(story.getByRole('button', { name: 'Back' })).toBeDisabled()
+  await story.getByRole('button', { name: 'Next' }).click()
+  await expect(story.locator('.map-story-count')).toHaveText('2 of 8 · 1918')
+  await expect(story.locator('.time-map-title')).toContainText('1918')
+  // A tap on the row of steps jumps to one.
+  await story.getByRole('button', { name: 'Step 7: 1986' }).click()
+  await expect(story.locator('.map-story-say')).toContainText('Oosterschelde')
+  // With the voice off, play moves on by itself after the time it takes to read a line.
+  await story.getByLabel('Read aloud').uncheck()
+  await story.getByRole('button', { name: 'Play on' }).click()
+  await expect(story.getByRole('button', { name: 'Pause' })).toBeVisible()
+  await expect(story.locator('.map-story-count')).toHaveText('8 of 8 · 1997', { timeout: 15_000 })
+  await expect(story.getByRole('button', { name: 'Play again' })).toBeVisible({ timeout: 15_000 })
+  await expect(story.getByRole('button', { name: 'Next' })).toBeDisabled()
+
+  // Three questions on the same map follow, captions hidden until checked.
+  const foot = page.locator('.lesson-foot')
+  for (let q = 0; q < 3; q++) {
+    await foot.getByRole('button', { name: 'Continue' }).click()
+    await expect(page.locator('.exercise-scrub h2')).toContainText('Drag the slider to this part of the story')
+    await expect(page.locator('.time-map-title')).toHaveCount(0)
+    await answer(page)
+  }
+  // A missed one comes back once, as in a lesson.
+  for (let step = 0; step < 6 && !(await page.locator('.results').count()); step++) {
+    await foot.getByRole('button', { name: 'Continue' }).click()
+    if (await page.locator('.exercise-scrub').count()) await answer(page)
+  }
+  await expect(page.locator('.results h1')).toBeVisible()
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.getByRole('button', { name: 'Unit 1 map story, completed' })).toHaveClass(/done/)
+  await expect(page.getByRole('button', { name: 'Unit 1 checkpoint', exact: true })).toHaveClass(/current/)
+  // The voice stays off on this device.
+  await page.getByRole('button', { name: 'Unit 1 map story, completed' }).click()
+  await expect(page.locator('.map-story').getByLabel('Read aloud')).not.toBeChecked()
+  expect(errors).toEqual([])
 })

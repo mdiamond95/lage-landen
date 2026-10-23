@@ -1389,3 +1389,17 @@ button.comic-panel { cursor: pointer; }
 .museum-walk { display: grid; gap: 2px; width: 100%; text-align: left; font: inherit; color: inherit; background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 10px 12px; cursor: pointer; box-shadow: 0 3px 0 var(--line); }
 .museum-walk:disabled { cursor: default; opacity: 0.6; box-shadow: none; }
 .museum-walk-name { font-weight: 900; }
+
+/* Map stories: the unit's map, narrated stage by stage. */
+.node.map-story-node { border-radius: 50% 50% 50% 12px; }
+.map-story-steps { display: flex; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.map-story-steps li { flex: 1; }
+.map-story-dot { display: block; width: 100%; height: 8px; padding: 0; border: 0; border-radius: 4px; background: var(--line); cursor: pointer; }
+.map-story-dot.is-past { background: #9fb4d8; }
+.map-story-dot.is-on { background: var(--orange); }
+.map-story-count { margin: 0 0 2px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); }
+.map-story .time-map-caption { min-height: 7.4em; }
+.map-story-say { font-size: 1rem; }
+.map-story-nav { display: flex; gap: 8px; justify-content: space-between; }
+.map-story-play { flex: 1; background: var(--delft); color: #fff; border-color: var(--delft); }
+.map-story-voice { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 700; }

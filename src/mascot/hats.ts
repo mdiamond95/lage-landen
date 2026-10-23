@@ -1,5 +1,6 @@
 import type { Unit } from '../content/schema'
 import { checkpointId } from '../content/checkpoint'
+import { mapStoryId } from '../content/mapStory'
 
 // The stork (plan: "a mascot for encouragement: a stork, common in both countries,
 // wearing a different hat per era. Kept out of sensitive lessons"). Each unit gives it
@@ -71,11 +72,11 @@ export const quietUnit = (unit: Unit) => unit.lessons.filter((l) => l.note).leng
 // The hat for a unit, or none on a quiet unit (or no unit).
 export const unitHat = (unit: Unit | undefined): HatId | undefined => (unit && !quietUnit(unit) ? unitHats[unit.number] : undefined)
 
-// The unit of the last lesson or checkpoint finished for the first time: progress keeps
+// The unit of the last lesson, map story or checkpoint finished for the first time: progress keeps
 // them in the order they were first finished.
 export const lastUnit = (completed: Record<string, unknown>, units: Unit[]): Unit | undefined => {
   for (const id of Object.keys(completed).reverse()) {
-    const unit = units.find((u) => checkpointId(u) === id || u.lessons.some((l) => l.id === id))
+    const unit = units.find((u) => checkpointId(u) === id || mapStoryId(u) === id || u.lessons.some((l) => l.id === id))
     if (unit) return unit
   }
   return undefined

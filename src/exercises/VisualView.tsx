@@ -16,77 +16,21 @@ import { PillarDiagram } from '../art/PillarDiagram'
 import { PolderSlider } from '../art/PolderSlider'
 import { StormBarrier } from '../art/StormBarrier'
 import type { Visual } from '../content/schema'
-import { amsterdamStory } from '../data/amsterdam'
-import { bordersStory } from '../data/borders'
-import { buildingsStory } from '../data/buildings'
-import { burgundyStory } from '../data/burgundy'
-import { congoStory } from '../data/congo'
-import { deltaStory } from '../data/delta'
-import { empireStory } from '../data/empire'
-import { greatWarStory } from '../data/greatwar'
-import { industryStory } from '../data/industry'
-import { kingdomStory } from '../data/kingdom'
-import { languageStory } from '../data/language'
-import { mastersStory } from '../data/masters'
-import { modernsStory } from '../data/moderns'
-import { occupationStory } from '../data/occupation'
-import { paintersStory } from '../data/painters'
-import { railsStory } from '../data/rails'
-import { revoltStory } from '../data/revolt'
-import { romanStory } from '../data/roman'
-import { spanishStory } from '../data/spanish'
-import { waterStory } from '../data/water'
-import { tonguesStory } from '../data/tongues'
-import { foodStory } from '../data/food'
-import { feastStory } from '../data/feastMap'
-import { sportStory } from '../data/sport'
-import { popStory } from '../data/pop'
-import { scienceStory } from '../data/science'
-import { stateStory } from '../data/state'
-import { westhoekStory } from '../data/westhoek'
 import { CompareMap } from '../map/CompareMap'
 import { DialectMap } from '../map/DialectMap'
 import { FoodMap } from '../map/FoodMap'
 import { FeastWheel } from '../map/FeastWheel'
 import { RouteMap } from '../map/RouteMap'
 import { LowlandsMap } from '../map/LowlandsMap'
+import { MapStory } from '../map/MapStory'
 import { TimeMap } from '../map/TimeMap'
 import { TradeMap } from '../map/TradeMap'
+import { stories } from '../data/stories'
 import { PhotoFigure } from '../photos/Photo'
 import { PhraseCards } from '../art/PhraseCards'
 import { SoundFigure } from '../sounds/Sound'
 
-// Every year-slider map but the cloth trade map, which has a frame of its own.
-export const stories = {
-  water: waterStory,
-  roman: romanStory,
-  burgundy: burgundyStory,
-  revolt: revoltStory,
-  amsterdam: amsterdamStory,
-  spanish: spanishStory,
-  empire: empireStory,
-  borders: bordersStory,
-  kingdom: kingdomStory,
-  rails: railsStory,
-  occupation: occupationStory,
-  delta: deltaStory,
-  industry: industryStory,
-  congo: congoStory,
-  greatwar: greatWarStory,
-  westhoek: westhoekStory,
-  language: languageStory,
-  painters: paintersStory,
-  masters: mastersStory,
-  moderns: modernsStory,
-  buildings: buildingsStory,
-  tongues: tonguesStory,
-  food: foodStory,
-  feasts: feastStory,
-  sport: sportStory,
-  pop: popStory,
-  science: scienceStory,
-  state: stateStory,
-}
+export { stories }
 
 type TimeMapProps = {
   map: Extract<Visual, { kind: 'time-map' }>['map']
@@ -110,6 +54,7 @@ export function VisualView({ visual, label, hideCaption }: { visual: Visual; lab
   if (visual.kind === 'pair') return <PaintingPair pair={visual.pair} focus={visual.focus} />
   if (visual.kind === 'then-now') return <ThenNow pair={visual.pair} hideCaption={hideCaption} />
   if (visual.kind === 'walk') return <MuseumWalk walk={visual.walk} />
+  if (visual.kind === 'map-story') return <MapStory unit={visual.unit} />
   if (visual.kind === 'series') return <PainterRoad id={visual.series} at={visual.at} />
   if (visual.kind === 'facade') return <FacadeTour facade={visual.facade} focus={visual.focus} />
   if (visual.kind === 'polder-slider') return <PolderSlider />

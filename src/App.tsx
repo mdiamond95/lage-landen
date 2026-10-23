@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { buildCheckpoint, checkpointId } from './content/checkpoint'
+import { buildMapStory, mapStoryId } from './content/mapStory'
 import { cards, findLesson, units } from './content'
 import type { Exercise, Lesson } from './content/schema'
 import { LessonPlayer, type LessonOutcome } from './lesson/LessonPlayer'
@@ -53,7 +54,7 @@ const gateNote = (unitId: string, right: number, asked: number, wasMastered: boo
 }
 
 // A lesson carries the crown level it is played for; a Legendary challenge its unit
-// and the seconds on its clock.
+// and the seconds on its clock; a map story `story`, so it counts apart from lessons.
 type Playing = {
   id: string
   title: string
@@ -65,6 +66,7 @@ type Playing = {
   retry?: boolean
   level?: { before: number; target: number; legendary: boolean }
   checkpoint?: string
+  story?: boolean
   legendary?: { unit: string; number: number; seconds: number }
 }
 
@@ -110,6 +112,18 @@ const resolve = (id: string): Playing | undefined => {
       note: cp.note,
       calm: cp.lessons.some((l) => l.note),
       hat: unitHat(cp),
+    }
+  const told = units.find((u) => mapStoryId(u) === id)
+  if (told)
+    return {
+      id,
+      title: `Unit ${told.number} map story`,
+      story: true,
+      exercises: buildMapStory(told),
+      sources: told.lessons.flatMap((l) => l.sources),
+      note: told.note,
+      calm: told.lessons.some((l) => l.note),
+      hat: unitHat(told),
     }
   const legend = units.find((u) => legendaryId(u.id) === id)
   if (legend) {
@@ -183,7 +197,7 @@ export default function App() {
           const passed = !!legendary && !!crown && 'passed' in crown && crown.passed === true
           ensureQuests(canToday(getProgress()))
           const quests = recordSession({
-            kind: playing.id === REVIEW_ID ? 'review' : legendary ? 'legendary' : checkpoint ? 'checkpoint' : 'lesson',
+            kind: playing.id === REVIEW_ID ? 'review' : legendary ? 'legendary' : checkpoint ? 'checkpoint' : playing.story ? 'story' : 'lesson',
             hung: hung?.length,
             crowned: level ? !!crown && crown.level > level.before : passed,
             lessonId: playing.id === REVIEW_ID || legendary ? undefined : playing.id,

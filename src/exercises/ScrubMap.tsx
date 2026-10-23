@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import type { ExerciseProps } from './types'
-import { AnyTimeMap, stories } from './VisualView'
+import { frameOf } from '../data/stories'
+import { AnyTimeMap } from './VisualView'
 
 // Border scrubber: drag the year slider until the map matches the prompt.
 export function ScrubMap({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'scrub'>>) {
   const [moved, setMoved] = useState(false)
   const [from, to] = exercise.answer
   // Years, or months on the occupation map.
-  const format = exercise.map === 'cloth' ? String : stories[exercise.map].format
+  const { format } = frameOf(exercise.map)
   const range = from === to ? format(from) : `${format(from)} to ${format(to)}`
 
   const onYear = (year: number) => {

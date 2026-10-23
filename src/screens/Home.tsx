@@ -3,6 +3,7 @@ import { provinceIds } from '../data/provinces'
 import { cards } from '../content'
 import { courseOutline } from '../content/course'
 import { checkpointId } from '../content/checkpoint'
+import { mapStoryId } from '../content/mapStory'
 import { throughTimeStory } from '../data/throughTime'
 import { places } from '../content/places'
 import type { Unit } from '../content/schema'
@@ -222,6 +223,9 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
         const cpOpen = gateOpen && checkpointOpen(progress, unit)
         const allDone = ids.every((id) => progress.completed[id])
         const cpScore = progress.completed[cp] ? (progress.completed[cp].score ?? 1) : undefined
+        // The map story comes next once the lessons are done, then the checkpoint.
+        const story = mapStoryId(unit)
+        const storyDone = !!progress.completed[story]
         const cpPassed = cpScore !== undefined && cpScore >= GATE
         const next = unitsAfter(unit, units)
         return (
@@ -272,10 +276,25 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
                   </li>
                 )
               })}
+              <li className="path-node offset-3">
+                <button
+                  type="button"
+                  className={`node map-story-node ${storyDone ? 'done' : cpOpen && allDone && cpScore === undefined ? 'current' : cpOpen ? '' : 'locked'}`}
+                  disabled={!cpOpen}
+                  onClick={() => onStart(story)}
+                  aria-label={`Unit ${unit.number} map story${storyDone ? ', completed' : cpOpen ? '' : ', locked'}`}
+                >
+                  <Icon name={cpOpen ? 'map' : 'lock'} />
+                </button>
+                <span className="node-label">
+                  Map story: the unit in 90 seconds
+                  {cpOpen && !storyDone && <span className="node-hint">Narrated, then three find-the-year questions</span>}
+                </span>
+              </li>
               <li className="path-node offset-0">
                 <button
                   type="button"
-                  className={`node checkpoint ${cpPassed ? 'done' : cpOpen && (allDone || cpScore !== undefined) ? 'current' : cpOpen ? '' : 'locked'}`}
+                  className={`node checkpoint ${cpPassed ? 'done' : cpOpen && ((allDone && storyDone) || cpScore !== undefined) ? 'current' : cpOpen ? '' : 'locked'}`}
                   disabled={!cpOpen}
                   onClick={() => onStart(cp)}
                   aria-label={`Unit ${unit.number} checkpoint${cpOpen ? '' : ', locked'}`}
