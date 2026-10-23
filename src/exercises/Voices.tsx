@@ -3,6 +3,7 @@ import type { ExerciseOf } from '../content/schema'
 import { shuffle } from '../lesson/shuffle'
 import { Credit, Photo } from '../photos/Photo'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 // Two voices: people of the time, often on opposite sides, each in their own words,
 // side by side. The question needs both read.
@@ -14,13 +15,13 @@ export function Voices({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
     if (checked) return
     setPicked(i)
     const correct = i === exercise.answer
-    const lead = correct ? '' : `The answer is "${exercise.options[exercise.answer]}". `
+    const lead = correct ? '' : `${t('The answer is "{label}".', { label: exercise.options[exercise.answer] })} `
     setAnswer(() => ({ correct, detail: `${lead}${exercise.explain}` }))
   }
 
   return (
     <div className="exercise exercise-voices">
-      <p className="eyebrow">{exercise.voices.length === 2 ? 'Two voices' : 'Three voices'}</p>
+      <p className="eyebrow">{exercise.voices.length === 2 ? t('Two voices') : t('Three voices')}</p>
       <h2>{exercise.prompt}</h2>
       <div className="voices">
         {exercise.voices.map((v) => (

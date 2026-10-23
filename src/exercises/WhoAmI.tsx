@@ -4,6 +4,7 @@ import { shuffle } from '../lesson/shuffle'
 import { XP } from '../lesson/scoring'
 import { PhotoFigure } from '../photos/Photo'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 // Clues appear one at a time; guess as early as you dare. Answering right before
 // the last clue earns the bonus.
@@ -23,10 +24,10 @@ export function WhoAmI({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
     const first = name.split(' ')[0]
     const named = first !== 'The' && exercise.explain.startsWith(first)
     const detail = correct
-      ? `${early ? `Got it after ${clues} of ${total} clues. ` : ''}${exercise.explain}`
+      ? `${early ? `${t('Got it after {n} of {total} clues.', { n: clues, total })} ` : ''}${exercise.explain}`
       : named
         ? exercise.explain
-        : `It was ${name}. ${exercise.explain}`
+        : `${t('It was {name}.', { name })} ${exercise.explain}`
     setAnswer(() => ({ correct, bonus: early, detail }))
   }
   const pick = (i: number) => {
@@ -41,7 +42,7 @@ export function WhoAmI({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
 
   return (
     <div className="exercise">
-      <p className="eyebrow">Who am I?</p>
+      <p className="eyebrow">{t('Who am I?')}</p>
       <PhotoFigure id={exercise.photo} hideCredit={!checked} />
       <ol className="clues" aria-live="polite">
         {exercise.clues.slice(0, visible).map((c, i) => (
@@ -53,10 +54,10 @@ export function WhoAmI({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
       </ol>
       {!checked && shown < total && (
         <button type="button" className="btn-ghost clue-more" onClick={moreClues}>
-          Show clue {shown + 1} of {total}
+          {t('Show clue {n} of {total}', { n: shown + 1, total })}
         </button>
       )}
-      {!checked && shown < total && <p className="hint">Answer before the last clue for +{XP.bonus} XP.</p>}
+      {!checked && shown < total && <p className="hint">{t('Answer before the last clue for +{xp} XP.', { xp: XP.bonus })}</p>}
       <div className="options">
         {order.map((i) => {
           const state = checked ? (i === exercise.answer ? 'right' : i === picked ? 'wrong' : 'dim') : i === picked ? 'picked' : ''

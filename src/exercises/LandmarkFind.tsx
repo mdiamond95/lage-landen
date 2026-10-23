@@ -4,6 +4,7 @@ import { cities, landmarkIds, landmarkOf } from '../data/cities'
 import { CityMap, type CityPin } from '../map/CityMap'
 import { PhotoFigure } from '../photos/Photo'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 // Find it in town: tap the landmark asked for on the city's street map. The pins are unnamed
 // but for those in `show` until the answer is checked; then the right one and a wrong pick are
@@ -19,7 +20,7 @@ export function LandmarkFind({ exercise, checked, setAnswer }: ExerciseProps<Exe
     setPicked(id)
     setAnswer(() => {
       const ok = id === exercise.answer
-      return { correct: ok, detail: ok ? exercise.explain : `You picked ${landmarkOf(exercise.city, id).name}. ${exercise.explain}` }
+      return { correct: ok, detail: ok ? exercise.explain : `${t('You picked {name}.', { name: landmarkOf(exercise.city, id).name })} ${exercise.explain}` }
     })
   }
 
@@ -35,8 +36,8 @@ export function LandmarkFind({ exercise, checked, setAnswer }: ExerciseProps<Exe
     <div className="exercise exercise-landmark">
       <p className="eyebrow">Find it in {city.name}</p>
       <h2>{exercise.prompt}</h2>
-      <CityMap city={exercise.city} pins={pins} label={`Street map of ${city.name} with unnamed landmarks to tap`} onPick={checked ? undefined : pick} zoom />
-      {checked && answer.photo ? <PhotoFigure id={answer.photo} /> : <p className="hint">{picked ? 'Landmark picked. Tap another to change your mind.' : 'Tap a pin on the map.'}</p>}
+      <CityMap city={exercise.city} pins={pins} label={t('Street map of {city} with unnamed landmarks to tap', { city: city.name })} onPick={checked ? undefined : pick} zoom />
+      {checked && answer.photo ? <PhotoFigure id={answer.photo} /> : <p className="hint">{picked ? t('Landmark picked. Tap another to change your mind.') : t('Tap a pin on the map.')}</p>}
     </div>
   )
 }

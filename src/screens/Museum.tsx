@@ -8,6 +8,7 @@ import type { PhotoId } from '../photos'
 import { Photo, PhotoFigure } from '../photos/Photo'
 import { collected, type Hung } from '../progress/collection'
 import { useProgress } from '../progress/store'
+import { t } from '../i18n'
 
 type Show = CardKind | 'all'
 
@@ -54,30 +55,29 @@ export function Museum({ onBack }: { onBack: () => void }) {
   return (
     <div className="museum">
       <header className="lesson-top">
-        <button type="button" className="icon-btn" onClick={onBack} aria-label="Back to the course">
+        <button type="button" className="icon-btn" onClick={onBack} aria-label={t('Back to the course')}>
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        <h1 className="time-travel-title">Your museum</h1>
+        <h1 className="time-travel-title">{t('Your museum')}</h1>
       </header>
       <p className="muted time-travel-intro">
-        {wall.filter(have).length} of {wall.length} cards on your wall. Finish a lesson and the artworks, people, buildings and food it shows are hung
-        here, one room for each unit.
+        {t('{n} of {total} cards on your wall. Finish a lesson and the artworks, people, buildings and food it shows are hung here, one room for each unit.', { n: wall.filter(have).length, total: wall.length })}
       </p>
-      <section className="museum-walks" aria-label="Museum walks">
-        <h2>Museum walks</h2>
+      <section className="museum-walks" aria-label={t('Museum walks')}>
+        <h2>{t('Museum walks')}</h2>
         <ul>
           {walkLessons.map(({ walk: id, unit, lesson }) => {
             const done = !!progress.completed[lesson.id]
             return (
               <li key={id}>
                 <button type="button" className="museum-walk" onClick={() => setWalk(id)} disabled={!done}>
-                  <span className="museum-walk-name">
+                  <span className="museum-walk-name" lang="en-CA">
                     {walks[id].museum}, {walks[id].city}
                   </span>
                   <span className="museum-line">
-                    {done ? `${walks[id].stops.length} paintings` : `Finish Unit ${unit.number}, ${lesson.title}, to open it`}
+                    {done ? t('{n} paintings', { n: walks[id].stops.length }) : t('Finish Unit {n}, {lesson}, to open it', { n: unit.number, lesson: lesson.title })}
                   </span>
                 </button>
               </li>
@@ -85,17 +85,17 @@ export function Museum({ onBack }: { onBack: () => void }) {
           })}
         </ul>
       </section>
-      <div className="phrase-tabs" role="tablist" aria-label="Kinds of card">
+      <div className="phrase-tabs" role="tablist" aria-label={t('Kinds of card')}>
         {(['all', ...cardKinds] as Show[]).map((k) => (
           <button key={k} type="button" role="tab" aria-selected={k === show} className={k === show ? 'is-on' : ''} onClick={() => setShow(k)}>
-            {k === 'all' ? 'Everything' : cardKindNames[k]} <span className="museum-count">{count(k)}</span>
+            {k === 'all' ? t('Everything') : t(cardKindNames[k])} <span className="museum-count">{count(k)}</span>
           </button>
         ))}
       </div>
       {rooms.map(({ unit, cards }) => (
-        <section key={unit.id} className="museum-room" aria-label={`Unit ${unit.number}, ${unit.title}`}>
+        <section key={unit.id} className="museum-room" aria-label={`${t('Unit {n}', { n: unit.number })}, ${unit.title}`}>
           <h2>
-            <span className="eyebrow">Unit {unit.number}</span> {unit.title}
+            <span className="eyebrow">{t('Unit {n}', { n: unit.number })}</span> <span lang="en-CA">{unit.title}</span>
             <span className="museum-count">
               {cards.filter(have).length} of {cards.length}
             </span>
@@ -106,8 +106,8 @@ export function Museum({ onBack }: { onBack: () => void }) {
                 <li key={c.photo}>
                   <button type="button" className={`museum-card kind-${c.kind}`} onClick={() => setOpen(c.photo)}>
                     <Photo id={c.photo} className="museum-photo" lazy />
-                    <span className="museum-title">{c.title}</span>
-                    <span className="museum-line">{c.line}</span>
+                    <span className="museum-title" lang="en-CA">{c.title}</span>
+                    <span className="museum-line" lang="en-CA">{c.line}</span>
                   </button>
                 </li>
               ))}
@@ -122,7 +122,7 @@ export function Museum({ onBack }: { onBack: () => void }) {
                     <span key={c.photo} className={`museum-dot kind-${c.kind}`} />
                   ))}
               </span>
-              {cards.filter((c) => !have(c)).length} still to collect
+              {t('{n} still to collect', { n: cards.filter((c) => !have(c)).length })}
             </p>
           )}
         </section>
@@ -130,12 +130,12 @@ export function Museum({ onBack }: { onBack: () => void }) {
       {walk && (
         <div className="museum-detail" role="dialog" aria-modal="true" aria-label={`${walks[walk].museum}, ${walks[walk].city}`} onClick={(e) => e.target === e.currentTarget && setWalk(null)}>
           <div className="museum-detail-card card">
-            <button type="button" className="icon-btn museum-close" onClick={() => setWalk(null)} aria-label="Close">
+            <button type="button" className="icon-btn museum-close" onClick={() => setWalk(null)} aria-label={t('Close')}>
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
                 <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" />
               </svg>
             </button>
-            <p className="eyebrow">Museum walk</p>
+            <p className="eyebrow">{t('Museum walk')}</p>
             <MuseumWalk walk={walk} intro />
           </div>
         </div>
@@ -143,23 +143,22 @@ export function Museum({ onBack }: { onBack: () => void }) {
       {card && (
         <div className="museum-detail" role="dialog" aria-modal="true" aria-label={card.title} onClick={(e) => e.target === e.currentTarget && setOpen(null)}>
           <div className="museum-detail-card card">
-            <button type="button" className="icon-btn museum-close" onClick={() => setOpen(null)} aria-label="Close">
+            <button type="button" className="icon-btn museum-close" onClick={() => setOpen(null)} aria-label={t('Close')}>
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
                 <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" />
               </svg>
             </button>
-            <p className="eyebrow">{cardKindNames[card.kind]}</p>
-            <h2>{card.title}</h2>
-            <p className="muted">{card.line}</p>
+            <p className="eyebrow">{t(cardKindNames[card.kind])}</p>
+            <h2 lang="en-CA">{card.title}</h2>
+            <p className="muted" lang="en-CA">{card.line}</p>
             <PhotoFigure id={card.photo} />
             <p className="museum-from">
-              Collected in{' '}
               {card.lessons
                 .filter((id) => progress.completed[id])
                 .slice(0, 1)
                 .map((id) => {
                   const found = findLesson(id)!
-                  return `Unit ${found.unit.number}, ${found.lesson.title}`
+                  return t('Collected in Unit {n}, {lesson}', { n: found.unit.number, lesson: found.lesson.title })
                 })}
             </p>
           </div>

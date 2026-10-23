@@ -7,6 +7,7 @@ import { PlayButton } from '../sounds/Sound'
 import { shuffle } from '../lesson/shuffle'
 import type { ExerciseProps } from './types'
 import { VisualView } from './VisualView'
+import { t } from '../i18n'
 
 // After a wrong pick the right option's note follows, so it starts with the answer
 // instead of its own "Right.", which would read as praise for the wrong pick.
@@ -14,7 +15,7 @@ import { VisualView } from './VisualView'
 function afterWrong(label: string | undefined, why: string) {
   const rest = why.replace(/^Right\b[.,:]?\s*/, '')
   const sentence = `${rest.charAt(0).toUpperCase()}${rest.slice(1)}`
-  return label ? `The answer is "${label}". ${sentence}` : sentence
+  return label ? `${t('The answer is "{label}".', { label })} ${sentence}` : sentence
 }
 
 export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'choice'>>) {
@@ -34,7 +35,7 @@ export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<Ex
 
   return (
     <div className="exercise">
-      <p className="eyebrow">{sounds ? 'Listen and choose' : pictures ? 'Pick the picture' : exercise.visual?.kind === 'chart' ? 'Read the chart' : 'Choose'}</p>
+      <p className="eyebrow">{sounds ? t('Listen and choose') : pictures ? t('Pick the picture') : exercise.visual?.kind === 'chart' ? t('Read the chart') : t('Choose')}</p>
       <h2>{exercise.prompt}</h2>
       {exercise.visual && <VisualView visual={exercise.visual} label={exercise.prompt} hideCaption={!checked} />}
       <div className={pictures ? 'options options-grid' : 'options'}>
@@ -45,9 +46,9 @@ export function PictureChoice({ exercise, checked, setAnswer }: ExerciseProps<Ex
           if (o.sound)
             return (
               <div key={i} className={`option-sound ${state}`}>
-                <PlayButton id={o.sound} name={`recording ${order.indexOf(i) + 1}`} />
+                <PlayButton id={o.sound} name={t('recording {n}', { n: order.indexOf(i) + 1 })} />
                 <button type="button" className={`option ${state}`} aria-pressed={i === picked} onClick={() => pick(i)} disabled={checked}>
-                  <span>{o.label ?? (checked ? `${sound(o.sound).words}: ${sound(o.sound).language}` : `Recording ${order.indexOf(i) + 1}`)}</span>
+                  <span>{o.label ?? (checked ? `${sound(o.sound).words}: ${sound(o.sound).language}` : t('Recording {n}', { n: order.indexOf(i) + 1 }))}</span>
                 </button>
               </div>
             )

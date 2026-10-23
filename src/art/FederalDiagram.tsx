@@ -1,6 +1,7 @@
 import { useId, useMemo, useState } from 'react'
 import { belgiumOutline, belgiumParts } from '../map/BelgiumBase'
 import { BELGIUM_H, MAP_W, makeFrame } from '../map/geo'
+import { t } from '../i18n'
 
 // How Belgium has been run since 1989: one federal state, three regions that look
 // after the land, and three communities that look after the people in their language.
@@ -102,7 +103,7 @@ function FederalMap({ title, intro, groups }: { title: string; intro: string; gr
             <strong>{pick.name}:</strong> {pick.runs} {pick.seat}.
           </>
         ) : (
-          'Tap one to see what it runs.'
+          t('Tap one to see what it runs.')
         )}
       </p>
     </div>

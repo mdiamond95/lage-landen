@@ -2,6 +2,7 @@ import { PhotoFigure } from '../photos/Photo'
 import type { PhotoId } from '../photos/ids'
 import { sound, type SoundId } from '.'
 import { toggleSound, useSound } from './player'
+import { t } from '../i18n'
 
 export function SoundCredit({ id }: { id: SoundId }) {
   const s = sound(id)
@@ -31,7 +32,7 @@ export function PlayButton({ id, name, big = false }: { id: SoundId; name: strin
         e.stopPropagation()
         toggleSound(id, sound(id).src)
       }}
-      aria-label={on ? `Stop ${name}` : `Play ${name}`}
+      aria-label={on ? t('Stop {name}', { name }) : t('Play {name}', { name })}
       aria-pressed={on}
     >
       <svg viewBox="0 0 40 40" aria-hidden="true">
@@ -60,7 +61,7 @@ export function SoundFigure({ id, photo, hideWords = false, hideLanguage = false
             {!hideWords && s.meaning ? `: ${s.meaning}` : ''}
           </p>
           <p className="sound-credit">
-            {hideWords ? 'Credit shown once you answer' : <>Recording: <SoundCredit id={id} /></>}
+            {hideWords ? t('Credit shown once you answer') : <>{t('Recording:')} <SoundCredit id={id} /></>}
           </p>
         </div>
       </div>

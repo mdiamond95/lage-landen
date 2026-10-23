@@ -4,6 +4,7 @@ import { PlayButton, SoundCredit } from '../sounds/Sound'
 import { sound } from '../sounds'
 import { lowlandsFrame } from './geo'
 import { LowlandsMap } from './LowlandsMap'
+import { t } from '../i18n'
 
 const pieceOf = new Map(dialectIds.flatMap((id) => dialects[id].pieces.map((p) => [p, id] as const)))
 
@@ -47,7 +48,7 @@ export function DialectMap({ mode = 'explore', focus, picked = null, correct, on
   return (
     <figure className={`dialect-map dialect-${mode}`}>
       <div className="map-frame">
-        <LowlandsMap label={mode === 'pick' ? 'Map of the languages and dialects of the Low Countries, unnamed' : 'Map of the languages and dialects of the Low Countries'}>
+        <LowlandsMap label={mode === 'pick' ? t('Map of the languages and dialects of the Low Countries, unnamed') : t('Map of the languages and dialects of the Low Countries')}>
           {d.map((p) => (
             <path
               key={p.piece}
@@ -55,7 +56,7 @@ export function DialectMap({ mode = 'explore', focus, picked = null, correct, on
               className={`dialect dialect-${p.id}${state(p.id)}`}
               role="button"
               tabIndex={0}
-              aria-label={mode === 'pick' && correct === undefined ? `Region ${dialectIds.indexOf(p.id) + 1}` : dialects[p.id].name}
+              aria-label={mode === 'pick' && correct === undefined ? t('Region {n}', { n: dialectIds.indexOf(p.id) + 1 }) : dialects[p.id].name}
               aria-pressed={selected === p.id}
               onClick={() => tap(p.id)}
               onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), tap(p.id))}
@@ -102,11 +103,11 @@ export function DialectMap({ mode = 'explore', focus, picked = null, correct, on
                   ))}
                 </ul>
               ) : (
-                card.family !== 'None' && <p className="dialect-status">No free recording of it yet.</p>
+                card.family !== 'None' && <p className="dialect-status">{t('No free recording of it yet.')}</p>
               )}
             </>
           ) : (
-            <p className="dialect-about">Tap a region to read about it, and to hear it where there is a recording.</p>
+            <p className="dialect-about">{t('Tap a region to read about it, and to hear it where there is a recording.')}</p>
           )}
         </div>
       )}

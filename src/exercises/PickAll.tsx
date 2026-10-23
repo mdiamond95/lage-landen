@@ -4,6 +4,7 @@ import { shuffle } from '../lesson/shuffle'
 import { Photo } from '../photos/Photo'
 import type { ExerciseProps } from './types'
 import { VisualView } from './VisualView'
+import { t } from '../i18n'
 
 // Pick all that belong (Unit 21): tap every card that fits, and none that doesn't, such as
 // the spices in speculaas or the Trappist beers. Once checked, the ones missed are marked.
@@ -23,7 +24,11 @@ export function PickAll({ exercise, checked, setAnswer }: ExerciseProps<Exercise
     const wrong = [...next].filter((j) => !right.has(j))
     const missed = exercise.answers.filter((j) => !next.has(j))
     const names = (js: number[]) => js.map((j) => exercise.items[j].label).join(', ')
-    const lead = wrong.length ? `${names(wrong)} ${wrong.length > 1 ? "don't" : "doesn't"} belong. ` : missed.length ? `You missed ${names(missed)}. ` : ''
+    const lead = wrong.length
+      ? `${t(wrong.length > 1 ? "{names} don't belong." : "{names} doesn't belong.", { names: names(wrong) })} `
+      : missed.length
+        ? `${t('You missed {names}.', { names: names(missed) })} `
+        : ''
     setAnswer(() => ({ correct: wrong.length === 0 && missed.length === 0, detail: `${lead}${exercise.explain}` }))
   }
 
@@ -35,7 +40,7 @@ export function PickAll({ exercise, checked, setAnswer }: ExerciseProps<Exercise
 
   return (
     <div className="exercise exercise-pick">
-      <p className="eyebrow">Pick all that belong</p>
+      <p className="eyebrow">{t('Pick all that belong')}</p>
       <h2>{exercise.prompt}</h2>
       {exercise.visual && <VisualView visual={exercise.visual} label={exercise.prompt} hideCaption={!checked} />}
       <div className={pictures ? 'options options-grid' : 'options options-two'}>
@@ -49,7 +54,7 @@ export function PickAll({ exercise, checked, setAnswer }: ExerciseProps<Exercise
           )
         })}
       </div>
-      <p className="hint">{checked ? `${exercise.answers.length} of the ${exercise.items.length} belong.` : 'Tap every card that belongs, then check.'}</p>
+      <p className="hint">{checked ? t('{n} of the {total} belong.', { n: exercise.answers.length, total: exercise.items.length }) : t('Tap every card that belongs, then check.')}</p>
     </div>
   )
 }

@@ -31,6 +31,7 @@ import { XP } from './scoring'
 import { cheer } from '../mascot/lines'
 import type { HatId } from '../mascot/hats'
 import { Stork } from '../mascot/Stork'
+import { t } from '../i18n'
 
 // `answers` holds each question's first try, for the review schedule; `timedOut` that
 // the clock of a timed challenge ran out before the last question.
@@ -55,9 +56,9 @@ type Props = {
 }
 
 const feedbackHead = (r: Result, calm: boolean) => {
-  if (!r.correct) return 'Not quite'
-  if (calm) return r.bonus ? `Correct. +${XP.bonus} XP` : 'Correct'
-  return r.bonus ? `Spot on! +${XP.bonus} XP` : 'Correct!'
+  if (!r.correct) return t('Not quite')
+  if (calm) return r.bonus ? t('Correct. +{xp} XP', { xp: XP.bonus }) : t('Correct')
+  return r.bonus ? t('Spot on! +{xp} XP', { xp: XP.bonus }) : t('Correct!')
 }
 
 // Plays a lesson Duolingo-style: answer, check, read why, continue.
@@ -196,29 +197,30 @@ export function LessonPlayer({ title, exercises, note, calm = false, hat, retry 
   return (
     <div className="lesson">
       <header className="lesson-top">
-        <button type="button" className="icon-btn" onClick={() => (stopSound(), onExit())} aria-label="Leave lesson">
+        <button type="button" className="icon-btn" onClick={() => (stopSound(), onExit())} aria-label={t('Leave lesson')}>
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
           </svg>
         </button>
-        <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)} aria-label={`${title} progress`}>
+        <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)} aria-label={t('{title} progress', { title })}>
           <div className="progress-fill" style={{ width: `${Math.max(4, progress * 100)}%` }} />
         </div>
         {timeLimit !== undefined && (
-          <span className={`lesson-clock ${left <= 30 ? 'is-low' : ''}`} role="timer" aria-label={`Time left ${clock(left)}`}>
+          <span className={`lesson-clock ${left <= 30 ? 'is-low' : ''}`} role="timer" aria-label={t('Time left {time}', { time: clock(left) })}>
             {clock(left)}
           </span>
         )}
       </header>
 
-      <main className="lesson-body" key={noteRead ? index : 'note'}>
+      {/* The lessons are in English, whatever the interface language. */}
+      <main className="lesson-body" key={noteRead ? index : 'note'} lang="en-CA">
         {noteRead ? (
           body
         ) : (
           <div className="exercise">
-            <p className="eyebrow">Content note</p>
+            <p className="eyebrow">{t('Content note')}</p>
             <div className="content-note">
-              <h2>Before you begin</h2>
+              <h2>{t('Before you begin')}</h2>
               <p>{note}</p>
             </div>
           </div>
@@ -233,25 +235,25 @@ export function LessonPlayer({ title, exercises, note, calm = false, hat, retry 
               <p className="feedback-head">{feedbackHead(result, calm)}</p>
               {cheered && <p className="stork-line">{cheered}</p>}
               <p className="feedback-detail">{result.detail}</p>
-              {requeued && <p className="feedback-note">You'll see this one again before the lesson ends.</p>}
+              {requeued && <p className="feedback-note">{t("You'll see this one again before the lesson ends.")}</p>}
             </div>
           </div>
         )}
         {!noteRead ? (
           <button type="button" className="btn-primary" onClick={() => setNoteRead(true)}>
-            Continue
+            {t('Continue')}
           </button>
         ) : isStory ? (
           <button type="button" className="btn-primary" onClick={next}>
-            Continue
+            {t('Continue')}
           </button>
         ) : result ? (
           <button type="button" className="btn-primary" onClick={next}>
-            Continue
+            {t('Continue')}
           </button>
         ) : (
           <button type="button" className="btn-primary" onClick={check} disabled={!evaluate}>
-            Check
+            {t('Check')}
           </button>
         )}
       </footer>

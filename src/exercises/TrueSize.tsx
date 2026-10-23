@@ -3,6 +3,7 @@ import type { ExerciseOf } from '../content/schema'
 import { shapes, type ShapeId } from '../data/projections'
 import { km2, ProjectionMap } from '../map/ProjectionMap'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 // The answer to a true-size question: the biggest of its shapes, or the smallest.
 export const trueSizeAnswer = (e: Pick<ExerciseOf<'truesize'>, 'shapes' | 'ask'>): ShapeId =>
@@ -25,10 +26,10 @@ export function TrueSize({ exercise, checked, setAnswer }: ExerciseProps<Exercis
 
   return (
     <div className="exercise exercise-truesize">
-      <p className="eyebrow">True size</p>
+      <p className="eyebrow">{t('True size')}</p>
       <h2>{exercise.prompt}</h2>
-      <ProjectionMap key={checked ? 'checked' : 'asking'} shapes={exercise.shapes} fixed={!checked} sizes={checked} picked={picked} label="Mercator's map of the world, with countries to drag" />
-      <div className="options options-two truesize-options" role="group" aria-label={`Which is really ${exercise.ask}?`}>
+      <ProjectionMap key={checked ? 'checked' : 'asking'} shapes={exercise.shapes} fixed={!checked} sizes={checked} picked={picked} label={t("Mercator's map of the world, with countries to drag")} />
+      <div className="options options-two truesize-options" role="group" aria-label={t('Which is really {ask}?', { ask: exercise.ask })}>
         {exercise.shapes.map((id, i) => (
           <button
             key={id}
@@ -44,7 +45,7 @@ export function TrueSize({ exercise, checked, setAnswer }: ExerciseProps<Exercis
           </button>
         ))}
       </div>
-      <p className="hint">{checked ? 'Now switch the map to equal area or the globe.' : 'Drag the shapes to the same latitude to compare them fairly, then pick one.'}</p>
+      <p className="hint">{checked ? t('Now switch the map to equal area or the globe.') : t('Drag the shapes to the same latitude to compare them fairly, then pick one.')}</p>
     </div>
   )
 }

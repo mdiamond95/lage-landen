@@ -4,6 +4,7 @@ import { walks, type WalkId } from '../data/walks'
 import { photo } from '../photos'
 import { Credit, Photo } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
+import { t } from '../i18n'
 
 const cardOf = new Map(collection.map((c) => [c.photo, c]))
 
@@ -25,7 +26,7 @@ export function MuseumWalk({ walk, intro = false }: { walk: WalkId; intro?: bool
         <strong>{w.museum}</strong>, {w.city}
       </p>
       {intro && <p className="walk-intro">{w.intro}</p>}
-      <ol className="walk-wall" aria-label={`The paintings of the walk, ${w.stops.length} in all`}>
+      <ol className="walk-wall" aria-label={t('The paintings of the walk, {n} in all', { n: w.stops.length })}>
         {w.stops.map((s, j) => (
           <li key={s.photo}>
             <button
@@ -45,22 +46,22 @@ export function MuseumWalk({ walk, intro = false }: { walk: WalkId; intro?: bool
       </div>
       <div className="walk-label" aria-live="polite">
         <p className="walk-count">
-          {i + 1} of {w.stops.length}
+          {t('{n} of {total}', { n: i + 1, total: w.stops.length })}
         </p>
         <p className="walk-title">{card?.title ?? p.caption}</p>
         {card && <p className="walk-line">{card.line}</p>}
         <p className="walk-text">{stop.text}</p>
         <div className="walk-nav">
           <button type="button" className="zoom-btn zoom-reset" onClick={() => setI(i - 1)} disabled={i === 0}>
-            Back
+            {t('Back')}
           </button>
           <button type="button" className="zoom-btn zoom-reset walk-next" onClick={() => setI(i + 1)} disabled={last}>
-            {last ? 'End of the walk' : 'Walk on'}
+            {last ? t('End of the walk') : t('Walk on')}
           </button>
         </div>
       </div>
       <figcaption>
-        {p.caption} · <span className="photo-credit">Credit: <Credit id={stop.photo} /></span>
+        {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={stop.photo} /></span>
       </figcaption>
     </figure>
   )

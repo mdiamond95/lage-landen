@@ -4,6 +4,7 @@ import { shuffle } from '../lesson/shuffle'
 import { Photo } from '../photos/Photo'
 import type { ExerciseProps } from './types'
 import { VisualView } from './VisualView'
+import { t } from '../i18n'
 
 // Sort into groups: tap a card, then the group it belongs in. Cards already sorted
 // can be tapped again to move them. Every card has to land in the right group.
@@ -20,7 +21,7 @@ export function SortGroups({ exercise, checked, setAnswer }: ExerciseProps<Exerc
     if (next.some((g) => g === null)) return setAnswer(null)
     const wrong = exercise.items.map((it, i) => ({ ...it, i })).filter((it) => next[it.i] !== it.group)
     const lead = wrong.length
-      ? `${wrong.map((w) => `${w.label} belongs under ${exercise.groups[w.group]}`).join('; ')}. `
+      ? `${wrong.map((w) => t('{item} belongs under {group}', { item: w.label, group: exercise.groups[w.group] })).join('; ')}. `
       : ''
     setAnswer(() => ({ correct: wrong.length === 0, detail: `${lead}${exercise.explain}` }))
   }
@@ -47,12 +48,12 @@ export function SortGroups({ exercise, checked, setAnswer }: ExerciseProps<Exerc
 
   return (
     <div className="exercise">
-      <p className="eyebrow">Sort into groups</p>
+      <p className="eyebrow">{t('Sort into groups')}</p>
       <h2>{exercise.prompt}</h2>
       {exercise.visual && <VisualView visual={exercise.visual} label={exercise.prompt} hideCaption={!checked} />}
       {loose.length > 0 && (
         <>
-          <p className="sort-hint muted">{picked === null ? 'Tap a card, then the group it belongs in.' : 'Now tap its group.'}</p>
+          <p className="sort-hint muted">{picked === null ? t('Tap a card, then the group it belongs in.') : t('Now tap its group.')}</p>
           <div className={`sort-pool${exercise.items.some((it) => it.photo) ? ' sort-pool-pictures' : ''}`}>{loose.map(card)}</div>
         </>
       )}

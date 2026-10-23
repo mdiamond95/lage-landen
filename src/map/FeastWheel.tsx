@@ -2,6 +2,7 @@ import { useRef, useState, type KeyboardEvent, type PointerEvent } from 'react'
 import { DAYS, MONTHS, dateOf, feastIds, feastKindNames, feastKinds, feasts, monthStarts, spanOf, type FeastId, type FeastKind } from '../data/feasts'
 import { Credit, Photo } from '../photos/Photo'
 import { feastGlyphs } from './glyphs'
+import { t } from '../i18n'
 
 const C = 200
 const R_OUT = 188
@@ -91,12 +92,12 @@ export function FeastWheel({ mode = 'explore', focus, only, picked = null, corre
   return (
     <figure className={`feast-wheel wheel-${mode}`}>
       {mode === 'explore' && !only && (
-        <div className="food-kinds" role="group" aria-label="Country">
+        <div className="food-kinds" role="group" aria-label={t('Country')}>
           {(
             [
-              ['all', 'Both countries'],
-              ['nl', 'Netherlands'],
-              ['be', 'Belgium'],
+              ['all', t('Both countries')],
+              ['nl', t('Netherlands')],
+              ['be', t('Belgium')],
             ] as const
           ).map(([c, label]) => (
             <button type="button" key={c} className={country === c ? 'is-on' : ''} aria-pressed={country === c} onClick={() => setCountry(c)}>
@@ -110,7 +111,7 @@ export function FeastWheel({ mode = 'explore', focus, only, picked = null, corre
         className="wheel-face"
         viewBox="0 0 400 400"
         role="img"
-        aria-label={mode === 'pick' ? 'A calendar wheel to turn to a date' : 'Calendar wheel of the feasts of the year'}
+        aria-label={mode === 'pick' ? t('A calendar wheel to turn to a date') : t('Calendar wheel of the feasts of the year')}
         onPointerDown={(e) => {
           if (mode !== 'pick' || locked) return
           dragging.current = true
@@ -172,36 +173,36 @@ export function FeastWheel({ mode = 'explore', focus, only, picked = null, corre
         )}
         <circle className="wheel-hub" cx={C} cy={C} r={34} />
         <text className="wheel-date" x={C} y={C + 5} textAnchor="middle">
-          {mode === 'pick' ? (picked === null ? 'Drag' : dateOf(picked)) : card ? '' : 'The year'}
+          {mode === 'pick' ? (picked === null ? t('Drag') : dateOf(picked)) : card ? '' : t('The year')}
         </text>
       </svg>
       {mode === 'pick' && (
         <div className="wheel-controls">
-          <button type="button" className="btn-ghost" onClick={() => nudge(-1)} disabled={locked || picked === null} aria-label="A day earlier">
-            ‹ Day
+          <button type="button" className="btn-ghost" onClick={() => nudge(-1)} disabled={locked || picked === null} aria-label={t('A day earlier')}>
+            ‹ {t('Day')}
           </button>
           <span
             className="wheel-slider"
             role="slider"
             tabIndex={0}
-            aria-label="Date"
+            aria-label={t('Date')}
             aria-valuemin={1}
             aria-valuemax={DAYS}
             aria-valuenow={picked ?? 1}
-            aria-valuetext={picked === null ? 'No date yet' : dateOf(picked)}
+            aria-valuetext={picked === null ? t('No date yet') : dateOf(picked)}
             aria-disabled={locked}
             onKeyDown={keys}
           >
-            {picked === null ? 'Drag the hand, or use the arrow keys' : dateOf(picked)}
+            {picked === null ? t('Drag the hand, or use the arrow keys') : dateOf(picked)}
           </span>
-          <button type="button" className="btn-ghost" onClick={() => nudge(1)} disabled={locked || picked === null} aria-label="A day later">
-            Day ›
+          <button type="button" className="btn-ghost" onClick={() => nudge(1)} disabled={locked || picked === null} aria-label={t('A day later')}>
+            {t('Day')} ›
           </button>
         </div>
       )}
       {mode === 'explore' && (
         <>
-          <ul className="wheel-key" aria-label="Kinds of feast">
+          <ul className="wheel-key" aria-label={t('Kinds of feast')}>
             {feastKinds
               .filter((k) => !only || k === only)
               .map((k) => (
@@ -221,18 +222,18 @@ export function FeastWheel({ mode = 'explore', focus, only, picked = null, corre
                   {card.own && <span className="food-own"> · {card.own}</span>}
                 </p>
                 <p className="food-place">
-                  {card.when} · {card.country === 'nl' ? 'Netherlands' : card.country === 'be' ? 'Belgium' : 'Both countries'}
+                  {card.when} · {card.country === 'nl' ? t('Netherlands') : card.country === 'be' ? t('Belgium') : t('Both countries')}
                 </p>
                 <p className="food-about">{card.about}</p>
                 <p className="wheel-where">{card.place}</p>
                 {card.photo && (
                   <p className="photo-credit">
-                    Photo: <Credit id={card.photo} />
+                    {t('Photo:')} <Credit id={card.photo} />
                   </p>
                 )}
               </>
             ) : (
-              <p className="food-about">Tap a mark to read about the feast. A curved line shows the days a feast can move between.</p>
+              <p className="food-about">{t('Tap a mark to read about the feast. A curved line shows the days a feast can move between.')}</p>
             )}
           </div>
         </>

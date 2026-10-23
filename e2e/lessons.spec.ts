@@ -2952,3 +2952,31 @@ test('a map story opens after the lessons, narrates the map step by step, then a
   await expect(page.locator('.map-story').getByLabel('Read aloud')).not.toBeChecked()
   expect(errors).toEqual([])
 })
+
+test('the interface switches to Dutch or French and stays so, while the lessons stay English', async ({ page }) => {
+  await page.goto('/')
+  const picker = page.locator('.lang-picker select')
+  await picker.selectOption('nl')
+  await expect(page.locator('html')).toHaveAttribute('lang', 'nl')
+  await expect(page.getByRole('heading', { name: 'Dagopdrachten' })).toBeVisible()
+  await expect(page.getByText('Hoofdstuk 1', { exact: false }).first()).toBeVisible()
+
+  await page.getByRole('button', { name: 'Two countries, one delta', exact: true }).click()
+  await expect(page.getByRole('button', { name: 'Les verlaten' })).toBeVisible()
+  await expect(page.locator('.lesson-body')).toHaveAttribute('lang', 'en-CA')
+  await expect(page.locator('.lesson-foot').getByRole('button', { name: /^(Controleer|Verder)$/ })).toBeVisible()
+  await page.getByRole('button', { name: 'Les verlaten' }).click()
+
+  await page.reload()
+  await expect(picker).toHaveValue('nl')
+  await expect(page.getByRole('region', { name: 'Jouw voortgang' })).toBeVisible()
+
+  await picker.selectOption('fr')
+  await expect(page.locator('html')).toHaveAttribute('lang', 'fr')
+  await expect(page.getByRole('heading', { name: 'Défis du jour' })).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Enregistrer dans un fichier' })).toBeVisible()
+
+  await picker.selectOption('en')
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en-CA')
+  await expect(page.getByRole('heading', { name: 'Daily quests' })).toBeVisible()
+})

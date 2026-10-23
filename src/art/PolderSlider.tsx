@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { t } from '../i18n'
 
 // Cross-section from the North Sea to a polder. Heights are metres relative to
 // NAP, the Dutch reference level that is roughly average sea level.
@@ -38,7 +39,7 @@ export function PolderSlider() {
       </svg>
       <figcaption>
         <label className="slider-row">
-          <span>Sea level</span>
+          <span>{t('Sea level')}</span>
           <input
             type="range"
             min={0}
@@ -46,12 +47,12 @@ export function PolderSlider() {
             step={0.5}
             value={sea}
             onChange={(e) => setSea(Number(e.target.value))}
-            aria-label="Sea level in metres"
+            aria-label={t('Sea level in metres')}
           />
-          <span className="slider-value">{sea === 0 ? 'Calm' : sea >= 4.5 ? '1953 storm' : `+${sea} m`}</span>
+          <span className="slider-value">{sea === 0 ? t('Calm') : sea >= 4.5 ? t('1953 storm') : `+${sea} m`}</span>
         </label>
         <button type="button" className="btn-ghost" onClick={() => setDike((d) => !d)}>
-          {dike ? 'Take the dike away' : 'Put the dike back'}
+          {dike ? t('Take the dike away') : t('Put the dike back')}
         </button>
       </figcaption>
     </figure>

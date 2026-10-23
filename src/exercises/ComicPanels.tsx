@@ -3,6 +3,7 @@ import { Balloon, PanelFrame, StripCredits } from '../art/ComicStrip'
 import type { ExerciseOf } from '../content/schema'
 import { shuffle } from '../lesson/shuffle'
 import type { ExerciseProps } from './types'
+import { t } from '../i18n'
 
 // Comic panel matching (Unit 24). Balloons: tap a balloon, then the panel it belongs in; tap a
 // placed balloon to take it back. Order: tap the panels in the order the story happens; tap a
@@ -26,7 +27,7 @@ function PanelBalloons({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
     setPicked(null)
     if (next.some((b) => b === null)) return setAnswer(null)
     const wrong = panels.map((p, i) => ({ p, i })).filter(({ i }) => next[i] !== i)
-    const lead = wrong.length ? `${wrong.map(({ p, i }) => `Panel ${i + 1} says “${short(p.say)}”`).join('; ')}. ` : 'Every balloon in its panel. '
+    const lead = wrong.length ? `${wrong.map(({ p, i }) => t('Panel {n} says “{say}”', { n: i + 1, say: short(p.say) })).join('; ')}. ` : `${t('Every balloon in its panel.')} `
     setAnswer(() => ({ correct: wrong.length === 0, detail: `${lead}${exercise.explain}` }))
   }
 
@@ -44,7 +45,7 @@ function PanelBalloons({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
 
   return (
     <div className="exercise exercise-panels">
-      <p className="eyebrow">Comic panels</p>
+      <p className="eyebrow">{t('Comic panels')}</p>
       <h2>{exercise.prompt}</h2>
       <div className="comic-strip">
         {panels.map((p, i) => {
@@ -57,7 +58,7 @@ function PanelBalloons({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
               number={i + 1}
               className={state}
               top={
-                <button type="button" className={`panel-slot${b === null ? ' is-empty' : ''}`} onClick={() => tapSlot(i)} disabled={checked} aria-label={b === null ? `Panel ${i + 1}: empty` : `Panel ${i + 1}: ${says[b]}`}>
+                <button type="button" className={`panel-slot${b === null ? ' is-empty' : ''}`} onClick={() => tapSlot(i)} disabled={checked} aria-label={b === null ? t('Panel {n}: empty', { n: i + 1 }) : t('Panel {n}: {say}', { n: i + 1, say: says[b] })}>
                   {b === null ? <Balloon kind={p.kind} className="balloon-empty">?</Balloon> : <Balloon kind={kindOf(b)}>{says[b]}</Balloon>}
                   {checked && b !== i && <Balloon kind={p.kind} className="balloon-right">{p.say}</Balloon>}
                 </button>
@@ -68,7 +69,7 @@ function PanelBalloons({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
       </div>
       {!checked && loose.length > 0 && (
         <>
-          <p className="sort-hint muted">{picked === null ? 'Tap a balloon, then the panel it belongs in.' : 'Now tap its panel.'}</p>
+          <p className="sort-hint muted">{picked === null ? t('Tap a balloon, then the panel it belongs in.') : t('Now tap its panel.')}</p>
           <div className="panels-pool">
             {loose.map((b) => (
               <button type="button" key={b} className={`panel-chip${picked === b ? ' picked' : ''}`} aria-pressed={picked === b} onClick={() => setPicked(picked === b ? null : b)}>
@@ -97,7 +98,7 @@ function PanelOrder({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'
     setPlaced(next)
     if (next.length < panels.length) return setAnswer(null)
     const ok = next.every((p, i) => p === i)
-    const lead = ok ? 'Every panel in its place. ' : `The story runs: ${panels.map((p) => `“${short(p.say)}”`).join(', then ')}. `
+    const lead = ok ? `${t('Every panel in its place.')} ` : `${t('The story runs: {panels}.', { panels: panels.map((p) => `“${short(p.say)}”`).join(t(', then ')) })} `
     setAnswer(() => ({ correct: ok, detail: `${lead}${exercise.explain}` }))
   }
 
@@ -109,14 +110,14 @@ function PanelOrder({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'
 
   return (
     <div className="exercise exercise-panels">
-      <p className="eyebrow">Comic panels</p>
+      <p className="eyebrow">{t('Comic panels')}</p>
       <h2>{exercise.prompt}</h2>
       <div className="comic-strip panel-slots">
         {panels.map((_, i) => {
           const p = placed[i]
           if (p === undefined)
             return (
-              <div key={i} className="comic-panel panel-slot is-empty" aria-label={`Panel ${i + 1}: empty`}>
+              <div key={i} className="comic-panel panel-slot is-empty" aria-label={t('Panel {n}: empty', { n: i + 1 })}>
                 <span className="panel-number">{i + 1}</span>
               </div>
             )
@@ -129,7 +130,7 @@ function PanelOrder({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'
               className={`panel-placed ${state}`}
               onClick={() => take(p)}
               disabled={checked}
-              label={`Panel ${i + 1}: ${panels[p].say}`}
+              label={t('Panel {n}: {say}', { n: i + 1, say: panels[p].say })}
               top={<Balloon kind={panels[p].kind}>{panels[p].say}</Balloon>}
             />
           )
@@ -137,7 +138,7 @@ function PanelOrder({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'
       </div>
       {!checked && placed.length < panels.length && (
         <>
-          <p className="sort-hint muted">{placed.length ? `Panel ${placed.length + 1}: which comes next?` : 'Tap the panel the story starts with.'}</p>
+          <p className="sort-hint muted">{placed.length ? t('Panel {n}: which comes next?', { n: placed.length + 1 }) : t('Tap the panel the story starts with.')}</p>
           <div className="comic-strip panels-pool panels-pool-order">
             {pool
               .filter((p) => !placed.includes(p))

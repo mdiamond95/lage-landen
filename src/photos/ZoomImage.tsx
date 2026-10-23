@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { t } from '../i18n'
 
 const MAX = 6
 const STEP = 1.8
@@ -156,15 +157,15 @@ export function ZoomImage({ src, alt, onTap, children, className = '', max = MAX
         </div>
       </div>
       <div className="zoom-controls">
-        <button type="button" className="zoom-btn" onClick={() => zoomAt(STEP)} disabled={view.scale >= max} aria-label="Zoom in">
+        <button type="button" className="zoom-btn" onClick={() => zoomAt(STEP)} disabled={view.scale >= max} aria-label={t('Zoom in')}>
           +
         </button>
-        <button type="button" className="zoom-btn" onClick={() => zoomAt(1 / STEP)} disabled={!zoomed} aria-label="Zoom out">
+        <button type="button" className="zoom-btn" onClick={() => zoomAt(1 / STEP)} disabled={!zoomed} aria-label={t('Zoom out')}>
           −
         </button>
         {zoomed && (
           <button type="button" className="zoom-btn zoom-reset" onClick={() => { setFlying(true); setView(START) }}>
-            Whole picture
+            {t('Whole picture')}
           </button>
         )}
       </div>

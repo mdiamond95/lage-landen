@@ -2,6 +2,7 @@ import { useRef, useState, type PointerEvent } from 'react'
 import { thenNows, type ThenNowId, type ThenNowPair } from '../data/thenNow'
 import { photo } from '../photos'
 import { Credit } from '../photos/Photo'
+import { t } from '../i18n'
 
 // Then and now: an old picture of a place laid over a photo of the same spot today.
 // Dragging across the picture (or the slider under it, or the arrow keys on that) wipes
@@ -60,12 +61,12 @@ export function ThenNow({ pair, hideCaption = false }: { pair: ThenNowId; hideCa
             step={1}
             value={split}
             onChange={(e) => setSplit(Number(e.target.value))}
-            aria-label="Then and now"
+            aria-label={t('Then and now')}
             aria-valuetext={`${split}% ${p.then.when}, ${100 - split}% ${p.now.when}`}
           />
           <span className="slider-value">{p.now.when}</span>
         </label>
-        <p className="compare-hint">Drag across the picture to go from {p.then.when} to {p.now.when}.</p>
+        <p className="compare-hint">{t('Drag across the picture to go from {from} to {to}.', { from: p.then.when, to: p.now.when })}</p>
         {!hideCaption && (
           <>
             <p className="then-now-place">{p.place}</p>

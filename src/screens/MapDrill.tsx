@@ -4,13 +4,14 @@ import { Drill, type Ask } from '../exercises/ProvinceDrill'
 import { shuffle } from '../lesson/shuffle'
 import type { Country } from '../map/ProvinceMap'
 import { loadBest, saveBest } from '../progress/drill'
+import { t, type Key } from '../i18n'
 
-const countries: { id: Country; label: string }[] = [
+const countries: { id: Country; label: Key }[] = [
   { id: 'NLD', label: 'The Netherlands' },
   { id: 'BEL', label: 'Belgium' },
   { id: 'both', label: 'Both' },
 ]
-const asks: { id: Ask; label: string }[] = [
+const asks: { id: Ask; label: Key }[] = [
   { id: 'name', label: 'By name' },
   { id: 'capital', label: 'By capital' },
   { id: 'flag', label: 'By flag' },
@@ -44,32 +45,32 @@ export function MapDrill({ onBack }: { onBack: () => void }) {
   return (
     <div className="map-drill">
       <header className="lesson-top">
-        <button type="button" className="icon-btn" onClick={onBack} aria-label="Back to the course">
+        <button type="button" className="icon-btn" onClick={onBack} aria-label={t('Back to the course')}>
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        <h1 className="time-travel-title">Map drill</h1>
+        <h1 className="time-travel-title">{t('Map drill')}</h1>
       </header>
-      <p className="muted time-travel-intro">Find every province on the map. A wrong tap shows the right one in orange.</p>
-      <div className="food-kinds" role="group" aria-label="Country">
+      <p className="muted time-travel-intro">{t('Find every province on the map. A wrong tap shows the right one in orange.')}</p>
+      <div className="food-kinds" role="group" aria-label={t('Country')}>
         {countries.map((c) => (
           <button type="button" key={c.id} className={country === c.id ? 'is-on' : ''} aria-pressed={country === c.id} onClick={() => restart(c.id, ask)}>
-            {c.label}
+            {t(c.label)}
           </button>
         ))}
       </div>
-      <div className="food-kinds" role="group" aria-label="Find them">
+      <div className="food-kinds" role="group" aria-label={t('Find them')}>
         {asks.map((a) => (
           <button type="button" key={a.id} className={ask === a.id ? 'is-on' : ''} aria-pressed={ask === a.id} onClick={() => restart(country, a.id)}>
-            {a.label}
+            {t(a.label)}
           </button>
         ))}
       </div>
-      <p className="drill-best">{best[mode] !== undefined ? `Your best: ${best[mode]} of ${rounds.length}` : 'No score yet for this drill.'}</p>
+      <p className="drill-best">{best[mode] !== undefined ? t('Your best: {n} of {total}', { n: best[mode], total: rounds.length }) : t('No score yet for this drill.')}</p>
       <Drill key={run} country={country} ask={ask} rounds={rounds} onDone={done} />
       <button type="button" className="btn-primary" onClick={() => restart(country, ask)}>
-        Start again
+        {t('Start again')}
       </button>
     </div>
   )

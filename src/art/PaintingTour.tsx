@@ -3,6 +3,7 @@ import { tours, type TourId } from '../data/paintings'
 import { photo } from '../photos'
 import { Credit } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
+import { t } from '../i18n'
 
 const pct = (n: number) => `${n * 100}%`
 
@@ -33,14 +34,14 @@ export function PaintingTour({ painting, focus }: { painting: TourId; focus?: st
               // Keeps the tap from starting a drag of the painting underneath.
               onPointerDown={(e) => e.stopPropagation()}
               onClick={() => setStop(i)}
-              aria-label={`Detail ${i + 1}: ${s.title}`}
+              aria-label={t('Detail {n}: {title}', { n: i + 1, title: s.title })}
             >
               {i + 1}
             </button>
           ))}
       </ZoomImage>
       {quiz ? (
-        <p className="hint">Zoomed in on a detail. Zoom out with − to see the whole painting.</p>
+        <p className="hint">{t('Zoomed in on a detail. Zoom out with − to see the whole painting.')}</p>
       ) : (
         <div className="tour-panel" aria-live="polite">
           {current ? (
@@ -55,20 +56,20 @@ export function PaintingTour({ painting, focus }: { painting: TourId; focus?: st
           )}
           <div className="tour-nav">
             <button type="button" className="zoom-btn zoom-reset" disabled={stop === null} onClick={() => setStop(stop === null || stop === 0 ? null : stop - 1)}>
-              Back
+              {t('Back')}
             </button>
             <button
               type="button"
               className="zoom-btn zoom-reset tour-next"
               onClick={() => setStop(stop === null ? 0 : stop + 1 < tour.stops.length ? stop + 1 : null)}
             >
-              {stop === null ? 'Start the tour' : stop + 1 < tour.stops.length ? 'Next detail' : 'Whole painting'}
+              {stop === null ? t('Start the tour') : stop + 1 < tour.stops.length ? t('Next detail') : t('Whole painting')}
             </button>
           </div>
         </div>
       )}
       <figcaption>
-        {p.caption} · <span className="photo-credit">Credit: <Credit id={tour.photo} /></span>
+        {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={tour.photo} /></span>
       </figcaption>
     </figure>
   )

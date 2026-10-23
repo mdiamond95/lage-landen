@@ -5,6 +5,7 @@ import type { Topology } from 'topojson-specification'
 import { landmarkOf, type CityId } from '../data/cities'
 import { cityFrame } from './cityFrame'
 import { MAP_W } from './geo'
+import { t } from '../i18n'
 
 // Each city's streets load when first shown, so the maps stay out of the main bundle.
 const loaders = import.meta.glob<{ default: unknown }>('../data/cities/*.topo.json')
@@ -82,7 +83,7 @@ export function CityMap({ city, pins, label, onPick, zoom = false }: Props) {
               transform={`translate(${pin.x.toFixed(1)},${pin.y.toFixed(1)})`}
               role={onPick ? 'button' : undefined}
               tabIndex={onPick ? 0 : undefined}
-              aria-label={pin.label ?? (pin.n ? `Landmark ${pin.n}` : 'Landmark')}
+              aria-label={pin.label ?? (pin.n ? t('Landmark {n}', { n: pin.n }) : t('Landmark'))}
               aria-pressed={onPick ? state === 'on' : undefined}
               onClick={onPick ? () => onPick(pin.id) : undefined}
               onKeyDown={onPick ? (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onPick(pin.id)) : undefined}

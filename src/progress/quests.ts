@@ -3,14 +3,16 @@
 // a bonus of QUEST_XP once met. The day's picks and counts are kept in the progress, so
 // they stay put however often the home screen is opened, and start again tomorrow.
 
+import type { Key } from '../i18n'
+
 export const QUEST_XP = 10
 
 export const measures = ['xp', 'lessons', 'pins', 'reviewed', 'right', 'perfect', 'cards', 'crowns'] as const
 export type Measure = (typeof measures)[number]
 
-export type Quest = { id: string; measure: Measure; goal: number; text: string }
+export type Quest = { id: string; measure: Measure; goal: number; text: Key }
 
-const q = (id: string, measure: Measure, goal: number, text: string): Quest => ({ id, measure, goal, text })
+const q = (id: string, measure: Measure, goal: number, text: Key): Quest => ({ id, measure, goal, text })
 
 export const quests = {
   xp30: q('xp30', 'xp', 30, 'Earn 30 XP'),

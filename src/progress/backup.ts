@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { measures, quests, type QuestId } from './quests'
 import { dayKey, type Progress } from './store'
+import { t } from '../i18n'
 
 // Progress export and import (plan: "IndexedDB on the device, with export and import"):
 // everything is kept on the device, so a file is how it moves to another phone or computer,
@@ -62,13 +63,13 @@ export const readBackup = (text: string): Read => {
   try {
     json = JSON.parse(text)
   } catch {
-    return { ok: false, error: 'That file isn’t a Lage Landen progress file.' }
+    return { ok: false, error: t('That file isn’t a Lage Landen progress file.') }
   }
   const file = BackupFile.safeParse(json)
-  if (!file.success) return { ok: false, error: 'That file isn’t a Lage Landen progress file.' }
-  if (file.data.version > BACKUP_VERSION) return { ok: false, error: 'That file was saved by a newer version of Lage Landen. Update the app, then try again.' }
+  if (!file.success) return { ok: false, error: t('That file isn’t a Lage Landen progress file.') }
+  if (file.data.version > BACKUP_VERSION) return { ok: false, error: t('That file was saved by a newer version of Lage Landen. Update the app, then try again.') }
   const progress = ProgressFile.safeParse(file.data.progress)
-  if (!progress.success) return { ok: false, error: 'That progress file is damaged, so nothing was changed.' }
+  if (!progress.success) return { ok: false, error: t('That progress file is damaged, so nothing was changed.') }
   return { ok: true, backup: { ...file.data, app: BACKUP_APP, progress: progress.data as Progress } }
 }
 
@@ -76,5 +77,9 @@ export const readBackup = (text: string): Read => {
 export const describe = (p: Progress) => {
   const finished = Object.keys(p.completed).length
   const learned = Object.keys(p.cards).length
-  return `${p.xp} XP, ${finished} ${finished === 1 ? 'step' : 'steps'} on the path finished, ${learned} ${learned === 1 ? 'question' : 'questions'} in the review`
+  return [
+    `${p.xp} XP`,
+    t(finished === 1 ? '1 step on the path finished' : '{n} steps on the path finished', { n: finished }),
+    t(learned === 1 ? '1 question in the review' : '{n} questions in the review', { n: learned }),
+  ].join(', ')
 }

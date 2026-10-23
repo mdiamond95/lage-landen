@@ -3,6 +3,7 @@ import type { ExerciseOf } from '../content/schema'
 import { shuffle } from '../lesson/shuffle'
 import type { ExerciseProps } from './types'
 import { VisualView } from './VisualView'
+import { t } from '../i18n'
 
 // Fill the gap: pick the word missing from a quote out of a letter, treaty or song.
 export function FillGap({ exercise, checked, setAnswer }: ExerciseProps<ExerciseOf<'gap'>>) {
@@ -14,7 +15,7 @@ export function FillGap({ exercise, checked, setAnswer }: ExerciseProps<Exercise
     if (checked) return
     setPicked(i)
     const correct = i === exercise.answer
-    const lead = correct ? '' : `The missing word is "${exercise.options[exercise.answer]}". `
+    const lead = correct ? '' : `${t('The missing word is "{word}".', { word: exercise.options[exercise.answer] })} `
     setAnswer(() => ({ correct, detail: `${lead}${exercise.explain}` }))
   }
 
@@ -22,7 +23,7 @@ export function FillGap({ exercise, checked, setAnswer }: ExerciseProps<Exercise
   const gapState = checked ? (picked === exercise.answer ? 'right' : 'wrong') : ''
   return (
     <div className="exercise">
-      <p className="eyebrow">Fill the gap</p>
+      <p className="eyebrow">{t('Fill the gap')}</p>
       <h2>{exercise.prompt}</h2>
       {exercise.visual && <VisualView visual={exercise.visual} label={exercise.source} hideCaption={!checked} />}
       <blockquote className="source-quote">

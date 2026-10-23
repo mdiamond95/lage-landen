@@ -18,6 +18,7 @@ import {
 } from '../data/cloth'
 import { TimeControls } from './TimeControls'
 import { usePlayback } from './usePlayback'
+import { t } from '../i18n'
 
 // A wider frame than the main map, so England and the Champagne fairs fit:
 // from London to beyond the Ems, and from the Wash down to Troyes.
@@ -97,7 +98,7 @@ export function TradeSvg({ year }: { year: number }) {
   const event = clothEventAt(year)
   const uid = useId().replace(/:/g, '')
   return (
-    <svg className="lowlands-map" viewBox={`0 0 ${TRADE_W} ${TRADE_H}`} role="img" aria-label={`Trade map of the North Sea in ${year}: ${event.title}`}>
+    <svg className="lowlands-map" viewBox={`0 0 ${TRADE_W} ${TRADE_H}`} role="img" aria-label={t('Trade map of the North Sea in {year}: {title}', { year, title: event.title })}>
       <defs>
         {flows.map((f) => (
           <marker key={f} id={`${uid}-${f}`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
