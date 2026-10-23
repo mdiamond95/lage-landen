@@ -62,7 +62,7 @@ These are deliberately left for later:
 - App-store versions: the web app installs on a phone's home screen, but there is no app in the App Store or Google Play.
 - Accounts, leagues and sync: progress stays on the device (with save to a file), and there are no leagues or friends.
 
-The live site for testers is published to GitHub Pages from `main` by `.github/workflows/pages.yml`, at https://mdiamond95.github.io/lage-landen/ once Pages is switched on (Settings > Pages > Source: GitHub Actions). Pushing a version tag (`v1.0.0`) publishes a GitHub release with the notes in `docs/releases/<tag>.md`, by `.github/workflows/release.yml`.
+The live site for testers is published to GitHub Pages from `main` by `.github/workflows/pages.yml`, at https://mdiamond95.github.io/lage-landen/ once Pages is switched on (Settings > Pages > Source: GitHub Actions). Pushing a version tag (`v1.0.0`), or running `.github/workflows/release.yml` by hand from main with the tag, publishes a GitHub release with the notes in `docs/releases/<tag>.md`.
 
 ## Run it
 
