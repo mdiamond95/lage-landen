@@ -2,6 +2,7 @@ import type { Unit } from '../content/schema'
 import { checkpointId } from '../content/checkpoint'
 import { previousUnit } from '../content/course'
 import { hasLegendary, LEGENDARY_LEVEL } from '../content/levels'
+import { mapStoryId } from '../content/mapStory'
 import type { Progress } from './store'
 
 type Seen = Pick<Progress, 'completed' | 'placed'>
@@ -67,3 +68,28 @@ export const unitOpen = (p: Gated, unit: Unit, units: Unit[]) => {
 
 // The units a passed checkpoint opens: the next in its track, or both after Unit 9.
 export const unitsAfter = (unit: Unit, units: Unit[]) => units.filter((u) => previousUnit[u.number] === unit.number)
+
+// What comes next in a unit, as its path shows it: the first unfinished lesson, then
+// the map story, then the checkpoint until it is passed. Nothing for a unit still
+// behind the gate, mastered, or opened by the placement test.
+export type Step = { unit: Unit; id: string; kind: 'lesson' | 'story' | 'checkpoint'; lessonTitle?: string }
+
+export const unitNext = (p: Gated, unit: Unit, units: Unit[]): Step | undefined => {
+  if (!unitOpen(p, unit, units) || unitMastered(p, unit)) return undefined
+  const i = unit.lessons.findIndex((l) => !p.completed[l.id])
+  if (i >= 0) return lessonOpen(p, unit, i) ? { unit, id: unit.lessons[i].id, kind: 'lesson', lessonTitle: unit.lessons[i].title } : undefined
+  const cp = p.completed[checkpointId(unit)]
+  if (!p.completed[mapStoryId(unit)] && cp === undefined) return { unit, id: mapStoryId(unit), kind: 'story' }
+  return { unit, id: checkpointId(unit), kind: 'checkpoint' }
+}
+
+// The one step the home screen offers first: the next one in the unit last worked on,
+// else in the units after it, else the first open unit with something left.
+export const upNext = (p: Gated, units: Unit[], last: Unit | undefined): Step | undefined => {
+  const order = last ? [last, ...units.filter((u) => u.number > last.number), ...units] : units
+  for (const unit of order) {
+    const step = unitNext(p, unit, units)
+    if (step) return step
+  }
+  return undefined
+}

@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { provinceIds } from '../data/provinces'
 import { cards } from '../content'
 import { courseOutline } from '../content/course'
@@ -8,7 +9,7 @@ import { throughTimeStory } from '../data/throughTime'
 import { places } from '../content/places'
 import type { Unit } from '../content/schema'
 import { LowlandsMap } from '../map/LowlandsMap'
-import { checkpointOpen, crownCount, GATE, legendaryOpen, lessonLevel, lessonOpen, unitOpen, unitsAfter } from '../progress/path'
+import { checkpointOpen, crownCount, GATE, legendaryOpen, lessonLevel, lessonOpen, unitMastered, unitOpen, unitsAfter, upNext, type Step } from '../progress/path'
 import { hasLegendary, legendaryId } from '../content/levels'
 import { dueToday, nextDue, REVIEW_SIZE } from '../progress/review'
 import { ensureQuests, streakAlive, todayKey, useProgress } from '../progress/store'
@@ -26,7 +27,7 @@ import { StorkSays, Stork } from '../mascot/Stork'
 import { getLang, langTags, list, t, type Key } from '../i18n'
 import { LangPicker } from './LangPicker'
 
-type Props = { units: Unit[]; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void; onPlacement: () => void; onMuseum: () => void; onCities: () => void }
+type Props = { units: Unit[]; scrollY?: number; onStart: (lessonId: string) => void; onTimeMap: () => void; onPhrasebook: () => void; onDrill: () => void; onPlacement: () => void; onMuseum: () => void; onCities: () => void }
 
 
 const dayName = (day: string, today: string) => {
@@ -35,11 +36,10 @@ const dayName = (day: string, today: string) => {
   return diff <= 1 ? t('tomorrow') : d.toLocaleDateString(langTags[getLang()], { weekday: 'long', month: 'long', day: 'numeric' })
 }
 
-export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlacement, onMuseum, onCities }: Props) {
+export function Home({ units, scrollY = 0, onStart, onTimeMap, onPhrasebook, onDrill, onPlacement, onMuseum, onCities }: Props) {
   const progress = useProgress()
   const totalPlaces = Object.keys(places).length
   const alive = streakAlive(progress)
-  const playable = new Set(units.map((u) => u.number))
   const today = todayKey()
   const due = dueToday(cards.items, progress.cards, progress.completed, today).length
   const learned = Object.keys(progress.cards).length
@@ -50,6 +50,11 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
   // The stork greets in the hat of the unit last worked on; Unit 1's before any.
   const fresh = Object.keys(progress.completed).length === 0 && progress.placed.length === 0
   const hat = fresh ? unitHats[1] : unitHat(lastUnit(progress.completed, units))
+  const step = upNext(progress, units, lastUnit(progress.completed, units))
+  // Back from a lesson or another screen, the path is where it was left.
+  useLayoutEffect(() => {
+    window.scrollTo(0, scrollY)
+  }, [scrollY])
 
   return (
     <div className="home">
@@ -75,6 +80,9 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
       <StorkSays hat={hat} className="greeting card" size={72}>
         {greeting({ fresh, playedToday: progress.lastDay === today, streak: progress.streak, streakAlive: alive, due, questsLeft: day ? day.picks.length - day.done.length : null })}
       </StorkSays>
+
+      {step && <UpNext step={step} fresh={fresh} onStart={onStart} />}
+      <UnitIndex units={units} />
 
       {day && (
         <section className="quests card" aria-label={t('Daily quests')}>
@@ -230,7 +238,7 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
         const cpPassed = cpScore !== undefined && cpScore >= GATE
         const next = unitsAfter(unit, units)
         return (
-          <section key={unit.id} className={`unit ${gateOpen ? '' : 'is-gated'}`}>
+          <section key={unit.id} id={`unit-${unit.number}`} className={`unit ${gateOpen ? '' : 'is-gated'}`}>
             <div className="unit-banner">
               {unitHat(unit) && <Stork hat={unitHat(unit)} size={52} portrait className="banner-stork" />}
               <p className="eyebrow light">
@@ -336,31 +344,86 @@ export function Home({ units, onStart, onTimeMap, onPhrasebook, onDrill, onPlace
 
       <BackupCard />
 
-      <section className="outline card">
-        <h2>{t('The whole course')}</h2>
-        <p className="muted">
-          {units.length === 1
-            ? t('26 units are planned. Unit 1 is playable now; the others arrive in later phases.')
-            : t('26 units are planned. Units {units} are playable now; the others arrive in later phases.', { units: list(units.map((u) => u.number)) })}
-        </p>
-        {courseOutline.map((track) => (
-          <div key={track.track} className="outline-track">
-            <h3 lang="en-CA">{track.track}</h3>
-            <ul>
-              {track.units.map(([n, title]) => (
-                <li key={n} className={playable.has(n) ? 'ready' : ''}>
-                  <span className="outline-num">{n}</span>
-                  <span lang="en-CA">{title}</span>
-                  {playable.has(n) ? <span className="tag">{t('Playable')}</span> : null}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </section>
       <footer className="credits muted">
         {t('Map data from Natural Earth (public domain). Photos and historical maps from Wikimedia Commons, credited under each picture and at the end of every lesson. Other illustrations drawn for Lage Landen.')}
       </footer>
     </div>
+  )
+}
+
+const showUnit = (n: number) => document.getElementById(`unit-${n}`)?.scrollIntoView({ block: 'start' })
+
+// The next step on the path, so it never has to be scrolled to.
+function UpNext({ step, fresh, onStart }: { step: Step; fresh: boolean; onStart: (id: string) => void }) {
+  const { unit } = step
+  return (
+    <section className="up-next card" aria-label={t('Up next')}>
+      <p className="eyebrow">
+        {t('Up next')} · {t('Unit {n}', { n: unit.number })}
+      </p>
+      <h2 lang={step.kind === 'lesson' ? 'en-CA' : undefined}>
+        {step.kind === 'lesson' ? step.lessonTitle : step.kind === 'story' ? t('Map story: the unit in 90 seconds') : t('Checkpoint: 10 mixed questions')}
+      </h2>
+      <p className="muted" lang="en-CA">
+        {unit.title}
+      </p>
+      <div className="up-next-actions">
+        <button type="button" className="btn-primary" onClick={() => onStart(step.id)}>
+          {fresh ? t('Start') : t('Continue')}
+        </button>
+        <button type="button" className="btn-ghost" onClick={() => showUnit(unit.number)}>
+          {t('Show on the path')}
+        </button>
+      </div>
+    </section>
+  )
+}
+
+// Every unit by track, with how far along it is; a tap scrolls to it on the path.
+// It folds up again on a jump, and stays as it was while a lesson is played, so the
+// path below is where it was left.
+let indexOpen = false
+function UnitIndex({ units }: { units: Unit[] }) {
+  const progress = useProgress()
+  const [open, setOpen] = useState(indexOpen)
+  const toggle = (next: boolean) => {
+    indexOpen = next
+    setOpen(next)
+  }
+  const jump = (n: number) => {
+    flushSync(() => toggle(false))
+    showUnit(n)
+  }
+  return (
+    <details className="unit-index card" open={open} onToggle={(e) => toggle(e.currentTarget.open)}>
+      <summary>{t('All {n} units', { n: units.length })}</summary>
+      {courseOutline.map((track) => (
+        <div key={track.track} className="outline-track">
+          <h3 lang="en-CA">{track.track}</h3>
+          <ul>
+            {track.units.map(([n]) => {
+              const unit = units.find((u) => u.number === n)
+              if (!unit) return null
+              const open = unitOpen(progress, unit, units)
+              const done = unit.lessons.filter((l) => progress.completed[l.id]).length
+              const state = unitMastered(progress, unit) ? 'mastered' : open ? 'open' : 'locked'
+              return (
+                <li key={n}>
+                  <button type="button" className={`unit-index-row is-${state}`} onClick={() => jump(n)}>
+                    <span className="outline-num">{n}</span>
+                    <span className="unit-index-title" lang="en-CA">
+                      {unit.title}
+                    </span>
+                    <span className="unit-index-state">
+                      {state === 'mastered' ? <Icon name="check" /> : state === 'locked' ? <Icon name="lock" /> : t('{n} of {total}', { n: done, total: unit.lessons.length })}
+                    </span>
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      ))}
+    </details>
   )
 }
