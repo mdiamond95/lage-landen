@@ -18,6 +18,7 @@ import { QUEST_XP, quests } from '../progress/quests'
 import { Icon } from './Icon'
 import { cities, cityIds, landmarkIds } from '../data/cities'
 import { BackupCard } from './BackupCard'
+import { backupDue, daysSince, onIosBrowser, saveBackupFile, snooze, storageKept, useKept } from '../progress/keep'
 import { allPhrases } from '../data/phrases'
 import { wall } from '../content/wall'
 import { collected } from '../progress/collection'
@@ -55,6 +56,13 @@ export function Home({ units, scrollY = 0, onStart, onTimeMap, onPhrasebook, onD
   useLayoutEffect(() => {
     window.scrollTo(0, scrollY)
   }, [scrollY])
+  // Whether the browser has promised to keep this site's storage; until it says, assume not.
+  const [safe, setSafe] = useState(true)
+  useEffect(() => {
+    storageKept().then(setSafe)
+  }, [])
+  const kept = useKept()
+  const lessonsDone = units.reduce((n, u) => n + u.lessons.filter((l) => progress.completed[l.id]).length, 0)
 
   return (
     <div className="home">
@@ -83,6 +91,36 @@ export function Home({ units, scrollY = 0, onStart, onTimeMap, onPhrasebook, onD
 
       {step && <UpNext step={step} fresh={fresh} onStart={onStart} />}
       <UnitIndex units={units} />
+      {backupDue(lessonsDone, kept, safe) && (
+        <section className="backup-nudge card" aria-label={t('Keep your progress safe')}>
+          <h2>{t('Keep your progress safe')}</h2>
+          <p>
+            {t('Your progress is kept only in this browser, which can clear it. Save it to a file now and then.')}{' '}
+            {kept.saved && t('The last file was saved {n} days ago.', { n: daysSince(kept.saved) })}
+          </p>
+          {onIosBrowser() && <p className="muted">{t('On an iPhone or iPad, add Lage Landen to the home screen: Safari clears what a site keeps after a week without a visit, but not for an app on the home screen.')}</p>}
+          <div className="backup-actions">
+            <button
+              type="button"
+              className="btn-ghost"
+              onClick={() => {
+                saveBackupFile()
+              }}
+            >
+              {t('Save to a file')}
+            </button>
+            <button
+              type="button"
+              className="btn-ghost"
+              onClick={() => {
+                snooze()
+              }}
+            >
+              {t('Later')}
+            </button>
+          </div>
+        </section>
+      )}
 
       {day && (
         <section className="quests card" aria-label={t('Daily quests')}>

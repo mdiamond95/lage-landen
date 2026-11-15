@@ -1441,3 +1441,6 @@ button.comic-panel { cursor: pointer; }
 }
 /* The city explorer keeps the same side margin as every other screen. */
 .city-explorer > :not(.lesson-top):not(.time-travel-intro) { margin-inline: 16px; }
+/* The backup reminder, now and then, near the top of the home screen. */
+.backup-nudge { display: grid; gap: 10px; border-color: var(--orange); }
+.backup-nudge h2, .backup-nudge p { margin: 0; }

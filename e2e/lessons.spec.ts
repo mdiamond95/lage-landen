@@ -3025,3 +3025,27 @@ test('on a short phone screen, answers hidden below a picture are pointed out', 
   await expect(page.locator('.lesson-body .option').last()).toBeInViewport({ ratio: 1 })
   await expect(foot.getByRole('button', { name: 'Check' })).toBeDisabled()
 })
+
+test('after a few lessons the home screen reminds to save a backup, now and then', async ({ page }) => {
+  await unlock(page, ['u1-l1', 'u1-l2'])
+  const nudge = page.locator('.backup-nudge')
+  await expect(page.locator('.up-next, .quests').first()).toBeVisible()
+  await expect(nudge).toHaveCount(0)
+
+  await unlock(page, ['u1-l1', 'u1-l2', 'u1-l3'])
+  await expect(nudge).toBeVisible()
+  const download = page.waitForEvent('download')
+  await nudge.getByRole('button', { name: 'Save to a file' }).click()
+  expect((await download).suggestedFilename()).toMatch(/^lage-landen-progress-\d{4}-\d{2}-\d{2}\.json$/)
+  await expect(nudge).toHaveCount(0)
+  await expect(page.locator('.backup')).toContainText('Last saved to a file on')
+
+  // Put off, it stays away after a reload too.
+  await page.evaluate(() => localStorage.removeItem('lage-landen:backup:v1'))
+  await page.reload()
+  await nudge.getByRole('button', { name: 'Later' }).click()
+  await expect(nudge).toHaveCount(0)
+  await page.reload()
+  await expect(page.locator('.quests')).toBeVisible()
+  await expect(nudge).toHaveCount(0)
+})

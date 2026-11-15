@@ -7,6 +7,7 @@ import { LessonPlayer, type LessonOutcome } from './lesson/LessonPlayer'
 import { lessonXp } from './lesson/scoring'
 import { dueToday, pickReview } from './progress/review'
 import { ensureQuests, getProgress, recordSession, todayKey } from './progress/store'
+import { keepStorage } from './progress/keep'
 import { canToday } from './content/today'
 import type { QuestId } from './progress/quests'
 import { buildLegendary, buildLevel, hasLegendary, legendaryId, timeLimit } from './content/levels'
@@ -221,6 +222,8 @@ export default function App() {
               return card ? [[card.id, correct] as [string, boolean]] : []
             }),
           })
+          // With something now worth keeping, ask the browser not to clear it.
+          void keepStorage()
           setScreen({ name: 'results', playing, outcome, xp, crown, gate, hung, quests })
         }}
       />
