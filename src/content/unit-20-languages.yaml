@@ -14,8 +14,8 @@ lessons:
         url: https://en.wikipedia.org/wiki/Old_Dutch
       - title: "Wikipedia, Jacob van Maerlant"
         url: https://en.wikipedia.org/wiki/Jacob_van_Maerlant
-      - title: "Wikipedia, Of Reynaert the Fox"
-        url: https://en.wikipedia.org/wiki/Of_Reynaert_the_Fox
+      - title: "Wikipedia, Van den vos Reynaerde"
+        url: https://en.wikipedia.org/wiki/Van_den_vos_Reynaerde
       - title: "Wikipedia (Dutch), Statenvertaling"
         url: https://nl.wikipedia.org/wiki/Statenvertaling
     exercises:
@@ -632,8 +632,8 @@ lessons:
         url: https://en.wikipedia.org/wiki/Gezelligheid
       - title: "Wikipedia, Sinterklaas"
         url: https://en.wikipedia.org/wiki/Sinterklaas
-      - title: "Wikipedia, Uitwaaien"
-        url: https://en.wikipedia.org/wiki/Uitwaaien
+      - title: "Wiktionary, uitwaaien"
+        url: https://en.wiktionary.org/wiki/uitwaaien
     exercises:
       - type: story
         title: Hello and goodbye

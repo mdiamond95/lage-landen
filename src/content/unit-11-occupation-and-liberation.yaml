@@ -128,8 +128,8 @@ lessons:
     title: Five days in May
     icon: flame
     sources:
-      - title: "Wikipedia, Grote of Sint-Laurenskerk (Rotterdam)"
-        url: https://en.wikipedia.org/wiki/Grote_of_Sint-Laurenskerk,_Rotterdam
+      - title: "Wikipedia, Grote or Sint-Laurenskerk (Rotterdam)"
+        url: https://en.wikipedia.org/wiki/Grote_or_Sint-Laurenskerk_(Rotterdam)
       - title: "Canon van Nederland, De Tweede Wereldoorlog (in Dutch)"
         url: https://www.canonvannederland.nl/nl/tweedewereldoorlog
       - title: "DutchNews, Rotterdam remembers the bombardment of May 14, 1940"
@@ -369,11 +369,11 @@ lessons:
       - title: "Nationaal Hannie Schaft Comité, Hannie Schaft (in Dutch)"
         url: https://www.hannieschaft.nl/
       - title: "Corrie ten Boom House, history"
-        url: https://www.corrietenboom.com/en/information/history
+        url: https://www.corrietenboom.com/en/information/the-history-of-the-museum
       - title: "Wikipedia, Dutch famine of 1944–1945"
         url: https://en.wikipedia.org/wiki/Dutch_famine_of_1944%E2%80%931945
-      - title: "Wikipedia, Operation Manna and Chowhound"
-        url: https://en.wikipedia.org/wiki/Operation_Manna_and_Chowhound
+      - title: "Wikipedia, Operations Manna, Chowhound, and Faust"
+        url: https://en.wikipedia.org/wiki/Operations_Manna,_Chowhound,_and_Faust
     exercises:
       - type: story
         title: Under the floorboards
@@ -496,8 +496,8 @@ lessons:
         url: https://en.wikipedia.org/wiki/Operation_Market_Garden
       - title: "Wikipedia, Battle of the Scheldt"
         url: https://en.wikipedia.org/wiki/Battle_of_the_Scheldt
-      - title: "Canadian Tulip Festival, history"
-        url: https://tulipfestival.ca/about/history/
+      - title: "Canadian Tulip Festival"
+        url: https://tulipfestival.ca/
       - title: "Bernard Montgomery, Memoirs (1958), and Cornelius Ryan, A Bridge Too Far (1974)"
         url: https://en.wikipedia.org/wiki/A_Bridge_Too_Far_(book)
     exercises:

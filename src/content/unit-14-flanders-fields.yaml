@@ -21,8 +21,8 @@ lessons:
         url: https://en.wikipedia.org/wiki/Rape_of_Belgium
       - title: "Wikipedia, Battle of Liège"
         url: https://en.wikipedia.org/wiki/Battle_of_Li%C3%A8ge
-      - title: "Wikipedia, University Library of Leuven"
-        url: https://en.wikipedia.org/wiki/University_Library_of_Leuven
+      - title: "Wikipedia, Academic libraries in Leuven"
+        url: https://en.wikipedia.org/wiki/Academic_libraries_in_Leuven
       - title: "Wikipedia, Wire of Death"
         url: https://en.wikipedia.org/wiki/Wire_of_Death
       - title: "Wikipedia, Albert I of Belgium"
@@ -263,15 +263,15 @@ lessons:
       - title: "Wikipedia, Second Battle of Ypres"
         url: https://en.wikipedia.org/wiki/Second_Battle_of_Ypres
       - title: "Canadian War Museum, The Second Battle of Ypres"
-        url: https://www.warmuseum.ca/firstworldwar/history/battles-and-fighting/land-battles/second-battle-of-ypres/
+        url: https://www.warmuseum.ca/firstworldwar/history/battles-and-fighting/land-battles/second-ypres/
       - title: "Wikipedia, Christmas truce"
         url: https://en.wikipedia.org/wiki/Christmas_truce
       - title: "Wikipedia, John McCrae"
         url: https://en.wikipedia.org/wiki/John_McCrae
       - title: "Wikipedia, In Flanders Fields"
         url: https://en.wikipedia.org/wiki/In_Flanders_Fields
-      - title: "Wikipedia, St. Julien Memorial"
-        url: https://en.wikipedia.org/wiki/St._Julien_Memorial
+      - title: "Wikipedia, Saint Julien Memorial"
+        url: https://en.wikipedia.org/wiki/Saint_Julien_Memorial
       - title: "Wikipedia, Cloth Hall, Ypres"
         url: https://en.wikipedia.org/wiki/Cloth_Hall,_Ypres
     exercises:
@@ -402,16 +402,16 @@ lessons:
         url: https://en.wikipedia.org/wiki/Mines_in_the_Battle_of_Messines_(1917)
       - title: "Wikipedia, Arthur Currie"
         url: https://en.wikipedia.org/wiki/Arthur_Currie
-      - title: "Wikipedia, Cecil Kinross"
-        url: https://en.wikipedia.org/wiki/Cecil_Kinross
-      - title: "Wikipedia, Tyne Cot Cemetery"
-        url: https://en.wikipedia.org/wiki/Tyne_Cot_Commonwealth_War_Graves_Cemetery_and_Memorial_to_the_Missing
+      - title: "Wikipedia, Cecil John Kinross"
+        url: https://en.wikipedia.org/wiki/Cecil_John_Kinross
+      - title: "Wikipedia, Tyne Cot"
+        url: https://en.wikipedia.org/wiki/Tyne_Cot
       - title: "Wikipedia, Menin Gate"
         url: https://en.wikipedia.org/wiki/Menin_Gate
       - title: "Wikipedia, Vladslo German war cemetery"
         url: https://en.wikipedia.org/wiki/Vladslo_German_war_cemetery
-      - title: "Wikipedia, Adegem Canadian War Cemetery"
-        url: https://en.wikipedia.org/wiki/Adegem_Canadian_War_Cemetery
+      - title: "Wikipedia, Adegem Canadian War Cemetery (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Adegem_Canadian_War_Cemetery
       - title: "Wikipedia, George Lawrence Price"
         url: https://en.wikipedia.org/wiki/George_Lawrence_Price
     exercises:

@@ -1,0 +1,29 @@
+# Checks the lessons' source links once a month (and on demand from the Actions tab).
+# The run fails when a link is dead, and its summary lists the dead ones with their
+# unit files; scripts/links/check.mjs says how to replace one.
+name: Check source links
+
+on:
+  schedule:
+    - cron: '17 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check every source link
+        run: |
+          set -o pipefail
+          node scripts/links/check.mjs | tee links.txt
+      - name: Summary
+        if: always()
+        run: |
+          { echo '```'; cat links.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"

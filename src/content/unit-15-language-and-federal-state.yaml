@@ -10,12 +10,12 @@ lessons:
     sources:
       - title: "Wikipedia, Flemish Movement"
         url: https://en.wikipedia.org/wiki/Flemish_Movement
-      - title: "Wikipedia, Equality law (Belgium)"
-        url: https://en.wikipedia.org/wiki/Equality_law_(Belgium)
+      - title: "Wikipedia, Coremans-De Vriendt law"
+        url: https://en.wikipedia.org/wiki/Coremans-De_Vriendt_law
       - title: "Wikipedia, Gelijkheidswet, with Coremans' speech of 18 November 1896 (in Dutch)"
         url: https://nl.wikipedia.org/wiki/Gelijkheidswet
-      - title: "Wikipedia, Coucke and Goethals"
-        url: https://en.wikipedia.org/wiki/Coucke_and_Goethals
+      - title: "Wikipedia, Jan Coucke and Pieter Goethals"
+        url: https://en.wikipedia.org/wiki/Jan_Coucke_and_Pieter_Goethals
       - title: "Wikipedia, Jules Destrée"
         url: https://en.wikipedia.org/wiki/Jules_Destr%C3%A9e
       - title: "Université Laval, L'aménagement linguistique dans le monde: Belgique, la Lettre au roi of 1912 (in French)"
@@ -167,10 +167,10 @@ lessons:
         url: https://en.wikipedia.org/wiki/Language_legislation_in_Belgium
       - title: "Wikipedia, Talentelling, the language census (in Dutch)"
         url: https://nl.wikipedia.org/wiki/Talentelling
-      - title: "Wikipedia, Belgian language border"
-        url: https://en.wikipedia.org/wiki/Belgian_language_border
-      - title: "Wikipedia, Marches on Brussels"
-        url: https://en.wikipedia.org/wiki/Marches_on_Brussels
+      - title: "Wikipedia, Taalgrens (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Taalgrens
+      - title: "Wikipedia, Marsen op Brussel (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Marsen_op_Brussel
       - title: "Wikipedia, Voeren"
         url: https://en.wikipedia.org/wiki/Voeren
       - title: "Wikipedia, Municipalities with language facilities"
@@ -305,12 +305,12 @@ lessons:
     title: Leuven Vlaams
     icon: megaphone
     sources:
-      - title: "Wikipedia, General strike of 1960–1961 (Belgium)"
-        url: https://en.wikipedia.org/wiki/General_strike_of_1960%E2%80%931961_(Belgium)
+      - title: "Wikipedia, Belgian general strike of 1960–1961"
+        url: https://en.wikipedia.org/wiki/Belgian_general_strike_of_1960%E2%80%931961
       - title: "Wikipedia, Leuven Vlaams"
         url: https://en.wikipedia.org/wiki/Leuven_Vlaams
-      - title: "Wikipedia, Splitsing van de Katholieke Universiteit Leuven (in Dutch)"
-        url: https://nl.wikipedia.org/wiki/Splitsing_van_de_Katholieke_Universiteit_Leuven
+      - title: "Wikipedia, Leuven Vlaams (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Leuven_Vlaams
       - title: "Wikipedia, Louvain-la-Neuve"
         url: https://en.wikipedia.org/wiki/Louvain-la-Neuve
       - title: "Wikipedia, Gaston Eyskens"
@@ -444,8 +444,8 @@ lessons:
         url: https://en.wikipedia.org/wiki/State_reform_in_Belgium
       - title: "Wikipedia, Communities, regions and language areas of Belgium"
         url: https://en.wikipedia.org/wiki/Communities,_regions_and_language_areas_of_Belgium
-      - title: "Wikipedia, Saint Michael's Agreement"
-        url: https://en.wikipedia.org/wiki/Saint_Michael%27s_Agreement
+      - title: "Wikipedia, Sint-Michielsakkoord (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Sint-Michielsakkoord
       - title: "Wikipedia, Jean-Luc Dehaene"
         url: https://en.wikipedia.org/wiki/Jean-Luc_Dehaene
       - title: "Wikipedia, 2010–2011 Belgian government formation"

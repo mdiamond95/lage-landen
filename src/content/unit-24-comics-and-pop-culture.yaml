@@ -363,8 +363,8 @@ lessons:
         url: https://nl.wikipedia.org/wiki/Marten_Toonder
       - title: "Wikipedia, Joost Swarte"
         url: https://en.wikipedia.org/wiki/Joost_Swarte
-      - title: "Wikipedia, Donald Duck (Dutch magazine)"
-        url: https://en.wikipedia.org/wiki/Donald_Duck_(magazine)
+      - title: "Wikipedia, Donald Duck Weekblad"
+        url: https://en.wikipedia.org/wiki/Donald_Duck_Weekblad
     exercises:
       - type: story
         title: A rabbit from Utrecht
