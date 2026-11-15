@@ -90,6 +90,7 @@ export const fr: Record<Key, string> = {
   'Before you begin': 'Avant de commencer',
   "You'll see this one again before the lesson ends.": 'Cette question reviendra avant la fin de la leçon.',
   Continue: 'Continuer',
+  'Answers below': 'Réponses plus bas',
   Check: 'Vérifier',
   'Three in a row. Goed zo!': 'Trois d’affilée. Bravo !',
   'Five in a row. Bravo!': 'Cinq d’affilée. Goed zo !',

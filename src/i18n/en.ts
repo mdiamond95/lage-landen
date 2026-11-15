@@ -89,6 +89,7 @@ const keys = [
   'Before you begin',
   'You\'ll see this one again before the lesson ends.',
   'Continue',
+  'Answers below',
   'Check',
   'Three in a row. Goed zo!',
   'Five in a row. Bravo!',
