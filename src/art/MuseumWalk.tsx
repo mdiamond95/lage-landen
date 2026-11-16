@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { collection } from '../data/collection'
 import { walks, type WalkId } from '../data/walks'
 import { photo } from '../photos'
-import { Credit, Photo } from '../photos/Photo'
+import { Photo, PhotoCaption } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
 import { t } from '../i18n'
 
@@ -12,7 +12,7 @@ const cardOf = new Map(collection.map((c) => [c.photo, c]))
 // of small frames along the top (tap one to go to it) to the painting itself, which can be
 // zoomed into, with its wall label and a few lines on what to look for. `intro` adds the
 // museum's own story above the row, for a walk opened on its own rather than in a lesson.
-export function MuseumWalk({ walk, intro = false }: { walk: WalkId; intro?: boolean }) {
+export function MuseumWalk({ walk, intro = false, hideCaption = false }: { walk: WalkId; intro?: boolean; hideCaption?: boolean }) {
   const w = walks[walk]
   const [i, setI] = useState(0)
   const stop = w.stops[i]
@@ -61,7 +61,7 @@ export function MuseumWalk({ walk, intro = false }: { walk: WalkId; intro?: bool
         </div>
       </div>
       <figcaption>
-        {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={stop.photo} /></span>
+        <PhotoCaption id={stop.photo} hidden={hideCaption} />
       </figcaption>
     </figure>
   )

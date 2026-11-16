@@ -2,8 +2,7 @@ import { useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import { dateOf, daysOff, feasts } from '../data/feasts'
 import { FeastWheel } from '../map/FeastWheel'
-import { photo } from '../photos'
-import { Credit, Photo } from '../photos/Photo'
+import { Photo, PhotoCaption } from '../photos/Photo'
 import type { ExerciseProps } from './types'
 import { t } from '../i18n'
 
@@ -29,13 +28,7 @@ export function WhenWheel({ exercise, checked, setAnswer }: ExerciseProps<Exerci
       <figure className="photo-figure taste-photo">
         <Photo id={exercise.photo} className="photo photo-large" />
         <figcaption>
-          {checked ? (
-            <>
-              {photo(exercise.photo).caption} · <span className="photo-credit">{t('Credit:')} <Credit id={exercise.photo} /></span>
-            </>
-          ) : (
-            <span className="photo-credit">{t('Caption and credit shown once you answer')}</span>
-          )}
+          <PhotoCaption id={exercise.photo} hidden={!checked} />
         </figcaption>
       </figure>
       <FeastWheel mode="pick" picked={picked} correct={checked ? exercise.answer : undefined} right={right} onPick={pick} />

@@ -38,6 +38,6 @@ export default defineConfig(({ mode }) => ({
   base: './',
   plugins: mode === 'single' ? [yamlAsData(), react(), viteSingleFile()] : [yamlAsData(), react(), serviceWorker()],
   test: {
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.test.{ts,tsx}'],
   },
 }))

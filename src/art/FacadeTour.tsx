@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { facades, type FacadeId, type FacadeSpot } from '../data/facades'
 import { photo } from '../photos'
-import { Credit } from '../photos/Photo'
+import { PhotoCaption } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
 import { t } from '../i18n'
 
@@ -13,7 +13,7 @@ const pct = (n: number) => `${n * 100}%`
 // style it gives away; "Whole front" glides back out.
 // With `focus` it is the picture for a question: it opens zoomed in on one part, without
 // the labels or what they say, and can be zoomed out to the whole front.
-export function FacadeTour({ facade, focus }: { facade: FacadeId; focus?: string }) {
+export function FacadeTour({ facade, focus, hideCaption = false }: { facade: FacadeId; focus?: string; hideCaption?: boolean }) {
   const f = facades[facade]
   const spots: FacadeSpot[] = f.spots
   const p = photo(f.photo)
@@ -71,7 +71,7 @@ export function FacadeTour({ facade, focus }: { facade: FacadeId; focus?: string
         </div>
       )}
       <figcaption>
-        {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={f.photo} /></span>
+        <PhotoCaption id={f.photo} hidden={hideCaption} />
       </figcaption>
     </figure>
   )

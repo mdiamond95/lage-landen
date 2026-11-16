@@ -2,8 +2,7 @@ import { useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import { foods, type FoodId } from '../data/foods'
 import { FoodMap } from '../map/FoodMap'
-import { photo } from '../photos'
-import { Credit, Photo } from '../photos/Photo'
+import { Photo, PhotoCaption } from '../photos/Photo'
 import type { ExerciseProps } from './types'
 import { t } from '../i18n'
 
@@ -30,13 +29,7 @@ export function TasteMap({ exercise, checked, setAnswer }: ExerciseProps<Exercis
       <figure className="photo-figure taste-photo">
         <Photo id={exercise.photo} className="photo photo-large" />
         <figcaption>
-          {checked ? (
-            <>
-              {photo(exercise.photo).caption} · <span className="photo-credit">{t('Credit:')} <Credit id={exercise.photo} /></span>
-            </>
-          ) : (
-            <span className="photo-credit">{t('Caption and credit shown once you answer')}</span>
-          )}
+          <PhotoCaption id={exercise.photo} hidden={!checked} />
         </figcaption>
       </figure>
       <FoodMap mode="pick" only={right.kind} picked={picked} correct={checked ? exercise.answer : undefined} onPick={pick} />

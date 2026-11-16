@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { foodIds, foodKindNames, foodKinds, foods, type FoodId, type FoodKind } from '../data/foods'
-import { Credit, Photo } from '../photos/Photo'
+import { Credit, HeldBack, Photo } from '../photos/Photo'
 import { PlayButton } from '../sounds/Sound'
 import { sound } from '../sounds'
 import { lowlandsFrame } from './geo'
@@ -21,12 +21,14 @@ type Props = {
   picked?: FoodId | null
   correct?: FoodId
   onPick?: (id: FoodId) => void
+  // In an open question the photo's credit waits for the answer.
+  hideCredit?: boolean
 }
 
 // The regional food map of Unit 21: the cheeses, fish, sweets, dishes, beers and jenevers of
 // the Low Countries where they come from. Tap one for a photo, a word on it and its name said
 // aloud; the buttons above pick one kind.
-export function FoodMap({ mode = 'explore', focus, only, picked = null, correct, onPick }: Props) {
+export function FoodMap({ mode = 'explore', focus, only, picked = null, correct, onPick, hideCredit = false }: Props) {
   const [kind, setKind] = useState<FoodKind | null>(only ?? (focus ? foods[focus].kind : null))
   const [open, setOpen] = useState<FoodId | null>(focus ?? null)
   const selected = mode === 'pick' ? picked : open
@@ -110,11 +112,7 @@ export function FoodMap({ mode = 'explore', focus, only, picked = null, correct,
               <p className="food-place">{card.place}</p>
               <p className="food-about">{card.about}</p>
               {card.status && <p className="food-status">{card.status}</p>}
-              {card.photo && (
-                <p className="photo-credit">
-                  Photo: <Credit id={card.photo} />
-                </p>
-              )}
+              {card.photo && <p className="photo-credit">{hideCredit ? <HeldBack /> : <>Photo: <Credit id={card.photo} /></>}</p>}
             </>
           ) : (
             <p className="food-about">{t('Tap a mark to see what is eaten or drunk there. The buttons pick one kind at a time.')}</p>

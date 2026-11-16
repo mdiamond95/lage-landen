@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import { shuffle } from '../lesson/shuffle'
-import { Credit, Photo } from '../photos/Photo'
+import { Credit, HeldBack, Photo } from '../photos/Photo'
 import type { ExerciseProps } from './types'
 import { t } from '../i18n'
 
@@ -32,7 +32,13 @@ export function Voices({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
             </blockquote>
             {v.photo && (
               <figcaption className="photo-credit">
-                Picture: <Credit id={v.photo} />
+                {checked ? (
+                  <>
+                    Picture: <Credit id={v.photo} />
+                  </>
+                ) : (
+                  <HeldBack />
+                )}
               </figcaption>
             )}
           </figure>

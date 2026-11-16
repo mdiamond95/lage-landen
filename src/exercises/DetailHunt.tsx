@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import { photo } from '../photos'
-import { Credit } from '../photos/Photo'
+import { PhotoCaption } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
 import type { ExerciseProps } from './types'
 import { t } from '../i18n'
@@ -41,7 +41,7 @@ export function DetailHunt({ exercise, checked, setAnswer }: ExerciseProps<Exerc
           {tap && <span className="hunt-tap" style={{ left: pct(tap[0]), top: pct(tap[1]) }} />}
         </ZoomImage>
         <figcaption>
-          {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={exercise.photo} /></span>
+          <PhotoCaption id={exercise.photo} hidden={!checked} />
         </figcaption>
       </figure>
       {!tap && <p className="hint">{t('Tap the picture where you see it. Zoom in with + to look closer; tap again to move your mark.')}</p>}

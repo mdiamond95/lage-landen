@@ -1,13 +1,14 @@
 import { useRef, useState, type PointerEvent } from 'react'
 import { thenNows, type ThenNowId, type ThenNowPair } from '../data/thenNow'
 import { photo } from '../photos'
-import { Credit } from '../photos/Photo'
+import { Credit, HeldBack } from '../photos/Photo'
 import { t } from '../i18n'
 
 // Then and now: an old picture of a place laid over a photo of the same spot today.
 // Dragging across the picture (or the slider under it, or the arrow keys on that) wipes
 // from then on the left to now on the right. `hideCaption` keeps back what the place is
-// and what changed until a question is checked, as they often say what it asks.
+// and what changed, and the pictures' captions and credits, until a question is checked,
+// as they often say what it asks.
 export function ThenNow({ pair, hideCaption = false }: { pair: ThenNowId; hideCaption?: boolean }) {
   const p: ThenNowPair = thenNows[pair]
   const [split, setSplit] = useState(50)
@@ -74,7 +75,13 @@ export function ThenNow({ pair, hideCaption = false }: { pair: ThenNowId; hideCa
           </>
         )}
         <p className="then-now-credits">
-          {hideCaption ? 'Then' : then.caption}: <Credit id={p.then.photo} />. {hideCaption ? 'Now' : now.caption}: <Credit id={p.now.photo} />.
+          {hideCaption ? (
+            <HeldBack />
+          ) : (
+            <>
+              {then.caption}: <Credit id={p.then.photo} />. {now.caption}: <Credit id={p.now.photo} />.
+            </>
+          )}
         </p>
       </figcaption>
     </figure>

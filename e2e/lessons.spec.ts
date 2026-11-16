@@ -449,6 +449,26 @@ async function skipTo(page: Page, eyebrow: string) {
   throw new Error(`no ${eyebrow} question`)
 }
 
+test("a question's picture keeps its caption and credit back until it is answered", async ({ page }) => {
+  await unlock(page, ['u1-l1'])
+  await page.getByRole('button', { name: 'Three rivers', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  // The photo question comes after a story and six questions on the map.
+  for (let i = 0; i < 7; i++) {
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  const figure = page.locator('.exercise .photo-figure')
+  await expect(page.locator('.exercise h2')).toContainText('largest port in Europe')
+  // The caption says "Port of Rotterdam" and the file is named after it, and Rotterdam is the answer.
+  await expect(figure.locator('figcaption')).toHaveText('Caption and credit shown once you answer')
+  await expect(figure.locator('a')).toHaveCount(0)
+  await page.getByRole('button', { name: 'Rotterdam', exact: true }).click()
+  await foot.getByRole('button', { name: 'Check' }).click()
+  await expect(figure.locator('figcaption')).toContainText('Port of Rotterdam')
+  await expect(figure.locator('figcaption a').first()).toHaveAttribute('href', /commons\.wikimedia\.org/)
+})
+
 test('fill the gap puts the chosen word in the quote and shows the right one', async ({ page }) => {
   await openUnit(page, 5)
   await page.getByRole('button', { name: 'Philip II and the Iconoclastic Fury', exact: true }).click()

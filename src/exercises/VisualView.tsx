@@ -45,18 +45,19 @@ export function AnyTimeMap({ map, year, onYear, hideCaption }: TimeMapProps) {
   return <TimeMap story={stories[map]} start={year} onYear={onYear} hideCaption={hideCaption} />
 }
 
-// `hideCaption` keeps a time map's stage captions back until the question is checked, as
-// they often say what the question asks; the map alone has to answer it.
+// `hideCaption` keeps back, until the question is checked, a time map's stage captions and
+// every picture's caption and credit, as they often say what the question asks; the map or
+// the picture alone has to answer it.
 export function VisualView({ visual, label, hideCaption }: { visual: Visual; label: string; hideCaption?: boolean }) {
   if (visual.kind === 'art') return <Art id={visual.art} className="art art-large" />
-  if (visual.kind === 'photo') return <PhotoFigure id={visual.photo} />
-  if (visual.kind === 'painting') return <PaintingTour painting={visual.painting} focus={visual.focus} />
-  if (visual.kind === 'pair') return <PaintingPair pair={visual.pair} focus={visual.focus} />
+  if (visual.kind === 'photo') return <PhotoFigure id={visual.photo} hideCaption={hideCaption} />
+  if (visual.kind === 'painting') return <PaintingTour painting={visual.painting} focus={visual.focus} hideCaption={hideCaption} />
+  if (visual.kind === 'pair') return <PaintingPair pair={visual.pair} focus={visual.focus} hideCaption={hideCaption} />
   if (visual.kind === 'then-now') return <ThenNow pair={visual.pair} hideCaption={hideCaption} />
-  if (visual.kind === 'walk') return <MuseumWalk walk={visual.walk} />
+  if (visual.kind === 'walk') return <MuseumWalk walk={visual.walk} hideCaption={hideCaption} />
   if (visual.kind === 'map-story') return <MapStory unit={visual.unit} />
-  if (visual.kind === 'series') return <PainterRoad id={visual.series} at={visual.at} />
-  if (visual.kind === 'facade') return <FacadeTour facade={visual.facade} focus={visual.focus} />
+  if (visual.kind === 'series') return <PainterRoad id={visual.series} at={visual.at} hideCaption={hideCaption} />
+  if (visual.kind === 'facade') return <FacadeTour facade={visual.facade} focus={visual.focus} hideCaption={hideCaption} />
   if (visual.kind === 'polder-slider') return <PolderSlider />
   if (visual.kind === 'storm-barrier') return <StormBarrier />
   if (visual.kind === 'time-map') return <AnyTimeMap map={visual.map} year={visual.year} hideCaption={hideCaption} />
@@ -68,12 +69,12 @@ export function VisualView({ visual, label, hideCaption }: { visual: Visual; lab
   if (visual.kind === 'sound') return <SoundFigure id={visual.sound} photo={visual.photo} hideWords={hideCaption} hideLanguage={hideCaption} />
   if (visual.kind === 'dialects') return <DialectMap focus={visual.focus} />
   if (visual.kind === 'phrases') return <PhraseCards set={visual.set} />
-  if (visual.kind === 'foods') return <FoodMap focus={visual.focus} only={visual.only} />
-  if (visual.kind === 'wheel') return <FeastWheel focus={visual.focus} only={visual.only} />
+  if (visual.kind === 'foods') return <FoodMap focus={visual.focus} only={visual.only} hideCredit={hideCaption} />
+  if (visual.kind === 'wheel') return <FeastWheel focus={visual.focus} only={visual.only} hideCredit={hideCaption} />
   if (visual.kind === 'projection') return <ProjectionMap view={visual.view} shapes={visual.shapes} course={visual.course} circles={visual.circles} />
-  if (visual.kind === 'strip') return <ComicStrip title={visual.title} panels={visual.panels} />
+  if (visual.kind === 'strip') return <ComicStrip title={visual.title} panels={visual.panels} hideCaption={hideCaption} />
   if (visual.kind === 'route') return <RouteMap route={visual.route} at={visual.at} />
-  if (visual.kind === 'provinces') return <ProvinceMap country={visual.country} focus={visual.focus} />
+  if (visual.kind === 'provinces') return <ProvinceMap country={visual.country} focus={visual.focus} hideCredit={hideCaption} />
   if (visual.kind === 'seats') return <SeatChart chamber={visual.chamber} hideCabinet={visual.hideCabinet} />
   return (
     <div className="map-frame">
