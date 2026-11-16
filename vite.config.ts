@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import react from '@vitejs/plugin-react'
 import { defineConfig, type Plugin } from 'vite'
+import { parse } from 'yaml'
 import { viteSingleFile } from 'vite-plugin-singlefile'
 
 // Writes sw.js next to the build, listing every file it produced (and the files from
@@ -22,10 +23,20 @@ const serviceWorker = (): Plugin => ({
   },
 })
 
+// Lessons are written in YAML, but parsing it in the browser took about half a second
+// at every start. Importing a .yaml file now gives its data, parsed here once, as JSON.
+const yamlAsData = (): Plugin => ({
+  name: 'lage-landen-yaml',
+  transform(code, id) {
+    if (!id.endsWith('.yaml')) return null
+    return { code: `export default JSON.parse(${JSON.stringify(JSON.stringify(parse(code)))})`, map: null }
+  },
+})
+
 // `npm run build:single` bundles everything into one HTML file for previews.
 export default defineConfig(({ mode }) => ({
   base: './',
-  plugins: mode === 'single' ? [react(), viteSingleFile()] : [react(), serviceWorker()],
+  plugins: mode === 'single' ? [yamlAsData(), react(), viteSingleFile()] : [yamlAsData(), react(), serviceWorker()],
   test: {
     include: ['src/**/*.test.ts'],
   },

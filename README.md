@@ -77,7 +77,7 @@ npm run build:single # one self-contained HTML file in dist-single/
 
 ## How it fits together
 
-- `src/content/*.yaml`: lessons, one file per unit, checked against `src/content/schema.ts`. `npm test` fails if a lesson points at a place, province or river that doesn't exist, or has too few visual questions.
+- `src/content/*.yaml`: lessons, one file per unit, checked against `src/content/schema.ts`. `npm test` fails if a lesson points at a place, province or river that doesn't exist, or has too few visual questions. The build reads the YAML once (the `yamlAsData` plugin in `vite.config.ts`), so the app receives the lessons as data and never parses YAML itself.
 - `src/content/places.ts`: every place a lesson can pin.
 - `src/content/course.ts` gives the unit before each one (`previousUnit`), and `src/progress/path.ts` decides from it which units are open (`unitOpen`, `unitMastered`); a checkpoint's best `score` is kept in its `completed` entry. Browser tests that start on a later unit call `openUnit` first.
 - `src/content/levels.ts`: how a lesson plays at each crown level, and the Legendary challenge with its clock. `src/progress/crowns.ts` says what a play did to the crowns; a lesson's level is kept in its `completed` entry and passed Legendary units in `legendary`.
