@@ -102,6 +102,36 @@ export function LessonPlayer({ title, exercises, note, calm = false, hat, retry 
 
   const setAnswer = (fn: Evaluate | null) => setEvaluate(() => fn)
 
+  // On a short screen a question's answers can sit below the picture, out of sight:
+  // until one is picked, the Check button says so instead, and scrolls them into view.
+  const [answersBelow, setAnswersBelow] = useState(false)
+  const asking = noteRead && !isStory && !result
+  useEffect(() => {
+    if (!asking) {
+      setAnswersBelow(false)
+      return
+    }
+    const measure = () => {
+      const options = document.querySelectorAll('.lesson-body .options .option')
+      const foot = document.querySelector('.lesson-foot')
+      const last = options[options.length - 1]
+      setAnswersBelow(!!last && !!foot && last.getBoundingClientRect().bottom > foot.getBoundingClientRect().top + 4)
+    }
+    measure()
+    const body = document.querySelector('.lesson-body')
+    const resized = new ResizeObserver(measure)
+    if (body) resized.observe(body)
+    window.addEventListener('scroll', measure, { passive: true })
+    window.addEventListener('resize', measure)
+    return () => {
+      resized.disconnect()
+      window.removeEventListener('scroll', measure)
+      window.removeEventListener('resize', measure)
+    }
+  }, [asking, index])
+  const showAnswers = () => document.querySelector('.lesson-body .options')?.scrollIntoView({ block: 'end', behavior: 'smooth' })
+
+
   const check = () => {
     if (!evaluate) return
     const r = evaluate()
@@ -250,6 +280,13 @@ export function LessonPlayer({ title, exercises, note, calm = false, hat, retry 
         ) : result ? (
           <button type="button" className="btn-primary" onClick={next}>
             {t('Continue')}
+          </button>
+        ) : answersBelow && !evaluate ? (
+          <button type="button" className="btn-primary answers-below" onClick={showAnswers}>
+            {t('Answers below')}
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
         ) : (
           <button type="button" className="btn-primary" onClick={check} disabled={!evaluate}>

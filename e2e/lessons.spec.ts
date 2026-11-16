@@ -3007,3 +3007,21 @@ test('the home screen offers the next step at the top and keeps its place', asyn
   await next.getByRole('button', { name: 'Continue' }).click()
   await expect(page.locator('.lesson-foot')).toBeVisible()
 })
+
+test('on a short phone screen, answers hidden below a picture are pointed out', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 600 })
+  await unlock(page, ['u1-l1', 'u1-l2', 'u1-l3', 'u1-l4'])
+  await page.getByRole('button', { name: 'Land from the sea', exact: true }).click()
+  const foot = page.locator('.lesson-foot')
+  const button = foot.locator('.btn-primary')
+  // Step through until a question's answers sit out of sight.
+  for (let i = 0; i < 15; i++) {
+    await page.waitForTimeout(200)
+    if ((await button.textContent())?.includes('Answers below')) break
+    await answer(page)
+    await foot.getByRole('button', { name: 'Continue' }).click()
+  }
+  await foot.getByRole('button', { name: 'Answers below' }).click()
+  await expect(page.locator('.lesson-body .option').last()).toBeInViewport({ ratio: 1 })
+  await expect(foot.getByRole('button', { name: 'Check' })).toBeDisabled()
+})

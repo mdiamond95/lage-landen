@@ -89,6 +89,7 @@ export const nl: Record<Key, string> = {
   'Before you begin': 'Voor je begint',
   "You'll see this one again before the lesson ends.": 'Deze vraag komt terug voor het einde van de les.',
   Continue: 'Verder',
+  'Answers below': 'Antwoorden hieronder',
   Check: 'Controleer',
   'Three in a row. Goed zo!': 'Drie op een rij. Goed zo!',
   'Five in a row. Bravo!': 'Vijf op een rij. Bravo!',
