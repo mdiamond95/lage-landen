@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react'
-import { backupName, describe, makeBackup, readBackup, type Backup } from '../progress/backup'
-import { loadBest, saveBest } from '../progress/drill'
+import { describe, readBackup, type Backup } from '../progress/backup'
+import { saveBest } from '../progress/drill'
 import { getProgress, replaceProgress } from '../progress/store'
 import { getLang, langTags, t } from '../i18n'
+import { onIosBrowser, saveBackupFile, useKept } from '../progress/keep'
 
 type Step = { name: 'idle' } | { name: 'check'; backup: Backup } | { name: 'error'; text: string } | { name: 'done'; text: string }
 
@@ -18,18 +19,10 @@ export function BackupCard() {
   const [step, setStep] = useState<Step>({ name: 'idle' })
   const input = useRef<HTMLInputElement>(null)
 
+  const kept = useKept()
   const save = () => {
-    const now = new Date()
-    const blob = new Blob([JSON.stringify(makeBackup(getProgress(), loadBest(), now), null, 1)], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = backupName(now)
-    document.body.append(a)
-    a.click()
-    a.remove()
-    setTimeout(() => URL.revokeObjectURL(url), 1000)
-    setStep({ name: 'done', text: t('Saved as {file}.', { file: backupName(now) }) })
+    const file = saveBackupFile()
+    setStep({ name: 'done', text: t('Saved as {file}.', { file }) })
   }
 
   const pick = async (file: File | undefined) => {
@@ -49,6 +42,8 @@ export function BackupCard() {
     <section className="backup card" aria-label={t('Your progress')}>
       <h2>{t('Your progress')}</h2>
       <p>{t('Everything is kept on this device. Save it to a file to keep a backup, or to carry it to another phone or computer and load it there.')}</p>
+      {kept.saved && <p className="muted">{t('Last saved to a file on {date}.', { date: dateOf(kept.saved) })}</p>}
+      {onIosBrowser() && <p className="muted">{t('On an iPhone or iPad, add Lage Landen to the home screen: Safari clears what a site keeps after a week without a visit, but not for an app on the home screen.')}</p>}
       <div className="backup-actions">
         <button type="button" className="btn-ghost" onClick={save}>
           {t('Save to a file')}
