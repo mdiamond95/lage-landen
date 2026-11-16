@@ -280,8 +280,8 @@ lessons:
         url: https://ich.unesco.org/en/RL/carnival-of-binche-00033
       - title: "Wikipedia, Carnival of Binche"
         url: https://en.wikipedia.org/wiki/Carnival_of_Binche
-      - title: "Wikipedia (French), Gille (Binche)"
-        url: https://fr.wikipedia.org/wiki/Gille_(Binche)
+      - title: "Wikipedia (French), Gilles de Binche"
+        url: https://fr.wikipedia.org/wiki/Gilles_de_Binche
       - title: "Wikipedia, Carnival of Aalst"
         url: https://en.wikipedia.org/wiki/Aalst_Carnival
       - title: "Wikipedia, Carnival in the Netherlands"
@@ -633,8 +633,8 @@ lessons:
         url: https://www.iamexpat.nl/expat-info/dutch-news/dutch-cities-ask-government-recognise-abolition-slavery-national-holiday
       - title: "Wikipedia (Dutch), Bevrijdingsvuur"
         url: https://nl.wikipedia.org/wiki/Bevrijdingsvuur
-      - title: "Wikipedia, National Slavery Monument"
-        url: https://en.wikipedia.org/wiki/National_Slavery_Monument
+      - title: "Wikipedia, Nationaal Monument Slavernijverleden (in Dutch)"
+        url: https://nl.wikipedia.org/wiki/Nationaal_Monument_Slavernijverleden
     exercises:
       - type: story
         title: The chain is cut

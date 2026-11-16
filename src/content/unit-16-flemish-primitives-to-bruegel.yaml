@@ -20,8 +20,8 @@ lessons:
         url: https://en.wikipedia.org/wiki/Portrait_of_Margaret_van_Eyck
       - title: "Wikipedia, The Just Judges"
         url: https://en.wikipedia.org/wiki/The_Just_Judges
-      - title: "Wikipedia, Altaussee salt mine"
-        url: https://en.wikipedia.org/wiki/Altaussee_salt_mine
+      - title: "Wikipedia, Altaussee"
+        url: https://en.wikipedia.org/wiki/Altaussee
     exercises:
       - type: story
         title: Twelve panels of oak
@@ -156,8 +156,8 @@ lessons:
         url: https://en.wikipedia.org/wiki/Rogier_van_der_Weyden
       - title: "National Gallery of Art, Portrait of a Lady by Rogier van der Weyden"
         url: https://www.nga.gov/collection/art-object-page.44.html
-      - title: "Wikipedia, Altarpiece of the Holy Sacrament (Bouts)"
-        url: https://en.wikipedia.org/wiki/Altarpiece_of_the_Holy_Sacrament_(Bouts)
+      - title: "Wikipedia, Altarpiece of the Holy Sacrament"
+        url: https://en.wikipedia.org/wiki/Altarpiece_of_the_Holy_Sacrament
       - title: "Wikipedia, Portinari Altarpiece"
         url: https://en.wikipedia.org/wiki/Portinari_Altarpiece
       - title: "Albrecht Dürer, Records of Journeys to Venice and the Low Countries, translated by Rudolf Tombo (Project Gutenberg)"
@@ -448,8 +448,8 @@ lessons:
         url: https://www.museodelprado.es/en/the-collection/art-work/the-garden-of-earthly-delights-triptych/02388242-6d6a-4e9e-a992-e1311eab3609
       - title: "Wikipedia, The Haywain Triptych"
         url: https://en.wikipedia.org/wiki/The_Haywain_Triptych
-      - title: "Wikipedia, The Temptation of St. Anthony (Bosch triptych)"
-        url: https://en.wikipedia.org/wiki/The_Temptation_of_St._Anthony_(Bosch_triptych)
+      - title: "Wikipedia, Triptych of the Temptation of St. Anthony"
+        url: https://en.wikipedia.org/wiki/Triptych_of_the_Temptation_of_St._Anthony
       - title: "Wikipedia, The Tower of Babel (Bruegel)"
         url: https://en.wikipedia.org/wiki/The_Tower_of_Babel_(Bruegel)
     exercises:
@@ -568,8 +568,8 @@ lessons:
     title: Antwerp, the art market of Europe
     icon: easel
     sources:
-      - title: "Wikipedia, Antwerp School"
-        url: https://en.wikipedia.org/wiki/Antwerp_School
+      - title: "Wikipedia, Antwerp school"
+        url: https://en.wikipedia.org/wiki/Antwerp_school
       - title: "Wikipedia, Quentin Matsys"
         url: https://en.wikipedia.org/wiki/Quentin_Matsys
       - title: "Wikipedia, Le Prêteur et sa femme (in French)"
