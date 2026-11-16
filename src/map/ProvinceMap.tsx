@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { geoPath } from 'd3-geo'
 import { partNames, provinces as info, provincesOf, type ProvinceId } from '../data/provinces'
-import { Credit, Photo } from '../photos/Photo'
+import { Credit, HeldBack, Photo } from '../photos/Photo'
 import { countries, lakes, lowlandsFrame, makeFrame, MAP_W, provinces, type Frame, type GeoFeature } from './geo'
 import { t } from '../i18n'
 
@@ -44,12 +44,14 @@ type Props = {
   named?: ProvinceId[]
   onPick?: (id: ProvinceId) => void
   label?: string
+  // In an open question the photo's credit waits for the answer.
+  hideCredit?: boolean
 }
 
 // The provinces and regions of the Netherlands and Belgium (Unit 26). To explore: tap a province for
 // its flag, capital, people and size, and switch between the two countries. In a drill the shapes are
 // unnamed until answered, and a tap is an answer.
-export function ProvinceMap({ country: start = 'both', mode = 'explore', focus, marks = {}, named = [], onPick, label }: Props) {
+export function ProvinceMap({ country: start = 'both', mode = 'explore', focus, marks = {}, named = [], onPick, label, hideCredit = false }: Props) {
   const [country, setCountry] = useState<Country>(start)
   const [open, setOpen] = useState<ProvinceId | null>(focus ?? null)
   const { frame, height } = frames[country]
@@ -158,9 +160,7 @@ export function ProvinceMap({ country: start = 'both', mode = 'explore', focus, 
               </p>
               <p className="food-about">{card.note}</p>
               <p className="food-status">{card.head}</p>
-              <p className="photo-credit">
-                Flag: <Credit id={card.flag} />
-              </p>
+              <p className="photo-credit">{hideCredit ? <HeldBack /> : <>Flag: <Credit id={card.flag} /></>}</p>
             </>
           ) : (
             <p className="food-about">Tap a province to see its flag, its capital and how many people live there. The dots are the capitals.</p>

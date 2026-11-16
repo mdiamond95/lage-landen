@@ -63,7 +63,8 @@ export function toggleSpeech(key: string, text: string, lang: string) {
   speechSynthesis.speak(u)
 }
 
-export const useSound = () => useSyncExternalStore(subscribe, () => state)
+// The third snapshot is for drawing without a browser, as the tests do.
+export const useSound = () => useSyncExternalStore(subscribe, () => state, () => state)
 
 // Voices load late in some browsers: re-render once they arrive.
 const voiceListeners = new Set<() => void>()
@@ -79,5 +80,6 @@ export const useVoices = () =>
       voiceListeners.add(l)
       return () => voiceListeners.delete(l)
     },
+    () => voicesReady,
     () => voicesReady,
   )

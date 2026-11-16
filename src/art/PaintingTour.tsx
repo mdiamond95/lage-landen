@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { tours, type TourId } from '../data/paintings'
 import { photo } from '../photos'
-import { Credit } from '../photos/Photo'
+import { PhotoCaption } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
 import { t } from '../i18n'
 
@@ -13,7 +13,7 @@ const pct = (n: number) => `${n * 100}%`
 // be zoomed and dragged by hand as well.
 // With `focus` it is the picture for a question instead: it opens zoomed in on one
 // detail, without the numbers or what they say, and can be zoomed out to the whole.
-export function PaintingTour({ painting, focus }: { painting: TourId; focus?: string }) {
+export function PaintingTour({ painting, focus, hideCaption = false }: { painting: TourId; focus?: string; hideCaption?: boolean }) {
   const tour = tours[painting]
   const p = photo(tour.photo)
   const [stop, setStop] = useState<number | null>(null)
@@ -69,7 +69,7 @@ export function PaintingTour({ painting, focus }: { painting: TourId; focus?: st
         </div>
       )}
       <figcaption>
-        {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={tour.photo} /></span>
+        <PhotoCaption id={tour.photo} hidden={hideCaption} />
       </figcaption>
     </figure>
   )

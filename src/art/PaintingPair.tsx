@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { pairs, type PairId } from '../data/pairs'
 import { photo } from '../photos'
-import { Credit } from '../photos/Photo'
+import { HeldBack, PhotoCaption } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
 import { t } from '../i18n'
 
@@ -11,7 +11,7 @@ import { t } from '../i18n'
 // Each painting can be zoomed and dragged by hand as well.
 // With `focus` it is the picture for a question: both open zoomed in on one way of
 // looking, without what it says, and can be zoomed out to the whole.
-export function PaintingPair({ pair, focus }: { pair: PairId; focus?: string }) {
+export function PaintingPair({ pair, focus, hideCaption = false }: { pair: PairId; focus?: string; hideCaption?: boolean }) {
   const p = pairs[pair]
   const [look, setLook] = useState<number | null>(null)
   const quiz = focus !== undefined
@@ -49,13 +49,16 @@ export function PaintingPair({ pair, focus }: { pair: PairId; focus?: string }) 
         </div>
       )}
       <figcaption>
-        {sides.map((side, i) => (
-          <span key={side.photo}>
-            {i === 1 && <br />}
-            {i === 0 ? `${t('Left:')} ` : `${t('Right:')} `}
-            {photo(side.photo).caption} · <span className="photo-credit">{t('Credit:')} <Credit id={side.photo} /></span>
-          </span>
-        ))}
+        {hideCaption ? (
+          <HeldBack />
+        ) : (
+          sides.map((side, i) => (
+            <span key={side.photo}>
+              {i === 1 && <br />}
+              <PhotoCaption id={side.photo} lead={i === 0 ? `${t('Left:')} ` : `${t('Right:')} `} />
+            </span>
+          ))
+        )}
       </figcaption>
     </figure>
   )

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import type { Panel } from '../content/schema'
 import { photo } from '../photos'
-import { Credit } from '../photos/Photo'
+import { Credit, HeldBack } from '../photos/Photo'
 
 type Box = [number, number, number, number]
 const WHOLE: Box = [0, 0, 1, 1]
@@ -80,9 +80,15 @@ export function PanelFrame({
   )
 }
 
-// The photos' credits, panel by panel, under a strip.
-export function StripCredits({ panels }: { panels: Panel[] }) {
+// The photos' credits, panel by panel, under a strip; held back in an open question.
+export function StripCredits({ panels, hidden = false }: { panels: Panel[]; hidden?: boolean }) {
   const ids = [...new Set(panels.map((p) => p.photo))]
+  if (hidden)
+    return (
+      <p className="strip-credits">
+        <HeldBack />
+      </p>
+    )
   return (
     <p className="strip-credits photo-credit">
       Credit:{' '}
@@ -99,7 +105,7 @@ export function StripCredits({ panels }: { panels: Panel[] }) {
 
 // A comic strip (`{ kind: strip }`): panels read left to right, row by row, each with its
 // balloon or caption, and the credits underneath.
-export function ComicStrip({ title, panels }: { title?: string; panels: Panel[] }) {
+export function ComicStrip({ title, panels, hideCaption = false }: { title?: string; panels: Panel[]; hideCaption?: boolean }) {
   return (
     <figure className="comic-strip-figure">
       {title && <figcaption className="strip-title">{title}</figcaption>}
@@ -108,7 +114,7 @@ export function ComicStrip({ title, panels }: { title?: string; panels: Panel[] 
           <PanelFrame key={i} panel={p} top={<Balloon kind={p.kind}>{p.say}</Balloon>} />
         ))}
       </div>
-      <StripCredits panels={panels} />
+      <StripCredits panels={panels} hidden={hideCaption} />
     </figure>
   )
 }

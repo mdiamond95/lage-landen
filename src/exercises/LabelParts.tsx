@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import type { ExerciseOf } from '../content/schema'
 import { shuffle } from '../lesson/shuffle'
 import { photo } from '../photos'
-import { Credit } from '../photos/Photo'
+import { PhotoCaption } from '../photos/Photo'
 import { ZoomImage } from '../photos/ZoomImage'
 import type { ExerciseProps } from './types'
 import { t } from '../i18n'
@@ -88,7 +88,7 @@ export function LabelParts({ exercise, checked, setAnswer }: ExerciseProps<Exerc
           })}
         </ZoomImage>
         <figcaption>
-          {p.caption} · <span className="photo-credit">{t('Credit:')} <Credit id={exercise.photo} /></span>
+          <PhotoCaption id={exercise.photo} hidden={!checked} />
         </figcaption>
       </figure>
       {loose.length > 0 && !checked && (

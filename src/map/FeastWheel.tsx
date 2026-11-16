@@ -1,6 +1,6 @@
 import { useRef, useState, type KeyboardEvent, type PointerEvent } from 'react'
 import { DAYS, MONTHS, dateOf, feastIds, feastKindNames, feastKinds, feasts, monthStarts, spanOf, type FeastId, type FeastKind } from '../data/feasts'
-import { Credit, Photo } from '../photos/Photo'
+import { Credit, HeldBack, Photo } from '../photos/Photo'
 import { feastGlyphs } from './glyphs'
 import { t } from '../i18n'
 
@@ -46,12 +46,14 @@ type Props = {
   // Whether the picked date counts, once checked.
   right?: boolean
   onPick?: (day: number) => void
+  // In an open question the photo's credit waits for the answer.
+  hideCredit?: boolean
 }
 
 // The calendar wheel of Unit 22: the feasts of the Low Countries round the year, each kind on its
 // own ring. Tap one for a photo and a word on it; feasts that move with Easter or a weekday are
 // drawn as the stretch of days they can fall on.
-export function FeastWheel({ mode = 'explore', focus, only, picked = null, correct, right, onPick }: Props) {
+export function FeastWheel({ mode = 'explore', focus, only, picked = null, correct, right, onPick, hideCredit = false }: Props) {
   const [country, setCountry] = useState<Country>('all')
   const [open, setOpen] = useState<FeastId | null>(focus ?? null)
   const svg = useRef<SVGSVGElement>(null)
@@ -228,7 +230,13 @@ export function FeastWheel({ mode = 'explore', focus, only, picked = null, corre
                 <p className="wheel-where">{card.place}</p>
                 {card.photo && (
                   <p className="photo-credit">
-                    {t('Photo:')} <Credit id={card.photo} />
+                    {hideCredit ? (
+                      <HeldBack />
+                    ) : (
+                      <>
+                        {t('Photo:')} <Credit id={card.photo} />
+                      </>
+                    )}
                   </p>
                 )}
               </>

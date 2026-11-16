@@ -22,17 +22,34 @@ export function Photo({ id, className, lazy = false }: { id: PhotoId; className?
   return <img src={p.src} alt={p.alt} className={className ?? 'photo'} loading={lazy ? 'lazy' : undefined} />
 }
 
+// Shown in place of a picture's caption and credit while a question is open.
+export function HeldBack() {
+  return <span className="photo-credit caption-held">{t('Caption and credit shown once you answer')}</span>
+}
+
+// What a picture shows and who made it, for under the picture. In an open question both are
+// held back (`hidden`): a caption, a painter's name or the file name in the link to Wikimedia
+// Commons can each give the answer away. They appear once it is checked, and every credit is
+// listed again at the end of the lesson.
+export function PhotoCaption({ id, hidden = false, lead = '' }: { id: PhotoId; hidden?: boolean; lead?: string }) {
+  if (hidden) return <HeldBack />
+  return (
+    <>
+      {lead}
+      {photo(id).caption} · <span className="photo-credit">{t('Credit:')} <Credit id={id} /></span>
+    </>
+  )
+}
+
 // A large photo with its caption and credit underneath. Paintings full of detail can
-// be zoomed into. A Who am I? holds the credit back until it is answered, since a
-// self-portrait's painter is the answer.
-export function PhotoFigure({ id, hideCredit = false }: { id: PhotoId; hideCredit?: boolean }) {
+// be zoomed into.
+export function PhotoFigure({ id, hideCaption = false }: { id: PhotoId; hideCaption?: boolean }) {
   const p = photo(id)
   return (
     <figure className="photo-figure">
       {p.zoom ? <ZoomImage src={p.src} alt={p.alt} /> : <Photo id={id} className="photo photo-large" />}
       <figcaption>
-        {p.caption} ·{' '}
-        <span className="photo-credit">{hideCredit ? t('Credit shown once you answer') : <>{t('Credit:')} <Credit id={id} /></>}</span>
+        <PhotoCaption id={id} hidden={hideCaption} />
       </figcaption>
     </figure>
   )

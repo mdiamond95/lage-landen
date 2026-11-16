@@ -51,7 +51,7 @@ export function SoundFigure({ id, photo, hideWords = false, hideLanguage = false
   const s = sound(id)
   return (
     <figure className="sound-figure">
-      {photo && <PhotoFigure id={photo} />}
+      {photo && <PhotoFigure id={photo} hideCaption={hideWords} />}
       <div className="sound-card">
         <PlayButton id={id} name={hideWords ? 'the recording' : s.words} big />
         <div className="sound-text">

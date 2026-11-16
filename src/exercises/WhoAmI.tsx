@@ -43,7 +43,7 @@ export function WhoAmI({ exercise, checked, setAnswer }: ExerciseProps<ExerciseO
   return (
     <div className="exercise">
       <p className="eyebrow">{t('Who am I?')}</p>
-      <PhotoFigure id={exercise.photo} hideCredit={!checked} />
+      <PhotoFigure id={exercise.photo} hideCaption={!checked} />
       <ol className="clues" aria-live="polite">
         {exercise.clues.slice(0, visible).map((c, i) => (
           <li key={i} className="clue">
