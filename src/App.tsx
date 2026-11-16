@@ -166,8 +166,12 @@ export default function App() {
   // Everything below re-renders in the new language when it changes.
   useLang()
   const [screen, setScreen] = useState<Screen>({ name: 'home' })
-  const home = () => {
-    setScreen({ name: 'home' })
+  // Where the home screen was scrolled to, so coming back lands on the same unit.
+  const [homeY, setHomeY] = useState(0)
+  const home = () => setScreen({ name: 'home' })
+  const leaveHome = (next: Screen) => {
+    setHomeY(window.scrollY)
+    setScreen(next)
     window.scrollTo(0, 0)
   }
 
@@ -234,35 +238,17 @@ export default function App() {
   return (
     <Home
       units={units}
+      scrollY={homeY}
       onStart={(id) => {
         const playing = resolve(id)
-        if (playing) setScreen({ name: 'lesson', playing })
-        window.scrollTo(0, 0)
+        if (playing) leaveHome({ name: 'lesson', playing })
       }}
-      onTimeMap={() => {
-        setScreen({ name: 'timemap' })
-        window.scrollTo(0, 0)
-      }}
-      onPhrasebook={() => {
-        setScreen({ name: 'phrasebook' })
-        window.scrollTo(0, 0)
-      }}
-      onDrill={() => {
-        setScreen({ name: 'drill' })
-        window.scrollTo(0, 0)
-      }}
-      onPlacement={() => {
-        setScreen({ name: 'placement' })
-        window.scrollTo(0, 0)
-      }}
-      onMuseum={() => {
-        setScreen({ name: 'museum' })
-        window.scrollTo(0, 0)
-      }}
-      onCities={() => {
-        setScreen({ name: 'cities' })
-        window.scrollTo(0, 0)
-      }}
+      onTimeMap={() => leaveHome({ name: 'timemap' })}
+      onPhrasebook={() => leaveHome({ name: 'phrasebook' })}
+      onDrill={() => leaveHome({ name: 'drill' })}
+      onPlacement={() => leaveHome({ name: 'placement' })}
+      onMuseum={() => leaveHome({ name: 'museum' })}
+      onCities={() => leaveHome({ name: 'cities' })}
     />
   )
 }

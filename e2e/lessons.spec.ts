@@ -2980,3 +2980,30 @@ test('the interface switches to Dutch or French and stays so, while the lessons 
   await expect(page.locator('html')).toHaveAttribute('lang', 'en-CA')
   await expect(page.getByRole('heading', { name: 'Daily quests' })).toBeVisible()
 })
+
+test('the home screen offers the next step at the top and keeps its place', async ({ page }) => {
+  await page.goto('/')
+  const next = page.locator('.up-next')
+  await expect(next.locator('h2')).toHaveText('Two countries, one delta')
+  await expect(next.getByRole('button', { name: 'Start' })).toBeVisible()
+
+  // Halfway through Unit 16, the culture track: the card picks up there.
+  await unlock(page, ['u16-l1', 'u16-l2'])
+  await expect(next.locator('.eyebrow')).toContainText('Unit 16')
+  await expect(next.locator('h2')).toHaveText('Bruges, market for masterpieces')
+
+  // The index jumps to a unit, and leaving a lesson comes back to the same place.
+  await page.locator('.unit-index summary').click()
+  await page.locator('.unit-index-row', { hasText: 'Flemish Primitives to Bruegel' }).click()
+  await expect(page.locator('#unit-16 .unit-banner')).toBeInViewport()
+  const node = page.getByRole('button', { name: 'Bruges, market for masterpieces', exact: true })
+  await node.scrollIntoViewIfNeeded()
+  const y = await page.evaluate(() => window.scrollY)
+  await node.click()
+  await page.getByRole('button', { name: 'Leave lesson' }).click()
+  await expect(node).toBeInViewport()
+  expect(Math.abs((await page.evaluate(() => window.scrollY)) - y)).toBeLessThan(2)
+
+  await next.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.locator('.lesson-foot')).toBeVisible()
+})

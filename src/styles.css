@@ -1407,3 +1407,21 @@ button.comic-panel { cursor: pointer; }
 
 /* The interface language picker in the top bar. */
 .lang-picker select { border: 2px solid var(--line); border-radius: 10px; background: var(--card); color: inherit; font: inherit; font-size: 0.85rem; font-weight: 800; padding: 3px 4px; cursor: pointer; }
+
+/* Up next: the next step on the path, at the top of the home screen. */
+.up-next h2 { margin: 0; }
+.up-next .muted { margin: 4px 0 12px; }
+.up-next-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.up-next-actions .btn-primary { flex: 1 1 160px; }
+.unit { scroll-margin-top: 72px; }
+/* All units: a folded index, each row scrolls to its unit. */
+.unit-index summary { cursor: pointer; font-weight: 800; font-size: 1.05rem; }
+.unit-index h3 { font-size: 0.95rem; margin: 16px 0 6px; color: var(--delft); }
+.unit-index ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; }
+.unit-index-row { width: 100%; display: flex; align-items: center; gap: 10px; padding: 6px 4px; border: 0; background: none; text-align: left; font: inherit; color: var(--ink); cursor: pointer; border-radius: 10px; }
+.unit-index-row:hover { background: var(--paper); }
+.unit-index-row.is-locked { color: var(--ink-soft); }
+.unit-index-row.is-mastered .outline-num, .unit-index-row.is-open .outline-num { background: var(--delft); color: #fff; border-color: var(--delft); }
+.unit-index-title { flex: 1; font-weight: 700; }
+.unit-index-state { font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); display: inline-flex; align-items: center; }
+.unit-index-state svg { width: 18px; height: 18px; }

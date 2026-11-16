@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { units } from '../content'
 import { checkpointId } from '../content/checkpoint'
-import { checkpointOpen, crownCount, legendaryOpen, lessonLevel, lessonOpen, unitMastered, unitOpen, unitsAfter, unitsToPlace } from './path'
+import { checkpointOpen, crownCount, legendaryOpen, lessonLevel, lessonOpen, unitMastered, unitOpen, unitsAfter, unitsToPlace, upNext } from './path'
+import { mapStoryId } from '../content/mapStory'
 
 const [u1, u2, u3] = units
 const fresh = { completed: {}, placed: [] as string[] }
@@ -79,5 +80,34 @@ describe('the mastery gate', () => {
   it('keeps a unit open once started, so no progress from before the gate is shut', () => {
     const p = { ...fresh, completed: { [byNumber(12).lessons[0].id]: { bestXp: 10, perfect: false } } }
     expect(unitOpen(p, byNumber(12), units)).toBe(true)
+  })
+})
+
+describe('up next', () => {
+  const done = { bestXp: 10, perfect: false }
+  const u16 = units.find((u) => u.number === 16)!
+  const all = (u: typeof u1) => Object.fromEntries(u.lessons.map((l) => [l.id, done]))
+
+  it('starts a fresh learner on the first lesson of Unit 1', () => {
+    expect(upNext(fresh, units, undefined)?.id).toBe(u1.lessons[0].id)
+  })
+  it('stays in the unit last worked on, even in another track', () => {
+    const p = { ...fresh, completed: { [u16.lessons[0].id]: done } }
+    expect(upNext(p, units, u16)?.id).toBe(u16.lessons[1].id)
+  })
+  it('offers the map story, then the checkpoint, once the lessons are done', () => {
+    const p = { ...fresh, completed: all(u1) }
+    expect(upNext(p, units, u1)).toMatchObject({ kind: 'story', id: mapStoryId(u1) })
+    const told = { ...fresh, completed: { ...all(u1), [mapStoryId(u1)]: done } }
+    expect(upNext(told, units, u1)).toMatchObject({ kind: 'checkpoint', id: checkpointId(u1) })
+  })
+  it('keeps offering a checkpoint that was not passed, then moves on once it is', () => {
+    const failed = { ...fresh, completed: { ...all(u1), [checkpointId(u1)]: { ...done, score: 0.5 } } }
+    expect(upNext(failed, units, u1)?.id).toBe(checkpointId(u1))
+    const passed = { ...fresh, completed: { ...all(u1), [checkpointId(u1)]: { ...done, score: 0.9 } } }
+    expect(upNext(passed, units, u1)?.id).toBe(u2.lessons[0].id)
+  })
+  it('skips units the placement test opened', () => {
+    expect(upNext({ ...fresh, placed: [u1.id] }, units, undefined)?.id).toBe(u2.lessons[0].id)
   })
 })
